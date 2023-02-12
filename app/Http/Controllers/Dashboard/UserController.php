@@ -8,7 +8,7 @@ use App\DataTables\UsersDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Role;
 use App\Models\User;
-use App\Repositories\IRepositories\IUserRepository;
+use App\Repositories\Interfaces\UserRepositoryInterface;
 use App\Services\TwoFactorService;
 use DB;
 use Illuminate\Http\Request;
@@ -20,9 +20,9 @@ class UserController extends Controller
 {
 
 
-    private IUserRepository $userRepository;
+    private UserRepositoryInterface $userRepository;
 
-    public function __construct(IUserRepository $userRepository)
+    public function __construct(UserRepositoryInterface $userRepository)
     {
         $this->userRepository = $userRepository;
     }

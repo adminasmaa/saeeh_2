@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 
 //
-define('MAINASSETS', URL::asset('assets'));
+define('MAINASSETS', URL::asset('public/assets'));
 define('MAINUPLOADS', URL::asset('uploads'));
 define('MAINDIST', URL::asset('dist/frontend/img'));
 

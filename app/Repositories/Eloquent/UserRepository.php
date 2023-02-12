@@ -4,7 +4,7 @@ namespace App\Repositories\Eloquent;
 
 use App\Models\Role;
 use App\Models\User;
-use App\Repositories\IRepositories\IUserRepository as IUserRepositoryAlias;
+use App\Repositories\Interfaces\UserRepositoryInterface as IUserRepositoryAlias;
 use Intervention\Image\Facades\Image;
 
 class UserRepository implements IUserRepositoryAlias

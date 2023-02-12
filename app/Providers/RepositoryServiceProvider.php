@@ -6,10 +6,11 @@ use App\Repositories\Eloquent\CityRepository;
 use App\Repositories\Eloquent\CountryRepository;
 use App\Repositories\Eloquent\RoleRepository;
 use App\Repositories\Eloquent\UserRepository;
-use App\Repositories\IRepositories\ICityRepository;
-use App\Repositories\IRepositories\ICountryRepository;
-use App\Repositories\IRepositories\IRoleRepository;
-use App\Repositories\IRepositories\IUserRepository;
+use App\Repositories\Interfaces\CityRepositoryInterface;
+use App\Repositories\Interfaces\CountryRepositoryInterface;
+
+use App\Repositories\Interfaces\RoleRepositoryInterface;
+use App\Repositories\Interfaces\UserRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -21,10 +22,11 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(IUserRepository::class, UserRepository::class);
-        $this->app->bind(IRoleRepository::class, RoleRepository::class);
-        $this->app->bind(ICountryRepository::class, CountryRepository::class);
-        $this->app->bind(ICityRepository::class, CityRepository::class);
+
+        $this->app->bind(CountryRepositoryInterface::class, CountryRepository::class);
+        $this->app->bind(CityRepositoryInterface::class, CityRepository::class);
+        $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
+        $this->app->bind(RoleRepositoryInterface::class, RoleRepository::class);
 
     }
 

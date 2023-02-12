@@ -8,7 +8,8 @@ use App\DataTables\CitiesDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\City;
 use App\Models\Country;
-use App\Repositories\IRepositories\ICityRepository;
+
+use App\Repositories\Interfaces\CityRepositoryInterface;
 use App\Services\TwoFactorService;
 use DB;
 use Illuminate\Http\Request;
@@ -20,9 +21,9 @@ class CityController extends Controller
 {
 
 
-    private ICityRepository $cityRepository;
+    private CityRepositoryInterface $cityRepository;
 
-    public function __construct(ICityRepository $cityRepository)
+    public function __construct(CityRepositoryInterface $cityRepository)
     {
         $this->cityRepository = $cityRepository;
     }

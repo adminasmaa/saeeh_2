@@ -2,7 +2,7 @@
 
 return [
     'settingss' => ' Settings',
-    'Saeed' => 'Saeed',
+    'Saeeh' => 'Saeeh',
     'period_start' => 'Period Start',
     'period_end' => 'Period End',
 

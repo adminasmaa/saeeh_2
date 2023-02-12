@@ -17,7 +17,7 @@ return [
 
 
     'full_names' => 'الاسم الكامل',
-    'Saeed' => 'ساءح',
+    'Saeeh' => 'سائح',
     'start_date' => 'تاريخ البدء',
     'end_date' => ' تنتهي في: ',
     'reports' => 'التقارير',

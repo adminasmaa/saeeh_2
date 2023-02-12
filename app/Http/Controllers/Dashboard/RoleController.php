@@ -7,7 +7,7 @@ use App\DataTables\RolesDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Permission;
 use App\Models\Role;
-use App\Repositories\IRepositories\IRoleRepository;
+use App\Repositories\Interfaces\RoleRepositoryInterface;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,9 +16,9 @@ use Response;
 class RoleController extends Controller
 {
 
-    private IRoleRepository $roleRepository;
+    private RoleRepositoryInterface $roleRepository;
 
-    public function __construct(IRoleRepository $roleRepository)
+    public function __construct(RoleRepositoryInterface $roleRepository)
     {
         $this->roleRepository = $roleRepository;
     }

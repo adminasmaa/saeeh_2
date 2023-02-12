@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\DataTables\CountriesDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Country;
-use App\Repositories\IRepositories\ICountryRepository;
+use App\Repositories\Interfaces\CountryRepositoryInterface;
 use App\Services\TwoFactorService;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -14,9 +14,9 @@ class CountryController extends Controller
 {
 
 
-    private ICountryRepository $countryRepository;
+    private CountryRepositoryInterface $countryRepository;
 
-    public function __construct(ICountryRepository $countryRepository)
+    public function __construct(CountryRepositoryInterface $countryRepository)
     {
         $this->countryRepository = $countryRepository;
     }

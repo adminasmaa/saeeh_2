@@ -3,7 +3,7 @@
 namespace App\Repositories\Eloquent;
 
 use App\Models\Country;
-use App\Repositories\IRepositories\ICountryRepository as ICountryRepositoryAlias;
+use App\Repositories\Interfaces\CountryRepositoryInterface as ICountryRepositoryAlias;
 
 use Intervention\Image\Facades\Image;
 

@@ -4,7 +4,7 @@ namespace App\Repositories\Eloquent;
 
 use App\Models\City;
 use App\Models\Country;
-use App\Repositories\IRepositories\ICityRepository as ICityRepositoryAlias;
+use App\Repositories\Interfaces\CityRepositoryInterface as ICityRepositoryAlias;
 
 use Intervention\Image\Facades\Image;
 
