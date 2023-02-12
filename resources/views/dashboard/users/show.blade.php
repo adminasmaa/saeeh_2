@@ -9,7 +9,7 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-6">
-                    <h3>@lang('site.add')</h3>
+                    <h3>@lang('site.users')</h3>
                 </div>
                 <div class="col-6">
                     <ol class="breadcrumb">

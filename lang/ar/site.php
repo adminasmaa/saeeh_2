@@ -9,6 +9,8 @@ return [
     'outbox' => 'الصادر',
 
     'inbox' => 'داخلي',
+    'currency'=>'العملة',
+    'image_comment'=>'ايقؤنه ',
 
 
 
@@ -23,10 +25,7 @@ return [
     'operation' => 'عملية',
     'amount' => 'كميات',
 
-    'linkeds' => ' روابطي الخاصة',
     'link' => 'الرابط الخاصة',
-    'product' => 'منتج',
-    'discount' => 'الخصم',
     'offertime' => 'بعض الوقت',
     'export' => 'صادرات',
     'reset' => 'إعادة تعيين',
@@ -34,7 +33,6 @@ return [
     'Accounts' => 'المحاسبة',
     'reason' => 'السبب',
 
-    'my private information' => 'معلوماتي الخاصة',
 
     'basic information' => ' المعلومات الرئيسية',
 
@@ -46,13 +44,10 @@ return [
     'date' => 'تاريخ اليوم',
     'rate' => 'التقيم',
 
-    'quality' => '    المؤهل  الدراسي',
 
     'namessss' => 'أسم الملف',
 
 
-    'full_name' => 'أسم الموظف كاملاً',
-    'hoppy' => 'رقم الهوية',
     'national' => 'الجنسية',
     'hours' => 'عدد ساعات العمل اليومية',
 
@@ -60,7 +55,6 @@ return [
 
     'prompt' => 'فوري',
     'post' => 'اجل',
-    'Access to our dashboard' => 'الوصول إلى لوحة التحكم الخاصة بنا  ',
     'notaccesspermisssions' => 'لاتملك اي صلاحيه للدخول للرابط',
     'version_no' => 'رقم الإصدار',
     'build_no' => 'رقم البناء',
@@ -88,7 +82,6 @@ return [
     'ingredients_ar' => 'مكونات عربي',
     'mainimage' => 'صورة الغلاف',
     'slug' => 'تابت',
-    'balanceNew' => 'الرصيد الجديد',
     'comment' => 'تعليقات',
     'Cancel' => 'إلغاء',
     'copy' => 'نسخ',
@@ -99,8 +92,6 @@ return [
     'position' => 'وضع',
     'DOWN' => 'أسفل',
     'TOP' => 'أعلى',
-    'OUTSIDE_APP' => '  خارج التطبيق',
-    'INAPP' => ' داخل التطبيق',
     'user' => 'المستخدم',
     'url' => 'لينك',
     'visible' => 'مرئي',
@@ -207,8 +198,9 @@ return [
     'select' => 'من فضلك اختار ',
     'OPTION' => 'اختيار',
     'Required' => 'مطلوب',
-    'image' => 'الصورة الشخصية',
+    'image' => 'الصورة ',
     'typecases' => 'انواع القضايا',
+    'dashboard'=>'لؤحه التحكم',
 
     'logout' => 'تسجيل الخروج',
     'status' => 'الحاله',
@@ -226,7 +218,6 @@ return [
     'show' => 'عرض',
     'loading' => 'جاري التحميل',
     'print' => 'طباعة',
-    'image' => 'الصورة الشخصية',
     'price' => 'السعر',
     'unit' => 'الوحدات',
     'title' => 'العنوان',
@@ -282,30 +273,13 @@ return [
     'countrys' => 'دولة الميلاد',
     'countries' => 'الدول',
     'city' => 'المدينة',
-    'cities' => 'والمدن',
+    'cities' => 'المدن',
     'phone' => 'رقم الجوال',
     'notes' => 'ملاحظات',
     'address' => 'العنوان',
     'contact' => 'التواصل',
     'subscription' => 'الإشتراك',
-    'free_user' => 'مستخدم مجاني',
-    'consultation' => 'إستشارة',
-    'courses' => 'دورات',
-    'both' => 'الأثنين معا',
-    'Contract_start_date' => ' تاريخ الميلاد هجري',
-    'Contract_image' => 'صورة العقد',
 
-    'previous_orders' => 'الطلبيات السابقة',
-    'orders_suppliers' => 'طلبيات الموردين',
-    'orders' => 'طلبيات العملاء',
-    'orders_suppliers_return' => 'مرتجعات للموردين',
-    'orders_return' => 'مرتجعات من العملاء',
-
-    'add_order' => 'اضف طلب',
-    'add_order_return' => ' اضف طلب مرتجع',
-
-    'edit_order' => 'تعديل طلب',
-    'edit_order_return' => 'تعديل اذن مرتجع',
     'management' => 'إدارة',
     'weight' => 'الوزن',
     'users' => 'المستخدمين',
@@ -332,9 +306,7 @@ return [
     'inactivess' => 'غير مفعل',
 
     'mangers' => 'المديرين',
-    'ratingss' => 'تقييم ادائي الشهر الماضي',
     'day' => 'يوم',
-    'Remaining salarys' => 'متبقي على استلام راتبي القادم',
     'block' => 'حظر',
     'permissions' => 'الصلاحيات',
     'currencies' => 'العملات',
@@ -353,58 +325,22 @@ return [
     'company' => 'الشركة',
     'company_name_en' => 'اسم الشركة بالانجليزية',
     'activity' => 'نشاط',
-    'manger_name' => 'اسم المدير',
-    'number_hoppy' => 'رقم الهوية',
-    'bank_name' => ' اسم البنك الرئيسي ',
 
-    'iban' => 'رقم الحساب البنكي IBAN ', 'linces' => 'رخصه القيادة',
-    'work_number' => 'رقم إشتراك التأمينات الإجتماعية',
-    'row_number' => 'رقم إشتراك مكتب العمل ',
-    'commerical_image' => 'صورة السجل التجاري ',
-    'number_image' => 'صورة رقم الترخيص',
-    'hoppy_image' => 'صورة الهوية',
-    'tax_image' => 'صورة الضريبة',
-    'linces_image' => 'رخصة القيادة صورة',
-    'work_image' => 'صورة إشتراك التأمينات الإجتماعية',
-    'row_image' => 'صورة إشتراك مكتب العمل',
-    'iban_image' => 'صورة ايبان',
-    'family_name' => 'اسم العائلة',
-    'Religion' => 'الديانة',
-    'father_name' => 'اسم الأب',
+
     'name' => 'الاسم',
     'names' => 'الأسم الأول',
     'short_name' => 'الاسم المختصر',
     'display_name' => 'الاسم المعروض',
     'description' => 'الوصف',
-    'products_count' => 'عددالمنتجات',
-    'related_products' => 'المنتجات المرتبطة',
     'category' => 'القسم',
-    'show_products' => 'عرض المنتجات',
     'created_at' => 'تم اضافتة',
 
     'addcateg' => ' مجموعة جديدة ',
     'addprod' => ' صنف جديد ',
 
-    'subscriptions' => 'الإشتراكات',
-    'manage_subscriptions' => 'إدارة الإشتراكات',
-    'manage_users' => 'إدارة المستخدمين',
-    'manage_courses' => 'إدارة الكورسات',
-    'manage_feedback' => 'إدارة ردود الفعل',
-    'manage_about_us' => 'إدارة معلومات عنا بالتطبيق',
 
-    'disc1' => 'خصم 1',
-    'disc2' => 'خصم 2',
-    'disc3' => 'خصم 3',
-    'adds1' => 'اضافه 1',
-    'adds2' => 'اضاقه 2',
-    'order_date' => 'تاريخ الطلب',
-    'transport' => 'شحن',
 
-    'effective_date' => 'تاريخ التفعيل',
-    //    'type' => 'نوع العمل',
 
-    'hoursess' => 'عدد ساعات العمل الاسبوعية',
-    'hoursesss' => 'عدد ساعات العمل الشهرية',
 
     'size' => 'حجم',
     'minimum' => 'أقل',
@@ -467,23 +403,19 @@ return [
     'from_name' => 'اسم المرسل',
     'from_email' => 'بريد الالكتورنى المرسل',
     'send_notification' => 'ارسال اشعار',
-    'contactusmassages' => 'رسايل الاستفسار',
     'AED' => 'د.إ',
-    'the_founders' => 'المؤسسين',
     'contact_type' => 'طريقة التواصل',
     'waiting' => 'فى انتظار الموافقة',
     'reply' => 'سوف يتم التواصل معك',
     'finished' => 'تم الانتهاء',
-    'CEO word' => 'كلمة المدير التنفيذى',
     'Staff' => 'فريق العمل',
-    'consultation_details' => 'تفاصيل الاستشارة',
     'file_attchment' => 'تحميل الملف',
     'download_file' => 'تحميل الملف',
     'orderDetail' => 'تفاصيل الطلبات',
     'orders' => 'الطلبات',
     'confirmed' => 'مؤكد',
     'username' => 'اسم المستخدم',
-    'subtotal' => 'الإجمالي غير شامل الضريبة',
+
     'total' => 'الاجازة السنوية( اعتيادي)',
     'bill_number' => 'رقم الفاتورة',
     'details' => 'التفاصيل',
@@ -522,14 +454,11 @@ return [
     'customer_app' => 'تطبيق العملاء',
     'delivery_app' => 'تطبيق التوصيل',
     'text' => 'نص',
-    'new_order' => 'طلب جديد',
-    'last_transaction' => 'المعاملة الأخيرة',
     'debit' => 'مدين',
     'credit' => 'دائن',
     'final_balance' => 'الرصيد النهائي',
     'transaction_date' => 'تاريخ المعاملة',
-    'order' => 'الطلب',
-    'invoice' => 'الفاتورة',
+    'order' => 'الترتيب',
     'ar' => [
         'name' => 'الاسم باللغة العربية',
         'description' => 'الوصف باللغة العربية',
@@ -538,10 +467,7 @@ return [
         'content' => 'المحتوي باللغة العربية',
         'notes' => 'ملاحظات باللغة العربية',
 
-        'owner_name' => 'اسم المالك باللغة العربية',
-        'the_founders' => 'المؤسسين باللغة العربية',
-        'CEO word' => 'كلمة المدير التنفيذى باللغة العربية ',
-        'Staff' => 'فريق العمل باللغة العربية',
+
     ],
 
     'en' => [
@@ -551,10 +477,7 @@ return [
         'title' => 'عنوان الموضوع باللغة الانجليزية',
         'content' => 'المحتوي باللغة الانجليزية',
         'notes' => 'ملاحظات باللغة الانجليزية',
-        'owner_name' => 'اسم المالك باللغة الانجليزية',
-        'the_founders' => 'المؤسسين باللغة الانجليزية',
-        'CEO word' => 'كلمة المدير التنفيذى باللغة الانجليزية',
-        'Staff' => 'فريق العمل باللغة الانجليزية',
+
     ],
     'fa' => [
         'name' => 'Freach Name',
@@ -567,7 +490,6 @@ return [
 
     'messages' => [
 
-        'productis quantity' => 'يوجد منتجات الكميه ليها اقل من 5',
 
         'resetpassword' => 'تم تغيير كلمه المرور بنجاح ',
         'opertaion_success' => 'تمت العملية بنجاح',
@@ -604,12 +526,7 @@ return [
         'invalidemail' => 'لا يوجد أي حساب مرتبط بهذا البريد الالكتروني',
         'checkemail' => 'برجاء فحص بريدك الالكتروني',
         'error' => 'الرقم السري غير صحيح برجاء إدخال بشكل صحيح',
-        'transaction_failed' => 'فشلت العملية حاول مرة أخرى',
-        'new_order_noti' => 'تمت إضافة طلب جديد',
-        'order_status_changed' => 'تم تغيير حالة الطلب',
-        'invaliddata' => 'القيم غير صحيحة ',
-        'return_order_value' => ': استرجاع قيمة الطلب للطلب رقم',
-        'return_delivery_value' => ' : استرجاع قيمة التوصيل للطلب رقم ',
+
 
     ],
 ];

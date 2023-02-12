@@ -18,6 +18,19 @@ HTML;
         return $html;
     }
 
+    public static function dtAddCityButton($link, $title, $permission)
+    {
+
+//        if (auth()->user()->hasPermission($permission)) {
+
+        $html = <<< HTML
+
+<a  href="$link" class="btn btn-danger btn-xs" type="button" data-original-title="btn btn-danger btn-xs" title="" data-bs-original-title="">AddCity</a>
+HTML;
+
+        return $html;
+    }
+
 
     public static function dtDeleteButton($link, $title, $permission, $id)
     {

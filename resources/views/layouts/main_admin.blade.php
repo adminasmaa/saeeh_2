@@ -318,6 +318,24 @@
                                     <li><a href="{{route('dashboard.roles.index')}}">{{__('site.roles')}}</a></li>
                                 </ul>
                             </li>
+                            <li class="sidebar-list"><a class="sidebar-link sidebar-title {{((in_array($current_route, ['dashboard.countries.index','dashboard.countries.create']))?'active':'' )}}" href="#"><i data-feather="map"></i><span>@lang('site.countries') @endlang</span></a>
+                                <ul class="sidebar-submenu" >
+                                    <li><a href="{{route('dashboard.countries.create')}}">{{__('site.add')}}</a></li>
+                                    <li><a href="{{route('dashboard.countries.index')}}">{{__('site.countries')}}</a></li>
+                                </ul>
+                            </li>
+                       <li class="sidebar-list"><a class="sidebar-link sidebar-title {{((in_array($current_route, ['dashboard.cities.index','dashboard.cities.create']))?'active':'' )}}" href="#"><i data-feather="film"></i><span>@lang('site.cities') @endlang</span></a>
+                                <ul class="sidebar-submenu" >
+                                    <li><a href="{{route('dashboard.cities.create')}}">{{__('site.add')}}</a></li>
+                                    <li><a href="{{route('dashboard.cities.index')}}">{{__('site.cities')}}</a></li>
+                                </ul>
+                            </li>
+
+
+
+
+
+
                         </ul>
                     </div>
                     <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>

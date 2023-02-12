@@ -8,7 +8,7 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-6">
-                        <h3>@lang('site.add')</h3>
+                        <h3>@lang('site.users')</h3>
                     </div>
                     <div class="col-6">
                         <ol class="breadcrumb">
@@ -64,7 +64,7 @@
                                     <label>@lang('site.image')</label>
                                     <img src="{{asset('images/employee/'.$user->image)}}" data-bs-toggle="modal"
                                          data-bs-target="#exampleModalss" width="100px" height="100px" class="d-block"
-                                         onerror="this.src='{{asset('images/employee/1671111127.png')}}'"
+                                         onerror="this.src='{{asset('images/employee/default.jpg')}}'"
                                     >
 
 
