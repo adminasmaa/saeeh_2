@@ -1,10 +1,10 @@
 <?php
 
 
-namespace App\Repositories\IRepositories;
+namespace App\Repositories\Interfaces;
 
 
-interface IUserRepository
+interface UserRepositoryInterface
 {
 
 
