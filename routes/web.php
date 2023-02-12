@@ -20,11 +20,10 @@ Route::get('/', function () {
 });
 
 //
-define('MAINASSETS', URL::asset('public/assets'));
+define('MAINASSETS', URL::asset('assets'));
 define('MAINUPLOADS', URL::asset('uploads'));
 define('MAINDIST', URL::asset('dist/frontend/img'));
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

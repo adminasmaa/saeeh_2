@@ -2,9 +2,13 @@
 /public/build
 /public/hot
 /public/storage
+/public/index.php
 /storage/*.key
+routes/web.php
 /vendor
 .env
+.htaccess
+index.php
 .env.backup
 .env.production
 .phpunit.result.cache
