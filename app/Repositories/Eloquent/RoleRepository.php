@@ -4,7 +4,7 @@ namespace App\Repositories\Eloquent;
 
 use App\DataTables\RolesDataTable;
 use App\Models\Role;
-use App\Repositories\IRepositories\IRoleRepository as IRoleRepositoryAlias;
+use App\Repositories\Interfaces\RoleRepositoryInterface as IRoleRepositoryAlias;
 use Illuminate\Support\Facades\Auth;
 
 use Alert;

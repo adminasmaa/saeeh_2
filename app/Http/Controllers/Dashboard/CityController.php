@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\Dashboard;
 
 use Alert;
-use App\DataTables\RolesDataTable;
-use App\DataTables\UsersDataTable;
+
+use App\DataTables\CitiesDataTable;
 use App\Http\Controllers\Controller;
-use App\Models\Role;
-use App\Models\User;
-use App\Repositories\Interfaces\UserRepositoryInterface;
+use App\Models\City;
+use App\Models\Country;
+
+use App\Repositories\Interfaces\CityRepositoryInterface;
 use App\Services\TwoFactorService;
 use DB;
 use Illuminate\Http\Request;
@@ -16,27 +17,27 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rule;
 
-class UserController extends Controller
+class CityController extends Controller
 {
 
 
-    private UserRepositoryInterface $userRepository;
+    private CityRepositoryInterface $cityRepository;
 
-    public function __construct(UserRepositoryInterface $userRepository)
+    public function __construct(CityRepositoryInterface $cityRepository)
     {
-        $this->userRepository = $userRepository;
+        $this->cityRepository = $cityRepository;
     }
 
-    public function index(UsersDataTable $usersDataTable)
+    public function index(CitiesDataTable $citiesDataTable)
     {
-        return $this->userRepository->getAll($usersDataTable);
+        return $this->cityRepository->getAll($citiesDataTable);
 
     }
 
 
     public function show($id)
     {
-        return $this->userRepository->show($id);
+        return $this->cityRepository->show($id);
 
 
     }
@@ -45,7 +46,7 @@ class UserController extends Controller
     public function create()
     {
 
-        return $this->userRepository->create();
+        return $this->cityRepository->create();
 
 
     }//end of create
@@ -55,18 +56,14 @@ class UserController extends Controller
     {
         $request->validate([
 
-            'email' => 'required|email|string|unique:users',
-            'phone' => 'required|string|unique:users',
+                'name' => 'required',
+                'code' => 'required',
 
-            'password' => 'required|confirmed',
-        ],
-            [
-                'password.regex' => __('site.password_regex'),
             ]
         );
 
 
-        return $this->userRepository->store($request);
+        return $this->cityRepository->store($request);
 
     }//end of store
 
@@ -79,7 +76,7 @@ class UserController extends Controller
 
     public function edit($id)
     {
-        return $this->userRepository->edit($id);
+        return $this->cityRepository->edit($id);
 
 
     }//end of user
@@ -91,15 +88,17 @@ class UserController extends Controller
         ||                                    |
            -----------------------------------------------------*/
 
-    public function update(Request $request, User $user)
+    public function update(Request $request, City $city)
     {
         $request->validate([
-            'email' => ['required', Rule::unique('users')->ignore($user->id)],
-            'phone' => ['required', Rule::unique('users')->ignore($user->id)],
 
-        ]);
+                'name' => 'required',
+                'code' => 'required',
 
-        return $this->userRepository->update($user, $request);
+            ]
+        );
+
+        return $this->cityRepository->update($city, $request);
 
 
     }//end of update
@@ -111,10 +110,10 @@ class UserController extends Controller
  ||                                    |
    -----------------------------------------------------*/
 
-    public function destroy(User $user)
+    public function destroy(City $city)
     {
 
-        return $this->userRepository->destroy($user);
+        return $this->cityRepository->destroy($city);
 
 
     }//end of destroy

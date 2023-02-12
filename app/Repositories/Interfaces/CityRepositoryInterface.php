@@ -1,10 +1,10 @@
 <?php
 
 
-namespace App\Repositories\IRepositories;
+namespace App\Repositories\Interfaces;
 
 
-interface IUserRepository
+interface CityRepositoryInterface
 {
 
 
@@ -16,9 +16,9 @@ interface IUserRepository
 
     public function show($Id);
 
-    public function destroy($user);
+    public function destroy($city);
 
     public function store($request);
 
-    public function update($user, $request);
+    public function update($city, $request);
 }
