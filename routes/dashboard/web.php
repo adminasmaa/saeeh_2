@@ -27,5 +27,6 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         Route::resource('categories', CategoryController::class);
 
 
+
     }); //end of dashboard routes
 });

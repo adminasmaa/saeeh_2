@@ -15,5 +15,6 @@ class City extends Model
         'active',
         'country_id',
         'order',
+
     ];
 }

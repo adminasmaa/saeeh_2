@@ -41,6 +41,7 @@ return [
     'type' => 'Type',
 
 
+
     'NOT_PAID' => 'NOT_PAID',
     'nodataselect' => 'None of the above',
     'desc_en' => 'Description in English',
@@ -99,6 +100,7 @@ return [
 
     'Reset Password' => 'Reset Password',
     'subcategories' => 'SubCategories',
+
 
     //cases
 
@@ -201,6 +203,7 @@ return [
     'basic information' => 'basic information',
 
 
+
     'color' => 'Color',
     'style' => 'Style',
 
@@ -218,6 +221,7 @@ return [
     'hours' => ' Hours',
     'currency' => 'Currency',
     'image_comment' => 'Image Comment',
+
 
     'total' => 'Total',
 
@@ -255,6 +259,7 @@ return [
     'choose' => 'choose',
 
     'icon' => 'icon',
+
 
 
     'field_name' => 'Field Name',

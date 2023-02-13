@@ -26,6 +26,7 @@ HTML;
         $html = <<< HTML
 
 <a  href="$link" class="btn btn-danger btn-xs" type="button" data-original-title="btn btn-danger btn-xs" title="" data-bs-original-title="">AddCity</a>
+
 HTML;
 
         return $html;

@@ -254,6 +254,7 @@ return [
     'subcategories' => 'الفئات الفرعيه ',
 
 
+
     'emails' => 'البريد الرسمي',
 
     'activity' => 'نشاط',
@@ -267,8 +268,6 @@ return [
     'category' => 'القسم',
     'created_at' => 'تم اضافتة',
 
-    'addcateg' => ' مجموعة جديدة ',
-    'addprod' => ' صنف جديد ',
 
 
     'size' => 'حجم',
@@ -315,12 +314,7 @@ return [
 
     'massages' => 'الرسائل',
     'user_type' => 'نوع المستخدم',
-    'send_notification' => 'ارسال اشعار',
-    'contact_type' => 'طريقة التواصل',
-    'waiting' => 'فى انتظار الموافقة',
-    'reply' => 'سوف يتم التواصل معك',
-    'finished' => 'تم الانتهاء',
-    'Staff' => 'فريق العمل',
+
     'file_attchment' => 'تحميل الملف',
     'download_file' => 'تحميل الملف',
     'orderDetail' => 'تفاصيل الطلبات',
@@ -336,7 +330,6 @@ return [
     'quantity' => 'الكمية',
     'id' => 'الرقم التسلسلي',
 
-    'returned' => 'تمت الإعادة',
 
     'notifications' => 'التنبيهات',
 

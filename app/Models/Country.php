@@ -16,5 +16,6 @@ class Country extends Model
         'image_comment',
         'currency',
         'display_data',
+
     ];
 }
