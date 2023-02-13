@@ -250,10 +250,9 @@ return [
     'block' => 'حظر',
     'permissions' => 'الصلاحيات',
     'currencies' => 'العملات',
-    'categories' => 'القسم',
-    'all_categories' => 'كل الفئات',
+    'categories' => 'الفئات ',
+    'subcategories' => 'الفئات الفرعيه ',
 
-    'all_clients' => 'كل العملاء',
 
     'emails' => 'البريد الرسمي',
 

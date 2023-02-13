@@ -51,12 +51,10 @@
 
                             </div>
                             <div class="card-body">
-                                <!--<h4 class="card-title">@lang('site.users')</h4>-->
                                 @include('partials._errors')
 
                                 <div class="row form-group">
-                                    <!--<label for="name"-->
-                                    <!--       class="col-sm-3 col-form-label input-label">@lang('site.image')</label>-->
+
 
                                 </div>
 
@@ -135,7 +133,10 @@
 
 
                                     </div>
-                                    <div class="col-form-label">@lang('site.roles')
+                                    <div class="col-md-6 form-group">
+                                        <label class="form-label">@lang('site.roles')</label>
+
+
                                         <select class="js-example-placeholder-multiple col-sm-12" multiple="multiple"
                                                 name="roles[]">
                                             <option disabled selected>@lang('site.select')</option>
@@ -146,41 +147,27 @@
                                         </select>
                                     </div>
 
+                                    <div class="col-md-6 form-group">
+                                        <label class="form-label">@lang('site.country')</label>
+                                        <select class="form-control btn-square" name="country_id">
+                                            <option selected>@lang('site.select')</option>
+                                            @foreach($countries as $country)
+
+                                                <option value="{{$country->id}}">{{$country->name ?? ''}}</option>
+
+                                            @endforeach
+
+                                        </select>
+                                    </div>
+
+
 
                                 </div>
 
 
-                                {{--                                                                            @if (auth()->user()->hasRole('Super Admin'))--}}
-                                {{--                                         <div class="col-md-6 form-group col-12 p-2">--}}
-                                {{--                                             <label>@lang('site.shops')</label>--}}
-                                {{--                                             <select name="shop_id" class="form-control select2"--}}
-                                {{--                                                     >--}}
-                                {{--                                                 <option disabled selected>@lang('site.select')</option>--}}
-                                {{--                                                 @foreach (\App\Models\Shop::get() as $shop)--}}
-                                {{--                                                     <option--}}
-                                {{--                                                         value="{{ $shop->id }}"
-                                {{ old('shop_id') == $shop->id ? 'selected' : '' }}>--}}
-                                {{--                                                         {{ $shop->name }}--}}
-                                {{--                                                     </option>--}}
-                                {{--                                                 @endforeach--}}
-                                {{--                                             </select>--}}
-                                {{--                                         </div>--}}
-                                {{--                                             @endif--}}
-
-                                <!--</div>-->
-
                             </div>
 
 
-                            <!--<div class="text-end mt-4">-->
-                            <!--    <div class="col-md-6 form-group col-12 p-2">-->
-                            <!--        <button type="button" class="btn btn-warning mr-1"-->
-                            <!--                onclick="history.back();">-->
-                            <!--            <i class="fa fa-backward"></i> @lang('site.back')-->
-                            <!--        </button>-->
-                            <!--        <button type="submit" class="btn btn-primary"><i-->
-                            <!--                class="fa fa-plus"></i>-->
-                            <!--            @lang('site.add')</button>-->
                     </div>
                 </div>
             </div>

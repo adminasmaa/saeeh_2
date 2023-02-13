@@ -11,15 +11,9 @@ class City extends Model
 
     protected $fillable = [
         'name',
-
         'code',
-
         'active',
-
         'country_id',
-
         'order',
-
-
     ];
 }

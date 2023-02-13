@@ -15,7 +15,7 @@ return [
 
     'informationss' => 'My financial information',
     'passwordsecurity' => 'Password Security',
-     'login' => 'Login',
+    'login' => 'Login',
     'dont_have_an_account' => "Don't have an account",
     'sing_up' => 'Sing up',
     'enter_pass_email' => 'Enter your email and password to log in',
@@ -39,7 +39,6 @@ return [
 
 
     'type' => 'Type',
-
 
 
     'NOT_PAID' => 'NOT_PAID',
@@ -94,12 +93,12 @@ return [
     'contact_email' => 'Email',
 
 
-
     //settings
 
     'setting' => 'Settings ',
 
-    'Reset Password'=>'Reset Password',
+    'Reset Password' => 'Reset Password',
+    'subcategories' => 'SubCategories',
 
     //cases
 
@@ -185,7 +184,7 @@ return [
     'export' => 'Export',
     'reset' => 'Reset',
     'reload' => 'Reload',
-    'Register'=> 'Register',
+    'Register' => 'Register',
 
 
     'categories' => 'Categories',
@@ -200,7 +199,6 @@ return [
     'created_at' => 'Created At',
     'date' => 'Date',
     'basic information' => 'basic information',
-
 
 
     'color' => 'Color',
@@ -219,7 +217,7 @@ return [
     'full_name' => 'Full Name',
     'hours' => ' Hours',
     'currency' => 'Currency',
-    'image_comment'=>'Image Comment',
+    'image_comment' => 'Image Comment',
 
     'total' => 'Total',
 
@@ -257,7 +255,6 @@ return [
     'choose' => 'choose',
 
     'icon' => 'icon',
-
 
 
     'field_name' => 'Field Name',
@@ -322,7 +319,7 @@ return [
         'title' => 'Freach Title',
         'content' => 'Freach Content',
         'notes' => 'Notes Freach',
-    
+
     ],
 
     //    'messages' => [

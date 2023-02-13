@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
-            $table->integer('country_id')->nullable();
+            $table->foreignId('country_id')->nullable()->constrained('countries');
             $table->string('account_type')->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->unique();

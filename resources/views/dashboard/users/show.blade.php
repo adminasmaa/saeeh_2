@@ -51,21 +51,18 @@
 
 
                     <div class="card-body">
-                        <input id="type" hidden type="text" name="type" value="Admin" required>
                         <div class="row form-group">
-                            <!-- <label for="name"
-                                    class="col-sm-3 col-form-label input-label">@lang('site.image')</label> -->
+
                             <div class="col-sm-9">
                                 <div class="d-flex align-items-center">
                                     <div class="col-md-6">
                                         <label class="d-block">@lang('site.image')</label>
-{{--                                        <img src="{{asset('images/employee/'.$user->image)}}" data-bs-toggle="modal"--}}
-{{--                                            data-bs-target="#exampleModalss" width="100px" height="100px">--}}
+
 
 
                                         <img src="{{asset('images/employee/'.$user->image)}}" data-bs-toggle="modal"
                                              data-bs-target="#exampleModalss" width="100px" height="100px" class="d-block"
-                                             onerror="this.src='{{asset('images/employee/1671111127.png')}}'"
+                                             onerror="this.src='{{asset('images/employee/default.jpg')}}'"
                                         >
                                     </div>
 
@@ -166,23 +163,38 @@
                                 <label>@lang('site.code')</label>
                                 <input type="text" name="code" class="form-control"    value="{{ $user->code }}"   disabled>
                             </div>
+
+                            <div class="col-md-6 form-group col-12 p-2">
+                                <label class="form-label">@lang('site.country')</label>
+                                <select class="form-control btn-square" name="country_id" disabled>
+                                    <option selected></option>
+                                    @foreach($countries as $country)
+
+                                        <option value="{{$country->id}}"   @if($country->id==$user->country_id) selected @endif>{{$country->name ?? ''}}</option>
+
+                                    @endforeach
+
+                                </select>
+                            </div>
                         </div>
 
                         <h4 class="card-title mt-4">@lang('site.roles')</h4>
 
                         <div class="row">
 
-
-                            <div class="col-form-label">@lang('site.roles')
+                            <div class="col-md-6 form-group">
+                                <label class="form-label">@lang('site.roles')</label>
                                 <select class="js-example-placeholder-multiple col-sm-12" multiple="multiple" name="roles[]" disabled>
-                                    <option disabled selected>@lang('site.select')</option>
-                                    @foreach ($roles as $role)
+
+                                @foreach ($roles as $role)
                                         <option value="{{ $role->id }}"
                                             {{ $user->hasRole($role->name) ? 'selected' : '' }}>
                                             {{ $role->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
+
+
 
 
 

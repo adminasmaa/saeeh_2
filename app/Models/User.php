@@ -23,25 +23,18 @@ class User extends Authenticatable
         'username',
         'email',
         'password',
-
         'firstname',
         'lastname',
         'code',
-
-
         'image',
         'comision',
         'active',
-
         'latitude',
         'country_id',
         'address',
-
-             'longitude',
+       'longitude',
         'account_type',
         'phone',
-
-
     ];
 
     /**
