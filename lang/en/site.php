@@ -189,7 +189,8 @@ return [
 
 
     'categories' => 'Categories',
-  
+    'all_categories' => 'All Categories',
+    'all_clients' => 'All Clients',
 
     'name' => 'Name',
     'short_name' => 'Short Name',
@@ -321,7 +322,7 @@ return [
         'title' => 'Freach Title',
         'content' => 'Freach Content',
         'notes' => 'Notes Freach',
-
+    
     ],
 
     //    'messages' => [
