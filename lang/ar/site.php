@@ -4,20 +4,16 @@ return [
     'Active' => 'نشط',
 
 
-
     'send' => 'المرسل',
     'outbox' => 'الصادر',
 
     'inbox' => 'داخلي',
-    'currency'=>'العملة',
-    'image_comment'=>'ايقؤنه ',
-
-
-
+    'currency' => 'العملة',
+    'image_comment' => 'ايقؤنه ',
 
 
     'full_names' => 'الاسم الكامل',
-    'Saeed' => 'ساءح',
+    'Saeeh' => 'سائح',
     'start_date' => 'تاريخ البدء',
     'end_date' => ' تنتهي في: ',
     'reports' => 'التقارير',
@@ -36,8 +32,8 @@ return [
 
     'basic information' => ' المعلومات الرئيسية',
 
-'Reset Password'=>'إعادة تعيين كلمة المرور',
-    'Send Password Reset'=>'إرسال إعادة تعيين كلمة المرور',
+    'Reset Password' => 'إعادة تعيين كلمة المرور',
+    'Send Password Reset' => 'إرسال إعادة تعيين كلمة المرور',
 
     'reference' => 'المرجع',
 
@@ -56,23 +52,14 @@ return [
     'prompt' => 'فوري',
     'post' => 'اجل',
     'notaccesspermisssions' => 'لاتملك اي صلاحيه للدخول للرابط',
-    'version_no' => 'رقم الإصدار',
-    'build_no' => 'رقم البناء',
 
-    'release_date' => 'تاريخ الاصدار',
-    'expiry_date' => 'تاريخ الانتهاء',
-    'type' => 'طبيعة العمل',
     'os' => 'نظام التشغيل',
 
 
     'web' => 'الويب',
 
-    'iphone' => 'ايفون',
-    'android' => 'اندرويد',
-    'huawei' => 'هواوي',
 
     'reference_name' => 'الاسم المرجعي',
-    'nodataselect' => 'لاشي مما سبق',
     'variants' => 'المتغيرات',
     'add_new_option' => 'إضافة متغير جديد',
 
@@ -85,8 +72,7 @@ return [
     'comment' => 'تعليقات',
     'Cancel' => 'إلغاء',
     'copy' => 'نسخ',
-    'balance' => 'الرصيد ',
-    'wallets' => 'المحفظة',
+
     'cost' => 'التكلفة',
     'selected' => 'اختيار',
     'position' => 'وضع',
@@ -103,7 +89,6 @@ return [
     'chooseshop' => 'اختر المتجر',
     'confirm_remove' => 'هل انت متأكد من الانتقال إلى متجر جديد',
 
-    'userReports' => 'بلاغات المستخدمين',
     'answer' => 'الرد',
     'refuse' => 'لم يتم السداد',
     'accept' => 'تم السداد',
@@ -116,7 +101,6 @@ return [
     'Notdeleted_successfully' => 'لايمكنك حدف الصفحة',
     'files' => 'الملفات',
     'file_successfully' => 'تم تحميل الملف بنجاح',
-    'nodataincart' => 'لاتوجد اي منتجات في العربة',
     'Please fill in the mandatory fields' => 'يرجى ملء الحقول الإلزامية',
     'Please enter a address description' => 'الرجاء إدخال وصف العنوان',
     'Please choose the mall' => 'الرجاء اختيار المركز التجاري',
@@ -126,24 +110,17 @@ return [
     'Please enter a commercial registration photo' => 'الرجاء إدخال صورة السجل التجاري',
     'Please agree to the terms and conditions' => 'يرجى الموافقة على الشروط والأحكام',
     'Passwords do not match' => 'كلمة المرور غير مطابقة',
-    'Please choose a store location' => 'الرجاء اختيار موقع المتجر',
     'id' => 'رقم',
     'slider' => 'قائمة جانبية ',
     'mobilephone' => 'رقم الجوال',
     'termcondition' => 'الشروط و الأحكام',
     'Profile' => 'الحساب الشخصي',
-    'tax_file' => 'ملف تسجيل ضريبة القيمة المضافة',
-    'commercial_register' => 'السجل التجاري',
-    'description_of_location' => 'وصف الموقع (مجمع الراجحي التجاري - الدور الثاني محل رقم ٢٢٠)',
 
-    'deliverycostnotavailable' => 'غير متوفر الطلب  في الوقت الحالي',
     'personal' => 'بيانات عامة',
     'profile' => 'بيانات حساب ',
     'next' => 'التالي',
     'payment' => 'أخرى',
-    'commerical_number' => 'رقم السجل التجارى',
     'verification' => 'تحقق',
-    'Ceate New Account' => 'إنشاء حساب محل جديد',
     'Confirm Password' => 'تأكيد كلمة المرور',
     'back' => 'رجوع',
     'code' => 'الكود',
@@ -152,55 +129,25 @@ return [
     'contact_message' => 'الرسالة ',
     'Contact_name' => 'الاسم ',
     'contact_phone' => 'التليفون',
-    'no_data_product' => 'المنتجات فارغة',
 
-    'no_vendor_found' => 'لايوجد اي متاجر لديك ',
 
-    'task' => 'المهام',
-    'tasks_comments' => 'التعليقات على المهام',
-    'tasks_statuse' => 'حالات التاسكات (القوائم)',
-    'tasks_workspace' => 'مساحات العمل',
-    'workspace_links' => 'روابط مساحات العمل',
-    'tasks_permissions' => 'صلاحيات التاسكات ',
+    'Register' => 'التسجيل',
 
-    //-----------Store Registration
-    'step_1' => 'بيانات المتجر',
-    'step_2' => 'بيانات التاجر',
-    'step_3' => 'بيانات الموقع',
-    'step_4' => 'مرفقات',
-
-    'step_1_info' => 'معلومات المتجر',
-    'step_2_info' => 'معلومات المستحدم',
-    'step_3_info' => 'معلومات الموقع',
-    'step_4_info' => 'مرفقات',
-    'register_wellcome' => 'قم بتسجيل متجرك واستقبل طلبات العملاء',
-    'store_register' => 'تسجيل المتجر',
-    'Register'=> 'التسجيل',
-
-    'inside_mall' => 'داخل مول',
-    'outside_mall' => 'خارج مول',
 
     //settings
 
     'setting' => 'الاعدادات العامه',
-    'productAddfavourirte' => 'تم اضافه المنتج للمفضله',
-    'facebook' => 'الفيسبوك',
-    'twitter' => 'التويتر',
-    'instegram' => 'الانستجرام',
-    'whatsapp' => 'الواتس اب ',
-    'snapchat' => 'السناب شات',
+
 
     //cases
 
-    'productnotavailable' => 'المنتج غير متوفر',
 
     'users' => 'المستخدمين ',
     'select' => 'من فضلك اختار ',
     'OPTION' => 'اختيار',
     'Required' => 'مطلوب',
     'image' => 'الصورة ',
-    'typecases' => 'انواع القضايا',
-    'dashboard'=>'لؤحه التحكم',
+    'dashboard' => 'لؤحه التحكم',
 
     'logout' => 'تسجيل الخروج',
     'status' => 'الحاله',
@@ -221,7 +168,6 @@ return [
     'price' => 'السعر',
     'unit' => 'الوحدات',
     'title' => 'العنوان',
-    'titlesm' => 'العنوان',
 
     'copyrights' => 'لدى نواة الربط لتقنية المعلومات@كافه الحقوق محفوظه',
     'confirm_update' => 'تأكيد التعديل ؟',
@@ -235,7 +181,6 @@ return [
     'enter_pass_email' => 'أدخل بريدك الإلكتروني وكلمة المرور لتسجيل الدخول',
     'forget_password' => 'نسيت كلمة المرور',
     'copy_right' => 'كل حقوق الطبع والنشر محفوظة',
-    'budget' => 'ميزانية',
     'remember_me' => 'تذكرني',
     'password' => 'كلمة المرور',
 
@@ -258,9 +203,6 @@ return [
     'delete_faild' => 'حدث خطأ .. لم تتم عملية الحذف !',
 
     'no_data_found' => 'للاسف لا يوجد اي سجلات',
-    'no_records' => 'للاسف لا يوجد اي سجلات',
-    'no_options' => 'لا يوجد بيانات',
-    'no_available_Times' => 'لا يوجد مواعيد متاحة حالياً',
 
     'clients' => 'العملاء',
     'client_name' => 'اسم العميل',
@@ -289,7 +231,6 @@ return [
     'roles' => 'الأدوار',
     'roles_required' => 'اختيار صلاحيات المستخدم مطلوب .. يجب أن يكون لديك صلاحية لرؤية الحقل ',
 
-    'total_deductions' => 'خصومات أخرى',
 
     'first_name' => 'الاسم الاول',
     'last_name' => 'الاسم الاخير',
@@ -310,20 +251,13 @@ return [
     'block' => 'حظر',
     'permissions' => 'الصلاحيات',
     'currencies' => 'العملات',
-    'branches' => 'الشركات والفروع والمشاريع',
     'categories' => 'القسم',
     'all_categories' => 'كل الفئات',
 
     'all_clients' => 'كل العملاء',
-    'namess' => 'اسم المؤسسة',
 
     'emails' => 'البريد الرسمي',
-    'typess' => 'نوع المنشأة',
 
-    'project' => 'المشروع',
-    'branch' => 'الفرع',
-    'company' => 'الشركة',
-    'company_name_en' => 'اسم الشركة بالانجليزية',
     'activity' => 'نشاط',
 
 
@@ -335,11 +269,6 @@ return [
     'category' => 'القسم',
     'created_at' => 'تم اضافتة',
 
-    'addcateg' => ' مجموعة جديدة ',
-    'addprod' => ' صنف جديد ',
-
-
-
 
 
     'size' => 'حجم',
@@ -350,10 +279,6 @@ return [
     'minute' => 'دقيقة',
     'tag' => 'علامة / فئة',
     'period' => 'الفترة',
-    'one_time' => 'مرة واحدة',
-    'one_month' => 'شهر واحد',
-    'six_months' => 'ستة أشهر',
-    'yearly' => 'رقم إشتراك التأمينات الإجتماعية',
 
     'written' => 'كتابة',
     'file' => 'ملف',
@@ -365,15 +290,11 @@ return [
     'resources' => 'مصادر',
     'full' => 'كامل',
     'individual' => 'فردى ',
-    'features' => 'المميزات',
     'number' => 'الصلة ',
     'time' => 'الوقت',
-    'min_each' => 'دقيقة/لكل منها',
 
     'pleaseChoose' => 'من فضلك اختر',
-    'device_token' => 'device_token',
-    'video_link' => 'لينك الفديو',
-    'video_link' => 'لينك الفديو',
+
     'images' => 'صور',
     'news_list' => 'قائمة الاخبار',
     'field_name' => 'اسم الساحة',
@@ -381,9 +302,6 @@ return [
     'length' => 'طول',
     'width' => 'عرض',
     'minute' => 'دقيقة',
-    'news' => 'الاخبار واللمركز الاعلامى',
-    'news_categorie' => 'فئات الاخبار',
-    'AED' => 'د.إ',
     'Video' => 'فديوهات',
     'list' => 'قائمة',
     'type_list' => 'نوع القائمة',
@@ -391,24 +309,13 @@ return [
     'approved' => 'موافق',
     'un_approved' => 'غير مواقق',
     'admin_approved' => 'موافقة الادمن',
-    'span_1' => 'برجاء ادخال مواعيد البدا قبل الانهاء فى قائمة المواعيد المتاحة فى الملعب ',
     'icon' => 'الصورة',
-    'pages' => 'نصائح اليوم',
+    'pages' => ' الصفحات',
     'addss' => 'اضف مدن جديدة',
-    'working' => 'علي قيد العمل',
-    'consultations' => 'الاستشارات',
+
     'massages' => 'الرسائل',
     'user_type' => 'نوع المستخدم',
-    'massage_type' => 'نوع الرساله',
-    'from_name' => 'اسم المرسل',
-    'from_email' => 'بريد الالكتورنى المرسل',
-    'send_notification' => 'ارسال اشعار',
-    'AED' => 'د.إ',
-    'contact_type' => 'طريقة التواصل',
-    'waiting' => 'فى انتظار الموافقة',
-    'reply' => 'سوف يتم التواصل معك',
-    'finished' => 'تم الانتهاء',
-    'Staff' => 'فريق العمل',
+
     'file_attchment' => 'تحميل الملف',
     'download_file' => 'تحميل الملف',
     'orderDetail' => 'تفاصيل الطلبات',
@@ -416,34 +323,17 @@ return [
     'confirmed' => 'مؤكد',
     'username' => 'اسم المستخدم',
 
-    'total' => 'الاجازة السنوية( اعتيادي)',
-    'bill_number' => 'رقم الفاتورة',
     'details' => 'التفاصيل',
     'payment_status' => 'حالة الدفع',
     'paid' => 'مدفوع',
     'not_paid' => 'غير مدفوع',
-    'delivery_cost' => 'تكلفة التوصيل',
-    'delivery_distance_in_km' => 'مسافة التوصيل',
-    'capon_id' => ' رقم الكوبون',
     'payment_type' => 'طريقة الدفع',
     'quantity' => 'الكمية',
     'id' => 'الرقم التسلسلي',
-    'cancelled' => 'تم الإلغاء',
-    'not_delivered' => 'لم يتم التوصيل',
-    'received' => 'تم الاستلام',
-    'ready' => 'جاهز',
-    'shipped' => 'تم الشحن',
-    'delivered' => 'تم التوصيل',
-    'returned' => 'تمت الإعادة',
-    'approved_by_captain' => 'تم استلام الطلب من قبل الكابتن',
-    'cancelled_accepted' => 'تمت الموافقة على إلغاء الطلب',
-    'cancelled_denied' => 'تم رفض إلغاء الطلب',
-    'returned_accepted' => 'تمت الموافقة على استرجاع الطلب',
-    'returned_denied' => 'تم رفض إلغاء الطلب',
-    'notified_successfully' => 'تم إرسال الإشعارات بنجاح',
+
+
     'notifications' => 'التنبيهات',
 
-    'informationss' => 'معلوماتي المالية',
     'passwordsecurity' => 'كلمة السر والامان',
     'message' => 'رسائلي',
     'select_all' => 'اختيار الكل',
@@ -451,13 +341,9 @@ return [
     'settings' => 'الإعدادت العامة للنظام',
     'param' => 'الاسم',
     'value' => 'القيمة',
-    'customer_app' => 'تطبيق العملاء',
-    'delivery_app' => 'تطبيق التوصيل',
+
     'text' => 'نص',
-    'debit' => 'مدين',
-    'credit' => 'دائن',
-    'final_balance' => 'الرصيد النهائي',
-    'transaction_date' => 'تاريخ المعاملة',
+
     'order' => 'الترتيب',
     'ar' => [
         'name' => 'الاسم باللغة العربية',
@@ -502,31 +388,17 @@ return [
         'user_loginInvalid' => 'بيانات اعتماد تسجيل الدخول غير صالحة',
         'user_dataNotExist' => 'لا يوجد بيانات لإتمام العملية',
         'dataNotExist' => 'اكمل البيانات لإتمام العملية',
-        'user_codeInvalid' => 'كود غير صالح',
-        'userTypeInvalid' => 'نوع المستخدم غير صحيح',
-        'user_Verified' => 'تم التحقق من هذا المستخدم من قبل!',
-        'user_notVerified' => 'لم يتم التحقق من المستخدم بعد!',
-        'user_phoneVerified' => 'تم التحقق من رقم هاتف المستخدم!',
-        'user_phoneNotVerified' => 'لم يتم التحقق من رقم هاتف المستخدم بعد!',
-        'user_codeSended' => 'لقد تم إرسال كود التفعيل على رقم هاتفكم بنجاح',
-        'user_phoneNotExist' => 'رقم المحمول لا يوجد بالتطبيق',
-        'user_phoneExist' => 'رقم المحمول يوجد بالتطبيق',
-        'user_existBefore' => 'المستخدم موجود بالفعل في التطبيق بهذا الهاتف وعنوان البريد الإلكتروني',
-        'user_registedBefore' => 'تم تسجيل بيانات هذا المستخدم من قبل!',
-        'user_notExist' => 'هذا المستخدم لا يوجد بالتطبيق',
-        'invalidUserId' => 'البريد الإلكترونى أو رقم الهاتف غير صالح',
-        'no_page' => 'ﻻ يوجد صفحة بهذا الاسم',
-        'invalidToken' => 'قيمة كود التأمين غير صالحة للإستخدام',
+
+
         'auth_faild' => 'ليس لديك الصلاحية اللازمة للدخول',
-        'user_wait2minutes' => 'لقد تخطيت العدد المسموح لارسال الكود، برجاء الانتظار دقيقتين ثم اعد المحاولة مرة اخرى',
-        'delete_stadium' => 'ﻻ يمكنك مسح الملعب الخاص بغيرك',
+
         'not_valid' => 'ليس لديك الصلاحية للقيام بذالك',
         'send_massage_successful' => 'تم ارسال الاشعارات بنجاح',
         'success' => 'نجاح',
         'invalidemail' => 'لا يوجد أي حساب مرتبط بهذا البريد الالكتروني',
         'checkemail' => 'برجاء فحص بريدك الالكتروني',
         'error' => 'الرقم السري غير صحيح برجاء إدخال بشكل صحيح',
-   
+
 
     ],
 ];
