@@ -9,7 +9,7 @@
     <meta name="author" content="pixelstrap">
     <link rel="icon" href="{{MAINASSETS}}/images/favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="{{MAINASSETS}}/images/favicon.png" type="image/x-icon">
-    <title>@lang('site.Saeed')</title>
+    <title>@lang('site.Saeeh')</title>
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900&amp;display=swap" rel="stylesheet">
@@ -330,8 +330,15 @@
                                     <li><a href="{{route('dashboard.cities.index')}}">{{__('site.cities')}}</a></li>
                                 </ul>
                             </li>
+               <li class="sidebar-list"><a class="sidebar-link sidebar-title {{((in_array($current_route, ['dashboard.categories.index','dashboard.categories.create']))?'active':'' )}}" href="#"><i data-feather="layers"></i><span>@lang('site.categories') @endlang</span></a>
+                                <ul class="sidebar-submenu" >
+                                    <li><a href="{{route('dashboard.categories.create')}}">{{__('site.add')}}</a></li>
+                                    <li><a href="{{route('dashboard.categories.index')}}">{{__('site.categories')}}</a></li>
+                                </ul>
+                            </li>
 
-                            
+
+
 
 
 

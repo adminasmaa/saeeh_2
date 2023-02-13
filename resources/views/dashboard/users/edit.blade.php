@@ -8,7 +8,7 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-6">
-                        <h3>@lang('site.add')</h3>
+                        <h3>@lang('site.users')</h3>
                     </div>
                     <div class="col-6">
                         <ol class="breadcrumb">
@@ -31,7 +31,6 @@
 
                         {{ csrf_field() }}
                         {{ method_field('put') }}
-                        <input id="type" hidden type="text" name="type" value="Admin" required>
 
                         <div class="bg-secondary-lighten card-header d-flex justify-content-between">
                             <h5>@lang('site.edit') </h5>
@@ -56,15 +55,14 @@
 
 
                             <div class="row form-group">
-                                <!--<label for="name"-->
-                                <!--       class="col-sm-3 col-form-label input-label">@lang('site.image')</label>-->
+
                                 <div class="col-sm-12">
 
 
                                     <label>@lang('site.image')</label>
                                     <img src="{{asset('images/employee/'.$user->image)}}" data-bs-toggle="modal"
                                          data-bs-target="#exampleModalss" width="100px" height="100px" class="d-block"
-                                         onerror="this.src='{{asset('images/employee/1671111127.png')}}'"
+                                         onerror="this.src='{{asset('images/employee/default.jpg')}}'"
                                     >
 
 
@@ -180,21 +178,10 @@
 
 
                                 </div>
-{{--                                    <div class="col-md-6 form-group col-12 p-2">--}}
-{{--                                        <label>@lang('site.roles')</label>--}}
-{{--                                        <select name="roles[]" class="form-control select2" multiple>--}}
-{{--                                            <option disabled selected>@lang('site.select')</option>--}}
-{{--                                            @foreach ($roles as $role)--}}
-{{--                                                <option value="{{ $role->id }}"--}}
-{{--                                                    {{ $user->hasRole($role->name) ? 'selected' : '' }}>--}}
-{{--                                                    {{ $role->name }}</option>--}}
-{{--                                            @endforeach--}}
-{{--                                        </select>--}}
-{{--                                        --}}
-{{--                                        --}}
-{{--                                    </div>--}}
 
-                                <div class="col-form-label">@lang('site.roles')
+
+                                <div class="col-md-6 form-group">
+                                    <label class="form-label">@lang('site.roles')</label>
                                     <select class="js-example-placeholder-multiple col-sm-12" multiple="multiple" name="roles[]">
                                         <option disabled selected>@lang('site.select')</option>
                                         @foreach ($roles as $role)
@@ -205,24 +192,24 @@
                                     </select>
                                 </div>
 
+                                <div class="col-md-6 form-group">
+                                    <label class="form-label">@lang('site.country')</label>
+                                    <select class="form-control btn-square" name="country_id">
+                                        <option selected>@lang('site.select')</option>
+                                        @foreach($countries as $country)
+
+                                            <option value="{{$country->id}}"   @if($country->id==$user->country_id) selected @endif>{{$country->name ?? ''}}</option>
+
+                                        @endforeach
+
+                                    </select>
+                                </div>
+
 
 
                             </div>
 
-                            <!--</div>-->
 
-
-                            <!--<div class="text-end mt-4">-->
-                            <!--    <div class="col-md-6 form-group col-12 p-2">-->
-                            <!--        <button type="button" class="btn btn-warning mr-1"-->
-                            <!--                onclick="history.back();">-->
-                            <!--            <i class="fa fa-backward"></i> @lang('site.back')-->
-                            <!--        </button>-->
-                            <!--        <button type="submit" class="btn btn-primary"><i-->
-                            <!--                class="fa fa-plus"></i>-->
-                            <!--            @lang('site.edit')</button>-->
-                            <!--    </div>-->
-                            <!--</div>-->
                     </form>
                 </div>
             </div>

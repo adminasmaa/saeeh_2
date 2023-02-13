@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Eloquent;
 
+use App\Models\Country;
 use App\Models\Role;
 use App\Models\User;
 use App\Repositories\Interfaces\UserRepositoryInterface as IUserRepositoryAlias;
@@ -23,8 +24,9 @@ class UserRepository implements IUserRepositoryAlias
         // TODO: Implement create() method.
 
         $roles = Role::all();
+        $countries = Country::all();
 
-        return view('dashboard.users.create', compact('roles'));
+        return view('dashboard.users.create', compact('roles', 'countries'));
     }
 
     public function edit($Id)
@@ -34,7 +36,10 @@ class UserRepository implements IUserRepositoryAlias
 
         $user = User::find($Id);
 
-        return view('dashboard.users.edit', compact('user', 'roles'));
+        $countries = Country::all();
+
+
+        return view('dashboard.users.edit', compact('user', 'roles', 'countries'));
     }
 
     public function show($Id)
@@ -44,9 +49,12 @@ class UserRepository implements IUserRepositoryAlias
 
         $user = User::find($Id);
 
+        $countries = Country::all();
+
+
         $roles = Role::all();
 
-        return view('dashboard.users.show', compact('user', 'roles'));
+        return view('dashboard.users.show', compact('user', 'roles', 'countries'));
     }
 
     public function destroy($user)

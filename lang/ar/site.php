@@ -86,7 +86,6 @@ return [
     'longitude' => 'الطول',
     'NOT_PAID' => 'لم يتم السداد',
     'PAID' => 'تم السداد',
-    'chooseshop' => 'اختر المتجر',
     'confirm_remove' => 'هل انت متأكد من الانتقال إلى متجر جديد',
 
     'answer' => 'الرد',
@@ -251,10 +250,10 @@ return [
     'block' => 'حظر',
     'permissions' => 'الصلاحيات',
     'currencies' => 'العملات',
-    'categories' => 'القسم',
-    'all_categories' => 'كل الفئات',
+    'categories' => 'الفئات ',
+    'subcategories' => 'الفئات الفرعيه ',
 
-    'all_clients' => 'كل العملاء',
+
 
     'emails' => 'البريد الرسمي',
 

@@ -2,10 +2,12 @@
 
 namespace App\Providers;
 
+use App\Repositories\Eloquent\CategoryRepository;
 use App\Repositories\Eloquent\CityRepository;
 use App\Repositories\Eloquent\CountryRepository;
 use App\Repositories\Eloquent\RoleRepository;
 use App\Repositories\Eloquent\UserRepository;
+use App\Repositories\Interfaces\CategoryRepositoryInterface;
 use App\Repositories\Interfaces\CityRepositoryInterface;
 use App\Repositories\Interfaces\CountryRepositoryInterface;
 
@@ -27,6 +29,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(CityRepositoryInterface::class, CityRepository::class);
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
         $this->app->bind(RoleRepositoryInterface::class, RoleRepository::class);
+        $this->app->bind(CategoryRepositoryInterface::class, CategoryRepository::class);
 
     }
 

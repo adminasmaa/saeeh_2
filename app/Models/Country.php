@@ -11,16 +11,11 @@ class Country extends Model
 
     protected $fillable = [
         'name',
-
         'code',
-
         'active',
-
         'image_comment',
-
         'currency',
         'display_data',
-
 
     ];
 }
