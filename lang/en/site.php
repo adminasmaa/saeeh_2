@@ -3,7 +3,8 @@
 return [
     'settingss' => ' Settings',
     'Saeeh' => 'Saeeh',
-
+    'questions' => 'Questions',
+    'question' => 'question',
 
     'female' => 'Female',
     'male' => 'Male',
@@ -39,7 +40,6 @@ return [
 
 
     'type' => 'Type',
-
 
 
     'NOT_PAID' => 'NOT_PAID',
@@ -203,7 +203,6 @@ return [
     'basic information' => 'basic information',
 
 
-
     'color' => 'Color',
     'style' => 'Style',
 
@@ -259,7 +258,6 @@ return [
     'choose' => 'choose',
 
     'icon' => 'icon',
-
 
 
     'field_name' => 'Field Name',

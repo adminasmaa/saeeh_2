@@ -10,6 +10,8 @@ return [
     'inbox' => 'داخلي',
     'currency' => 'العملة',
     'image_comment' => 'ايقؤنه ',
+    'questions' => 'الاسئله المتكرره',
+    'question'=>'السؤال',
 
 
     'full_names' => 'الاسم الكامل',
@@ -254,7 +256,6 @@ return [
     'subcategories' => 'الفئات الفرعيه ',
 
 
-
     'emails' => 'البريد الرسمي',
 
     'activity' => 'نشاط',
@@ -267,7 +268,6 @@ return [
     'description' => 'الوصف',
     'category' => 'القسم',
     'created_at' => 'تم اضافتة',
-
 
 
     'size' => 'حجم',
