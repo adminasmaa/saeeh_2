@@ -13,17 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('car_comments', function (Blueprint $table) {
+        Schema::create('notifications', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('description')->nullable();
-            $table->integer('rating')->required();
-            $table->boolean('status')->default (0);
-            $table->integer('demo_clean')->default (0);
-            $table->integer('demo_status')->default (0);
-            $table->integer('demo_work')->default (0);
+            $table->string('description')->required();
+            $table->boolean('status')->required()->default (0);
 
-            $table->integer('car_id')->nullable( )->unsigned();
-            $table->foreign('car_id')->references('id')->on('cars')->onDelete('cascade');
+            $table->integer('property_id')->nullable( )->unsigned();
+            $table->foreign('property_id')->references('id')->on('properties');
+            
+            $table->integer('place_id')->nullable( )->unsigned();
+            $table->foreign('place_id')->references('id')->on('places');
             
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             
@@ -39,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('car_comments');
+        Schema::dropIfExists('notifications');
     }
 };

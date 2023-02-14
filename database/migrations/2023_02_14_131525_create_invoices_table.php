@@ -13,18 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('car_comments', function (Blueprint $table) {
+        Schema::create('invoices', function (Blueprint $table) {
             $table->increments('id');
+            $table->float('balance')->nullable();
+            $table->float('amount')->nullable();
             $table->string('description')->nullable();
-            $table->integer('rating')->required();
-            $table->boolean('status')->default (0);
-            $table->integer('demo_clean')->default (0);
-            $table->integer('demo_status')->default (0);
-            $table->integer('demo_work')->default (0);
+            $table->enum('type',['income','capital','expenses','export'])->required();
 
-            $table->integer('car_id')->nullable( )->unsigned();
-            $table->foreign('car_id')->references('id')->on('cars')->onDelete('cascade');
-            
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             
             $table->timestamps();
@@ -39,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('car_comments');
+        Schema::dropIfExists('invoices');
     }
 };
