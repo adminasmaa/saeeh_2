@@ -5,6 +5,8 @@ return [
     'Saeeh' => 'Saeeh',
     'questions' => 'Questions',
     'question' => 'question',
+    'problems'=>'Problems',
+    'mediators'=>'Mediators',
 
     'female' => 'Female',
     'male' => 'Male',

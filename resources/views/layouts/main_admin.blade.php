@@ -417,6 +417,26 @@
                                 </ul>
                             </li>
 
+                            <li class="sidebar-list"><a
+                                    class="sidebar-link sidebar-title {{((in_array($current_route, ['dashboard.problems.index','dashboard.problems.create']))?'active':'' )}}"
+                                    href="#"><i data-feather="layers"></i><span>@lang('site.problems') @endlang</span></a>
+                                <ul class="sidebar-submenu">
+                                    <li><a href="{{route('dashboard.problems.create')}}">{{__('site.add')}}</a></li>
+                                    <li><a href="{{route('dashboard.problems.index')}}">{{__('site.problems')}}</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="sidebar-list"><a
+                                    class="sidebar-link sidebar-title {{((in_array($current_route, ['dashboard.mediators.index','dashboard.mediators.create']))?'active':'' )}}"
+                                    href="#"><i data-feather="layers"></i><span>@lang('site.mediators') @endlang</span></a>
+                                <ul class="sidebar-submenu">
+                                    <li><a href="{{route('dashboard.mediators.create')}}">{{__('site.add')}}</a></li>
+                                    <li><a href="{{route('dashboard.mediators.index')}}">{{__('site.mediators')}}</a>
+                                    </li>
+                                </ul>
+                            </li>
+
 
                         </ul>
                     </div>

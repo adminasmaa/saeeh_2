@@ -6,6 +6,8 @@ use App\Http\Controllers\Dashboard\CountryController;
 use App\Http\Controllers\Dashboard\CityController;
 use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\QuestionController;
+use App\Http\Controllers\Dashboard\ProblemController;
+use App\Http\Controllers\Dashboard\MediatorController;
 
 use App\Http\Controllers\Dashboard\UserController;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +28,11 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         Route::resource('categories', CategoryController::class);
         //questions
         Route::resource('questions', QuestionController::class);
+
+        //problems
+        Route::resource('problems', ProblemController::class);
+        //Mediators
+        Route::resource('mediators', MediatorController::class);
 
 
     }); //end of dashboard routes

@@ -6,12 +6,13 @@ return [
 
     'send' => 'المرسل',
     'outbox' => 'الصادر',
+    'problems' => 'شكاوي ومقترحات',
 
     'inbox' => 'داخلي',
     'currency' => 'العملة',
     'image_comment' => 'ايقؤنه ',
     'questions' => 'الاسئله المتكرره',
-    'question'=>'السؤال',
+    'question' => 'السؤال',
 
 
     'full_names' => 'الاسم الكامل',
@@ -329,12 +330,12 @@ return [
     'payment_type' => 'طريقة الدفع',
     'quantity' => 'الكمية',
     'id' => 'الرقم التسلسلي',
-
+    'mediators' => 'الوسطاء',
 
     'notifications' => 'التنبيهات',
 
     'passwordsecurity' => 'كلمة السر والامان',
-    'message' => 'رسائلي',
+    'message' => 'الرساله',
     'select_all' => 'اختيار الكل',
     'created_by' => 'أُضيف بواسطة',
     'settings' => 'الإعدادت العامة للنظام',
