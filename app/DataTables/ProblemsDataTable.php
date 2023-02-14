@@ -3,7 +3,7 @@
 namespace App\DataTables;
 
 use App\Helpers\DTHelper;
-use App\Models\Role;
+use App\Models\Problem;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -13,14 +13,15 @@ use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class RolesDataTable extends DataTable
+class ProblemsDataTable extends DataTable
 {
-    private $crudName = 'roles';
+    private $crudName = 'problems';
 
     private function getRoutes()
     {
         return [
             'update' => "dashboard.$this->crudName.edit",
+            'show' => "dashboard.$this->crudName.show",
             'delete' => "dashboard.$this->crudName.destroy",
             'block' => "dashboard.$this->crudName.block",
         ];
@@ -31,7 +32,7 @@ class RolesDataTable extends DataTable
         return [
             'update' => 'update_' . $this->crudName,
             'delete' => 'delete_' . $this->crudName,
-            'create' => 'create_' . $this->crudName
+            'create' => 'create_' . $this->crudName,
         ];
     }
 
@@ -52,10 +53,8 @@ class RolesDataTable extends DataTable
                 $actions = '';
 
                 $actions .= DTHelper::dtEditButton(route($this->getRoutes()['update'], $model->id), trans('site.edit'), $this->getPermissions()['update']);
-
-
                 $actions .= DTHelper::dtDeleteButton(route($this->getRoutes()['delete'], $model->id), trans('site.delete'), $this->getPermissions()['delete'], $model->id);
-
+                $actions .= DTHelper::dtShowButton(route($this->getRoutes()['show'], $model->id), trans('site.show'), $this->getPermissions()['delete']);
 
                 return $actions;
             });
@@ -64,17 +63,18 @@ class RolesDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Role $model
+     * @param \App\Models\Problem $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Role $model)
+    public function query(Problem $model): QueryBuilder
     {
         return $model->newQuery();
     }
 
     public function count()
     {
-        return Role::all()->count();
+        return Problem::count();
+
     }
 
     /**
@@ -85,7 +85,7 @@ class RolesDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-            ->setTableId('roles-table')
+            ->setTableId('problems-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
             //->dom('Bfrtip')
@@ -110,15 +110,14 @@ class RolesDataTable extends DataTable
         return [
             Column::make('id'),
             Column::make('name')->title(trans('site.name')),
-            Column::make('display_name')->title(trans('site.display_name')),
+            Column::make('email')->title(trans('site.email')),
+            Column::make('phone')->title(trans('site.phone')),
             Column::make('created_at')->title(trans('site.created_at')),
-
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
-                ->width(120)
-                ->addClass('text-center')
-                ->title(trans('site.action')),
+                ->width(60)
+                ->addClass('text-center')->title(trans('site.action')),
         ];
     }
 
@@ -129,6 +128,6 @@ class RolesDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'Roles_' . date('YmdHis');
+        return 'Problems_' . date('YmdHis');
     }
 }
