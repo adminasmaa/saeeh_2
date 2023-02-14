@@ -13,10 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('account_types', function (Blueprint $table) {
+        Schema::create('commissions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name_ar')->required();
-            $table->string('name_en')->nullable();
+            $table->boolean('status')->default (0);
+            $table->float('price')->nullable();
+            
+            $table->integer('property_id')->nullable( )->unsigned();
+            $table->foreign('property_id')->references('id')->on('properties');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            
             $table->timestamps();
             $table->softDeletes();
         });
@@ -29,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('account_types');
+        Schema::dropIfExists('commissions');
     }
 };

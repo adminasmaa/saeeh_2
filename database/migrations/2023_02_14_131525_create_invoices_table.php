@@ -13,10 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('account_types', function (Blueprint $table) {
+        Schema::create('invoices', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name_ar')->required();
-            $table->string('name_en')->nullable();
+            $table->float('balance')->nullable();
+            $table->float('amount')->nullable();
+            $table->string('description')->nullable();
+            $table->enum('type',['income','capital','expenses','export'])->required();
+
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            
             $table->timestamps();
             $table->softDeletes();
         });
@@ -29,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('account_types');
+        Schema::dropIfExists('invoices');
     }
 };
