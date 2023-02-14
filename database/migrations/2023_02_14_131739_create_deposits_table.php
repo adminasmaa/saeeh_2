@@ -13,17 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('car_comments', function (Blueprint $table) {
+        Schema::create('deposits', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('description')->nullable();
-            $table->integer('rating')->required();
-            $table->boolean('status')->default (0);
-            $table->integer('demo_clean')->default (0);
-            $table->integer('demo_status')->default (0);
-            $table->integer('demo_work')->default (0);
+            $table->float('deposit')->required();
 
-            $table->integer('car_id')->nullable( )->unsigned();
-            $table->foreign('car_id')->references('id')->on('cars')->onDelete('cascade');
+            $table->integer('aqar_booking_id')->nullable( )->unsigned();
+            $table->foreign('aqar_booking_id')->references('id')->on('aqar_bookings')->onDelete('cascade');
+            
+            $table->integer('car_booking_id')->nullable( )->unsigned();
+            $table->foreign('car_booking_id')->references('id')->on('car_bookings')->onDelete('cascade');
             
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             
@@ -39,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('car_comments');
+        Schema::dropIfExists('deposits');
     }
 };

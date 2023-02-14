@@ -13,17 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('car_comments', function (Blueprint $table) {
+        Schema::create('aqar_comments', function (Blueprint $table) {
             $table->increments('id');
             $table->string('description')->nullable();
             $table->integer('rating')->required();
             $table->boolean('status')->default (0);
-            $table->integer('demo_clean')->default (0);
-            $table->integer('demo_status')->default (0);
-            $table->integer('demo_work')->default (0);
+            $table->boolean('check_view')->default (0);
+            $table->integer('demo_clean')->required()->default (0);
+            $table->integer('demo_status')->required()->default (0);
+            $table->integer('demo_work')->required()->default (0);
+            $table->integer('demo_loc')->required()->default (0);
 
-            $table->integer('car_id')->nullable( )->unsigned();
-            $table->foreign('car_id')->references('id')->on('cars')->onDelete('cascade');
+            $table->integer('aqar_id')->nullable( )->unsigned();
+            $table->foreign('aqar_id')->references('id')->on('aqars')->onDelete('cascade');
             
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             
@@ -39,6 +41,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('car_comments');
+        Schema::dropIfExists('aqar_comments');
     }
 };
