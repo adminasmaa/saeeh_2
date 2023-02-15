@@ -8,11 +8,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Laratrust\Traits\LaratrustUserTrait;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Place;    // HasMany
+use App\Models\PlaceComment;    // HasMany
 
 class User extends Authenticatable
 {
     use LaratrustUserTrait;
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable,SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -55,4 +58,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    // relations
+    public function places(){
+        return $this->HasMany(Place::class);
+    }
+    // relations
+    public function placeComments(){
+        return $this->HasMany(PlaceComment::class);
+    }
 }
