@@ -15,16 +15,14 @@ return new class extends Migration
     {
         Schema::create('countries', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->string('code')->nullable();
+            $table->string('name')->required();
+            $table->string('code')->required();
             $table->string('image')->nullable();
             $table->string('currency')->nullable();
-            $table->string('image_comment')->nullable();
-            $table->integer('display_data')->nullable();
+            $table->string('flag_image')->nullable();
+            $table->integer('display_data')->nullable()->default(0);
             $table->boolean('active')->default(0);
             $table->softDeletes();
-
-
             $table->timestamps();
         });
     }

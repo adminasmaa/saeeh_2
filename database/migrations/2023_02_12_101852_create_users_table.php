@@ -16,24 +16,26 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('username')->nullable();
-            $table->string('firstname')->nullable();
-            $table->string('lastname')->nullable();
+            $table->string('firstname')->required();
+            $table->string('lastname')->required();
             $table->string('code')->nullable();
             $table->string('address')->nullable();
             $table->string('comision')->nullable();
             $table->string('image')->nullable();
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
-            $table->foreignId('country_id')->nullable()->constrained('countries');
             $table->string('account_type')->nullable();
-            $table->string('phone')->nullable();
+            $table->string('phone')->nullable()->unique();
             $table->string('email')->unique();
             $table->boolean('active')->default(0);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            
+            $table->foreignId('country_id')->required( )->references('id')->on('countries')->onDelete('cascade');
+            $table->foreignId('city_id')->required( )->references('id')->on('cities')->onDelete('cascade');
+            
             $table->rememberToken();
             $table->softDeletes();
-
             $table->timestamps();
         });
     }

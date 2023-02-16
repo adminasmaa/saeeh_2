@@ -14,12 +14,12 @@ return new class extends Migration {
     {
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->string('code')->nullable();
+            $table->string('name')->required();
             $table->string('image')->nullable();
-            $table->string('order')->nullable();
+            $table->string('order')->required();
             $table->boolean('active')->default(0);
-            $table->foreignId('country_id')->nullable()->constrained('countries');
+            $table->foreignId('country_id')->required( )->references('id')->on('countries')->onDelete('cascade');
+
             $table->softDeletes();
             $table->timestamps();
         });

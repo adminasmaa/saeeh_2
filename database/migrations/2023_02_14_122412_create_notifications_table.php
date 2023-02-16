@@ -24,7 +24,7 @@ return new class extends Migration
             $table->integer('place_id')->nullable( )->unsigned();
             $table->foreign('place_id')->references('id')->on('places');
             
-            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('user_id')->required( )->references('id')->on('users')->onDelete('cascade');
             
             $table->timestamps();
             $table->softDeletes();

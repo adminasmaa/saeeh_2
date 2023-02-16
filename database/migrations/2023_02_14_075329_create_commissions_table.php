@@ -20,7 +20,7 @@ return new class extends Migration
             
             $table->integer('property_id')->nullable( )->unsigned();
             $table->foreign('property_id')->references('id')->on('properties');
-            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('user_id')->required( )->references('id')->on('users')->onDelete('cascade');
             
             $table->timestamps();
             $table->softDeletes();

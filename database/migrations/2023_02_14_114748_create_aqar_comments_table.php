@@ -27,7 +27,7 @@ return new class extends Migration
             $table->integer('aqar_id')->nullable( )->unsigned();
             $table->foreign('aqar_id')->references('id')->on('aqars')->onDelete('cascade');
             
-            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('user_id')->required( )->references('id')->on('users')->onDelete('cascade');
             
             $table->timestamps();
             $table->softDeletes();

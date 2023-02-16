@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('images')->nullable();
             $table->string('videos')->nullable();
 
-            $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('user_id')->required( )->references('id')->on('users')->onDelete('cascade');
             
             $table->timestamps();
             $table->softDeletes();
