@@ -30,21 +30,17 @@ return new class extends Migration
             $table->integer('7agz_type')->required()->default(1);
 
             $table->integer('car_id')->nullable( )->unsigned();
-            $table->foreign('car_id')->references('id')->on('cars');    
-           
-            $table->integer('group_id')->nullable( )->unsigned();
-            $table->foreign('group_id')->references('id')->on('groups');          
+            $table->foreign('car_id')->references('id')->on('cars');         
              
             $table->integer('ads_id')->nullable( )->unsigned();
             $table->foreign('ads_id')->references('id')->on('ads');        
             
-        
-            $table->foreignId('city_id')->references('id')->on('cities');
+            $table->foreignId('city_id')->required( )->references('id')->on('cities')->onDelete('cascade');
 
             $table->integer('commission_id')->nullable( )->unsigned();
             $table->foreign('commission_id')->references('id')->on('commissions');
             
-            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('user_id')->required( )->references('id')->on('users')->onDelete('cascade');
             
             $table->timestamps();
             $table->softDeletes();

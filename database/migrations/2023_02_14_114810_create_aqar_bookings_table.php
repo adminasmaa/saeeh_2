@@ -32,20 +32,17 @@ return new class extends Migration
             $table->string('wasel_photo')->nullable();
 
             $table->integer('aqar_id')->nullable( )->unsigned();
-            $table->foreign('aqar_id')->references('id')->on('aqars');    
-           
-            $table->integer('group_id')->nullable( )->unsigned();
-            $table->foreign('group_id')->references('id')->on('groups');          
+            $table->foreign('aqar_id')->references('id')->on('aqars');          
              
             $table->integer('ads_id')->nullable( )->unsigned();
             $table->foreign('ads_id')->references('id')->on('ads');        
         
-            $table->foreignId('city_id')->references('id')->on('cities');
+            $table->foreignId('city_id')->required( )->references('id')->on('cities')->onDelete('cascade');
 
             $table->integer('commission_id')->nullable( )->unsigned();
             $table->foreign('commission_id')->references('id')->on('commissions');
             
-            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('user_id')->required( )->references('id')->on('users')->onDelete('cascade');
             
             $table->timestamps();
             $table->softDeletes();

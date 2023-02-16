@@ -11,6 +11,9 @@ use Laratrust\Traits\LaratrustUserTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Place;    // HasMany
 use App\Models\PlaceComment;    // HasMany
+use App\Models\Ads;    // HasMany
+use App\Models\Car;    // HasMany
+use App\Models\CarComment;    // HasMany
 
 class User extends Authenticatable
 {
@@ -65,5 +68,17 @@ class User extends Authenticatable
     // relations
     public function placeComments(){
         return $this->HasMany(PlaceComment::class);
+    }
+    // relations
+    public function ads(){
+        return $this->HasMany(Ads::class);
+    }
+    // relations
+    public function car(){
+        return $this->HasMany(Car::class);
+    }
+    // relations
+    public function carComment(){
+        return $this->HasMany(CarComment::class);
     }
 }

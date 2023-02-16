@@ -17,7 +17,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('messages')->required();
             
-            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('user_id')->required( )->references('id')->on('users')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

@@ -33,7 +33,7 @@ return new class extends Migration
             $table->integer('ads_id')->nullable( )->unsigned();
             $table->foreign('ads_id')->references('id')->on('ads');
            
-            $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('user_id')->required( )->references('id')->on('users')->onDelete('cascade');
             
             $table->timestamps();
             $table->softDeletes();

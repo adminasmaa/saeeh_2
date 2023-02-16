@@ -22,7 +22,7 @@ return new class extends Migration
             $table->integer('arranging_id')->default (0);
             $table->enum('position',['upper_middle','lower_middle','banner','slider']);
 
-            $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('user_id')->required( )->references('id')->on('users')->onDelete('cascade');
             
             $table->timestamps();
             $table->softDeletes();

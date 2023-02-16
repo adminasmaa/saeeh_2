@@ -27,7 +27,7 @@ return new class extends Migration
             $table->integer('car_booking_id')->nullable( )->unsigned();
             $table->foreign('car_booking_id')->references('id')->on('car_bookings')->onDelete('cascade');
             
-            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('user_id')->required( )->references('id')->on('users')->onDelete('cascade');
             
             $table->timestamps();
             $table->softDeletes();

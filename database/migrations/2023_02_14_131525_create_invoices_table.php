@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->enum('type',['income','capital','expenses','export'])->required();
 
-            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('user_id')->required( )->references('id')->on('users')->onDelete('cascade');
             
             $table->timestamps();
             $table->softDeletes();

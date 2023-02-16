@@ -43,11 +43,10 @@ return new class extends Migration
             $table->string('rest_three')->nullable();
             $table->enum('social_media',['facebook','instagram']);
 
-            $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('category_id')->required()->unsigned()->references('id')->on('categories')->onDelete('cascade');
 
-            $table->integer('category_id')->nullable( )->unsigned();
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-            
+            $table->foreignId('user_id')->required( )->references('id')->on('users')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
         });
