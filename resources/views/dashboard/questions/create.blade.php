@@ -70,7 +70,7 @@
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.answer')<span class="text-danger">*</span></label>
-                                        <textarea class="form-control" rows="5" name="answer">
+                                        <textarea id="editor1"  cols="15" rows="5" name="answer">
 
                                         </textarea>
                                     </div>
@@ -99,5 +99,9 @@
     <!-- Container-fluid Ends-->
 
 @endsection
+
+
+
+
 
 

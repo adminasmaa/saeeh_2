@@ -48,7 +48,7 @@
   var countries = new Bloodhound({
     datumTokenizer: Bloodhound.tokenizers.whitespace,
     queryTokenizer: Bloodhound.tokenizers.whitespace,
-    prefetch: '../../public/assets/js/typeahead/data/countries.json'
+    prefetch: '../assets/js/typeahead/data/countries.json'
   });
   $('#prefetch .typeahead').typeahead(null, {
     name: 'countries',
@@ -57,9 +57,9 @@
   var bestPictures = new Bloodhound({
     datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
     queryTokenizer: Bloodhound.tokenizers.whitespace,
-    prefetch: './../../public/assets/js/typeahead/data/films/post_1960.json',
+    prefetch: './../assets/js/typeahead/data/films/post_1960.json',
     remote: {
-      url: '../../public/assets/js/typeahead/data/films/queries/%QUERY.json',
+      url: '../assets/js/typeahead/data/films/queries/%QUERY.json',
       wildcard: '%QUERY'
     }
   });
@@ -72,7 +72,7 @@
     datumTokenizer: Bloodhound.tokenizers.obj.whitespace('team'),
     queryTokenizer: Bloodhound.tokenizers.whitespace,
     identify: function(obj) { return obj.team; },
-    prefetch: '../../public/assets/js/typeahead/data/nfl.json'
+    prefetch: '../assets/js/typeahead/data/nfl.json'
   });
   function nflTeamsWithDefaults(q, sync) {
     if (q === '') {
@@ -101,18 +101,18 @@
         'unable to find any Best Picture winners that match the current query',
         '</div>'
       ].join('\n'),
-      suggestion: Handlebars.compile('<div><strong>{{value}}</strong> – {{year}}</div>')
+      suggestion: Handlebars.compile('<div><span>{{value}}</span> – {{year}}</div>')
     }
   });
   var nbaTeams = new Bloodhound({
     datumTokenizer: Bloodhound.tokenizers.obj.whitespace('team'),
     queryTokenizer: Bloodhound.tokenizers.whitespace,
-    prefetch: '../../public/assets/js/typeahead/data/nba.json'
+    prefetch: '../assets/js/typeahead/data/nba.json'
   });
   var nhlTeams = new Bloodhound({
     datumTokenizer: Bloodhound.tokenizers.obj.whitespace('team'),
     queryTokenizer: Bloodhound.tokenizers.whitespace,
-    prefetch: '../../public/assets/js/typeahead/data/nhl.json'
+    prefetch: '../assets/js/typeahead/data/nhl.json'
   });
   $('#multiple-datasets .typeahead').typeahead({
         highlight: true

@@ -121,11 +121,9 @@ class CityRepository implements ICityRepositoryAlias
         if ($city) {
 //            Alert::success('Success', __('site.updated_successfully'));
 
-            //   return redirect()->route('dashboard.users.index');
             return redirect()->route('dashboard.cities.index');
 //            session()->flash('success', __('site.updated_successfully'));
         } else {
-//            Alert::success('Success', __('site.update_faild'));
 
             return redirect()->route('dashboard.cities.index');
 

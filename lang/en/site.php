@@ -23,6 +23,15 @@ return [
     'logo'=>'Logo',
     'attach_link'=>'Attach Link',
 
+
+
+    'twitter'=>'Twitter',
+    'facebook'=>'Facebook',
+    'instagram'=>'Instagram',
+    'youtube'=>'YouTube',
+    'snapchat'=>'SnapChat',
+
+
     'female' => 'Female',
     'male' => 'Male',
 

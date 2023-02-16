@@ -106,8 +106,9 @@ class CategoryController extends Controller
  ||                                    |
    -----------------------------------------------------*/
 
-    public function destroy(Category $category)
+    public function destroy($id)
     {
+        $category = Category::find($id);
 
         return $this->CategoryRepository->destroy($category);
 

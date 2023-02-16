@@ -27,6 +27,10 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         Route::resource('cities', CityController::class);
         //categories
         Route::resource('categories', CategoryController::class);
+
+        //DeleteSubCategories
+        Route::get('DeleteSubCategories/{id}', 'App\Http\Controllers\Dashboard\CategoryController@destroy')->name('DeleteSubCategories');
+
         //questions
         Route::resource('questions', QuestionController::class);
 

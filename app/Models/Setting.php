@@ -8,7 +8,31 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Setting extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory, SoftDeletes;
 
-    protected $guarded = [];
+    protected $table = 'settings';
+
+
+    protected $fillable = [
+
+        'terms_conditions',
+        'website_address',
+        'email',
+        'website_link',
+        'logo',
+        'theme',
+        'closing_message',
+        'description',
+        'key_words',
+        'ads_top',
+        'ads_bottom',
+        'twitter',
+        'facebook',
+        'instagram',
+        'youtube',
+        'time_difference',
+        'snapchat',
+        'closing',
+        'image'
+    ];
 }
