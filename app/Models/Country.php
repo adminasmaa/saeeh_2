@@ -14,9 +14,9 @@ class Country extends Model
         'name',
         'code',
         'active',
-        'image_comment',
+        'image',
         'currency',
         'display_data',
-
+        'flag_image',
     ];
 }

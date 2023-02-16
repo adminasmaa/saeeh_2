@@ -38,9 +38,9 @@ return new class extends Migration
             $table->integer('const_time')->nullable();
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
-            $table->string('rest_one')->nullable();
-            $table->string('rest_two')->nullable();
-            $table->string('rest_three')->nullable();
+            $table->json('rest_one')->nullable(); //eat_types
+            $table->json('rest_two')->nullable(); //break_type
+            $table->json('rest_three')->nullable(); //place_table(tawla)
             $table->enum('social_media',['facebook','instagram']);
 
             $table->foreignId('category_id')->required()->unsigned()->references('id')->on('categories')->onDelete('cascade');

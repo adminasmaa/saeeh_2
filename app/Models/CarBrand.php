@@ -16,6 +16,8 @@ class CarBrand extends Model
 
     protected $fillable = [
         'name',// required
+        'logo',// required
+
     ];
     // relations
     public function car(){
