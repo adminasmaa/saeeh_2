@@ -110,7 +110,7 @@
 
 
                                                                 <label>@lang('site.logo')</label>
-                                                                <img src="{{asset('images/settings/'.$setting->logo)}}"
+                                                                <img src="{{asset('images/settings/'.$setting->logo ?? '')}}"
                                                                      data-bs-toggle="modal"
                                                                      data-bs-target="#exampleModalss" width="100px"
                                                                      height="100px" class="d-block"
@@ -138,7 +138,7 @@
                                                                             <tr>
                                                                                 <th>
                                                                                     <img name="soso"
-                                                                                         src="{{asset('images/settings/'.$setting->logo)}}"
+                                                                                         src="{{asset('images/settings/'.$setting->logo ?? '')}}"
                                                                                          alt=""
                                                                                          width="400px" height="aut0"
 

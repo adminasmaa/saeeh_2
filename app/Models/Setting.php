@@ -32,7 +32,7 @@ class Setting extends Model
         'youtube',
         'time_difference',
         'snapchat',
-        'closing',
-        'image'
+        'closing'
+
     ];
 }
