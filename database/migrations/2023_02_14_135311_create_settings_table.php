@@ -26,9 +26,13 @@ return new class extends Migration
             $table->json('key_words')->required();
             $table->string('ads_top')->nullable();
             $table->string('ads_bottom')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('youtube')->nullable();
+            $table->string('snapchat')->nullable();
             $table->time('time_difference')->required();
             $table->enum('closing',['open','closed']);
-            
             $table->timestamps();
             $table->softDeletes();
         });

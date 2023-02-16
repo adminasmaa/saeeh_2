@@ -14,6 +14,8 @@ return [
     'questions' => 'الاسئله المتكرره',
     'question' => 'السؤال',
 
+    'terms_conditions' => 'الشروط والاحكام',
+    'website_address' => 'عنوان الموقع ',
 
     'full_names' => 'الاسم الكامل',
     'Saeeh' => 'سائح',
@@ -134,13 +136,26 @@ return [
 
 
     'Register' => 'التسجيل',
+    'website_link' => 'رابط الموقع',
+    'ads_top' => 'الاعلان ثابت في الاعلى',
+    'ads_bottom' => 'اعلان ثابت في الاسفل',
+    'time_difference'=>'فارق التوقيت',
+    'closing'=>'الاغلاق',
 
+
+    'open'=>'مفتوح',
+    'closed'=>'مغلق',
+
+    'logo'=>'الشعار',
+
+    'attach_link'=>'روابط التواصل ',
 
     //settings
-
+    'theme' => 'الثيم',
     'setting' => 'الاعدادات العامه',
+    'closing_message' => 'رسالة الاغلاق',
 
-
+    'key_words' => 'الكلمات الدليلة',
     //cases
 
 

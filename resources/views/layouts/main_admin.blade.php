@@ -437,6 +437,15 @@
                                 </ul>
                             </li>
 
+                            <li class="sidebar-list"><a
+                                    class="sidebar-link sidebar-title {{((in_array($current_route, ['dashboard.settings.index']))?'active':'' )}}"
+                                    href="#"><i data-feather="layers"></i><span>@lang('site.settings') @endlang</span></a>
+                                <ul class="sidebar-submenu">
+                                    <li><a href="{{route('dashboard.settings.index')}}">{{__('site.settings')}}</a>
+                                    </li>
+                                </ul>
+                            </li>
+
 
                         </ul>
                     </div>
