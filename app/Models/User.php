@@ -14,7 +14,9 @@ use App\Models\PlaceComment;    // HasMany
 use App\Models\Ads;    // HasMany
 use App\Models\Car;    // HasMany
 use App\Models\CarComment;    // HasMany
-
+use App\Models\Property;    // HasMany
+use App\Models\Commission;    // HasMany
+use App\Models\CarBooking;    // HasMany
 class User extends Authenticatable
 {
     use LaratrustUserTrait;
@@ -37,8 +39,9 @@ class User extends Authenticatable
         'active',
         'latitude',
         'country_id',
+        'city_id',
         'address',
-       'longitude',
+        'longitude',
         'account_type',
         'phone',
     ];
@@ -80,5 +83,17 @@ class User extends Authenticatable
     // relations
     public function carComment(){
         return $this->HasMany(CarComment::class);
+    }
+    // relations
+    public function property(){
+        return $this->HasMany(Property::class);
+    }
+    // relations
+    public function commission(){
+        return $this->HasMany(Commission::class);
+    }
+    // relations
+    public function carBooking(){
+        return $this->HasMany(CarBooking::class);
     }
 }

@@ -9,6 +9,7 @@ use App\Models\User;   //belongsTo
 use App\Models\CarBrand;   //belongsTo
 use App\Models\Ads;   //belongsTo
 use App\Models\CarComment;    // HasMany
+use App\Models\CarBooking;    // HasMany
 
 class Car extends Model
 {
@@ -49,5 +50,9 @@ class Car extends Model
     // relations
     public function carComment(){
         return $this->HasMany(CarComment::class);
+    }
+    // relations
+    public function carBooking(){
+        return $this->HasMany(CarBooking::class);
     }
 }
