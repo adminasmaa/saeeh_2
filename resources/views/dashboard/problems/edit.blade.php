@@ -81,7 +81,7 @@
 
                                 <div class="col-md-6 form-group col-12 p-2 ">
                                     <label>@lang('site.message')<span class="text-danger">*</span></label>
-                                    <textarea class="form-control" rows="5" name="message">
+                                    <textarea class="form-control" id="editor1"  cols="15" rows="5" name="message">
                      {{ $problem->message }}
                                         </textarea>
                                 </div>

@@ -70,7 +70,7 @@
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.description')<span class="text-danger">*</span></label>
-                                        <textarea class="form-control" rows="5" name="description">
+                                        <textarea class="form-control" id="editor1"  cols="15" rows="5" name="description">
 
                                         </textarea>
                                     </div>
@@ -123,10 +123,14 @@
                                 </div>
 
 
-                                <div class="row m-0 sub-categories">
+                                <table class="categories-list" id="table5">
+
+                                    {{--                                <div class="row m-0 sub-categories">--}}
 
 
-                                </div>
+                                    {{--                                </div>--}}
+
+                                </table>
 
 
                             </div>
@@ -150,30 +154,19 @@
 @section('scripts')
     <script>
 
-        function deleteRow(r) {
-            var i = r.parentNode.parentNode.rowIndex;
 
-            const element = document.getElementsByClassName("sub-categories");
-            // element.remove();
 
-            // var myobjArr = document.getElementsByTagName(row);
-            element[0].remove();
-
-        }
 
         $(document).ready(function () {
             jQuery('a.add-category').click(function (event) {
                 event.preventDefault();
-                var newRow = jQuery('<div class="row"><div class="col-md-3 form-group col-12 p-2">' +
+                var newRow = jQuery('<tr><td><div class="row"><div class="col-md-3 form-group col-12 p-2">' +
                     '<input type="text"     name="name_category[]" class="form-control"/></div><div class="col-md-3 form-group col-12 p-2">' +
                     '<input type="file" name="image_category[]" class="form-control" >' +
-                    '</div><div class="col-md-3 form-group col-12 p-2 ">' +
-                    // ' <a onclick="deleteRow(this)">' +
-                    // '<i class="fa fa-trash""></i>' +
-                    // '</a>' +
+                    '  </div>  <div class="col-md-3 form-group col-12 p-2 "> <a  onclick="deleteRow(this)" ><i class="fa fa-trash"></i></a>' +
 
-                    '</div></div>');
-                jQuery('.sub-categories').append(newRow);
+                    '</div></div> </td>  </tr>');
+                jQuery('.categories-list').append(newRow);
             });
         });
     </script>

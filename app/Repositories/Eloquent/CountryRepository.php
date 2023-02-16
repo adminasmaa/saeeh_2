@@ -133,9 +133,7 @@ class CountryRepository implements ICountryRepositoryAlias
         if ($country) {
 //            Alert::success('Success', __('site.updated_successfully'));
 
-            //   return redirect()->route('dashboard.users.index');
             return redirect()->route('dashboard.countries.index');
-//            session()->flash('success', __('site.updated_successfully'));
         } else {
 //            Alert::success('Success', __('site.update_faild'));
 

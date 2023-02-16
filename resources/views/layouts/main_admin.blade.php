@@ -48,6 +48,8 @@
 
     <link rel="stylesheet" type="text/css" href="{{MAINASSETS}}/css/vendors/datatables.css">
     <link rel="stylesheet" type="text/css" href="{{MAINASSETS}}/css/vendors/datatable-extension.css">
+    <link rel="stylesheet" type="text/css" href="{{MAINASSETS}}/css/vendors/dropzone.css">
+
 
     <link rel="stylesheet" href="{{ asset('dashboard_files/plugins/noty/noty.css') }}">
     <script src="{{ asset('dashboard_files/plugins/noty/noty.min.js') }}"></script>
@@ -419,7 +421,8 @@
 
                             <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title {{((in_array($current_route, ['dashboard.problems.index','dashboard.problems.create']))?'active':'' )}}"
-                                    href="#"><i data-feather="layers"></i><span>@lang('site.problems') @endlang</span></a>
+                                    href="#"><i
+                                        data-feather="layers"></i><span>@lang('site.problems') @endlang</span></a>
                                 <ul class="sidebar-submenu">
                                     <li><a href="{{route('dashboard.problems.create')}}">{{__('site.add')}}</a></li>
                                     <li><a href="{{route('dashboard.problems.index')}}">{{__('site.problems')}}</a>
@@ -439,7 +442,8 @@
 
                             <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title {{((in_array($current_route, ['dashboard.settings.index']))?'active':'' )}}"
-                                    href="#"><i data-feather="layers"></i><span>@lang('site.settings') @endlang</span></a>
+                                    href="#"><i
+                                        data-feather="layers"></i><span>@lang('site.settings') @endlang</span></a>
                                 <ul class="sidebar-submenu">
                                     <li><a href="{{route('dashboard.settings.index')}}">{{__('site.settings')}}</a>
                                     </li>
@@ -468,7 +472,8 @@
     </div>
 </div>
 <!-- latest jquery-->
-
+<!-- latest jquery-->
+<script src="{{MAINASSETS}}/js/jquery-3.5.1.min.js"></script>
 <!-- Bootstrap js-->
 <script src="{{MAINASSETS}}/js/bootstrap/bootstrap.bundle.min.js"></script>
 <!-- feather icon js-->
@@ -488,10 +493,10 @@
 <script src="{{MAINASSETS}}/js/chart/apex-chart/apex-chart.js"></script>
 <script src="{{MAINASSETS}}/js/chart/apex-chart/stock-prices.js"></script>
 <script src="{{MAINASSETS}}/js/notify/bootstrap-notify.min.js"></script>
-@if($current_route=='backend.index')
-    {
-    <script src="{{MAINASSETS}}/js/dashboard/default.js"></script>
-@endif
+{{--@if($current_route=='backend.index')--}}
+{
+{{--    <script src="{{MAINASSETS}}/js/dashboard/default.js"></script>--}}
+{{--@endif--}}
 <script src="{{MAINASSETS}}/js/notify/index.js"></script>
 <script src="{{MAINASSETS}}/js/datepicker/date-picker/datepicker.js"></script>
 <script src="{{MAINASSETS}}/js/datepicker/date-picker/datepicker.en.js"></script>
@@ -502,6 +507,9 @@
 <script src="{{MAINASSETS}}/js/typeahead-search/handlebars.js"></script>
 <script src="{{MAINASSETS}}/js/typeahead-search/typeahead-custom.js"></script>
 <!-- Plugins JS Ends-->
+
+<script src="{{MAINASSETS}}/js/dropzone/dropzone.js"></script>
+<script src="{{MAINASSETS}}/js/dropzone/dropzone-script.js"></script>
 <!-- Theme js-->
 <script src="{{MAINASSETS}}/js/script.js"></script>
 <script src="{{MAINASSETS}}/js/theme-customizer/customizer.js"></script>
@@ -534,6 +542,20 @@
 
 <script src="{{MAINASSETS}}/js/select2/select2.full.min.js"></script>
 <script src="{{MAINASSETS}}/js/select2/select2-custom.js"></script>
+
+<script src="{{MAINASSETS}}/js/editor/ckeditor/ckeditor.js"></script>
+<script src="{{MAINASSETS}}/js/editor/ckeditor/adapters/jquery.js"></script>
+<script src="{{MAINASSETS}}/js/editor/ckeditor/styles.js"></script>
+<script src="{{MAINASSETS}}/js/editor/ckeditor/ckeditor.custom.js"></script>
+<script>
+    function deleteRow(r) {
+        var i = r.parentNode.parentNode.rowIndex;
+        document.getElementById("table5").deleteRow(i);
+    }
+
+
+</script>
+
 <!-- Plugins JS Ends-->
 @yield('js')
 @yield('scripts')

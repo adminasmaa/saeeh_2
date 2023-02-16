@@ -148,6 +148,13 @@ return [
 
     'logo'=>'الشعار',
 
+
+    'twitter'=>'تويتر',
+    'facebook'=>'فيسبوك',
+    'instagram'=>'انستغرام',
+    'youtube'=>'موقع YouTube',
+    'snapchat'=>'سناب شات',
+
     'attach_link'=>'روابط التواصل ',
 
     //settings
