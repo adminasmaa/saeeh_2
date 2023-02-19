@@ -17,7 +17,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('title')->required();
             $table->string('ads_link')->required();
-            $table->string('ads_image')->required();
+            $table->string('ads_image')->nullable();
             $table->boolean('show_ads')->default (0);
             $table->integer('arranging_id')->default (0);
             $table->enum('position',['upper_middle','lower_middle','banner','slider']);

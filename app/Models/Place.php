@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\User;   //belongsTo
 use App\Models\Category;  //belongsTo
 use App\Models\PlaceComment;    // HasMany
+use App\Models\Notification;    // HasMany
 
 class Place extends Model
 {
@@ -65,5 +66,9 @@ class Place extends Model
     // relations
     public function placeComments(){
         return $this->HasMany(PlaceComment::class);
+    }
+    // relations
+    public function notification(){
+        return $this->HasMany(Notification::class);
     }
 }

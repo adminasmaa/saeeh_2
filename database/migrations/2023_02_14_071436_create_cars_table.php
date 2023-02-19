@@ -24,8 +24,8 @@ return new class extends Migration
             $table->float('fixed_price')->nullable();
             $table->json('changed_price')->nullable();
             $table->string('description')->required();
-            $table->string('main_image_ads')->required();
-            $table->json('images')->required();
+            $table->string('main_image_ads')->nullable();
+            $table->json('images')->nullable();
             $table->string('videos')->nullable();
             $table->string('comment_text')->nullable();
 

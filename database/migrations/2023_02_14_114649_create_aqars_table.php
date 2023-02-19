@@ -19,8 +19,8 @@ return new class extends Migration
             $table->boolean('status')->required()->default (0);
             $table->float('fixed_price')->nullable();
             $table->json('changed_price')->nullable();
-            $table->string('main_image_ads')->required();
-            $table->json('images')->required();
+            $table->string('main_image_ads')->nullable();
+            $table->json('images')->nullable();
             $table->string('videos')->nullable();
             $table->string('distance')->nullable();
             $table->time('time')->nullable();
