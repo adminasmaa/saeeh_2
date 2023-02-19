@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('car_brands', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->required();
-            $table->string('logo')->required();
+            $table->string('logo')->nullable();
 
             $table->timestamps();
             $table->softDeletes();

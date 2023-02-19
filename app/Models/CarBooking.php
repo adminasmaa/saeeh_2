@@ -16,7 +16,7 @@ class CarBooking extends Model
     use HasFactory,SoftDeletes;
     public $guarded = ['id'];
 
-    protected $table = 'commissions';
+    protected $table = 'car_bookings';
 
     protected $fillable = [
         'book_status', // default(2) ,integer
@@ -36,7 +36,7 @@ class CarBooking extends Model
         'ads_id', // unsigned
         'city_id', // unsigned
         'commission_id', // unsigned
-        'user_id', //unsigned 
+        'user_id', //unsigned
     ];
     // scope
     public function scopeCarBookingType($query,$Type){
