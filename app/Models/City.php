@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\CarBooking;    // HasMany
-
+use App\Models\AqarBooking;    // HasMany
 class City extends Model
 {
     use HasFactory,SoftDeletes;
@@ -22,5 +22,9 @@ class City extends Model
     // relations
     public function carBooking(){
         return $this->HasMany(CarBooking::class);
+    }
+    // relations
+    public function aqarBooking(){
+        return $this->HasMany(AqarBooking::class);
     }
 }

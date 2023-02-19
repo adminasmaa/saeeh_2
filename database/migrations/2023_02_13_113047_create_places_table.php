@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('address')->required();
             $table->string('descrption_ar')->required();
             $table->string('descrption_en')->nullable();
-            $table->string('display_photo')->required();
+            $table->string('display_photo')->nullable();
             $table->string('phone_one')->required()->unique();
             $table->string('phone_two')->nullable()->unique();
             $table->string('notify_photo')->nullable()->unique();
