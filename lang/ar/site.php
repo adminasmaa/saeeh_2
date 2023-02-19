@@ -13,16 +13,18 @@ return [
     'image_comment' => 'ايقؤنه ',
     'questions' => 'الاسئله المتكرره',
     'question' => 'السؤال',
+    'cars'=>'السيارات',
 
     'terms_conditions' => 'الشروط والاحكام',
     'website_address' => 'عنوان الموقع ',
+    'brands'=>'ماركات العربيات',
 
     'full_names' => 'الاسم الكامل',
     'Saeeh' => 'سائح',
     'start_date' => 'تاريخ البدء',
     'end_date' => ' تنتهي في: ',
     'reports' => 'التقارير',
-
+'advertising'=>'الاعلانات ',
     'operation' => 'عملية',
     'amount' => 'كميات',
 
@@ -33,6 +35,14 @@ return [
     'reload' => 'إعادة تحميل',
     'Accounts' => 'المحاسبة',
     'reason' => 'السبب',
+    'car_comments'=>'تعليقات السيارات',
+    'rating'=>'التقيم',
+    'bookings'=>'الحجوزات',
+
+    'place_arrive'=>'مكان الوصول',
+    'place_leave'=>'اترك مكان',
+    'day_count'=>'عدد اليوم',
+    'reciept_date'=>'تاريخ الاستلام',
 
 
     'basic information' => ' المعلومات الرئيسية',
@@ -42,8 +52,12 @@ return [
 
     'reference' => 'المرجع',
 
-    'date' => 'تاريخ اليوم',
+    'date' => 'تاريخ ',
+    'color'=>'اللون',
     'rate' => 'التقيم',
+    'year'=>'السنه',
+    'changed_price'=>'السعر المتغير',
+    'comment_text'=>'النص',
 
 
     'namessss' => 'أسم الملف',
