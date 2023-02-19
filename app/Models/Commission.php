@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\User;   //belongsTo
 use App\Models\Property;   //belongsTo
 use App\Models\CarBooking;    // HasMany
-
+use App\Models\AqarBooking;    // HasMany
 class Commission extends Model
 {
     use HasFactory,SoftDeletes;
@@ -33,5 +33,9 @@ class Commission extends Model
     // relations
     public function carBooking(){
         return $this->HasMany(CarBooking::class);
+    }
+    // relations
+    public function aqarBooking(){
+        return $this->HasMany(AqarBooking::class);
     }
 }

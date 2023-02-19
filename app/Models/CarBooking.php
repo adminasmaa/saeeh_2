@@ -10,6 +10,8 @@ use App\Models\Car;   //belongsTo
 use App\Models\City;   //belongsTo
 use App\Models\Ads;   //belongsTo
 use App\Models\Commission;   //belongsTo
+use App\Models\BookingNote;    // HasMany
+use App\Models\Deposit;    // HasMany
 
 class CarBooking extends Model
 {
@@ -60,5 +62,14 @@ class CarBooking extends Model
     }// relations
     public function commission(){
         return $this->belongsTo(Commission::class,'commission_id');
+    }
+
+    // relations
+    public function bookingNote(){
+        return $this->HasMany(BookingNote::class);
+    }
+    // relations
+    public function deposit(){
+        return $this->HasMany(Deposit::class);
     }
 }
