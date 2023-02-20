@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\User;   //belongsTo
 use App\Models\Commission;    // HasMany
-
+use App\Models\Aqar;    // HasMany
+use App\Models\Notification;    // HasMany
+use App\Models\Balance;    // HasMany
 class Property extends Model
 {
     use HasFactory,SoftDeletes;
@@ -30,5 +32,17 @@ class Property extends Model
     // relations
     public function commission(){
         return $this->HasMany(Commission::class);
+    }
+    // relations
+    public function aqar(){
+        return $this->HasMany(Aqar::class);
+    }
+    // relations
+    public function notification(){
+        return $this->HasMany(Notification::class);
+    }
+     // relations
+     public function balance(){
+        return $this->HasMany(Balance::class);
     }
 }

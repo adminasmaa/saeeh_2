@@ -17,6 +17,15 @@ use App\Models\CarComment;    // HasMany
 use App\Models\Property;    // HasMany
 use App\Models\Commission;    // HasMany
 use App\Models\CarBooking;    // HasMany
+use App\Models\AqarBooking;    // HasMany
+use App\Models\Aqar;    // HasMany
+use App\Models\AqarComment;    // HasMany
+use App\Models\BookingNote;    // HasMany
+use App\Models\Message;    // HasMany
+use App\Models\Notification;    // HasMany
+use App\Models\Balance;    // HasMany
+use App\Models\Invoice;    // HasMany
+use App\Models\Deposit;    // HasMany
 class User extends Authenticatable
 {
     use LaratrustUserTrait;
@@ -95,5 +104,41 @@ class User extends Authenticatable
     // relations
     public function carBooking(){
         return $this->HasMany(CarBooking::class);
+    }
+    // relations
+    public function aqarBooking(){
+        return $this->HasMany(AqarBooking::class);
+    }
+    // relations
+    public function aqar(){
+        return $this->HasMany(Aqar::class);
+    }
+    // relations
+    public function aqarComment(){
+        return $this->HasMany(AqarComment::class);
+    }
+    // relations
+    public function bookingNote(){
+        return $this->HasMany(BookingNote::class);
+    }
+    // relations
+    public function message(){
+        return $this->HasMany(Message::class);
+    }
+    // relations
+    public function notification(){
+        return $this->HasMany(Notification::class);
+    }
+    // relations
+    public function balance(){
+        return $this->HasMany(Balance::class);
+    }
+    // relations
+    public function invoice(){
+        return $this->HasMany(Invoice::class);
+    }
+    // relations
+    public function deposit(){
+        return $this->HasMany(Deposit::class);
     }
 }
