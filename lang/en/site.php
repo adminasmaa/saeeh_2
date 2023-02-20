@@ -22,6 +22,7 @@ return [
     'car_comments'=>'Car Comments',
     'rating'=>'Rating',
     'bookings'=>'Bookings',
+    'videos'=>'Videos',
 
     'place_arrive'=>'Place Arrive',
     'place_leave'=>'Place Leave',

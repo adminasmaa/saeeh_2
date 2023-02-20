@@ -36,6 +36,21 @@
 
 
                         </div>
+
+                        <div class="bg-secondary-lighten card-header d-flex justify-content-between">
+                            <h5>@lang('site.add') </h5>
+                            <div class="text-end  group-btn-top">
+                                <div class="form-group d-flex form-group justify-content-between">
+
+                                    <a href="{{route('dashboard.cars.create')}}" class="btn btn-air-primary btn-pill btn-primary"><i
+                                            class="fa fa-plus p-1"></i>
+                                        @lang('site.add')</a>
+                                </div>
+                            </div>
+
+
+                        </div>
+
                         <div class="card-body">
 
                             <div class="dt-ext table-responsive">

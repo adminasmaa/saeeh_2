@@ -204,6 +204,18 @@
 
                                     </select>
                                 </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="form-label">@lang('site.city')</label>
+                                    <select class="form-control btn-square" name="city_id">
+                                        <option selected>@lang('site.select')</option>
+                                        @foreach($cities as $city)
+
+                                            <option value="{{$city->id}}"   @if($city->id==$user->city_id) selected @endif>{{$city->name ?? ''}}</option>
+
+                                        @endforeach
+
+                                    </select>
+                                </div>
 
 
 

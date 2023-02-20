@@ -110,7 +110,7 @@ class CategoriesDataTable extends DataTable
         return [
             Column::make('id'),
             Column::make('name')->title(trans('site.name')),
-            Column::make('description')->title(trans('site.description')),
+//            Column::make('description')->title(trans('site.description')),
             Column::make('created_at')->title(trans('site.created_at')),
             Column::computed('action')
                 ->exportable(false)

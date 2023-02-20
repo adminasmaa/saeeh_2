@@ -3,6 +3,7 @@
 namespace App\Repositories\Eloquent;
 
 use App\Models\Category;
+use App\Models\City;
 use App\Repositories\Interfaces\CategoryRepositoryInterface as CategoryRepositoryInterfaceAlias;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
@@ -22,7 +23,9 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
     {
         // TODO: Implement create() method.
 
-        return view('dashboard.categories.create');
+        $cities = City::all();
+
+        return view('dashboard.categories.create', compact('cities'));
     }
 
     public function edit($Id)
@@ -33,7 +36,9 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
 
         $subcategories = Category::where('parent_id', $Id)->get();
 
-        return view('dashboard.categories.edit', compact('category', 'subcategories'));
+        $cities = City::all();
+
+        return view('dashboard.categories.edit', compact('category', 'subcategories', 'cities'));
     }
 
     public function show($Id)
@@ -41,10 +46,13 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
         // TODO: Implement show() method.
 
         $category = Category::find($Id);
+
         $subcategories = Category::where('parent_id', $Id)->get();
 
+        $cities = City::all();
 
-        return view('dashboard.categories.show', compact('category', 'subcategories'));
+
+        return view('dashboard.categories.show', compact('category', 'subcategories', 'cities'));
     }
 
 
@@ -77,20 +85,21 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
                 ]);
 
 
-//            if (isset($request['image_category'][$key])) {
+//                if (isset($request['image_category'][$key])) {
 
-                $image = $request['image_category'][$key];
+                    $image = $request['image_category'][$key];
 
 
-                $destinationPath = 'images/categories/';
-                $extension = $image->getClientOriginalExtension(); // getting image extension
-                $name = time() . '' . rand(11111, 99999) . '.' . $extension; // renameing image
-                $image->move($destinationPath, $name); // uploading file to given
-                $cat->image = $name;
+                    $destinationPath = 'images/categories/';
+                    $extension = $image->getClientOriginalExtension(); // getting image extension
+                    $name = time() . '' . rand(11111, 99999) . '.' . $extension; // renameing image
+                    $image->move($destinationPath, $name); // uploading file to given
+                    $cat->image = $name;
 
-                $cat->save();
+                    $cat->save();
 
-            }
+                }
+//            }
 
         }
         if ($category) {
