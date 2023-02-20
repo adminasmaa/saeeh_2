@@ -14,6 +14,7 @@ use App\Http\Controllers\Dashboard\BrandController;
 use App\Http\Controllers\Dashboard\CarController;
 use App\Http\Controllers\Dashboard\CarCommentController;
 use App\Http\Controllers\Dashboard\BookingController;
+use App\Http\Controllers\Dashboard\PlaceController;
 
 use App\Http\Controllers\Dashboard\UserController;
 use Illuminate\Support\Facades\Route;
@@ -67,6 +68,9 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
         //Setting
         Route::resource('settings', SettingController::class);
+
+        //cars
+        Route::resource('places', PlaceController::class);
 
 
     }); //end of dashboard routes

@@ -448,8 +448,6 @@
 
                             {{--list--}}
 
-
-
                             <li class="sidebar-list">
                                 <label class="badge badge-light-secondary"></label><a class="sidebar-link sidebar-title" href="#"><i data-feather="airplay"></i><span>@lang('site.cars') @endlang                </span></a>
                                 <ul class="sidebar-submenu">
@@ -466,6 +464,18 @@
                                     </li>
                                 </ul>
                             </li>
+
+
+                            <li class="sidebar-list"><a
+                                    class="sidebar-link sidebar-title {{((in_array($current_route, ['dashboard.places.index','dashboard.places.create']))?'active':'' )}}"
+                                    href="#"><i data-feather="airplay"></i><span>@lang('site.places') @endlang</span></a>
+                                <ul class="sidebar-submenu">
+                                    <li><a href="{{route('dashboard.places.create')}}">{{__('site.add')}}</a></li>
+                                    <li><a href="{{route('dashboard.places.index')}}">{{__('site.places')}}</a>
+                                    </li>
+                                </ul>
+                            </li>
+
 
 
                         </ul>
