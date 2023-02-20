@@ -452,6 +452,15 @@
                                 </ul>
                             </li>
                             <li class="sidebar-list"><a
+                                    class="sidebar-link sidebar-title {{((in_array($current_route, ['dashboard.places.index','dashboard.places.create']))?'active':'' )}}"
+                                    href="#"><i data-feather="airplay"></i><span>@lang('site.places') @endlang</span></a>
+                                <ul class="sidebar-submenu">
+                                    <li><a href="{{route('dashboard.places.create')}}">{{__('site.add')}}</a></li>
+                                    <li><a href="{{route('dashboard.places.index')}}">{{__('site.places')}}</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title {{((in_array($current_route, ['dashboard.brands.index','dashboard.brands.create']))?'active':'' )}}"
                                     href="#"><i data-feather="star"></i><span>@lang('site.brands') @endlang</span></a>
                                 <ul class="sidebar-submenu">
@@ -479,6 +488,16 @@
                                     </li>
                                 </ul>
                             </li>
+
+                            <!-- <li class="sidebar-list"><a
+                                    class="sidebar-link sidebar-title {{((in_array($current_route, ['dashboard.places.index','dashboard.places.create']))?'active':'' )}}"
+                                    href="#"><i data-feather="airplay"></i><span>@lang('site.places') @endlang</span></a>
+                                <ul class="sidebar-submenu">
+                                    <li><a href="{{route('dashboard.places.create')}}">{{__('site.add')}}</a></li>
+                                    <li><a href="{{route('dashboard.places.index')}}">{{__('site.places')}}</a>
+                                    </li>
+                                </ul>
+                            </li> -->
 
                             <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title {{((in_array($current_route, ['dashboard.bookings.index']))?'active':'' )}}"
