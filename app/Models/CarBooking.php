@@ -63,7 +63,6 @@ class CarBooking extends Model
     public function commission(){
         return $this->belongsTo(Commission::class,'commission_id');
     }
-
     // relations
     public function bookingNote(){
         return $this->HasMany(BookingNote::class);
