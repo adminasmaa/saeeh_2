@@ -16,6 +16,7 @@ use App\Repositories\Eloquent\QuestionRepository;
 use App\Repositories\Eloquent\RoleRepository;
 use App\Repositories\Eloquent\SettingRepository;
 use App\Repositories\Eloquent\UserRepository;
+use App\Repositories\Eloquent\PlaceRepository;
 use App\Repositories\Interfaces\AdvertisingRepositoryInterface;
 use App\Repositories\Interfaces\BookingRepositoryInterface;
 use App\Repositories\Interfaces\BrandRepositoryInterface;
@@ -24,8 +25,9 @@ use App\Repositories\Interfaces\CarRepositoryInterface;
 use App\Repositories\Interfaces\CategoryRepositoryInterface;
 use App\Repositories\Interfaces\CityRepositoryInterface;
 use App\Repositories\Interfaces\CountryRepositoryInterface;
-
 use App\Repositories\Interfaces\MediatorRepositoryInterface;
+
+use App\Repositories\Interfaces\PlaceRepositoryInterface;
 use App\Repositories\Interfaces\ProblemRepositoryInterface;
 use App\Repositories\Interfaces\QuestionRepositoryInterface;
 use App\Repositories\Interfaces\RoleRepositoryInterface;
@@ -57,6 +59,8 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(CarRepositoryInterface::class, CarRepository::class);
         $this->app->bind(CarCommentRepositoryInterface::class, CarCommentRepository::class);
         $this->app->bind(BookingRepositoryInterface::class, BookingRepository::class);
+
+        $this->app->bind(PlaceRepositoryInterface::class, PlaceRepository::class);
 
     }
 
