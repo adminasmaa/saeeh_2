@@ -118,7 +118,7 @@ class CitiesDataTable extends DataTable
         return [
             Column::make('id'),
             Column::make('name')->title(trans('site.name')),
-            Column::make('code')->title(trans('site.code')),
+//            Column::make('code')->title(trans('site.code')),
             Column::make('created_at')->title(trans('site.created_at')),
             Column::computed('action')
                 ->exportable(false)

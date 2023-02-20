@@ -52,6 +52,7 @@ return [
     'Send Password Reset' => 'إرسال إعادة تعيين كلمة المرور',
 
     'reference' => 'المرجع',
+    'videos'=>'الفيديو',
 
     'date' => 'تاريخ ',
     'color'=>'اللون',
@@ -186,7 +187,7 @@ return [
     'OPTION' => 'اختيار',
     'Required' => 'مطلوب',
     'image' => 'الصورة ',
-    'dashboard' => 'لؤحه التحكم',
+    'dashboard' => ' الرئيسيه',
 
     'logout' => 'تسجيل الخروج',
     'status' => 'الحاله',
@@ -375,7 +376,7 @@ return [
     'message' => 'الرساله',
     'select_all' => 'اختيار الكل',
     'created_by' => 'أُضيف بواسطة',
-    'settings' => 'الإعدادت العامة للنظام',
+    'settings' => 'الإعدادت  ',
     'param' => 'الاسم',
     'value' => 'القيمة',
 
