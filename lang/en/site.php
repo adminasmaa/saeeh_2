@@ -19,9 +19,23 @@ return [
     'closing'=>'Closing',
     'open'=>'Open',
     'closed'=>'Closed',
+    'car_comments'=>'Car Comments',
+    'rating'=>'Rating',
+    'bookings'=>'Bookings',
+
+    'place_arrive'=>'Place Arrive',
+    'place_leave'=>'Place Leave',
+    'day_count'=>'Day Count',
+    'reciept_date'=>'Reciept Date',
 
     'logo'=>'Logo',
     'attach_link'=>'Attach Link',
+    'advertising'=>'Advertising',
+    'brands'=>'CarBrands',
+    'cars'=>'Cars',
+    'year'=>'Year',
+    'changed_price'=>'Changed Price',
+    'comment_text'=>'Comment Text',
 
 
 

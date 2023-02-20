@@ -13,7 +13,6 @@ use App\Models\AqarBooking;    // HasMany
 class Ads extends Model
 {
     use HasFactory,SoftDeletes;
-    public $guarded = ['id'];
 
     protected $table = 'ads';
 
@@ -23,14 +22,14 @@ class Ads extends Model
         'ads_image', // required
         'arranging_id', // default (0)
         'position',// enum ,['upper_middle','lower_middle','banner','slider']
-        'user_id', //unsigned 
+        'user_id', //unsigned
     ];
     // scope
-    public function scopePosition($query,$position){
-        if($position){
-            return $query->where('position', $position);
-        }
-    }
+//    public function scopePosition($query,$position){
+//        if($position){
+//            return $query->where('position', $position);
+//        }
+//    }
     // relations
     public function user(){
         return $this->belongsTo(User::class,'user_id');

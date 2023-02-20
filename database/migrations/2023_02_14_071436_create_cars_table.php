@@ -23,6 +23,7 @@ return new class extends Migration
             $table->date('car_delivery_date')->required();
             $table->float('fixed_price')->nullable();
             $table->json('changed_price')->nullable();
+
             $table->string('description')->required();
             $table->string('main_image_ads')->nullable();
             $table->json('images')->nullable();
@@ -34,7 +35,7 @@ return new class extends Migration
             $table->integer('ads_id')->nullable( )->unsigned();
             $table->foreign('ads_id')->references('id')->on('ads');
             $table->foreignId('user_id')->required( )->references('id')->on('users')->onDelete('cascade');
-            
+
             $table->timestamps();
             $table->softDeletes();
         });

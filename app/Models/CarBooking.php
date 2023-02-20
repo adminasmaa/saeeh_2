@@ -38,7 +38,7 @@ class CarBooking extends Model
         'ads_id', // unsigned
         'city_id', // unsigned
         'commission_id', // unsigned
-        'user_id', //unsigned 
+        'user_id', //unsigned
     ];
     // scope
     public function scopeCarBookingType($query,$Type){
