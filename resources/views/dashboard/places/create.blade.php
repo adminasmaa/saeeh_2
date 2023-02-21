@@ -209,16 +209,11 @@
                                     </div>
                                     <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                     <label class="form-label">@lang('site.social_media')</label>
-                                    <select class="form-control btn-square"
-                                        name="facebook">
-                                        <option selected>@lang('site.select')</option>
+                                    <select class="form-control btn-square" name="social_media">
+                                            <option selected>@lang('site.select')</option>
 
-                                        <option value="facebook">Facebook</option>
-                                        <option value="instagram">Instagram </option>
-
-
-                                    </select>
-
+                                            <option value="facebook">facebook</option>
+                                            <option value="instagram">instagram </option>
 
                                     </select>
                                 </div>
