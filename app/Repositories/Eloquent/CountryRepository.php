@@ -66,7 +66,7 @@ class CountryRepository implements ICountryRepositoryAlias
     {
         // TODO: Implement store() method.
 
-        $request_data = $request->except(['image','image_comment']);
+        $request_data = $request->except(['image','flag_image']);
 
         // To Make User Active
         $request_data['active'] = 1;
@@ -82,12 +82,12 @@ class CountryRepository implements ICountryRepositoryAlias
             $country->image = $filename;
             $country->save();
         }
-        if ($request->hasFile('image_comment')) {
-            $thumbnail = $request->file('image_comment');
+        if ($request->hasFile('flag_image')) {
+            $thumbnail = $request->file('flag_image');
             $destinationPath = 'images/countries/';
             $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
             $thumbnail->move($destinationPath, $filename);
-            $country->image_comment = $filename;
+            $country->flag_image = $filename;
             $country->save();
         }
 
@@ -105,7 +105,7 @@ class CountryRepository implements ICountryRepositoryAlias
         // TODO: Implement update() method.
 
 
-        $request_data = $request->except(['image','image_comment']);
+        $request_data = $request->except(['image','flag_image']);
 
 
         $country->update($request_data);
@@ -120,12 +120,12 @@ class CountryRepository implements ICountryRepositoryAlias
             $country->save();
         }
 
-        if ($request->hasFile('image_comment')) {
-            $thumbnail = $request->file('image_comment');
+        if ($request->hasFile('flag_image')) {
+            $thumbnail = $request->file('flag_image');
             $destinationPath = 'images/countries/';
             $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
             $thumbnail->move($destinationPath, $filename);
-            $country->image_comment = $filename;
+            $country->flag_image = $filename;
             $country->save();
         }
 

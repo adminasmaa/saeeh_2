@@ -96,9 +96,9 @@
                                         <div class="col-md-6 form-group">
 
 
-                                            <label>@lang('site.image_comment')</label>
-                                            <input type="file" name="image_comment" class="form-control"
-                                                   value="{{ old('image_comment') }}">
+                                            <label>@lang('site.flag_image')</label>
+                                            <input type="file" name="flag_image" class="form-control"
+                                                   value="{{ old('flag_image') }}">
 
 
                                         </div>
