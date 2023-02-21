@@ -18,7 +18,7 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">@lang('site.dashboard')</li>
 
-                            <li class="breadcrumb-item active">@lang('site.categories') @endlang</li>
+                            <li class="breadcrumb-item active">@lang('site.aquarcategories') @endlang</li>
                         </ol>
                     </div>
                 </div>
@@ -33,6 +33,19 @@
                     <div class="card">
                         <div class="card-header">
                             <h5 class="mb-3">{{$title}}({{$count}})</h5>
+
+
+                        </div>
+                        <div class="bg-secondary-lighten card-header d-flex justify-content-between">
+                            <h5></h5>
+                            <div class="text-end  group-btn-top">
+                                <div class="form-group d-flex form-group justify-content-between">
+
+                                    <a href="{{route('dashboard.aquarcategories.create')}}" class="btn btn-air-primary btn-pill btn-primary"><i
+                                            class="fa fa-plus p-1"></i>
+                                        @lang('site.add')</a>
+                                </div>
+                            </div>
 
 
                         </div>

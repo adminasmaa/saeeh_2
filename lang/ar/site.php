@@ -385,6 +385,7 @@ return [
     ///////////////Aquar
 
     'aquars' => 'العقارات',
+    'aquarcategories' =>'فئات العقارات',
 
     'order' => 'الترتيب',
 

@@ -10,7 +10,7 @@ class AquarCategoryRepository implements AquarCategoryRepositoryInterface
     public function getAll($data)
     {
         return $data->render('dashboard.aquar.cat_aquar.index', [
-            'title' => trans('site.categories'),
+            'title' => trans('site.aquarcategories'),
             'model' => 'categories',
             'count' => $data->count(),
         ]);
