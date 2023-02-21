@@ -19,4 +19,8 @@ class Country extends Model
         'display_data',
         'flag_image',
     ];
+
+    public function cities(){
+        return $this->HasMany(City::class);
+    }
 }
