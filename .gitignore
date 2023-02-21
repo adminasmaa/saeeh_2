@@ -8,6 +8,7 @@
 /storage/*.key
 routes/web.php
 /vendor
+/images
 .env
 .htaccess
 index.php
