@@ -50,56 +50,81 @@
 
                         </div>
                         <div class="card-body">
-                            @include('partials._errors')
+                        @include('partials._errors')
 
+                        <!-- <div class="row"> -->
+                        <div class="row form-group">
 
-                            <div class="row form-group">
-
-                                <div class="col-sm-12">
+                            <div class="col-md-6 form-group col-12 p-2  ">
 
 
                                 <label>@lang('site.display_photo')</label>
-                                    <img src="{{asset('images/places/'.$place->display_photo)}}"
-                                         data-bs-toggle="modal"
-                                         data-bs-target="#exampleModalss" width="100px" height="100px" class="d-block"
-                                         onerror="this.src='{{asset('images/places/default.jpg')}}'"
+                                <img src="{{asset('images/places/'.$place->display_photo)}}"
+                                     data-bs-toggle="modal"
+                                     data-bs-target="#exampleModalss" width="100px" height="100px" class="d-block"
+                                     onerror="this.src='{{asset('images/places/default.jpg')}}'"
+                                >
+                            </div>
+                            <div class="col-md-6 form-group col-12 p-2">
+                                    <label>@lang('site.notify_photo')</label>
+                                    <img src="{{asset('images/places/'.$place->notify_photo)}}"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#exampleModalss" width="100px" height="100px" class="d-block"
+                                        onerror="this.src='{{asset('images/places/default.jpg')}}'"
                                     >
 
-
-                                </div>
-                            </div>
-
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModalss" tabindex="-1"
-                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">@lang('site.display_photo')</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <table class="border-5">
-                                                <tr>
-                                                    <th>
-                                                        <img name="soso"
-                                                                src="{{asset('images/places/'.$place->display_photo)}}"
-                                                                alt=""
-                                                                width="400px" height="aut0"
-
-
-                                                                onerror="this.src='{{asset('images/places/default.jpg')}}'"
-                                                            >
-
-                                                    </th>
-                                                </tr>
+                        </div>
+                        </div>
+                           <!-- Modal -->
+                        <div class="modal fade" id="exampleModalss" tabindex="-1"
+                             aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">@lang('site.display_photo')</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">@lang('site.notify_photo')</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <table class="border-5">
+                                            <tr>
+                                                <th>
+                                                    <img name="display_photo"
+                                                         src="{{asset('images/places/'.$place->display_photo)}}"
+                                                         alt=""
+                                                         width="400px" height="aut0"
 
 
-                                            </table>
+                                                         onerror="this.src='{{asset('images/places/default.jpg')}}'"
+                                                    >
+
+                                                </th>
+                                            </tr>
 
 
-                                        </div>
+                                        </table>
+                                    </div>
+                                    <br>
+                                    <div class="modal-body">
+                                        <table class="border-5">
+                                            <tr>
+                                                <th>
+                                                    <img name="notify_photo"
+                                                         src="{{asset('images/places/'.$place->notify_photo)}}"
+                                                         alt=""
+                                                         width="400px" height="aut0"
+
+
+                                                         onerror="this.src='{{asset('images/places/default.jpg')}}'"
+                                                    >
+
+                                                </th>
+                                            </tr>
+
+
+                                        </table>
+                                    </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">@lang('site.Cancel')</button>
@@ -109,7 +134,7 @@
                             </div>
                             <!--  End Of Modal -->
                             <div class="row">
-                                <!--<div class="col-md-6">-->
+                                    <!--<div class="col-md-6">-->
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.name_ar')<span class="text-danger">*</span></label>
@@ -223,6 +248,8 @@
                                     </div>
                                 </div>
 
+
+
                                 <div class="row">
                                     <!--<div class="col-md-6">-->
 
@@ -262,21 +289,21 @@
                                     </div>
                                     <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                     <label class="form-label">@lang('site.social_media')</label>
-                                    <select class="form-control btn-square"
-                                        name="facebook">
-                                    <option disabled
-                                            selected>@lang('site.select')</option>
+                                    <select class="form-control btn-square" name="social_media">
+                                            <option selected>@lang('site.select')</option>
+                                        <option value="facebook"
+                                                @if($place->social_media=='facebook') selected @endif>facebook
+                                        </option>
+                                        <option value="instagram"
+                                                @if($place->social_media=='instagram') selected @endif>instagram
+                                        </option>                                           
 
-                                    <option value="instagram"
-                                    @if($place->facebook=='instagram') selected @endif>@lang('site.instagram')</option>
-                                    <option value="facebook"
-                                    @if($place->facebook=='facebook') selected @endif>@lang('site.facebook')</option>
                                     </select>
                                 </div>
 
                                 </div>
 
-                                <div class="row">
+                                    <div class="row">
                                     <!--<div class="col-md-6">-->
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
@@ -300,40 +327,39 @@
                                     </div>
 
                                 </div>
+                                <div class="row">
 
-                            <div class="row">
 
-
-                                <div class="col-md-6 form-group">
+                                <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                     <label class="form-label">@lang('site.users')</label>
-                                    <select class="form-control btn-square" name="user_id" readonly="">
+                                    <select class="form-control btn-square" name="user_id">
                                         <option selected>@lang('site.select')</option>
                                         @foreach($users as $user)
 
-                                            <option value="{{$user->id}}"
-                                                    @if($user->user_id==$user->id) selected @endif>{{$user->username ?? ''}}</option>
+                                            <option value="{{$user->id}}"@if($user->user_id==$user->id) selected @endif>{{$user->username ?? ''}}</option>
 
                                         @endforeach
 
                                     </select>
                                 </div>
+                             
 
-                                <div class="col-md-6 form-group">
+                        
+                                <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                     <label class="form-label">@lang('site.categories')</label>
                                     <select class="form-control btn-square" name="category_id">
                                         <option selected>@lang('site.select')</option>
                                         @foreach($categories as $cat)
 
-                                            <option value="{{$cat->id}}">{{$cat->name ?? ''}}</option>
-                                            @if($place->place_category_id==$cat->id) selected @endif>{{$cat->name ?? ''}}</option>
+                                            <option value="{{$cat->id}}"@if($place->place_category_id==$cat->id) selected @endif>{{$cat->name ?? ''}}</option>
 
                                         @endforeach
 
                                     </select>
                                 </div>
 
-
                                 </div>
+                                
                                 <div class="row">
 
 
