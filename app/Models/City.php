@@ -19,9 +19,15 @@ class City extends Model
         'order',
 
     ];
+
+    protected $hidden=['deleted_at','updated_at'];
     // relations
     public function carBooking(){
         return $this->HasMany(CarBooking::class);
+    }
+
+    public function categories(){
+        return $this->HasMany(Category::class);
     }
     // relations
     public function aqarBooking(){

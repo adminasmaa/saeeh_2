@@ -2,6 +2,7 @@
 
 return [
     'settingss' => ' Settings',
+    'link'=>'Link',
     'Saeeh' => 'Saeeh',
     'questions' => 'Questions',
     'question' => 'question',

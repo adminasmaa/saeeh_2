@@ -14,8 +14,8 @@ use App\Http\Controllers\Dashboard\BrandController;
 use App\Http\Controllers\Dashboard\CarController;
 use App\Http\Controllers\Dashboard\CarCommentController;
 use App\Http\Controllers\Dashboard\BookingController;
-use App\Http\Controllers\Dashboard\AquarCategoryController;
 use App\Http\Controllers\Dashboard\PlaceController;
+use App\Http\Controllers\Dashboard\AquarCategoryController;
 
 use App\Http\Controllers\Dashboard\UserController;
 use Illuminate\Support\Facades\Route;
