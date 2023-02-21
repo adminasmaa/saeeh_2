@@ -68,7 +68,7 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
     {
         // TODO: Implement store() method.
 
-        $request_data = $request->except(['display_photo']);
+        $request_data = $request->except(['display_photo','notify_photo']);
 
         // To Make  Active
 
@@ -83,6 +83,15 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
             $place->save();
         }
 
+        if ($request->hasFile('notify_photo')) {
+            $thumbnail = $request->file('notify_photo');
+            $destinationPath = 'images/places/';
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move($destinationPath, $filename);
+            $place->notify_photo = $filename;
+            $place->save();
+        }
+       
         if ($place) {
 //            Alert::success('Success', __('site.added_successfully'));
 
@@ -95,7 +104,7 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
     {
         // TODO: Implement update() method.
 
-        $request_data = $request->except(['display_photo', '_token', '_method']);
+        $request_data = $request->except(['display_photo', '_token', '_method', 'notify_photo']);
         $place->update($request_data);
 
 
@@ -108,7 +117,14 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
             $place->save();
         }
 
-
+        if ($request->hasFile('notify_photo')) {
+            $thumbnail = $request->file('notify_photo');
+            $destinationPath = 'images/places/';
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move($destinationPath, $filename);
+            $place->notify_photo = $filename;
+            $place->save();
+        }
         if ($place) {
 //            Alert::success('Success', __('site.updated_successfully'));
 

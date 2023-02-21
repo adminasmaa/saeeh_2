@@ -103,12 +103,13 @@ class CarRepository implements CarRepositoryInterfaceAlias
                 $file_name = $_FILES['images']['name'][$key];
                 $files->move($destinationPath, $file_name);
                 $data[] = $_FILES['images']['name'][$key];
+                $car->images = json_encode($data);
+                $car->save();
             }
         }
 
 
-        $car->images = json_encode($data);
-        $car->save();
+        
 
 
         if ($car) {
@@ -152,11 +153,12 @@ class CarRepository implements CarRepositoryInterfaceAlias
                 $file_name = $_FILES['images']['name'][$key];
                 $files->move($destinationPath, $file_name);
                 $data[] = $_FILES['images']['name'][$key];
+                $car->images = json_encode($data);
+                $car->save();
             }
         }
 
-        $car->images = json_encode($data);
-        $car->save();
+       
 
         if ($car) {
 //            Alert::success('Success', __('site.updated_successfully'));
