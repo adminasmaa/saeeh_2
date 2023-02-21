@@ -23,6 +23,7 @@ Route::get('/', function () {
 define('MAINASSETS', URL::asset('assets'));
 define('MAINUPLOADS', URL::asset('uploads'));
 define('MAINDIST', URL::asset('dist/frontend/img'));
+define('MAINDASHBOARD', URL::asset('dashboard_files'));
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

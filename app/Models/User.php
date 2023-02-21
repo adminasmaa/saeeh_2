@@ -6,7 +6,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use Laravel\Passport\HasApiTokens;  //add the namespace
+
 use Laratrust\Traits\LaratrustUserTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Place;    // HasMany
@@ -53,6 +54,7 @@ class User extends Authenticatable
         'longitude',
         'account_type',
         'phone',
+        'country_code'
     ];
 
     /**

@@ -36,6 +36,7 @@
 
 
                         </div>
+
                         <div class="bg-secondary-lighten card-header d-flex justify-content-between">
                             <h5>@lang('site.add') </h5>
                             <div class="text-end  group-btn-top">
