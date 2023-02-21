@@ -76,29 +76,28 @@
                                         <label>@lang('site.color')<span class="text-danger">*</span></label>
                                         <input type="color" name="color" class="form-control"
                                                value="{{old('color')}}"
-                                               >
+                                        >
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.category')<span class="text-danger">*</span></label>
                                         <input type="text" name="category" class="form-control"
                                                value="{{old('category')}}"
-                                               >
+                                        >
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.number')<span class="text-danger">*</span></label>
                                         <input type="text" name="car_numbers" class="form-control"
                                                value="{{old('car_numbers')}}"
-                                               >
+                                        >
                                     </div>
-
 
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.date')<span class="text-danger">*</span></label>
                                         <input type="date" name="car_delivery_date" class="form-control"
                                                value="{{old('car_delivery_date')}}"
-                                               >
+                                        >
                                     </div>
 
 
@@ -106,14 +105,14 @@
                                         <label>@lang('site.price')<span class="text-danger">*</span></label>
                                         <input type="text" name="fixed_price" class="form-control"
                                                value="{{old('fixed_price')}}"
-                                               >
+                                        >
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.changed_price')<span class="text-danger">*</span></label>
                                         <input type="text" name="changed_price" class="form-control"
                                                value="{{old('changed_price')}}"
-                                               >
+                                        >
                                     </div>
 
 
@@ -124,7 +123,7 @@
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.description')<span class="text-danger">*</span></label>
-                                        <textarea class="form-control"   cols="5" rows="5" name="description">
+                                        <textarea class="form-control" cols="5" rows="5" name="description">
 
                                         </textarea>
                                     </div>
@@ -141,46 +140,44 @@
                                 <div class="row">
 
 
-                                <div class="col-md-6 form-group">
-                                    <label class="form-label">@lang('site.users')</label>
-                                    <select class="form-control btn-square" name="user_id">
-                                        <option selected>@lang('site.select')</option>
-                                        @foreach($users as $user)
+                                    <div class="col-md-6 form-group">
+                                        <label class="form-label">@lang('site.users')</label>
+                                        <select class="form-control btn-square" name="user_id">
+                                            <option selected>@lang('site.select')</option>
+                                            @foreach($users as $user)
 
-                                            <option value="{{$user->id}}">{{$user->username ?? ''}}</option>
+                                                <option value="{{$user->id}}">{{$user->username ?? ''}}</option>
 
-                                        @endforeach
+                                            @endforeach
 
-                                    </select>
-                                </div>
+                                        </select>
+                                    </div>
 
                                     <div class="col-md-6 form-group">
-                                    <label class="form-label">@lang('site.advertising')</label>
-                                    <select class="form-control btn-square" name="ads_id">
-                                        <option selected>@lang('site.select')</option>
-                                        @foreach($ads as $ad)
+                                        <label class="form-label">@lang('site.advertising')</label>
+                                        <select class="form-control btn-square" name="ads_id">
+                                            <option selected>@lang('site.select')</option>
+                                            @foreach($ads as $ad)
 
-                                            <option value="{{$ad->id}}">{{$ad->title ?? ''}}</option>
+                                                <option value="{{$ad->id}}">{{$ad->title ?? ''}}</option>
 
-                                        @endforeach
+                                            @endforeach
 
-                                    </select>
-                                </div>
+                                        </select>
+                                    </div>
 
                                     <div class="col-md-6 form-group">
-                                    <label class="form-label">@lang('site.brands')</label>
-                                    <select class="form-control btn-square" name="car_brand_id">
-                                        <option selected>@lang('site.select')</option>
-                                        @foreach($brands as $brand)
+                                        <label class="form-label">@lang('site.brands')</label>
+                                        <select class="form-control btn-square" name="car_brand_id">
+                                            <option selected>@lang('site.select')</option>
+                                            @foreach($brands as $brand)
 
-                                            <option value="{{$brand->id}}">{{$brand->name ?? ''}}</option>
+                                                <option value="{{$brand->id}}">{{$brand->name ?? ''}}</option>
 
-                                        @endforeach
+                                            @endforeach
 
-                                    </select>
-                                </div>
-
-
+                                        </select>
+                                    </div>
 
 
                                 </div>
@@ -198,6 +195,28 @@
 
 
                                     </div>
+
+                                    <div class="col-md-6 form-group col-12 p-2">
+
+
+                                        <label>@lang('site.videos')</label>
+                                        <input type="file" name="videos" class="form-control"
+                                               value="{{ old('videos') }}">
+
+
+                                    </div>
+
+                                    <div class="col-md-6 form-group col-12 p-2">
+
+
+                                        <label>@lang('site.images')</label>
+                                        <input type="file" name="images[]" class="form-control"
+                                               value="{{ old('images[]') }}" multiple>
+
+
+                                    </div>
+
+
                                 </div>
                                 <br>
 

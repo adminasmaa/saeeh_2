@@ -123,11 +123,11 @@
                                 </div>
 
 
-                                <div class="col-md-6 form-group col-12 p-2 ">
-                                    <label>@lang('site.code')<span class="text-danger">*</span></label>
-                                    <input type="text" name="code" class="form-control" value="{{ $city->code }}"
-                                    >
-                                </div>
+{{--                                <div class="col-md-6 form-group col-12 p-2 ">--}}
+{{--                                    <label>@lang('site.code')<span class="text-danger">*</span></label>--}}
+{{--                                    <input type="text" name="code" class="form-control" value="{{ $city->code }}"--}}
+{{--                                    >--}}
+{{--                                </div>--}}
 
                                 <div class="col-md-6 form-group">
                                     <label class="form-label">@lang('site.country')</label>

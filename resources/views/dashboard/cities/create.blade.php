@@ -74,12 +74,12 @@
 
                                     <div class="row">
 
-                                        <div class="col-md-6 form-group">
-                                            <label>@lang('site.code')<span class="text-danger">*</span></label>
-                                            <input type="text" name="code" class="form-control"
-                                                   value="{{old('code')}}"
-                                            >
-                                        </div>
+{{--                                        <div class="col-md-6 form-group">--}}
+{{--                                            <label>@lang('site.code')<span class="text-danger">*</span></label>--}}
+{{--                                            <input type="text" name="code" class="form-control"--}}
+{{--                                                   value="{{old('code')}}"--}}
+{{--                                            >--}}
+{{--                                        </div>--}}
 
                                         <div class="col-md-6 form-group">
                                             <label class="form-label">@lang('site.country')</label>

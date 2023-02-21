@@ -41,6 +41,7 @@ class CarRepository implements CarRepositoryInterfaceAlias
         // TODO: Implement edit() method.
 
         $car = Car::find($Id);
+
         $users = User::all();
         $brands = CarBrand::all();
         $ads = Ads::all();
@@ -66,9 +67,11 @@ class CarRepository implements CarRepositoryInterfaceAlias
 
     public function store($request)
     {
+
+
         // TODO: Implement store() method.
 
-        $request_data = $request->except(['main_image_ads']);
+        $request_data = $request->except(['main_image_ads', 'images','videos']);
 
         // To Make  Active
 
@@ -83,6 +86,31 @@ class CarRepository implements CarRepositoryInterfaceAlias
             $car->save();
         }
 
+        if ($request->hasFile('videos')) {
+            $thumbnail = $request->file('videos');
+            $destinationPath = 'images/cars/';
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move($destinationPath, $filename);
+            $car->videos = $filename;
+            $car->save();
+        }
+
+
+        if ($request->hasFile('images')) {
+            $images = $request->file('images');
+            foreach ($images as $key => $files) {
+                $destinationPath = 'images/cars/';
+                $file_name = $_FILES['images']['name'][$key];
+                $files->move($destinationPath, $file_name);
+                $data[] = $_FILES['images']['name'][$key];
+            }
+        }
+
+
+        $car->images = json_encode($data);
+        $car->save();
+
+
         if ($car) {
 //            Alert::success('Success', __('site.added_successfully'));
 
@@ -95,7 +123,7 @@ class CarRepository implements CarRepositoryInterfaceAlias
     {
         // TODO: Implement update() method.
 
-        $request_data = $request->except(['main_image_ads', '_token', '_method']);
+        $request_data = $request->except(['main_image_ads', '_token', '_method', 'images','videos']);
         $car->update($request_data);
 
 
@@ -108,6 +136,27 @@ class CarRepository implements CarRepositoryInterfaceAlias
             $car->save();
         }
 
+        if ($request->hasFile('videos')) {
+            $thumbnail = $request->file('videos');
+            $destinationPath = 'images/cars/';
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move($destinationPath, $filename);
+            $car->videos = $filename;
+            $car->save();
+        }
+
+        if ($request->hasFile('images')) {
+            $images = $request->file('images');
+            foreach ($images as $key => $files) {
+                $destinationPath = 'images/cars/';
+                $file_name = $_FILES['images']['name'][$key];
+                $files->move($destinationPath, $file_name);
+                $data[] = $_FILES['images']['name'][$key];
+            }
+        }
+
+        $car->images = json_encode($data);
+        $car->save();
 
         if ($car) {
 //            Alert::success('Success', __('site.updated_successfully'));

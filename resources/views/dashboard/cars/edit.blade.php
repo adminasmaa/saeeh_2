@@ -231,7 +231,64 @@
 
 
                                 </div>
+
+
                             </div>
+
+                            <div class="row">
+                                <div class="col-md-6 form-group col-12 p-2">
+
+
+                                    <label>@lang('site.videos')</label>
+                                    <input type="file" name="videos" class="form-control"
+                                           value="{{ old('videos') }}">
+
+
+                                </div>
+
+                                <div class="col-md-6 form-group col-12 p-2">
+
+
+
+                                    <video width="300" height="150" controls>
+                                        <source src="{{URL::asset("/images/cars/$car->videos")}}" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                            </div>
+                            <div class="row">
+
+
+                                <div class="col-md-6 form-group col-12 p-2">
+
+
+                                    <label>@lang('site.images')</label>
+                                    <input type="file" name="images[]" class="form-control"
+                                           value="{{ old('images[]') }}" multiple>
+
+
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                @isset($car['images'])
+                                    @foreach(json_decode($car->images) as $key=>$image)
+                                        <div class="col-md-2 form-group col-2 p-1">
+
+                                            <img src="{{asset('images/cars/'.$image)}}"
+
+                                                 width="100px" height="100px"
+                                                 class="d-block"
+                                                 onerror="this.src='{{asset('images/cars/default.jpg')}}'"
+                                            >
+
+                                        </div>
+                                    @endforeach
+                                @endisset
+
+                            </div>
+
 
                             <br>
 

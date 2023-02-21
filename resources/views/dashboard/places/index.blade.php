@@ -18,7 +18,7 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">@lang('site.dashboard')</li>
 
-                            <li class="breadcrumb-item active">@lang('site.users') @endlang</li>
+                            <li class="breadcrumb-item active">@lang('site.places') @endlang</li>
                         </ol>
                     </div>
                 </div>
@@ -36,32 +36,17 @@
 
 
                         </div>
-
-                        <div class="bg-secondary-lighten card-header d-flex justify-content-between">
-                            <h5>@lang('site.add') </h5>
-                            <div class="text-end  group-btn-top">
-                                <div class="form-group d-flex form-group justify-content-between">
-
-                                    <a href="{{route('dashboard.users.create')}}" class="btn btn-air-primary btn-pill btn-primary"><i
-                                            class="fa fa-plus p-1"></i>
-                                        @lang('site.add')</a>
-                                </div>
-                            </div>
-
-
-                        </div>
-
                         <div class="card-body">
 
                             <div class="dt-ext table-responsive">
                                 <table class="display" id="export-button">
 
-                                        {!! $dataTable->table([], true) !!}
+                                    {!! $dataTable->table([], true) !!}
 
 
-                                    </table>
+                                </table>
 
-                                </div>
+                            </div>
 
                         </div>
                     </div>
@@ -83,9 +68,9 @@
 @section('scripts')
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 
-{{--    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>--}}
-{{--    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>--}}
-{{--    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.bootstrap4.min.js"></script>--}}
+    {{--    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>--}}
+    {{--    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>--}}
+    {{--    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.bootstrap4.min.js"></script>--}}
 
     <script>
         $(document).ready(function () {

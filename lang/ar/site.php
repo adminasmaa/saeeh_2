@@ -15,6 +15,7 @@ return [
     'question' => 'السؤال',
     'cars'=>'السيارات',
 
+
     'terms_conditions' => 'الشروط والاحكام',
     'website_address' => 'عنوان الموقع ',
     'brands'=>'ماركات العربيات',
@@ -24,7 +25,7 @@ return [
     'start_date' => 'تاريخ البدء',
     'end_date' => ' تنتهي في: ',
     'reports' => 'التقارير',
-'advertising'=>'الاعلانات ',
+    'advertising'=>'الاعلانات ',
     'operation' => 'عملية',
     'amount' => 'كميات',
 
@@ -51,6 +52,7 @@ return [
     'Send Password Reset' => 'إرسال إعادة تعيين كلمة المرور',
 
     'reference' => 'المرجع',
+    'videos'=>'الفيديو',
 
     'date' => 'تاريخ ',
     'color'=>'اللون',
@@ -101,8 +103,8 @@ return [
     'url' => 'لينك',
     'visible' => 'مرئي',
     'Arabic' => 'اللغة العربية',
-    'latitude' => 'العرض',
-    'longitude' => 'الطول',
+    'latitude' => 'خط العرض',
+    'longitude' => 'خط الطول',
     'NOT_PAID' => 'لم يتم السداد',
     'PAID' => 'تم السداد',
     'confirm_remove' => 'هل انت متأكد من الانتقال إلى متجر جديد',
@@ -185,7 +187,7 @@ return [
     'OPTION' => 'اختيار',
     'Required' => 'مطلوب',
     'image' => 'الصورة ',
-    'dashboard' => 'لؤحه التحكم',
+    'dashboard' => ' الرئيسيه',
 
     'logout' => 'تسجيل الخروج',
     'status' => 'الحاله',
@@ -374,7 +376,7 @@ return [
     'message' => 'الرساله',
     'select_all' => 'اختيار الكل',
     'created_by' => 'أُضيف بواسطة',
-    'settings' => 'الإعدادت العامة للنظام',
+    'settings' => 'الإعدادت  ',
     'param' => 'الاسم',
     'value' => 'القيمة',
 
@@ -385,6 +387,35 @@ return [
     'aquars' => 'العقارات',
 
     'order' => 'الترتيب',
+
+    'places'=>'الاماكن',
+    'name_ar'=>'الاسم بالعربي',
+    'name_en'=>'الاسم بالانجليزي',
+    'place_order'=>'رقم طلب المكان ',
+    'place_error'=>' رقم خطا المكان',
+    'const_from'=>'من',
+    'const_to'=>' الى',
+    'address'=>' العنوان',
+    'descrption_ar'=>' تفاصيل بالعربي ',
+    'descrption_en'=>' تفاصيل بالانجليزي ',
+    'phone_one'=>' الرقم الاول',
+    'phone_two'=>'الرقم الثاني',
+    'google_mark_link'=>' رابط جوجل',
+    'place_link'=>' رابط المكان',
+    'share_link'=>' رابط المشاركة',
+    'time_check'=>' وقت الملاحظة',
+    'seen_counter'=>' عدد المشاهدين  ',
+    'delivery'=>' رقم  الوصول ',
+    'diff_time'=>' اختلاف الوقت  ',
+    'const_time'=>' الوقت المحدد  ',
+    'rest_one'=>'  انواع الاكل',
+    'rest_two'=>'  انواع الراحة ',
+    'rest_three'=>' مكان الطاولات  ',
+    'social_media'=>'  مواقع التواصل الاجتماعي ',
+    'display_photo'=>' الصورة الرئيسية  ',
+    'notify_photo'=>' صورة الملاحظه',
+
+
     'ar' => [
         'name' => 'الاسم باللغة العربية',
         'description' => 'الوصف باللغة العربية',

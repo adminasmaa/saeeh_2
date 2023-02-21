@@ -64,13 +64,27 @@
                                                value="{{old('name')}}"
                                                required>
                                     </div>
+
+                                    <div class="col-md-6 form-group col-12 p-2 ">
+                                        <label class="form-label">@lang('site.city')</label>
+                                        <select class="form-control btn-square" name="city_id">
+                                            <option selected>@lang('site.select')</option>
+                                            @foreach($cities as $city)
+
+                                                <option value="{{$city->id}}">{{$city->name ?? ''}}</option>
+
+                                            @endforeach
+
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <!--<div class="col-md-6">-->
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.description')<span class="text-danger">*</span></label>
-                                        <textarea class="form-control" id="editor1"  cols="15" rows="5" name="description">
+                                        <textarea class="form-control" id="editor1" cols="15" rows="5"
+                                                  name="description">
 
                                         </textarea>
                                     </div>
@@ -94,22 +108,22 @@
 
                                 <div class="row m-0">
                                     <h4 class="card-title">@lang('site.subcategories')</h4>
-                                    <div class="col-md-3 form-group col-12 p-2">
+{{--                                    <div class="col-md-3 form-group col-12 p-2">--}}
 
 
-                                        <label>@lang('site.name')</label>
-                                        <input type="text" name="name_category[]" class="form-control"
-                                               value="{{ old('name') }}">
-                                    </div>
+{{--                                        <label>@lang('site.name')</label>--}}
+{{--                                        <input type="text" name="name_category[]" class="form-control"--}}
+{{--                                               value="{{ old('name') }}">--}}
+{{--                                    </div>--}}
 
-                                    <div class="col-md-3 form-group col-12 p-2">
+{{--                                    <div class="col-md-3 form-group col-12 p-2">--}}
 
 
-                                        <label>@lang('site.image')</label>
-                                        <input type="file" name="image_category[]" class="form-control"
-                                               value="{{ old('image') }}">
+{{--                                        <label>@lang('site.image')</label>--}}
+{{--                                        <input type="file" name="image_category[]" class="form-control"--}}
+{{--                                               value="{{ old('image') }}">--}}
 
-                                    </div>
+{{--                                    </div>--}}
 
 
                                     <div class="col-md-2 form-group col-12 p-2">
@@ -153,8 +167,6 @@
 
 @section('scripts')
     <script>
-
-
 
 
         $(document).ready(function () {

@@ -14,7 +14,11 @@ use App\Http\Controllers\Dashboard\BrandController;
 use App\Http\Controllers\Dashboard\CarController;
 use App\Http\Controllers\Dashboard\CarCommentController;
 use App\Http\Controllers\Dashboard\BookingController;
+<<<<<<< HEAD
 use App\Http\Controllers\Dashboard\AquarCategoryController;
+=======
+use App\Http\Controllers\Dashboard\PlaceController;
+>>>>>>> a87b9bd7b3201d034c016b311e3502a5a0c54f28
 
 use App\Http\Controllers\Dashboard\UserController;
 use Illuminate\Support\Facades\Route;
@@ -68,6 +72,9 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
         //Setting
         Route::resource('settings', SettingController::class);
+
+        //cars
+        Route::resource('places', PlaceController::class);
 
 
         //aquarcategories

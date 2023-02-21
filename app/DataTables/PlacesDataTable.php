@@ -3,7 +3,7 @@
 namespace App\DataTables;
 
 use App\Helpers\DTHelper;
-use App\Models\City;
+use App\Models\Place;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -13,9 +13,9 @@ use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class CitiesDataTable extends DataTable
+class PlacesDataTable extends DataTable
 {
-    private $crudName = 'cities';
+    private $crudName = 'places';
 
     private function getRoutes()
     {
@@ -63,26 +63,19 @@ class CitiesDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Country $model
+     * @param \App\Models\Place $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(City $model): QueryBuilder
+    public function query(Place $model): QueryBuilder
     {
         return $model->newQuery();
     }
 
     public function count()
     {
-        return City::count();
+        return Place::count();
 
     }
-
-    /**
-     * Get query source of dataTable.
-     *
-     * @param \App\Models\City $model
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
 
 
     /**
@@ -93,7 +86,7 @@ class CitiesDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-            ->setTableId('cities-table')
+            ->setTableId('places-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
             //->dom('Bfrtip')
@@ -117,8 +110,9 @@ class CitiesDataTable extends DataTable
     {
         return [
             Column::make('id'),
-            Column::make('name')->title(trans('site.name')),
-//            Column::make('code')->title(trans('site.code')),
+            Column::make('name_ar')->title(trans('site.name_ar')), 
+            Column::make('descrption_ar')->title(trans('site.descrption_ar')),
+            Column::make('phone_one')->title(trans('site.phone_one')),
             Column::make('created_at')->title(trans('site.created_at')),
             Column::computed('action')
                 ->exportable(false)
@@ -135,6 +129,6 @@ class CitiesDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'Cities_' . date('YmdHis');
+        return 'Places_' . date('YmdHis');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Eloquent;
 
+use App\Models\City;
 use App\Models\Country;
 use App\Models\Role;
 use App\Models\User;
@@ -25,8 +26,9 @@ class UserRepository implements IUserRepositoryAlias
 
         $roles = Role::all();
         $countries = Country::all();
+        $cities = City::all();
 
-        return view('dashboard.users.create', compact('roles', 'countries'));
+        return view('dashboard.users.create', compact('roles', 'countries','cities'));
     }
 
     public function edit($Id)
@@ -37,9 +39,9 @@ class UserRepository implements IUserRepositoryAlias
         $user = User::find($Id);
 
         $countries = Country::all();
+        $cities = City::all();
 
-
-        return view('dashboard.users.edit', compact('user', 'roles', 'countries'));
+        return view('dashboard.users.edit', compact('user', 'roles', 'countries','cities'));
     }
 
     public function show($Id)
@@ -51,10 +53,11 @@ class UserRepository implements IUserRepositoryAlias
 
         $countries = Country::all();
 
+        $cities = City::all();
 
         $roles = Role::all();
 
-        return view('dashboard.users.show', compact('user', 'roles', 'countries'));
+        return view('dashboard.users.show', compact('user', 'roles', 'countries','cities'));
     }
 
     public function destroy($user)

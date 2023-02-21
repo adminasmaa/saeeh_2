@@ -360,141 +360,107 @@
                             </li>
                             <li class="sidebar-main-title">
                                 <div>
-                                    <h6 class="lan-1">General</h6>
-                                    <p class="lan-2">Dashboards,widgets & layout.</p>
+                                    <h6 class="lan-1">Saeeh</h6>
+                                    <p class="lan-2">Dashboards,widgets </p>
                                 </div>
                             </li>
-
-
                             <li class="sidebar-list"><a
-                                    class="sidebar-link sidebar-title {{((in_array($current_route, ['dashboard.users.index','dashboard.users.create']))?'active':'' )}}"
-                                    href="#"><i data-feather="users"></i><span>@lang('site.users') @endlang</span></a>
-                                <ul class="sidebar-submenu">
-                                    <li><a href="{{route('dashboard.users.create')}}">{{__('site.add')}}</a></li>
-                                    <li><a href="{{route('dashboard.users.index')}}">{{__('site.users')}}</a></li>
-                                </ul>
+                                    class="sidebar-link sidebar-title link-nav"
+                                    href="{{route('home')}}"><i
+                                        data-feather="home"></i><span>@lang('site.dashboard') @endlang</span></a>
+
                             </li>
 
                             <li class="sidebar-list"><a
-                                    class="sidebar-link sidebar-title {{((in_array($current_route, ['dashboard.roles.index','dashboard.roles.create']))?'active':'' )}}"
-                                    href="#"><i data-feather="box"></i><span>@lang('site.roles') @endlang</span></a>
-                                <ul class="sidebar-submenu">
-                                    <li><a href="{{route('dashboard.roles.create')}}">{{__('site.add')}}</a></li>
-                                    <li><a href="{{route('dashboard.roles.index')}}">{{__('site.roles')}}</a></li>
-                                </ul>
-                            </li>
-                            <li class="sidebar-list"><a
-                                    class="sidebar-link sidebar-title {{((in_array($current_route, ['dashboard.countries.index','dashboard.countries.create']))?'active':'' )}}"
-                                    href="#"><i data-feather="map"></i><span>@lang('site.countries') @endlang</span></a>
-                                <ul class="sidebar-submenu">
-                                    <li><a href="{{route('dashboard.countries.create')}}">{{__('site.add')}}</a></li>
-                                    <li><a href="{{route('dashboard.countries.index')}}">{{__('site.countries')}}</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="sidebar-list"><a
-                                    class="sidebar-link sidebar-title {{((in_array($current_route, ['dashboard.cities.index','dashboard.cities.create']))?'active':'' )}}"
-                                    href="#"><i data-feather="film"></i><span>@lang('site.cities') @endlang</span></a>
-                                <ul class="sidebar-submenu">
-                                    <li><a href="{{route('dashboard.cities.create')}}">{{__('site.add')}}</a></li>
-                                    <li><a href="{{route('dashboard.cities.index')}}">{{__('site.cities')}}</a></li>
-                                </ul>
-                            </li>
-                            <li class="sidebar-list"><a
-                                    class="sidebar-link sidebar-title {{((in_array($current_route, ['dashboard.categories.index','dashboard.categories.create']))?'active':'' )}}"
-                                    href="#"><i data-feather="layers"></i><span>@lang('site.categories') @endlang</span></a>
-                                <ul class="sidebar-submenu">
-                                    <li><a href="{{route('dashboard.categories.create')}}">{{__('site.add')}}</a></li>
-                                    <li><a href="{{route('dashboard.categories.index')}}">{{__('site.categories')}}</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="sidebar-list"><a
-                                    class="sidebar-link sidebar-title {{((in_array($current_route, ['dashboard.questions.index','dashboard.questions.create']))?'active':'' )}}"
-                                    href="#"><i data-feather="file-text"></i><span>@lang('site.questions') @endlang</span></a>
-                                <ul class="sidebar-submenu">
-                                    <li><a href="{{route('dashboard.questions.create')}}">{{__('site.add')}}</a></li>
-                                    <li><a href="{{route('dashboard.questions.index')}}">{{__('site.questions')}}</a>
-                                    </li>
-                                </ul>
+                                    class="sidebar-link sidebar-title link-nav"
+                                    href="{{route('dashboard.settings.index')}}"><i
+                                        data-feather="settings"></i><span>@lang('site.settings') @endlang</span></a>
+
                             </li>
 
                             <li class="sidebar-list"><a
-                                    class="sidebar-link sidebar-title {{((in_array($current_route, ['dashboard.problems.index','dashboard.problems.create']))?'active':'' )}}"
-                                    href="#"><i
-                                        data-feather="file"></i><span>@lang('site.problems') @endlang</span></a>
-                                <ul class="sidebar-submenu">
-                                    <li><a href="{{route('dashboard.problems.create')}}">{{__('site.add')}}</a></li>
-                                    <li><a href="{{route('dashboard.problems.index')}}">{{__('site.problems')}}</a>
-                                    </li>
-                                </ul>
+                                    class="sidebar-link sidebar-title link-nav"
+                                    href="{{route('dashboard.users.index')}}"><i
+                                        data-feather="users"></i><span>@lang('site.users') @endlang</span></a>
+
+                            </li>
+
+
+                            <li class="sidebar-list"><a
+                                    class="sidebar-link sidebar-title link-nav"
+                                    href="{{route('dashboard.roles.index')}}"><i
+                                        data-feather="box"></i><span>@lang('site.roles') @endlang</span></a>
+
+                            </li>
+
+
+                            <li class="sidebar-list"><a
+                                    class="sidebar-link sidebar-title link-nav"
+                                    href="{{route('dashboard.countries.index')}}"><i
+                                        data-feather="map"></i><span>@lang('site.countries') @endlang</span></a>
+
                             </li>
 
                             <li class="sidebar-list"><a
-                                    class="sidebar-link sidebar-title {{((in_array($current_route, ['dashboard.mediators.index','dashboard.mediators.create']))?'active':'' )}}"
-                                    href="#"><i data-feather="user-check"></i><span>@lang('site.mediators') @endlang</span></a>
-                                <ul class="sidebar-submenu">
-                                    <li><a href="{{route('dashboard.mediators.create')}}">{{__('site.add')}}</a></li>
-                                    <li><a href="{{route('dashboard.mediators.index')}}">{{__('site.mediators')}}</a>
-                                    </li>
-                                </ul>
+                                    class="sidebar-link sidebar-title link-nav"
+                                    href="{{route('dashboard.cities.index')}}"><i
+                                        data-feather="film"></i><span>@lang('site.cities') @endlang</span></a>
+
                             </li>
 
                             <li class="sidebar-list"><a
-                                    class="sidebar-link sidebar-title {{((in_array($current_route, ['dashboard.advertising.index','dashboard.advertising.create']))?'active':'' )}}"
-                                    href="#"><i
+                                    class="sidebar-link sidebar-title link-nav"
+                                    href="{{route('dashboard.categories.index')}}"><i
+                                        data-feather="layers"></i><span>@lang('site.categories') @endlang</span></a>
+
+                            </li>
+
+                            <li class="sidebar-list"><a
+                                    class="sidebar-link sidebar-title link-nav"
+                                    href="{{route('dashboard.questions.index')}}"><i
+                                        data-feather="file-text"></i><span>@lang('site.questions') @endlang</span></a>
+
+                            </li>
+
+
+                            <li class="sidebar-list"><a
+                                    class="sidebar-link sidebar-title link-nav"
+                                    href="{{route('dashboard.problems.index')}}"><i
+                                        data-feather="list"></i><span>@lang('site.problems') @endlang</span></a>
+
+                            </li>
+
+
+                            <li class="sidebar-list"><a
+                                    class="sidebar-link sidebar-title link-nav"
+                                    href="{{route('dashboard.mediators.index')}}"><i
+                                        data-feather="user-check"></i><span>@lang('site.mediators') @endlang</span></a>
+
+                            </li>
+
+                            <li class="sidebar-list"><a
+                                    class="sidebar-link sidebar-title link-nav"
+                                    href="{{route('dashboard.advertising.index')}}"><i
                                         data-feather="zap"></i><span>@lang('site.advertising') @endlang</span></a>
-                                <ul class="sidebar-submenu">
-                                    <li><a href="{{route('dashboard.advertising.create')}}">{{__('site.add')}}</a></li>
-                                    <li>
-                                        <a href="{{route('dashboard.advertising.index')}}">{{__('site.advertising')}}</a>
-                                    </li>
-                                </ul>
+
                             </li>
-                            <li class="sidebar-list"><a
-                                    class="sidebar-link sidebar-title {{((in_array($current_route, ['dashboard.brands.index','dashboard.brands.create']))?'active':'' )}}"
-                                    href="#"><i data-feather="star"></i><span>@lang('site.brands') @endlang</span></a>
+
+
+                            {{--list--}}
+
+                            <li class="sidebar-list">
+                                <label class="badge badge-light-secondary"></label><a class="sidebar-link sidebar-title" href="#"><i data-feather="airplay"></i><span>@lang('site.cars') @endlang                </span></a>
                                 <ul class="sidebar-submenu">
-                                    <li><a href="{{route('dashboard.brands.create')}}">{{__('site.add')}}</a></li>
                                     <li><a href="{{route('dashboard.brands.index')}}">{{__('site.brands')}}</a>
                                     </li>
-                                </ul>
-                            </li>
-
-                            <li class="sidebar-list"><a
-                                    class="sidebar-link sidebar-title {{((in_array($current_route, ['dashboard.cars.index','dashboard.cars.create']))?'active':'' )}}"
-                                    href="#"><i data-feather="airplay"></i><span>@lang('site.cars') @endlang</span></a>
-                                <ul class="sidebar-submenu">
-                                    <li><a href="{{route('dashboard.cars.create')}}">{{__('site.add')}}</a></li>
                                     <li><a href="{{route('dashboard.cars.index')}}">{{__('site.cars')}}</a>
-                                    </li>
-                                </ul>
-                            </li>
 
-                            <li class="sidebar-list"><a
-                                    class="sidebar-link sidebar-title {{((in_array($current_route, ['dashboard.car_comments.index']))?'active':'' )}}"
-                                    href="#"><i data-feather="cast"></i><span>@lang('site.car_comments') @endlang</span></a>
-                                <ul class="sidebar-submenu">
-                                    <li><a href="{{route('dashboard.car_comments.index')}}">{{__('site.car_comments')}}</a>
                                     </li>
-                                </ul>
-                            </li>
-
-                            <li class="sidebar-list"><a
-                                    class="sidebar-link sidebar-title {{((in_array($current_route, ['dashboard.bookings.index']))?'active':'' )}}"
-                                    href="#"><i data-feather="message-circle"></i><span>@lang('site.bookings') @endlang</span></a>
-                                <ul class="sidebar-submenu">
                                     <li><a href="{{route('dashboard.bookings.index')}}">{{__('site.bookings')}}</a>
                                     </li>
-                                </ul>
-                            </li>
 
-                            <li class="sidebar-list"><a
-                                    class="sidebar-link sidebar-title {{((in_array($current_route, ['dashboard.settings.index']))?'active':'' )}}"
-                                    href="#"><i
-                                        data-feather="settings"></i><span>@lang('site.settings') @endlang</span></a>
-                                <ul class="sidebar-submenu">
-                                    <li><a href="{{route('dashboard.settings.index')}}">{{__('site.settings')}}</a>
+                                    <li>
+                                        <a href="{{route('dashboard.car_comments.index')}}">{{__('site.car_comments')}}</a>
                                     </li>
                                 </ul>
                             </li>
@@ -506,6 +472,18 @@
                                     </li>
                                 </ul>
                             </li>
+
+
+                            <li class="sidebar-list"><a
+                                    class="sidebar-link sidebar-title {{((in_array($current_route, ['dashboard.places.index','dashboard.places.create']))?'active':'' )}}"
+                                    href="#"><i data-feather="airplay"></i><span>@lang('site.places') @endlang</span></a>
+                                <ul class="sidebar-submenu">
+                                    <li><a href="{{route('dashboard.places.create')}}">{{__('site.add')}}</a></li>
+                                    <li><a href="{{route('dashboard.places.index')}}">{{__('site.places')}}</a>
+                                    </li>
+                                </ul>
+                            </li>
+
 
 
                         </ul>

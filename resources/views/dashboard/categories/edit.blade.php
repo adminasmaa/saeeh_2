@@ -115,13 +115,27 @@
                                     <input type="text" name="name" class="form-control" value="{{ $category->name }}"
                                            required>
                                 </div>
+
+                                <div class="col-md-6 form-group col-12 p-2 ">
+                                    <label class="form-label">@lang('site.city')</label>
+                                    <select class="form-control btn-square" name="city_id">
+                                        <option selected>@lang('site.select')</option>
+                                        @foreach($cities as $city)
+
+                                            <option value="{{$city->id}}"
+                                                    @if($city->id==$category->city_id) selected @endif>{{$city->name ?? ''}}</option>
+
+                                        @endforeach
+
+                                    </select>
+                                </div>
                             </div>
                             <div class="row">
                                 <!--<div class="col-md-6">-->
 
                                 <div class="col-md-6 form-group col-12 p-2 ">
                                     <label>@lang('site.description')<span class="text-danger">*</span></label>
-                                    <textarea class="form-control" id="editor1"  cols="15" rows="5" name="description">
+                                    <textarea class="form-control" id="editor1" cols="15" rows="5" name="description">
                      {{ $category->description }}
                                         </textarea>
                                 </div>
@@ -149,7 +163,7 @@
 
 
                                         <label>@lang('site.name')</label>
-                                        <input type="text"  class="form-control"
+                                        <input type="text" class="form-control"
                                                value="{{ $cat->name ?? '' }}">
                                     </div>
 
@@ -157,7 +171,7 @@
 
 
                                         <label>@lang('site.image')</label>
-                                        <input type="file"  class="form-control"
+                                        <input type="file" class="form-control"
                                                value="{{ old('image') }}">
 
 
@@ -165,20 +179,18 @@
 
                                     <div class="col-md-3 form-group col-12 p-2">
 
-                                        <img        src="{{asset('images/categories/'.$cat->image)}}"
-                                                    width="100px" height="100px">
+                                        <img src="{{asset('images/categories/'.$cat->image)}}"
+                                             width="100px" height="100px">
 
 
-                                           <a type="button" href="{{route('dashboard.DeleteSubCategories',$cat->id)}}" class="btn-table  btn  btn-xs 88"
-                                            >
-                                                <i class="fa fa-trash"></i>
-                                            </a>
+                                        <a type="button" href="{{route('dashboard.DeleteSubCategories',$cat->id)}}"
+                                           class="btn-table  btn  btn-xs 88"
+                                        >
+                                            <i class="fa fa-trash"></i>
+                                        </a>
 
 
                                     </div>
-
-
-
 
 
                                     @endforeach
@@ -195,7 +207,6 @@
                                 <table class="categories-list" id="table5">
 
 
-
                                 </table>
 
 
@@ -208,11 +219,11 @@
     </div>
 
 
-                    </form>
-                </div>
-            </div>
-        </div>
-        <!-- Individual column searching (text inputs) Ends-->
+    </form>
+    </div>
+    </div>
+    </div>
+    <!-- Individual column searching (text inputs) Ends-->
     </div>
     </div>
     <!-- Container-fluid Ends-->
@@ -221,8 +232,6 @@
 @endsection
 @section('scripts')
     <script>
-
-
 
 
         $(document).ready(function () {
