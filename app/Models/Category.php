@@ -19,11 +19,8 @@ class Category extends Model
         'image',
         'icon',
         'parent_id',
-<<<<<<< HEAD
         'type',
-=======
         'city_id'
->>>>>>> a87b9bd7b3201d034c016b311e3502a5a0c54f28
     ];
     // relations
     public function places(){
