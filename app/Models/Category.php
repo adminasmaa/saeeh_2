@@ -19,6 +19,7 @@ class Category extends Model
         'image',
         'icon',
         'parent_id',
+        'type',
     ];
     // relations
     public function places(){

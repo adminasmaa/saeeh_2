@@ -51,8 +51,8 @@
     <link rel="stylesheet" type="text/css" href="{{MAINASSETS}}/css/vendors/dropzone.css">
 
 
-    <link rel="stylesheet" href="{{ asset('dashboard_files/plugins/noty/noty.css') }}">
-    <script src="{{ asset('dashboard_files/plugins/noty/noty.min.js') }}"></script>
+    <link rel="stylesheet" href="{{MAINDASHBOARD}}/plugins/noty/noty.css">
+    <script src="{{MAINDASHBOARD}}//plugins/noty/noty.min.js"></script>
 </head>
 @php $current_route = Route::currentRouteName();@endphp
     <!-- <body onload=""> -->
@@ -495,6 +495,14 @@
                                         data-feather="settings"></i><span>@lang('site.settings') @endlang</span></a>
                                 <ul class="sidebar-submenu">
                                     <li><a href="{{route('dashboard.settings.index')}}">{{__('site.settings')}}</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="sidebar-list"><a
+                                    class="sidebar-link sidebar-title "
+                                    href="#"><i data-feather="layers"></i><span>@lang('site.aquars') @endlang</span></a>
+                                <ul class="sidebar-submenu">
+                                    <li><a href="{{route('dashboard.aquarcategories.index')}}">{{__('site.categories')}}</a></li>
                                     </li>
                                 </ul>
                             </li>
