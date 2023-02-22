@@ -17,4 +17,6 @@ return [
     'Category not found.'=>'Category not found.',
     'categories retrieved successfully.'=>'categories retrieved successfully.',
     'subcategories retrieved successfully.'=>'subcategories retrieved successfully.',
+    'Place not found.'=>'Place not found.',
+    'Place retrieved successfully.'=>'Place retrieved successfully.',
 ];
