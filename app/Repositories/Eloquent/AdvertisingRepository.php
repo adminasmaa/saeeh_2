@@ -122,7 +122,7 @@ class AdvertisingRepository implements AdvertisingRepositoryInterfaceAlias
 //        $result=DB::table('categories')->where('id',$category->id)->delete();
         $result = $advertising->delete();
         if ($result) {
-            Alert::toast('Success', __('site.deleted_successfully'));
+            Alert::toast('Deleted', __('site.deleted_successfully'));
         } else {
             Alert::toast('Success', __('site.delete_faild'));
 

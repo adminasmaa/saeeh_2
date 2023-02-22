@@ -96,7 +96,7 @@ class QuestionRepository implements IQuestionRepositoryAlias
 
 
         if ($question) {
-            Alert::success('Success', __('site.updated_successfully'));
+            Alert::success('Deleted', __('site.updated_successfully'));
 
             return redirect()->route('dashboard.questions.index');
 //            session()->flash('success', __('site.updated_successfully'));
