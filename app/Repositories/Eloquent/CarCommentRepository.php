@@ -8,6 +8,7 @@ use App\Models\CarComment;
 use App\Models\User;
 use App\Repositories\Interfaces\CarCommentRepositoryInterface as CarCommentRepositoryInterfaceAlias;
 use Illuminate\Support\Facades\DB;
+use Alert;
 
 
 class CarCommentRepository implements CarCommentRepositoryInterfaceAlias
@@ -43,9 +44,9 @@ class CarCommentRepository implements CarCommentRepositoryInterfaceAlias
         // TODO: Implement destroy() method.
         $result = $car->delete();
         if ($result) {
-//                Alert::toast('Success', __('site.deleted_successfully'));
+                Alert::toast('Success', __('site.deleted_successfully'));
         } else {
-//                Alert::toast('Success', __('site.delete_faild'));
+                Alert::toast('Success', __('site.delete_faild'));
 
 //                session()->flash('error', __('site.delete_faild'));
         }

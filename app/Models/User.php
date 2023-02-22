@@ -56,6 +56,7 @@ class User extends Authenticatable
         'phone',
         'country_code'
     ];
+    
 
     /**
      * The attributes that should be hidden for serialization.

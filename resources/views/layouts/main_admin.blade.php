@@ -449,7 +449,9 @@
                             {{--list--}}
 
                             <li class="sidebar-list">
-                                <label class="badge badge-light-secondary"></label><a class="sidebar-link sidebar-title" href="#"><i data-feather="airplay"></i><span>@lang('site.cars') @endlang                </span></a>
+                                <label class="badge badge-light-secondary"></label><a class="sidebar-link sidebar-title"
+                                                                                      href="#"><i
+                                        data-feather="airplay"></i><span>@lang('site.cars') @endlang                </span></a>
                                 <ul class="sidebar-submenu">
                                     <li><a href="{{route('dashboard.brands.index')}}">{{__('site.brands')}}</a>
                                     </li>
@@ -468,7 +470,9 @@
                                     class="sidebar-link sidebar-title "
                                     href="#"><i data-feather="layers"></i><span>@lang('site.aquars') @endlang</span></a>
                                 <ul class="sidebar-submenu">
-                                    <li><a href="{{route('dashboard.aquarcategories.index')}}">{{__('site.categories')}}</a></li>
+                                    <li>
+                                        <a href="{{route('dashboard.aquarcategories.index')}}">{{__('site.categories')}}</a>
+                                    </li>
                                     </li>
                                 </ul>
                             </li>
@@ -477,7 +481,9 @@
                             {{--list--}}
 
                             <li class="sidebar-list">
-                                <label class="badge badge-light-secondary"></label><a class="sidebar-link sidebar-title" href="#"><i data-feather="airplay"></i><span>@lang('site.places') @endlang                </span></a>
+                                <label class="badge badge-light-secondary"></label><a class="sidebar-link sidebar-title"
+                                                                                      href="#"><i
+                                        data-feather="airplay"></i><span>@lang('site.places') @endlang                </span></a>
                                 <ul class="sidebar-submenu">
                                     <!-- <li><a href="{{route('dashboard.brands.index')}}">{{__('site.brands')}}</a>
                                     </li> -->
@@ -493,17 +499,6 @@
                                 </ul>
                             </li>
 
-                            <!-- <li class="sidebar-list"><a
-                                    class="sidebar-link sidebar-title {{((in_array($current_route, ['dashboard.places.index','dashboard.places.create']))?'active':'' )}}"
-                                    href="#"><i data-feather="airplay"></i><span>@lang('site.places') @endlang</span></a>
-                                <ul class="sidebar-submenu">
-                                    <li><a href="{{route('dashboard.places.create')}}">{{__('site.add')}}</a></li>
-                                    <li><a href="{{route('dashboard.places.index')}}">{{__('site.places')}}</a>
-                                    </li>
-                                </ul>
-                            </li> -->
-
-
 
                         </ul>
                     </div>
@@ -511,6 +506,7 @@
                 </nav>
             </div>
         </div>
+        @include('sweetalert::alert')
         <!-- Page Sidebar Ends-->
         @yield('content')
         <!-- footer start-->

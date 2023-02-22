@@ -4,6 +4,7 @@ namespace App\Repositories\Eloquent;
 
 use App\Models\Mediator;
 use App\Repositories\Interfaces\MediatorRepositoryInterface as IMediatorRepositoryAlias;
+use Alert;
 
 
 class MediatorRepository implements IMediatorRepositoryAlias
@@ -51,11 +52,10 @@ class MediatorRepository implements IMediatorRepositoryAlias
 
         $result = $mediator->delete();
         if ($result) {
-//                Alert::toast('Success', __('site.deleted_successfully'));
+                Alert::toast('Success', __('site.deleted_successfully'));
         } else {
-//                Alert::toast('Success', __('site.delete_faild'));
+                Alert::toast('Success', __('site.delete_faild'));
 
-//                session()->flash('error', __('site.delete_faild'));
         }
 
         return back();
@@ -76,7 +76,7 @@ class MediatorRepository implements IMediatorRepositoryAlias
 
 
         if ($mediator) {
-//            Alert::success('Success', __('site.added_successfully'));
+            Alert::success('Success', __('site.added_successfully'));
 
             return redirect()->route('dashboard.mediators.index');
 
@@ -98,11 +98,11 @@ class MediatorRepository implements IMediatorRepositoryAlias
 
 
         if ($mediator) {
+            Alert::success('Success', __('site.updated_successfully'));
 
             return redirect()->route('dashboard.mediators.index');
-//            session()->flash('success', __('site.updated_successfully'));
         } else {
-//            Alert::success('Success', __('site.update_faild'));
+            Alert::success('Success', __('site.update_faild'));
 
             return redirect()->route('dashboard.mediators.index');
 

@@ -4,6 +4,7 @@ namespace App\Repositories\Eloquent;
 
 use App\Models\Country;
 use App\Repositories\Interfaces\CountryRepositoryInterface as ICountryRepositoryAlias;
+use Alert;
 
 use Intervention\Image\Facades\Image;
 
@@ -52,11 +53,10 @@ class CountryRepository implements ICountryRepositoryAlias
 
         $result = $country->delete();
         if ($result) {
-//                Alert::toast('Success', __('site.deleted_successfully'));
+                Alert::toast('Success', __('site.deleted_successfully'));
         } else {
-//                Alert::toast('Success', __('site.delete_faild'));
+                Alert::toast('Success', __('site.delete_faild'));
 
-//                session()->flash('error', __('site.delete_faild'));
         }
 
         return back();
@@ -93,7 +93,7 @@ class CountryRepository implements ICountryRepositoryAlias
 
 
         if ($country) {
-//            Alert::success('Success', __('site.added_successfully'));
+            Alert::success('Success', __('site.added_successfully'));
 
             return redirect()->route('dashboard.countries.index');
 
@@ -131,11 +131,11 @@ class CountryRepository implements ICountryRepositoryAlias
 
 
         if ($country) {
-//            Alert::success('Success', __('site.updated_successfully'));
+            Alert::success('Success', __('site.updated_successfully'));
 
             return redirect()->route('dashboard.countries.index');
         } else {
-//            Alert::success('Success', __('site.update_faild'));
+            Alert::error('Error', __('site.update_faild'));
 
             return redirect()->route('dashboard.countries.index');
 

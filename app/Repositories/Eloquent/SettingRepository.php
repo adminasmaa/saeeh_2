@@ -7,6 +7,7 @@ use App\Repositories\Interfaces\SettingRepositoryInterface as ISettingRepository
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
+use Alert;
 
 
 
@@ -51,11 +52,11 @@ class SettingRepository implements ISettingRepositoryAlias
 
 
         if ($setting) {
-//            Alert::success('Success', __('site.updated_successfully'));
+            Alert::success('Success', __('site.updated_successfully'));
 
             return redirect()->route('dashboard.settings.index');
         } else {
-//            Alert::success('Success', __('site.update_faild'));
+            Alert::error('Error', __('site.update_faild'));
 
             return redirect()->route('dashboard.settings.index');
 

@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Repositories\Interfaces\CarRepositoryInterface as CarRepositoryInterfaceAlias;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
+use Alert;
 
 class CarRepository implements CarRepositoryInterfaceAlias
 {
@@ -109,11 +110,11 @@ class CarRepository implements CarRepositoryInterfaceAlias
         }
 
 
-        
+
 
 
         if ($car) {
-//            Alert::success('Success', __('site.added_successfully'));
+            Alert::success('Success', __('site.added_successfully'));
 
             return redirect()->route('dashboard.cars.index');
 
@@ -158,15 +159,15 @@ class CarRepository implements CarRepositoryInterfaceAlias
             }
         }
 
-       
+
 
         if ($car) {
-//            Alert::success('Success', __('site.updated_successfully'));
+            Alert::success('Success', __('site.updated_successfully'));
 
             return redirect()->route('dashboard.cars.index');
 //            session()->flash('success', __('site.updated_successfully'));
         } else {
-//            Alert::success('Success', __('site.update_faild'));
+            Alert::error('Error', __('site.update_faild'));
 
             return redirect()->route('dashboard.cars.index');
 
@@ -177,14 +178,12 @@ class CarRepository implements CarRepositoryInterfaceAlias
     public function destroy($car)
     {
         // TODO: Implement destroy() method.
-//        $result=DB::table('categories')->where('id',$category->id)->delete();
         $result = $car->delete();
         if ($result) {
-//                Alert::toast('Success', __('site.deleted_successfully'));
+                Alert::toast('Success', __('site.deleted_successfully'));
         } else {
-//                Alert::toast('Success', __('site.delete_faild'));
+                Alert::toast('Success', __('site.delete_faild'));
 
-//                session()->flash('error', __('site.delete_faild'));
         }
 
         return back();

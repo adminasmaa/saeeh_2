@@ -22,8 +22,14 @@ class Category extends Model
         'type',
         'city_id'
     ];
+
+    protected $hidden=['deleted_at','updated_at'];
+
     // relations
     public function places(){
         return $this->HasMany(Place::class);
+    }
+    public function subcategories(){
+        return $this->HasMany(Category::class,'parent_id');
     }
 }

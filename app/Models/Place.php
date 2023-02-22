@@ -45,9 +45,11 @@ class Place extends Model
         'rest_two',// nullable
         'rest_three',// nullable
         'social_media',// enum ,['facebook','instagram']
-        'category_id', //unsigned 
+        'category_id', //unsigned
         'user_id', //unsigned
     ];
+
+    protected $hidden=['deleted_at','updated_at'];
 
     // scope
     public function scopeMediaType($query,$mediaType){
