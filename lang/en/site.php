@@ -40,6 +40,7 @@ return [
     'comment_text'=>'Comment Text',
 
 
+    'place_comments'=>' PlaceComments',
 
     'twitter'=>'Twitter',
     'facebook'=>'Facebook',
