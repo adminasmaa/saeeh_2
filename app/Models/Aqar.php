@@ -8,6 +8,18 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\User;   //belongsTo
 use App\Models\Property;   //belongsTo
 use App\Models\Ads;   //belongsTo
+use App\Models\AnotherRoom;   //belongsTo
+use App\Models\Area;   //belongsTo
+use App\Models\Bathroom;   //belongsTo
+use App\Models\CarPosition;   //belongsTo
+use App\Models\ConditioningType;   //belongsTo
+use App\Models\Crew;   //belongsTo
+use App\Models\Floor;   //belongsTo
+use App\Models\FloorNumber;   //belongsTo
+use App\Models\FreeService;   //belongsTo
+use App\Models\Kitchen;   //belongsTo
+use App\Models\Laundry;   //belongsTo
+use App\Models\Service;   //belongsTo
 use App\Models\AqarComment;    // HasMany
 use App\Models\AqarBooking;    // HasMany
 class Aqar extends Model
@@ -31,6 +43,18 @@ class Aqar extends Model
         'category',// enum ,['duplex','room','sweet','studio','apartment','villa','castle']
         'property_id', //unsigned 
         'ads_id', //unsigned 
+        'area_id',//unsigned 
+        'floor_id',//unsigned 
+        'car_position_id',//unsigned 
+        'service_id',//unsigned 
+        'bathroom_id',//unsigned 
+        'free_service_id',//unsigned 
+        'laundry_id',//unsigned
+        'kitchen_id',//unsigned 
+        'crew_id',//unsigned 
+        'conditioning_type_id',//unsigned 
+        'another_room_id',//unsigned 
+        'floor_number_id',//unsigned  
         'user_id', //unsigned 
     ];
      // scope
@@ -47,8 +71,41 @@ class Aqar extends Model
     public function property(){
         return $this->belongsTo(Property::class,'property_id');
     }// relations
-    public function ads(){
-        return $this->belongsTo(Ads::class,'ads_id');
+    public function anotherRoom(){
+        return $this->belongsTo(AnotherRoom::class,'another_room_id');
+    }// relations
+    public function area(){
+        return $this->belongsTo(Area::class,'area_id');
+    }// relations
+    public function bathroom(){
+        return $this->belongsTo(Bathroom::class,'bathroom_id');
+    }// relations
+    public function carPosition(){
+        return $this->belongsTo(CarPosition::class,'car_position_id');
+    }// relations
+    public function conditioningType(){
+        return $this->belongsTo(ConditioningType::class,'conditioning_type_id');
+    }// relations
+    public function crew(){
+        return $this->belongsTo(Crew::class,'crew_id');
+    }// relations
+    public function floor(){
+        return $this->belongsTo(Floor::class,'floor_id');
+    }// relations
+    public function floorNumber(){
+        return $this->belongsTo(FloorNumber::class,'floor_number_id');
+    }// relations
+    public function freeService(){
+        return $this->belongsTo(FreeService::class,'free_service_id');
+    }// relations
+    public function kitchen(){
+        return $this->belongsTo(Kitchen::class,'kitchen_id');
+    }// relations
+    public function laundry(){
+        return $this->belongsTo(Laundry::class,'laundry_id');
+    }// relations
+    public function service(){
+        return $this->belongsTo(Service::class,'service_id');
     }
    // relations
    public function aqarComment(){
