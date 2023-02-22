@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('theme')->required();
             $table->string('closing_message')->required();
             $table->string('description')->required();
-            $table->json('key_words')->required();
+            $table->json('key_words')->nullable();
             $table->string('ads_top')->nullable();
             $table->string('ads_bottom')->nullable();
             $table->string('twitter')->nullable();
