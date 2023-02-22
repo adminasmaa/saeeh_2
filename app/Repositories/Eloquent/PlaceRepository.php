@@ -11,7 +11,7 @@ use App\Models\Notification;
 use App\Repositories\Interfaces\PlaceRepositoryInterface as PlaceRepositoryInterfaceAlias;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
-
+use Alert;
 class PlaceRepository implements PlaceRepositoryInterfaceAlias
 {
     public function getAll($data)
@@ -93,7 +93,7 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
         }
        
         if ($place) {
-//            Alert::success('Success', __('site.added_successfully'));
+           Alert::success('Success', __('site.added_successfully'));
 
             return redirect()->route('dashboard.places.index');
 
@@ -126,12 +126,12 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
             $place->save();
         }
         if ($place) {
-//            Alert::success('Success', __('site.updated_successfully'));
+           Alert::success('Success', __('site.updated_successfully'));
 
             return redirect()->route('dashboard.places.index');
 //            session()->flash('success', __('site.updated_successfully'));
         } else {
-//            Alert::success('Success', __('site.update_faild'));
+           Alert::error('Error', __('site.update_faild'));
 
             return redirect()->route('dashboard.places.index');
 
@@ -145,9 +145,9 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
 //        $result=DB::table('categories')->where('id',$category->id)->delete();
         $result = $place->delete();
         if ($result) {
-//                Alert::toast('Success', __('site.deleted_successfully'));
+               Alert::toast('Success', __('site.deleted_successfully'));
         } else {
-//                Alert::toast('Success', __('site.delete_faild'));
+               Alert::toast('Error', __('site.delete_faild'));
 
 //                session()->flash('error', __('site.delete_faild'));
         }

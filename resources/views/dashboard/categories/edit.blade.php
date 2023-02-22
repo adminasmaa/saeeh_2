@@ -135,7 +135,7 @@
 
                                 <div class="col-md-6 form-group col-12 p-2 ">
                                     <label>@lang('site.description')<span class="text-danger">*</span></label>
-                                    <textarea class="form-control" id="editor1" cols="15" rows="5" name="description">
+                                    <textarea class="form-control" cols="5" rows="5" name="description">
                      {{ $category->description }}
                                         </textarea>
                                 </div>

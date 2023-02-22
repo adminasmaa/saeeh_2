@@ -4,6 +4,7 @@ namespace App\Repositories\Eloquent;
 
 use App\Models\Freq_question;
 use App\Repositories\Interfaces\QuestionRepositoryInterface as IQuestionRepositoryAlias;
+use Alert;
 
 
 class QuestionRepository implements IQuestionRepositoryAlias
@@ -51,9 +52,9 @@ class QuestionRepository implements IQuestionRepositoryAlias
 
         $result = $question->delete();
         if ($result) {
-//                Alert::toast('Success', __('site.deleted_successfully'));
+                Alert::toast('Success', __('site.deleted_successfully'));
         } else {
-//                Alert::toast('Success', __('site.delete_faild'));
+                Alert::toast('Error', __('site.delete_faild'));
 
 //                session()->flash('error', __('site.delete_faild'));
         }
@@ -75,7 +76,7 @@ class QuestionRepository implements IQuestionRepositoryAlias
 
 
         if ($question) {
-//            Alert::success('Success', __('site.added_successfully'));
+            Alert::success('Success', __('site.added_successfully'));
 
             return redirect()->route('dashboard.questions.index');
 
@@ -95,12 +96,12 @@ class QuestionRepository implements IQuestionRepositoryAlias
 
 
         if ($question) {
-//            Alert::success('Success', __('site.updated_successfully'));
+            Alert::success('Success', __('site.updated_successfully'));
 
             return redirect()->route('dashboard.questions.index');
 //            session()->flash('success', __('site.updated_successfully'));
         } else {
-//            Alert::success('Success', __('site.update_faild'));
+            Alert::error('Error', __('site.update_faild'));
 
             return redirect()->route('dashboard.questions.index');
 

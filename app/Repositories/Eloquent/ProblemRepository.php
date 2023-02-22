@@ -4,6 +4,7 @@ namespace App\Repositories\Eloquent;
 
 use App\Models\Problem;
 use App\Repositories\Interfaces\ProblemRepositoryInterface as IProblemRepositoryAlias;
+use Alert;
 
 
 class ProblemRepository implements IProblemRepositoryAlias
@@ -51,9 +52,9 @@ class ProblemRepository implements IProblemRepositoryAlias
 
         $result = $problem->delete();
         if ($result) {
-//                Alert::toast('Success', __('site.deleted_successfully'));
+                Alert::toast('Success', __('site.deleted_successfully'));
         } else {
-//                Alert::toast('Success', __('site.delete_faild'));
+                Alert::toast('Error', __('site.delete_faild'));
 
 //                session()->flash('error', __('site.delete_faild'));
         }
@@ -76,7 +77,7 @@ class ProblemRepository implements IProblemRepositoryAlias
 
 
         if ($problem) {
-//            Alert::success('Success', __('site.added_successfully'));
+            Alert::success('Success', __('site.added_successfully'));
 
             return redirect()->route('dashboard.problems.index');
 
@@ -98,7 +99,7 @@ class ProblemRepository implements IProblemRepositoryAlias
 
 
         if ($problem) {
-//            Alert::success('Success', __('site.updated_successfully'));
+            Alert::success('Success', __('site.updated_successfully'));
 
             return redirect()->route('dashboard.problems.index');
 //            session()->flash('success', __('site.updated_successfully'));

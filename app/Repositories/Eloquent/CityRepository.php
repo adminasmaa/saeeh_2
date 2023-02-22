@@ -5,6 +5,7 @@ namespace App\Repositories\Eloquent;
 use App\Models\City;
 use App\Models\Country;
 use App\Repositories\Interfaces\CityRepositoryInterface as ICityRepositoryAlias;
+use Alert;
 
 use Intervention\Image\Facades\Image;
 
@@ -57,11 +58,10 @@ class CityRepository implements ICityRepositoryAlias
 
         $result = $city->delete();
         if ($result) {
-//                Alert::toast('Success', __('site.deleted_successfully'));
+                Alert::toast('Success', __('site.deleted_successfully'));
         } else {
-//                Alert::toast('Success', __('site.delete_faild'));
+                Alert::toast('Success', __('site.delete_faild'));
 
-//                session()->flash('error', __('site.delete_faild'));
         }
 
         return back();
@@ -90,7 +90,7 @@ class CityRepository implements ICityRepositoryAlias
 
 
         if ($city) {
-//            Alert::success('Success', __('site.added_successfully'));
+            Alert::success('Success', __('site.added_successfully'));
 
             return redirect()->route('dashboard.cities.index');
 
@@ -119,10 +119,9 @@ class CityRepository implements ICityRepositoryAlias
 
 
         if ($city) {
-//            Alert::success('Success', __('site.updated_successfully'));
+            Alert::success('Success', __('site.updated_successfully'));
 
             return redirect()->route('dashboard.cities.index');
-//            session()->flash('success', __('site.updated_successfully'));
         } else {
 
             return redirect()->route('dashboard.cities.index');
