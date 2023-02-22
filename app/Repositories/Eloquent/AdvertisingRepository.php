@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Repositories\Interfaces\AdvertisingRepositoryInterface as AdvertisingRepositoryInterfaceAlias;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
+use Alert;
 
 class AdvertisingRepository implements AdvertisingRepositoryInterfaceAlias
 {
@@ -76,7 +77,7 @@ class AdvertisingRepository implements AdvertisingRepositoryInterfaceAlias
         }
 
         if ($advertising) {
-//            Alert::success('Success', __('site.added_successfully'));
+            Alert::success('Success', __('site.added_successfully'));
 
             return redirect()->route('dashboard.advertising.index');
 
@@ -87,7 +88,7 @@ class AdvertisingRepository implements AdvertisingRepositoryInterfaceAlias
     {
         // TODO: Implement update() method.
 
-        $request_data = $request->except(['ads_image','_token','_method']);
+        $request_data = $request->except(['ads_image', '_token', '_method']);
         $advertising->update($request_data);
 
 
@@ -102,12 +103,12 @@ class AdvertisingRepository implements AdvertisingRepositoryInterfaceAlias
 
 
         if ($advertising) {
-//            Alert::success('Success', __('site.updated_successfully'));
+            Alert::success('Success', __('site.updated_successfully'));
 
             return redirect()->route('dashboard.advertising.index');
 //            session()->flash('success', __('site.updated_successfully'));
         } else {
-//            Alert::success('Success', __('site.update_faild'));
+            Alert::error('Success', __('site.update_faild'));
 
             return redirect()->route('dashboard.advertising.index');
 
@@ -121,11 +122,10 @@ class AdvertisingRepository implements AdvertisingRepositoryInterfaceAlias
 //        $result=DB::table('categories')->where('id',$category->id)->delete();
         $result = $advertising->delete();
         if ($result) {
-//                Alert::toast('Success', __('site.deleted_successfully'));
+            Alert::toast('Success', __('site.deleted_successfully'));
         } else {
-//                Alert::toast('Success', __('site.delete_faild'));
+            Alert::toast('Success', __('site.delete_faild'));
 
-//                session()->flash('error', __('site.delete_faild'));
         }
 
         return back();

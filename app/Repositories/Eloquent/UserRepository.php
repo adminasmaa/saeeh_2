@@ -8,6 +8,7 @@ use App\Models\Role;
 use App\Models\User;
 use App\Repositories\Interfaces\UserRepositoryInterface as IUserRepositoryAlias;
 use Intervention\Image\Facades\Image;
+use Alert;
 
 class UserRepository implements IUserRepositoryAlias
 {
@@ -66,9 +67,9 @@ class UserRepository implements IUserRepositoryAlias
 
         $result = $user->delete();
         if ($result) {
-//                Alert::toast('Success', __('site.deleted_successfully'));
+                Alert::toast('Success', __('site.deleted_successfully'));
         } else {
-//                Alert::toast('Success', __('site.delete_faild'));
+                Alert::toast('Error', __('site.delete_faild'));
 
 //                session()->flash('error', __('site.delete_faild'));
         }
@@ -105,7 +106,7 @@ class UserRepository implements IUserRepositoryAlias
         }
 
         if ($user) {
-//            Alert::success('Success', __('site.added_successfully'));
+            Alert::success('Success', __('site.added_successfully'));
 
             return redirect()->route('dashboard.users.index');
 
@@ -140,12 +141,12 @@ class UserRepository implements IUserRepositoryAlias
             $user->syncRoles($request->roles);
         }
         if ($user) {
-//            Alert::success('Success', __('site.updated_successfully'));
+            Alert::success('Success', __('site.updated_successfully'));
 
             return redirect()->route('dashboard.users.index');
 //            session()->flash('success', __('site.updated_successfully'));
         } else {
-//            Alert::success('Success', __('site.update_faild'));
+            Alert::error('Error', __('site.update_faild'));
 
             return redirect()->route('dashboard.users.index');
 

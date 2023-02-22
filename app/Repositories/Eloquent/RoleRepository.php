@@ -64,9 +64,9 @@ class RoleRepository implements IRoleRepositoryAlias
 
         $result = $role->delete();
         if ($result) {
-//            Alert::toast('Deleted', __('site.deleted_successfully'));
+            Alert::toast('Deleted', __('site.deleted_successfully'));
         } else {
-//            Alert::toast('Deleted', __('site.delete_faild'));
+            Alert::toast('Deleted', __('site.delete_faild'));
         }
 
 
@@ -86,7 +86,7 @@ class RoleRepository implements IRoleRepositoryAlias
 
         }
         if ($role) {
-//            Alert::success('Success', __('site.added_successfully'));
+            Alert::success('Success', __('site.added_successfully'));
 
             return redirect()->route('dashboard.roles.index');
 
@@ -107,12 +107,12 @@ class RoleRepository implements IRoleRepositoryAlias
             $role->syncPermissions($all_permissions);
 
         }
-//        if ($role) {
-////            Alert::success('Success', __('site.updated_successfully'));
-//        } else {
-////            Alert::success('Success', __('site.update_faild'));
-//
-//        }
+        if ($role) {
+            Alert::success('Success', __('site.updated_successfully'));
+        } else {
+            Alert::error('Error', __('site.update_faild'));
+
+        }
 
         return redirect()->route('dashboard.roles.index');
     }
