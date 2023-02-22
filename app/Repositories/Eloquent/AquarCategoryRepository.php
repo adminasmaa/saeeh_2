@@ -9,7 +9,7 @@ class AquarCategoryRepository implements AquarCategoryRepositoryInterface
 {
     public function getAll($data)
     {
-        return $data->render('dashboard.aquar.cat_aquar.index', [
+        return $data->render('dashboard.aqars.cat_aquar.index', [
             'title' => trans('site.aquarcategories'),
             'model' => 'categories',
             'count' => $data->count(),
@@ -20,7 +20,7 @@ class AquarCategoryRepository implements AquarCategoryRepositoryInterface
     {
         // TODO: Implement create() method.
 
-        return view('dashboard.aquar.cat_aquar.create');
+        return view('dashboard.aqars.cat_aquar.create');
     }
 
     public function edit($Id)
@@ -29,7 +29,7 @@ class AquarCategoryRepository implements AquarCategoryRepositoryInterface
 
         $category = Category::find($Id);
 
-        return view('dashboard.aquar.cat_aquar.edit', compact('category'));
+        return view('dashboard.aqars.cat_aquar.edit', compact('category'));
     }
 
     public function show($Id)
@@ -39,7 +39,7 @@ class AquarCategoryRepository implements AquarCategoryRepositoryInterface
         $category = Category::find($Id);
 
 
-        return view('dashboard.aquar.cat_aquar.show', compact('category'));
+        return view('dashboard.aqars.cat_aquar.show', compact('category'));
     }
 
 
@@ -89,9 +89,9 @@ class AquarCategoryRepository implements AquarCategoryRepositoryInterface
 
         if ($category) {
 
-            return redirect()->route('dashboard.aquar.cat_aquar.index');
+            return redirect()->route('dashboard.aqars.cat_aquar.index');
         } else {
-              return redirect()->route('dashboard.aquar.cat_aquar.index');
+              return redirect()->route('dashboard.aqars.cat_aquar.index');
 
         }
     }
