@@ -11,7 +11,7 @@ Route::post('/checkCodeForget', 'App\Http\Controllers\Api\AuthController@checkCo
 Route::post('/resetpassword', 'App\Http\Controllers\Api\AuthController@resetpassword');
 Route::get('/home/categories/{city_id}', 'App\Http\Controllers\Api\CategoryController@categories');
 Route::get('/home/subcategories/{cat_id}', 'App\Http\Controllers\Api\CategoryController@subcategories');
-Route::get('/categorydetail/{id}', 'App\Http\Controllers\Api\CategoryController@categorydetail');
+Route::get('/placedetail/{id}', 'App\Http\Controllers\Api\PlaceController@placedetail');
 
 
 Route::get('/cities/{id}', 'App\Http\Controllers\Api\CityController@cities');
