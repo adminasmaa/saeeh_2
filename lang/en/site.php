@@ -2,9 +2,16 @@
 
 return [
     'settingss' => ' Settings',
+    'services'=>'Services',
     'link'=>'Link',
+    'floor_numbers'=>'Floor Numbers',
+    'free_services'=>'Free Services',
+    'kitchens'=>'Kitchens',
+    'laundries'=>'Laundries',
+    'crews'=>'Crews',
     'Saeeh' => 'Saeeh',
     'questions' => 'Questions',
+    'floors'=>'Floors',
     'question' => 'question',
     'problems'=>'Problems',
     'mediators'=>'Mediators',
