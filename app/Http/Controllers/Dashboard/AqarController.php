@@ -52,40 +52,7 @@ class AqarController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
-        die;
-        $request->validate([
-
-                'name_ar' => 'required',
-                'name_en' => 'nullable',
-                'Aqar_order' => 'required',
-                'Aqar_error' => 'required',
-                'const_from' => 'required',
-                'const_to' => 'required',
-                'address' => 'required',
-                'descrption_ar' => 'required',
-                'descrption_en' => 'nullable',
-                'display_photo' => 'required',
-                'phone_one' => 'required',
-                'phone_two' => 'nullable',
-                'notify_photo' => 'nullable',
-                'google_mark_link' => 'nullable',
-                'Aqar_link' => 'nullable',
-                'share_link' => 'nullable',
-                'time_check' => 'nullable',
-                'seen_counter' => 'required',
-                'delivery' => 'nullable',
-                'diff_time' => 'nullable',
-                'const_time' => 'nullable',
-                'latitude' => 'nullable',
-                'longitude' => 'nullable',
-                'rest_one' => 'nullable',
-                'rest_two' => 'nullable',
-                'rest_three' => 'nullable',
-        // 'social_media',// enum ,['facebook','instagram']
-
-            ]
-        );
+       
 
         return $this->AqarRepository->store($request);
 
@@ -114,38 +81,7 @@ class AqarController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-
-            'name_ar' => 'required',
-            'name_en' => 'nullable',
-            'Aqar_order' => 'required',
-            'Aqar_error' => 'required',
-            'const_from' => 'required',
-            'const_to' => 'required',
-            'address' => 'required',
-            'descrption_ar' => 'required',
-            'descrption_en' => 'nullable',
-            'display_photo' => 'required',
-            'phone_one' => 'required',
-            'phone_two' => 'nullable',
-            'notify_photo' => 'nullable',
-            'google_mark_link' => 'nullable',
-            'Aqar_link' => 'nullable',
-            'share_link' => 'nullable',
-            'time_check' => 'nullable',
-            'seen_counter' => 'required',
-            'delivery' => 'nullable',
-            'diff_time' => 'nullable',
-            'const_time' => 'nullable',
-            'latitude' => 'nullable',
-            'longitude' => 'nullable',
-            'rest_one' => 'nullable',
-            'rest_two' => 'nullable',
-            'rest_three' => 'nullable',
-    // 'social_media',// enum ,['facebook','instagram']
-
-            ]
-        );
+       
         $Aqar = Aqar::find($id);
 
         return $this->AqarRepository->update($Aqar, $request);

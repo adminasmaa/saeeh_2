@@ -16,7 +16,7 @@ use App\Models\Service;
 use App\Models\Bathroom;
 use App\Models\Kitchen;
 use App\Models\Laundry;
-use App\Models\ConditioningType;
+use App\Models\ConditionType;
 use App\Repositories\Interfaces\AqarRepositoryInterface as AqarRepositoryInterfaceAlias;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
@@ -41,18 +41,18 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
         // TODO: Implement create() method.
 
         $users = User::all();
-        $categories = Category::all();
-        $AnotherRoom = AnotherRoom::all();
-        $Area = Area::all();
-        $Floor = Floor::all();
-        $FloorNumber = FloorNumber::all();
-        $Crew = Crew::all();
-        $Service = Service::all();
-        $FreeService = FreeService::all();
-        $Kitchen = Kitchen::all();
-        $Bathroom = Bathroom::all();
-        $Laundry = Laundry::all();
-        $ConditioningType = ConditioningType::all();
+        $categories = Category::where('type',1)->where('active',1)->get();
+        $AnotherRoom = AnotherRoom::where('active',1)->get();
+        $Area = Area::where('active',1)->get();
+        $Floor = Floor::where('active',1)->get();
+        $FloorNumber = FloorNumber::where('active',1)->get();
+        $Crew = Crew::where('active',1)->get();
+        $Service = Service::where('active',1)->get();
+        $FreeService = FreeService::where('active',1)->get();
+        $Kitchen = Kitchen::where('active',1)->get();
+        $Bathroom = Bathroom::where('active',1)->get();
+        $Laundry = Laundry::where('active',1)->get();
+        $ConditioningType = ConditionType::where('active',1)->get();
         return view('dashboard.aqars.create', compact('users', 'categories','AnotherRoom','Area','Bathroom','ConditioningType','Floor','FloorNumber','Service','FreeService','Crew','Kitchen','Laundry'));
     }
 
@@ -62,9 +62,20 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
 
         $aqar = Aqar::find($Id);
         $users = User::all();
-        $categories = Category::all();
+        $categories = Category::where('type',1)->where('active',1)->get();
+        $AnotherRoom = AnotherRoom::where('active',1)->get();
+        $Area = Area::where('active',1)->get();
+        $Floor = Floor::where('active',1)->get();
+        $FloorNumber = FloorNumber::where('active',1)->get();
+        $Crew = Crew::where('active',1)->get();
+        $Service = Service::where('active',1)->get();
+        $FreeService = FreeService::where('active',1)->get();
+        $Kitchen = Kitchen::where('active',1)->get();
+        $Bathroom = Bathroom::where('active',1)->get();
+        $Laundry = Laundry::where('active',1)->get();
+        $ConditioningType = ConditionType::where('active',1)->get();
 
-        return view('dashboard.aqars.edit', compact('aqar', 'users', 'categories'));
+        return view('dashboard.aqars.edit', compact('aqar', 'users', 'categories','AnotherRoom','Area','Bathroom','ConditioningType','Floor','FloorNumber','Service','FreeService','Crew','Kitchen','Laundry'));
     }
 
     public function show($Id)
@@ -73,41 +84,55 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
 
         $aqar = Aqar::find($Id);
         $users = User::all();
-        $categories = Category::all();
+        $categories = Category::where('type',1)->where('active',1)->get();
+        $AnotherRoom = AnotherRoom::where('active',1)->get();
+        $Area = Area::where('active',1)->get();
+        $Floor = Floor::where('active',1)->get();
+        $FloorNumber = FloorNumber::where('active',1)->get();
+        $Crew = Crew::where('active',1)->get();
+        $Service = Service::where('active',1)->get();
+        $FreeService = FreeService::where('active',1)->get();
+        $Kitchen = Kitchen::where('active',1)->get();
+        $Bathroom = Bathroom::where('active',1)->get();
+        $Laundry = Laundry::where('active',1)->get();
+        $ConditioningType = ConditionType::where('active',1)->get();
 
-        return view('dashboard.aqars.show', compact('aqar', 'users', 'categories'));
+        return view('dashboard.aqars.show', compact('aqar', 'users', 'categories','AnotherRoom','Area','Bathroom','ConditioningType','Floor','FloorNumber','Service','FreeService','Crew','Kitchen','Laundry'));
     }
 
     public function store($request)
     {
         // TODO: Implement store() method.
 
-        $request_data = $request->except(['display_photo','notify_photo']);
+        $request_data = $request->except(['main_image','images']);
 
         // To Make  Active
 
         $aqar = Aqar::create($request_data);
 
-        if ($request->hasFile('display_photo')) {
-            $thumbnail = $request->file('display_photo');
+        if ($request->hasFile('main_image')) {
+            $thumbnail = $request->file('main_image');
             $destinationPath = 'images/aqars/';
             $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
             $thumbnail->move($destinationPath, $filename);
-            $aqar->display_photo = $filename;
+            $aqar->main_image = $filename;
             $aqar->save();
         }
 
-        if ($request->hasFile('notify_photo')) {
-            $thumbnail = $request->file('notify_photo');
-            $destinationPath = 'images/aqars/';
-            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move($destinationPath, $filename);
-            $aqar->notify_photo = $filename;
-            $aqar->save();
+        if ($request->hasFile('images')) {
+            $images = $request->file('images');
+            foreach ($images as $key => $files) {
+                $destinationPath = 'images/places/';
+                $file_name = $_FILES['images']['name'][$key];
+                $files->move($destinationPath, $file_name);
+                $data[] = $_FILES['images']['name'][$key];
+                $place->images = json_encode($data);
+                $place->save();
+            }
         }
        
         if ($aqar) {
-//            Alert::success('Success', __('site.added_successfully'));
+            Alert::success('Success', __('site.added_successfully'));
 
             return redirect()->route('dashboard.aqars.index');
 
@@ -118,34 +143,37 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
     {
         // TODO: Implement update() method.
 
-        $request_data = $request->except(['display_photo', '_token', '_method', 'notify_photo']);
+        $request_data = $request->except(['main_image', '_token', '_method', 'images']);
         $aqar->update($request_data);
 
 
-        if ($request->hasFile('display_photo')) {
-            $thumbnail = $request->file('display_photo');
+        if ($request->hasFile('main_image')) {
+            $thumbnail = $request->file('main_image');
             $destinationPath = 'images/aqars/';
             $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
             $thumbnail->move($destinationPath, $filename);
-            $aqar->display_photo = $filename;
+            $aqar->main_image = $filename;
             $aqar->save();
         }
 
-        if ($request->hasFile('notify_photo')) {
-            $thumbnail = $request->file('notify_photo');
-            $destinationPath = 'images/aqars/';
-            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move($destinationPath, $filename);
-            $aqar->notify_photo = $filename;
-            $aqar->save();
+        if ($request->hasFile('images')) {
+            $images = $request->file('images');
+            foreach ($images as $key => $files) {
+                $destinationPath = 'images/places/';
+                $file_name = $_FILES['images']['name'][$key];
+                $files->move($destinationPath, $file_name);
+                $data[] = $_FILES['images']['name'][$key];
+                $place->images = json_encode($data);
+                $place->save();
+            }
         }
         if ($aqar) {
-//            Alert::success('Success', __('site.updated_successfully'));
+            Alert::success('Success', __('site.updated_successfully'));
 
             return redirect()->route('dashboard.aqars.index');
-//            session()->flash('success', __('site.updated_successfully'));
+            session()->flash('success', __('site.updated_successfully'));
         } else {
-//            Alert::success('Success', __('site.update_faild'));
+            Alert::success('Success', __('site.update_faild'));
 
             return redirect()->route('dashboard.aqars.index');
 
@@ -159,11 +187,11 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
 //        $result=DB::table('categories')->where('id',$category->id)->delete();
         $result = $aqar->delete();
         if ($result) {
-//                Alert::toast('Success', __('site.deleted_successfully'));
+                Alert::toast('Success', __('site.deleted_successfully'));
         } else {
-//                Alert::toast('Success', __('site.delete_faild'));
+                Alert::toast('Error', __('site.delete_faild'));
 
-//                session()->flash('error', __('site.delete_faild'));
+          //      session()->flash('error', __('site.delete_faild'));
         }
 
         return back();
