@@ -124,7 +124,7 @@ class AdvertisingRepository implements AdvertisingRepositoryInterfaceAlias
         if ($result) {
             Alert::toast('Deleted', __('site.deleted_successfully'));
         } else {
-            Alert::toast('Success', __('site.delete_faild'));
+            Alert::toast('Deleted', __('site.delete_faild'));
 
         }
 
