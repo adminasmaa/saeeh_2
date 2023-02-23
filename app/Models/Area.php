@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\City;   //belongsTo
-use App\Models\Aqar;   //HasMany
 
 class Area extends Model
 {
@@ -26,9 +25,5 @@ class Area extends Model
     // relations
     public function city(){
         return $this->belongsTo(City::class,'city_id');
-    }
-    // relations
-    public function aqar(){
-        return $this->HasMany(Aqar::class);
     }
 }

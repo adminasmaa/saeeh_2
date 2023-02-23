@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'Active' => 'نشط',
+    // 'Active' => 'نشط',
 
 
     'send' => 'المرسل',
