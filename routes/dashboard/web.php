@@ -18,6 +18,14 @@ use App\Http\Controllers\Dashboard\PlaceController;
 use App\Http\Controllers\Dashboard\PlaceCommentController;
 use App\Http\Controllers\Dashboard\AquarCategoryController;
 use App\Http\Controllers\Dashboard\AreaController;
+use App\Http\Controllers\Dashboard\ServiceController;
+use App\Http\Controllers\Dashboard\FloorController;
+use App\Http\Controllers\Dashboard\FloorNumberController;
+use App\Http\Controllers\Dashboard\FreeServiceController;
+use App\Http\Controllers\Dashboard\KitchenController;
+use App\Http\Controllers\Dashboard\LaundryController;
+use App\Http\Controllers\Dashboard\CrewController;
+
 use App\Http\Controllers\Dashboard\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -76,6 +84,16 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
         //aquarcategories
         Route::resource('aquarcategories', AquarCategoryController::class);
+        //services
+        Route::resource('services', ServiceController::class);
+        Route::resource('free_services', FreeServiceController::class);
+        Route::resource('kitchens', KitchenController::class);
+        Route::resource('laundries', LaundryController::class);
+        Route::resource('crews', CrewController::class);
+
+        //floors
+        Route::resource('floors', FloorController::class);
+        Route::resource('floor_numbers', FloorNumberController::class);
 
         //place_comments
         Route::resource('place_comments', PlaceCommentController::class);
