@@ -411,14 +411,14 @@
                             <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title link-nav"
                                     href="{{route('dashboard.categories.index')}}"><i
-                                        data-feather="layers"></i><span>@lang('site.categories') @endlang</span></a>
+                                        data-feather="grid"></i><span>@lang('site.categories') @endlang</span></a>
 
                             </li>
 
                             <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title link-nav"
                                     href="{{route('dashboard.questions.index')}}"><i
-                                        data-feather="file-text"></i><span>@lang('site.questions') @endlang</span></a>
+                                        data-feather="bookmark"></i><span>@lang('site.questions') @endlang</span></a>
 
                             </li>
 
@@ -426,7 +426,7 @@
                             <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title link-nav"
                                     href="{{route('dashboard.problems.index')}}"><i
-                                        data-feather="list"></i><span>@lang('site.problems') @endlang</span></a>
+                                        data-feather="file-text"></i><span>@lang('site.problems') @endlang</span></a>
 
                             </li>
 
@@ -445,6 +445,12 @@
 
                             </li>
 
+                            <li class="sidebar-list"><a
+                                    class="sidebar-link sidebar-title link-nav"
+                                    href="{{route('dashboard.areas.index')}}"><i
+                                        data-feather="server"></i><span>@lang('site.areas') @endlang</span></a>
+
+                            </li>
 
                             {{--list--}}
 
@@ -508,7 +514,7 @@
                             <li class="sidebar-list">
                                 <label class="badge badge-light-secondary"></label><a class="sidebar-link sidebar-title"
                                                                                       href="#"><i
-                                        data-feather="airplay"></i><span>@lang('site.places') @endlang                </span></a>
+                                        data-feather="list"></i><span>@lang('site.places') @endlang                </span></a>
                                 <ul class="sidebar-submenu">
                                     <!-- <li><a href="{{route('dashboard.brands.index')}}">{{__('site.brands')}}</a>
                                     </li> -->

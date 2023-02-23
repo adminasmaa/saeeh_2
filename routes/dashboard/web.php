@@ -17,6 +17,7 @@ use App\Http\Controllers\Dashboard\BookingController;
 use App\Http\Controllers\Dashboard\PlaceController;
 use App\Http\Controllers\Dashboard\PlaceCommentController;
 use App\Http\Controllers\Dashboard\AquarCategoryController;
+use App\Http\Controllers\Dashboard\AreaController;
 use App\Http\Controllers\Dashboard\ServiceController;
 use App\Http\Controllers\Dashboard\FloorController;
 use App\Http\Controllers\Dashboard\FloorNumberController;
@@ -27,7 +28,6 @@ use App\Http\Controllers\Dashboard\CrewController;
 
 use App\Http\Controllers\Dashboard\UserController;
 use Illuminate\Support\Facades\Route;
-
 
 Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedirect', 'localizationRedirect', 'localeViewPath')->group(function () {
     Route::prefix('dashboard')->name('dashboard.')->middleware(['auth'])->group(function () {
@@ -97,6 +97,9 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
         //place_comments
         Route::resource('place_comments', PlaceCommentController::class);
+
+        //areas
+        Route::resource('areas', AreaController::class);
 
     }); //end of dashboard routes
 });

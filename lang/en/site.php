@@ -45,6 +45,7 @@ return [
     'year'=>'Year',
     'changed_price'=>'Changed Price',
     'comment_text'=>'Comment Text',
+    'areas'=>'Areas',
 
 
     'place_comments'=>' PlaceComments',

@@ -36,6 +36,9 @@ class SettingSeeder extends Seeder
             'closing' => 'open',
             'logo' => fake()->image,
 
+            // 'number_master_room' => fake()->integer,
+            // 'number_standard_room' => fake()->integer,
+
             'twitter' => fake()->url(),
             'facebook' => fake()->url(),
             'instagram' => fake()->url(),
