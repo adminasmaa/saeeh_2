@@ -52,6 +52,8 @@ class AqarController extends Controller
 
     public function store(Request $request)
     {
+        dd($request);
+        die;
         $request->validate([
 
                 'name_ar' => 'required',
@@ -84,7 +86,6 @@ class AqarController extends Controller
 
             ]
         );
-
 
         return $this->AqarRepository->store($request);
 

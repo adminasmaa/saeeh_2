@@ -79,14 +79,11 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         //aquarcategories
         Route::resource('aquarcategories', AquarCategoryController::class);
 
-<<<<<<< HEAD
         //aqars
         Route::resource('aqars', AqarController::class);
 
-=======
         //place_comments
         Route::resource('place_comments', PlaceCommentController::class);
->>>>>>> f8e09e249be733eb45862c0511037ddc544c1bae
 
     }); //end of dashboard routes
 });

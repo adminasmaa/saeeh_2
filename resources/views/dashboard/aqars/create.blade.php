@@ -66,9 +66,9 @@
                                         <div class="col">
                                             <div class="m-t-15">
                                             @foreach($categories as $cat)
-                                            <div class="form-check checkbox checkbox-solid-primary">
-                                                <input class="form-check-input" id="property_type_id{{$cat->id}}" type="checkbox"  name="property_type_id"  value="{{$cat->id}}" >
-                                                <label class="form-check-label mb-0" for="property_type_id{{$cat->id}}">{{$cat->name ?? ''}}</label>
+                                            <div class="form-check radio radio-primary">
+                                                <input class="form-check-input" id="category_id{{$cat->id}}" type="radio"  name="category_id"  value="{{$cat->id}}" >
+                                                <label class="form-check-label mb-0" for="category_id{{$cat->id}}">{{$cat->name ?? ''}}</label>
                                             </div>
                                             @endforeach
                                             </div>
@@ -80,9 +80,9 @@
                                         <div class="col">
                                             <div class="m-t-15">
                                             @foreach($Area as $item)
-                                            <div class="form-check checkbox checkbox-solid-primary">
-                                                <input class="form-check-input" id="property_type_id{{$item->id}}" type="checkbox"  name="property_type_id"  value="{{$item->id}}" >
-                                                <label class="form-check-label mb-0" for="property_type_id{{$cat->id}}">{{$item->name_ar ?? ''}}</label>
+                                            <div class="form-check radio radio-primary">
+                                                <input class="form-check-input" id="area_{{$item->id}}" type="radio"  name="area"  value="{{$item->id}}" >
+                                                <label class="form-check-label mb-0" for="area_{{$item->id}}">{{$item->name_ar ?? ''}}</label>
                                             </div>
                                             @endforeach
                                             </div>
@@ -139,9 +139,9 @@
                                             <div class="col-md-6 form-group col-12 p-2">
 
 
-                                                    <label>@lang('site.notify_photo')</label>
-                                                    <input type="file" name="notify_photo" class="form-control"
-                                                        value="{{ old('notify_photo') }}">
+                                                    <label>@lang('site.images')</label>
+                                                    <input type="file" name="images[]" class="form-control"
+                                                        value="{{ old('images[]') }}">
 
 
                                             </div>
@@ -287,7 +287,7 @@
                                         <div class="col m-t-15">
                                             @foreach($ConditioningType as $type)
                                             <div class="form-check form-check-inline checkbox checkbox-solid-primary">
-                                                <input class="form-check-input" id="conditioning_{{$type->id}}" type="checkbox">
+                                                <input class="form-check-input" id="conditioning_{{$type->id}}" type="checkbox" name="">
                                                 <label class="form-check-label" for="conditioning_{{$type->id}}">{{$type->name_ar ?? ''}}<span class="digits"></span></label>
                                             </div>
                                             @endforeach
@@ -299,7 +299,7 @@
 
                                             <div class="col-md-12 form-group col-12 p-2  m-t-15">
                                                 <label>@lang('site.descrption_ar')<span class="text-danger">*</span></label>
-                                                <textarea class="form-control" cols="5" rows="5" name="descrption_ar" id="editor1">
+                                                <textarea class="form-control" cols="5" rows="5" name="descrption" id="editor1">
 
                                                 </textarea>
                                             </div>
