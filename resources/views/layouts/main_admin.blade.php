@@ -491,11 +491,11 @@
 
                                     </li>
                                     <!-- <li><a href="{{route('dashboard.bookings.index')}}">{{__('site.bookings')}}</a>
-                                    </li>
+                                    </li> -->
 
                                     <li>
-                                        <a href="{{route('dashboard.car_comments.index')}}">{{__('site.car_comments')}}</a>
-                                    </li> -->
+                                        <a href="{{route('dashboard.place_comments.index')}}">{{__('site.place_comments')}}</a>
+                                    </li>
                                 </ul>
                             </li>
 

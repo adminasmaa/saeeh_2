@@ -20,8 +20,10 @@ class PlaceComment extends Model
         'rating', // integer
         'status', // integer
         'place_id', // unsigned
-        'user_id', //unsigned 
+        'user_id', //unsigned
     ];
+    protected $hidden=['deleted_at','updated_at'];
+
     // relations
     public function user(){
         return $this->belongsTo(User::class,'user_id');

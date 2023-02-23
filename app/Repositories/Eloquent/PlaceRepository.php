@@ -68,7 +68,7 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
     {
         // TODO: Implement store() method.
 
-        $request_data = $request->except(['display_photo','notify_photo']);
+        $request_data = $request->except(['display_photo','notify_photo','images']);
 
         // To Make  Active
 
@@ -91,7 +91,17 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
             $place->notify_photo = $filename;
             $place->save();
         }
-       
+        if ($request->hasFile('images')) {
+            $images = $request->file('images');
+            foreach ($images as $key => $files) {
+                $destinationPath = 'images/places/';
+                $file_name = $_FILES['images']['name'][$key];
+                $files->move($destinationPath, $file_name);
+                $data[] = $_FILES['images']['name'][$key];
+                $place->images = json_encode($data);
+                $place->save();
+            }
+        }
         if ($place) {
            Alert::success('Success', __('site.added_successfully'));
 
@@ -104,7 +114,7 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
     {
         // TODO: Implement update() method.
 
-        $request_data = $request->except(['display_photo', '_token', '_method', 'notify_photo']);
+        $request_data = $request->except(['display_photo', '_token', '_method', 'notify_photo','images']);
         $place->update($request_data);
 
 
@@ -124,6 +134,17 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
             $thumbnail->move($destinationPath, $filename);
             $place->notify_photo = $filename;
             $place->save();
+        }
+        if ($request->hasFile('images')) {
+            $images = $request->file('images');
+            foreach ($images as $key => $files) {
+                $destinationPath = 'images/places/';
+                $file_name = $_FILES['images']['name'][$key];
+                $files->move($destinationPath, $file_name);
+                $data[] = $_FILES['images']['name'][$key];
+                $place->images = json_encode($data);
+                $place->save();
+            }
         }
         if ($place) {
            Alert::success('Success', __('site.updated_successfully'));

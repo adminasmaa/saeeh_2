@@ -6,6 +6,17 @@ namespace App\Repositories\Eloquent;
 use App\Models\Aqar;
 use App\Models\User;
 use App\Models\Category;
+use App\Models\AnotherRoom;
+use App\Models\Area;
+use App\Models\Floor;
+use App\Models\FloorNumber;
+use App\Models\Crew;
+use App\Models\FreeService;
+use App\Models\Service;
+use App\Models\Bathroom;
+use App\Models\Kitchen;
+use App\Models\Laundry;
+use App\Models\ConditioningType;
 use App\Repositories\Interfaces\AqarRepositoryInterface as AqarRepositoryInterfaceAlias;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
@@ -31,7 +42,18 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
 
         $users = User::all();
         $categories = Category::all();
-        return view('dashboard.aqars.create', compact('users', 'categories'));
+        $AnotherRoom = AnotherRoom::all();
+        $Area = Area::all();
+        $Floor = Floor::all();
+        $FloorNumber = FloorNumber::all();
+        $Crew = Crew::all();
+        $Service = Service::all();
+        $FreeService = FreeService::all();
+        $Kitchen = Kitchen::all();
+        $Bathroom = Bathroom::all();
+        $Laundry = Laundry::all();
+        $ConditioningType = ConditioningType::all();
+        return view('dashboard.aqars.create', compact('users', 'categories','AnotherRoom','Area','Bathroom','ConditioningType','Floor','FloorNumber','Service','FreeService','Crew','Kitchen','Laundry'));
     }
 
     public function edit($Id)

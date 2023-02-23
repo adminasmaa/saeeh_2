@@ -415,6 +415,7 @@ return [
     'social_media'=>'  مواقع التواصل الاجتماعي ',
     'display_photo'=>' الصورة الرئيسية  ',
     'notify_photo'=>' صورة الملاحظه',
+    'place_comments'=>' تعليقات الاماكن ',
 
 
     'ar' => [

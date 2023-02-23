@@ -15,6 +15,7 @@ use App\Http\Controllers\Dashboard\CarController;
 use App\Http\Controllers\Dashboard\CarCommentController;
 use App\Http\Controllers\Dashboard\BookingController;
 use App\Http\Controllers\Dashboard\PlaceController;
+use App\Http\Controllers\Dashboard\PlaceCommentController;
 use App\Http\Controllers\Dashboard\AquarCategoryController;
 use App\Http\Controllers\Dashboard\AqarController;
 
@@ -78,9 +79,14 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         //aquarcategories
         Route::resource('aquarcategories', AquarCategoryController::class);
 
+<<<<<<< HEAD
         //aqars
         Route::resource('aqars', AqarController::class);
 
+=======
+        //place_comments
+        Route::resource('place_comments', PlaceCommentController::class);
+>>>>>>> f8e09e249be733eb45862c0511037ddc544c1bae
 
     }); //end of dashboard routes
 });

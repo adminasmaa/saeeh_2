@@ -17,4 +17,6 @@ return [
     'Category not found.'=>'الفئة غير موجودة',
     'categories retrieved successfully.'=>'تم استرداد الفئات بنجاح',
     'subcategories retrieved successfully.'=>'تم استرداد الفئات بنجاح',
+    'Place not found.'=>'المكان غير موجود',
+    'Place retrieved successfully.'=>'تم استرداد المكان بنجاح',
 ];

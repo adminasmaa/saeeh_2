@@ -4338,17 +4338,6 @@
             "time": "2023-01-12T18:13:24+00:00"
         },
         {
-<<<<<<< HEAD
-            "name": "santigarcor/laratrust",
-            "version": "7.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/santigarcor/laratrust.git",
-                "reference": "3ac3b59d8df63c61b80d8e16ac69751283df115c"
-            },
-            "dist": {
-                "type": "zip",
-=======
             "name": "realrashid/sweet-alert",
             "version": "v5.1.0",
             "source": {
@@ -4448,7 +4437,6 @@
             },
             "dist": {
                 "type": "zip",
->>>>>>> c9e287c442d86b8876dffbafe9dff8da2091ffa8
                 "url": "https://api.github.com/repos/santigarcor/laratrust/zipball/3ac3b59d8df63c61b80d8e16ac69751283df115c",
                 "reference": "3ac3b59d8df63c61b80d8e16ac69751283df115c",
                 "shasum": ""
