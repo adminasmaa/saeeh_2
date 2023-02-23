@@ -80,10 +80,10 @@
                                         <option selected>@lang('site.select')</option>
 
                                         <option value="1"
-                                                @if($area->active=='1') selected @endif>1
+                                                @if($area->active=='active') selected @endif>active
                                         </option>
                                         <option value="0"
-                                                @if($area->active=='0') selected @endif>0
+                                                @if($area->active=='inactive') selected @endif>inactive
                                         </option>
                                         
                                     </select>
