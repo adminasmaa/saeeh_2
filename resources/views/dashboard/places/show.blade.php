@@ -263,7 +263,7 @@
                                     </div>
                                     <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                     <label class="form-label">@lang('site.social_media')</label>
-                                    <select class="form-control btn-square" name="social_media" readonly="">
+                                    <select class="form-control btn-square" name="social_media" readonly=""disabled>
                                         <option selected>@lang('site.select')</option>
 
                                         <option value="facebook"

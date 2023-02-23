@@ -2,9 +2,19 @@
 
 return [
     'settingss' => ' Settings',
+    'services'=>'Services',
     'link'=>'Link',
+    'floor_numbers'=>'Floor Numbers',
+    'free_services'=>'Free Services',
+    'kitchens'=>'Kitchens',
+    'laundries'=>'Laundries',
+    'bathrooms'=>'BathRooms',
+    'another_rooms'=>'AnotherRooms',
+    'conditioning_types'=>'Conditioning Types',
+    'crews'=>'Crews',
     'Saeeh' => 'Saeeh',
     'questions' => 'Questions',
+    'floors'=>'Floors',
     'question' => 'question',
     'problems'=>'Problems',
     'mediators'=>'Mediators',
@@ -24,7 +34,7 @@ return [
     'rating'=>'Rating',
     'bookings'=>'Bookings',
     'videos'=>'Videos',
-
+    'areas'=>'Areas',
     'place_arrive'=>'Place Arrive',
     'place_leave'=>'Place Leave',
     'day_count'=>'Day Count',
@@ -38,6 +48,7 @@ return [
     'year'=>'Year',
     'changed_price'=>'Changed Price',
     'comment_text'=>'Comment Text',
+    'areas'=>'Areas',
 
 
     'place_comments'=>' PlaceComments',

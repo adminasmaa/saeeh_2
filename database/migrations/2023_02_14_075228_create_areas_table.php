@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('name_en')->nullable();
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
-            $table->boolean('active')->required()->default(0);
+            $table->boolean('active')->required()->default(1);
             $table->foreignId('city_id')->required( )->references('id')->on('cities')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();

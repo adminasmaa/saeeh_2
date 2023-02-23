@@ -17,11 +17,24 @@ use App\Http\Controllers\Dashboard\BookingController;
 use App\Http\Controllers\Dashboard\PlaceController;
 use App\Http\Controllers\Dashboard\PlaceCommentController;
 use App\Http\Controllers\Dashboard\AquarCategoryController;
+<<<<<<< HEAD
 use App\Http\Controllers\Dashboard\AqarController;
+=======
+use App\Http\Controllers\Dashboard\AreaController;
+use App\Http\Controllers\Dashboard\ServiceController;
+use App\Http\Controllers\Dashboard\FloorController;
+use App\Http\Controllers\Dashboard\FloorNumberController;
+use App\Http\Controllers\Dashboard\FreeServiceController;
+use App\Http\Controllers\Dashboard\KitchenController;
+use App\Http\Controllers\Dashboard\LaundryController;
+use App\Http\Controllers\Dashboard\CrewController;
+use App\Http\Controllers\Dashboard\BathRoomController;
+use App\Http\Controllers\Dashboard\AnotherRoomController;
+use App\Http\Controllers\Dashboard\ConditionTypeController;
+>>>>>>> e9d682dea366395b43b0548a9ba0ffb19a9c30b2
 
 use App\Http\Controllers\Dashboard\UserController;
 use Illuminate\Support\Facades\Route;
-
 
 Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedirect', 'localizationRedirect', 'localeViewPath')->group(function () {
     Route::prefix('dashboard')->name('dashboard.')->middleware(['auth'])->group(function () {
@@ -78,12 +91,28 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
         //aquarcategories
         Route::resource('aquarcategories', AquarCategoryController::class);
+        //services
+        Route::resource('services', ServiceController::class);
+        Route::resource('free_services', FreeServiceController::class);
+        Route::resource('kitchens', KitchenController::class);
+        Route::resource('laundries', LaundryController::class);
+        Route::resource('crews', CrewController::class);
+        Route::resource('bathrooms', BathRoomController::class);
+        Route::resource('another_rooms', AnotherRoomController::class);
+        Route::resource('conditioning_types', ConditionTypeController::class);
+
+        //floors
+        Route::resource('floors', FloorController::class);
+        Route::resource('floor_numbers', FloorNumberController::class);
 
         //aqars
         Route::resource('aqars', AqarController::class);
 
         //place_comments
         Route::resource('place_comments', PlaceCommentController::class);
+
+        //areas
+        Route::resource('areas', AreaController::class);
 
     }); //end of dashboard routes
 });

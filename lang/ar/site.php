@@ -13,19 +13,19 @@ return [
     'image_comment' => 'ايقؤنه ',
     'questions' => 'الاسئله المتكرره',
     'question' => 'السؤال',
-    'cars'=>'السيارات',
+    'cars' => 'السيارات',
 
 
     'terms_conditions' => 'الشروط والاحكام',
     'website_address' => 'عنوان الموقع ',
-    'brands'=>'ماركات العربيات',
+    'brands' => 'ماركات العربيات',
 
     'full_names' => 'الاسم الكامل',
     'Saeeh' => 'سائح',
     'start_date' => 'تاريخ البدء',
     'end_date' => ' تنتهي في: ',
     'reports' => 'التقارير',
-    'advertising'=>'الاعلانات ',
+    'advertising' => 'الاعلانات ',
     'operation' => 'عملية',
     'amount' => 'كميات',
 
@@ -36,14 +36,14 @@ return [
     'reload' => 'إعادة تحميل',
     'Accounts' => 'المحاسبة',
     'reason' => 'السبب',
-    'car_comments'=>'تعليقات السيارات',
-    'rating'=>'التقيم',
-    'bookings'=>'الحجوزات',
+    'car_comments' => 'تعليقات السيارات',
+    'rating' => 'التقيم',
+    'bookings' => 'الحجوزات',
 
-    'place_arrive'=>'مكان الوصول',
-    'place_leave'=>'اترك مكان',
-    'day_count'=>'عدد اليوم',
-    'reciept_date'=>'تاريخ الاستلام',
+    'place_arrive' => 'مكان الوصول',
+    'place_leave' => 'اترك مكان',
+    'day_count' => 'عدد اليوم',
+    'reciept_date' => 'تاريخ الاستلام',
 
 
     'basic information' => ' المعلومات الرئيسية',
@@ -52,14 +52,14 @@ return [
     'Send Password Reset' => 'إرسال إعادة تعيين كلمة المرور',
 
     'reference' => 'المرجع',
-    'videos'=>'الفيديو',
+    'videos' => 'الفيديو',
 
     'date' => 'تاريخ ',
-    'color'=>'اللون',
+    'color' => 'اللون',
     'rate' => 'التقيم',
-    'year'=>'السنه',
-    'changed_price'=>'السعر المتغير',
-    'comment_text'=>'النص',
+    'year' => 'السنه',
+    'changed_price' => 'السعر المتغير',
+    'comment_text' => 'النص',
 
 
     'namessss' => 'أسم الملف',
@@ -155,33 +155,40 @@ return [
     'website_link' => 'رابط الموقع',
     'ads_top' => 'الاعلان ثابت في الاعلى',
     'ads_bottom' => 'اعلان ثابت في الاسفل',
-    'time_difference'=>'فارق التوقيت',
-    'closing'=>'الاغلاق',
+    'time_difference' => 'فارق التوقيت',
+    'closing' => 'الاغلاق',
 
 
-    'open'=>'مفتوح',
-    'closed'=>'مغلق',
+    'open' => 'مفتوح',
+    'closed' => 'مغلق',
 
-    'logo'=>'الشعار',
+    'logo' => 'الشعار',
 
 
-    'twitter'=>'تويتر',
-    'facebook'=>'فيسبوك',
-    'instagram'=>'انستغرام',
-    'youtube'=>'موقع YouTube',
-    'snapchat'=>'سناب شات',
+    'twitter' => 'تويتر',
+    'facebook' => 'فيسبوك',
+    'instagram' => 'انستغرام',
+    'youtube' => 'موقع YouTube',
+    'snapchat' => 'سناب شات',
 
-    'attach_link'=>'روابط التواصل ',
+    'attach_link' => 'روابط التواصل ',
 
     //settings
     'theme' => 'الثيم',
     'setting' => 'الاعدادات العامه',
     'closing_message' => 'رسالة الاغلاق',
-
+'free_services'=>'الخدمات المجانيه',
+    'kitchens'=>'المطابخ',
+    'laundries'=>'الارضيات',
+    'bathrooms'=>'مرافق الحمامات',
+    'another_rooms'=>'غرف اخري',
+    'conditioning_types'=>'انواع التكيفات',
+    'crews'=>'طاقم العمل',
     'key_words' => 'الكلمات الدليلة',
-    'link'=>'الرابط',
-
-
+    'link' => 'الرابط',
+    'floors' => 'الادوار',
+    'floor_numbers'=>'عدد الادوار',
+    'services' => 'الخدمات',
     'users' => 'المستخدمين ',
     'select' => 'من فضلك اختار ',
     'OPTION' => 'اختيار',
@@ -330,6 +337,7 @@ return [
     'individual' => 'فردى ',
     'number' => 'الصلة ',
     'time' => 'الوقت',
+    'areas' => 'المناطق',
 
     'pleaseChoose' => 'من فضلك اختر',
 
@@ -389,33 +397,33 @@ return [
 
     'order' => 'الترتيب',
     'flag_image' => 'صورة العلم',
-    'places'=>'الاماكن',
-    'name_ar'=>'الاسم بالعربي',
-    'name_en'=>'الاسم بالانجليزي',
-    'place_order'=>'رقم طلب المكان ',
-    'place_error'=>' رقم خطا المكان',
-    'const_from'=>'من',
-    'const_to'=>' الى',
-    'address'=>' العنوان',
-    'descrption_ar'=>' تفاصيل بالعربي ',
-    'descrption_en'=>' تفاصيل بالانجليزي ',
-    'phone_one'=>' الرقم الاول',
-    'phone_two'=>'الرقم الثاني',
-    'google_mark_link'=>' رابط جوجل',
-    'place_link'=>' رابط المكان',
-    'share_link'=>' رابط المشاركة',
-    'time_check'=>' وقت الملاحظة',
-    'seen_counter'=>' عدد المشاهدين  ',
-    'delivery'=>' رقم  الوصول ',
-    'diff_time'=>' اختلاف الوقت  ',
-    'const_time'=>' الوقت المحدد  ',
-    'rest_one'=>'  انواع الاكل',
-    'rest_two'=>'  انواع الراحة ',
-    'rest_three'=>' مكان الطاولات  ',
-    'social_media'=>'  مواقع التواصل الاجتماعي ',
-    'display_photo'=>' الصورة الرئيسية  ',
-    'notify_photo'=>' صورة الملاحظه',
-    'place_comments'=>' تعليقات الاماكن ',
+    'places' => 'الاماكن',
+    'name_ar' => 'الاسم بالعربي',
+    'name_en' => 'الاسم بالانجليزي',
+    'place_order' => 'رقم طلب المكان ',
+    'place_error' => ' رقم خطا المكان',
+    'const_from' => 'من',
+    'const_to' => ' الى',
+    'address' => ' العنوان',
+    'descrption_ar' => ' تفاصيل بالعربي ',
+    'descrption_en' => ' تفاصيل بالانجليزي ',
+    'phone_one' => ' الرقم الاول',
+    'phone_two' => 'الرقم الثاني',
+    'google_mark_link' => ' رابط جوجل',
+    'place_link' => ' رابط المكان',
+    'share_link' => ' رابط المشاركة',
+    'time_check' => ' وقت الملاحظة',
+    'seen_counter' => ' عدد المشاهدين  ',
+    'delivery' => ' رقم  الوصول ',
+    'diff_time' => ' اختلاف الوقت  ',
+    'const_time' => ' الوقت المحدد  ',
+    'rest_one' => '  انواع الاكل',
+    'rest_two' => '  انواع الراحة ',
+    'rest_three' => ' مكان الطاولات  ',
+    'social_media' => '  مواقع التواصل الاجتماعي ',
+    'display_photo' => ' الصورة الرئيسية  ',
+    'notify_photo' => ' صورة الملاحظه',
+    'place_comments' => ' تعليقات الاماكن ',
 
 
     'ar' => [
@@ -471,8 +479,6 @@ return [
         'invalidemail' => 'لا يوجد أي حساب مرتبط بهذا البريد الالكتروني',
         'checkemail' => 'برجاء فحص بريدك الالكتروني',
         'error' => 'الرقم السري غير صحيح برجاء إدخال بشكل صحيح',
-
-
 
 
     ],
