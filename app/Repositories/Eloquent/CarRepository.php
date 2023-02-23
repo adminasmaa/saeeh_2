@@ -180,9 +180,9 @@ class CarRepository implements CarRepositoryInterfaceAlias
         // TODO: Implement destroy() method.
         $result = $car->delete();
         if ($result) {
-                Alert::toast('Success', __('site.deleted_successfully'));
+                Alert::toast('Deleted', __('site.deleted_successfully'));
         } else {
-                Alert::toast('Success', __('site.delete_faild'));
+                Alert::toast('Deleted', __('site.delete_faild'));
 
         }
 
