@@ -52,11 +52,10 @@ class QuestionRepository implements IQuestionRepositoryAlias
 
         $result = $question->delete();
         if ($result) {
-                Alert::toast('Success', __('site.deleted_successfully'));
+            Alert::toast('Success', __('site.deleted_successfully'));
         } else {
-                Alert::toast('Error', __('site.delete_faild'));
+            Alert::toast('Error', __('site.delete_faild'));
 
-//                session()->flash('error', __('site.delete_faild'));
         }
 
         return back();
@@ -70,9 +69,6 @@ class QuestionRepository implements IQuestionRepositoryAlias
 
 
         $question = Freq_question::create($request_data);
-
-
-
 
 
         if ($question) {
@@ -94,12 +90,10 @@ class QuestionRepository implements IQuestionRepositoryAlias
         $question->update($request_data);
 
 
-
         if ($question) {
             Alert::success('Success', __('site.updated_successfully'));
 
             return redirect()->route('dashboard.questions.index');
-//            session()->flash('success', __('site.updated_successfully'));
         } else {
             Alert::error('Error', __('site.update_faild'));
 
