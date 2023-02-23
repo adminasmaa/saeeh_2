@@ -31,7 +31,7 @@ return [
     'rating'=>'Rating',
     'bookings'=>'Bookings',
     'videos'=>'Videos',
-
+    'areas'=>'Areas',
     'place_arrive'=>'Place Arrive',
     'place_leave'=>'Place Leave',
     'day_count'=>'Day Count',

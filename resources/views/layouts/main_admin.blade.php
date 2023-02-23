@@ -445,12 +445,12 @@
 
                             </li>
 
-                            <li class="sidebar-list"><a
+                            <!-- <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title link-nav"
                                     href="{{route('dashboard.areas.index')}}"><i
                                         data-feather="server"></i><span>@lang('site.areas') @endlang</span></a>
 
-                            </li>
+                            </li> -->
 
                             {{--list--}}
 
@@ -478,6 +478,10 @@
                                 <ul class="sidebar-submenu">
                                     <li>
                                         <a href="{{route('dashboard.aquarcategories.index')}}">{{__('site.categories')}}</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="{{route('dashboard.areas.index')}}">{{__('site.areas')}}</a>
                                     </li>
 
                                     <li>
