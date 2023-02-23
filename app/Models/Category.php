@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Place;    // HasMany
-
+use App\Models\Aqar;   //belongsTo
 class Category extends Model
 {
     use HasFactory,SoftDeletes;
@@ -31,5 +31,9 @@ class Category extends Model
     }
     public function subcategories(){
         return $this->HasMany(Category::class,'parent_id');
+    }
+    // relations
+    public function aqar(){
+        return $this->belongsTo(Aqar::class,'aqar_id');
     }
 }

@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Models\Aqar;   //HasMany
 
 class Floor extends Model
 {
@@ -19,9 +18,5 @@ class Floor extends Model
         'name_ar', // required
         'active', // required,default (0)
     ];
-    // relations
-    public function aqar(){
-        return $this->HasMany(Aqar::class);
-    }
 
 }
