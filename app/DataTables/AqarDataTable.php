@@ -63,17 +63,17 @@ class AqarDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Place $model
+     * @param \App\Models\Aqar $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Place $model): QueryBuilder
+    public function query(Aqar $model): QueryBuilder
     {
         return $model->newQuery();
     }
 
     public function count()
     {
-        return Place::count();
+        return Aqar::count();
 
     }
 

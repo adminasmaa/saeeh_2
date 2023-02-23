@@ -20,7 +20,7 @@ use App\Models\ConditionType;
 use App\Repositories\Interfaces\AqarRepositoryInterface as AqarRepositoryInterfaceAlias;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
-
+use Alert;
 class AqarRepository implements AqarRepositoryInterfaceAlias
 {
     public function getAll($data)
@@ -105,8 +105,6 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
         // TODO: Implement store() method.
 
         $request_data = $request->except(['main_image','images']);
-
-        // To Make  Active
 
         $aqar = Aqar::create($request_data);
 

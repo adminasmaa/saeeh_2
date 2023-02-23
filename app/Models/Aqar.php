@@ -72,4 +72,10 @@ class Aqar extends Model
     public function aqarBooking(){
         return $this->HasMany(AqarBooking::class);
     }
+
+    public function setFloorAttribute($value)
+    {
+        $this->attributes['floor_id'] = json_encode($value);
+    }
+
 }
