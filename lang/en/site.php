@@ -241,8 +241,10 @@ return [
     'reset' => 'Reset',
     'reload' => 'Reload',
     'Register' => 'Register',
+    'latitude' => 'Latitude',
+    'longitude' => 'Longitude',
 
-
+    'aquars'=>'Aquars',
     'categories' => 'Categories',
     'all_categories' => 'All Categories',
     'all_clients' => 'All Clients',
