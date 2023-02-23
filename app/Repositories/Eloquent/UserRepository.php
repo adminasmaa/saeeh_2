@@ -67,7 +67,7 @@ class UserRepository implements IUserRepositoryAlias
 
         $result = $user->delete();
         if ($result) {
-                Alert::toast('Success', __('site.deleted_successfully'));
+                Alert::toast('Deleted', __('site.deleted_successfully'));
         } else {
                 Alert::toast('Error', __('site.delete_faild'));
 

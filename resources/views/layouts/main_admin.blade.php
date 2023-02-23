@@ -487,8 +487,21 @@
                                     <li>
                                         <a href="{{route('dashboard.laundries.index')}}">{{__('site.laundries')}}</a>
                                     </li>
-                <li>
+
+                                    <li>
                                         <a href="{{route('dashboard.crews.index')}}">{{__('site.crews')}}</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="{{route('dashboard.bathrooms.index')}}">{{__('site.bathrooms')}}</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="{{route('dashboard.conditioning_types.index')}}">{{__('site.conditioning_types')}}</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="{{route('dashboard.another_rooms.index')}}">{{__('site.another_rooms')}}</a>
                                     </li>
 
 

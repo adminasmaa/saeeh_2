@@ -3,12 +3,15 @@
 namespace App\Providers;
 
 use App\Repositories\Eloquent\AdvertisingRepository;
+use App\Repositories\Eloquent\AnotherRoomRepository;
+use App\Repositories\Eloquent\BathRoomRepository;
 use App\Repositories\Eloquent\BookingRepository;
 use App\Repositories\Eloquent\BrandRepository;
 use App\Repositories\Eloquent\CarCommentRepository;
 use App\Repositories\Eloquent\CarRepository;
 use App\Repositories\Eloquent\CategoryRepository;
 use App\Repositories\Eloquent\CityRepository;
+use App\Repositories\Eloquent\CondiotionTypeRepository;
 use App\Repositories\Eloquent\CountryRepository;
 use App\Repositories\Eloquent\CrewRepository;
 use App\Repositories\Eloquent\FloorNumberRepository;
@@ -27,12 +30,15 @@ use App\Repositories\Eloquent\PlaceRepository;
 use App\Repositories\Eloquent\PlaceCommentRepository;
 
 use App\Repositories\Interfaces\AdvertisingRepositoryInterface;
+use App\Repositories\Interfaces\AnotherRoomRepositoryInterface;
+use App\Repositories\Interfaces\BathRoomRepositoryInterface;
 use App\Repositories\Interfaces\BookingRepositoryInterface;
 use App\Repositories\Interfaces\BrandRepositoryInterface;
 use App\Repositories\Interfaces\CarCommentRepositoryInterface;
 use App\Repositories\Interfaces\CarRepositoryInterface;
 use App\Repositories\Interfaces\CategoryRepositoryInterface;
 use App\Repositories\Interfaces\CityRepositoryInterface;
+use App\Repositories\Interfaces\ConditionTypeRepositoryInterface;
 use App\Repositories\Interfaces\CountryRepositoryInterface;
 use App\Repositories\Interfaces\CrewRepositoryInterface;
 use App\Repositories\Interfaces\FloorNumberRepositoryInterface;
@@ -83,6 +89,9 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(KitchenRepositoryInterface::class, KitchenRepository::class);
         $this->app->bind(LaundryRepositoryInterface::class, LaundryRepository::class);
         $this->app->bind(CrewRepositoryInterface::class, CrewRepository::class);
+        $this->app->bind(BathRoomRepositoryInterface::class, BathRoomRepository::class);
+        $this->app->bind(AnotherRoomRepositoryInterface::class, AnotherRoomRepository::class);
+        $this->app->bind(ConditionTypeRepositoryInterface::class, CondiotionTypeRepository::class);
 
         $this->app->bind(PlaceRepositoryInterface::class, PlaceRepository::class);
         $this->app->bind(PlaceCommentRepositoryInterface::class, PlaceCommentRepository::class);

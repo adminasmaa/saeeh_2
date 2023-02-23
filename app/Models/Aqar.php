@@ -12,7 +12,7 @@ use App\Models\AnotherRoom;   //belongsTo
 use App\Models\Area;   //belongsTo
 use App\Models\Bathroom;   //belongsTo
 use App\Models\CarPosition;   //belongsTo
-use App\Models\ConditioningType;   //belongsTo
+use App\Models\ConditionType;   //belongsTo
 use App\Models\Crew;   //belongsTo
 use App\Models\Floor;   //belongsTo
 use App\Models\FloorNumber;   //belongsTo
@@ -41,21 +41,21 @@ class Aqar extends Model
         'comment_text', // nullable
         'comision', // required
         'category',// enum ,['duplex','room','sweet','studio','apartment','villa','castle']
-        'property_id', //unsigned 
-        'ads_id', //unsigned 
-        'area_id',//unsigned 
-        'floor_id',//unsigned 
-        'car_position_id',//unsigned 
-        'service_id',//unsigned 
-        'bathroom_id',//unsigned 
-        'free_service_id',//unsigned 
+        'property_id', //unsigned
+        'ads_id', //unsigned
+        'area_id',//unsigned
+        'floor_id',//unsigned
+        'car_position_id',//unsigned
+        'service_id',//unsigned
+        'bathroom_id',//unsigned
+        'free_service_id',//unsigned
         'laundry_id',//unsigned
-        'kitchen_id',//unsigned 
-        'crew_id',//unsigned 
-        'conditioning_type_id',//unsigned 
-        'another_room_id',//unsigned 
-        'floor_number_id',//unsigned  
-        'user_id', //unsigned 
+        'kitchen_id',//unsigned
+        'crew_id',//unsigned
+        'conditioning_type_id',//unsigned
+        'another_room_id',//unsigned
+        'floor_number_id',//unsigned
+        'user_id', //unsigned
     ];
      // scope
      public function scopeCategory($query,$category){
@@ -84,7 +84,7 @@ class Aqar extends Model
         return $this->belongsTo(CarPosition::class,'car_position_id');
     }// relations
     public function conditioningType(){
-        return $this->belongsTo(ConditioningType::class,'conditioning_type_id');
+        return $this->belongsTo(ConditionType::class,'conditioning_type_id');
     }// relations
     public function crew(){
         return $this->belongsTo(Crew::class,'crew_id');

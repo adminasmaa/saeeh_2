@@ -52,9 +52,9 @@ class MediatorRepository implements IMediatorRepositoryAlias
 
         $result = $mediator->delete();
         if ($result) {
-                Alert::toast('Success', __('site.deleted_successfully'));
+                Alert::toast('Deleted', __('site.deleted_successfully'));
         } else {
-                Alert::toast('Success', __('site.delete_faild'));
+                Alert::toast('Deleted', __('site.delete_faild'));
 
         }
 

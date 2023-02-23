@@ -24,6 +24,9 @@ use App\Http\Controllers\Dashboard\FreeServiceController;
 use App\Http\Controllers\Dashboard\KitchenController;
 use App\Http\Controllers\Dashboard\LaundryController;
 use App\Http\Controllers\Dashboard\CrewController;
+use App\Http\Controllers\Dashboard\BathRoomController;
+use App\Http\Controllers\Dashboard\AnotherRoomController;
+use App\Http\Controllers\Dashboard\ConditionTypeController;
 
 use App\Http\Controllers\Dashboard\UserController;
 use Illuminate\Support\Facades\Route;
@@ -90,6 +93,9 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         Route::resource('kitchens', KitchenController::class);
         Route::resource('laundries', LaundryController::class);
         Route::resource('crews', CrewController::class);
+        Route::resource('bathrooms', BathRoomController::class);
+        Route::resource('another_rooms', AnotherRoomController::class);
+        Route::resource('conditioning_types', ConditionTypeController::class);
 
         //floors
         Route::resource('floors', FloorController::class);
