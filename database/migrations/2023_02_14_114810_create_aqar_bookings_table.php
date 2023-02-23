@@ -24,7 +24,7 @@ return new class extends Migration
             $table->date('reciept_date')->required();
             $table->integer('day_count')->nullable();
             $table->integer('visit_count')->nullable();
-            $table->boolean('active')->required()->default(0);
+            $table->boolean('active')->required()->default(1);
             $table->string('cancle_reason')->nullable();
             $table->string('place_arrive')->nullable();
             $table->string('place_leave')->nullable();

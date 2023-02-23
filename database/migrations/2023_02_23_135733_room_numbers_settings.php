@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('laundries', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name_ar')->required();
-            $table->string('name_en')->nullable();
-            $table->boolean('active')->required()->default(1);
-            $table->timestamps();
-            $table->softDeletes();
+        Schema::table('settings', function (Blueprint $table) {
+            $table->integer('number_master_room')->nullable();
+            $table->integer('number_standard_room')->nullable();
+
         });
     }
 
@@ -30,6 +27,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('laundries');
+        Schema::table('settings', function (Blueprint $table) {
+            //
+        });
     }
 };

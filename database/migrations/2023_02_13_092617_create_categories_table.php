@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->string('image')->nullable();
             $table->string('icon')->nullable();
-            $table->boolean('active')->default(0);
+            $table->boolean('active')->default(1);
             $table->foreignId('parent_id')->nullable()->constrained('categories');
             $table->foreignId('city_id')->nullable( )->references('id')->on('cities')->onDelete('cascade');
             $table->softDeletes();
