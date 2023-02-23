@@ -334,6 +334,7 @@ return [
     'individual' => 'فردى ',
     'number' => 'الصلة ',
     'time' => 'الوقت',
+    'areas' => 'المناطق',
 
     'pleaseChoose' => 'من فضلك اختر',
 
