@@ -44,6 +44,7 @@ class Place extends Model
         'rest_one',// nullable
         'rest_two',// nullable
         'rest_three',// nullable
+        'images', // nullable
         'social_media',// enum ,['facebook','instagram']
         'category_id', //unsigned
         'user_id', //unsigned

@@ -139,34 +139,34 @@
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.name_ar')<span class="text-danger">*</span></label>
                                         <input type="text" name="name_ar" class="form-control"
-                                               value="{{old('name_ar')}}"
-                                               required>
+                                               value="{{$place->name_ar}}"
+                                            >
                                     </div>
-
+                                    
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.name_en')</label>
                                         <input type="text" name="name_en" class="form-control"
-                                               value="{{old('name_en')}}"
+                                               value="{{$place->name_en}}"
                                             >
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.place_order')<span class="text-danger">*</span></label>
                                         <input type="integer" name="place_order" class="form-control"
-                                               value="{{old('place_order')}}"
+                                               value="{{$place->place_order}}"
                                                required>
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.place_error')<span class="text-danger">*</span></label>
                                         <input type="integer" name="place_error" class="form-control"
-                                               value="{{old('place_error')}}"
+                                               value="{{$place->place_error}}"
                                                required>
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.const_from')<span class="text-danger">*</span></label>
                                         <input type="text" name="const_from" class="form-control"
-                                               value="{{old('const_from')}}"
+                                               value="{{$place->const_from}}"
                                                required >
                                     </div>
 
@@ -175,7 +175,7 @@
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.const_to')<span class="text-danger">*</span></label>
                                         <input type="text" name="const_to" class="form-control"
-                                               value="{{old('const_to')}}"
+                                               value="{{$place->const_to}}"
                                                required>
                                     </div>
 
@@ -183,14 +183,14 @@
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.google_mark_link')</label>
                                         <input type="text" name="google_mark_link" class="form-control"
-                                               value="{{old('google_mark_link')}}"
+                                               value="{{$place->google_mark_link}}"
                                                >
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.place_link')</label>
                                         <input type="text" name="place_link" class="form-control"
-                                               value="{{old('place_link')}}"
+                                               value="{{$place->place_link}}"
                                                >
                                     </div>
 
@@ -198,52 +198,52 @@
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.share_link')</label>
                                         <input type="text" name="share_link" class="form-control"
-                                               value="{{old('share_link')}}"
+                                               value="{{$place->share_link}}"
                                                >
                                     </div>
                                     
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.phone_one')<span class="text-danger">*</span></label>
                                         <input type="text" name="phone_one" class="form-control"
-                                               value="{{old('phone_one')}}"
+                                               value="{{$place->phone_one}}"
                                                >
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.phone_two')</label>
                                         <input type="text" name="phone_two" class="form-control"
-                                               value="{{old('phone_two')}}"
+                                               value="{{$place->phone_two}}"
                                                >
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.time_check')</label>
                                         <input type="integer" name="time_check" class="form-control"
-                                               value="{{old('time_check')}}"
+                                               value="{{$place->time_check}}"
                                                >
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.seen_counter')<span class="text-danger">*</span></label>
                                         <input type="integer" name="seen_counter" class="form-control"
-                                               value="{{old('seen_counter')}}"
+                                               value="{{$place->seen_counter}}"
                                                >
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.delivery')</label>
                                         <input type="integer" name="delivery" class="form-control"
-                                               value="{{old('delivery')}}"
+                                               value="{{$place->delivery}}"
                                                >
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.diff_time')</label>
                                         <input type="integer" name="diff_time" class="form-control"
-                                               value="{{old('diff_time')}}"
+                                               value="{{$place->diff_time}}"
                                                >
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.const_time')</label>
                                         <input type="integer" name="const_time" class="form-control"
-                                               value="{{old('const_time')}}"
+                                               value="{{$place->const_time}}"
                                                >
                                     </div>
                                 </div>
@@ -256,35 +256,35 @@
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.latitude')</label>
                                         <input type="text" name="latitude" class="form-control"
-                                               value="{{old('latitude')}}"
+                                               value="{{$place->latitude}}"
                                                >
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.longitude')</label>
                                         <input type="text" name="longitude" class="form-control"
-                                               value="{{old('longitude')}}"
+                                               value="{{$place->longitude}}"
                                                >
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.rest_one')</label>
                                         <input type="text" name="rest_one" class="form-control"
-                                               value="{{old('rest_one')}}"
+                                               value="{{$place->rest_one}}"
                                                >
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.rest_two')</label>
                                         <input type="text" name="rest_two" class="form-control"
-                                               value="{{old('rest_two')}}"
+                                               value="{{$place->rest_two}}"
                                                >
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.rest_three')</label>
                                         <input type="text" name="rest_three" class="form-control"
-                                               value="{{old('rest_three')}}"
+                                               value="{{$place->rest_three}}"
                                                >
                                     </div>
                                     <div class="col-md-6 form-group"><span class="text-danger">*</span>
@@ -307,23 +307,24 @@
                                     <!--<div class="col-md-6">-->
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.address')<span class="text-danger">*</span></label>
-                                        <textarea class="form-control"   cols="5" rows="5" name="address">
-
-                                        </textarea>
+                                        <label>@lang('site.address')</label>
+                                        <input type="text" name="address" class="form-control"
+                                               value="{{$place->address}}"
+                                               >
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.descrption_ar')<span class="text-danger">*</span></label>
-                                        <textarea class="form-control" cols="5" rows="5" name="descrption_ar">
-
-                                        </textarea>
+                                        <label>@lang('site.descrption_ar')</label>
+                                        <input type="text" name="descrption_ar" class="form-control"
+                                               value="{{$place->descrption_ar}}"
+                                               >
                                     </div>
+
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.descrption_en')</label>
-                                        <textarea class="form-control"   cols="5" rows="5" name="descrption_en">
-
-                                        </textarea>
+                                        <input type="text" name="descrption_en" class="form-control"
+                                               value="{{$place->descrption_en}}"
+                                               >
                                     </div>
 
                                 </div>
@@ -368,7 +369,7 @@
 
                                     <label>@lang('site.display_photo')</label>
                                     <input type="file" name="display_photo" class="form-control"
-                                    value="{{ old('display_photo') }}">
+                                    value="{{ $place->display_photo }}">
 
 
                                     </div>
@@ -378,13 +379,43 @@
 
                                     <label>@lang('site.notify_photo')</label>
                                     <input type="file" name="notify_photo" class="form-control"
-                                    value="{{ old('notify_photo') }}">
+                                    value="{{ $place->notify_photo  }}">
 
 
                                     </div>
-                                </div>
-                            <br>
+                            <div class="row">
 
+
+                                <div class="col-md-6 form-group col-12 p-2">
+
+                                    <label>@lang('site.images')</label>
+                                    <input type="file" name="images[]" class="form-control"
+                                           value="{{ old('images[]') }}" multiple>
+
+                                </div>
+                            </div>
+
+                                </div>
+                        <div class="row">
+                                @isset($place['images'])
+                                    @foreach(json_decode($place->images) as $key=>$image)
+                                        <div class="col-md-2 form-group col-2 p-1">
+
+                                            <img src="{{asset('images/places/'.$image)}}"
+
+                                                 width="100px" height="100px"
+                                                 class="d-block"
+                                                 onerror="this.src='{{asset('images/places/default.jpg')}}'"
+                                            >
+
+                                        </div>
+                                    @endforeach
+                                @endisset
+
+                        </div>
+
+
+                            <br>
 
                         </div>
                     </form>

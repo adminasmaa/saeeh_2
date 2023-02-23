@@ -342,19 +342,24 @@
                             </div>
                         </div>
                         
-                        
-                                <!-- <div class="col-sm-12">
+                        <div class="row">
+                            <label> @lang('site.images')</label>
+                            @isset($place['images'])
+                                @foreach(json_decode($place->images) as $key=>$image)
+                                    <div class="col-md-2 form-group col-2 p-1">
 
+                                        <img src="{{asset('images/places/'.$image)}}"
 
-                                <label>@lang('site.display_photo')</label>
-                                <img src="{{asset('images/places/'.$place->display_photo)}}"
-                                     data-bs-toggle="modal"
-                                     data-bs-target="#exampleModalss" width="100px" height="100px" class="d-block"
-                                     onerror="this.src='{{asset('images/cars/default.jpg')}}'"
-                                >
+                                             width="100px" height="100px"
+                                             class="d-block"
+                                             onerror="this.src='{{asset('images/places/default.jpg')}}'"
+                                        >
 
+                                    </div>
+                                @endforeach
+                            @endisset
 
-                            </div> -->
+                        </div>
 
                     </div>
                 </div>

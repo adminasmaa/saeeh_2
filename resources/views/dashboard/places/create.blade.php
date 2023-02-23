@@ -312,6 +312,15 @@
 
 
                                     </div>
+                                    <div class="col-md-6 form-group col-12 p-2">
+
+
+                                        <label>@lang('site.images')</label>
+                                        <input type="file" name="images[]" class="form-control"
+                                               value="{{ old('images[]') }}" multiple>
+
+
+                                    </div>
                                 </div>
                                 <br>
 
