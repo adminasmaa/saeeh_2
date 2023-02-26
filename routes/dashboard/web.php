@@ -29,6 +29,7 @@ use App\Http\Controllers\Dashboard\BathRoomController;
 use App\Http\Controllers\Dashboard\AnotherRoomController;
 use App\Http\Controllers\Dashboard\ConditionTypeController;
 use App\Http\Controllers\Dashboard\MessageController;
+use App\Http\Controllers\Dashboard\NotificationController;
 
 use App\Http\Controllers\Dashboard\UserController;
 use Illuminate\Support\Facades\Route;
@@ -110,6 +111,9 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
         //messages
         Route::resource('message', MessageController::class);
+
+        //notifications
+        Route::resource('notifications', NotificationController::class);
 
     }); //end of dashboard routes
 });

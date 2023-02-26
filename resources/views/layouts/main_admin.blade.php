@@ -541,6 +541,11 @@
                                 </ul>
                             </li>
 
+                            <li class="sidebar-list">
+                                <a class="sidebar-link sidebar-title link-nav"
+                                    href="{{route('dashboard.notifications.index')}}">
+                                    <i data-feather="droplet"></i><span>@lang('site.notifications') @endlang</span></a>
+                            </li>
 
                         </ul>
                     </div>

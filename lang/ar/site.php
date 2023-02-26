@@ -391,9 +391,10 @@ return [
     'to'=>'مرسل من',
 
     'text' => 'نص',
-
+    // notifications
     ///////////////Aquar
-
+    'booking_id'=> 'رقم الحجز',
+    'Type'=>'النوع',
     'aquars' => 'العقارات',
     'aqar'=>'العقارات',
     'order' => 'الترتيب',

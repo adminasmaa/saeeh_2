@@ -315,7 +315,9 @@ return [
     'choose' => 'choose',
 
     'icon' => 'icon',
-
+    'notifications' => 'Notifications',
+    'booking_id'=> 'Booking_Id',
+    'Type'=>'Type',
 
     'field_name' => 'Field Name',
     'field_size' => 'Field Size',
