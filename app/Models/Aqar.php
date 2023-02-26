@@ -48,6 +48,8 @@ class Aqar extends Model
         'floor_number_id',//nullable
         'category_id', //unsigned   
         'user_id', //unsigned 
+        'masterroom',//nullable 
+        'normalroom',//nullable 
     ];
     // relations
     public function user(){
@@ -73,9 +75,6 @@ class Aqar extends Model
         return $this->HasMany(AqarBooking::class);
     }
 
-    public function setFloorAttribute($value)
-    {
-        $this->attributes['floor_id'] = json_encode($value);
-    }
+    
 
 }

@@ -61,6 +61,18 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
         // TODO: Implement edit() method.
 
         $aqar = Aqar::find($Id);
+        $aqar['floor_id'] = json_decode($aqar['floor_id']);
+        $aqar['floor_number_id'] = json_decode($aqar['floor_number_id']);
+        $aqar['masterroom'] = json_decode($aqar['masterroom']);
+        $aqar['normalroom'] = json_decode($aqar['normalroom']);
+        $aqar['service_id'] = json_decode($aqar['service_id']);
+        $aqar['free_service_id'] = json_decode($aqar['free_service_id']);
+        $aqar['crew_id'] = json_decode($aqar['crew_id']);
+        $aqar['kitchen_id'] = json_decode($aqar['kitchen_id']);
+        $aqar['bathroom_id'] = json_decode($aqar['bathroom_id']);
+        $aqar['laundry_id'] = json_decode($aqar['laundry_id']);
+        $aqar['another_room_id'] = json_decode($aqar['another_room_id']);
+        $aqar['conditioning_type_id'] = json_decode($aqar['conditioning_type_id']);
         $users = User::all();
         $categories = Category::where('type',1)->where('active',1)->get();
         $AnotherRoom = AnotherRoom::where('active',1)->get();
@@ -74,7 +86,6 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
         $Bathroom = Bathroom::where('active',1)->get();
         $Laundry = Laundry::where('active',1)->get();
         $ConditioningType = ConditionType::where('active',1)->get();
-
         return view('dashboard.aqars.edit', compact('aqar', 'users', 'categories','AnotherRoom','Area','Bathroom','ConditioningType','Floor','FloorNumber','Service','FreeService','Crew','Kitchen','Laundry'));
     }
 
@@ -83,6 +94,18 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
         // TODO: Implement show() method.
 
         $aqar = Aqar::find($Id);
+        $aqar['floor_id'] = json_decode($aqar['floor_id']);
+        $aqar['floor_number_id'] = json_decode($aqar['floor_number_id']);
+        $aqar['masterroom'] = json_decode($aqar['masterroom']);
+        $aqar['normalroom'] = json_decode($aqar['normalroom']);
+        $aqar['service_id'] = json_decode($aqar['service_id']);
+        $aqar['free_service_id'] = json_decode($aqar['free_service_id']);
+        $aqar['crew_id'] = json_decode($aqar['crew_id']);
+        $aqar['kitchen_id'] = json_decode($aqar['kitchen_id']);
+        $aqar['bathroom_id'] = json_decode($aqar['bathroom_id']);
+        $aqar['laundry_id'] = json_decode($aqar['laundry_id']);
+        $aqar['another_room_id'] = json_decode($aqar['another_room_id']);
+        $aqar['conditioning_type_id'] = json_decode($aqar['conditioning_type_id']);
         $users = User::all();
         $categories = Category::where('type',1)->where('active',1)->get();
         $AnotherRoom = AnotherRoom::where('active',1)->get();
@@ -124,8 +147,8 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
                 $file_name = $_FILES['images']['name'][$key];
                 $files->move($destinationPath, $file_name);
                 $data[] = $_FILES['images']['name'][$key];
-                $place->images = json_encode($data);
-                $place->save();
+                $aqar->images = json_encode($data);
+                $aqar->save();
             }
         }
        
@@ -161,8 +184,8 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
                 $file_name = $_FILES['images']['name'][$key];
                 $files->move($destinationPath, $file_name);
                 $data[] = $_FILES['images']['name'][$key];
-                $place->images = json_encode($data);
-                $place->save();
+                $aqar->images = json_encode($data);
+                $aqar->save();
             }
         }
         if ($aqar) {

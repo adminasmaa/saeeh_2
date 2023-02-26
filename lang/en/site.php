@@ -140,6 +140,31 @@ return [
     'back' => 'Back',
     'code' => 'Code',
     'slider' => 'sliders',
+
+
+     ///////////////Aquar
+
+     'aquars' => 'Aquars',
+     'aquarcategories' =>'Aquar Categories',
+     'aqars' => 'Aqars',
+     'time_from' => 'Time From',
+     'time_to' => 'Time To',
+     'fixed_price' => 'Price',
+     'floor' => 'Floor',
+     'floornumber' => 'Floor Number',
+     'masterroom' => 'Master Room',
+     'normalroom' => 'Normal Room',
+     'anotherrooms' => 'Another Rooms',
+     'service' => 'Service',
+     'freeservice' => 'Free Service',
+     'crew' => 'Crew',
+     'kitchen' => 'Kitchen',
+     'Bathroom' => 'Bathroom',
+     'laundry' => 'Laundry',
+     'ConditioningType' => 'Conditioning Type',
+     'descrption' => 'Descrption',
+
+     
     //contacts
     'contact' => 'Contact_us',
     'no_data_product' => 'The products are empty',

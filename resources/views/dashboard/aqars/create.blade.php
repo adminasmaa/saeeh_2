@@ -63,7 +63,7 @@
 
                                             <div class="col-sm-12">
                                                 <label class="form-label">@lang('site.users')</label>
-                                                <select class="form-control btn-square" name="user_id">
+                                                <select class="form-control btn-square" name="user_id" required>
                                                     <option selected>@lang('site.select')</option>
                                                     @foreach($users as $user)
 
@@ -81,7 +81,7 @@
                                                 <div class="m-t-15">
                                                 @foreach($categories as $cat)
                                                 <div class="form-check radio radio-primary">
-                                                    <input class="form-check-input" id="category_id{{$cat->id}}" type="radio"  name="category_id"  value="{{$cat->id}}" >
+                                                    <input class="form-check-input" id="category_id{{$cat->id}}" type="radio"  name="category_id"  value="{{$cat->id}}" required>
                                                     <label class="form-check-label mb-0" for="category_id{{$cat->id}}">{{$cat->name ?? ''}}</label>
                                                 </div>
                                                 @endforeach
@@ -95,14 +95,14 @@
                                                 <div class="m-t-15">
                                                 @foreach($Area as $item)
                                                 <div class="form-check radio radio-primary">
-                                                    <input class="form-check-input" id="area_{{$item->id}}" type="radio"  name="area_id"  value="{{$item->id}}" >
+                                                    <input class="form-check-input" id="area_{{$item->id}}" type="radio"  name="area_id"  value="{{$item->id}}" required>
                                                     <label class="form-check-label mb-0" for="area_{{$item->id}}">{{$item->name_ar ?? ''}}</label>
                                                 </div>
                                                 @endforeach
                                                 </div>
                                             </div>
                                             <br>
-                                            <div class="row m-t-15">
+                                            <div class="row m-t-10">
                                                 <!--<div class="col-md-6">-->
 
                                                 <div class="col-md-6 form-group col-12 p-2 ">
@@ -120,44 +120,44 @@
                                                 </div>
 
                                             </div>
-                                            <div class="row m-t-15">
+                                            <div class="row m-t-10">
                                                 <!--<div class="col-md-6">-->
 
                                                 <div class="col-md-6 form-group col-12 p-2 ">
                                                     <label>@lang('site.time_from')<span class="text-danger">*</span></label>
                                                     <input type="time" name="time_from" class="form-control"
                                                         value="{{old('time_from')}}"
-                                                        >
+                                                        required>
                                                 </div>
 
                                                 <div class="col-md-6 form-group col-12 p-2 ">
                                                     <label>@lang('site.time_to')</label>
                                                     <input type="time" name="time_to" class="form-control"
                                                         value="{{old('time_to')}}"
-                                                        >
+                                                        required>
                                                 </div>
 
                                             </div>
                                             <br>
-                                            <div class="row m-t-15">
+                                            <div class="row m-t-10">
                                                 <!--<div class="col-md-6">-->
 
                                                 <div class="col-md-6 form-group col-12 p-2 ">
                                                     <label>@lang('site.fixed_price')<span class="text-danger">*</span></label>
                                                     <input type="text" name="fixed_price" class="form-control"
                                                         value="{{old('fixed_price')}}"
-                                                        >
+                                                        required>
                                                 </div>
 
                                             </div>
-                                            <br>
+
                                             <div class="row">
                                                 <div class="col-md-6 form-group col-12 p-2">
 
                                                     <span class="text-danger">*</span>
                                                             <label>@lang('site.display_photo')</label>
                                                             <input type="file" name="main_image" class="form-control"
-                                                                value="{{ old('main_image') }}">
+                                                                value="{{ old('main_image') }}" required>
 
 
                                                 </div>
@@ -167,19 +167,18 @@
 
                                                         <label>@lang('site.images')</label>
                                                         <input type="file" name="images[]" class="form-control"
-                                                            value="{{ old('images[]') }}" multiple>
+                                                            value="{{ old('images[]') }}" multiple required>
 
 
                                                 </div>
-                                                <br>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-12 form-group col-12 p-2">
 
                                                     <span class="text-danger">*</span>
                                                             <label>@lang('site.video')</label>
-                                                            <input type="file" name="video" class="form-control"
-                                                                value="{{ old('video') }}">
+                                                            <input type="file" name="videos" class="form-control"
+                                                                value="{{ old('videos') }}">
 
 
                                                 </div>
@@ -192,7 +191,7 @@
                                             <div class="col m-t-15">
                                                 @foreach($Floor as $fl)
                                                 <div class="form-check form-check-inline checkbox checkbox-solid-primary">
-                                                    <input class="form-check-input" id="floor_{{$fl->id}}" type="checkbox" name="floor_id[]">
+                                                    <input class="form-check-input" id="floor_{{$fl->id}}" type="checkbox" name="floor_id[]" value="{{$fl->id}}" > 
                                                     <label class="form-check-label" for="floor_{{$fl->id}}">{{$fl->name_ar ?? ''}}<span class="digits"></span></label>
                                                 </div>
                                                 @endforeach
@@ -204,7 +203,7 @@
                                             <div class="col m-t-15">
                                                 @foreach($FloorNumber as $fln)
                                                 <div class="form-check form-check-inline checkbox checkbox-solid-primary">
-                                                    <input class="form-check-input" id="floornumber_{{$fln->id}}" type="checkbox" name="floor_number_id[]">
+                                                    <input class="form-check-input" id="floornumber_{{$fln->id}}" type="checkbox" name="floor_number_id[]" value="{{$fln->id}}" >
                                                     <label class="form-check-label" for="floornumber_{{$fln->id}}">{{$fln->name_ar ?? ''}}<span class="digits"></span></label>
                                                 </div>
                                                 @endforeach
@@ -216,7 +215,7 @@
                                             <div class="col m-t-15">
                                                 @for ($x = 1; $x <= 10; $x++)
                                                 <div class="form-check form-check-inline checkbox checkbox-solid-primary">
-                                                    <input class="form-check-input" id="masterroom_{{$x}}" type="checkbox" name="masterroom[]">
+                                                    <input class="form-check-input" id="masterroom_{{$x}}" type="checkbox" name="masterroom[]"  value="{{$x}}" >
                                                     <label class="form-check-label" for="masterroom_{{$x}}">{{$x}}<span class="digits"></span></label>
                                                 </div>
                                                 @endfor
@@ -228,7 +227,7 @@
                                             <div class="col m-t-15">
                                                 @for ($y = 1; $y <= 10; $y++)
                                                 <div class="form-check form-check-inline checkbox checkbox-solid-primary">
-                                                    <input class="form-check-input" id="normalroom_{{$y}}" type="checkbox" name="normalroom[]">
+                                                    <input class="form-check-input" id="normalroom_{{$y}}" type="checkbox" name="normalroom[]" value="{{$y}}" >
                                                     <label class="form-check-label" for="normalroom_{{$y}}">{{$y}}<span class="digits"></span></label>
                                                 </div>
                                                 @endfor
@@ -240,7 +239,7 @@
                                             <div class="col m-t-15">
                                                 @foreach($Service as $srv)
                                                 <div class="form-check form-check-inline checkbox checkbox-solid-primary">
-                                                    <input class="form-check-input" id="service_{{$srv->id}}" type="checkbox" name="service_id[]">
+                                                    <input class="form-check-input" id="service_{{$srv->id}}" type="checkbox" name="service_id[]" value="{{$srv->id}}" >
                                                     <label class="form-check-label" for="service_{{$srv->id}}">{{$srv->name_ar ?? ''}}<span class="digits"></span></label>
                                                 </div>
                                                 @endforeach
@@ -252,7 +251,7 @@
                                             <div class="col m-t-15">
                                                 @foreach($FreeService as $fsrv)
                                                 <div class="form-check form-check-inline checkbox checkbox-solid-primary">
-                                                    <input class="form-check-input" id="freeservice_{{$fsrv->id}}" type="checkbox" name="free_service_id[]">
+                                                    <input class="form-check-input" id="freeservice_{{$fsrv->id}}" type="checkbox" name="free_service_id[]" value="{{$fsrv->id}}" >
                                                     <label class="form-check-label" for="freeservice_{{$fsrv->id}}">{{$fsrv->name_ar ?? ''}}<span class="digits"></span></label>
                                                 </div>
                                                 @endforeach
@@ -264,7 +263,7 @@
                                             <div class="col m-t-15">
                                                 @foreach($Crew as $cr)
                                                 <div class="form-check form-check-inline checkbox checkbox-solid-primary">
-                                                    <input class="form-check-input" id="crew_{{$cr->id}}" type="checkbox" name="crew_id[]">
+                                                    <input class="form-check-input" id="crew_{{$cr->id}}" type="checkbox" name="crew_id[]" value="{{$cr->id}}" >
                                                     <label class="form-check-label" for="crew_{{$cr->id}}">{{$cr->name_ar ?? ''}}<span class="digits"></span></label>
                                                 </div>
                                                 @endforeach
@@ -276,7 +275,7 @@
                                             <div class="col m-t-15">
                                                 @foreach($AnotherRoom as $room)
                                                 <div class="form-check form-check-inline checkbox checkbox-solid-primary">
-                                                    <input class="form-check-input" id="room_{{$room->id}}" type="checkbox" name="another_room_id[]">
+                                                    <input class="form-check-input" id="room_{{$room->id}}" type="checkbox" name="another_room_id[]" value="{{$room->id}}" >
                                                     <label class="form-check-label" for="room_{{$room->id}}">{{$room->name_ar ?? ''}}<span class="digits"></span></label>
                                                 </div>
                                                 @endforeach
@@ -288,7 +287,7 @@
                                             <div class="col m-t-15">
                                                 @foreach($Kitchen as $Kitch)
                                                 <div class="form-check form-check-inline checkbox checkbox-solid-primary">
-                                                    <input class="form-check-input" id="kitchen_{{$Kitch->id}}" type="checkbox" name="kitchen_id[]">
+                                                    <input class="form-check-input" id="kitchen_{{$Kitch->id}}" type="checkbox" name="kitchen_id[]" value="{{$Kitch->id}}" >
                                                     <label class="form-check-label" for="kitchen_{{$Kitch->id}}">{{$Kitch->name_ar ?? ''}}<span class="digits"></span></label>
                                                 </div>
                                                 @endforeach
@@ -300,7 +299,7 @@
                                             <div class="col m-t-15">
                                                 @foreach($Bathroom as $bath)
                                                 <div class="form-check form-check-inline checkbox checkbox-solid-primary">
-                                                    <input class="form-check-input" id="bath_{{$bath->id}}" type="checkbox" name="bathroom_id[]">
+                                                    <input class="form-check-input" id="bath_{{$bath->id}}" type="checkbox" name="bathroom_id[]" value="{{$bath->id}}" >
                                                     <label class="form-check-label" for="bath_{{$bath->id}}">{{$bath->name_ar ?? ''}}<span class="digits"></span></label>
                                                 </div>
                                                 @endforeach
@@ -312,11 +311,12 @@
                                             <div class="col m-t-15">
                                                 @foreach($Laundry as $Laund)
                                                 <div class="form-check form-check-inline checkbox checkbox-solid-primary">
-                                                    <input class="form-check-input" id="laundry_{{$Laund->id}}" type="checkbox" name="laundry_id[]">
-                                                    <label class="form-check-label" for="laundry_{{$Laund->id}}">{{$Laund->name_ar ?? ''}}<span class="digits"></span></label>
+                                                    <input class="form-check-input" id="bath_{{$Laund->id}}" type="checkbox" name="laundry_id[]" value="{{$Laund->id}}" >
+                                                    <label class="form-check-label" for="bath_{{$Laund->id}}">{{$Laund->name_ar ?? ''}}<span class="digits"></span></label>
                                                 </div>
                                                 @endforeach
                                             </div>
+                                            
                                             <br>
                                             <div class="col-sm-12 ">
                                                 <h5 class="text-decoration-underline mb-0 border-bottom">@lang('site.ConditioningType')</h5>
@@ -324,7 +324,7 @@
                                             <div class="col m-t-15">
                                                 @foreach($ConditioningType as $type)
                                                 <div class="form-check form-check-inline checkbox checkbox-solid-primary">
-                                                    <input class="form-check-input" id="conditioning_{{$type->id}}" type="checkbox" name="conditioning_type[]">
+                                                    <input class="form-check-input" id="conditioning_{{$type->id}}" type="checkbox" name="conditioning_type_id[]" value="{{$type->id}}">
                                                     <label class="form-check-label" for="conditioning_{{$type->id}}">{{$type->name_ar ?? ''}}<span class="digits"></span></label>
                                                 </div>
                                                 @endforeach
@@ -336,7 +336,7 @@
 
                                                 <div class="col-md-12 form-group col-12 p-2  m-t-15">
                                                     <label>@lang('site.descrption')<span class="text-danger">*</span></label>
-                                                    <textarea class="form-control" cols="5" rows="5" name="descrption" id="editor1">
+                                                    <textarea class="form-control" cols="5" rows="5" name="description" id="editor1" required>
 
                                                     </textarea>
                                                 </div>

@@ -52,8 +52,19 @@ class AqarController extends Controller
 
     public function store(Request $request)
     {
-       
-
+        
+        $request['floor_id'] = $request['floor_id']!=null?json_encode($request['floor_id']): json_encode([]);
+        $request['floor_number_id'] = $request['floor_number_id']!=null?json_encode($request['floor_number_id']):json_encode([]);
+        $request['masterroom'] = $request['masterroom']!=null? json_encode($request['masterroom']): json_encode([]);
+        $request['normalroom'] = $request['normalroom']!=null? json_encode($request['normalroom']): json_encode([]);
+        $request['service_id'] = $request['service_id']!=null?json_encode($request['service_id']): json_encode([]);
+        $request['free_service_id'] = $request['free_service_id']!=null?json_encode($request['free_service_id']): json_encode([]);
+        $request['crew_id'] = $request['crew_id']!=null?json_encode($request['crew_id']): json_encode([]);
+        $request['kitchen_id'] = $request['kitchen_id']!=null?json_encode($request['kitchen_id']): json_encode([]);
+        $request['bathroom_id'] = $request['bathroom_id']!=null?json_encode($request['bathroom_id']): json_encode([]);
+        $request['laundry_id'] = $request['laundry_id']!=null?json_encode($request['laundry_id']): json_encode([]);
+        $request['another_room_id'] = $request['another_room_id']!=null?json_encode($request['another_room_id']): json_encode([]);
+        $request['conditioning_type_id'] = ($request['conditioning_type_id']!=null)?json_encode($request['conditioning_type_id']):json_encode([]);
         return $this->AqarRepository->store($request);
 
     }//end of store
@@ -83,6 +94,18 @@ class AqarController extends Controller
     {
        
         $Aqar = Aqar::find($id);
+        $request['floor_id'] = $request['floor_id']!=null?json_encode($request['floor_id']): json_encode([]);
+        $request['floor_number_id'] = $request['floor_number_id']!=null?json_encode($request['floor_number_id']):json_encode([]);
+        $request['masterroom'] = $request['masterroom']!=null? json_encode($request['masterroom']): json_encode([]);
+        $request['normalroom'] = $request['normalroom']!=null? json_encode($request['normalroom']): json_encode([]);
+        $request['service_id'] = $request['service_id']!=null?json_encode($request['service_id']): json_encode([]);
+        $request['free_service_id'] = $request['free_service_id']!=null?json_encode($request['free_service_id']): json_encode([]);
+        $request['crew_id'] = $request['crew_id']!=null?json_encode($request['crew_id']): json_encode([]);
+        $request['kitchen_id'] = $request['kitchen_id']!=null?json_encode($request['kitchen_id']): json_encode([]);
+        $request['bathroom_id'] = $request['bathroom_id']!=null?json_encode($request['bathroom_id']): json_encode([]);
+        $request['laundry_id'] = $request['laundry_id']!=null?json_encode($request['laundry_id']): json_encode([]);
+        $request['another_room_id'] = $request['another_room_id']!=null?json_encode($request['another_room_id']): json_encode([]);
+        $request['conditioning_type_id'] = ($request['conditioning_type_id']!=null)?json_encode($request['conditioning_type_id']):json_encode([]);
 
         return $this->AqarRepository->update($Aqar, $request);
 

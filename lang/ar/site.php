@@ -394,6 +394,26 @@ return [
 
     'aquars' => 'العقارات',
     'aquarcategories' =>'فئات العقارات',
+    'aqars' => 'العقارات',
+    'time_from' => 'ساعة الدخول',
+    'time_to' => 'ساعة الخروج',
+    'fixed_price' => 'السعر',
+    'floor' => 'الطابق',
+    'floornumber' => 'عدد الأدوار',
+    'masterroom' => 'عدد الغرف الماستر',
+    'normalroom' => 'عدد الغرف العادية',
+    'anotherrooms' => 'غرف اخرى',
+    'service' => 'الخدمات',
+    'freeservice' => 'خدمات مجانية',
+    'crew' => 'طاقم العمل',
+    'kitchen' => 'مرافق المطبخ ',
+    'Bathroom' => 'مرافق الحمام',
+    'laundry' => 'مرافق الغسيل والكوى',
+    'ConditioningType' => 'نوع التكييف',
+    'descrption' => 'الوصف',
+
+
+
 
     'order' => 'الترتيب',
     'flag_image' => 'صورة العلم',
