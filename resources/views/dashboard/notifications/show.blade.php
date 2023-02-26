@@ -76,16 +76,16 @@
                                         <option selected>@lang('site.select')</option>
 
                                         <option value="1"
-                                                @if($notification->active=='active') selected @endif>active
+                                                @if($notification->status=='active') selected @endif>active
                                         </option>
                                         <option value="0"
-                                                @if($notification->active=='inactive') selected @endif>inactive
+                                                @if($notification->status=='inactive') selected @endif>inactive
                                         </option>
                                         
                                     </select>
                                 </div>
 
-                                <div class="col-md-6 form-group"><span class="text-danger">*</span>
+                                <div class="col-md-6 form-group">
                                     <label class="form-label">@lang('site.type')</label>
                                     <select class="form-control btn-square" name="type" readonly=""disabled>
                                         <option selected>@lang('site.select')</option>
