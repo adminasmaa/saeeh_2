@@ -13,10 +13,13 @@ class PlaceController extends Controller
 
     public function placedetail($id)
     {
+
+
+
         $placeDetail = new PlaceResource(Place::where('id', $id)->first());
 
 
-        return $this->respondSuccess(200, __('message.Place retrieved successfully.'), $placeDetail);
+        return $this->respondSuccess($placeDetail, __('message.Place retrieved successfully.'));
     }
 
 }

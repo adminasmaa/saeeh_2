@@ -2,6 +2,7 @@
 
 return [
     'User register successfully.' => 'User register successfully.',
+    'category retrieved successfully.'=>'category retrieved successfully',
     'wrong credientials' => 'Wrong Credientials',
     'User login successfully.'=>'User login successfully.',
     'account not verified'=>'Account Not Verified',

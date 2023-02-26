@@ -112,8 +112,13 @@
 
 
                                 <div class="col-md-6 form-group col-12 p-2">
-                                    <label>@lang('site.name')</label>
-                                    <input type="text" name="name" class="form-control" value="{{ $country->name }}"
+                                    <label>@lang('site.ar.name')</label>
+                                    <input type="text" name="name" class="form-control" value="{{ $country->name_ar }}"
+                                           disabled>
+                                </div>
+                                <div class="col-md-6 form-group col-12 p-2">
+                                    <label>@lang('site.en.name')</label>
+                                    <input type="text" name="name" class="form-control" value="{{ $country->name_en }}"
                                            disabled>
                                 </div>
 

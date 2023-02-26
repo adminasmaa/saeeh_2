@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class CategoryResource extends JsonResource
+class CountryOnlyResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -24,13 +24,8 @@ class CategoryResource extends JsonResource
         }
         return [
             "id" => $this->id,
-            "city_id " => $this->city_id ,
             "name" => $this->$name,
-            "icon" => $this->icon,
-            "image" => asset('images/categories')."/".$this->image,
-            "active" => $this->active,
-            "subcategories"=> SubCategoryResource::collection($this->whenLoaded('subcategories')),
-            "places"=> $this->when($this->subcategories->isEmpty(),PlaceResource::collection($this->places)),
+            "image" => asset('images/countries')."/".$this->image,
         ];
     }
 }
