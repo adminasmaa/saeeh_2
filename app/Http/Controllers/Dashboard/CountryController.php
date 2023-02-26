@@ -54,8 +54,8 @@ class CountryController extends Controller
     {
         $request->validate([
 
-                'name' => 'required',
-                'code' => 'required',
+                'name_ar' => 'required',
+//                'code' => 'required',
 
             ]
         );
@@ -89,7 +89,8 @@ class CountryController extends Controller
     public function update(Request $request, Country $country)
     {
         $request->validate([
-            'name' => ['required'],
+            'name_ar' => 'required',
+
             'code' => ['required', Rule::unique('countries')->ignore($country->id)],
 
         ]);

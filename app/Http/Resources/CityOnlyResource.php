@@ -14,12 +14,18 @@ class CityOnlyResource extends JsonResource
      */
     public function toArray($request)
     {
+        $lang = $request->header('localization');
+
+        if ($lang == 'ar') {
+            $name = 'name_ar';
+        } else {
+            $name = 'name_en';
+
+        }
         return [
             "id" => $this->id,
-            "country_id " => $this->country_id ,
-            "name" => $this->name,
+            "name" => $this->$name,
             "image" => asset('images/cities')."/".$this->image,
-            "active" => $this->active,
         ];
     }
 }

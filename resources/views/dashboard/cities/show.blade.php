@@ -112,8 +112,14 @@
 
 
                                 <div class="col-md-6 form-group col-12 p-2">
-                                    <label>@lang('site.name')</label>
-                                    <input type="text" name="name" class="form-control" value="{{ $city->name }}"
+                                    <label>@lang('site.ar.name')</label>
+                                    <input type="text" name="name_ar" class="form-control" value="{{ $city->name_ar }}"
+                                           disabled>
+                                </div>
+
+                                <div class="col-md-6 form-group col-12 p-2">
+                                    <label>@lang('site.en.name')</label>
+                                    <input type="text" name="name_an" class="form-control" value="{{ $city->name_en }}"
                                            disabled>
                                 </div>
 
@@ -137,7 +143,7 @@
                                     <select class="form-control btn-square" disabled>
                                         @foreach($countries as $country)
 
-                                            <option value="{{$country->id}}" @if($country->id==$city->country_id) selected @endif>{{$country->name ?? ''}}</option>
+                                            <option value="{{$country->id}}" @if($country->id==$city->country_id) selected @endif>{{$country->name_ar ?? ''}}</option>
 
                                         @endforeach
 

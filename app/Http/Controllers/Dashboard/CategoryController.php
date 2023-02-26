@@ -52,7 +52,7 @@ class CategoryController extends Controller
     {
         $request->validate([
 
-                'name' => 'required',
+                'name_ar' => 'required',
 //                'image' => 'required',
 
             ]
@@ -88,7 +88,7 @@ class CategoryController extends Controller
     {
         $request->validate([
 
-                'name' => 'required',
+                'name_ar' => 'required',
 
             ]
         );

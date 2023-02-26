@@ -14,11 +14,18 @@ class CategoryOnlyResource extends JsonResource
      */
     public function toArray($request)
     {
+        $lang = $request->header('localization');
+
+        if ($lang == 'ar') {
+            $name = 'name_ar';
+        } else {
+            $name = 'name_en';
+
+        }
         return [
             "id" => $this->id,
             "city_id " => $this->city_id ,
-            "name" => $this->name,
-            "name_en" => $this->name_en,
+            "name" => $this->$name,
             "icon" => $this->icon,
             "image" => asset('images/categories')."/".$this->image,
             "active" => $this->active,

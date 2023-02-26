@@ -11,7 +11,8 @@ class Country extends Model
     use HasFactory,SoftDeletes;
 
     protected $fillable = [
-        'name',
+        'name_ar',
+        'name_en',
         'code',
         'active',
         'image',

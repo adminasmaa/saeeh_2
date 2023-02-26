@@ -110,7 +110,7 @@ class CountriesDataTable extends DataTable
     {
         return [
             Column::make('id'),
-            Column::make('name')->title(trans('site.name')),
+            Column::make('name_ar')->title(trans('site.ar.name')),
             Column::make('code')->title(trans('site.code')),
             Column::make('created_at')->title(trans('site.created_at')),
             Column::computed('action')

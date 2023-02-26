@@ -114,8 +114,13 @@
 
 
                                 <div class="col-md-6 form-group col-12 p-2">
-                                    <label>@lang('site.name')</label>
-                                    <input type="text" name="name" class="form-control" value="{{ $category->name }}"
+                                    <label>@lang('site.ar.name')</label>
+                                    <input type="text" name="name_ar" class="form-control" value="{{ $category->name_ar }}"
+                                           disabled>
+                                </div>
+                                <div class="col-md-6 form-group col-12 p-2">
+                                    <label>@lang('site.en.name')</label>
+                                    <input type="text" name="name_en" class="form-control" value="{{ $category->name_en }}"
                                            disabled>
                                 </div>
 
@@ -127,7 +132,7 @@
                                         @foreach($cities as $city)
 
                                             <option value="{{$city->id}}"
-                                                    @if($city->id==$category->city_id) selected @endif>{{$city->name ?? ''}}</option>
+                                                    @if($city->id==$category->city_id) selected @endif>{{$city->name_ar ?? ''}}</option>
 
                                         @endforeach
 
@@ -157,9 +162,9 @@
                                     <div class="col-md-3 form-group col-12 p-2">
 
 
-                                        <label>@lang('site.name')</label>
+                                        <label>@lang('site.ar.name')</label>
                                         <input type="text" class="form-control"
-                                               value="{{ $cat->name ?? '' }}">
+                                               value="{{ $cat->name_ar ?? '' }}">
                                     </div>
 
 

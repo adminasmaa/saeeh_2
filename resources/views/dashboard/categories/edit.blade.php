@@ -108,12 +108,16 @@
                             </div>
                             <!--  End Of Modal -->
                             <div class="row">
-                                <!--<div class="col-md-6">-->
 
                                 <div class="col-md-6 form-group col-12 p-2">
-                                    <label>@lang('site.name')<span class="text-danger">*</span></label>
-                                    <input type="text" name="name" class="form-control" value="{{ $category->name }}"
+                                    <label>@lang('site.ar.name')<span class="text-danger">*</span></label>
+                                    <input type="text" name="name_ar" class="form-control" value="{{ $category->name_ar }}"
                                            required>
+                                </div>
+                                <div class="col-md-6 form-group col-12 p-2">
+                                    <label>@lang('site.en.name')<span class="text-danger">*</span></label>
+                                    <input type="text" name="name_en" class="form-control" value="{{ $category->name_en }}"
+                                           >
                                 </div>
 
                                 <div class="col-md-6 form-group col-12 p-2 ">
@@ -123,7 +127,7 @@
                                         @foreach($cities as $city)
 
                                             <option value="{{$city->id}}"
-                                                    @if($city->id==$category->city_id) selected @endif>{{$city->name ?? ''}}</option>
+                                                    @if($city->id==$category->city_id) selected @endif>{{$city->name_ar ?? ''}}</option>
 
                                         @endforeach
 
@@ -162,9 +166,9 @@
                                     <div class="col-md-3 form-group col-12 p-2">
 
 
-                                        <label>@lang('site.name')</label>
+                                        <label>@lang('site.ar.name')</label>
                                         <input type="text" class="form-control"
-                                               value="{{ $cat->name ?? '' }}">
+                                               value="{{ $cat->name_ar ?? '' }}">
                                     </div>
 
                                     <div class="col-md-3 form-group col-12 p-2">
