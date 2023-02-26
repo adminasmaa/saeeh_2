@@ -12,7 +12,7 @@ class Notification extends Model
     public $guarded = ['id'];
 
     protected $table = 'notifications';
-//droplet
+
     protected $fillable = [
         'title', // required
         'booking_id', // required 
