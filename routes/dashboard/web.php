@@ -28,6 +28,7 @@ use App\Http\Controllers\Dashboard\CrewController;
 use App\Http\Controllers\Dashboard\BathRoomController;
 use App\Http\Controllers\Dashboard\AnotherRoomController;
 use App\Http\Controllers\Dashboard\ConditionTypeController;
+use App\Http\Controllers\Dashboard\MessageController;
 
 use App\Http\Controllers\Dashboard\UserController;
 use Illuminate\Support\Facades\Route;
@@ -106,6 +107,9 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
         //areas
         Route::resource('areas', AreaController::class);
+
+        //messages
+        Route::resource('message', MessageController::class);
 
     }); //end of dashboard routes
 });

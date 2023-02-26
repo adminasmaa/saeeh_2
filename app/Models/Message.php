@@ -16,6 +16,7 @@ class Message extends Model
 
     protected $fillable = [
         'messages', // required
+        'to', // required
         'user_id', //unsigned 
     ];
     // relations
