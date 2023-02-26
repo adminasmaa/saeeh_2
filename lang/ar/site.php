@@ -387,11 +387,14 @@ return [
     'settings' => 'الإعدادت  ',
     'param' => 'الاسم',
     'value' => 'القيمة',
+    'contacts'=>'الرسائل',
+    'to'=>'مرسل من',
 
     'text' => 'نص',
-
+    // notifications
     ///////////////Aquar
-
+    'booking_id'=> 'رقم الحجز',
+    'type'=>'النوع',
     'aquars' => 'العقارات',
     'aquarcategories' =>'فئات العقارات',
     'aqars' => 'العقارات',
@@ -415,6 +418,7 @@ return [
 
 
 
+    'aqar'=>'العقارات',
     'order' => 'الترتيب',
     'flag_image' => 'صورة العلم',
     'places' => 'الاماكن',

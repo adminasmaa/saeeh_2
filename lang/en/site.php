@@ -266,8 +266,10 @@ return [
     'reset' => 'Reset',
     'reload' => 'Reload',
     'Register' => 'Register',
+    'latitude' => 'Latitude',
+    'longitude' => 'Longitude',
 
-
+    'aquars'=>'Aquars',
     'categories' => 'Categories',
     'all_categories' => 'All Categories',
     'all_clients' => 'All Clients',
@@ -330,14 +332,17 @@ return [
     'written' => 'Written',
     'audio' => 'Audio',
     'file' => 'File',
-
+    'contacts'=>'Messages',
+    'to'=>'To',
 
     'add_by' => 'Add By',
     'choose_user' => 'Choose User',
     'choose' => 'choose',
 
     'icon' => 'icon',
-
+    'notifications' => 'Notifications',
+    'booking_id'=> 'Booking_Id',
+    'type'=>'Type',
 
     'field_name' => 'Field Name',
     'field_size' => 'Field Size',

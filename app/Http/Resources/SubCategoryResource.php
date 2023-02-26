@@ -14,11 +14,19 @@ class SubCategoryResource extends JsonResource
      */
     public function toArray($request)
     {
+        $lang = $request->header('localization');
+
+        if ($lang == 'ar') {
+            $name = 'name_ar';
+        } else {
+            $name = 'name_en';
+
+        }
         return [
             "id" => $this->id,
-            "name" => $this->name,
+            "name" => $this->$name,
             "image" => asset('images/categories')."/".$this->image,
-            "places"=> PlacesResource::collection($this->places),
+            "places"=> PlaceResource::collection($this->places),
         ];
     }
 }

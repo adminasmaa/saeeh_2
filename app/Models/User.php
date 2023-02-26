@@ -15,7 +15,6 @@ use App\Models\PlaceComment;    // HasMany
 use App\Models\Ads;    // HasMany
 use App\Models\Car;    // HasMany
 use App\Models\CarComment;    // HasMany
-use App\Models\Property;    // HasMany
 use App\Models\Commission;    // HasMany
 use App\Models\CarBooking;    // HasMany
 use App\Models\AqarBooking;    // HasMany
@@ -95,10 +94,6 @@ class User extends Authenticatable
     // relations
     public function carComment(){
         return $this->HasMany(CarComment::class);
-    }
-    // relations
-    public function property(){
-        return $this->HasMany(Property::class);
     }
     // relations
     public function commission(){

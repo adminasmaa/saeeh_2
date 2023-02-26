@@ -56,13 +56,18 @@
 
 
                                 <div class="row">
-                                    <!--<div class="col-md-6">-->
 
                                     <div class="col-md-6 form-group">
-                                        <label>@lang('site.name')<span class="text-danger">*</span></label>
-                                        <input type="text" name="name" class="form-control"
-                                               value="{{old('name')}}"
+                                        <label>@lang('site.ar.name')<span class="text-danger">*</span></label>
+                                        <input type="text" name="name_ar" class="form-control"
+                                               value="{{old('name_ar')}}"
                                                required>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label>@lang('site.en.name')<span class="text-danger">*</span></label>
+                                        <input type="text" name="name_en" class="form-control"
+                                               value="{{old('name_en')}}"
+                                               >
                                     </div>
 
                                     <div class="col-md-6 form-group">
@@ -87,7 +92,7 @@
                                                 <option selected>@lang('site.select')</option>
                                                 @foreach($countries as $country)
 
-                                                    <option value="{{$country->id}}">{{$country->name ?? ''}}</option>
+                                                    <option value="{{$country->id}}">{{$country->name_ar ?? ''}}</option>
 
                                                 @endforeach
 

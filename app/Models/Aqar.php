@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\User;   //belongsTo
-use App\Models\Property;   //belongsTo
 use App\Models\Ads;   //belongsTo
 use App\Models\AqarComment;    // HasMany
 use App\Models\AqarBooking;    // HasMany
@@ -32,7 +31,6 @@ class Aqar extends Model
         'description', // nullable
         'comment_text', // nullable
         'comision', // required
-        'property_id', //unsigned 
         'ads_id', //unsigned 
         'area_id',//nullable 
         'floor_id',//nullable 
@@ -61,10 +59,6 @@ class Aqar extends Model
     }// relations
     public function ads(){
         return $this->belongsTo(Ads::class,'ads_id');
-    }
-    // relations
-    public function property(){
-        return $this->belongsTo(Property::class,'property_id');
     }
    // relations
    public function aqarComment(){

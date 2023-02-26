@@ -377,14 +377,12 @@
                                         data-feather="settings"></i><span>@lang('site.settings') @endlang</span></a>
 
                             </li>
-
                             <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title link-nav"
                                     href="{{route('dashboard.users.index')}}"><i
                                         data-feather="users"></i><span>@lang('site.users') @endlang</span></a>
 
                             </li>
-
 
                             <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title link-nav"
@@ -393,6 +391,11 @@
 
                             </li>
 
+                            <li class="sidebar-list">
+                                <a class="sidebar-link sidebar-title link-nav"
+                                    href="{{route('dashboard.message.index')}}">
+                                    <i data-feather="bell"></i><span>@lang('site.contacts') @endlang</span></a>
+                            </li>
 
                             <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title link-nav"
@@ -438,20 +441,11 @@
 
                             </li>
 
-                            <li class="sidebar-list"><a
-                                    class="sidebar-link sidebar-title link-nav"
-                                    href="{{route('dashboard.advertising.index')}}"><i
-                                        data-feather="zap"></i><span>@lang('site.advertising') @endlang</span></a>
-
+                            <li class="sidebar-list">
+                                <a class="sidebar-link sidebar-title link-nav"
+                                    href="{{route('dashboard.advertising.index')}}">
+                                    <i data-feather="zap"></i><span>@lang('site.advertising') @endlang</span></a>
                             </li>
-
-                            <!-- <li class="sidebar-list"><a
-                                    class="sidebar-link sidebar-title link-nav"
-                                    href="{{route('dashboard.areas.index')}}"><i
-                                        data-feather="server"></i><span>@lang('site.areas') @endlang</span></a>
-
-                            </li> -->
-
                             {{--list--}}
 
                             <li class="sidebar-list">
@@ -551,6 +545,11 @@
                                 </ul>
                             </li>
 
+                            <li class="sidebar-list">
+                                <a class="sidebar-link sidebar-title link-nav"
+                                    href="{{route('dashboard.notifications.index')}}">
+                                    <i data-feather="droplet"></i><span>@lang('site.notifications') @endlang</span></a>
+                            </li>
 
                         </ul>
                     </div>

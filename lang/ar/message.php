@@ -2,6 +2,7 @@
 
 return [
     'User register successfully.' => 'تسجيل المستخدم بنجاح',
+    'category retrieved successfully.'=>'تم استرداد الفئات بنجاح',
     'wrong credientials' => 'خطا ف بيانات الدخول',
     'User login successfully.'=>'تم الدخول بنجاح',
     'account not verified'=>'الاكونت غير مفعل',

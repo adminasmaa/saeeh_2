@@ -81,7 +81,7 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
 
             foreach ($request['name_category'] as $key => $value) {
                 $cat = Category::create([
-                    'name' => $value,
+                    'name_ar' => $value,
                     'parent_id' => $category->id
                 ]);
 
@@ -133,7 +133,7 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
 
             foreach ($request['name_category'] as $key => $value) {
                 $cat = Category::create([
-                    'name' => $value,
+                    'name_ar' => $value,
                     'parent_id' => $category->id
                 ]);
 

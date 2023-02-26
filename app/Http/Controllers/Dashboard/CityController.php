@@ -56,8 +56,8 @@ class CityController extends Controller
     {
         $request->validate([
 
-                'name' => 'required',
-                'code' => 'required',
+                'name_ar' => 'required',
+//                'code' => 'required',
 
             ]
         );
@@ -92,11 +92,12 @@ class CityController extends Controller
     {
         $request->validate([
 
-                'name' => 'required',
-                'code' => 'required',
+                'name_ar' => 'required',
+//                'code' => 'required',
 
             ]
         );
+
 
         return $this->cityRepository->update($city, $request);
 

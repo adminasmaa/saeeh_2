@@ -13,7 +13,8 @@ class City extends Model
     use HasFactory,SoftDeletes;
 
     protected $fillable = [
-        'name',
+        'name_ar',
+        'name_en',
         'image',
         'active',
         'country_id',

@@ -14,7 +14,8 @@ return new class extends Migration {
     {
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->required();
+            $table->string('name_ar')->nullable();
+            $table->string('name_en')->nullable();
             $table->string('image')->nullable();
             $table->string('order')->required();
             $table->boolean('active')->default(0);

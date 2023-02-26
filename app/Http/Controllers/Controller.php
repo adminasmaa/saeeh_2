@@ -11,33 +11,42 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function respondSuccess($status, $message, $content = null)
+    public function respondSuccess($result, $message, $code = 200)
     {
-        return response()->json([
-
-
-            'status' => $status,
+        $response = [
+            'code' =>$code,
+            'status' => true,
             'message' => $message,
-            'data' => $content
+            'data'    => $result,
+            'errorData' =>null,
+        ];
 
-        ]);
+
+        return response()->json($response, $code);
     }
+
 
     /**
      * @param $message
      * @return \Illuminate\Http\JsonResponse
      */
-    public function respondError($status, $message)
+    public function respondError($error, $errorMessages = [], $code )
     {
-        return response()->json([
+        $response = [
+            'code' =>$code,
+            'status' => false,
+            'message' => $error,
+            'data'=>null,
+        ];
 
 
-            'status' => $status,
-            'message' => $message,
-            'data' => null,
-        ]);
+        if(!empty($errorMessages)){
+            $response['errorData'] = $errorMessages;
+        }
+
+
+        return response()->json($response, 200);
     }
-
 
     public function respondwarning($result, $message, $errorMessages, $code = 200)
     {
