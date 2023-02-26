@@ -307,7 +307,8 @@ return [
     'written' => 'Written',
     'audio' => 'Audio',
     'file' => 'File',
-
+    'contacts'=>'Messages',
+    'to'=>'To',
 
     'add_by' => 'Add By',
     'choose_user' => 'Choose User',
