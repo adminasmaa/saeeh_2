@@ -31,6 +31,7 @@ use App\Repositories\Eloquent\PlaceCommentRepository;
 use App\Repositories\Eloquent\AreaRepository;
 use App\Repositories\Eloquent\MessageRepository;
 use App\Repositories\Eloquent\NotificationRepository;
+use App\Repositories\Eloquent\CommissionRepository;
 
 use App\Repositories\Interfaces\AdvertisingRepositoryInterface;
 use App\Repositories\Interfaces\AnotherRoomRepositoryInterface;
@@ -54,6 +55,7 @@ use App\Repositories\Interfaces\AreaRepositoryInterface;
 use App\Repositories\Interfaces\MessageRepositoryInterface;
 use App\Repositories\Interfaces\NotificationRepositoryInterface;
 
+use App\Repositories\Interfaces\CommissionRepositoryInterface;
 use App\Repositories\Interfaces\PlaceRepositoryInterface;
 use App\Repositories\Interfaces\PlaceCommentRepositoryInterface;
 use App\Repositories\Interfaces\ProblemRepositoryInterface;
@@ -105,6 +107,7 @@ class RepositoryServiceProvider extends ServiceProvider
 
         $this->app->bind(MessageRepositoryInterface::class, MessageRepository::class);
         $this->app->bind(NotificationRepositoryInterface::class, NotificationRepository::class);
+        $this->app->bind(CommissionRepositoryInterface::class, CommissionRepository::class);
 
     }
 

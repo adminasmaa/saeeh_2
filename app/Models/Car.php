@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\User;   //belongsTo
-use App\Models\CarBrand;   //belongsTo
 use App\Models\Ads;   //belongsTo
+use App\Models\Category;   //belongsTo
 use App\Models\CarComment;    // HasMany
 use App\Models\CarBooking;    // HasMany
 
@@ -32,20 +32,21 @@ class Car extends Model
         'images', // required
         'videos', // nullable
         'comment_text', // nullable
-        'car_brand_id', //unsigned 
         'ads_id', //unsigned 
         'user_id', //unsigned 
+        'category_id', //unsigned 
     ];
     // relations
     public function user(){
         return $this->belongsTo(User::class,'user_id');
     }
     // relations
-    public function carBrand(){
-        return $this->belongsTo(CarBrand::class,'car_brand_id');
-    }// relations
     public function ads(){
         return $this->belongsTo(Ads::class,'ads_id');
+    }
+    // relations
+    public function category(){
+        return $this->belongsTo(Category::class,'category_id');
     }
     // relations
     public function carComment(){

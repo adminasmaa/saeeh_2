@@ -315,6 +315,7 @@ return [
     'store' => 'Store',
 
     'images' => 'images',
+    'commissions'=>'Commission',
 
     'type' => 'Type',
     'size' => 'Size',

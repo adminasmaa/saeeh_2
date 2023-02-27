@@ -453,8 +453,8 @@
                                                                                       href="#"><i
                                         data-feather="airplay"></i><span>@lang('site.cars') @endlang                </span></a>
                                 <ul class="sidebar-submenu">
-                                    <li><a href="{{route('dashboard.brands.index')}}">{{__('site.brands')}}</a>
-                                    </li>
+                                    <!-- <li><a href="{{route('dashboard.brands.index')}}">{{__('site.brands')}}</a>
+                                    </li> -->
                                     <li><a href="{{route('dashboard.cars.index')}}">{{__('site.cars')}}</a>
 
                                     </li>
@@ -543,6 +543,12 @@
                                         <a href="{{route('dashboard.place_comments.index')}}">{{__('site.place_comments')}}</a>
                                     </li>
                                 </ul>
+                            </li>
+
+                            <li class="sidebar-list">
+                                <a class="sidebar-link sidebar-title link-nav"
+                                    href="{{route('dashboard.commissions.index')}}">
+                                    <i data-feather="plus-circle"></i><span>@lang('site.commissions') @endlang</span></a>
                             </li>
 
                             <li class="sidebar-list">

@@ -3,39 +3,38 @@
 namespace App\Http\Controllers\Dashboard;
 
 
-use App\DataTables\CarsDataTable;
+use App\DataTables\CommissionsDataTable;
 use App\Http\Controllers\Controller;
 
-use App\Models\Car;
-use App\Models\Category;
-use App\Repositories\Interfaces\CarRepositoryInterface;
+use App\Models\User;
+use App\Models\Commission;
+use App\Repositories\Interfaces\CommissionRepositoryInterface;
 use App\Services\TwoFactorService;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
-class CarController extends Controller
+class CommissionController extends Controller
 {
 
+    private CommissionRepositoryInterface $CommissionRepository;
 
-    private CarRepositoryInterface $CarRepository;
-
-    public function __construct(CarRepositoryInterface $CarRepository)
+    public function __construct(CommissionRepositoryInterface $CommissionRepository)
     {
-        $this->CarRepository = $CarRepository;
+        $this->CommissionRepository = $CommissionRepository;
     }
 
-    public function index(CarsDataTable $carsDataTable)
+    public function index(CommissionsDataTable $CommissionsDataTable)
     {
 
-        return $this->CarRepository->getAll($carsDataTable);
+        return $this->CommissionRepository->getAll($CommissionsDataTable);
 
     }
 
 
     public function show($id)
     {
-        return $this->CarRepository->show($id);
+        return $this->CommissionRepository->show($id);
 
 
     }
@@ -44,7 +43,7 @@ class CarController extends Controller
     public function create()
     {
 
-        return $this->CarRepository->create();
+        return $this->CommissionRepository->create();
 
 
     }//end of create
@@ -54,13 +53,15 @@ class CarController extends Controller
     {
         $request->validate([
 
-                'name' => 'required',
+                'price' => 'required',
+                'status' => 'required',
+                'user_id' => 'required',
 
             ]
         );
 
 
-        return $this->CarRepository->store($request);
+        return $this->CommissionRepository->store($request);
 
     }//end of store
 
@@ -73,7 +74,7 @@ class CarController extends Controller
 
     public function edit($id)
     {
-        return $this->CarRepository->edit($id);
+        return $this->CommissionRepository->edit($id);
 
 
     }//end of user
@@ -89,13 +90,15 @@ class CarController extends Controller
     {
         $request->validate([
 
-                'name' => 'required',
+            'price' => 'required',
+            'status' => 'required',
+            'user_id' => 'required',
 
             ]
         );
-        $car = Car::find($id);
+        $Commission = Commission::find($id);
 
-        return $this->CarRepository->update($car, $request);
+        return $this->CommissionRepository->update($Commission, $request);
 
 
     }//end of update
@@ -109,9 +112,9 @@ class CarController extends Controller
 
     public function destroy($id)
     {
-        $car =Car::find($id);
+        $Commission =Commission::find($id);
 
-        return $this->CarRepository->destroy($car);
+        return $this->CommissionRepository->destroy($Commission);
 
 
     }//end of destroy
