@@ -70,50 +70,31 @@
                                             >
                                     </div>
 
-                                    <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.status')<span class="text-danger">*</span></label>
-                                        <select class="form-control btn-square" name="status">
-                                            <option selected>@lang('site.select')</option>
-                                        <option value="1"
-                                                @if($notification->status=='active') selected @endif>active
-                                        </option>
-                                        <option value="0"
-                                                @if($notification->status=='inactive') selected @endif>inactive
-                                        </option>                                           
-
-                                    </select>
-                                    </div>
+                                    
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.booking_id')<span class="text-danger">*</span></label>
-                                        <input type="integer" name="booking_id" class="form-control"
+                                        <input type="number" name="booking_id" class="form-control"
                                                value="{{$notification->booking_id}}"
                                              >
                                     </div>
 
-                                </div>
-
-
-
-                                <div class="row">
-                                    <!--<div class="col-md-6">-->
                                     <div class="col-md-6 form-group">
                                     <label class="form-label">@lang('site.type')</label><span class="text-danger">*</span>
                                     <select class="form-control btn-square" name="type">
                                             <option selected>@lang('site.select')</option>
                                         <option value="place"
-                                                @if($notification->type=='place') selected @endif>place
+                                                @if($notification->type=='place') selected @endif>@lang('site.place')
                                         </option>
                                         <option value="aqar"
-                                                @if($notification->type=='aqar') selected @endif>aqar
+                                                @if($notification->type=='aqar') selected @endif>@lang('site.aqar')
                                         </option>                                           
                                         <option value="car"
-                                                @if($notification->type=='car') selected @endif>car
+                                                @if($notification->type=='car') selected @endif>@lang('site.car')
                                         </option> 
                                     </select>
                                 </div>
 
                                 </div>
-
                                 <div class="row">
 
                                 <div class="col-md-6 form-group">
@@ -122,16 +103,25 @@
                                         <option selected>@lang('site.select')</option>
                                         @foreach($users as $user)
 
-                                            <option value="{{$user->id}}"@if($user->user_id==$user->id) selected @endif>{{$user->username ?? ''}}</option>
+                                            <option value="{{$user->id}}"@if($notification->user_id==$user->id) selected @endif>{{$user->username ?? ''}}</option>
 
                                         @endforeach
 
                                     </select>
                                 </div>
                              
-
+                                <div class="col-md-6 form-group">
+                                    <label class="form-label">@lang('site.status')</label><span class="text-danger">*</span>
+                                    <select class="form-control btn-square" name="status">
+                                            <option selected>@lang('site.select')</option>
+                                        <option value="1"
+                                                @if($notification->status=='1') selected @endif>@lang('site.active')
+                                        </option>
+                                        <option value="0"
+                                                @if($notification->status=='0') selected @endif>@lang('site.inactive')
+                                        </option>   
+                                    </select>
                                 </div>
-                                
 
                             <br>
 

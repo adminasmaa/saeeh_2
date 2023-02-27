@@ -8,13 +8,13 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-6">
-                        <h3>@lang('site.contacts')</h3>
+                        <h3>@lang('site.commissions')</h3>
                     </div>
                     <div class="col-6">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">@lang('site.dashboard')</li>
 
-                            <li class="breadcrumb-item active">@lang('site.contacts') @endlang</li>
+                            <li class="breadcrumb-item active">@lang('site.commissions') @endlang</li>
                         </ol>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                 <!-- Individual column searching (text inputs) Starts-->
                 <div class="col-sm-12">
                     <div class="card mt-30">
-                        <form action="{{ route('dashboard.message.store') }}" method="post"
+                        <form action="{{ route('dashboard.commissions.store') }}" method="post"
                               enctype="multipart/form-data"
                               id="" class="form-main">
 
@@ -59,24 +59,25 @@
                                     <!--<div class="col-md-6">-->
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.contacts')<span class="text-danger">*</span></label>
-                                        <input type="text" name="messages" class="form-control"
-                                               value="{{old('messages')}}"
+                                        <label>@lang('site.price')<span class="text-danger">*</span></label>
+                                        <input type="number"  step=".1" name="price" class="form-control"
+                                               value="{{old('price')}}"
                                                required>
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.to')<span class="text-danger">*</span></label>
-                                        <input type="number" name="to" class="form-control"
-                                               value="{{old('to')}}"
-                                               required>
-                                    </div>
+                                    <label class="form-label">@lang('site.status')</label><span class="text-danger">*</span>
+                                    <select class="form-control btn-square" name="status">
+                                            <option selected>@lang('site.select')</option>
+                                            <option value="1">@lang('site.active') </option>
+                                            <option value="0">@lang('site.inactive')</option>
+                                    </select>
+                                </div>
                                 </div>
                                 <div class="row">
 
-
-                                <div class="col-md-6 form-group"><span class="text-danger">*</span>
-                                    <label class="form-label">@lang('site.users')</label>
+                                <div class="col-md-6 form-group">
+                                    <label class="form-label">@lang('site.users')</label><span class="text-danger">*</span>
                                     <select class="form-control btn-square" name="user_id">
                                         <option selected>@lang('site.select')</option>
                                         @foreach($users as $user)
@@ -87,8 +88,11 @@
 
                                     </select>
                                 </div>
-                            </div>
+                                </div>
+                                </div>
+
                                 <br>
+
 
                             </div>
 
@@ -107,5 +111,4 @@
     <!-- Container-fluid Ends-->
 
 @endsection
-
 

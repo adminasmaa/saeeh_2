@@ -3,22 +3,22 @@
 namespace App\Repositories\Eloquent;
 
 
-use App\Models\Notification;
+use App\Models\Commission;
 use App\Models\User;
-use App\Repositories\Interfaces\NotificationRepositoryInterface as NotificationRepositoryInterfaceAlias;
+use App\Repositories\Interfaces\CommissionRepositoryInterface as CommissionRepositoryInterfaceAlias;
 use Illuminate\Support\Facades\DB;
 use Alert;
 
-class NotificationRepository implements NotificationRepositoryInterfaceAlias
+class CommissionRepository implements CommissionRepositoryInterfaceAlias
 {
     public function getAll($data)
     {
 
 //        return $data->query();
 
-        return $data->render('dashboard.notifications.index', [
-            'title' => trans('site.notifications'),
-            'model' => 'notifications',
+        return $data->render('dashboard.commissions.index', [
+            'title' => trans('site.commissions'),
+            'model' => 'commissions',
             'count' => $data->count(),
 
         ]);
@@ -30,27 +30,27 @@ class NotificationRepository implements NotificationRepositoryInterfaceAlias
 
         $users = User::all();
         
-        return view('dashboard.notifications.create', compact('users'));
+        return view('dashboard.commissions.create', compact('users'));
     }
 
     public function edit($Id)
     {
         // TODO: Implement edit() method.
 
-        $notification = Notification::find($Id);
+        $commission = Commission::find($Id);
 
         $users = User::all();
-        return view('dashboard.notifications.edit', compact('notification', 'users'));
+        return view('dashboard.commissions.edit', compact('commission', 'users'));
     }
 
     public function show($Id)
     {
         // TODO: Implement show() method.
 
-        $notification = Notification::find($Id);
+        $commission = Commission::find($Id);
 
         $users = User::all();
-        return view('dashboard.notifications.show', compact('notification', 'users'));
+        return view('dashboard.commissions.show', compact('commission', 'users'));
     }
 
 
@@ -61,43 +61,43 @@ class NotificationRepository implements NotificationRepositoryInterfaceAlias
 
         // To Make User Active
 
-        $notification = Notification::create($request_data);
+        $commission = Commission::create($request_data);
 
-        if ($notification) {
+        if ($commission) {
             Alert::success('Success', __('site.added_successfully'));
 
-            return redirect()->route('dashboard.notifications.index');
+            return redirect()->route('dashboard.commissions.index');
 
         }
     }
 
-    public function update($notification, $request)
+    public function update($commission, $request)
     {
         // TODO: Implement update() method.
 
         $request_data = $request->all();
 
 
-        $notification->update($request_data);
+        $commission->update($request_data);
 
-        if ($notification) {
+        if ($commission) {
             Alert::success('Success', __('site.updated_successfully'));
 
-            return redirect()->route('dashboard.notifications.index');
+            return redirect()->route('dashboard.commissions.index');
 //            session()->flash('success', __('site.updated_successfully'));
         } else {
 
-            return redirect()->route('dashboard.notifications.index');
+            return redirect()->route('dashboard.commissions.index');
 
         }
     }
 
 
-    public function destroy($notification)
+    public function destroy($commission)
     {
         // TODO: Implement destroy() method.
 
-        $result = $notification->delete();
+        $result = $commission->delete();
         if ($result) {
                 Alert::toast('Deleted', __('site.deleted_successfully'));
         } else {

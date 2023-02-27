@@ -66,7 +66,7 @@
                                 </div>
                                 <div class="col-md-6 form-group col-12 p-2">
                                 <label class="form-label">@lang('site.users')</label>
-                                <select class="form-control btn-square" name="user_id" readonly="">
+                                <select class="form-control btn-square" name="user_id" readonly=""disabled>
                                     <option selected>@lang('site.select')</option>
                                     @foreach($users as $user)
 

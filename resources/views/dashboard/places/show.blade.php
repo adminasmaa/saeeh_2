@@ -137,29 +137,29 @@
                             <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.name_ar')<span class="text-danger">*</span></label>
                                         <input type="text" name="name_ar" class="form-control"
-                                        value="{{ $place->name_ar ?? '' }}" readonly="">
+                                        value="{{ $place->name_ar ?? '' }}" readonly=""disabled>
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.name_en')</label>
                                         <input type="text" name="name_en" class="form-control"
-                                        value="{{ $place->name_en ?? '' }}" readonly="">
+                                        value="{{ $place->name_en ?? '' }}" readonly=""disabled>
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.place_order')<span class="text-danger">*</span></label>
                                         <input type="integer" name="place_order" class="form-control"
-                                        value="{{ $place->place_order ?? '' }}" readonly="">
+                                        value="{{ $place->place_order ?? '' }}" readonly=""disabled>
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.place_error')<span class="text-danger">*</span></label>
                                         <input type="integer" name="place_error" class="form-control"
-                                        value="{{ $place->place_error ?? '' }}" readonly="">
+                                        value="{{ $place->place_error ?? '' }}" readonly=""disabled>
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.const_from')<span class="text-danger">*</span></label>
                                         <input type="integer" name="const_from" class="form-control"
-                                        value="{{ $place->const_from ?? '' }}" readonly="">
+                                        value="{{ $place->const_from ?? '' }}" readonly=""disabled>
                                     </div>
 
 
@@ -167,65 +167,65 @@
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.const_to')<span class="text-danger">*</span></label>
                                         <input type="integer" name="const_to" class="form-control"
-                                        value="{{ $place->const_to ?? '' }}" readonly="">
+                                        value="{{ $place->const_to ?? '' }}" readonly=""disabled>
                                     </div>
 
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.google_mark_link')</label>
                                         <input type="text" name="google_mark_link" class="form-control"
-                                        value="{{ $place->google_mark_link ?? '' }}" readonly="">
+                                        value="{{ $place->google_mark_link ?? '' }}" readonly=""disabled>
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.place_link')</label>
                                         <input type="text" name="place_link" class="form-control"
-                                        value="{{ $place->place_link ?? '' }}" readonly="">
+                                        value="{{ $place->place_link ?? '' }}" readonly=""disabled>
                                     </div>
 
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.share_link')</label>
                                         <input type="text" name="share_link" class="form-control"
-                                        value="{{ $place->share_link ?? '' }}" readonly="">
+                                        value="{{ $place->share_link ?? '' }}" readonly=""disabled>
                                     </div>
                                     
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.phone_one')<span class="text-danger">*</span></label>
                                         <input type="integer" name="phone_one" class="form-control"
-                                        value="{{ $place->phone_one ?? '' }}" readonly="">
+                                        value="{{ $place->phone_one ?? '' }}" readonly=""disabled>
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.phone_two')</label>
                                         <input type="integer" name="phone_two" class="form-control"
-                                        value="{{ $place->phone_two ?? '' }}" readonly="">
+                                        value="{{ $place->phone_two ?? '' }}" readonly=""disabled>
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.time_check')</label>
                                         <input type="integer" name="time_check" class="form-control"
-                                        value="{{ $place->time_check ?? '' }}" readonly="">
+                                        value="{{ $place->time_check ?? '' }}" readonly=""disabled>
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.seen_counter')<span class="text-danger">*</span></label>
                                         <input type="integer" name="seen_counter" class="form-control"
-                                        value="{{ $place->seen_counter ?? '' }}" readonly="">
+                                        value="{{ $place->seen_counter ?? '' }}" readonly=""disabled>
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.delivery')</label>
                                         <input type="integer" name="delivery" class="form-control"
-                                        value="{{ $place->delivery ?? '' }}" readonly="">
+                                        value="{{ $place->delivery ?? '' }}" readonly=""disabled>
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.diff_time')</label>
                                         <input type="integer" name="diff_time" class="form-control"
-                                        value="{{ $place->diff_time ?? '' }}" readonly="">
+                                        value="{{ $place->diff_time ?? '' }}" readonly=""disabled>
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.const_time')</label>
                                         <input type="integer" name="const_time" class="form-control"
-                                        value="{{ $place->const_time ?? '' }}" readonly="">
+                                        value="{{ $place->const_time ?? '' }}" readonly=""disabled>
                                     </div>
                                 </div>
 
@@ -235,34 +235,34 @@
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.latitude')</label>
                                         <input type="text" name="latitude" class="form-control"
-                                        value="{{ $place->latitude ?? '' }}" readonly="">
+                                        value="{{ $place->latitude ?? '' }}" readonly=""disabled>
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.longitude')</label>
                                         <input type="text" name="longitude" class="form-control"
-                                        value="{{ $place->longitude ?? '' }}" readonly="">
+                                        value="{{ $place->longitude ?? '' }}" readonly=""disabled>
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.rest_one')</label>
                                         <input type="text" name="rest_one" class="form-control"
-                                        value="{{ $place->rest_one ?? '' }}" readonly="">
+                                        value="{{ $place->rest_one ?? '' }}" readonly=""disabled>
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.rest_two')</label>
                                         <input type="text" name="rest_two" class="form-control"
-                                        value="{{ $place->rest_two ?? '' }}" readonly="">
+                                        value="{{ $place->rest_two ?? '' }}" readonly=""disabled>
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.rest_three')</label>
                                         <input type="text" name="rest_three" class="form-control"
-                                        value="{{ $place->rest_three ?? '' }}" readonly="">
+                                        value="{{ $place->rest_three ?? '' }}" readonly=""disabled>
                                     </div>
-                                    <div class="col-md-6 form-group"><span class="text-danger">*</span>
-                                    <label class="form-label">@lang('site.social_media')</label>
+                                    <div class="col-md-6 form-group">
+                                    <label class="form-label">@lang('site.social_media')</label><span class="text-danger">*</span>
                                     <select class="form-control btn-square" name="social_media" readonly=""disabled>
                                         <option selected>@lang('site.select')</option>
 
@@ -294,19 +294,19 @@
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.address')<span class="text-danger">*</span></label>
                                 <input type="text" name="address" class="form-control"
-                                       value="{{ $place->address ?? '' }}" readonly=""
+                                       value="{{ $place->address ?? '' }}" readonly=""disabled
                                     >
                                 </div>
                                 <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.descrption_ar')<span class="text-danger">*</span></label>
                                 <input type="text" name="descrption_ar" class="form-control"
-                                       value="{{ $place->descrption_ar ?? '' }}" readonly=""
+                                       value="{{ $place->descrption_ar ?? '' }}" readonly=""disabled
                                     >
                                 </div>
                                 <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.descrption_en')<span class="text-danger">*</span></label>
                                 <input type="text" name="descrption_en" class="form-control"
-                                       value="{{ $place->descrption_en ?? '' }}" readonly=""
+                                       value="{{ $place->descrption_en ?? '' }}" readonly=""disabled
                                     >
                                 </div>
 
@@ -316,7 +316,7 @@
                         <div class="row">
                             <div class="col-md-6 form-group col-12 p-2">
                                 <label class="form-label">@lang('site.users')</label>
-                                <select class="form-control btn-square" name="user_id" readonly="">
+                                <select class="form-control btn-square" name="user_id" readonly=""disabled>
                                     <option selected>@lang('site.select')</option>
                                     @foreach($users as $user)
 
@@ -329,7 +329,7 @@
                             </div>
                             <div class="col-md-6 form-group  col-12 p-2">
                                 <label class="form-label">@lang('site.categories')</label>
-                                <select class="form-control btn-square" name="category_id" readonly="">
+                                <select class="form-control btn-square" name="category_id" readonly=""disabled>
                                     <option selected>@lang('site.select')</option>
                                     @foreach($categories as $cat)
 

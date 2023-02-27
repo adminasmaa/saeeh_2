@@ -9,13 +9,13 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-6">
-                        <h3>@lang('site.notifications')</h3>
+                        <h3>@lang('site.commissions')</h3>
                     </div>
                     <div class="col-6">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">@lang('site.dashboard')</li>
 
-                            <li class="breadcrumb-item active">@lang('site.notifications') @endlang</li>
+                            <li class="breadcrumb-item active">@lang('site.commissions') @endlang</li>
                         </ol>
                     </div>
                 </div>
@@ -54,51 +54,22 @@
 
 
                                 <div class="col-md-6 form-group col-12 p-2">
-                                    <label>@lang('site.title')</label>
-                                    <input type="text" name="title" class="form-control" value="{{ $notification->title }}"
+                                    <label>@lang('site.price')</label>
+                                    <input type="float" name="price" class="form-control" value="{{ $commission->price }}"
                                            disabled>
                                 </div>
-
-                                <div class="col-md-6 form-group col-12 p-2">
-                                    <label>@lang('site.booking_id')</label>
-                                    <input type="integer" name="booking_id" class="form-control" value="{{ $notification->booking_id }}"
-                                           disabled>
-                                </div>
-                                <div class="col-md-6 form-group col-12 p-2">
-                                    <label>@lang('site.description')</label>
-                                    <input type="text" name="description" class="form-control" value="{{ $notification->description }}"
-                                           disabled>
-                                </div>
-
                                 <div class="col-md-6 form-group col-12 p-2">
                                 <label class="form-label">@lang('site.status')</label>
                                     <select class="form-control btn-square" name="status" readonly="" disabled>
                                         <option selected>@lang('site.select')</option>
 
                                         <option value="1"
-                                                @if($notification->status=='1') selected @endif>@lang('site.active')
+                                                @if($commission->status=='1') selected @endif>@lang('site.active')
                                         </option>
                                         <option value="0"
-                                                @if($notification->status=='0') selected @endif>@lang('site.inactive')
+                                                @if($commission->status=='0') selected @endif>@lang('site.inactive')
                                         </option>
                                         
-                                    </select>
-                                </div>
-
-                                <div class="col-md-6 form-group">
-                                    <label class="form-label">@lang('site.type')</label>
-                                    <select class="form-control btn-square" name="type" readonly=""disabled>
-                                        <option selected>@lang('site.select')</option>
-
-                                        <option value="aqar"
-                                                @if($notification->type=='aqar') selected @endif>@lang('site.aqar')
-                                        </option>
-                                        <option value="place"
-                                                @if($notification->type=='place') selected @endif>@lang('site.place')
-                                        </option>
-                                        <option value="car"
-                                                @if($notification->type=='car') selected @endif>@lang('site.car')
-                                        </option>
                                     </select>
                                 </div>
 
@@ -113,7 +84,7 @@
                                     @foreach($users as $user)
 
                                         <option value="{{$user->id}}"
-                                                @if($notification->user_id==$user->id) selected @endif>{{$user->username ?? ''}}</option>
+                                                @if($commission->user_id==$user->id) selected @endif>{{$user->username ?? ''}}</option>
 
                                     @endforeach
 

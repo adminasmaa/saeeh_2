@@ -32,12 +32,15 @@ use App\Http\Controllers\Dashboard\ConditionTypeController;
 use App\Http\Controllers\Dashboard\MessageController;
 use App\Http\Controllers\Dashboard\NotificationController;
 use App\Http\Controllers\Dashboard\AqarBookingController;
+use App\Http\Controllers\Dashboard\CommissionController;
 
 use App\Http\Controllers\Dashboard\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedirect', 'localizationRedirect', 'localeViewPath')->group(function () {
     Route::prefix('dashboard')->name('dashboard.')->middleware(['auth'])->group(function () {
+
+        Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
         //users
         Route::resource('users', UserController::class);
         //roles
@@ -120,6 +123,9 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
         //notifications
         Route::resource('notifications', NotificationController::class);
+
+        //commissions
+        Route::resource('commissions', CommissionController::class);
 
     }); //end of dashboard routes
 });
