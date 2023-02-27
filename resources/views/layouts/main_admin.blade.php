@@ -366,7 +366,7 @@
                             </li>
                             <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title link-nav"
-                                    href="{{route('home')}}"><i
+                                    href="{{route('dashboard.home')}}"><i
                                         data-feather="home"></i><span>@lang('site.dashboard') @endlang</span></a>
 
                             </li>

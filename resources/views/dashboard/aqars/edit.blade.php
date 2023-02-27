@@ -51,7 +51,9 @@
 
 
                         </div>
+                       
                         <div class="card">
+                        <center>
                         <div class="card-body">
                         @include('partials._errors')
                             <div class="col-md-6 form-group col-12 p-2  ">
@@ -99,10 +101,12 @@
                             </div>
                             <!--  End Of Modal -->
 
-                                <div class="col-sm-12">
+                                <div class="col-sm-8">
                                     <div class="card">
                                         <div class="card-header">
-                                            
+                                        <h5 class="text-danger">@lang('site.alert')</h5>
+                                            <h6 class="text-warning">@lang('site.If you have a problem adding your ad, please call us')</h6>
+                                            <h6 class="text-info">0707078888</h6>      
                                         </div>
                                         <div class="card-body">
 
@@ -382,6 +386,7 @@
                                         </div>
                                     </div>
                                 </div>
+                               </center>
                             </div>
 
                         </form>

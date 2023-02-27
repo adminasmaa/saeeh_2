@@ -163,6 +163,8 @@ return [
      'laundry' => 'Laundry',
      'ConditioningType' => 'Conditioning Type',
      'descrption' => 'Descrption',
+     'alert' => 'Alert',
+    'If you have a problem adding your ad, please call us' => 'If you have a problem adding your ad, please call us',   
 
      
     //contacts
