@@ -111,23 +111,26 @@
 
                                 <div class="col-md-6 form-group col-12 p-2">
                                     <label>@lang('site.ar.name')<span class="text-danger">*</span></label>
-                                    <input type="text" name="name_ar" class="form-control" value="{{ $category->name_ar }}"
+                                    <input type="text" name="name_ar" class="form-control"
+                                           value="{{ $category->name_ar }}"
                                            required>
                                 </div>
                                 <div class="col-md-6 form-group col-12 p-2">
                                     <label>@lang('site.en.name')<span class="text-danger">*</span></label>
-                                    <input type="text" name="name_en" class="form-control" value="{{ $category->name_en }}"
-                                           >
+                                    <input type="text" name="name_en" class="form-control"
+                                           value="{{ $category->name_en }}"
+                                    >
                                 </div>
 
                                 <div class="col-md-6 form-group col-12 p-2 ">
                                     <label class="form-label">@lang('site.city')</label>
-                                    <select class="form-control btn-square" name="city_id">
-                                        <option selected>@lang('site.select')</option>
+                                    <select class="js-example-placeholder-multiple col-sm-12" multiple="multiple"
+                                            name="city_id[]">
+                                        <option >@lang('site.select')</option>
                                         @foreach($cities as $city)
 
                                             <option value="{{$city->id}}"
-                                                    @if($city->id==$category->city_id) selected @endif>{{$city->name_ar ?? ''}}</option>
+                                                    @if(in_array($city->id,$citiesrelated)) selected @endif>{{$city->name_ar ?? ''}}</option>
 
                                         @endforeach
 

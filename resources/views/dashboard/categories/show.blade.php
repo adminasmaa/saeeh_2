@@ -127,12 +127,12 @@
 
                                 <div class="col-md-6 form-group col-12 p-2 ">
                                     <label class="form-label">@lang('site.city')</label>
-                                    <select class="form-control btn-square" name="city_id" readonly="">
-                                        <option selected>@lang('site.select')</option>
+                                    <select class="js-example-placeholder-multiple col-sm-12" multiple="multiple"
+                                            readonly="">
                                         @foreach($cities as $city)
 
                                             <option value="{{$city->id}}"
-                                                    @if($city->id==$category->city_id) selected @endif>{{$city->name_ar ?? ''}}</option>
+                                                    @if(in_array($city->id,$citiesrelated)) selected @endif>{{$city->name_ar ?? ''}}</option>
 
                                         @endforeach
 

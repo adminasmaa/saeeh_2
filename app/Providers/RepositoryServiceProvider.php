@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Repositories\Eloquent\AdvertisingRepository;
 use App\Repositories\Eloquent\AnotherRoomRepository;
+use App\Repositories\Eloquent\AqarBookingRepository;
 use App\Repositories\Eloquent\BathRoomRepository;
 use App\Repositories\Eloquent\BookingRepository;
 use App\Repositories\Eloquent\BrandRepository;
@@ -35,6 +36,7 @@ use App\Repositories\Eloquent\CommissionRepository;
 
 use App\Repositories\Interfaces\AdvertisingRepositoryInterface;
 use App\Repositories\Interfaces\AnotherRoomRepositoryInterface;
+use App\Repositories\Interfaces\AqarBookingRepositoryInterface;
 use App\Repositories\Interfaces\BathRoomRepositoryInterface;
 use App\Repositories\Interfaces\BookingRepositoryInterface;
 use App\Repositories\Interfaces\BrandRepositoryInterface;
@@ -101,6 +103,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(BathRoomRepositoryInterface::class, BathRoomRepository::class);
         $this->app->bind(AnotherRoomRepositoryInterface::class, AnotherRoomRepository::class);
         $this->app->bind(ConditionTypeRepositoryInterface::class, CondiotionTypeRepository::class);
+        $this->app->bind(AqarBookingRepositoryInterface::class, AqarBookingRepository::class);
 
         $this->app->bind(PlaceRepositoryInterface::class, PlaceRepository::class);
         $this->app->bind(PlaceCommentRepositoryInterface::class, PlaceCommentRepository::class);
