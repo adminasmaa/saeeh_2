@@ -391,7 +391,7 @@ return [
     'to'=>'مرسل من',
     'place'=>'الاماكن ',
     'car'=>' السيارات',
-
+    'commissions'=>' العمولات',
     'text' => 'نص',
     // notifications
     ///////////////Aquar

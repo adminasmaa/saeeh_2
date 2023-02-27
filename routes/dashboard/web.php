@@ -31,6 +31,7 @@ use App\Http\Controllers\Dashboard\AnotherRoomController;
 use App\Http\Controllers\Dashboard\ConditionTypeController;
 use App\Http\Controllers\Dashboard\MessageController;
 use App\Http\Controllers\Dashboard\NotificationController;
+use App\Http\Controllers\Dashboard\CommissionController;
 
 use App\Http\Controllers\Dashboard\UserController;
 use Illuminate\Support\Facades\Route;
@@ -118,6 +119,9 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
         //notifications
         Route::resource('notifications', NotificationController::class);
+
+        //commissions
+        Route::resource('commissions', CommissionController::class);
 
     }); //end of dashboard routes
 });
