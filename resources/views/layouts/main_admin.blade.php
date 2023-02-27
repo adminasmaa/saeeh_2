@@ -604,10 +604,8 @@
 <script src="{{MAINASSETS}}/js/chart/apex-chart/apex-chart.js"></script>
 <script src="{{MAINASSETS}}/js/chart/apex-chart/stock-prices.js"></script>
 <script src="{{MAINASSETS}}/js/notify/bootstrap-notify.min.js"></script>
-{{--@if($current_route=='backend.index')--}}
-{
-{{--    <script src="{{MAINASSETS}}/js/dashboard/default.js"></script>--}}
-{{--@endif--}}
+<script src="{{MAINASSETS}}/js/dashboard/default.js"></script>
+
 <script src="{{MAINASSETS}}/js/notify/index.js"></script>
 <script src="{{MAINASSETS}}/js/datepicker/date-picker/datepicker.js"></script>
 <script src="{{MAINASSETS}}/js/datepicker/date-picker/datepicker.en.js"></script>
