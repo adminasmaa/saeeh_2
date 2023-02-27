@@ -74,13 +74,13 @@
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.place_order')<span class="text-danger">*</span></label>
-                                        <input type="integer" name="place_order" class="form-control"
+                                        <input type="number" name="place_order" class="form-control"
                                                value="{{old('place_order')}}"
                                                required>
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.place_error')<span class="text-danger">*</span></label>
-                                        <input type="integer" name="place_error" class="form-control"
+                                        <input type="number" name="place_error" class="form-control"
                                                value="{{old('place_error')}}"
                                                required>
                                     </div>
@@ -139,32 +139,32 @@
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.time_check')</label>
-                                        <input type="integer" name="time_check" class="form-control"
+                                        <input type="number" name="time_check" class="form-control"
                                                value="{{old('time_check')}}"
                                                >
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.seen_counter')<span class="text-danger">*</span></label>
-                                        <input type="integer" name="seen_counter" class="form-control"
+                                        <input type="number" name="seen_counter" class="form-control"
                                                value="{{old('seen_counter')}}"
                                                >
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.delivery')</label>
-                                        <input type="integer" name="delivery" class="form-control"
+                                        <input type="number" name="delivery" class="form-control"
                                                value="{{old('delivery')}}"
                                                >
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.diff_time')</label>
-                                        <input type="integer" name="diff_time" class="form-control"
+                                        <input type="number" name="diff_time" class="form-control"
                                                value="{{old('diff_time')}}"
                                                >
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.const_time')</label>
-                                        <input type="integer" name="const_time" class="form-control"
+                                        <input type="number" name="const_time" class="form-control"
                                                value="{{old('const_time')}}"
                                                >
                                     </div>

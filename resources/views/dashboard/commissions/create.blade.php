@@ -60,7 +60,7 @@
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.price')<span class="text-danger">*</span></label>
-                                        <input type="float" name="price" class="form-control"
+                                        <input type="number"  step=".1" name="price" class="form-control"
                                                value="{{old('price')}}"
                                                required>
                                     </div>
