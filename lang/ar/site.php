@@ -389,6 +389,8 @@ return [
     'value' => 'القيمة',
     'contacts'=>'الرسائل',
     'to'=>'مرسل من',
+    'place'=>'الاماكن ',
+    'car'=>' السيارات',
 
     'text' => 'نص',
     // notifications

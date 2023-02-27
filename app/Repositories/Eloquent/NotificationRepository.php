@@ -29,6 +29,7 @@ class NotificationRepository implements NotificationRepositoryInterfaceAlias
         // TODO: Implement create() method.
 
         $users = User::all();
+        
         return view('dashboard.notifications.create', compact('users'));
     }
 

@@ -71,15 +71,15 @@
                                 </div>
 
                                 <div class="col-md-6 form-group col-12 p-2">
-                                    <label>@lang('site.status')</label>
+                                <label class="form-label">@lang('site.status')</label>
                                     <select class="form-control btn-square" name="status" readonly="" disabled>
                                         <option selected>@lang('site.select')</option>
 
                                         <option value="1"
-                                                @if($notification->status=='active') selected @endif>active
+                                                @if($notification->status=='1') selected @endif>@lang('site.active')
                                         </option>
                                         <option value="0"
-                                                @if($notification->status=='inactive') selected @endif>inactive
+                                                @if($notification->status=='0') selected @endif>@lang('site.inactive')
                                         </option>
                                         
                                     </select>
@@ -91,13 +91,13 @@
                                         <option selected>@lang('site.select')</option>
 
                                         <option value="aqar"
-                                                @if($notification->type=='aqar') selected @endif>aqar
+                                                @if($notification->type=='aqar') selected @endif>@lang('site.aqar')
                                         </option>
                                         <option value="place"
-                                                @if($notification->type=='place') selected @endif>place
+                                                @if($notification->type=='place') selected @endif>@lang('site.place')
                                         </option>
                                         <option value="car"
-                                                @if($notification->type=='car') selected @endif>car
+                                                @if($notification->type=='car') selected @endif>@lang('site.car')
                                         </option>
                                     </select>
                                 </div>
@@ -108,7 +108,7 @@
                                 <!--<div class="col-md-6">-->
                                 <div class="col-md-6 form-group col-12 p-2">
                                 <label class="form-label">@lang('site.users')</label>
-                                <select class="form-control btn-square" name="user_id" readonly="">
+                                <select class="form-control btn-square" name="user_id" readonly=""disabled>
                                     <option selected>@lang('site.select')</option>
                                     @foreach($users as $user)
 
