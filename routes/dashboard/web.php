@@ -14,7 +14,6 @@ use App\Http\Controllers\Dashboard\BrandController;
 use App\Http\Controllers\Dashboard\CarController;
 use App\Http\Controllers\Dashboard\CarCommentController;
 use App\Http\Controllers\Dashboard\BookingController;
-<<<<<<< HEAD
 use App\Http\Controllers\Dashboard\PlaceController;
 use App\Http\Controllers\Dashboard\PlaceCommentController;
 use App\Http\Controllers\Dashboard\AquarCategoryController;
@@ -32,16 +31,14 @@ use App\Http\Controllers\Dashboard\AnotherRoomController;
 use App\Http\Controllers\Dashboard\ConditionTypeController;
 use App\Http\Controllers\Dashboard\MessageController;
 use App\Http\Controllers\Dashboard\NotificationController;
-=======
-use App\Http\Controllers\Dashboard\AquarCategoryController;
-use App\Http\Controllers\Dashboard\PlaceController;
->>>>>>> amira
 
 use App\Http\Controllers\Dashboard\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedirect', 'localizationRedirect', 'localeViewPath')->group(function () {
     Route::prefix('dashboard')->name('dashboard.')->middleware(['auth'])->group(function () {
+
+        Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
         //users
         Route::resource('users', UserController::class);
         //roles

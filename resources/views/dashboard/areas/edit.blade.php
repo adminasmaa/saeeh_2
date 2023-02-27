@@ -84,10 +84,10 @@
                                     <select class="form-control btn-square" name="active">
                                             <option selected>@lang('site.select')</option>
                                         <option value="1"
-                                                @if($area->active=='active') selected @endif>active
+                                                @if($area->active==1) selected @endif>@lang('site.active')
                                         </option>
                                         <option value="0"
-                                                @if($area->active=='inactive') selected @endif>inactive
+                                                @if($area->active==0) selected @endif>@lang('site.inactive')
                                         </option>                                           
 
                                     </select>
@@ -98,7 +98,7 @@
                                         <option selected>@lang('site.select')</option>
                                         @foreach($cities as $city)
 
-                                            <option value="{{$city->id}}"@if($city->city_id==$city->id) selected @endif>{{$city->name ?? ''}}</option>
+                                            <option value="{{$city->id}}"    @if($area->city_id==$city->id) selected @endif>{{$city->name ?? ''}}</option>
 
                                         @endforeach
 

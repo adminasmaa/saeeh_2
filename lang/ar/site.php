@@ -413,7 +413,8 @@ return [
     'Bathroom' => 'مرافق الحمام',
     'laundry' => 'مرافق الغسيل والكوى',
     'ConditioningType' => 'نوع التكييف',
-    'descrption' => 'الوصف',
+    'alert' => 'تنبيه',
+    'If you have a problem adding your ad, please call us' => 'إذا بتواجه مشكله فى إضافة أعلانك يرجى الاتصال على رقم',
 
 
 
