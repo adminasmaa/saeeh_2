@@ -22,27 +22,29 @@ class AqarBooking extends Model
 
     protected $fillable = [
         'book_status', // required ,default(2)
-        'fixed_price', // nullable 
+        'fixed_price', // nullable
         'changed_price', // nullable ,json
-        'note', // nullable 
-        'delivery_date', // required 
-        'reciept_date', // required 
-        'day_count', // nullable 
-        'visit_count', // nullable 
+        'note', // nullable
+        'delivery_date', // required
+        'reciept_date', // required
+        'day_count', // nullable
+        'visit_count', // nullable
         'active', // required ,default(0)
-        'cancle_reason', // nullable 
-        'place_arrive', // nullable 
-        'place_leave', // nullable 
+        'cancle_reason', // nullable
+        'place_arrive', // nullable
+        'place_leave', // nullable
         '7agz_type', // required ,default(1)
-        'wasel_photo', // nullable 
+        'wasel_photo', // nullable
         'type',// enum ,['website','application']
-        'aqar_id', //unsigned 
-        'ads_id', //unsigned 
-        'city_id', //unsigned 
-        'commission_id', //unsigned 
-        'user_id', //unsigned 
+        'aqar_id', //unsigned
+        'ads_id', //unsigned
+        'city_id', //unsigned
+        'commission_id', //unsigned
+        'user_id', //unsigned
     ];
-     // scope
+    protected $hidden=['deleted_at','updated_at'];
+
+    // scope
      public function scopeType($query,$type){
         if($type){
             return $query->where('type', $type);
@@ -77,4 +79,3 @@ class AqarBooking extends Model
         return $this->HasMany(Deposit::class);
     }
 }
-            
