@@ -207,13 +207,13 @@
                                                value="{{old('rest_three')}}"
                                                >
                                     </div>
-                                    <div class="col-md-6 form-group"><span class="text-danger">*</span>
-                                    <label class="form-label">@lang('site.social_media')</label>
+                                    <div class="col-md-6 form-group">
+                                    <label class="form-label">@lang('site.social_media')</label><span class="text-danger">*</span>
                                     <select class="form-control btn-square" name="social_media">
                                             <option selected>@lang('site.select')</option>
 
-                                            <option value="facebook">facebook</option>
-                                            <option value="instagram">instagram </option>
+                                            <option value="facebook">@lang('site.facebook')</option>
+                                            <option value="instagram">@lang('site.instagram') </option>
 
                                     </select>
                                 </div>
