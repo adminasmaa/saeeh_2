@@ -73,7 +73,7 @@
                                     
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.booking_id')<span class="text-danger">*</span></label>
-                                        <input type="integer" name="booking_id" class="form-control"
+                                        <input type="number" name="booking_id" class="form-control"
                                                value="{{$notification->booking_id}}"
                                              >
                                     </div>

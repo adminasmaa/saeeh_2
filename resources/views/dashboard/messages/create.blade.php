@@ -67,7 +67,7 @@
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.to')<span class="text-danger">*</span></label>
-                                        <input type="integer" name="to" class="form-control"
+                                        <input type="number" name="to" class="form-control"
                                                value="{{old('to')}}"
                                                required>
                                     </div>
