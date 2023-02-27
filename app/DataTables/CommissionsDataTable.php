@@ -3,7 +3,7 @@
 namespace App\DataTables;
 
 use App\Helpers\DTHelper;
-use App\Models\Category;
+use App\Models\Commission;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -13,9 +13,9 @@ use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class AquarCategoryDataTable extends DataTable
+class CommissionsDataTable extends DataTable
 {
-    private $crudName = 'aquarcategories';
+    private $crudName = 'commissions';
 
     private function getRoutes()
     {
@@ -63,19 +63,20 @@ class AquarCategoryDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Category $model
+     * @param \App\Models\Commission $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Category $model): QueryBuilder
+    public function query(Commission $model): QueryBuilder
     {
-        return $model->newQuery()->where('type', '=', 1);
+        return $model->newQuery();
     }
 
     public function count()
     {
-        return Category::where('type', '=', 1)->count();
+        return Commission::count();
 
     }
+
 
     /**
      * Optional method if you want to use html builder.
@@ -85,7 +86,7 @@ class AquarCategoryDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-            ->setTableId('categories-table')
+            ->setTableId('commissions-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
             //->dom('Bfrtip')
@@ -109,8 +110,9 @@ class AquarCategoryDataTable extends DataTable
     {
         return [
             Column::make('id'),
-            Column::make('name_ar')->title(trans('site.ar.name')),
-            Column::make('description')->title(trans('site.description')),
+            Column::make('price')->title(trans('site.price')), 
+            Column::make('status')->title(trans('site.status')),
+            // Column::make('user_id')->title(trans('site.user_id')),
             Column::make('created_at')->title(trans('site.created_at')),
             Column::computed('action')
                 ->exportable(false)
@@ -127,6 +129,6 @@ class AquarCategoryDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'AquarCategories_' . date('YmdHis');
+        return 'Commissions_' . date('YmdHis');
     }
 }

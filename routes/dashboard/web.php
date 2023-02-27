@@ -31,6 +31,8 @@ use App\Http\Controllers\Dashboard\AnotherRoomController;
 use App\Http\Controllers\Dashboard\ConditionTypeController;
 use App\Http\Controllers\Dashboard\MessageController;
 use App\Http\Controllers\Dashboard\NotificationController;
+use App\Http\Controllers\Dashboard\AqarBookingController;
+use App\Http\Controllers\Dashboard\CommissionController;
 
 use App\Http\Controllers\Dashboard\UserController;
 use Illuminate\Support\Facades\Route;
@@ -92,6 +94,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
         //aquarcategories
         Route::resource('aquarcategories', AquarCategoryController::class);
+        Route::resource('aquarbooking', AqarBookingController::class);
         //services
         Route::resource('services', ServiceController::class);
         Route::resource('free_services', FreeServiceController::class);
@@ -120,6 +123,9 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
         //notifications
         Route::resource('notifications', NotificationController::class);
+
+        //commissions
+        Route::resource('commissions', CommissionController::class);
 
     }); //end of dashboard routes
 });

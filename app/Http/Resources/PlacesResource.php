@@ -16,7 +16,7 @@ class PlacesResource extends JsonResource
     {
         return [
             "id" => $this->id,
-            "address " => $this->address ,
+            "address" => $this->address ,
             "name" => $this->name,
             "phone" => $this->phone,
             "phone2" => $this->phone2,

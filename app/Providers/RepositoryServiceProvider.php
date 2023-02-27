@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Repositories\Eloquent\AdvertisingRepository;
 use App\Repositories\Eloquent\AnotherRoomRepository;
+use App\Repositories\Eloquent\AqarBookingRepository;
 use App\Repositories\Eloquent\BathRoomRepository;
 use App\Repositories\Eloquent\BookingRepository;
 use App\Repositories\Eloquent\BrandRepository;
@@ -31,9 +32,11 @@ use App\Repositories\Eloquent\PlaceCommentRepository;
 use App\Repositories\Eloquent\AreaRepository;
 use App\Repositories\Eloquent\MessageRepository;
 use App\Repositories\Eloquent\NotificationRepository;
+use App\Repositories\Eloquent\CommissionRepository;
 
 use App\Repositories\Interfaces\AdvertisingRepositoryInterface;
 use App\Repositories\Interfaces\AnotherRoomRepositoryInterface;
+use App\Repositories\Interfaces\AqarBookingRepositoryInterface;
 use App\Repositories\Interfaces\BathRoomRepositoryInterface;
 use App\Repositories\Interfaces\BookingRepositoryInterface;
 use App\Repositories\Interfaces\BrandRepositoryInterface;
@@ -54,6 +57,7 @@ use App\Repositories\Interfaces\AreaRepositoryInterface;
 use App\Repositories\Interfaces\MessageRepositoryInterface;
 use App\Repositories\Interfaces\NotificationRepositoryInterface;
 
+use App\Repositories\Interfaces\CommissionRepositoryInterface;
 use App\Repositories\Interfaces\PlaceRepositoryInterface;
 use App\Repositories\Interfaces\PlaceCommentRepositoryInterface;
 use App\Repositories\Interfaces\ProblemRepositoryInterface;
@@ -99,12 +103,14 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(BathRoomRepositoryInterface::class, BathRoomRepository::class);
         $this->app->bind(AnotherRoomRepositoryInterface::class, AnotherRoomRepository::class);
         $this->app->bind(ConditionTypeRepositoryInterface::class, CondiotionTypeRepository::class);
+        $this->app->bind(AqarBookingRepositoryInterface::class, AqarBookingRepository::class);
 
         $this->app->bind(PlaceRepositoryInterface::class, PlaceRepository::class);
         $this->app->bind(PlaceCommentRepositoryInterface::class, PlaceCommentRepository::class);
 
         $this->app->bind(MessageRepositoryInterface::class, MessageRepository::class);
         $this->app->bind(NotificationRepositoryInterface::class, NotificationRepository::class);
+        $this->app->bind(CommissionRepositoryInterface::class, CommissionRepository::class);
 
     }
 

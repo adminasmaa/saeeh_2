@@ -2,40 +2,35 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-
-use App\DataTables\CarsDataTable;
+use App\DataTables\AqarBookingDataTable;
 use App\Http\Controllers\Controller;
 
-use App\Models\Car;
-use App\Models\Category;
-use App\Repositories\Interfaces\CarRepositoryInterface;
+use App\Repositories\Interfaces\AqarBookingRepositoryInterface;
 use App\Services\TwoFactorService;
-use DB;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
-class CarController extends Controller
+class AqarBookingController extends Controller
 {
 
 
-    private CarRepositoryInterface $CarRepository;
+    private AqarBookingRepositoryInterface $aqarBookingRepository;
 
-    public function __construct(CarRepositoryInterface $CarRepository)
+    public function __construct(AqarBookingRepositoryInterface $aqarBookingRepository)
     {
-        $this->CarRepository = $CarRepository;
+        $this->aqarBookingRepository = $aqarBookingRepository;
     }
 
-    public function index(CarsDataTable $carsDataTable)
+    public function index(AqarBookingDataTable $aqarBookingDataTable)
     {
-
-        return $this->CarRepository->getAll($carsDataTable);
+        return $this->aqarBookingRepository->getAll($aqarBookingDataTable);
 
     }
 
 
     public function show($id)
     {
-        return $this->CarRepository->show($id);
+        return $this->aqarBookingRepository->show($id);
 
 
     }
@@ -44,7 +39,6 @@ class CarController extends Controller
     public function create()
     {
 
-        return $this->CarRepository->create();
 
 
     }//end of create
@@ -52,15 +46,7 @@ class CarController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
 
-                'name' => 'required',
-
-            ]
-        );
-
-
-        return $this->CarRepository->store($request);
 
     }//end of store
 
@@ -73,7 +59,6 @@ class CarController extends Controller
 
     public function edit($id)
     {
-        return $this->CarRepository->edit($id);
 
 
     }//end of user
@@ -85,17 +70,9 @@ class CarController extends Controller
         ||                                    |
            -----------------------------------------------------*/
 
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
-        $request->validate([
 
-                'name' => 'required',
-
-            ]
-        );
-        $car = Car::find($id);
-
-        return $this->CarRepository->update($car, $request);
 
 
     }//end of update
@@ -109,9 +86,7 @@ class CarController extends Controller
 
     public function destroy($id)
     {
-        $car =Car::find($id);
 
-        return $this->CarRepository->destroy($car);
 
 
     }//end of destroy

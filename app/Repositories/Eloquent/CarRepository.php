@@ -5,7 +5,7 @@ namespace App\Repositories\Eloquent;
 
 use App\Models\Ads;
 use App\Models\Car;
-use App\Models\CarBrand;
+use App\Models\Category;
 use App\Models\User;
 use App\Repositories\Interfaces\CarRepositoryInterface as CarRepositoryInterfaceAlias;
 use Illuminate\Support\Facades\DB;
@@ -32,9 +32,9 @@ class CarRepository implements CarRepositoryInterfaceAlias
         // TODO: Implement create() method.
 
         $users = User::all();
-        $brands = CarBrand::all();
+        $categories = Category::all();
         $ads = Ads::all();
-        return view('dashboard.cars.create', compact('users', 'brands', 'ads'));
+        return view('dashboard.cars.create', compact('users', 'categories', 'ads'));
     }
 
     public function edit($Id)
@@ -44,11 +44,11 @@ class CarRepository implements CarRepositoryInterfaceAlias
         $car = Car::find($Id);
 
         $users = User::all();
-        $brands = CarBrand::all();
+        $categories = Category::all();
         $ads = Ads::all();
 
 
-        return view('dashboard.cars.edit', compact('car', 'users', 'brands', 'ads'));
+        return view('dashboard.cars.edit', compact('car', 'users', 'categories', 'ads'));
     }
 
     public function show($Id)
@@ -58,11 +58,11 @@ class CarRepository implements CarRepositoryInterfaceAlias
         $car = Car::find($Id);
 
         $users = User::all();
-        $brands = CarBrand::all();
+        $categories = Category::all();
         $ads = Ads::all();
 
 
-        return view('dashboard.cars.show', compact('car', 'users', 'brands', 'ads'));
+        return view('dashboard.cars.show', compact('car', 'users', 'categories', 'ads'));
     }
 
 

@@ -8,13 +8,13 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-6">
-                        <h3>@lang('site.categories')</h3>
+                        <h3>@lang('site.commissions')</h3>
                     </div>
                     <div class="col-6">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">@lang('site.dashboard')</li>
 
-                            <li class="breadcrumb-item active">@lang('site.categories') @endlang</li>
+                            <li class="breadcrumb-item active">@lang('site.commissions') @endlang</li>
                         </ol>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                 <!-- Individual column searching (text inputs) Starts-->
                 <div class="col-sm-12">
                     <div class="card mt-30">
-                        <form action="{{ route('dashboard.aquarcategories.store') }}" method="post"
+                        <form action="{{ route('dashboard.commissions.store') }}" method="post"
                               enctype="multipart/form-data"
                               id="" class="form-main">
 
@@ -59,43 +59,40 @@
                                     <!--<div class="col-md-6">-->
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.ar.name')<span class="text-danger">*</span></label>
-                                        <input type="text" name="name_ar" class="form-control"
-                                               value="{{old('name_ar')}}"
+                                        <label>@lang('site.price')<span class="text-danger">*</span></label>
+                                        <input type="number"  step=".1" name="price" class="form-control"
+                                               value="{{old('price')}}"
                                                required>
                                     </div>
-                                    <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.en.name')<span class="text-danger">*</span></label>
-                                        <input type="text" name="name_en" class="form-control"
-                                               value="{{old('name_en')}}"
-                                               >
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <!--<div class="col-md-6">-->
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.description')<span class="text-danger">*</span></label>
-                                        <textarea class="form-control" id="editor1"  cols="15" rows="5" name="description">
-
-                                        </textarea>
-                                    </div>
+                                    <label class="form-label">@lang('site.status')</label><span class="text-danger">*</span>
+                                    <select class="form-control btn-square" name="status">
+                                            <option selected>@lang('site.select')</option>
+                                            <option value="1">@lang('site.active') </option>
+                                            <option value="0">@lang('site.inactive')</option>
+                                    </select>
                                 </div>
-
-
+                                </div>
                                 <div class="row">
 
+                                <div class="col-md-6 form-group">
+                                    <label class="form-label">@lang('site.users')</label><span class="text-danger">*</span>
+                                    <select class="form-control btn-square" name="user_id">
+                                        <option selected>@lang('site.select')</option>
+                                        @foreach($users as $user)
 
-                                    <div class="col-md-6 form-group col-12 p-2">
+                                            <option value="{{$user->id}}">{{$user->username ?? ''}}</option>
 
+                                        @endforeach
 
-                                        <label>@lang('site.image')</label>
-                                        <input type="file" name="image" class="form-control" value="{{ old('image') }}">
-
-
-                                    </div>
+                                    </select>
                                 </div>
+                                </div>
+                                </div>
+
                                 <br>
+
 
                             </div>
 

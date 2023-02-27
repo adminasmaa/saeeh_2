@@ -16,6 +16,8 @@ Route::group(['middleware' =>'auth:api'], function () {
     Route::get('/categorydetail/{cat_id}', 'App\Http\Controllers\Api\CategoryController@categorydetail');
     Route::get('/home/subcategories/{cat_id}', 'App\Http\Controllers\Api\CategoryController@subcategories');
     Route::get('/placedetail/{id}', 'App\Http\Controllers\Api\PlaceController@placedetail');
+    Route::get('/Availabledays/{aqar_id}', 'App\Http\Controllers\Api\AqarController@Availabledays');
+    Route::post('/AddAqar', 'App\Http\Controllers\Api\AqarController@AddAqar');
 
 
     Route::get('/cities/{id}', 'App\Http\Controllers\Api\CityController@cities');

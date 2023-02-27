@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Place;    // HasMany
+use App\Models\Car;    // HasMany
 use App\Models\Aqar;   //belongsTo
 class Category extends Model
 {
@@ -28,6 +29,10 @@ class Category extends Model
     // relations
     public function places(){
         return $this->HasMany(Place::class);
+    }
+    // relations
+    public function cars(){
+        return $this->HasMany(Car::class);
     }
     public function subcategories(){
         return $this->HasMany(Category::class,'parent_id');

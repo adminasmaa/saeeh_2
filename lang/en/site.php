@@ -13,6 +13,9 @@ return [
     'conditioning_types'=>'Conditioning Types',
     'crews'=>'Crews',
     'Saeeh' => 'Saeeh',
+    'delivery_date'=>'Delivery Date',
+    'visit_count'=>'Visit Count',
+    'cancle_reason'=>'Cancle Reason',
     'questions' => 'Questions',
     'floors'=>'Floors',
     'question' => 'question',
@@ -166,7 +169,7 @@ return [
      'alert' => 'Alert',
     'If you have a problem adding your ad, please call us' => 'If you have a problem adding your ad, please call us',   
 
-     
+
     //contacts
     'contact' => 'Contact_us',
     'no_data_product' => 'The products are empty',
@@ -315,6 +318,7 @@ return [
     'store' => 'Store',
 
     'images' => 'images',
+    'commissions'=>'Commission',
 
     'type' => 'Type',
     'size' => 'Size',

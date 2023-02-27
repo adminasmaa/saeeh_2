@@ -13,13 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('car_brands', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name')->required();
-            $table->string('logo')->nullable();
+        Schema::table('cars', function (Blueprint $table) {
+            $table->unsignedInteger('category_id')->required();
 
-            $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -30,6 +26,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('car_brands');
+        Schema::table('cars', function (Blueprint $table) {
+            //
+        });
     }
 };

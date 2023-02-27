@@ -287,15 +287,15 @@
                                                value="{{$place->rest_three}}"
                                                >
                                     </div>
-                                    <div class="col-md-6 form-group"><span class="text-danger">*</span>
-                                    <label class="form-label">@lang('site.social_media')</label>
+                                    <div class="col-md-6 form-group">
+                                    <label class="form-label">@lang('site.social_media')</label><span class="text-danger">*</span>
                                     <select class="form-control btn-square" name="social_media">
                                             <option selected>@lang('site.select')</option>
                                         <option value="facebook"
-                                                @if($place->social_media=='facebook') selected @endif>facebook
+                                                @if($place->social_media=='facebook') selected @endif>@lang('site.facebook')
                                         </option>
                                         <option value="instagram"
-                                                @if($place->social_media=='instagram') selected @endif>instagram
+                                                @if($place->social_media=='instagram') selected @endif>@lang('site.instagram')
                                         </option>                                           
 
                                     </select>

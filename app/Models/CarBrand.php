@@ -19,8 +19,8 @@ class CarBrand extends Model
         'logo',// required
 
     ];
-    // relations
-    public function car(){
-        return $this->HasMany(Car::class);
-    }
+    // // relations
+    // public function car(){
+    //     return $this->HasMany(Car::class);
+    // }
 }

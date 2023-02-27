@@ -15,6 +15,10 @@ return [
     'question' => 'السؤال',
     'cars' => 'السيارات',
 
+    'delivery_date'=>'تاريخ التسليم او الوصول',
+    'visit_count'=>'الزوار',
+    'cancle_reason'=>'إلغاء السبب',
+
 
     'terms_conditions' => 'الشروط والاحكام',
     'website_address' => 'عنوان الموقع ',
@@ -389,7 +393,9 @@ return [
     'value' => 'القيمة',
     'contacts'=>'الرسائل',
     'to'=>'مرسل من',
-
+    'place'=>'الاماكن ',
+    'car'=>' السيارات',
+    'commissions'=>' العمولات',
     'text' => 'نص',
     // notifications
     ///////////////Aquar

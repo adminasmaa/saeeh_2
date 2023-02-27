@@ -24,7 +24,6 @@ class CategoryOnlyResource extends JsonResource
         }
         return [
             "id" => $this->id,
-            "city_id " => $this->city_id ,
             "name" => $this->$name,
             "icon" => $this->icon,
             "image" => asset('images/categories')."/".$this->image,
