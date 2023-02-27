@@ -393,7 +393,7 @@
 
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav"
-                                    href="{{route('dashboard.message.index')}}">
+                                   href="{{route('dashboard.message.index')}}">
                                     <i data-feather="bell"></i><span>@lang('site.contacts') @endlang</span></a>
                             </li>
 
@@ -411,12 +411,7 @@
 
                             </li>
 
-                            <li class="sidebar-list"><a
-                                    class="sidebar-link sidebar-title link-nav"
-                                    href="{{route('dashboard.categories.index')}}"><i
-                                        data-feather="grid"></i><span>@lang('site.categories') @endlang</span></a>
 
-                            </li>
 
                             <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title link-nav"
@@ -443,7 +438,7 @@
 
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav"
-                                    href="{{route('dashboard.advertising.index')}}">
+                                   href="{{route('dashboard.advertising.index')}}">
                                     <i data-feather="zap"></i><span>@lang('site.advertising') @endlang</span></a>
                             </li>
                             {{--list--}}
@@ -453,7 +448,7 @@
                                                                                       href="#"><i
                                         data-feather="airplay"></i><span>@lang('site.cars') @endlang                </span></a>
                                 <ul class="sidebar-submenu">
-                                    <li><a href="{{route('dashboard.brands.index')}}">{{__('site.brands')}}</a>
+                                    <li><a href="{{route('dashboard.categories.index')}}">{{__('site.categories')}}</a>
                                     </li>
                                     <li><a href="{{route('dashboard.cars.index')}}">{{__('site.cars')}}</a>
 
@@ -472,6 +467,10 @@
                                 <ul class="sidebar-submenu">
                                     <li>
                                         <a href="{{route('dashboard.aquarcategories.index')}}">{{__('site.categories')}}</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="{{route('dashboard.aquarbooking.index')}}">{{__('site.bookings')}}</a>
                                     </li>
 
                                     <li>
@@ -547,7 +546,7 @@
 
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav"
-                                    href="{{route('dashboard.notifications.index')}}">
+                                   href="{{route('dashboard.notifications.index')}}">
                                     <i data-feather="droplet"></i><span>@lang('site.notifications') @endlang</span></a>
                             </li>
 

@@ -35,11 +35,15 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
 
         $category = Category::find($Id);
 
+        $citiesrelated = json_decode($category->city_id);
+
+//        return $citiesrelated;
+
         $subcategories = Category::where('parent_id', $Id)->get();
 
         $cities = City::all();
 
-        return view('dashboard.categories.edit', compact('category', 'subcategories', 'cities'));
+        return view('dashboard.categories.edit', compact('category', 'subcategories', 'cities', 'citiesrelated'));
     }
 
     public function show($Id)
@@ -52,8 +56,10 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
 
         $cities = City::all();
 
+        $citiesrelated = json_decode($category->city_id);
 
-        return view('dashboard.categories.show', compact('category', 'subcategories', 'cities'));
+
+        return view('dashboard.categories.show', compact('category', 'subcategories', 'cities', 'citiesrelated'));
     }
 
 
@@ -61,12 +67,19 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
     {
         // TODO: Implement store() method.
 
-        $request_data = $request->except(['image', 'name_category', 'image_category']);
+//        return $request;
+        $request_data = $request->except(['image', 'name_category', 'image_category', 'city_id']);
 
         // To Make  Active
         $request_data['active'] = 1;
+        $request_data['type'] = 2;
 
-        $category = Category::create($request_data);
+
+        $category = Category::create($request_data + ['city_id' => json_encode($request['city_id'])]);
+
+
+//        $category->city_id = $request_data['city_id'];
+//        $category->save();
 
         if ($request->hasFile('image')) {
             $thumbnail = $request->file('image');
@@ -88,18 +101,18 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
 
 //                if (isset($request['image_category'][$key])) {
 
-                    $image = $request['image_category'][$key];
+                $image = $request['image_category'][$key];
 
 
-                    $destinationPath = 'images/categories/';
-                    $extension = $image->getClientOriginalExtension(); // getting image extension
-                    $name = time() . '' . rand(11111, 99999) . '.' . $extension; // renameing image
-                    $image->move($destinationPath, $name); // uploading file to given
-                    $cat->image = $name;
+                $destinationPath = 'images/categories/';
+                $extension = $image->getClientOriginalExtension(); // getting image extension
+                $name = time() . '' . rand(11111, 99999) . '.' . $extension; // renameing image
+                $image->move($destinationPath, $name); // uploading file to given
+                $cat->image = $name;
 
-                    $cat->save();
+                $cat->save();
 
-                }
+            }
 //            }
 
         }
@@ -116,8 +129,8 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
         // TODO: Implement update() method.
 
 
-        $request_data = $request->except(['image', 'name_category', 'image_category']);
-        $category->update($request_data);
+        $request_data = $request->except(['image', 'name_category', 'image_category', 'city_id']);
+        $category->update($request_data + ['city_id' => json_encode($request['city_id'])]);
 
 
         if ($request->hasFile('image')) {
@@ -173,9 +186,9 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
         // TODO: Implement destroy() method.
         $result = $category->delete();
         if ($result) {
-                Alert::toast('Deleted', __('site.deleted_successfully'));
+            Alert::toast('Deleted', __('site.deleted_successfully'));
         } else {
-                Alert::toast('Deleted', __('site.delete_faild'));
+            Alert::toast('Deleted', __('site.delete_faild'));
 
         }
 

@@ -111,9 +111,14 @@
                                 <!--<div class="col-md-6">-->
 
                                 <div class="col-md-6 form-group col-12 p-2">
-                                    <label>@lang('site.name')<span class="text-danger">*</span></label>
-                                    <input type="text" name="name" class="form-control" value="{{ $category->name }}"
+                                    <label>@lang('site.ar.name')<span class="text-danger">*</span></label>
+                                    <input type="text" name="name_ar" class="form-control" value="{{ $category->name_ar }}"
                                            required>
+                                </div>
+                                <div class="col-md-6 form-group col-12 p-2">
+                                    <label>@lang('site.en.name')<span class="text-danger">*</span></label>
+                                    <input type="text" name="name_en" class="form-control" value="{{ $category->name_en }}"
+                                           >
                                 </div>
                             </div>
                             <div class="row">
@@ -141,20 +146,10 @@
 
                             <br>
 
-                                    <div class="col-md-2 form-group col-12 p-2">
-
-                                        <br>
-                                        <a
-                                            class="btn btn-air-primary btn-pill btn-primary add-category w-100">@lang('site.add')</a>
-                                    </div>
 
                                 </div>
 
-                                <table class="categories-list" id="table5">
 
-
-
-                                </table>
 
 
                         </div>
@@ -176,25 +171,5 @@
     <!-- Container-fluid Ends-->
     </div>
 
-@endsection
-@section('scripts')
-    <script>
-
-
-
-
-        $(document).ready(function () {
-            jQuery('a.add-category').click(function (event) {
-                event.preventDefault();
-                var newRow = jQuery('<tr><td><div class="row"><div class="col-md-3 form-group col-12 p-2">' +
-                    '<input type="text"     name="name_category[]" class="form-control"/></div><div class="col-md-3 form-group col-12 p-2">' +
-                    '<input type="file" name="image_category[]" class="form-control" >' +
-                    '  </div>  <div class="col-md-3 form-group col-12 p-2 "> <a  onclick="deleteRow(this)" ><i class="fa fa-trash"></i></a>' +
-
-                    '</div></div> </td>  </tr>');
-                jQuery('.categories-list').append(newRow);
-            });
-        });
-    </script>
 @endsection
 

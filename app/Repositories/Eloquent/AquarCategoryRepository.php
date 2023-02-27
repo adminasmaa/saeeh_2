@@ -47,7 +47,7 @@ class AquarCategoryRepository implements AquarCategoryRepositoryInterface
     {
         // TODO: Implement store() method.
 
-        $request_data = $request->except(['image', 'name_category', 'image_category']);
+        $request_data = $request->except(['image']);
 
         // To Make  Active
         $request_data['active'] = 1;
@@ -74,7 +74,7 @@ class AquarCategoryRepository implements AquarCategoryRepositoryInterface
         // TODO: Implement update() method.
 
 
-        $request_data = $request->except(['image', 'name_category', 'image_category']);
+        $request_data = $request->except(['image']);
         $category->update($request_data);
         $request_data['type'] = 1;
 
@@ -89,9 +89,9 @@ class AquarCategoryRepository implements AquarCategoryRepositoryInterface
 
         if ($category) {
 
-            return redirect()->route('dashboard.aqars.cat_aquar.index');
+            return redirect()->route('dashboard.aquarcategories.index');
         } else {
-              return redirect()->route('dashboard.aqars.cat_aquar.index');
+              return redirect()->route('dashboard.aquarcategories.index');
 
         }
     }
@@ -99,7 +99,7 @@ class AquarCategoryRepository implements AquarCategoryRepositoryInterface
 
     public function destroy($category)
     {
-       
+
         $result = $category->delete();
 
         return back();

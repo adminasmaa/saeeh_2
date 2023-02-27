@@ -75,7 +75,8 @@
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label class="form-label">@lang('site.city')</label>
-                                        <select class="form-control btn-square" name="city_id">
+                                        <select class="js-example-placeholder-multiple col-sm-12" multiple="multiple"
+                                                name="city_id[]">
                                             <option selected>@lang('site.select')</option>
                                             @foreach($cities as $city)
 

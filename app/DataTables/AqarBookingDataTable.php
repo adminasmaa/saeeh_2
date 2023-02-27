@@ -3,7 +3,7 @@
 namespace App\DataTables;
 
 use App\Helpers\DTHelper;
-use App\Models\Category;
+use App\Models\AqarBooking;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -13,9 +13,9 @@ use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class AquarCategoryDataTable extends DataTable
+class AqarBookingDataTable extends DataTable
 {
-    private $crudName = 'aquarcategories';
+    private $crudName = 'aquarbooking';
 
     private function getRoutes()
     {
@@ -52,7 +52,6 @@ class AquarCategoryDataTable extends DataTable
             ->addColumn('action', function ($model) {
                 $actions = '';
 
-                $actions .= DTHelper::dtEditButton(route($this->getRoutes()['update'], $model->id), trans('site.edit'), $this->getPermissions()['update']);
                 $actions .= DTHelper::dtDeleteButton(route($this->getRoutes()['delete'], $model->id), trans('site.delete'), $this->getPermissions()['delete'], $model->id);
                 $actions .= DTHelper::dtShowButton(route($this->getRoutes()['show'], $model->id), trans('site.show'), $this->getPermissions()['delete']);
 
@@ -63,17 +62,18 @@ class AquarCategoryDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Category $model
+     * @param \App\Models\Ad $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Category $model): QueryBuilder
+    public function query(AqarBooking $model): QueryBuilder
     {
-        return $model->newQuery()->where('type', '=', 1);
+
+        return $model->newQuery();
     }
 
     public function count()
     {
-        return Category::where('type', '=', 1)->count();
+        return AqarBooking::count();
 
     }
 
@@ -85,7 +85,7 @@ class AquarCategoryDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-            ->setTableId('categories-table')
+            ->setTableId('aqarbooking-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
             //->dom('Bfrtip')
@@ -109,8 +109,8 @@ class AquarCategoryDataTable extends DataTable
     {
         return [
             Column::make('id'),
-            Column::make('name_ar')->title(trans('site.ar.name')),
-            Column::make('description')->title(trans('site.description')),
+            Column::make('type')->title(trans('site.type')),
+            Column::make('fixed_price')->title(trans('site.price')),
             Column::make('created_at')->title(trans('site.created_at')),
             Column::computed('action')
                 ->exportable(false)
@@ -127,6 +127,6 @@ class AquarCategoryDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'AquarCategories_' . date('YmdHis');
+        return 'AqarBooking_' . date('YmdHis');
     }
 }

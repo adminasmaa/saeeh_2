@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('icon')->nullable();
             $table->boolean('active')->default(1);
             $table->foreignId('parent_id')->nullable()->constrained('categories');
-            $table->foreignId('city_id')->nullable( )->references('id')->on('cities')->onDelete('cascade');
+            $table->string('city_id')->nullable( );
             $table->softDeletes();
             $table->timestamps();
         });
