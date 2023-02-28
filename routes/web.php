@@ -14,18 +14,19 @@ use Illuminate\Support\Facades\URL;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedirect', 'localizationRedirect', 'localeViewPath')->group(function () {
 Auth::routes();
+});
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 //
-define('MAINASSETS', URL::asset('assets'));
+define('MAINASSETS', URL::asset('public/assets'));
 define('MAINUPLOADS', URL::asset('uploads'));
 define('MAINDIST', URL::asset('dist/frontend/img'));
-define('MAINDASHBOARD', URL::asset('dashboard_files'));
+define('MAINDASHBOARD', URL::asset('public/dashboard_files'));
 
 
 
