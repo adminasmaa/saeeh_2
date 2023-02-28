@@ -35,7 +35,7 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
 
         $category = Category::find($Id);
 
-        $citiesrelated = json_decode($category->city_id);
+        $citiesrelated = json_decode($category->city_id) ?? [];
 
 //        return $citiesrelated;
 
@@ -56,7 +56,7 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
 
         $cities = City::all();
 
-        $citiesrelated = json_decode($category->city_id);
+        $citiesrelated = json_decode($category->city_id) ?? [];
 
 
         return view('dashboard.categories.show', compact('category', 'subcategories', 'cities', 'citiesrelated'));
