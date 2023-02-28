@@ -14,12 +14,18 @@ return [
     'questions' => 'الاسئله المتكرره',
     'question' => 'السؤال',
     'cars' => 'السيارات',
+    'balances' => 'الأرصدة',
+    'inside' => 'بالداخل',
+    'outside' => 'بالخارج',
+    'balance' => 'الرصيد',
+
+    'Balances' => 'الارصدة',
 
     'delivery_date'=>'تاريخ التسليم او الوصول',
     'visit_count'=>'الزوار',
     'cancle_reason'=>'إلغاء السبب',
-
-
+    'car_positions'=>'مكان السيارة ',
+    'place_tables'=>'مكان الطاولة ',
     'terms_conditions' => 'الشروط والاحكام',
     'website_address' => 'عنوان الموقع ',
     'brands' => 'ماركات العربيات',
