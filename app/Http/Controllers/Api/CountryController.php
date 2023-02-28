@@ -14,20 +14,25 @@ class CountryController extends Controller
 
     public function countries()
     {
-        $Countries =CountryOnlyResource::collection(Country::where('active', 1)->get());
+        $Countries =CountryResource::collection(Country::where('active', 1)->get());
         return $this->respondSuccess($Countries, 'Countries retrieved successfully.');
     }
 
 
     public function countrydetail($id)
     {
-        $countryDetail=new CountryOnlyResource(Country::where('id',$id)->where('active',1)->first());
+        $country=Country::where('id',$id)->where('active',1)->first();
+        if(isset($country)){
+            $countryDetail=new CountryOnlyResource($country);
+            return $this->respondSuccess($countryDetail, 'Country retrieved successfully.');
 
-//        if (count($countryDetail)==0) {
-//            return $this->respondError(__('Country not found.'),['error'=>__('Country not found.')],404);
-//        }
+        }else{
+      return $this->respondError(__('Country not found.'),['error'=>__('Country not found.')],404);
 
-        return $this->respondSuccess($countryDetail, 'Country retrieved successfully.');
+
+        }
+
+
     }
 
 }
