@@ -33,6 +33,9 @@ use App\Repositories\Eloquent\AreaRepository;
 use App\Repositories\Eloquent\MessageRepository;
 use App\Repositories\Eloquent\NotificationRepository;
 use App\Repositories\Eloquent\CommissionRepository;
+use App\Repositories\Eloquent\CarPositionRepository;
+use App\Repositories\Eloquent\PlaceTableRepository;
+use App\Repositories\Eloquent\BalanceRepository;
 
 use App\Repositories\Interfaces\AdvertisingRepositoryInterface;
 use App\Repositories\Interfaces\AnotherRoomRepositoryInterface;
@@ -56,6 +59,9 @@ use App\Repositories\Interfaces\MediatorRepositoryInterface;
 use App\Repositories\Interfaces\AreaRepositoryInterface;
 use App\Repositories\Interfaces\MessageRepositoryInterface;
 use App\Repositories\Interfaces\NotificationRepositoryInterface;
+use App\Repositories\Interfaces\CarPositionRepositoryInterface;
+use App\Repositories\Interfaces\PlaceTableRepositoryInterface;
+use App\Repositories\Interfaces\BalanceRepositoryInterface;
 
 use App\Repositories\Interfaces\CommissionRepositoryInterface;
 use App\Repositories\Interfaces\PlaceRepositoryInterface;
@@ -104,6 +110,9 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(AnotherRoomRepositoryInterface::class, AnotherRoomRepository::class);
         $this->app->bind(ConditionTypeRepositoryInterface::class, CondiotionTypeRepository::class);
         $this->app->bind(AqarBookingRepositoryInterface::class, AqarBookingRepository::class);
+        $this->app->bind(CarPositionRepositoryInterface::class, CarPositionRepository::class);
+        $this->app->bind(PlaceTableRepositoryInterface::class, PlaceTableRepository::class);
+        $this->app->bind(BalanceRepositoryInterface::class, BalanceRepository::class);
 
         $this->app->bind(PlaceRepositoryInterface::class, PlaceRepository::class);
         $this->app->bind(PlaceCommentRepositoryInterface::class, PlaceCommentRepository::class);

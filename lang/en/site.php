@@ -42,7 +42,10 @@ return [
     'place_leave'=>'Place Leave',
     'day_count'=>'Day Count',
     'reciept_date'=>'Reciept Date',
-
+    'balances' => 'Balance',
+    'inside' => 'Inside',
+    'outside' => 'Outside',
+    'balance' => 'Balance',
     'logo'=>'Logo',
     'attach_link'=>'Attach Link',
     'advertising'=>'Advertising',
@@ -52,7 +55,8 @@ return [
     'changed_price'=>'Changed Price',
     'comment_text'=>'Comment Text',
     'areas'=>'Areas',
-
+    'car_positions'=>'CarPosition',
+    'place_tables'=>'PlaceTable',
 
     'place_comments'=>' PlaceComments',
 
