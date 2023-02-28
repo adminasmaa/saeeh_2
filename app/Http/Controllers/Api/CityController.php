@@ -28,13 +28,19 @@ class CityController extends Controller
 
     public function citydetail($city_id)
     {
-        $cityDetail =new CityOnlyResource(city::where('id', $city_id)->where('active', 1)->first());
+        $city=city::where('id', $city_id)->where('active', 1)->first();
+        if(isset($city))
+        {
+            $cityDetail =new CityOnlyResource($city);
+            return $this->respondSuccess($cityDetail, 'city retrieved successfully.');
 
-//        if (count($cityDetail) == 0) {
-//            return $this->respondError( __('city not found.'), ['error' => __('city not found.')],404);
-//        }
+        }else{
 
-        return $this->respondSuccess($cityDetail, 'city retrieved successfully.');
+            return $this->respondError( __('city not found.'), ['error' => __('city not found.')],404);
+
+        }
+
+
     }
 
 }

@@ -14,12 +14,19 @@ class PlaceController extends Controller
     public function placedetail($id)
     {
 
+        $place = Place::where('id', $id)->first();
+        if (isset($place)) {
 
 
-        $placeDetail = new PlaceResource(Place::where('id', $id)->first());
+            $placeDetail = new PlaceResource($place);
 
 
-        return $this->respondSuccess($placeDetail, __('message.Place retrieved successfully.'));
+            return $this->respondSuccess($placeDetail, __('message.Place retrieved successfully.'));
+        } else {
+            return $this->respondError(__('Place not found.'),['error'=>__('Place not found.')],404);
+
+
+        }
     }
 
 }
