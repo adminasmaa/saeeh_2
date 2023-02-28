@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Exceptions;
+use Illuminate\Auth\AuthenticationException;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
@@ -46,5 +47,14 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+
+    protected function unauthenticated($request, AuthenticationException $ex){
+
+        if( $request->is('api/*') ) { // for routes starting with `/api`
+            return response()->json(['success' => false, 'message' => $ex->getMessage(),'code'=>401], 401);
+        }
+
+        return redirect('/login'); // for normal routes
     }
 }

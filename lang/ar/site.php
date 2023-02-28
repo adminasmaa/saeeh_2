@@ -18,7 +18,12 @@ return [
     'inside' => 'بالداخل',
     'outside' => 'بالخارج',
     'balance' => 'الرصيد',
-
+    'invoices' => 'الفواتير',
+    'income' => 'ايراد',
+    'capital' => 'راس مال',
+    'expenses' => 'مصروفات',
+    'export' => 'تصدير',
+  
     'Balances' => 'الارصدة',
 
     'delivery_date'=>'تاريخ التسليم او الوصول',
@@ -41,7 +46,7 @@ return [
 
     'link' => 'الرابط الخاصة',
     'offertime' => 'بعض الوقت',
-    'export' => 'صادرات',
+    // 'export' => 'صادرات',
     'reset' => 'إعادة تعيين',
     'reload' => 'إعادة تحميل',
     'Accounts' => 'المحاسبة',

@@ -568,7 +568,13 @@
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav"
                                     href="{{route('dashboard.balances.index')}}">
-                                    <i data-feather="droplet"></i><span>@lang('site.balances') @endlang</span></a>
+                                    <i data-feather="dollar-sign"></i><span>@lang('site.balances') @endlang</span></a>
+                            </li>
+
+                            <li class="sidebar-list">
+                                <a class="sidebar-link sidebar-title link-nav"
+                                    href="{{route('dashboard.invoices.index')}}">
+                                    <i data-feather="anchor"></i><span>@lang('site.invoices') @endlang</span></a>
                             </li>
 
                         </ul>
