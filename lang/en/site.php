@@ -57,7 +57,11 @@ return [
     'areas'=>'Areas',
     'car_positions'=>'CarPosition',
     'place_tables'=>'PlaceTable',
-
+    'invoices' => 'Invoices',
+    'income' => 'Income',
+    'capital' => 'Capital',
+    'expenses' => 'Expenses',
+    'export' => 'Export',
     'place_comments'=>' PlaceComments',
 
     'twitter'=>'Twitter',

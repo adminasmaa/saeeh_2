@@ -36,6 +36,7 @@ use App\Http\Controllers\Dashboard\CommissionController;
 use App\Http\Controllers\Dashboard\CarPositionController;
 use App\Http\Controllers\Dashboard\PlaceTableController;
 use App\Http\Controllers\Dashboard\BalanceController;
+use App\Http\Controllers\Dashboard\InvoiceController;
 
 use App\Http\Controllers\Dashboard\UserController;
 use Illuminate\Support\Facades\Route;
@@ -138,6 +139,9 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         
         //balances
         Route::resource('balances', BalanceController::class);
-        
+
+        //invoices
+        Route::resource('invoices', InvoiceController::class);
+
     }); //end of dashboard routes
 });

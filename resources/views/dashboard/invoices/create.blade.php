@@ -8,13 +8,13 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-6">
-                        <h3>@lang('site.balances')</h3>
+                        <h3>@lang('site.invoices')</h3>
                     </div>
                     <div class="col-6">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">@lang('site.dashboard')</li>
 
-                            <li class="breadcrumb-item active">@lang('site.balances') @endlang</li>
+                            <li class="breadcrumb-item active">@lang('site.invoices') @endlang</li>
                         </ol>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                 <!-- Individual column searching (text inputs) Starts-->
                 <div class="col-sm-12">
                     <div class="card mt-30">
-                        <form action="{{ route('dashboard.balances.store') }}" method="post"
+                        <form action="{{ route('dashboard.invoices.store') }}" method="post"
                               enctype="multipart/form-data"
                               id="" class="form-main">
 
@@ -65,34 +65,25 @@
                                                >
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
-                                    <label class="form-label">@lang('site.inside')</label><span class="text-danger">*</span>
-                                    <select class="form-control btn-square" name="inside">
-                                            <option selected>@lang('site.select')</option>
-                                            <option value="1">@lang('site.active') </option>
-                                            <option value="0">@lang('site.inactive')</option>
-                                    </select>
-                                    </div>
-
-                                    <div class="col-md-6 form-group col-12 p-2 ">
-                                    <label class="form-label">@lang('site.outside')</label><span class="text-danger">*</span>
-                                    <select class="form-control btn-square" name="outside">
-                                            <option selected>@lang('site.select')</option>
-                                            <option value="1">@lang('site.active') </option>
-                                            <option value="0">@lang('site.inactive')</option>
-                                    </select>
+                                        <label>@lang('site.amount')</label>
+                                        <input type="number" step=".1" name="amount" class="form-control"
+                                               value="{{old('amount')}}"
+                                               >
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.details')</label>
-                                        <input type="text" name="details" class="form-control"
-                                               value="{{old('details')}}"
+                                        <label>@lang('site.description')</label>
+                                        <input type="text" name="description" class="form-control"
+                                               value="{{old('description')}}"
                                                >
                                     </div>
                                     <div class="col-md-6 form-group">
                                     <label class="form-label">@lang('site.type')</label><span class="text-danger">*</span>
                                     <select class="form-control btn-square" name="type">
                                             <option selected>@lang('site.select')</option>
-                                            <option value="aqar">@lang('site.aqar')</option>
-                                            <option value="car">@lang('site.car') </option>
+                                            <option value="income">@lang('site.income')</option>
+                                            <option value="capital">@lang('site.capital')</option>
+                                            <option value="expenses">@lang('site.expenses')</option>
+                                            <option value="export">@lang('site.export') </option>
 
                                     </select>
                                     </div>
