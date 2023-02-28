@@ -33,6 +33,9 @@ use App\Http\Controllers\Dashboard\MessageController;
 use App\Http\Controllers\Dashboard\NotificationController;
 use App\Http\Controllers\Dashboard\AqarBookingController;
 use App\Http\Controllers\Dashboard\CommissionController;
+use App\Http\Controllers\Dashboard\CarPositionController;
+use App\Http\Controllers\Dashboard\PlaceTableController;
+use App\Http\Controllers\Dashboard\BalanceController;
 
 use App\Http\Controllers\Dashboard\UserController;
 use Illuminate\Support\Facades\Route;
@@ -41,60 +44,51 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
     Route::prefix('dashboard')->name('dashboard.')->middleware(['auth'])->group(function () {
 
         Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
         //users
         Route::resource('users', UserController::class);
+
         //roles
         Route::resource('roles', RoleController::class)->except(['show']);
+
         //countries
         Route::resource('countries', CountryController::class);
-        Route::get('addCity', 'App\Http\Controllers\Dashboard\CountryController@AddCity')->name('addCity');
+
         //cities
+        Route::get('addCity', 'App\Http\Controllers\Dashboard\CountryController@AddCity')->name('addCity');
         Route::resource('cities', CityController::class);
+
         //categories
         Route::resource('categories', CategoryController::class);
 
         //DeleteSubCategories
         Route::get('DeleteSubCategories/{id}', 'App\Http\Controllers\Dashboard\CategoryController@destroy')->name('DeleteSubCategories');
 
-        //questions
-        Route::resource('questions', QuestionController::class);
-
-        //problems
-        Route::resource('problems', ProblemController::class);
-
-
-        //Mediators
-        Route::resource('mediators', MediatorController::class);
-
-
-        //advertising
-        Route::resource('advertising', AdvertisingController::class);
+        //cars
+        Route::resource('cars', CarController::class);
 
         //brands
         Route::resource('brands', BrandController::class);
 
-
-       //cars
-        Route::resource('cars', CarController::class);
-
        //car_comments
         Route::resource('car_comments', CarCommentController::class);
-
 
        //bookings
         Route::resource('bookings', BookingController::class);
 
-
-        //Setting
-        Route::resource('settings', SettingController::class);
-
-        //cars
+        //places
         Route::resource('places', PlaceController::class);
 
+        //place_comments
+        Route::resource('place_comments', PlaceCommentController::class);
+
+        //aqars
+        Route::resource('aqars', AqarController::class);
 
         //aquarcategories
         Route::resource('aquarcategories', AquarCategoryController::class);
         Route::resource('aquarbooking', AqarBookingController::class);
+
         //services
         Route::resource('services', ServiceController::class);
         Route::resource('free_services', FreeServiceController::class);
@@ -105,15 +99,15 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         Route::resource('another_rooms', AnotherRoomController::class);
         Route::resource('conditioning_types', ConditionTypeController::class);
 
+        //car_positions
+        Route::resource('car_positions', CarPositionController::class);
+
+        //place_tables
+        Route::resource('place_tables', PlaceTableController::class);
+
         //floors
         Route::resource('floors', FloorController::class);
         Route::resource('floor_numbers', FloorNumberController::class);
-
-        //aqars
-        Route::resource('aqars', AqarController::class);
-
-        //place_comments
-        Route::resource('place_comments', PlaceCommentController::class);
 
         //areas
         Route::resource('areas', AreaController::class);
@@ -127,5 +121,23 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         //commissions
         Route::resource('commissions', CommissionController::class);
 
+        //questions
+        Route::resource('questions', QuestionController::class);
+
+        //problems
+        Route::resource('problems', ProblemController::class);
+
+        //Mediators
+        Route::resource('mediators', MediatorController::class);
+
+        //Setting
+        Route::resource('settings', SettingController::class);
+
+        //advertising
+        Route::resource('advertising', AdvertisingController::class);
+        
+        //balances
+        Route::resource('balances', BalanceController::class);
+        
     }); //end of dashboard routes
 });
