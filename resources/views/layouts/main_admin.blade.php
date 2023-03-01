@@ -541,6 +541,10 @@
                                 <ul class="sidebar-submenu">
                                     <!-- <li><a href="{{route('dashboard.brands.index')}}">{{__('site.brands')}}</a>
                                     </li> -->
+                                    <li>
+                                        <a href="{{route('dashboard.place_categories.index')}}">{{__('site.categories')}}</a>
+                                    </li>
+                                    
                                     <li><a href="{{route('dashboard.places.index')}}">{{__('site.places')}}</a>
 
                                     </li>
