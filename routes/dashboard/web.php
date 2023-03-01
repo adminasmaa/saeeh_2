@@ -37,6 +37,7 @@ use App\Http\Controllers\Dashboard\CarPositionController;
 use App\Http\Controllers\Dashboard\PlaceTableController;
 use App\Http\Controllers\Dashboard\BalanceController;
 use App\Http\Controllers\Dashboard\InvoiceController;
+use App\Http\Controllers\Dashboard\PlaceCategoryController;
 
 use App\Http\Controllers\Dashboard\UserController;
 use Illuminate\Support\Facades\Route;
@@ -79,6 +80,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
         //places
         Route::resource('places', PlaceController::class);
+        Route::resource('place_categories', PlaceCategoryController::class);
 
         //place_comments
         Route::resource('place_comments', PlaceCommentController::class);
