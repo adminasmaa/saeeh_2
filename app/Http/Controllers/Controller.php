@@ -45,7 +45,7 @@ class Controller extends BaseController
         }
 
 
-        return response()->json($response, 200);
+        return response()->json($response, $code);
     }
 
     public function respondwarning($result, $message, $errorMessages, $code = 200)
