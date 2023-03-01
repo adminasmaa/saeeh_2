@@ -65,6 +65,10 @@ class AqarController extends Controller
         $request['laundry_id'] = $request['laundry_id']!=null?json_encode($request['laundry_id']): json_encode([]);
         $request['another_room_id'] = $request['another_room_id']!=null?json_encode($request['another_room_id']): json_encode([]);
         $request['conditioning_type_id'] = ($request['conditioning_type_id']!=null)?json_encode($request['conditioning_type_id']):json_encode([]);
+        $data['person_num'] = $request['person_num'];
+        $data['price'] = $request['price'];
+        $request['changed_price']=json_encode($data)!=null?json_encode($data):json_encode([]);
+        
         return $this->AqarRepository->store($request);
 
     }//end of store
@@ -106,7 +110,9 @@ class AqarController extends Controller
         $request['laundry_id'] = $request['laundry_id']!=null?json_encode($request['laundry_id']): json_encode([]);
         $request['another_room_id'] = $request['another_room_id']!=null?json_encode($request['another_room_id']): json_encode([]);
         $request['conditioning_type_id'] = ($request['conditioning_type_id']!=null)?json_encode($request['conditioning_type_id']):json_encode([]);
-
+        $data['person_num'] = $request['person_num'];
+        $data['price'] = $request['price'];
+        $request['changed_price']=json_encode($data)!=null?json_encode($data):json_encode([]);
         return $this->AqarRepository->update($Aqar, $request);
 
 
