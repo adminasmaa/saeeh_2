@@ -3,10 +3,6 @@
 
 @section('content')
 
-
-
-
-
     <div class="page-body">
         <div class="container-fluid">
             <div class="page-title">
@@ -68,13 +64,6 @@
         </div>
     </div>
     </div>
-
-
-
-
-
-
-
 
 @endsection
 

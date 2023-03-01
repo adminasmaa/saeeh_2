@@ -63,6 +63,7 @@ return [
     'expenses' => 'Expenses',
     'export' => 'Export',
     'place_comments'=>' PlaceComments',
+    'place_categories' => 'PlaceCategories',
 
     'twitter'=>'Twitter',
     'facebook'=>'Facebook',
