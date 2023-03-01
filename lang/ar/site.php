@@ -23,7 +23,9 @@ return [
     'capital' => 'راس مال',
     'expenses' => 'مصروفات',
     'export' => 'تصدير',
-  
+    'place_categories' => 'الفئات',
+
+    
     'Balances' => 'الارصدة',
 
     'delivery_date'=>'تاريخ التسليم او الوصول',
