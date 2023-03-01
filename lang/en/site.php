@@ -64,7 +64,9 @@ return [
     'export' => 'Export',
     'place_comments'=>' PlaceComments',
     'place_categories' => 'PlaceCategories',
-
+    'sections' => 'Sections',
+    'deposits' => 'Deposits',
+    'deposit' => 'Deposit',
     'twitter'=>'Twitter',
     'facebook'=>'Facebook',
     'instagram'=>'Instagram',

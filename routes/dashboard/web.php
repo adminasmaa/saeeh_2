@@ -38,6 +38,8 @@ use App\Http\Controllers\Dashboard\PlaceTableController;
 use App\Http\Controllers\Dashboard\BalanceController;
 use App\Http\Controllers\Dashboard\InvoiceController;
 use App\Http\Controllers\Dashboard\PlaceCategoryController;
+use App\Http\Controllers\Dashboard\SectionController;
+use App\Http\Controllers\Dashboard\DepositController;
 
 use App\Http\Controllers\Dashboard\UserController;
 use Illuminate\Support\Facades\Route;
@@ -144,6 +146,12 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
         //invoices
         Route::resource('invoices', InvoiceController::class);
+
+        //deposits
+        Route::resource('deposits', DepositController::class);
+
+        //sections
+        Route::resource('sections', SectionController::class);
 
     }); //end of dashboard routes
 });

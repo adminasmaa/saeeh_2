@@ -38,6 +38,8 @@ use App\Repositories\Eloquent\PlaceTableRepository;
 use App\Repositories\Eloquent\BalanceRepository;
 use App\Repositories\Eloquent\InvoiceRepository;
 use App\Repositories\Eloquent\PlaceCategoryRepository;
+use App\Repositories\Eloquent\SectionRepository;
+use App\Repositories\Eloquent\DepositRepository;
 
 use App\Repositories\Interfaces\AdvertisingRepositoryInterface;
 use App\Repositories\Interfaces\AnotherRoomRepositoryInterface;
@@ -66,6 +68,8 @@ use App\Repositories\Interfaces\PlaceTableRepositoryInterface;
 use App\Repositories\Interfaces\BalanceRepositoryInterface;
 use App\Repositories\Interfaces\InvoiceRepositoryInterface;
 use App\Repositories\Interfaces\PlaceCategoryRepositoryInterface;
+use App\Repositories\Interfaces\SectionRepositoryInterface;
+use App\Repositories\Interfaces\DepositRepositoryInterface;
 
 use App\Repositories\Interfaces\CommissionRepositoryInterface;
 use App\Repositories\Interfaces\PlaceRepositoryInterface;
@@ -119,6 +123,8 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(BalanceRepositoryInterface::class, BalanceRepository::class);
         $this->app->bind(InvoiceRepositoryInterface::class, InvoiceRepository::class);
         $this->app->bind(PlaceCategoryRepositoryInterface::class, PlaceCategoryRepository::class);
+        $this->app->bind(SectionRepositoryInterface::class, SectionRepository::class);
+        $this->app->bind(DepositRepositoryInterface::class, DepositRepository::class);
 
         $this->app->bind(PlaceRepositoryInterface::class, PlaceRepository::class);
         $this->app->bind(PlaceCommentRepositoryInterface::class, PlaceCommentRepository::class);

@@ -24,8 +24,14 @@ return [
     'expenses' => 'مصروفات',
     'export' => 'تصدير',
     'place_categories' => 'الفئات',
-
+    'deposits' => 'العربون',
+    'deposit' => 'العربون',
+    'aquarbooking' => 'حجوزات العقارات',
+    'bookings' => 'حجوزات السيارات',
     
+    
+    'sections' => 'الأقسام',
+
     'Balances' => 'الارصدة',
 
     'delivery_date'=>'تاريخ التسليم او الوصول',
