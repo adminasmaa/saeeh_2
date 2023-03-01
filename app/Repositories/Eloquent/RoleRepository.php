@@ -25,8 +25,8 @@ class RoleRepository implements IRoleRepositoryAlias
         // TODO: Implement create() method.
 
 
-        $models = ['users', 'roles','mediators','advertising','brands','cars','bookings','car_comments',
-            'countries', 'cities','categories','settings','roles','questions','problems'
+        $models = ['users', 'roles','mediators','advertising','notifications','brands','cars','sections','message','bookings','car_comments','floors','commissions','conditioning_types','places','balances','invoices','deposits',
+            'countries', 'cities','categories','settings','roles','questions','problems','areas','services','car_positions','kitchens','aqars'
         ];
 
 
@@ -42,8 +42,8 @@ class RoleRepository implements IRoleRepositoryAlias
 
 
 
-        $models = ['users','mediators','advertising','brands','cars','bookings','car_comments',
-            'countries', 'cities','categories','settings','roles','questions','problems'
+        $models = ['users', 'roles','mediators','advertising','notifications','brands','cars','sections','message','bookings','car_comments','floors','commissions','conditioning_types','places','balances','invoices','deposits',
+            'countries', 'cities','categories','settings','roles','questions','problems','areas','services','car_positions','kitchens','aqars'
         ];
 
         $maps = ['create', 'update', 'read', 'delete'];

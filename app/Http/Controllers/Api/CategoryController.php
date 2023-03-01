@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 
 use App\Http\Controllers\Controller;
@@ -17,11 +18,12 @@ class CategoryController extends Controller
 {
 
 
-    public function categories($city_id)
+    public function categories(Request $request)
     {
 
+        $city_id = $request->city_id;
         $categories = [];
-        foreach (Category::get() as $cat) {
+        foreach (Category::where('type', '=', 0)->get() as $cat) {
 
             $city = json_decode($cat->city_id);
 
@@ -35,17 +37,17 @@ class CategoryController extends Controller
             $categories = CategoryOnlyResource::collection($categories);
             return $this->respondSuccess($categories, __('message.categories retrieved successfully.'));
 
-        }else{
+        } else {
             return $this->respondError(__('message.Category not found.'), ['error' => __('Category not found.')], 404);
 
         }
 
 
-
     }
 
-    public function subcategories($cat_id)
+    public function subcategories(Request $request)
     {
+        $cat_id = $request->category_id;
 
         $subcategories = SubCategoryResource::collection(Category::where('parent_id', $cat_id)->get());
 
@@ -60,8 +62,9 @@ class CategoryController extends Controller
 
     }
 
-    public function categorydetail($category_id)
+    public function categorydetail(Request $request)
     {
+        $category_id=$request->category_id;
         $category = Category::where('id', $category_id)->with('subcategories')->first();
         if (isset($category)) {
 

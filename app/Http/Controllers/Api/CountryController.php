@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\CountryOnlyResource;
 use App\Http\Resources\CountryResource;
 use App\Models\Country;
+use Illuminate\Http\Request;
 
 
 class CountryController extends Controller
@@ -19,8 +20,9 @@ class CountryController extends Controller
     }
 
 
-    public function countrydetail($id)
+    public function countrydetail(Request $request)
     {
+        $id=$request->country_id;
         $country=Country::where('id',$id)->where('active',1)->first();
         if(isset($country)){
             $countryDetail=new CountryOnlyResource($country);
