@@ -23,7 +23,7 @@ class AuthController extends Controller
             'country_code' => 'required',
             'phone' => 'required|min:9',
             'password' => 'required|min:6',
-            'c_password' => 'required_with:password|same:password',
+//            'c_password' => 'nullable_with:password|same:password',
 
         ];
         $customMessages = [
@@ -47,17 +47,9 @@ class AuthController extends Controller
             send_sms_code($msg, $input['phone'], $input['country_code']);
             $user = User::create($input);
 
-//        $user = User::create([
-//            'firstname' => $request->firstname,
-//            'lastname' => $request->lastname,
-//            'country_code' => $request->country_code,
-//            'email' => $request->email,
-//            'phone' => $request->phone,
-//            'password' => bcrypt($request->password),
-//            'active' => 1,
-//        ]);
 
-            $success['token'] = $user->createToken('MyApp')->accessToken;
+
+//            $success['token'] = $user->createToken('MyApp')->accessToken;
             $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code']);
 
 
