@@ -73,6 +73,7 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
         $aqar['laundry_id'] = json_decode($aqar['laundry_id']);
         $aqar['another_room_id'] = json_decode($aqar['another_room_id']);
         $aqar['conditioning_type_id'] = json_decode($aqar['conditioning_type_id']);
+        $aqar['changed_price']=json_decode($aqar['changed_price']);
         $users = User::all();
         $categories = Category::where('type',1)->where('active',1)->get();
         $AnotherRoom = AnotherRoom::where('active',1)->get();
@@ -106,6 +107,7 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
         $aqar['laundry_id'] = json_decode($aqar['laundry_id']);
         $aqar['another_room_id'] = json_decode($aqar['another_room_id']);
         $aqar['conditioning_type_id'] = json_decode($aqar['conditioning_type_id']);
+        $aqar['changed_price']=json_decode($aqar['changed_price']);
         $users = User::all();
         $categories = Category::where('type',1)->where('active',1)->get();
         $AnotherRoom = AnotherRoom::where('active',1)->get();

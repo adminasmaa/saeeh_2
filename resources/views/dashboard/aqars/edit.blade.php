@@ -188,14 +188,50 @@
 
                                             </div>
                                             <div class="row m-t-10">
+                                                <div class="m-checkbox-inline">
+                                                    <label for="edo-ani">
+                                                    <input class="radio_animated"  type="radio" name="price" {{$aqar->fixed_price ? 'checked':'' }} data-bs-original-title="" title="" value="1" >@lang('site.fixed_price')
+                                                    </label>
+                                                    <label for="edo-ani1">
+                                                    <input class="radio_animated" type="radio" name="price" {{is_null($aqar->fixed_price) ? 'checked':'' }} data-bs-original-title="" title="" value="2">@lang('site.changed_price')
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="row m-t-10">
                                                 <!--<div class="col-md-6">-->
 
-                                                <div class="col-md-6 form-group col-12 p-2 ">
+                                                <div class="col-md-6 form-group col-12 p-2  desc" id="price1">
                                                     <label>@lang('site.fixed_price')<span class="text-danger">*</span></label>
                                                     <input type="text" name="fixed_price" class="form-control"
                                                         value="{{$aqar->fixed_price}}"
                                                         >
                                                 </div>
+
+                                                <div class="col-md-12 form-group col-12   desc" id="price2"  style="display: none;">                 
+                                                        <table class="price-list" id="tb_price">
+                                                        @for ($x = 0; $x <= count($aqar->changed_price->price)-1; $x++)
+                                                            <tr><td>
+                                                                <div class="row">
+                                                                    <div class="col-md-5 form-group col-12">
+                                                                        <input type="number"  name="person_num[]" class="form-control" value="{{$aqar->changed_price->person_num[$x]}}"/>
+                                                                    </div>
+                                                                    <div class="col-md-5 form-group col-12">
+                                                                        <input type="number" name="price[]" class="form-control" value="{{$aqar->changed_price->price[$x]}}"/>
+                                                                    </div>
+                                                                    @if($x==0)
+                                                                    <div class="col-md-2 form-group col-12">
+                                                                    <a class="btn btn-air-primary btn-pill btn-success add-price w-100"><i class="fa fa-plus" aria-hidden="true"></i></a> 
+                                                                    </div>
+                                                                    @endif
+                                                                    @if($x!=0)
+                                                                    <div class="col-md-2 form-group col-12">
+                                                                    <a class="btn btn-air-primary btn-pill btn-danger add-price w-100" onclick="deletetr(this)" ><i class="fa fa-trash"></i></a>
+                                                                    </div>
+                                                                    @endif
+                                                                </div> 
+                                                            </td></tr>
+                                                        @endfor
+                                                        </table>   
 
                                             </div>
                                             <br>
@@ -398,4 +434,38 @@
     <!-- Container-fluid Ends-->
 
 @endsection
+
+@section('scripts')
+    <script>
+
+
+        $(document).ready(function () {
+            var test=$('input[name="price"]:checked').val();
+            $("div.desc").hide();
+            $("#price" + test).show();
+            jQuery('a.add-price').click(function (event) {
+                event.preventDefault();
+                var newRow = jQuery('<tr><td><div class="row"><div class="col-md-5 form-group col-12 p-2">' +
+                    '<input type="number"  name="person_num[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
+                    '<input type="number" name="price[]" class="form-control" >' +
+                    '  </div>  <div class="col-md-2 form-group col-12 p-2 "> <a class="btn btn-air-primary btn-pill btn-danger add-price w-100" onclick="deletetr(this)" ><i class="fa fa-trash"></i></a>' +
+
+                    '</div></div> </td>  </tr>');
+                jQuery('.price-list').append(newRow);
+            });
+
+            $("input[name='price']").click(function() {
+                var test = $(this).val();
+
+                $("div.desc").hide();
+                $("#price" + test).show();
+            });
+        });
+
+        function deletetr(r) {
+            r.closest('tr').remove();
+    }
+    </script>
+@endsection
+
 
