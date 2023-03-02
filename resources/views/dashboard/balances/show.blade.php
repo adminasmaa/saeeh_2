@@ -116,7 +116,7 @@
                                     @foreach($users as $user)
 
                                         <option value="{{$user->id}}"
-                                                @if($balance->user_id==$user->id) selected @endif>{{$user->username ?? ''}}</option>
+                                                @if($balance->user_id==$user->id) selected @endif>{{$user->firstname . $user->lastname ?? ''}}</option>
 
                                     @endforeach
 

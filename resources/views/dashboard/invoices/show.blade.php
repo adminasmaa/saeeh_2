@@ -99,7 +99,7 @@
                                     @foreach($users as $user)
 
                                         <option value="{{$user->id}}"
-                                                @if($invoice->user_id==$user->id) selected @endif>{{$user->username ?? ''}}</option>
+                                                @if($invoice->user_id==$user->id) selected @endif>{{$user->firstname . $user->lastname ?? ''}}</option>
 
                                     @endforeach
 

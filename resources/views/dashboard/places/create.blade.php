@@ -87,7 +87,7 @@
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.const_from')<span class="text-danger">*</span></label>
-                                        <input type="text" name="const_from" class="form-control"
+                                        <input type="time" name="const_from" class="form-control"
                                                value="{{old('const_from')}}"
                                                required >
                                     </div>
@@ -96,7 +96,7 @@
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.const_to')<span class="text-danger">*</span></label>
-                                        <input type="text" name="const_to" class="form-control"
+                                        <input type="time" name="const_to" class="form-control"
                                                value="{{old('const_to')}}"
                                                required>
                                     </div>
@@ -139,7 +139,7 @@
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.time_check')</label>
-                                        <input type="number" name="time_check" class="form-control"
+                                        <input type="time" name="time_check" class="form-control"
                                                value="{{old('time_check')}}"
                                                >
                                     </div>
@@ -158,13 +158,13 @@
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.diff_time')</label>
-                                        <input type="number" name="diff_time" class="form-control"
+                                        <input type="time" name="diff_time" class="form-control"
                                                value="{{old('diff_time')}}"
                                                >
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.const_time')</label>
-                                        <input type="number" name="const_time" class="form-control"
+                                        <input type="time" name="const_time" class="form-control"
                                                value="{{old('const_time')}}"
                                                >
                                     </div>
@@ -189,21 +189,21 @@
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.rest_one')</label>
-                                        <input type="text" name="rest_one" class="form-control"
+                                        <input type="number" name="rest_one" class="form-control"
                                                value="{{old('rest_one')}}"
                                                >
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.rest_two')</label>
-                                        <input type="text" name="rest_two" class="form-control"
+                                        <input type="number" name="rest_two" class="form-control"
                                                value="{{old('rest_two')}}"
                                                >
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.rest_three')</label>
-                                        <input type="text" name="rest_three" class="form-control"
+                                        <input type="number" name="rest_three" class="form-control"
                                                value="{{old('rest_three')}}"
                                                >
                                     </div>
@@ -253,7 +253,7 @@
                                         <option selected>@lang('site.select')</option>
                                         @foreach($users as $user)
 
-                                            <option value="{{$user->id}}">{{$user->username ?? ''}}</option>
+                                            <option value="{{$user->id}}">{{$user->firstname . $user->lastname ?? ''}}</option>
 
                                         @endforeach
 
@@ -268,7 +268,7 @@
                                         <option selected>@lang('site.select')</option>
                                         @foreach($categories as $cat)
 
-                                            <option value="{{$cat->id}}">{{$cat->name ?? ''}}</option>
+                                            <option value="{{$cat->id}}">{{$cat->name_ar ?? ''}}</option>
 
                                         @endforeach
 
