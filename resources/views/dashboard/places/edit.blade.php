@@ -152,20 +152,20 @@
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.place_order')<span class="text-danger">*</span></label>
-                                        <input type="integer" name="place_order" class="form-control"
+                                        <input type="number" name="place_order" class="form-control"
                                                value="{{$place->place_order}}"
                                                required>
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.place_error')<span class="text-danger">*</span></label>
-                                        <input type="integer" name="place_error" class="form-control"
+                                        <input type="number" name="place_error" class="form-control"
                                                value="{{$place->place_error}}"
                                                required>
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.const_from')<span class="text-danger">*</span></label>
-                                        <input type="text" name="const_from" class="form-control"
+                                        <input type="time" name="const_from" class="form-control"
                                                value="{{$place->const_from}}"
                                                required >
                                     </div>
@@ -174,7 +174,7 @@
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.const_to')<span class="text-danger">*</span></label>
-                                        <input type="text" name="const_to" class="form-control"
+                                        <input type="time" name="const_to" class="form-control"
                                                value="{{$place->const_to}}"
                                                required>
                                     </div>
@@ -217,32 +217,32 @@
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.time_check')</label>
-                                        <input type="integer" name="time_check" class="form-control"
+                                        <input type="time" name="time_check" class="form-control"
                                                value="{{$place->time_check}}"
                                                >
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.seen_counter')<span class="text-danger">*</span></label>
-                                        <input type="integer" name="seen_counter" class="form-control"
+                                        <input type="number" name="seen_counter" class="form-control"
                                                value="{{$place->seen_counter}}"
                                                >
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.delivery')</label>
-                                        <input type="integer" name="delivery" class="form-control"
+                                        <input type="number" name="delivery" class="form-control"
                                                value="{{$place->delivery}}"
                                                >
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.diff_time')</label>
-                                        <input type="integer" name="diff_time" class="form-control"
+                                        <input type="time" name="diff_time" class="form-control"
                                                value="{{$place->diff_time}}"
                                                >
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.const_time')</label>
-                                        <input type="integer" name="const_time" class="form-control"
+                                        <input type="time" name="const_time" class="form-control"
                                                value="{{$place->const_time}}"
                                                >
                                     </div>
@@ -337,8 +337,8 @@
                                         <option selected>@lang('site.select')</option>
                                         @foreach($users as $user)
 
-                                            <option value="{{$user->id}}"@if($user->user_id==$user->id) selected @endif>{{$user->username ?? ''}}</option>
-
+                                            <option value="{{$user->id}}"@if($place->user_id==$user->id) selected @endif>{{$user->firstname . $user->lastname ?? ''}}</option>
+                                        
                                         @endforeach
 
                                     </select>
@@ -352,7 +352,7 @@
                                         <option selected>@lang('site.select')</option>
                                         @foreach($categories as $cat)
 
-                                            <option value="{{$cat->id}}"@if($place->place_category_id==$cat->id) selected @endif>{{$cat->name ?? ''}}</option>
+                                            <option value="{{$cat->id}}"@if($place->place_category_id==$cat->id) selected @endif>{{$cat->name_ar ?? ''}}</option>
 
                                         @endforeach
 

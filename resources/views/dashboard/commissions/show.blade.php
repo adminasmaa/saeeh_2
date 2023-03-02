@@ -84,7 +84,7 @@
                                     @foreach($users as $user)
 
                                         <option value="{{$user->id}}"
-                                                @if($commission->user_id==$user->id) selected @endif>{{$user->username ?? ''}}</option>
+                                                @if($commission->user_id==$user->id) selected @endif>{{$user->firstname . $user->lastname ?? ''}}</option>
 
                                     @endforeach
 
