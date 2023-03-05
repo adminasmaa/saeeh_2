@@ -135,25 +135,43 @@
 {{--                                    </div>--}}
 
 
-                                    <div class="col-md-2 form-group col-12 p-2">
+{{--                                    <div class="col-md-2 form-group col-12 p-2">--}}
 
-                                        <br>
-                                        <a
-                                            class="btn btn-air-primary btn-pill btn-primary add-category w-100">@lang('site.add')</a>
+{{--                                        <br>--}}
+{{--                                        <a--}}
+{{--                                            class="btn btn-air-primary btn-pill btn-primary add-category w-100">@lang('site.add')</a>--}}
+{{--                                    </div>--}}
+
+
+{{--                                </div>--}}
+
+
+{{--                                <table class="categories-list" id="table5">--}}
+
+{{--                                    --}}{{--                                <div class="row m-0 sub-categories">--}}
+
+
+{{--                                    --}}{{--                                </div>--}}
+
+{{--                                </table>--}}
+                                    <div class="col-md-12 form-group col-12 desc" id="price2" >
+                                        <table class="price-list" id="tb_price">
+                                            <tr><td>
+                                                    <div class="row">
+                                                        <div class="col-md-5 form-group col-12">
+                                                            <input type="text"  name="name_category[]" class="form-control"/>
+                                                        </div>
+                                                        <div class="col-md-5 form-group col-12">
+                                                            <input type="file" name="image_category[]" class="form-control" >
+                                                        </div>
+                                                        <div class="col-md-2 form-group col-12">
+                                                            <a class="btn btn-air-primary btn-pill btn-success add-price w-100"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </td></tr>
+                                        </table>
+
                                     </div>
-
-
-                                </div>
-
-
-                                <table class="categories-list" id="table5">
-
-                                    {{--                                <div class="row m-0 sub-categories">--}}
-
-
-                                    {{--                                </div>--}}
-
-                                </table>
 
 
                             </div>
@@ -179,16 +197,34 @@
 
 
         $(document).ready(function () {
-            jQuery('a.add-category').click(function (event) {
+            jQuery('a.add-price').click(function (event) {
                 event.preventDefault();
-                var newRow = jQuery('<tr><td><div class="row"><div class="col-md-3 form-group col-12 p-2">' +
-                    '<input type="text"     name="name_category[]" class="form-control"/></div><div class="col-md-3 form-group col-12 p-2">' +
+                var newRow = jQuery('<tr><td><div class="row"><div class="col-md-5 form-group col-12 p-2">' +
+                    '<input type="text"  name="name_category[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
                     '<input type="file" name="image_category[]" class="form-control" >' +
-                    '  </div>  <div class="col-md-3 form-group col-12 p-2 "> <a  onclick="deleteRow(this)" ><i class="fa fa-trash"></i></a>' +
+                    '  </div>  <div class="col-md-2 form-group col-12 p-2 "> <a class="btn btn-air-primary btn-pill btn-danger add-price w-100" onclick="deletetr(this)" ><i class="fa fa-trash"></i></a>' +
 
                     '</div></div> </td>  </tr>');
-                jQuery('.categories-list').append(newRow);
+                jQuery('.price-list').append(newRow);
             });
+
+
         });
+
+        function deletetr(r) {
+            r.closest('tr').remove();
+        }
+        // $(document).ready(function () {
+        //     jQuery('a.add-category').click(function (event) {
+        //         event.preventDefault();
+        //         var newRow = jQuery('<tr><td><div class="row"><div class="col-md-3 form-group col-12 p-2">' +
+        //             '<input type="text"     name="name_category[]" class="form-control"/></div><div class="col-md-3 form-group col-12 p-2">' +
+        //             '<input type="file" name="image_category[]" class="form-control" >' +
+        //             '  </div>  <div class="col-md-3 form-group col-12 p-2 "> <a  onclick="deleteRow(this)" ><i class="fa fa-trash"></i></a>' +
+        //
+        //             '</div></div> </td>  </tr>');
+        //         jQuery('.categories-list').append(newRow);
+        //     });
+        // });
     </script>
 @endsection

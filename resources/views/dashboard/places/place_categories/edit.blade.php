@@ -147,7 +147,6 @@
                                         </textarea>
                                 </div>
                             </div>
-
                             <div class="row">
 
                                 <div class="col-md-6 form-group col-12 p-2">
@@ -163,10 +162,13 @@
                             <br>
 
                             <h4 class="card-title">@lang('site.subcategories')</h4>
-                            @foreach($subcategories as $cat)
-                                <div class="row m-0">
+                            <table class="price-list" id="tb_price">
 
-                                    <div class="col-md-3 form-group col-12 p-2">
+                            @foreach($subcategories as $cat)
+                                    <tr><td>
+                                <div class="row">
+
+                                    <div class="col-md-4 form-group col-12 p-2">
 
 
                                         <label>@lang('site.ar.name')</label>
@@ -174,7 +176,7 @@
                                                value="{{ $cat->name_ar ?? '' }}">
                                     </div>
 
-                                    <div class="col-md-3 form-group col-12 p-2">
+                                    <div class="col-md-5 form-group col-12 p-2">
 
 
                                         <label>@lang('site.image')</label>
@@ -190,23 +192,29 @@
                                              width="100px" height="100px">
 
 
-                                        <a type="button" href="{{route('dashboard.DeleteSubCategories',$cat->id)}}"
-                                           class="btn-table  btn  btn-xs 88"
-                                        >
-                                            <i class="fa fa-trash"></i>
-                                        </a>
-
+{{--                                        <a type="button" href="{{route('dashboard.DeleteSubCategories',$cat->id)}}"--}}
+{{--                                           class="btn-table  btn  btn-xs 88"--}}
+{{--                                        >--}}
+{{--                                            <i class="fa fa-trash"></i>--}}
+{{--                                        </a>--}}
+                                        <a  href="{{route('dashboard.DeleteSubCategories',$cat->id)}}" class="btn btn-air-primary btn-pill btn-danger"><i class="fa fa-trash"></i></a>
 
                                     </div>
 
-
+                                </div>
+                                        </td>
+                                    </tr>
                                     @endforeach
+                            </table>
+
+
+
 
                                     <div class="col-md-2 form-group col-12 p-2">
 
                                         <br>
-                                        <a
-                                            class="btn btn-air-primary btn-pill btn-primary add-category w-100">@lang('site.add')</a>
+                                        <a class="btn btn-air-primary btn-pill btn-success add-price w-100"><i class="fa fa-plus" aria-hidden="true"></i></a>
+
                                     </div>
 
                                 </div>
@@ -241,18 +249,25 @@
     <script>
 
 
+
         $(document).ready(function () {
-            jQuery('a.add-category').click(function (event) {
+            jQuery('a.add-price').click(function (event) {
                 event.preventDefault();
-                var newRow = jQuery('<tr><td><div class="row"><div class="col-md-3 form-group col-12 p-2">' +
-                    '<input type="text"     name="name_category[]" class="form-control"/></div><div class="col-md-3 form-group col-12 p-2">' +
+                var newRow = jQuery('<tr><td><div class="row"><div class="col-md-5 form-group col-12 p-2">' +
+                    '<input type="text"  name="name_category[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
                     '<input type="file" name="image_category[]" class="form-control" >' +
-                    '  </div>  <div class="col-md-3 form-group col-12 p-2 "> <a  onclick="deleteRow(this)" ><i class="fa fa-trash"></i></a>' +
+                    '  </div>  <div class="col-md-2 form-group col-12 p-2 "> <a class="btn btn-air-primary btn-pill btn-danger add-price w-100" onclick="deletetr(this)" ><i class="fa fa-trash"></i></a>' +
 
                     '</div></div> </td>  </tr>');
-                jQuery('.categories-list').append(newRow);
+                jQuery('.price-list').append(newRow);
             });
+
+
         });
+
+        function deletetr(r) {
+            r.closest('tr').remove();
+        }
     </script>
 @endsection
 
