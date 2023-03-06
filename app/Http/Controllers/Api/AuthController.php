@@ -23,7 +23,7 @@ class AuthController extends Controller
             'country_code' => 'required',
             'phone' => 'required|min:9|unique:users',
             'password' => 'required|min:6',
-//            'c_password' => 'nullable_with:password|same:password',
+            'c_password' => 'nullable_with:password|same:password',
 
         ];
         $customMessages = [
@@ -50,7 +50,7 @@ class AuthController extends Controller
 
 
 //            $success['token'] = $user->createToken('MyApp')->accessToken;
-            $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code']);
+            $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code','code']);
 
 
             return $this->respondSuccess($success, trans('message.User register successfully.'));
@@ -85,7 +85,7 @@ class AuthController extends Controller
                 $msg = $msg . trans('message.code activation') . "\n" . $code;
                 send_sms_code($msg, $request->phone, $request->country_code);
                 $success['token'] = $user->createToken('MyApp')->accessToken;
-                $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code']);
+                $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code','code']);
                 return $this->respondwarning($success,trans('message.account not verified'), ['error'=>trans('message.account not verified')],402);
             }
         } else {
@@ -120,7 +120,7 @@ class AuthController extends Controller
                 $user->active = 1;
                 $user->save();
                 $success['token'] = $user->createToken('MyApp')->accessToken;
-                $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code']);
+                $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code','code']);
                 return $this->respondSuccess($success, trans('message.User activate successfully.'));
             }
         } else {

@@ -72,9 +72,9 @@ class CategoryController extends Controller
             $categoryDetail = new CategoryResource($category);
 
 
-            return $this->respondSuccess($categoryDetail, __('message.category retrieved successfully.'));
+            return $this->respondSuccess($categoryDetail, __('message.Category retrieved successfully.'));
         } else {
-            return $this->respondError(__('message.category not found.'), ['error' => __('category not found.')], 404);
+            return $this->respondError(__('message.Category not found.'), ['error' => __('message.Category not found.')], 404);
 
 
         }
