@@ -134,12 +134,14 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
         $aqar = Aqar::create($request_data);
 
         if ($request->hasFile('main_image')) {
-            $thumbnail = $request->file('main_image');
-            $destinationPath = 'images/aqars/';
-            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move($destinationPath, $filename);
-            $aqar->main_image = $filename;
-            $aqar->save();
+//            $thumbnail = $request->file('main_image');
+//            $destinationPath = 'images/aqars/';
+//            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+//            $thumbnail->move($destinationPath, $filename);
+//            $aqar->main_image = $filename;
+//            $aqar->save();
+            UploadImage('images/aqars/','main_image', $aqar, $request->file('main_image'));
+
         }
 
         if ($request->hasFile('images')) {
@@ -153,7 +155,7 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
                 $aqar->save();
             }
         }
-       
+
         if ($aqar) {
             Alert::success('Success', __('site.added_successfully'));
 
@@ -171,12 +173,13 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
 
 
         if ($request->hasFile('main_image')) {
-            $thumbnail = $request->file('main_image');
-            $destinationPath = 'images/aqars/';
-            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move($destinationPath, $filename);
-            $aqar->main_image = $filename;
-            $aqar->save();
+//            $thumbnail = $request->file('main_image');
+//            $destinationPath = 'images/aqars/';
+//            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+//            $thumbnail->move($destinationPath, $filename);
+//            $aqar->main_image = $filename;
+//            $aqar->save();
+            UploadImage('images/aqars/','main_image', $aqar, $request->file('main_image'));
         }
 
         if ($request->hasFile('images')) {
