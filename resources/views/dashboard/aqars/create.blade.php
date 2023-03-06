@@ -69,7 +69,7 @@
                                                     <option selected>@lang('site.select')</option>
                                                     @foreach($users as $user)
 
-                                                        <option value="{{$user->id}}">{{$user->username ?? ''}}</option>
+                                                        <option value="{{$user->id}}">{{$user->firstname . $user->lastname ?? ''}}</option>
 
                                                     @endforeach
 

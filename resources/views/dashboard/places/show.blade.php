@@ -321,7 +321,7 @@
                                     @foreach($users as $user)
 
                                         <option value="{{$user->id}}"
-                                                @if($place->user_id==$user->id) selected @endif>{{$user->username ?? ''}}</option>
+                                                @if($place->user_id==$user->id) selected @endif>{{$user->firstname . $user->lastname ?? ''}}</option>
 
                                     @endforeach
 
@@ -334,7 +334,7 @@
                                     @foreach($categories as $cat)
 
                                         <option value="{{$cat->id}}"
-                                                @if($place->category_id==$cat->id) selected @endif>{{$cat->name ?? ''}}</option>
+                                                @if($place->category_id==$cat->id) selected @endif>{{$cat->name_ar ?? ''}}</option>
 
                                     @endforeach
 

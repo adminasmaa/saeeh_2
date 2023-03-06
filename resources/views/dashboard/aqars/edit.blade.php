@@ -116,7 +116,7 @@
                                                     <option selected>@lang('site.select')</option>
                                                     @foreach($users as $user)
 
-                                                        <option value="{{$user->id}}" {{$user->id==$aqar->user_id? 'selected':'' }}>{{$user->username ?? ''}}</option>
+                                                        <option value="{{$user->id}}" {{$user->id==$aqar->user_id? 'selected':'' }}>{{$user->firstname . $user->lastname ?? ''}}</option>
 
                                                     @endforeach
 

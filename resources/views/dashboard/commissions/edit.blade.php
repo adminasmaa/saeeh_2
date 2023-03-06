@@ -83,7 +83,7 @@
                                         <option selected>@lang('site.select')</option>
                                         @foreach($users as $user)
 
-                                            <option value="{{$user->id}}"@if($commission->user_id==$user->id) selected @endif>{{$user->username ?? ''}}</option>
+                                            <option value="{{$user->id}}"@if($commission->user_id==$user->id) selected @endif>{{$user->firstname . $user->lastname ?? ''}}</option>
 
                                         @endforeach
 

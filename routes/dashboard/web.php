@@ -37,6 +37,9 @@ use App\Http\Controllers\Dashboard\CarPositionController;
 use App\Http\Controllers\Dashboard\PlaceTableController;
 use App\Http\Controllers\Dashboard\BalanceController;
 use App\Http\Controllers\Dashboard\InvoiceController;
+use App\Http\Controllers\Dashboard\PlaceCategoryController;
+use App\Http\Controllers\Dashboard\SectionController;
+use App\Http\Controllers\Dashboard\DepositController;
 
 use App\Http\Controllers\Dashboard\UserController;
 use Illuminate\Support\Facades\Route;
@@ -79,6 +82,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
         //places
         Route::resource('places', PlaceController::class);
+        Route::resource('place_categories', PlaceCategoryController::class);
 
         //place_comments
         Route::resource('place_comments', PlaceCommentController::class);
@@ -143,7 +147,15 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         //invoices
         Route::resource('invoices', InvoiceController::class);
 
+<<<<<<< HEAD
         Route::get('/aqars/getsetting/{id}','App\Http\Controllers\Dashboard\AqarController@getsetting');
+=======
+        //deposits
+        Route::resource('deposits', DepositController::class);
+
+        //sections
+        Route::resource('sections', SectionController::class);
+>>>>>>> 288a01d166076252f36a2635e61646bd528362b2
 
     }); //end of dashboard routes
 });

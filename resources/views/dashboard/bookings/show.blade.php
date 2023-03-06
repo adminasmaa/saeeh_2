@@ -142,7 +142,7 @@
                                     @foreach($users as $user)
 
                                         <option value="{{$user->id}}"
-                                                @if($booking->user_id==$user->id) selected @endif>{{$user->username ?? ''}}</option>
+                                                @if($booking->user_id==$user->id) selected @endif>{{$user->firstname . $user->lastname ?? ''}}</option>
 
                                     @endforeach
 

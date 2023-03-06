@@ -26,8 +26,9 @@ class AqarController extends Controller
     }
 
 
-    public function Availabledays($aqar_id)
+    public function Availabledays(Request $request)
     {
+        $aqar_id = $request->aqar_id;
         $booking = AqarBooking::where('aqar_id', $aqar_id)->get();
 
         $dateAvaliable = [];

@@ -541,6 +541,10 @@
                                 <ul class="sidebar-submenu">
                                     <!-- <li><a href="{{route('dashboard.brands.index')}}">{{__('site.brands')}}</a>
                                     </li> -->
+                                    <li>
+                                        <a href="{{route('dashboard.place_categories.index')}}">{{__('site.categories')}}</a>
+                                    </li>
+                                    
                                     <li><a href="{{route('dashboard.places.index')}}">{{__('site.places')}}</a>
 
                                     </li>
@@ -577,6 +581,17 @@
                                     <i data-feather="anchor"></i><span>@lang('site.invoices') @endlang</span></a>
                             </li>
 
+                            <li class="sidebar-list">
+                                <a class="sidebar-link sidebar-title link-nav"
+                                    href="{{route('dashboard.deposits.index')}}">
+                                    <i data-feather="credit-card"></i><span>@lang('site.deposits') @endlang</span></a>
+                            </li>
+
+                            <li class="sidebar-list">
+                                <a class="sidebar-link sidebar-title link-nav"
+                                    href="{{route('dashboard.sections.index')}}">
+                                    <i data-feather="list"></i><span>@lang('site.sections') @endlang</span></a>
+                            </li>
                         </ul>
                     </div>
                     <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>
