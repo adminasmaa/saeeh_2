@@ -48,6 +48,11 @@ class Aqar extends Model
         'user_id', //unsigned 
         'masterroom',//nullable 
         'normalroom',//nullable 
+        'unitnumber',//nullable 
+        'hallnumber',//nullable
+        'bathroomnumber',//nullable
+        'personnumber',//nullable
+        'swimmingpool',//nullable
     ];
     // relations
     public function user(){
