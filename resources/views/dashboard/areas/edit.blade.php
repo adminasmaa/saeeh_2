@@ -88,7 +88,7 @@
                                         </option>
                                         <option value="0"
                                                 @if($area->active==0) selected @endif>@lang('site.inactive')
-                                        </option>                                           
+                                        </option>
 
                                     </select>
                                 </div>
@@ -98,14 +98,14 @@
                                         <option selected>@lang('site.select')</option>
                                         @foreach($cities as $city)
 
-                                            <option value="{{$city->id}}"    @if($area->city_id==$city->id) selected @endif>{{$city->name ?? ''}}</option>
+                                            <option value="{{$city->id}}"    @if($area->city_id==$city->id) selected @endif>{{$city->name_ar ?? ''}}</option>
 
                                         @endforeach
 
                                     </select>
                                 </div>
                             </div>
-                           
+
                         </div>
                     </form>
                 </div>

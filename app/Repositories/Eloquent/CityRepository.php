@@ -80,12 +80,14 @@ class CityRepository implements ICityRepositoryAlias
 
 
         if ($request->hasFile('image')) {
-            $thumbnail = $request->file('image');
-            $destinationPath = 'images/cities/';
-            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move($destinationPath, $filename);
-            $city->image = $filename;
-            $city->save();
+//            $thumbnail = $request->file('image');
+//            $destinationPath = 'images/cities/';
+//            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+//            $thumbnail->move($destinationPath, $filename);
+//            $city->image = $filename;
+//            $city->save();
+            UploadImage('images/cities/','image', $city, $request->file('image'));
+
         }
 
 
@@ -109,12 +111,13 @@ class CityRepository implements ICityRepositoryAlias
 
 
         if ($request->hasFile('image')) {
-            $thumbnail = $request->file('image');
-            $destinationPath = 'images/cities/';
-            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move($destinationPath, $filename);
-            $city->image = $filename;
-            $city->save();
+//            $thumbnail = $request->file('image');
+//            $destinationPath = 'images/cities/';
+//            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+//            $thumbnail->move($destinationPath, $filename);
+//            $city->image = $filename;
+//            $city->save();
+            UploadImage('images/cities/','image', $city, $request->file('image'));
         }
 
 

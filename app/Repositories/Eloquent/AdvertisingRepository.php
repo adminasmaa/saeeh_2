@@ -68,12 +68,15 @@ class AdvertisingRepository implements AdvertisingRepositoryInterfaceAlias
         $advertising = Ads::create($request_data);
 
         if ($request->hasFile('ads_image')) {
-            $thumbnail = $request->file('ads_image');
-            $destinationPath = 'images/advertising/';
-            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move($destinationPath, $filename);
-            $advertising->ads_image = $filename;
-            $advertising->save();
+//            $thumbnail = $request->file('ads_image');
+//            $destinationPath = 'images/advertising/';
+//            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+//            $thumbnail->move($destinationPath, $filename);
+//            $advertising->ads_image = $filename;
+//            $advertising->save();
+
+            UploadImage('images/advertising/','ads_image', $advertising, $request->file('ads_image'));
+
         }
 
         if ($advertising) {
@@ -93,12 +96,13 @@ class AdvertisingRepository implements AdvertisingRepositoryInterfaceAlias
 
 
         if ($request->hasFile('ads_image')) {
-            $thumbnail = $request->file('ads_image');
-            $destinationPath = 'images/advertising/';
-            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move($destinationPath, $filename);
-            $advertising->ads_image = $filename;
-            $advertising->save();
+//            $thumbnail = $request->file('ads_image');
+//            $destinationPath = 'images/advertising/';
+//            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+//            $thumbnail->move($destinationPath, $filename);
+//            $advertising->ads_image = $filename;
+//            $advertising->save();
+            UploadImage('images/advertising/','ads_image', $advertising, $request->file('ads_image'));
         }
 
 

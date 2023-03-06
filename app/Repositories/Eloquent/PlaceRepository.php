@@ -75,21 +75,24 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
         $place = Place::create($request_data);
 
         if ($request->hasFile('display_photo')) {
-            $thumbnail = $request->file('display_photo');
-            $destinationPath = 'images/places/';
-            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move($destinationPath, $filename);
-            $place->display_photo = $filename;
-            $place->save();
+//            $thumbnail = $request->file('display_photo');
+//            $destinationPath = 'images/places/';
+//            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+//            $thumbnail->move($destinationPath, $filename);
+//            $place->display_photo = $filename;
+//            $place->save();
+            UploadImage('images/places/','display_photo', $place, $request->file('display_photo'));
+
         }
 
         if ($request->hasFile('notify_photo')) {
-            $thumbnail = $request->file('notify_photo');
-            $destinationPath = 'images/places/';
-            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move($destinationPath, $filename);
-            $place->notify_photo = $filename;
-            $place->save();
+//            $thumbnail = $request->file('notify_photo');
+//            $destinationPath = 'images/places/';
+//            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+//            $thumbnail->move($destinationPath, $filename);
+//            $place->notify_photo = $filename;
+//            $place->save();
+            UploadImage('images/places/','notify_photo', $place, $request->file('notify_photo'));
         }
         if ($request->hasFile('images')) {
             $images = $request->file('images');
@@ -119,21 +122,25 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
 
 
         if ($request->hasFile('display_photo')) {
-            $thumbnail = $request->file('display_photo');
-            $destinationPath = 'images/places/';
-            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move($destinationPath, $filename);
-            $place->display_photo = $filename;
-            $place->save();
+//            $thumbnail = $request->file('display_photo');
+//            $destinationPath = 'images/places/';
+//            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+//            $thumbnail->move($destinationPath, $filename);
+//            $place->display_photo = $filename;
+//            $place->save();
+            UploadImage('images/places/','display_photo', $place, $request->file('display_photo'));
+
         }
 
         if ($request->hasFile('notify_photo')) {
-            $thumbnail = $request->file('notify_photo');
-            $destinationPath = 'images/places/';
-            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move($destinationPath, $filename);
-            $place->notify_photo = $filename;
-            $place->save();
+//            $thumbnail = $request->file('notify_photo');
+//            $destinationPath = 'images/places/';
+//            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+//            $thumbnail->move($destinationPath, $filename);
+//            $place->notify_photo = $filename;
+//            $place->save();
+            UploadImage('images/places/','notify_photo', $place, $request->file('notify_photo'));
+
         }
         if ($request->hasFile('images')) {
             $images = $request->file('images');
