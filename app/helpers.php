@@ -1,12 +1,25 @@
 <?php
 
+use Intervention\Image\Facades\Image;
+
+function UploadImage($path, $image, $model, $request)
+{
 
 
-if (! function_exists('whats_send')) {
-    function whats_send($mobile, $message,$country_code) {
+    $thumbnail = $request;
+    $destinationPath = $path;
+    $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+    $thumbnail->move($destinationPath, $filename);
+    $model->$image = $filename;
+    $model->save();
+}
 
-        $mobile= $country_code.$mobile;
-        $body= $message;
+if (!function_exists('whats_send')) {
+    function whats_send($mobile, $message, $country_code)
+    {
+
+        $mobile = $country_code . $mobile;
+        $body = $message;
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
@@ -36,9 +49,10 @@ if (! function_exists('whats_send')) {
         }
     }
 }
-if (! function_exists('send_sms_code_msg')) {
-    function send_sms_code_msg($msg, $phone,$country_code) {
-        $phone= $country_code.$phone;
+if (!function_exists('send_sms_code_msg')) {
+    function send_sms_code_msg($msg, $phone, $country_code)
+    {
+        $phone = $country_code . $phone;
         $url = "http://62.150.26.41/SmsWebService.asmx/send";
         $params = array(
             'username' => 'Electron',
@@ -67,11 +81,12 @@ if (! function_exists('send_sms_code_msg')) {
     }
 }
 
-if (! function_exists('send_sms_code')) {
-    function send_sms_code($msg, $phone,$country_code) {
+if (!function_exists('send_sms_code')) {
+    function send_sms_code($msg, $phone, $country_code)
+    {
 
-        whats_send( $phone,$msg,$country_code);
-        send_sms_code_msg($msg, $phone,$country_code);
+        whats_send($phone, $msg, $country_code);
+        send_sms_code_msg($msg, $phone, $country_code);
     }
 }
 

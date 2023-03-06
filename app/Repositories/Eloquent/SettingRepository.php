@@ -41,13 +41,15 @@ class SettingRepository implements ISettingRepositoryAlias
 
 
         if ($request->hasFile('logo')) {
-            $thumbnail = $request->file('logo');
-            $destinationPath = 'images/settings/';
-            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move($destinationPath, $filename);
-            $setting->logo = $filename;
+//            $thumbnail = $request->file('logo');
+//            $destinationPath = 'images/settings/';
+//            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+//            $thumbnail->move($destinationPath, $filename);
+//            $setting->logo = $filename;
+//
+//            $setting->save();
+            UploadImage('images/settings/','logo', $setting, $request->file('logo'));
 
-            $setting->save();
         }
 
 

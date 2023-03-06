@@ -107,7 +107,7 @@
                                             <option selected>@lang('site.select')</option>
                                             @foreach($cities as $city)
 
-                                                <option value="{{$city->id}}">{{$city->name ?? ''}}</option>
+                                                <option value="{{$city->id}}">{{$city->name_ar ?? ''}}</option>
 
                                             @endforeach
 

@@ -174,7 +174,7 @@
                                                 @foreach($categories as $cat)
                                                 <div class="form-check radio radio-primary">
                                                     <input class="form-check-input" id="category_id{{$cat->id}}" type="radio"  name="category_id"  value="{{$cat->id}}" required>
-                                                    <label class="form-check-label mb-0" for="category_id{{$cat->id}}">{{$cat->name ?? ''}}</label>
+                                                    <label class="form-check-label mb-0" for="category_id{{$cat->id}}">{{$cat->name_ar ?? ''}}</label>
                                                 </div>
                                                 @endforeach
                                                 </div>

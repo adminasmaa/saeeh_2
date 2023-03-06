@@ -85,7 +85,7 @@
                                         <option value="0"
                                                 @if($area->active=='inactive') selected @endif>inactive
                                         </option>
-                                        
+
                                     </select>
                                 </div>
                                 <div class="col-md-6 form-group col-12 p-2">
@@ -95,7 +95,7 @@
                                     @foreach($cities as $city)
 
                                         <option value="{{$city->id}}"
-                                                @if($city->city_id==$city->id) selected @endif>{{$city->name ?? ''}}</option>
+                                                @if($city->city_id==$city->id) selected @endif>{{$city->name_ar ?? ''}}</option>
 
                                     @endforeach
 

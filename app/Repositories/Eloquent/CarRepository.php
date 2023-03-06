@@ -68,7 +68,7 @@ class CarRepository implements CarRepositoryInterfaceAlias
 
     public function store($request)
     {
-
+//return $request;
 
         // TODO: Implement store() method.
 
@@ -79,21 +79,25 @@ class CarRepository implements CarRepositoryInterfaceAlias
         $car = Car::create($request_data);
 
         if ($request->hasFile('main_image_ads')) {
-            $thumbnail = $request->file('main_image_ads');
-            $destinationPath = 'images/cars/';
-            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move($destinationPath, $filename);
-            $car->main_image_ads = $filename;
-            $car->save();
+//            $thumbnail = $request->file('main_image_ads');
+//            $destinationPath = 'images/cars/';
+//            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+//            $thumbnail->move($destinationPath, $filename);
+//            $car->main_image_ads = $filename;
+//            $car->save();
+            UploadImage('images/cars/','main_image_ads', $car, $request->file('main_image_ads'));
+
         }
 
         if ($request->hasFile('videos')) {
-            $thumbnail = $request->file('videos');
-            $destinationPath = 'images/cars/';
-            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move($destinationPath, $filename);
-            $car->videos = $filename;
-            $car->save();
+//            $thumbnail = $request->file('videos');
+//            $destinationPath = 'images/cars/';
+//            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+//            $thumbnail->move($destinationPath, $filename);
+//            $car->videos = $filename;
+//            $car->save();
+            UploadImage('images/cars/','videos', $car, $request->file('videos'));
+
         }
 
 
@@ -130,21 +134,25 @@ class CarRepository implements CarRepositoryInterfaceAlias
 
 
         if ($request->hasFile('main_image_ads')) {
-            $thumbnail = $request->file('main_image_ads');
-            $destinationPath = 'images/cars/';
-            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move($destinationPath, $filename);
-            $car->main_image_ads = $filename;
-            $car->save();
+//            $thumbnail = $request->file('main_image_ads');
+//            $destinationPath = 'images/cars/';
+//            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+//            $thumbnail->move($destinationPath, $filename);
+//            $car->main_image_ads = $filename;
+//            $car->save();
+            UploadImage('images/cars/','main_image_ads', $car, $request->file('main_image_ads'));
+
         }
 
         if ($request->hasFile('videos')) {
-            $thumbnail = $request->file('videos');
-            $destinationPath = 'images/cars/';
-            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move($destinationPath, $filename);
-            $car->videos = $filename;
-            $car->save();
+//            $thumbnail = $request->file('videos');
+//            $destinationPath = 'images/cars/';
+//            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+//            $thumbnail->move($destinationPath, $filename);
+//            $car->videos = $filename;
+//            $car->save();
+            UploadImage('images/cars/','videos', $car, $request->file('videos'));
+
         }
 
         if ($request->hasFile('images')) {

@@ -55,12 +55,14 @@ class AquarCategoryRepository implements AquarCategoryRepositoryInterface
         $category = Category::create($request_data);
 
         if ($request->hasFile('image')) {
-            $thumbnail = $request->file('image');
-            $destinationPath = 'images/categories/';
-            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move($destinationPath, $filename);
-            $category->image = $filename;
-            $category->save();
+//            $thumbnail = $request->file('image');
+//            $destinationPath = 'images/categories/';
+//            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+//            $thumbnail->move($destinationPath, $filename);
+//            $category->image = $filename;
+//            $category->save();
+            UploadImage('images/categories/','image', $category, $request->file('image'));
+
         }
 
         if ($category) {
@@ -79,12 +81,13 @@ class AquarCategoryRepository implements AquarCategoryRepositoryInterface
         $request_data['type'] = 1;
 
         if ($request->hasFile('image')) {
-            $thumbnail = $request->file('image');
-            $destinationPath = 'images/categories/';
-            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move($destinationPath, $filename);
-            $category->image = $filename;
-            $category->save();
+//            $thumbnail = $request->file('image');
+//            $destinationPath = 'images/categories/';
+//            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+//            $thumbnail->move($destinationPath, $filename);
+//            $category->image = $filename;
+//            $category->save();
+            UploadImage('images/categories/','image', $category, $request->file('image'));
         }
 
         if ($category) {
