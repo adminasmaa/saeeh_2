@@ -84,7 +84,7 @@
                                                 @foreach($categories as $cat)
                                                 <div class="form-check radio radio-primary">
                                                     <input class="form-check-input" id="category_id{{$cat->id}}" type="radio"  name="category_id"  value="{{$cat->id}}" required>
-                                                    <label class="form-check-label mb-0" for="category_id{{$cat->id}}">{{$cat->name ?? ''}}</label>
+                                                    <label class="form-check-label mb-0" for="category_id{{$cat->id}}">{{$cat->name_ar ?? ''}}</label>
                                                 </div>
                                                 @endforeach
                                                 </div>
@@ -214,7 +214,74 @@
 
                                             </div>
                                             <br>
-                                            <div class="col-sm-12">
+                                            <div class="row">
+                                            <div style="display: none;" id="space">
+                                            <div class="col-sm-6 col-md-6" >
+                                                <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.space')</h5>
+                                            </div>
+                                                <div class="col m-t-15">
+                                                    <label>@lang('site.space')<span class="text-danger">*</span></label>
+                                                            <input type="number" name="space" class="form-control"
+                                                                value="{{old('space')}}"
+                                                                >
+                                                </div>
+                                            </div>
+                                            <br>
+                                           <div style="display: none;" id="unitnumber">
+                                            <div class="col-sm-6" >
+                                                <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.unitnumber')</h5>
+                                            </div>
+                                                <div class="col m-t-15">
+                                                    <label>@lang('site.unitnumber')<span class="text-danger">*</span></label>
+                                                            <input type="number" name="unitnumber" class="form-control"
+                                                                value="{{old('space')}}"
+                                                                >
+                                                </div>
+                                            </div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                            <div style="display: none;" id="hallnumber">
+                                            <div class="col-sm-6 col-md-6" >
+                                                <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.hallnumber')</h5>
+                                            </div>
+                                                <div class="col m-t-15">
+                                                    <label>@lang('site.hallnumber')<span class="text-danger">*</span></label>
+                                                            <input type="number" name="hallnumber" class="form-control"
+                                                                value="{{old('hallnumber')}}"
+                                                                >
+                                                </div>
+                                            </div>
+                                            <br>
+                                           <div style="display: none;" id="bathroomnumber">
+                                            <div class="col-sm-6" >
+                                                <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.bathroomnumber')</h5>
+                                            </div>
+                                                <div class="col m-t-15">
+                                                    <label>@lang('site.bathroomnumber')<span class="text-danger">*</span></label>
+                                                            <input type="number" name="bathroomnumber" class="form-control"
+                                                                value="{{old('space')}}"
+                                                                >
+                                                </div>
+                                            </div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                            <div style="display: none;" id="personnumber">
+                                            <div class="col-sm-6 col-md-6" >
+                                                <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.personnumber')</h5>
+                                            </div>
+                                                <div class="col m-t-15">
+                                                    <label>@lang('site.personnumber')<span class="text-danger">*</span></label>
+                                                            <input type="number" name="personnumber" class="form-control"
+                                                                value="{{old('personnumber')}}"
+                                                                >
+                                                </div>
+                                            </div>
+                                            </div>
+                                            <br>
+                                           <div style="display: none;" id="floor">
+                                            <div class="col-sm-12" >
                                                 <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.floor')</h5>
                                             </div>
                                             <div class="col m-t-15">
@@ -225,8 +292,10 @@
                                                 </div>
                                                 @endforeach
                                             </div>
+                                            </div>
                                             <br>
-                                            <div class="col-sm-12">
+                                            <div style="display: none;" id="floornumber">
+                                            <div class="col-sm-12" >
                                                 <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.floornumber')</h5>
                                             </div>
                                             <div class="col m-t-15">
@@ -236,6 +305,7 @@
                                                     <label class="form-check-label" for="floornumber_{{$fln->id}}">{{$fln->name_ar ?? ''}}<span class="digits"></span></label>
                                                 </div>
                                                 @endforeach
+                                            </div>
                                             </div>
                                             <br>
                                             <div class="col-sm-12">
@@ -417,6 +487,27 @@
         function deletetr(r) {
             r.closest('tr').remove();
     }
+
+
+    $('input[type=radio][name=category_id]').change(function() {
+            var category_id =$('input[name="category_id"]:checked').val();
+            $("#floor").hide(); 
+            $("#floornumber").hide(); 
+            $("#space").hide(); 
+            $("#unitnumber").hide(); 
+            $("#bathroomnumber").hide(); 
+            $("#hallnumber").hide(); 
+            $("#personnumber").hide(); 
+            $("#swimmingpool").hide(); 
+            $.ajax({
+                url: '{{ url('dashboard/aqars/getsetting') }}' + '/' +category_id ,
+                success: data => {
+                    data.forEach(model =>
+                        $("#" + model.input_id).show()
+                    )
+                }
+            })
+        });
     </script>
 @endsection
 

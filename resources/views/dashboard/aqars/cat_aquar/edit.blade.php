@@ -120,6 +120,21 @@
                                     <input type="text" name="name_en" class="form-control" value="{{ $category->name_en }}"
                                            >
                                 </div>
+
+                                <div class="col-md-6 form-group col-12 p-2 ">
+                                    <label class="form-label">@lang('site.city')</label>
+                                    <select class="js-example-placeholder-multiple col-sm-12" multiple="multiple"
+                                            name="city_id[]">
+                                        <option >@lang('site.select')</option>
+                                        @foreach($cities as $city)
+
+                                            <option value="{{$city->id}}"
+                                                    @if(in_array($city->id,$citiesrelated)) selected @endif>{{$city->name_ar ?? ''}}</option>
+
+                                        @endforeach
+
+                                    </select>
+                                </div>
                             </div>
                             <div class="row">
                                 <!--<div class="col-md-6">-->

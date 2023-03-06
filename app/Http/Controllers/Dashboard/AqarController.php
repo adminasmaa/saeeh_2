@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Aqar;
 use App\Models\Category;
+use App\Models\AqarSetting;
 use App\Repositories\Interfaces\AqarRepositoryInterface;
 use App\Repositories\Eloquent\AqarRepository;
 use App\Services\TwoFactorService;
@@ -133,5 +134,12 @@ class AqarController extends Controller
 
 
     }//end of destroy
+
+
+    public function getsetting($id)
+    { 
+        $qarsetting = AqarSetting::where('category_id',$id)->where('display',1)->get();
+        return  $qarsetting;
+    }
 
 }
