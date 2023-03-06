@@ -21,13 +21,9 @@ class AuthController extends Controller
             'firstname' => 'required',
             'lastname' => 'required',
             'country_code' => 'required',
-            'phone' => 'required|min:9',
+            'phone' => 'required|min:9|unique:users',
             'password' => 'required|min:6',
-<<<<<<< HEAD
-            'c_password' => 'same:password|min:6',
-=======
 //            'c_password' => 'nullable_with:password|same:password',
->>>>>>> 288a01d166076252f36a2635e61646bd528362b2
 
         ];
         $customMessages = [
