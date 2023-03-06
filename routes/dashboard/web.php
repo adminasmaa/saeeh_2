@@ -147,6 +147,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         //invoices
         Route::resource('invoices', InvoiceController::class);
 
+        Route::get('/aqars/getsetting/{id}','App\Http\Controllers\Dashboard\AqarController@getsetting');
         //deposits
         Route::resource('deposits', DepositController::class);
 

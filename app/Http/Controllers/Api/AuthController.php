@@ -21,7 +21,7 @@ class AuthController extends Controller
             'firstname' => 'required',
             'lastname' => 'required',
             'country_code' => 'required',
-            'phone' => 'required|min:9',
+            'phone' => 'required|min:9|unique:users',
             'password' => 'required|min:6',
 //            'c_password' => 'nullable_with:password|same:password',
 
