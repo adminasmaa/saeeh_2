@@ -69,7 +69,9 @@ class AqarController extends Controller
         $data['person_num'] = $request['person_num'];
         $data['price'] = $request['price'];
         $request['changed_price']=json_encode($data)!=null?json_encode($data):json_encode([]);
-        
+        $request['car_position_id']=$request['car_position_id']!=null?json_encode($$request['car_position_id']):json_encode([]);
+        $request['swimmingpool']=$request['swimmingpool']!=null?json_encode($$request['swimmingpool']):json_encode([]);
+       
         return $this->AqarRepository->store($request);
 
     }//end of store
@@ -114,6 +116,8 @@ class AqarController extends Controller
         $data['person_num'] = $request['person_num'];
         $data['price'] = $request['price'];
         $request['changed_price']=json_encode($data)!=null?json_encode($data):json_encode([]);
+        $request['car_position_id']=$request['car_position_id']!=null?json_encode($$request['car_position_id']):json_encode([]);
+        $request['swimmingpool']=$request['swimmingpool']!=null?json_encode($$request['swimmingpool']):json_encode([]);
         return $this->AqarRepository->update($Aqar, $request);
 
 

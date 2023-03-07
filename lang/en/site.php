@@ -179,7 +179,16 @@ return [
      'ConditioningType' => 'Conditioning Type',
      'descrption' => 'Descrption',
      'alert' => 'Alert',
-    'If you have a problem adding your ad, please call us' => 'If you have a problem adding your ad, please call us',   
+    'If you have a problem adding your ad, please call us' => 'If you have a problem adding your ad, please call us',  
+    'personnumber'   =>'Person Number',
+    'space'     =>'Space',
+    'unitnumber'     =>'Unit Number',
+    'hallnumber'     =>'Hall Number',
+    'bathroomnumber'     =>'Bathroom Number',
+    'carposition'     =>'Car Position',
+    'swimmingpool'     =>'Swimming Pool',
+    'descrption'   =>'Descrption',
+ 
 
 
     //contacts
