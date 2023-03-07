@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Resources\CityCategoryResource;
+use App\Models\City;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 
@@ -34,11 +36,14 @@ class CategoryController extends Controller
         }
 
         if (count($categories)) {
-            $categories = CategoryOnlyResource::collection($categories);
+            $cities=City::find($request->city_id);
+            $categories=new CityCategoryResource($cities);
+
+//            $categories = CategoryOnlyResource::collection($categories);
             return $this->respondSuccess($categories, __('message.categories retrieved successfully.'));
 
         } else {
-            return $this->respondError(__('message.Category not found.'), ['error' => __('Category not found.')], 404);
+            return $this->respondError(__('message.Category not found.'), ['error' => __('message.Category not found.')], 404);
 
         }
 
@@ -64,7 +69,7 @@ class CategoryController extends Controller
 
     public function categorydetail(Request $request)
     {
-        $category_id=$request->category_id;
+        $category_id = $request->category_id;
         $category = Category::where('id', $category_id)->with('subcategories')->first();
         if (isset($category)) {
 

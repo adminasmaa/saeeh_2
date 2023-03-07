@@ -20,6 +20,8 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::get('/placedetail', 'App\Http\Controllers\Api\PlaceController@placedetail');
     Route::get('/Availabledays', 'App\Http\Controllers\Api\AqarController@Availabledays');
     Route::post('/AddAqar', 'App\Http\Controllers\Api\AqarController@AddAqar');
+    Route::post('/updateProfile', 'App\Http\Controllers\Api\AuthController@updateProfile');
+    Route::post('/changepassword', 'App\Http\Controllers\Api\AuthController@changepassword');
 
 
     Route::get('/cities', 'App\Http\Controllers\Api\CityController@cities');

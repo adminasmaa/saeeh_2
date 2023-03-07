@@ -32,8 +32,8 @@ class Controller extends BaseController
      */
     public function respondError($error, $errorMessages = [], $code )
     {
-        if($code==404){$code1==404;}
-        elseif($code==500){$code1==500;}
+        if($code==404){$code1=404;}
+        elseif($code==500){$code1=500;}
         else{$code1=200;}
         $response = [
             'code' =>$code,
