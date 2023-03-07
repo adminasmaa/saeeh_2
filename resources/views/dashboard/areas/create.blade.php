@@ -94,8 +94,8 @@
                                     <select class="form-control btn-square" name="active">
                                             <option selected>@lang('site.select')</option>
 
-                                            <option value="1">active</option>
-                                            <option value="0">inactive </option>
+                                            <option value="1">@lang('site.active')</option>
+                                            <option value="0">@lang('site.inactive') </option>
 
                                     </select>
                                 </div>

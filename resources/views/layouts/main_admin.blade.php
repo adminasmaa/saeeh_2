@@ -526,7 +526,9 @@
                                     <li>
                                         <a href="{{route('dashboard.aqars.index')}}">{{__('site.aqars')}}</a>
                                     </li>
-
+                                    <li>
+                                        <a href="{{route('dashboard.pools.index')}}">{{__('site.pools')}}</a>
+                                    </li>
 
                                 </ul>
                             </li>

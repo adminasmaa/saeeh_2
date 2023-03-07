@@ -40,7 +40,7 @@ use App\Http\Controllers\Dashboard\InvoiceController;
 use App\Http\Controllers\Dashboard\PlaceCategoryController;
 use App\Http\Controllers\Dashboard\SectionController;
 use App\Http\Controllers\Dashboard\DepositController;
-
+use App\Http\Controllers\Dashboard\PoolController;
 use App\Http\Controllers\Dashboard\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -116,6 +116,9 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
         //areas
         Route::resource('areas', AreaController::class);
+
+        //pools
+        Route::resource('pools', PoolController::class);
 
         //messages
         Route::resource('message', MessageController::class);

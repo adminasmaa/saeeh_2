@@ -72,6 +72,7 @@ return [
     'instagram'=>'Instagram',
     'youtube'=>'YouTube',
     'snapchat'=>'SnapChat',
+    'pools' => 'Pools',
 
 
     'female' => 'Female',
