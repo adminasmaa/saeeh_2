@@ -23,7 +23,7 @@ class AuthController extends Controller
             'country_code' => 'required',
             'phone' => 'required|min:9|unique:users',
             'password' => 'required|min:6',
-            'c_password' => 'nullable_with:password|same:password',
+            'c_password' => 'required_with:password|same:password',
 
         ];
         $customMessages = [
