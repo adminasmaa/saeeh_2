@@ -2,6 +2,8 @@
 
 return [
     'User register successfully.' => 'تسجيل المستخدم بنجاح',
+    'chanagepassword'=>'تم تغير الرقم السري بنجاح',
+    'User updated successfully'=> 'تعديل المستخدم بنجاح',
     'category retrieved successfully.'=>'تم استرداد الفئات بنجاح',
     'wrong credientials' => 'خطا ف بيانات الدخول',
     'User login successfully.'=>'تم الدخول بنجاح',
