@@ -40,7 +40,9 @@ use App\Repositories\Eloquent\InvoiceRepository;
 use App\Repositories\Eloquent\PlaceCategoryRepository;
 use App\Repositories\Eloquent\SectionRepository;
 use App\Repositories\Eloquent\DepositRepository;
+use App\Repositories\Eloquent\PoolRepository;
 
+use App\Repositories\Interfaces\PoolRepositoryInterface;
 use App\Repositories\Interfaces\AdvertisingRepositoryInterface;
 use App\Repositories\Interfaces\AnotherRoomRepositoryInterface;
 use App\Repositories\Interfaces\AqarBookingRepositoryInterface;
@@ -125,6 +127,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(PlaceCategoryRepositoryInterface::class, PlaceCategoryRepository::class);
         $this->app->bind(SectionRepositoryInterface::class, SectionRepository::class);
         $this->app->bind(DepositRepositoryInterface::class, DepositRepository::class);
+        $this->app->bind(PoolRepositoryInterface::class, PoolRepository::class);
 
         $this->app->bind(PlaceRepositoryInterface::class, PlaceRepository::class);
         $this->app->bind(PlaceCommentRepositoryInterface::class, PlaceCommentRepository::class);

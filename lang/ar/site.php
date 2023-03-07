@@ -34,6 +34,8 @@ return [
 
     'Balances' => 'الارصدة',
 
+    'pools' => 'حمامات سباحة',
+
     'delivery_date'=>'تاريخ التسليم او الوصول',
     'visit_count'=>'الزوار',
     'cancle_reason'=>'إلغاء السبب',
