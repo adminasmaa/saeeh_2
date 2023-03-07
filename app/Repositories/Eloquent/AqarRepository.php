@@ -17,6 +17,8 @@ use App\Models\Bathroom;
 use App\Models\Kitchen;
 use App\Models\Laundry;
 use App\Models\ConditionType;
+use App\Models\CarPosition;
+use App\Models\Pool;
 use App\Repositories\Interfaces\AqarRepositoryInterface as AqarRepositoryInterfaceAlias;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
@@ -53,7 +55,9 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
         $Bathroom = Bathroom::where('active',1)->get();
         $Laundry = Laundry::where('active',1)->get();
         $ConditioningType = ConditionType::where('active',1)->get();
-        return view('dashboard.aqars.create', compact('users', 'categories','AnotherRoom','Area','Bathroom','ConditioningType','Floor','FloorNumber','Service','FreeService','Crew','Kitchen','Laundry'));
+        $CarPosition=CarPosition::where('active',1)->get();
+        $Pool=Pool::where('active',1)->get();
+        return view('dashboard.aqars.create', compact('users', 'categories','AnotherRoom','Area','Bathroom','ConditioningType','Floor','FloorNumber','Service','FreeService','Crew','Kitchen','Laundry','CarPosition','Pool'));
     }
 
     public function edit($Id)
@@ -74,6 +78,8 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
         $aqar['another_room_id'] = json_decode($aqar['another_room_id']);
         $aqar['conditioning_type_id'] = json_decode($aqar['conditioning_type_id']);
         $aqar['changed_price']=json_decode($aqar['changed_price']);
+        $aqar['car_position_id']=json_decode($aqar['car_position_id']);
+        $aqar['swimmingpool']=json_decode($aqar['swimmingpool']);
         $users = User::all();
         $categories = Category::where('type',1)->where('active',1)->get();
         $AnotherRoom = AnotherRoom::where('active',1)->get();
@@ -87,7 +93,9 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
         $Bathroom = Bathroom::where('active',1)->get();
         $Laundry = Laundry::where('active',1)->get();
         $ConditioningType = ConditionType::where('active',1)->get();
-        return view('dashboard.aqars.edit', compact('aqar', 'users', 'categories','AnotherRoom','Area','Bathroom','ConditioningType','Floor','FloorNumber','Service','FreeService','Crew','Kitchen','Laundry'));
+        $CarPosition=CarPosition::where('active',1)->get();
+        $Pool=Pool::where('active',1)->get();
+        return view('dashboard.aqars.edit', compact('aqar', 'users', 'categories','AnotherRoom','Area','Bathroom','ConditioningType','Floor','FloorNumber','Service','FreeService','Crew','Kitchen','Laundry','CarPosition','Pool'));
     }
 
     public function show($Id)
@@ -108,6 +116,8 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
         $aqar['another_room_id'] = json_decode($aqar['another_room_id']);
         $aqar['conditioning_type_id'] = json_decode($aqar['conditioning_type_id']);
         $aqar['changed_price']=json_decode($aqar['changed_price']);
+        $aqar['car_position_id']=json_decode($aqar['car_position_id']);
+        $aqar['swimmingpool']=json_decode($aqar['swimmingpool']);
         $users = User::all();
         $categories = Category::where('type',1)->where('active',1)->get();
         $AnotherRoom = AnotherRoom::where('active',1)->get();
@@ -121,8 +131,10 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
         $Bathroom = Bathroom::where('active',1)->get();
         $Laundry = Laundry::where('active',1)->get();
         $ConditioningType = ConditionType::where('active',1)->get();
+        $CarPosition=CarPosition::where('active',1)->get();
+        $Pool=Pool::where('active',1)->get();
 
-        return view('dashboard.aqars.show', compact('aqar', 'users', 'categories','AnotherRoom','Area','Bathroom','ConditioningType','Floor','FloorNumber','Service','FreeService','Crew','Kitchen','Laundry'));
+        return view('dashboard.aqars.show', compact('aqar', 'users', 'categories','AnotherRoom','Area','Bathroom','ConditioningType','Floor','FloorNumber','Service','FreeService','Crew','Kitchen','Laundry','CarPosition','Pool'));
     }
 
     public function store($request)

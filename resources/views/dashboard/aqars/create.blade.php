@@ -166,13 +166,15 @@
                                                             <tr><td>
                                                                 <div class="row">
                                                                     <div class="col-md-5 form-group col-12">
+                                                                        <label>@lang('site.personnumber')</label>
                                                                         <input type="number"  name="person_num[]" class="form-control"/>
                                                                     </div>
                                                                     <div class="col-md-5 form-group col-12">
+                                                                        <label>@lang('site.fixed_price')</label>
                                                                         <input type="number" name="price[]" class="form-control" >
                                                                     </div>
                                                                     <div class="col-md-2 form-group col-12">
-                                                                    <a class="btn btn-air-primary btn-pill btn-success add-price w-100"><i class="fa fa-plus" aria-hidden="true"></i></a> 
+                                                                    <a class="btn btn-air-primary btn-pill btn-success add-price w-100 m-t-30"><i class="fa fa-plus" aria-hidden="true"></i></a> 
                                                                     </div> 
                                                                 </div> 
                                                             </td></tr>
@@ -220,7 +222,6 @@
                                                 <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.space')</h5>
                                             </div>
                                                 <div class="col m-t-15">
-                                                    <label>@lang('site.space')<span class="text-danger">*</span></label>
                                                             <input type="number" name="space" class="form-control"
                                                                 value="{{old('space')}}"
                                                                 >
@@ -232,7 +233,6 @@
                                                 <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.unitnumber')</h5>
                                             </div>
                                                 <div class="col m-t-15">
-                                                    <label>@lang('site.unitnumber')<span class="text-danger">*</span></label>
                                                             <input type="number" name="unitnumber" class="form-control"
                                                                 value="{{old('space')}}"
                                                                 >
@@ -246,7 +246,6 @@
                                                 <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.hallnumber')</h5>
                                             </div>
                                                 <div class="col m-t-15">
-                                                    <label>@lang('site.hallnumber')<span class="text-danger">*</span></label>
                                                             <input type="number" name="hallnumber" class="form-control"
                                                                 value="{{old('hallnumber')}}"
                                                                 >
@@ -258,7 +257,6 @@
                                                 <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.bathroomnumber')</h5>
                                             </div>
                                                 <div class="col m-t-15">
-                                                    <label>@lang('site.bathroomnumber')<span class="text-danger">*</span></label>
                                                             <input type="number" name="bathroomnumber" class="form-control"
                                                                 value="{{old('space')}}"
                                                                 >
@@ -272,7 +270,6 @@
                                                 <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.personnumber')</h5>
                                             </div>
                                                 <div class="col m-t-15">
-                                                    <label>@lang('site.personnumber')<span class="text-danger">*</span></label>
                                                             <input type="number" name="personnumber" class="form-control"
                                                                 value="{{old('personnumber')}}"
                                                                 >
@@ -366,7 +363,7 @@
                                                     <label class="form-check-label" for="crew_{{$cr->id}}">{{$cr->name_ar ?? ''}}<span class="digits"></span></label>
                                                 </div>
                                                 @endforeach
-                                            </div>
+                                            </div>                                 
                                             <br>
                                             <div class="col-sm-12">
                                                 <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.anotherrooms')</h5>
@@ -378,6 +375,32 @@
                                                     <label class="form-check-label" for="room_{{$room->id}}">{{$room->name_ar ?? ''}}<span class="digits"></span></label>
                                                 </div>
                                                 @endforeach
+                                            </div>
+                                            <br>
+                                            <div class="col-sm-12">
+                                                <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.carposition')</h5>
+                                            </div>
+                                            <div class="col m-t-15">
+                                                @foreach($CarPosition as $position)
+                                                <div class="form-check form-check-inline checkbox checkbox-solid-primary">
+                                                    <input class="form-check-input" id="position_{{$position->id}}" type="checkbox" name="car_position_id[]" value="{{$position->id}}" >
+                                                    <label class="form-check-label" for="position_{{$position->id}}">{{$position->name_ar ?? ''}}<span class="digits"></span></label>
+                                                </div>
+                                                @endforeach
+                                            </div>
+                                            <br>
+                                            <div style="display: none;" id="swimmingpool">
+                                            <div class="col-sm-12" >
+                                                <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.swimmingpool')</h5>
+                                            </div>
+                                            <div class="col m-t-15">
+                                                @foreach($Pool as $swp)
+                                                <div class="form-check form-check-inline checkbox checkbox-solid-primary">
+                                                    <input class="form-check-input" id="swimmingpool_{{$swp->id}}" type="checkbox" name="swimmingpool[]" value="{{$swp->id}}" >
+                                                    <label class="form-check-label" for="swimmingpool_{{$swp->id}}">{{$swp->name_ar ?? ''}}<span class="digits"></span></label>
+                                                </div>
+                                                @endforeach
+                                            </div>
                                             </div>
                                             <br>
                                             <div class="col-sm-12">
@@ -468,9 +491,9 @@
             jQuery('a.add-price').click(function (event) {
                 event.preventDefault();
                 var newRow = jQuery('<tr><td><div class="row"><div class="col-md-5 form-group col-12 p-2">' +
-                    '<input type="number"  name="person_num[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
-                    '<input type="number" name="price[]" class="form-control" >' +
-                    '  </div>  <div class="col-md-2 form-group col-12 p-2 "> <a class="btn btn-air-primary btn-pill btn-danger add-price w-100" onclick="deletetr(this)" ><i class="fa fa-trash"></i></a>' +
+                    ' <label>@lang('site.personnumber')</label><input type="number"  name="person_num[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
+                    '<label>@lang('site.fixed_price')</label><input type="number" name="price[]" class="form-control" >' +
+                    '  </div>  <div class="col-md-2 form-group col-12 p-2 "> <a class="btn btn-air-primary btn-pill btn-danger add-price w-100 m-t-30" onclick="deletetr(this)" ><i class="fa fa-trash"></i></a>' +
 
                     '</div></div> </td>  </tr>');
                 jQuery('.price-list').append(newRow);

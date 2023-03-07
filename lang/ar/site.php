@@ -476,6 +476,15 @@ return [
     'display_photo' => ' الصورة الرئيسية  ',
     'notify_photo' => ' صورة الملاحظه',
     'place_comments' => ' تعليقات الاماكن ',
+    'personnumber'   =>'عدد الاشخاص',
+    'space'     =>'المساحة',
+    'unitnumber'     =>'عدد الوحدات',
+    'hallnumber'     =>'عدد الصالات',
+    'bathroomnumber'     =>'عدد دورات المياه',
+    'carposition'     =>'مواقف السيارات',
+    'swimmingpool'     =>'المسبح',
+    'descrption'   =>'الوصف',
+
 
 
     'ar' => [

@@ -122,7 +122,7 @@
                                                 @foreach($categories as $cat)
                                                 <div class="form-check radio radio-primary">
                                                     <input class="form-check-input" id="category_id{{$cat->id}}" type="radio"  name="category_id"  value="{{$cat->id}}" {{$cat->id==$aqar->category_id? 'checked':'' }} >
-                                                    <label class="form-check-label mb-0" for="category_id{{$cat->id}}">{{$cat->name ?? ''}}</label>
+                                                    <label class="form-check-label mb-0" for="category_id{{$cat->id}}">{{$cat->name_ar ?? ''}}</label>
                                                 </div>
                                                 @endforeach
                                                 </div>
@@ -194,7 +194,7 @@
                                                 <div class="col-md-6 form-group col-12 p-2  desc" id="price1">
                                                     <label>@lang('site.fixed_price')<span class="text-danger">*</span></label>
                                                     <input type="text" name="fixed_price" class="form-control"
-                                                        value="{{old('fixed_price')}}"
+                                                        value="{{$aqar->fixed_price}}"
                                                         >
                                                 </div>
 
@@ -216,6 +216,68 @@
 
                                             </div>
                                             <br>
+                                            <div class="row">
+                                            <div style="display: none;" id="space">
+                                            <div class="col-sm-6 col-md-6" >
+                                                <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.space')</h5>
+                                            </div>
+                                                <div class="col m-t-15">
+                                                            <input type="number" name="space" class="form-control"
+                                                                value="{{$aqar->space}}" readonly=""
+                                                                >
+                                                </div>
+                                            </div>
+                                            <br>
+                                           <div style="display: none;" id="unitnumber">
+                                            <div class="col-sm-6" >
+                                                <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.unitnumber')</h5>
+                                            </div>
+                                                <div class="col m-t-15">
+                                                            <input type="number" name="unitnumber" class="form-control"
+                                                                value="{{$aqar->unitnumber}}" readonly=""
+                                                                >
+                                                </div>
+                                            </div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                            <div style="display: none;" id="hallnumber">
+                                            <div class="col-sm-6 col-md-6" >
+                                                <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.hallnumber')</h5>
+                                            </div>
+                                                <div class="col m-t-15">
+                                                            <input type="number" name="hallnumber" class="form-control"
+                                                                value="{{$aqar->hallnumber}}" readonly=""
+                                                                >
+                                                </div>
+                                            </div>
+                                            <br>
+                                           <div style="display: none;" id="bathroomnumber">
+                                            <div class="col-sm-6" >
+                                                <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.bathroomnumber')</h5>
+                                            </div>
+                                                <div class="col m-t-15">
+                                                            <input type="number" name="bathroomnumber" class="form-control"
+                                                                value="{{$aqar->bathroomnumber}}" readonly=""
+                                                                >
+                                                </div>
+                                            </div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                            <div style="display: none;" id="personnumber">
+                                            <div class="col-sm-6 col-md-6" >
+                                                <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.personnumber')</h5>
+                                            </div>
+                                                <div class="col m-t-15">
+                                                            <input type="number" name="personnumber" class="form-control"
+                                                                value="{{$aqar->personnumber}}" readonly=""
+                                                                >
+                                                </div>
+                                            </div>
+                                            </div>
+                                            <br>
+                                            <div style="display: none;" id="floor">
                                             <div class="col-sm-12">
                                                 <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.floor')</h5>
                                             </div>
@@ -227,7 +289,9 @@
                                                 </div>
                                                 @endforeach
                                             </div>
+                                            </div>
                                             <br>
+                                            <div style="display: none;" id="floor">
                                             <div class="col-sm-12">
                                                 <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.floornumber')</h5>
                                             </div>
@@ -238,6 +302,7 @@
                                                     <label class="form-check-label" for="floornumber_{{$fln->id}}">{{$fln->name_ar ?? ''}}<span class="digits"></span></label>
                                                 </div>
                                                 @endforeach
+                                            </div>
                                             </div>
                                             <br>
                                             <div class="col-sm-12">
@@ -310,6 +375,32 @@
                                                     <label class="form-check-label" for="room_{{$room->id}}">{{$room->name_ar ?? ''}}<span class="digits"></span></label>
                                                 </div>
                                                 @endforeach
+                                            </div>
+                                            <br>
+                                            <div class="col-sm-12">
+                                                <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.carposition')</h5>
+                                            </div>
+                                            <div class="col m-t-15">
+                                                @foreach($CarPosition as $position)
+                                                <div class="form-check form-check-inline checkbox checkbox-solid-primary">
+                                                    <input class="form-check-input" id="position_{{$position->id}}" type="checkbox" name="car_position[]" value="{{$position->id}}"  readonly="" {{ in_array($position->id,$aqar->car_position_id)? 'checked':'' }}>
+                                                    <label class="form-check-label" for="position_{{$position->id}}">{{$position->name_ar ?? ''}}<span class="digits"></span></label>
+                                                </div>
+                                                @endforeach
+                                            </div>
+                                            <br>
+                                            <div style="display: none;" id="swimmingpool">
+                                            <div class="col-sm-12" >
+                                                <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.swimmingpool')</h5>
+                                            </div>
+                                            <div class="col m-t-15">
+                                                @foreach($Pool as $swp)
+                                                <div class="form-check form-check-inline checkbox checkbox-solid-primary">
+                                                    <input class="form-check-input" id="swimmingpool_{{$swp->id}}" type="checkbox" name="swimmingpool[]" value="{{$swp->id}}"  readonly="" {{ in_array($swp->id,$aqar->swimmingpool)? 'checked':'' }}>
+                                                    <label class="form-check-label" for="swimmingpool_{{$swp->id}}">{{$swp->name_ar ?? ''}}<span class="digits"></span></label>
+                                                </div>
+                                                @endforeach
+                                            </div>
                                             </div>
                                             <br>
                                             <div class="col-sm-12">
@@ -397,6 +488,24 @@
             var test=$('input[name="price"]:checked').val();
             $("div.desc").hide();
             $("#price" + test).show();
+
+            var category_id =$('input[name="category_id"]:checked').val();
+            $("#floor").hide(); 
+            $("#floornumber").hide(); 
+            $("#space").hide(); 
+            $("#unitnumber").hide(); 
+            $("#bathroomnumber").hide(); 
+            $("#hallnumber").hide(); 
+            $("#personnumber").hide(); 
+            $("#swimmingpool").hide(); 
+            $.ajax({
+                url: '{{ url('dashboard/aqars/getsetting') }}' + '/' +category_id ,
+                success: data => {
+                    data.forEach(model =>
+                        $("#" + model.input_id).show()
+                    )
+                }
+            });
            
         });
 
