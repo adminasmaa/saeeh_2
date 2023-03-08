@@ -19,8 +19,8 @@ class AuthController extends Controller
             'email' => 'max:254|email|required',
             'firstname' => 'required',
             'lastname' => 'required',
-            'country_code' => 'required',
-            'phone' => 'required|min:9',
+//            'country_code' => 'required',
+//            'phone' => 'required|min:9',
 
         ];
         $customMessages = [
@@ -40,18 +40,29 @@ class AuthController extends Controller
             $user->firstname = isset($request->firstname) ? $request->firstname : $user->firstname;
             $user->lastname = isset($request->lastname) ? $request->lastname : $user->lastname;
             $user->email = isset($request->email) ? $request->email : $user->email;
-            $user->phone = isset($request->phone) ? $request->phone : $user->phone;
-            $user->country_code = isset($request->country_code) ? $request->country_code : $user->country_code;
+//            $user->phone = isset($request->phone) ? $request->phone : $user->phone;
+//            $user->country_code = isset($request->country_code) ? $request->country_code : $user->country_code;
 
             $user->save();
             $success['token'] = $user->createToken('MyApp')->accessToken;
-            $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code']);
+            $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname']);
 
 
             return $this->respondSuccess($success, trans('message.User updated successfully'));
 
 
         }
+
+    }
+
+    public function logout()
+    {
+
+        Auth::user()->token()->revoke();
+
+
+        return $this->respondSuccess(null, trans('message.logout'));
+
 
     }
 
