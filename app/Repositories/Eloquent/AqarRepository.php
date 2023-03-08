@@ -67,8 +67,6 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
         $aqar = Aqar::find($Id);
         $aqar['floor_id'] = json_decode($aqar['floor_id']);
         $aqar['floor_number_id'] = json_decode($aqar['floor_number_id']);
-        $aqar['masterroom'] = json_decode($aqar['masterroom']);
-        $aqar['normalroom'] = json_decode($aqar['normalroom']);
         $aqar['service_id'] = json_decode($aqar['service_id']);
         $aqar['free_service_id'] = json_decode($aqar['free_service_id']);
         $aqar['crew_id'] = json_decode($aqar['crew_id']);
@@ -105,8 +103,6 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
         $aqar = Aqar::find($Id);
         $aqar['floor_id'] = json_decode($aqar['floor_id']);
         $aqar['floor_number_id'] = json_decode($aqar['floor_number_id']);
-        $aqar['masterroom'] = json_decode($aqar['masterroom']);
-        $aqar['normalroom'] = json_decode($aqar['normalroom']);
         $aqar['service_id'] = json_decode($aqar['service_id']);
         $aqar['free_service_id'] = json_decode($aqar['free_service_id']);
         $aqar['crew_id'] = json_decode($aqar['crew_id']);
