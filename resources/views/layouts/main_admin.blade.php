@@ -397,6 +397,12 @@
                                     <i data-feather="bell"></i><span>@lang('site.contacts') @endlang</span></a>
                             </li>
 
+                            <li class="sidebar-list">
+                                <a class="sidebar-link sidebar-title link-nav"
+                                   href="{{route('dashboard.contacts.index')}}">
+                                    <i data-feather="mail"></i><span>@lang('site.contactsus') @endlang</span></a>
+                            </li>
+
                             <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title link-nav"
                                     href="{{route('dashboard.countries.index')}}"><i
@@ -481,7 +487,7 @@
                                     <li>
                                         <a href="{{route('dashboard.car_positions.index')}}">{{__('site.car_positions')}}</a>
                                     </li>
-                                    
+
                                     <li>
                                         <a href="{{route('dashboard.place_tables.index')}}">{{__('site.place_tables')}}</a>
                                     </li>
@@ -546,7 +552,7 @@
                                     <li>
                                         <a href="{{route('dashboard.place_categories.index')}}">{{__('site.categories')}}</a>
                                     </li>
-                                    
+
                                     <li><a href="{{route('dashboard.places.index')}}">{{__('site.places')}}</a>
 
                                     </li>

@@ -179,7 +179,7 @@ return [
      'ConditioningType' => 'Conditioning Type',
      'descrption' => 'Descrption',
      'alert' => 'Alert',
-    'If you have a problem adding your ad, please call us' => 'If you have a problem adding your ad, please call us',  
+    'If you have a problem adding your ad, please call us' => 'If you have a problem adding your ad, please call us',
     'personnumber'   =>'Person Number',
     'space'     =>'Space',
     'unitnumber'     =>'Unit Number',
@@ -188,11 +188,11 @@ return [
     'carposition'     =>'Car Position',
     'swimmingpool'     =>'Swimming Pool',
     'descrption'   =>'Descrption',
- 
+
 
 
     //contacts
-    'contact' => 'Contact_us',
+    'contact' => 'Contact_us',  'contactsus' => 'Contact_us',
     'no_data_product' => 'The products are empty',
     'Contact_name' => 'Name',
     'contact_phone' => 'Phone',

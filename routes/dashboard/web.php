@@ -42,6 +42,7 @@ use App\Http\Controllers\Dashboard\SectionController;
 use App\Http\Controllers\Dashboard\DepositController;
 use App\Http\Controllers\Dashboard\PoolController;
 use App\Http\Controllers\Dashboard\UserController;
+use App\Http\Controllers\Dashboard\ContactController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedirect', 'localizationRedirect', 'localeViewPath')->group(function () {
@@ -70,14 +71,16 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
         //cars
         Route::resource('cars', CarController::class);
+        //contacts
+        Route::resource('contacts', ContactController::class);
 
         //brands
         Route::resource('brands', BrandController::class);
 
-       //car_comments
+        //car_comments
         Route::resource('car_comments', CarCommentController::class);
 
-       //bookings
+        //bookings
         Route::resource('bookings', BookingController::class);
 
         //places
@@ -143,14 +146,14 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
         //advertising
         Route::resource('advertising', AdvertisingController::class);
-        
+
         //balances
         Route::resource('balances', BalanceController::class);
 
         //invoices
         Route::resource('invoices', InvoiceController::class);
 
-        Route::get('/aqars/getsetting/{id}','App\Http\Controllers\Dashboard\AqarController@getsetting');
+        Route::get('/aqars/getsetting/{id}', 'App\Http\Controllers\Dashboard\AqarController@getsetting');
         //deposits
         Route::resource('deposits', DepositController::class);
 

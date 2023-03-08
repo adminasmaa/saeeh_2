@@ -13,6 +13,7 @@ use App\Repositories\Eloquent\CarRepository;
 use App\Repositories\Eloquent\CategoryRepository;
 use App\Repositories\Eloquent\CityRepository;
 use App\Repositories\Eloquent\CondiotionTypeRepository;
+use App\Repositories\Eloquent\ContactRepository;
 use App\Repositories\Eloquent\CountryRepository;
 use App\Repositories\Eloquent\CrewRepository;
 use App\Repositories\Eloquent\FloorNumberRepository;
@@ -42,6 +43,7 @@ use App\Repositories\Eloquent\SectionRepository;
 use App\Repositories\Eloquent\DepositRepository;
 use App\Repositories\Eloquent\PoolRepository;
 
+use App\Repositories\Interfaces\ContactRepositoryInterface;
 use App\Repositories\Interfaces\PoolRepositoryInterface;
 use App\Repositories\Interfaces\AdvertisingRepositoryInterface;
 use App\Repositories\Interfaces\AnotherRoomRepositoryInterface;
@@ -131,6 +133,7 @@ class RepositoryServiceProvider extends ServiceProvider
 
         $this->app->bind(PlaceRepositoryInterface::class, PlaceRepository::class);
         $this->app->bind(PlaceCommentRepositoryInterface::class, PlaceCommentRepository::class);
+        $this->app->bind(ContactRepositoryInterface::class, ContactRepository::class);
 
         $this->app->bind(MessageRepositoryInterface::class, MessageRepository::class);
         $this->app->bind(NotificationRepositoryInterface::class, NotificationRepository::class);
