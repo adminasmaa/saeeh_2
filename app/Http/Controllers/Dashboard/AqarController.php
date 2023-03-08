@@ -56,8 +56,6 @@ class AqarController extends Controller
         
         $request['floor_id'] = $request['floor_id']!=null?json_encode($request['floor_id']): json_encode([]);
         $request['floor_number_id'] = $request['floor_number_id']!=null?json_encode($request['floor_number_id']):json_encode([]);
-        $request['masterroom'] = $request['masterroom']!=null? json_encode($request['masterroom']): json_encode([]);
-        $request['normalroom'] = $request['normalroom']!=null? json_encode($request['normalroom']): json_encode([]);
         $request['service_id'] = $request['service_id']!=null?json_encode($request['service_id']): json_encode([]);
         $request['free_service_id'] = $request['free_service_id']!=null?json_encode($request['free_service_id']): json_encode([]);
         $request['crew_id'] = $request['crew_id']!=null?json_encode($request['crew_id']): json_encode([]);
@@ -69,7 +67,7 @@ class AqarController extends Controller
         $data['person_num'] = $request['person_num'];
         $data['price'] = $request['price'];
         $request['changed_price']=json_encode($data)!=null?json_encode($data):json_encode([]);
-        $request['car_position_id']=$request['car_position_id']!=null?json_encode($$request['car_position_id']):json_encode([]);
+        $request['car_position_id']=$request['car_position_id']!=null?json_encode($request['car_position_id']):json_encode([]);
         $request['swimmingpool']=$request['swimmingpool']!=null?json_encode($$request['swimmingpool']):json_encode([]);
        
         return $this->AqarRepository->store($request);
@@ -103,8 +101,6 @@ class AqarController extends Controller
         $Aqar = Aqar::find($id);
         $request['floor_id'] = $request['floor_id']!=null?json_encode($request['floor_id']): json_encode([]);
         $request['floor_number_id'] = $request['floor_number_id']!=null?json_encode($request['floor_number_id']):json_encode([]);
-        $request['masterroom'] = $request['masterroom']!=null? json_encode($request['masterroom']): json_encode([]);
-        $request['normalroom'] = $request['normalroom']!=null? json_encode($request['normalroom']): json_encode([]);
         $request['service_id'] = $request['service_id']!=null?json_encode($request['service_id']): json_encode([]);
         $request['free_service_id'] = $request['free_service_id']!=null?json_encode($request['free_service_id']): json_encode([]);
         $request['crew_id'] = $request['crew_id']!=null?json_encode($request['crew_id']): json_encode([]);
@@ -116,7 +112,7 @@ class AqarController extends Controller
         $data['person_num'] = $request['person_num'];
         $data['price'] = $request['price'];
         $request['changed_price']=json_encode($data)!=null?json_encode($data):json_encode([]);
-        $request['car_position_id']=$request['car_position_id']!=null?json_encode($$request['car_position_id']):json_encode([]);
+        $request['car_position_id']=$request['car_position_id']!=null?json_encode($request['car_position_id']):json_encode([]);
         $request['swimmingpool']=$request['swimmingpool']!=null?json_encode($$request['swimmingpool']):json_encode([]);
         return $this->AqarRepository->update($Aqar, $request);
 

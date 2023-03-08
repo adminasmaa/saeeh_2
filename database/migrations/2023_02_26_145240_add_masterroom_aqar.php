@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('aqars', function (Blueprint $table) {
-            $table->string('masterroom')->nullable( );
-            $table->string('normalroom')->nullable( );
+            $table->integer('masterroom')->default('0');
+            $table->integer('normalroom')->default('0');
         });
     }
 
