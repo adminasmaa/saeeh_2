@@ -10,7 +10,7 @@ class CityCategoryResource extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
      */
     public function toArray($request)
@@ -26,7 +26,7 @@ class CityCategoryResource extends JsonResource
 
         $city_id = $this->id;
         $categories = [];
-        foreach (Category::where('type', '=', 0)->get() as $cat) {
+        foreach (Category::where('type', '=', 0)->where('parent_id',null)->get() as $cat) {
 
             $city = json_decode($cat->city_id);
 
@@ -38,9 +38,9 @@ class CityCategoryResource extends JsonResource
         return [
             "id" => $this->id,
             "name" => $this->$name,
-            "image" => asset('images/cities')."/".$this->image,
+            "image" => asset('images/cities') . "/" . $this->image,
             "active" => $this->active,
-            "categories"=> CategoryOnlyResource::collection($categories),
+            "categories" => CategoryOnlyResource::collection($categories),
         ];
     }
 }

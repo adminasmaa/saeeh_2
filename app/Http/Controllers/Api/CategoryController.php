@@ -25,7 +25,7 @@ class CategoryController extends Controller
 
         $city_id = $request->city_id;
         $categories = [];
-        foreach (Category::where('type', '=', 0)->get() as $cat) {
+        foreach (Category::where('type', '=', 0)->where('parent_id',null)->get() as $cat) {
 
             $city = json_decode($cat->city_id);
 

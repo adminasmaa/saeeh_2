@@ -18,10 +18,15 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::get('/categorydetail', 'App\Http\Controllers\Api\CategoryController@categorydetail');
     Route::get('/home/subcategories', 'App\Http\Controllers\Api\CategoryController@subcategories');
     Route::get('/placedetail', 'App\Http\Controllers\Api\PlaceController@placedetail');
+    Route::post('/searchPlease', 'App\Http\Controllers\Api\PlaceController@searchPlease');
     Route::get('/Availabledays', 'App\Http\Controllers\Api\AqarController@Availabledays');
     Route::post('/AddAqar', 'App\Http\Controllers\Api\AqarController@AddAqar');
+    Route::post('/AddNote', 'App\Http\Controllers\Api\AqarController@AddNote');
+    Route::get('/AqarBookingDetail', 'App\Http\Controllers\Api\AqarController@AqarBookingDetail');
     Route::post('/updateProfile', 'App\Http\Controllers\Api\AuthController@updateProfile');
     Route::post('/changepassword', 'App\Http\Controllers\Api\AuthController@changepassword');
+    Route::post('/logout', 'App\Http\Controllers\Api\AuthController@logout');
+    Route::post('/contactus', 'App\Http\Controllers\Api\ContactUsController@contactus');
 
 
     Route::get('/cities', 'App\Http\Controllers\Api\CityController@cities');

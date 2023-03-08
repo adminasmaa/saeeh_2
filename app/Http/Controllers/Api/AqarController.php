@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\AqarBookingResource;
 use App\Models\AqarBooking;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -47,6 +48,77 @@ class AqarController extends Controller
         $availableDate = array_unique($array);
 
         return $this->respondSuccess($availableDate, 'Date is blocking');
+    }
+
+
+    public function AddNote(Request $request)
+    {
+        $rule = [
+
+            'note' => 'required',
+
+            'id' => 'required|exists:aqar_bookings',
+
+
+        ];
+        $customMessages = [
+            'required' => __('validation.attributes.required'),
+        ];
+
+        $validator = validator()->make($request->all(), $rule, $customMessages);
+
+        if ($validator->fails()) {
+
+            return $this->respondError('Validation Error.', $validator->errors(), 400);
+
+        } else {
+
+            $success = AqarBooking::find($request->id)->update(['note' => $request->note]);
+
+            return $this->respondSuccess($success, trans('site.updated_successfully'));
+
+
+        }
+
+    }
+    public function AqarBookingDetail(Request $request)
+    {
+        $rule = [
+
+            'delivery_date' => 'required',
+            'reciept_date' => 'required',
+
+            'aqar_id' => 'required|exists:aqar_bookings',
+
+
+        ];
+        $customMessages = [
+            'required' => __('validation.attributes.required'),
+        ];
+
+        $validator = validator()->make($request->all(), $rule, $customMessages);
+
+        if ($validator->fails()) {
+
+            return $this->respondError('Validation Error.', $validator->errors(), 400);
+
+        } else {
+
+
+            $aqar=AqarBooking::where('aqar_id',$request->aqar_id)->first();
+
+
+            $aquar= new AqarBookingResource($aqar);
+
+
+
+
+
+            return $this->respondSuccess($aquar, trans('site.data retrieved successfully.'));
+
+
+        }
+
     }
 
     public function AddAqar(Request $request)

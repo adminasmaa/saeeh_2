@@ -2,9 +2,11 @@
 
 return [
     'User register successfully.' => 'تسجيل المستخدم بنجاح',
+    'logout'=>'تم تسجيل الخروج ',
     'chanagepassword'=>'تم تغير الرقم السري بنجاح',
     'User updated successfully'=> 'تعديل المستخدم بنجاح',
     'category retrieved successfully.'=>'تم استرداد الفئات بنجاح',
+    'data retrieved successfully.'=>'تم استرداد البيانات بنجاح',
     'wrong credientials' => 'خطا ف بيانات الدخول',
     'User login successfully.'=>'تم الدخول بنجاح',
     'account not verified'=>'الاكونت غير مفعل',
