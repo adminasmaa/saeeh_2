@@ -368,7 +368,7 @@
                                             <div class="col m-t-15">
                                                 @for ($y = 1; $y <= 10; $y++)
                                                 <div class="form-check form-check-inline checkbox checkbox-solid-primary">
-                                                    <input class="form-check-input" id="normalroom_{{$y}}" type="checkbox" name="normalroom[]" value="{{$y}}" {{ $y==$aqar->normalroom? 'checked':'' }}>
+                                                    <input class="form-check-input" id="normalroom_{{$y}}" type="checkbox" name="normalroom" value="{{$y}}" {{ $y==$aqar->normalroom? 'checked':'' }}>
                                                     <label class="form-check-label" for="normalroom_{{$y}}">{{$y}}<span class="digits"></span></label>
                                                 </div>
                                                 @endfor
