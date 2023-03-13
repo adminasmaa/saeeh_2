@@ -16,9 +16,10 @@ Route::group(['middleware' => 'auth:api'], function () {
 
     Route::get('/home/categories', 'App\Http\Controllers\Api\CategoryController@categories');
     Route::get('/categorydetail', 'App\Http\Controllers\Api\CategoryController@categorydetail');
+    Route::get('/CityListCategories', 'App\Http\Controllers\Api\CategoryController@CityListCategories');
     Route::get('/home/subcategories', 'App\Http\Controllers\Api\CategoryController@subcategories');
     Route::get('/placedetail', 'App\Http\Controllers\Api\PlaceController@placedetail');
-    Route::post('/searchPlease', 'App\Http\Controllers\Api\PlaceController@searchPlease');
+    Route::post('/searchPlace', 'App\Http\Controllers\Api\PlaceController@searchPlace');
     Route::get('/Availabledays', 'App\Http\Controllers\Api\AqarController@Availabledays');
     Route::post('/AddAqar', 'App\Http\Controllers\Api\AqarController@AddAqar');
     Route::post('/AddNote', 'App\Http\Controllers\Api\AqarController@AddNote');
