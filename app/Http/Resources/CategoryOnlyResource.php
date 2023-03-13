@@ -29,7 +29,7 @@ class CategoryOnlyResource extends JsonResource
             "name" => $this->$name,
             'description' => $this->description ?? '',
             "icon" => asset('images/categories')."/".$this->icon,
-            "image" => asset('images/categories')."/".$this->image,
+
             "active" => $this->active,
         ];
     }

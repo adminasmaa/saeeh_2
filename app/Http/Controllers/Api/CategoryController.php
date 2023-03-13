@@ -25,7 +25,7 @@ class CategoryController extends Controller
 
         $city_id = $request->city_id;
         $categories = [];
-        foreach (Category::where('type', '=', 0)->where('parent_id',null)->get() as $cat) {
+        foreach (Category::where('type', '=', 0)->where('parent_id', null)->get() as $cat) {
 
             $city = json_decode($cat->city_id);
 
@@ -36,8 +36,8 @@ class CategoryController extends Controller
         }
 
         if (count($categories)) {
-            $cities=City::find($request->city_id);
-            $categories=new CityCategoryResource($cities);
+            $cities = City::find($request->city_id);
+            $categories = new CityCategoryResource($cities);
 
 //            $categories = CategoryOnlyResource::collection($categories);
             return $this->respondSuccess($categories, __('message.categories retrieved successfully.'));
@@ -47,6 +47,33 @@ class CategoryController extends Controller
 
         }
 
+
+    }
+
+    public function CityListCategories(Request $request)
+    {
+        $city_id = $request->city_id;
+        $categories = [];
+        foreach (Category::where('type', '=', 0)->where('parent_id', null)->get() as $cat) {
+
+            $city = json_decode($cat->city_id);
+
+            if (in_array($city_id, $city)) {
+                array_push($categories, $cat);
+
+            }
+        }
+
+        if (count($categories)) {
+
+
+            $categories = CategoryOnlyResource::collection($categories);
+            return $this->respondSuccess($categories, __('message.categories retrieved successfully.'));
+
+        } else {
+            return $this->respondError(__('message.Category not found.'), ['error' => __('message.Category not found.')], 404);
+
+        }
 
     }
 

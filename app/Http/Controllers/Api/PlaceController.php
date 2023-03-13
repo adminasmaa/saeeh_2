@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 class PlaceController extends Controller
 {
 
-    public function searchPlease(Request $request)
+    public function searchPlace(Request $request)
     {
 
         if ($request['country_id'] && $request['city_id'] && $request['category_id']) {
