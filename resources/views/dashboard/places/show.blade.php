@@ -304,7 +304,7 @@
                                     >
                                 </div>
                                 <div class="col-md-6 form-group col-12 p-2 ">
-                                <label>@lang('site.descrption_en')<span class="text-danger">*</span></label>
+                                <label>@lang('site.descrption_en')</label>
                                 <input type="text" name="descrption_en" class="form-control"
                                        value="{{ $place->descrption_en ?? '' }}" readonly=""disabled
                                     >
@@ -339,7 +339,7 @@
                                                 </div>
                                                 @endforeach
                                                 </div>
-                            </div>
+                                            </div>
                         </div>
                         
                         <div class="row">
