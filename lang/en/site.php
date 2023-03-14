@@ -73,6 +73,7 @@ return [
     'youtube'=>'YouTube',
     'snapchat'=>'SnapChat',
     'pools' => 'Pools',
+    'aqar_comments' => 'AqarComments',
 
 
     'female' => 'Female',

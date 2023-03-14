@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\User;   //belongsTo
 use App\Models\Aqar;   //belongsTo
+use App\Models\AqarBooking;   //belongsTo
 
 class AqarComment extends Model
 {
@@ -25,6 +26,7 @@ class AqarComment extends Model
         'demo_work', // default (0)
         'demo_loc', // default (0)
         'aqar_id', //unsigned 
+        'aqar_booking_id', //unsigned 
         'user_id', //unsigned 
     ];
     // relations
@@ -34,5 +36,9 @@ class AqarComment extends Model
     // relations
     public function aqar(){
         return $this->belongsTo(Aqar::class,'aqar_id');
+    }
+    // relations
+    public function aqarBooking(){
+        return $this->belongsTo(AqarBooking::class,'aqar_booking_id');
     }
 }
