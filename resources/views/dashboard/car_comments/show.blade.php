@@ -51,18 +51,50 @@
 
                             <div class="col-md-6 form-group col-12 p-2">
                                 <label>@lang('site.rating')<span class="text-danger">*</span></label>
-                                <input type="text" name="rating" class="form-control"
+                                <input type="float" name="rating" class="form-control"
                                        value="{{ $CarComment->rating }}" readonly
                                 >
                             </div>
 
-
                             <div class="col-md-6 form-group col-12 p-2 ">
-                                <label>@lang('site.status')<span class="text-danger">*</span></label>
-                                <input type="text" name="status" class="form-control"
-                                       value="{{ $CarComment->status }}" readonly
+                                <label class="form-label">@lang('site.status')<span class="text-danger">*</span></label>
+                                    <select class="form-control btn-square" name="status" readonly="" disabled>
+                                        <option selected>@lang('site.select')</option>
+
+                                        <option value="1"
+                                                @if($CarComment->status=='1') selected @endif>@lang('site.active')
+                                        </option>
+                                        <option value="0"
+                                                @if($CarComment->status=='0') selected @endif>@lang('site.inactive')
+                                        </option>
+                                        
+                                    </select>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                        <div class="col-md-6 form-group col-12 p-2">
+                                <label>@lang('site.demo_clean')<span class="text-danger">*</span></label>
+                                <input type="numder" name="demo_clean" class="form-control"
+                                       value="{{ $CarComment->demo_clean }}" readonly
                                 >
                             </div>
+
+                            <div class="col-md-6 form-group col-12 p-2">
+                                <label>@lang('site.demo_status')<span class="text-danger">*</span></label>
+                                <input type="numder" name="demo_status" class="form-control"
+                                       value="{{ $CarComment->demo_status }}" readonly
+                                >
+                            </div>
+
+                            <div class="col-md-6 form-group col-12 p-2">
+                                <label>@lang('site.demo_work')<span class="text-danger">*</span></label>
+                                <input type="numder" name="demo_work" class="form-control"
+                                       value="{{ $CarComment->demo_work }}" readonly
+                                >
+                            </div>
+
+                        </div>
 
 
                         </div>
@@ -109,8 +141,8 @@
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.description')<span class="text-danger">*</span></label>
                                 <textarea class="form-control" cols="5" rows="5" name="description" readonly>
-{{ $CarComment->description ?? '' }}
-                                        </textarea>
+                                        {{ $CarComment->description ?? '' }}
+                                </textarea>
                             </div>
                         </div>
 

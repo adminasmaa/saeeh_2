@@ -108,6 +108,7 @@ class CarCommentsDataTable extends DataTable
     {
         return [
             Column::make('id'),
+            Column::make('description')->title(trans('site.description')),
             Column::make('rating')->title(trans('site.rating')),
             Column::make('status')->title(trans('site.status')),
             Column::make('created_at')->title(trans('site.created_at')),
