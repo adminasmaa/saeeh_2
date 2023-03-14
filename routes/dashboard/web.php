@@ -43,6 +43,7 @@ use App\Http\Controllers\Dashboard\DepositController;
 use App\Http\Controllers\Dashboard\PoolController;
 use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Dashboard\ContactController;
+use App\Http\Controllers\Dashboard\AqarCommentController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedirect', 'localizationRedirect', 'localeViewPath')->group(function () {
@@ -92,6 +93,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
         //aqars
         Route::resource('aqars', AqarController::class);
+        Route::resource('aqar_comments', AqarCommentController::class);
 
         //aquarcategories
         Route::resource('aquarcategories', AquarCategoryController::class);

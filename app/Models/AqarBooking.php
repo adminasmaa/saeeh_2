@@ -12,6 +12,7 @@ use App\Models\Ads;   //belongsTo
 use App\Models\Aqar;   //belongsTo
 use App\Models\BookingNote;    // HasMany
 use App\Models\Deposit;    // HasMany
+use App\Models\AqarComment;    // HasMany
 
 class AqarBooking extends Model
 {
@@ -77,5 +78,9 @@ class AqarBooking extends Model
     // relations
     public function deposit(){
         return $this->HasMany(Deposit::class);
+    }
+    // relations
+    public function aqarComment(){
+        return $this->HasMany(AqarComment::class);
     }
 }

@@ -42,6 +42,7 @@ use App\Repositories\Eloquent\PlaceCategoryRepository;
 use App\Repositories\Eloquent\SectionRepository;
 use App\Repositories\Eloquent\DepositRepository;
 use App\Repositories\Eloquent\PoolRepository;
+use App\Repositories\Eloquent\AqarCommentRepository;
 
 use App\Repositories\Interfaces\ContactRepositoryInterface;
 use App\Repositories\Interfaces\PoolRepositoryInterface;
@@ -74,6 +75,7 @@ use App\Repositories\Interfaces\InvoiceRepositoryInterface;
 use App\Repositories\Interfaces\PlaceCategoryRepositoryInterface;
 use App\Repositories\Interfaces\SectionRepositoryInterface;
 use App\Repositories\Interfaces\DepositRepositoryInterface;
+use App\Repositories\Interfaces\AqarCommentRepositoryInterface;
 
 use App\Repositories\Interfaces\CommissionRepositoryInterface;
 use App\Repositories\Interfaces\PlaceRepositoryInterface;
@@ -138,6 +140,8 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(MessageRepositoryInterface::class, MessageRepository::class);
         $this->app->bind(NotificationRepositoryInterface::class, NotificationRepository::class);
         $this->app->bind(CommissionRepositoryInterface::class, CommissionRepository::class);
+
+        $this->app->bind(AqarCommentRepositoryInterface::class, AqarCommentRepository::class);
 
     }
 

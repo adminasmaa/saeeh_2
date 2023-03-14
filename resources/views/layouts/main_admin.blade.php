@@ -530,10 +530,15 @@
                                         <a href="{{route('dashboard.floor_numbers.index')}}">{{__('site.floor_numbers')}}</a>
                                     </li>
                                     <li>
+                                        <a href="{{route('dashboard.pools.index')}}">{{__('site.pools')}}</a>
+                                    </li>
+
+                                    <li>
                                         <a href="{{route('dashboard.aqars.index')}}">{{__('site.aqars')}}</a>
                                     </li>
+
                                     <li>
-                                        <a href="{{route('dashboard.pools.index')}}">{{__('site.pools')}}</a>
+                                        <a href="{{route('dashboard.aqar_comments.index')}}">{{__('site.aqar_comments')}}</a>
                                     </li>
 
                                 </ul>
