@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Resources;
+use App\Http\Resources\CategoryOnlyResource;
 
 use App\Models\Category;
 use Illuminate\Http\Resources\Json\JsonResource;
