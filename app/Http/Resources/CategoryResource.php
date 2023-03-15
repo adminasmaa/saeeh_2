@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Resources;
+use App\Http\Resources\PlaceResource;
+use App\Http\Resources\SubCategoryResource;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
