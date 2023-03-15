@@ -357,6 +357,19 @@
 
                                 </select>
                             </div>
+                            <div class="col-md-6 form-group  col-12 p-2">
+                                <label class="form-label">@lang('site.categories')</label>
+                                <select class="form-control btn-square" name="sub_category_id" readonly=""disabled>
+                                    <option selected>@lang('site.select')</option>
+                                    @foreach($categories as $sub_cat)
+
+                                        <option value="{{$sub_cat->id}}"
+                                                @if($place->sub_category_id==$sub_cat->id) selected @endif>{{$sub_cat->name_ar ?? ''}}</option>
+
+                                    @endforeach
+
+                                </select>
+                            </div>
                         </div>
                         
                         <div class="row">
