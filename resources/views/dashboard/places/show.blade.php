@@ -267,10 +267,10 @@
                                         <option selected>@lang('site.select')</option>
 
                                         <option value="facebook"
-                                                @if($place->social_media=='facebook') selected @endif>@lang('site.facebook')
+                                                @if($place->social_media=='facebook') selected @endif>facebook
                                         </option>
                                         <option value="instagram"
-                                                @if($place->social_media=='instagram') selected @endif>@lang('site.instagram')
+                                                @if($place->social_media=='instagram') selected @endif>instagram
                                         </option>
                                         
                                     </select>
@@ -304,7 +304,7 @@
                                     >
                                 </div>
                                 <div class="col-md-6 form-group col-12 p-2 ">
-                                <label>@lang('site.descrption_en')</label>
+                                <label>@lang('site.descrption_en')<span class="text-danger">*</span></label>
                                 <input type="text" name="descrption_en" class="form-control"
                                        value="{{ $place->descrption_en ?? '' }}" readonly=""disabled
                                     >
@@ -327,19 +327,19 @@
 
                                 </select>
                             </div>
-                            <div class="col-sm-12">
-                                                <h5 class="text-decoration-underline border-bottom">@lang('site.categories')</h5>
-                                            </div>
-                                            <div class="col">
-                                                <div class="m-t-15">
-                                                @foreach($categories as $cat)
-                                                <div class="form-check radio radio-primary">
-                                                    <input class="form-check-input" id="category_id{{$cat->id}}" type="radio"  name="category_id"  value="{{$cat->id}}" {{$cat->id==$place->category_id? 'checked':'' }} >
-                                                    <label class="form-check-label mb-0" for="category_id{{$cat->id}}">{{$cat->name_ar ?? ''}}</label>
-                                                </div>
-                                                @endforeach
-                                                </div>
-                                            </div>
+                            <div class="col-md-6 form-group  col-12 p-2">
+                                <label class="form-label">@lang('site.categories')</label>
+                                <select class="form-control btn-square" name="category_id" readonly=""disabled>
+                                    <option selected>@lang('site.select')</option>
+                                    @foreach($categories as $cat)
+
+                                        <option value="{{$cat->id}}"
+                                                @if($place->category_id==$cat->id) selected @endif>{{$cat->name_ar ?? ''}}</option>
+
+                                    @endforeach
+
+                                </select>
+                            </div>
                         </div>
                         
                         <div class="row">

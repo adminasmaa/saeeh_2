@@ -196,21 +196,19 @@
                                 </select>
                             </div>
 
-                            <div class="col-sm-12">
-                                                <h5 class="text-decoration-underline border-bottom">@lang('site.categories')</h5>
-                                            </div>
-                                            <div class="col">
-                                                <div class="m-t-15">
-                                                @foreach($categories as $cat)
-                                                <div class="form-check radio radio-primary">
-                                                    <input class="form-check-input" id="category_id{{$cat->id}}" type="radio"  name="category_id"  value="{{$cat->id}}" {{$cat->id==$car->category_id? 'checked':'' }} >
-                                                    <label class="form-check-label mb-0" for="category_id{{$cat->id}}">{{$cat->name ?? ''}}</label>
-                                                </div>
-                                                @endforeach
-                                                </div>
-                                            </div>
+                            <div class="col-md-6 form-group  col-12 p-2">
+                                <label class="form-label">@lang('site.categories')</label>
+                                <select class="form-control btn-square" name="category_id" readonly=""disabled>
+                                    <option selected>@lang('site.select')</option>
+                                    @foreach($categories as $cat)
 
+                                        <option value="{{$cat->id}}"
+                                                @if($car->category_id==$cat->id) selected @endif>{{$cat->name_ar ?? ''}}</option>
 
+                                    @endforeach
+
+                                </select>
+                            </div>
                         </div>
 
 

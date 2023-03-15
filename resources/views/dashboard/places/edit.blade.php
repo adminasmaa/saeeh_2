@@ -65,15 +65,7 @@
                                      onerror="this.src='{{asset('images/places/default.jpg')}}'"
                                 >
                             </div>
-                            <div class="col-md-6 form-group col-12 p-2">
-                                    <label>@lang('site.notify_photo')</label>
-                                    <img src="{{asset('images/places/'.$place->notify_photo)}}"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#exampleModalss" width="100px" height="100px" class="d-block"
-                                        onerror="this.src='{{asset('images/places/default.jpg')}}'"
-                                    >
-
-                        </div>
+                            
                         </div>
                            <!-- Modal -->
                         <div class="modal fade" id="exampleModalss" tabindex="-1"
@@ -82,7 +74,6 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">@lang('site.display_photo')</h5>
-                                        <h5 class="modal-title" id="exampleModalLabel">@lang('site.notify_photo')</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                     </div>
@@ -106,25 +97,7 @@
                                         </table>
                                     </div>
                                     <br>
-                                    <div class="modal-body">
-                                        <table class="border-5">
-                                            <tr>
-                                                <th>
-                                                    <img name="notify_photo"
-                                                         src="{{asset('images/places/'.$place->notify_photo)}}"
-                                                         alt=""
-                                                         width="400px" height="aut0"
-
-
-                                                         onerror="this.src='{{asset('images/places/default.jpg')}}'"
-                                                    >
-
-                                                </th>
-                                            </tr>
-
-
-                                        </table>
-                                    </div>
+                                    
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">@lang('site.Cancel')</button>
@@ -326,6 +299,37 @@
                                                value="{{$place->descrption_en}}"
                                                >
                                     </div>
+                                    <h5 class="modal-title" id="exampleModalLabel">@lang('site.notify_photo')</h5>
+
+                                    <!-- <div class="modal-body">
+                                        <table class="border-5">
+                                            <tr>
+                                                <th>
+                                                    <img name="notify_photo"
+                                                         src="{{asset('images/places/'.$place->notify_photo)}}"
+                                                         alt=""
+                                                         width="400px" height="aut0"
+
+
+                                                         onerror="this.src='{{asset('images/places/default.jpg')}}'"
+                                                    >
+
+                                                </th>
+                                            </tr>
+
+
+                                        </table>
+                                        </div> -->
+
+                                <div class="col-md-6 form-group col-12 p-2">
+                                    <label>@lang('site.notify_photo')</label>
+                                    <img src="{{asset('images/places/'.$place->notify_photo)}}"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#exampleModalss" width="100px" height="100px" class="d-block"
+                                        onerror="this.src='{{asset('images/places/default1.jpg')}}'"
+                                    >
+
+                                </div>
 
                                 </div>
                                 <div class="row">
@@ -344,19 +348,21 @@
                                     </select>
                                 </div>
                              
-                                <div class="col-sm-12">
-                                                <h5 class="text-decoration-underline border-bottom">@lang('site.categories')</h5>
-                                            </div>
-                                            <div class="col">
-                                                <div class="m-t-15">
-                                                @foreach($categories as $cat)
-                                                <div class="form-check radio radio-primary">
-                                                    <input class="form-check-input" id="category_id{{$cat->id}}" type="radio"  name="category_id"  value="{{$cat->id}}" {{$cat->id==$place->category_id? 'checked':'' }} >
-                                                    <label class="form-check-label mb-0" for="category_id{{$cat->id}}">{{$cat->name_ar ?? ''}}</label>
-                                                </div>
-                                                @endforeach
-                                                </div>
-                                            </div>
+
+                        
+                                <div class="col-md-6 form-group"><span class="text-danger">*</span>
+                                    <label class="form-label">@lang('site.categories')</label>
+                                    <select class="form-control btn-square" name="category_id">
+                                        <option selected>@lang('site.select')</option>
+                                        @foreach($categories as $cat)
+
+                                            <option value="{{$cat->id}}"@if($place->category_id==$cat->id) selected @endif>{{$cat->name_ar ?? ''}}</option>
+
+                                        @endforeach
+
+                                    </select>
+                                </div>
+
                                 </div>
                                 
                                 <div class="row">
