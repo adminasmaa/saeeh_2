@@ -59,13 +59,21 @@
 
 
                                 <label>@lang('site.display_photo')</label>
-                                <img src="{{asset('images/places/'.$place->display_photo)}}"
+                                <img  name="display_photo"src="{{asset('images/places/'.$place->display_photo)}}"
                                      data-bs-toggle="modal"
                                      data-bs-target="#exampleModalss" width="100px" height="100px" class="d-block"
                                      onerror="this.src='{{asset('images/places/default.jpg')}}'"
                                 >
                             </div>
-                            
+                            <div class="col-md-6 form-group col-12 p-2">
+                                    <label>@lang('site.notify_photo')</label>
+                                    <img name="notify_photo" src="{{asset('images/places/'.$place->notify_photo)}}"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#exampleModalss2" width="100px" height="100px" class="d-block"
+                                        onerror="this.src='{{asset('images/places/default.jpg')}}'"
+                                    >
+
+                                </div>
                         </div>
                            <!-- Modal -->
                         <div class="modal fade" id="exampleModalss" tabindex="-1"
@@ -97,12 +105,52 @@
                                         </table>
                                     </div>
                                     <br>
-                                    
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">@lang('site.Cancel')</button>
-                                        </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">@lang('site.Cancel')</button>
                                     </div>
+                                    <br>
+                                    </div>
+                                </div>
+                                    </div>
+
+                            <div class="modal fade" id="exampleModalss2" tabindex="-1"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">@lang('site.notify_photo')</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <table class="border-5">
+                                    <tr>
+                                        <th>
+                                            <img name="notify_photo"
+                                                    src="{{asset('images/places/'.$place->notify_photo)}}"
+                                                    alt=""
+                                                    width="400px" height="aut0"
+
+
+                                                    onerror="this.src='{{asset('images/places/default.jpg')}}'"
+                                            >
+
+                                        </th>
+                                    </tr>
+
+
+                                </table>
+                            </div>
+                            <br>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">@lang('site.Cancel')</button>
+                            </div>
+                            <br>
+                            </div>
+                        </div>
+                            </div>
                                 </div>
                             </div>
                             <!--  End Of Modal -->
@@ -299,41 +347,9 @@
                                                value="{{$place->descrption_en}}"
                                                >
                                     </div>
-                                    <h5 class="modal-title" id="exampleModalLabel">@lang('site.notify_photo')</h5>
-
-                                    <!-- <div class="modal-body">
-                                        <table class="border-5">
-                                            <tr>
-                                                <th>
-                                                    <img name="notify_photo"
-                                                         src="{{asset('images/places/'.$place->notify_photo)}}"
-                                                         alt=""
-                                                         width="400px" height="aut0"
-
-
-                                                         onerror="this.src='{{asset('images/places/default.jpg')}}'"
-                                                    >
-
-                                                </th>
-                                            </tr>
-
-
-                                        </table>
-                                        </div> -->
-
-                                <div class="col-md-6 form-group col-12 p-2">
-                                    <label>@lang('site.notify_photo')</label>
-                                    <img src="{{asset('images/places/'.$place->notify_photo)}}"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#exampleModalss" width="100px" height="100px" class="d-block"
-                                        onerror="this.src='{{asset('images/places/default1.jpg')}}'"
-                                    >
-
-                                </div>
-
+                                    
                                 </div>
                                 <div class="row">
-
 
                                 <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                     <label class="form-label">@lang('site.users')</label>
@@ -371,7 +387,7 @@
                                     <div class="col-md-6 form-group col-12 p-2">
 
 
-                                    <label>@lang('site.display_photo')</label>
+                                    <label>@lang('site.display_photo')</label><span class="text-danger">*</span>
                                     <input type="file" name="display_photo" class="form-control"
                                     value="{{ $place->display_photo }}">
 
