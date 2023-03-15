@@ -46,6 +46,7 @@ class Place extends Model
         'images', // nullable
         'social_media',// enum ,['facebook','instagram']
         'category_id', //unsigned
+        'sub_category_id', //unsigned
         'user_id', //unsigned
     ];
 
@@ -64,6 +65,10 @@ class Place extends Model
     // relations
     public function category(){
         return $this->belongsTo(Category::class,'category_id');
+    }
+    // relations
+    public function subCategory(){
+        return $this->belongsTo(Category::class,'sub_category_id');
     }
     // relations
     public function placeComments(){

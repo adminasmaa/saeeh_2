@@ -274,18 +274,19 @@
 
                                     </select>
                                 </div>
-                                    <!-- <div class="col-md-6 form-group">
-                                    <label class="form-label">@lang('site.place_comments')</label>
-                                    <select class="form-control btn-square" name="place_comment_id">
-                                        <option selected>@lang('site.select')</option>
-                                        @foreach($place_comments as $place_comments)
 
-                                            <option value="{{$place_comments->id}}">{{$place_comments->name ?? ''}}</option>
+                                <div class="col-md-6 form-group"><span class="text-danger">*</span>
+                                    <label class="form-label">@lang('site.categories')</label>
+                                    <select class="form-control btn-square" name="sub_category_id">
+                                        <option selected>@lang('site.select')</option>
+                                        @foreach($categories as $sub_cat)
+
+                                            <option value="{{$sub_cat->id}}">{{$cat->name_ar ?? ''}}</option>
 
                                         @endforeach
 
                                     </select>
-                                </div> -->
+                                </div>
 
                                 </div>
 
