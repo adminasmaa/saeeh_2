@@ -32,9 +32,10 @@ class Car extends Model
         'images', // required
         'videos', // nullable
         'comment_text', // nullable
-        'ads_id', //unsigned 
-        'user_id', //unsigned 
-        'category_id', //unsigned 
+        'ads_id', //unsigned
+        'user_id', //unsigned
+        'category_id', //unsigned
+        'sub_category_id'
     ];
     // relations
     public function user(){
