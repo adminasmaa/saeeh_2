@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use Response;
+
 
 use App\DataTables\CategoriesDataTable;
 use App\Http\Controllers\Controller;
@@ -47,6 +49,15 @@ class CategoryController extends Controller
 
     }//end of create
 
+    public function SubCategories($id)
+    {
+
+        $subcategories = Category::where('parent_id', $id)->get();
+
+        return Response::json($subcategories);
+
+
+    }
 
     public function store(Request $request)
     {
