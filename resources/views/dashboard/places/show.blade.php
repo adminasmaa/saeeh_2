@@ -63,7 +63,7 @@
                                     <label>@lang('site.notify_photo')</label>
                                     <img src="{{asset('images/places/'.$place->notify_photo)}}"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#exampleModalss" width="100px" height="100px" class="d-block"
+                                        data-bs-target="#exampleModalss2" width="100px" height="100px" class="d-block"
                                         onerror="this.src='{{asset('images/places/default.jpg')}}'"
                                     >
 
@@ -77,7 +77,6 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">@lang('site.display_photo')</h5>
-                                        <h5 class="modal-title" id="exampleModalLabel">@lang('site.notify_photo')</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                     </div>
@@ -101,6 +100,24 @@
                                         </table>
 
 
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">@lang('site.Cancel')</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="modal fade" id="exampleModalss2" tabindex="-1"
+                             aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">@lang('site.notify_photo')</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         <table class="border-5">
