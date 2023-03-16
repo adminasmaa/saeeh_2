@@ -53,6 +53,8 @@
                                 <img src="{{asset('images/aqars/'.$aqar->main_image)}}"
                                      data-bs-toggle="modal"
                                      data-bs-target="#exampleModalss" width="100px" height="100px" class="d-block"
+
+                                     onerror="this.src='{{asset('uploads/'.$aqar->main_image)}}'"
                                 >
                             </div>
                             <!-- Modal -->
@@ -73,7 +75,7 @@
                                                          src="{{asset('images/aqars/'.$aqar->main_image)}}"
                                                          alt=""
                                                          width="400px" height="aut0"
-
+                                                         onerror="this.src='{{asset('uploads/'.$aqar->main_image)}}'"
                                                     >
 
                                                 </th>
@@ -91,13 +93,13 @@
                                 </div>
                             </div>
                             <!--  End Of Modal -->
-                                
+
                                 <div class="col-sm-8">
                                     <div class="card">
                                         <div class="card-header">
                                         <h5 class="text-danger">@lang('site.alert')</h5>
                                             <h6 class="text-warning">@lang('site.If you have a problem adding your ad, please call us')</h6>
-                                            <h6 class="text-info">0707078888</h6>                    
+                                            <h6 class="text-info">0707078888</h6>
                                         </div>
                                         <div class="card-body">
 
@@ -198,7 +200,7 @@
                                                         >
                                                 </div>
 
-                                                <div class="col-md-12 form-group col-12   desc" id="price2"  style="display: none;">                 
+                                                <div class="col-md-12 form-group col-12   desc" id="price2"  style="display: none;">
                                                         <table class="price-list" id="tb_price">
                                                         @for ($x = 0; $x <= count($aqar->changed_price->price)-1; $x++)
                                                             <tr><td>
@@ -209,10 +211,10 @@
                                                                     <div class="col-md-5 form-group col-12">
                                                                         <input type="number" name="price[]" class="form-control" value="{{$aqar->changed_price->price[$x]}}"/>
                                                                     </div>
-                                                                </div> 
+                                                                </div>
                                                             </td></tr>
                                                         @endfor
-                                                        </table>   
+                                                        </table>
 
                                             </div>
                                             <br>
@@ -450,7 +452,7 @@
                                                 </div>
                                                 @endforeach
                                             </div>
-                                        
+
 
                                             <div class="row">
                                                 <!--<div class="col-md-6">-->
@@ -490,14 +492,14 @@
             $("#price" + test).show();
 
             var category_id =$('input[name="category_id"]:checked').val();
-            $("#floor").hide(); 
-            $("#floornumber").hide(); 
-            $("#space").hide(); 
-            $("#unitnumber").hide(); 
-            $("#bathroomnumber").hide(); 
-            $("#hallnumber").hide(); 
-            $("#personnumber").hide(); 
-            $("#swimmingpool").hide(); 
+            $("#floor").hide();
+            $("#floornumber").hide();
+            $("#space").hide();
+            $("#unitnumber").hide();
+            $("#bathroomnumber").hide();
+            $("#hallnumber").hide();
+            $("#personnumber").hide();
+            $("#swimmingpool").hide();
             $.ajax({
                 url: '{{ url('dashboard/aqars/getsetting') }}' + '/' +category_id ,
                 success: data => {
@@ -506,9 +508,9 @@
                     )
                 }
             });
-           
+
         });
 
-       
+
     </script>
 @endsection
