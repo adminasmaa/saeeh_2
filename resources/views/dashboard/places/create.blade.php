@@ -222,14 +222,6 @@
 
                                 <div class="row">
                                     <!--<div class="col-md-6">-->
-
-                                    <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.address')<span class="text-danger">*</span></label>
-                                        <textarea class="form-control"   cols="5" rows="5" name="address">
-
-                                        </textarea>
-                                    </div>
-
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.descrption_ar')<span class="text-danger">*</span></label>
                                         <textarea class="form-control" cols="5" rows="5" name="descrption_ar">
@@ -242,12 +234,13 @@
 
                                         </textarea>
                                     </div>
-
-                                </div>
-                                <div class="row">
-
-
-                                <div class="col-md-6 form-group"><span class="text-danger">*</span>
+                                    <div class="col-md-6 form-group col-12 p-2 ">
+                                        <label>@lang('site.address')</label><span class="text-danger">*</span>
+                                        <input type="number" name="address" class="form-control"
+                                               value="{{old('address')}}"
+                                               >
+                                    </div>
+                                    <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                     <label class="form-label">@lang('site.users')</label>
                                     <select class="form-control btn-square" name="user_id">
                                         <option selected>@lang('site.select')</option>
@@ -259,12 +252,11 @@
 
                                     </select>
                                 </div>
-                             
-
-                        
+                                </div>
+                                <div class="row">
                                 <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                     <label class="form-label">@lang('site.categories')</label>
-                                    <select class="form-control btn-square" name="category_id">
+                                    <select class="form-control btn-square" name="category_id"id="category_id">
                                         <option selected>@lang('site.select')</option>
                                         @foreach($categories as $cat)
 
@@ -276,17 +268,18 @@
                                 </div>
 
                                 <div class="col-md-6 form-group"><span class="text-danger">*</span>
-                                    <label class="form-label">@lang('site.categories')</label>
-                                    <select class="form-control btn-square" name="sub_category_id">
-                                        <option selected>@lang('site.select')</option>
-                                        @foreach($categories as $sub_cat)
+                                        <label class="form-label">@lang('site.subcategories')</label>
+                                        <select class="form-control btn-square" name="sub_category_id" id="sub_category_id">
+                                            <option selected>@lang('site.select')</option>
+                                            {{--                                        @foreach($subcategories as $cat)--}}
 
-                                            <option value="{{$sub_cat->id}}">{{$cat->name_ar ?? ''}}</option>
+                                            {{--                                            <option value="{{$cat->id}}">{{$cat->name_ar ?? ''}}</option>--}}
 
-                                        @endforeach
+                                            {{--                                        @endforeach--}}
 
-                                    </select>
-                                </div>
+                                        </select>
+                                    </div>
+
 
                                 </div>
 
@@ -343,4 +336,26 @@
     <!-- Container-fluid Ends-->
 
 @endsection
+@section('scripts')
 
+    <script>
+
+        $('#category_id').on('change',function(e){
+            var categoryId = e.target.value;
+
+
+
+            $.get("{{url('dashboard/SubCategories')}}/"+categoryId, function(data){
+                console.log(data);
+                $('#sub_category_id').empty();
+                $('#sub_category_id').append('<option>  Select Please  </option>');
+                $.each(data, function(key, value){
+                    $('#sub_category_id').append('<option value="'+value.id+'">'+value.name_ar+'</option>')
+
+                });
+            })
+        })
+
+    </script>
+
+@endsection

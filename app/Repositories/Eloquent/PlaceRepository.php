@@ -32,7 +32,8 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
         // TODO: Implement create() method.
 
         $users = User::all();
-        $categories = Category::all();
+        // $categories = Category::all();
+        $categories = Category::where('parent_id','=',null)->where('type','=',0)->get();
         $place_comments = PlaceComment::all();
         $notifications = Notification::all();
         return view('dashboard.places.create', compact('users', 'categories', 'place_comments', 'notifications'));
@@ -44,11 +45,12 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
 
         $place = Place::find($Id);
         $users = User::all();
-        $categories = Category::all();
+        // $categories = Category::all();
         $place_comments = PlaceComment::all();
         $notifications = Notification::all();
-
-        return view('dashboard.places.edit', compact('place', 'users', 'categories', 'place_comments', 'notifications'));
+        $categories = Category::where('parent_id','=',null)->where('type','=',0)->get();
+        $subcategories = Category::get();
+        return view('dashboard.places.edit', compact('place', 'users', 'categories', 'place_comments', 'notifications','subcategories'));
     }
 
     public function show($Id)
@@ -60,8 +62,9 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
         $categories = Category::all();
         $place_comments = PlaceComment::all();
         $notifications = Notification::all();
+        $subcategories = Category::get();
 
-        return view('dashboard.places.show', compact('place', 'users', 'categories', 'place_comments', 'notifications'));
+        return view('dashboard.places.show', compact('place', 'users', 'categories', 'place_comments', 'notifications','subcategories'));
     }
 
     public function store($request)

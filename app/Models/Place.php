@@ -67,10 +67,6 @@ class Place extends Model
         return $this->belongsTo(Category::class,'category_id');
     }
     // relations
-    public function subCategory(){
-        return $this->belongsTo(Category::class,'sub_category_id');
-    }
-    // relations
     public function placeComments(){
         return $this->HasMany(PlaceComment::class);
     }

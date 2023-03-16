@@ -327,11 +327,7 @@
                                     >
                                 </div>
 
-                                </div>
-
-
-                        <div class="row">
-                            <div class="col-md-6 form-group col-12 p-2">
+                                <div class="col-md-6 form-group col-12 p-2">
                                 <label class="form-label">@lang('site.users')</label>
                                 <select class="form-control btn-square" name="user_id" readonly=""disabled>
                                     <option selected>@lang('site.select')</option>
@@ -344,6 +340,11 @@
 
                                 </select>
                             </div>
+                        </div>
+
+
+                        <div class="row">
+                            
                             <div class="col-md-6 form-group  col-12 p-2">
                                 <label class="form-label">@lang('site.categories')</label>
                                 <select class="form-control btn-square" name="category_id" readonly=""disabled>
@@ -357,14 +358,14 @@
 
                                 </select>
                             </div>
-                            <div class="col-md-6 form-group  col-12 p-2">
-                                <label class="form-label">@lang('site.categories')</label>
-                                <select class="form-control btn-square" name="sub_category_id" readonly=""disabled>
-                                    <option selected>@lang('site.select')</option>
-                                    @foreach($categories as $sub_cat)
+                            <div class="col-md-6 form-group"><span class="text-danger">*</span>
+                                <label class="form-label">@lang('site.subcategories')</label>
+                                <select class="form-control btn-square" name="sub_category_id" id="sub_category_id" disabled readonly="">
+                                    <option >@lang('site.select')</option>
+                                    @foreach($subcategories as $cats)
 
-                                        <option value="{{$sub_cat->id}}"
-                                                @if($place->sub_category_id==$sub_cat->id) selected @endif>{{$sub_cat->name_ar ?? ''}}</option>
+                                        <option value="{{$cats->id}}"
+                                                @if($place->sub_category_id==$cats->id) selected @endif>{{$cats->name_ar ?? ''}}</option>
 
                                     @endforeach
 
