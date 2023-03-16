@@ -61,8 +61,8 @@ class PlaceController extends Controller
 
             }
 
-
-            $places = Place::wherein('category_id', $categories)->get();
+            $categories=implode(',',$categories);
+            $places = Place::wherein('category_id',  [$categories])->get();
 
 
         } else {
