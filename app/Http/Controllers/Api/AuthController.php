@@ -188,6 +188,8 @@ class AuthController extends Controller
 
     public function activateRegister(Request $request)
     {
+
+
         $validator = Validator::make($request->all(), [
             'country_code' => 'required_without:userId',
             'phone' => 'required_without:userId',
@@ -200,9 +202,19 @@ class AuthController extends Controller
         }
         $country_code = $request->country_code;
         $phone = $request->phone;
-        $user = User::where(function ($query) use ($country_code, $phone) {
-            $query->where('country_code', $country_code)->where('phone', $phone);
-        })->orWhere('id', $request->userId)->first();
+
+
+        if ($request->country_code) {
+            $user = User::where(function ($query) use ($country_code, $phone) {
+                $query->where('country_code', $country_code)->where('phone', $phone);
+            })->first();
+
+        } elseif($request->userId) {
+
+
+            $user = User::Where('id', $request->userId)->first();
+
+        }
         if ($user) {
             if ($user->active) {
                 ;
