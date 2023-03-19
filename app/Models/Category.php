@@ -43,7 +43,7 @@ class Category extends Model
     }
 
     public function aqars(){
-        return $this->HasMany(Aqar::class,'sub_category_id');
+        return $this->HasMany(Aqar::class,'category_id');
     }
 
        public function carscategories(){
