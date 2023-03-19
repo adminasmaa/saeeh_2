@@ -41,4 +41,16 @@ class Category extends Model
     public function aqar(){
         return $this->belongsTo(Aqar::class,'aqar_id');
     }
+
+    public function aqars(){
+        return $this->HasMany(Aqar::class,'sub_category_id');
+    }
+
+       public function carscategories(){
+
+        return $this->HasMany(Car::class,'sub_category_id');
+    }
+
+
+
 }

@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Resources;
+
 use App\Http\Resources\PlaceResource;
+use App\Http\Resources\CarResource;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -10,7 +12,7 @@ class SubCategoryResource extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
      */
     public function toArray($request)
@@ -26,8 +28,10 @@ class SubCategoryResource extends JsonResource
         return [
             "id" => $this->id,
             "name" => $this->$name,
-            "image" => asset('images/categories')."/".$this->image,
-            "places"=> PlaceResource::collection($this->places),
+            "image" => asset('images/categories') . "/" . $this->image,
+            "places" => PlaceResource::collection($this->places),
+            "car" => CarResource::collection($this->carscategories),
+            "aqar" =>AqarResource::collection($this->aqars)
         ];
     }
 }
