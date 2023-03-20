@@ -48,7 +48,7 @@ class Category extends Model
 
        public function carscategories(){
 
-        return $this->HasMany(Car::class,'sub_category_id');
+        return $this->HasMany(Car::class,'category_id');
     }
 
 
