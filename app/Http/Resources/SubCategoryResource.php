@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use App\Http\Resources\PlaceResource;
 use App\Http\Resources\CarResource;
+use App\Http\Resources\SubCategoryResource;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -31,6 +32,7 @@ class SubCategoryResource extends JsonResource
             "image" => asset('images/categories') . "/" . $this->image,
             "places" => PlaceResource::collection($this->places),
             "car" => CarResource::collection($this->carscategories),
+            "subcategories"=>$this->when(!$this->subcategories->isEmpty(), SubCategoryResource::collection($this->subcategories)),
             "aqar" =>AqarResource::collection($this->aqars)
         ];
     }

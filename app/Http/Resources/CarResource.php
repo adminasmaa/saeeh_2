@@ -28,7 +28,6 @@ class CarResource extends JsonResource
             "car_delivery_date" => $this->car_delivery_date ?? '',
             "fixed_price" => $this->fixed_price ?? '',
             "changed_price" => $this->changed_price ?? '',
-            'subcategories' => SubCategoryCarResource::collection($this->subcategories)
 
         ];
     }
