@@ -14,6 +14,11 @@
     }
   }
 }
+.offcanvas {
+  visibility: visible;
+  background: unset;
+  z-index: 2;
+}
 
 .toggle-sidebar {
   position: absolute;
@@ -97,7 +102,7 @@
     .nav-link {
       display: inline-block;
       border-radius: 5px;
-      background-color: rgba($secondary-color, 0.15%);
+      background-color: rgba($secondary-color, 0.15);
       transition: all 0.3s ease;
       color: var(--theme-secondary);
       margin-left: 10px;
@@ -211,7 +216,8 @@
     .nav-link {
       display: inline-block;
       border-radius: 5px;
-      background-color: rgba($primary-color, 0.15%);
+      color: $primary-color;
+      background-color: rgba($primary-color, 0.15);
       transition: all 0.3s ease;
 
       &.active {
@@ -254,6 +260,7 @@
       opacity: 1;
       visibility: visible;
       height: 300px;
+      right: 0;
     }
     .link-section {
       >div {
