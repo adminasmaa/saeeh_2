@@ -37,7 +37,7 @@ class PlaceCategoryRepository implements PlaceCategoryRepositoryInterfaceAlias
 
         $citiesrelated = json_decode($category->city_id) ?? [];
 
-    //    return $citiesrelated;
+        //    return $citiesrelated;
 
         $subcategories = Category::where('parent_id', $Id)->get();
 
@@ -88,7 +88,7 @@ class PlaceCategoryRepository implements PlaceCategoryRepositoryInterfaceAlias
 //            $thumbnail->move($destinationPath, $filename);
 //            $category->image = $filename;
 //            $category->save();
-            UploadImage('images/categories/','image', $category, $request->file('image'));
+            UploadImage('images/categories/', 'image', $category, $request->file('image'));
 
         }
 
@@ -97,7 +97,9 @@ class PlaceCategoryRepository implements PlaceCategoryRepositoryInterfaceAlias
             foreach ($request['name_category'] as $key => $value) {
                 $cat = Category::create([
                     'name_ar' => $value,
-                    'parent_id' => $category->id
+                    'name_en' => $value,
+                    'parent_id' => $category->id,
+                    'city_id' => json_encode($request['city_id'])
                 ]);
 
 
@@ -142,7 +144,7 @@ class PlaceCategoryRepository implements PlaceCategoryRepositoryInterfaceAlias
 //            $thumbnail->move($destinationPath, $filename);
 //            $category->image = $filename;
 //            $category->save();
-            UploadImage('images/categories/','image', $category, $request->file('image'));
+            UploadImage('images/categories/', 'image', $category, $request->file('image'));
         }
 
         if (isset($request['name_category'])) {
@@ -150,7 +152,9 @@ class PlaceCategoryRepository implements PlaceCategoryRepositoryInterfaceAlias
             foreach ($request['name_category'] as $key => $value) {
                 $cat = Category::create([
                     'name_ar' => $value,
-                    'parent_id' => $category->id
+                    'name_en' => $value,
+                    'parent_id' => $category->id,
+                    'city_id' => json_encode($request['city_id'])
                 ]);
 
 
