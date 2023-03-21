@@ -488,44 +488,75 @@
         </footer>
     </div>
 </div>
-<!-- latest jquery-->
-<script src="{{MAINASSETS}}/js/jquery-3.5.1.min.js"></script>
-<!-- Bootstrap js-->
-<script src="{{MAINASSETS}}/js/bootstrap/bootstrap.bundle.min.js"></script>
-<!-- feather icon js-->
-<script src="{{MAINASSETS}}/js/icons/feather-icon/feather.min.js"></script>
-<script src="{{MAINASSETS}}/js/icons/feather-icon/feather-icon.js"></script>
-<!-- scrollbar js-->
-<script src="{{MAINASSETS}}/js/scrollbar/simplebar.js"></script>
-<script src="{{MAINASSETS}}/js/scrollbar/custom.js"></script>
-<!-- Sidebar jquery-->
-<script src="{{MAINASSETS}}/js/config.js"></script>
-<!-- Plugins JS start-->
-<script src="{{MAINASSETS}}/js/sidebar-menu.js"></script>
-<script src="{{MAINASSETS}}/js/chart/chartist/chartist.js"></script>
-<script src="{{MAINASSETS}}/js/chart/chartist/chartist-plugin-tooltip.js"></script>
-<script src="{{MAINASSETS}}/js/chart/knob/knob.min.js"></script>
-<script src="{{MAINASSETS}}/js/chart/knob/knob-chart.js"></script>
-<script src="{{MAINASSETS}}/js/chart/apex-chart/apex-chart.js"></script>
-<script src="{{MAINASSETS}}/js/chart/apex-chart/stock-prices.js"></script>
-<script src="{{MAINASSETS}}/js/notify/bootstrap-notify.min.js"></script>
-<script src="{{MAINASSETS}}/js/dashboard/default.js"></script>
-<script src="{{MAINASSETS}}/js/notify/index.js"></script>
-<script src="{{MAINASSETS}}/js/datepicker/date-picker/datepicker.js"></script>
-<script src="{{MAINASSETS}}/js/datepicker/date-picker/datepicker.en.js"></script>
-<script src="{{MAINASSETS}}/js/datepicker/date-picker/datepicker.custom.js"></script>
-<script src="{{MAINASSETS}}/js/typeahead/handlebars.js"></script>
-<script src="{{MAINASSETS}}/js/typeahead/typeahead.bundle.js"></script>
-<script src="{{MAINASSETS}}/js/typeahead/typeahead.custom.js"></script>
-<script src="{{MAINASSETS}}/js/typeahead-search/handlebars.js"></script>
-<script src="{{MAINASSETS}}/js/typeahead-search/typeahead-custom.js"></script>
-<!-- Plugins JS Ends-->
-<!-- Theme js-->
-<script src="{{MAINASSETS}}/js/script.js"></script>
-<script src="{{MAINASSETS}}/js/theme-customizer/customizer.js"></script>
-<!-- login js-->
-<!-- Plugin used-->
-</body>
+
+ <!-- latest jquery-->
+ <script src="{{MAINASSETS}}/js/jquery-3.5.1.min.js"></script>
+    <!-- Bootstrap js-->
+    <script src="{{MAINASSETS}}/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- feather icon js-->
+    <script src="{{MAINASSETS}}/js/icons/feather-icon/feather.min.js"></script>
+    <script src="{{MAINASSETS}}/js/icons/feather-icon/feather-icon.js"></script>
+    <!-- scrollbar js-->
+    <script src="{{MAINASSETS}}/js/scrollbar/simplebar.js"></script>
+    <script src="{{MAINASSETS}}/js/scrollbar/custom.js"></script>
+    <!-- Sidebar jquery-->
+    <script src="{{MAINASSETS}}/js/config.js"></script>
+    <!-- Plugins JS start-->
+    <script src="{{MAINASSETS}}/js/sidebar-menu.js"></script>
+    <script src="{{MAINASSETS}}/js/chart/chartist/chartist.js"></script>
+    <script src="{{MAINASSETS}}/js/chart/chartist/chartist-plugin-tooltip.js"></script>
+    <script src="{{MAINASSETS}}/js/chart/knob/knob.min.js"></script>
+    <script src="{{MAINASSETS}}/js/chart/knob/knob-chart.js"></script>
+    <script src="{{MAINASSETS}}/js/chart/apex-chart/apex-chart.js"></script>
+    <script src="{{MAINASSETS}}/js/chart/apex-chart/stock-prices.js"></script>
+    <script src="{{MAINASSETS}}/js/notify/bootstrap-notify.min.js"></script>
+    <script src="{{MAINASSETS}}/js/dashboard/default.js"></script>
+    <script src="{{MAINASSETS}}/js/notify/index.js"></script>
+    <script src="{{MAINASSETS}}/js/datepicker/date-picker/datepicker.js"></script>
+    <script src="{{MAINASSETS}}/js/datepicker/date-picker/datepicker.en.js"></script>
+    <script src="{{MAINASSETS}}/js/datepicker/date-picker/datepicker.custom.js"></script>
+    <script src="{{MAINASSETS}}/js/typeahead/handlebars.js"></script>
+    <script src="{{MAINASSETS}}/js/typeahead/typeahead.bundle.js"></script>
+    <script src="{{MAINASSETS}}/js/typeahead/typeahead.custom.js"></script>
+    <script src="{{MAINASSETS}}/js/typeahead-search/handlebars.js"></script>
+    <script src="{{MAINASSETS}}/js/typeahead-search/typeahead-custom.js"></script>
+    <script src="{{MAINASSETS}}/js/dropzone/dropzone.js"></script>
+    <script src="{{MAINASSETS}}/js/dropzone/dropzone-script.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatables/jquery.dataTables.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.buttons.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/jszip.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/buttons.colVis.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/pdfmake.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/vfs_fonts.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.autoFill.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.select.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/buttons.bootstrap4.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/buttons.html5.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/buttons.print.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.bootstrap4.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.responsive.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/responsive.bootstrap4.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.keyTable.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.colReorder.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.fixedHeader.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.rowReorder.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.scroller.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/custom.js"></script>
+    <script src="{{MAINASSETS}}/js/tooltip-init.js"></script>
+
+    <script src="{{MAINASSETS}}/js/select2/select2.full.min.js"></script>
+    <script src="{{MAINASSETS}}/js/select2/select2-custom.js"></script>
+    <script src="{{MAINASSETS}}/js/editor/ckeditor/ckeditor.js"></script>
+    <script src="{{MAINASSETS}}/js/editor/ckeditor/adapters/jquery.js"></script>
+    <script src="{{MAINASSETS}}/js/editor/ckeditor/styles.js"></script>
+    <script src="{{MAINASSETS}}/js/editor/ckeditor/ckeditor.custom.js"></script>
+    <!-- Plugins JS Ends-->
+    <!-- Theme js-->
+    <script src="{{MAINASSETS}}/js/script.js"></script>
+    <script src="{{MAINASSETS}}/js/theme-customizer/customizer.js"></script>
+    <!-- login js-->
+    <!-- Plugin used-->
+  </body>
 <!-- login js-->
 <script>
     function deleteRow(r) {
