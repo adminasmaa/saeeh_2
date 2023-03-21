@@ -17,10 +17,10 @@
           rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900&amp;display=swap"
           rel="stylesheet">
-   
-      <!-- Font Awesome-->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"
-    crossorigin />
+
+    <!-- Font Awesome-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"
+          crossorigin/>
     <link rel="stylesheet" type="text/css" href="{{MAINASSETS}}/css/font-awesome.css">
     <!-- ico-font-->
     <link rel="stylesheet" type="text/css" href="{{MAINASSETS}}/css/vendors/icofont.css">
@@ -115,18 +115,18 @@
                                 {{--                                    @endif--}}
                                 {{--                                @endforeach--}}
 
-{{--                                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)--}}
+                                {{--                                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)--}}
 
-{{--                                    <div class="lang" data-value="ae"><i--}}
-{{--                                            class="{{$properties['native']=='Arabic'? 'flag-icon flag-icon-us' : 'flag-icon flag-icon-ae'}}"></i><span--}}
-{{--                                            class="lang-txt"><a--}}
-{{--                                                hreflang="{{ $localeCode }}"--}}
-{{--                                                href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"--}}
+                                {{--                                    <div class="lang" data-value="ae"><i--}}
+                                {{--                                            class="{{$properties['native']=='Arabic'? 'flag-icon flag-icon-us' : 'flag-icon flag-icon-ae'}}"></i><span--}}
+                                {{--                                            class="lang-txt"><a--}}
+                                {{--                                                hreflang="{{ $localeCode }}"--}}
+                                {{--                                                href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"--}}
 
-{{--                                            >{{ $properties['native'] }}</a></span>--}}
-{{--                                    </div>--}}
+                                {{--                                            >{{ $properties['native'] }}</a></span>--}}
+                                {{--                                    </div>--}}
 
-{{--                                @endforeach--}}
+                                {{--                                @endforeach--}}
                             </div>
                         </div>
                     </li>
@@ -137,25 +137,50 @@
                             <ul>
                                 @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
 
-                                    <li class="li-lang">
-                                        <a hreflang="{{ $localeCode }}"
+                        <li class="li-lang">
+                            <a hreflang="{{ $localeCode }}"
                                            href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
                                            <span >{{ $properties['native'] }}</span></a>
                                     </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </li> -->
+
+                    @endforeach
+                    </ul>
+                </div>
+            </li> -->
                     <li class="language-nav">
                         <div class="translate_wrapper">
-                        <div class="current_lang">
-                            <div class="lang"><i class="flag-icon flag-icon-us"></i><span class="lang-txt">EN  </span></div>
-                        </div>
-                        <div class="more_lang">
-                            <div class="lang selected" data-value="en"><i class="flag-icon flag-icon-us"></i><span class="lang-txt">English</span></div>
-                        
-                            <div class="lang" data-value="ae"><i class="flag-icon flag-icon-ae"></i><span class="lang-txt">العربية</span></div>
-                        </div>
+                            <div class="current_lang">
+                                <div class="lang">@if(app()->getLocale()=='ar')
+                                        <i class="flag-icon flag-icon-ae"></i><span class="lang-txt">
+                                            AR
+                                            </span>
+                                        @else
+                                        <i class="flag-icon flag-icon-us"></i><span class="lang-txt">
+                                            EN
+                                            </span>
+
+                                        @endif  </div>
+                            </div>
+                            <div class="more_lang">
+                                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+
+                                    @if($properties['native']=='English')
+
+                                        <div class="lang" data-value="en"><i class="flag-icon flag-icon-us"></i><span
+                                                class="lang-txt"> <a
+                                                    href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">{{ $properties['native'] }}</a></span>
+                                        </div>
+                                    @else
+                                        <div class="lang" data-value="ae"><i class="flag-icon flag-icon-ae"></i><span
+                                                class="lang-txt"><a
+                                                    href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">{{ $properties['native'] }}</a></span>
+                                        </div>
+
+                                    @endif
+
+                                @endforeach
+
+                            </div>
                         </div>
                     </li>
                     <li>
@@ -504,74 +529,74 @@
     </div>
 </div>
 
- <!-- latest jquery-->
- <script src="{{MAINASSETS}}/js/jquery-3.5.1.min.js"></script>
-    <!-- Bootstrap js-->
-    <script src="{{MAINASSETS}}/js/bootstrap/bootstrap.bundle.min.js"></script>
-    <!-- feather icon js-->
-    <script src="{{MAINASSETS}}/js/icons/feather-icon/feather.min.js"></script>
-    <script src="{{MAINASSETS}}/js/icons/feather-icon/feather-icon.js"></script>
-    <!-- scrollbar js-->
-    <script src="{{MAINASSETS}}/js/scrollbar/simplebar.js"></script>
-    <script src="{{MAINASSETS}}/js/scrollbar/custom.js"></script>
-    <!-- Sidebar jquery-->
-    <script src="{{MAINASSETS}}/js/config.js"></script>
-    <!-- Plugins JS start-->
-    <script src="{{MAINASSETS}}/js/sidebar-menu.js"></script>
-    <script src="{{MAINASSETS}}/js/chart/chartist/chartist.js"></script>
-    <script src="{{MAINASSETS}}/js/chart/chartist/chartist-plugin-tooltip.js"></script>
-    <script src="{{MAINASSETS}}/js/chart/knob/knob.min.js"></script>
-    <script src="{{MAINASSETS}}/js/chart/knob/knob-chart.js"></script>
-    <script src="{{MAINASSETS}}/js/chart/apex-chart/apex-chart.js"></script>
-    <script src="{{MAINASSETS}}/js/chart/apex-chart/stock-prices.js"></script>
-    <script src="{{MAINASSETS}}/js/notify/bootstrap-notify.min.js"></script>
-    <script src="{{MAINASSETS}}/js/dashboard/default.js"></script>
-    <script src="{{MAINASSETS}}/js/notify/index.js"></script>
-    <script src="{{MAINASSETS}}/js/datepicker/date-picker/datepicker.js"></script>
-    <script src="{{MAINASSETS}}/js/datepicker/date-picker/datepicker.en.js"></script>
-    <script src="{{MAINASSETS}}/js/datepicker/date-picker/datepicker.custom.js"></script>
-    <script src="{{MAINASSETS}}/js/typeahead/handlebars.js"></script>
-    <script src="{{MAINASSETS}}/js/typeahead/typeahead.bundle.js"></script>
-    <script src="{{MAINASSETS}}/js/typeahead/typeahead.custom.js"></script>
-    <script src="{{MAINASSETS}}/js/typeahead-search/handlebars.js"></script>
-    <script src="{{MAINASSETS}}/js/typeahead-search/typeahead-custom.js"></script>
-    <script src="{{MAINASSETS}}/js/dropzone/dropzone.js"></script>
-    <script src="{{MAINASSETS}}/js/dropzone/dropzone-script.js"></script>
-    <script src="{{MAINASSETS}}/js/datatable/datatables/jquery.dataTables.min.js"></script>
-    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.buttons.min.js"></script>
-    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/jszip.min.js"></script>
-    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/buttons.colVis.min.js"></script>
-    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/pdfmake.min.js"></script>
-    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/vfs_fonts.js"></script>
-    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.autoFill.min.js"></script>
-    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.select.min.js"></script>
-    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/buttons.bootstrap4.min.js"></script>
-    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/buttons.html5.min.js"></script>
-    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/buttons.print.min.js"></script>
-    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.bootstrap4.min.js"></script>
-    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.responsive.min.js"></script>
-    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/responsive.bootstrap4.min.js"></script>
-    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.keyTable.min.js"></script>
-    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.colReorder.min.js"></script>
-    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.fixedHeader.min.js"></script>
-    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.rowReorder.min.js"></script>
-    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.scroller.min.js"></script>
-    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/custom.js"></script>
-    <script src="{{MAINASSETS}}/js/tooltip-init.js"></script>
+<!-- latest jquery-->
+<script src="{{MAINASSETS}}/js/jquery-3.5.1.min.js"></script>
+<!-- Bootstrap js-->
+<script src="{{MAINASSETS}}/js/bootstrap/bootstrap.bundle.min.js"></script>
+<!-- feather icon js-->
+<script src="{{MAINASSETS}}/js/icons/feather-icon/feather.min.js"></script>
+<script src="{{MAINASSETS}}/js/icons/feather-icon/feather-icon.js"></script>
+<!-- scrollbar js-->
+<script src="{{MAINASSETS}}/js/scrollbar/simplebar.js"></script>
+<script src="{{MAINASSETS}}/js/scrollbar/custom.js"></script>
+<!-- Sidebar jquery-->
+<script src="{{MAINASSETS}}/js/config.js"></script>
+<!-- Plugins JS start-->
+<script src="{{MAINASSETS}}/js/sidebar-menu.js"></script>
+<script src="{{MAINASSETS}}/js/chart/chartist/chartist.js"></script>
+<script src="{{MAINASSETS}}/js/chart/chartist/chartist-plugin-tooltip.js"></script>
+<script src="{{MAINASSETS}}/js/chart/knob/knob.min.js"></script>
+<script src="{{MAINASSETS}}/js/chart/knob/knob-chart.js"></script>
+<script src="{{MAINASSETS}}/js/chart/apex-chart/apex-chart.js"></script>
+<script src="{{MAINASSETS}}/js/chart/apex-chart/stock-prices.js"></script>
+<script src="{{MAINASSETS}}/js/notify/bootstrap-notify.min.js"></script>
+<script src="{{MAINASSETS}}/js/dashboard/default.js"></script>
+<script src="{{MAINASSETS}}/js/notify/index.js"></script>
+<script src="{{MAINASSETS}}/js/datepicker/date-picker/datepicker.js"></script>
+<script src="{{MAINASSETS}}/js/datepicker/date-picker/datepicker.en.js"></script>
+<script src="{{MAINASSETS}}/js/datepicker/date-picker/datepicker.custom.js"></script>
+<script src="{{MAINASSETS}}/js/typeahead/handlebars.js"></script>
+<script src="{{MAINASSETS}}/js/typeahead/typeahead.bundle.js"></script>
+<script src="{{MAINASSETS}}/js/typeahead/typeahead.custom.js"></script>
+<script src="{{MAINASSETS}}/js/typeahead-search/handlebars.js"></script>
+<script src="{{MAINASSETS}}/js/typeahead-search/typeahead-custom.js"></script>
+<script src="{{MAINASSETS}}/js/dropzone/dropzone.js"></script>
+<script src="{{MAINASSETS}}/js/dropzone/dropzone-script.js"></script>
+<script src="{{MAINASSETS}}/js/datatable/datatables/jquery.dataTables.min.js"></script>
+<script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.buttons.min.js"></script>
+<script src="{{MAINASSETS}}/js/datatable/datatable-extension/jszip.min.js"></script>
+<script src="{{MAINASSETS}}/js/datatable/datatable-extension/buttons.colVis.min.js"></script>
+<script src="{{MAINASSETS}}/js/datatable/datatable-extension/pdfmake.min.js"></script>
+<script src="{{MAINASSETS}}/js/datatable/datatable-extension/vfs_fonts.js"></script>
+<script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.autoFill.min.js"></script>
+<script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.select.min.js"></script>
+<script src="{{MAINASSETS}}/js/datatable/datatable-extension/buttons.bootstrap4.min.js"></script>
+<script src="{{MAINASSETS}}/js/datatable/datatable-extension/buttons.html5.min.js"></script>
+<script src="{{MAINASSETS}}/js/datatable/datatable-extension/buttons.print.min.js"></script>
+<script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.bootstrap4.min.js"></script>
+<script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.responsive.min.js"></script>
+<script src="{{MAINASSETS}}/js/datatable/datatable-extension/responsive.bootstrap4.min.js"></script>
+<script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.keyTable.min.js"></script>
+<script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.colReorder.min.js"></script>
+<script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.fixedHeader.min.js"></script>
+<script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.rowReorder.min.js"></script>
+<script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.scroller.min.js"></script>
+<script src="{{MAINASSETS}}/js/datatable/datatable-extension/custom.js"></script>
+<script src="{{MAINASSETS}}/js/tooltip-init.js"></script>
 
-    <script src="{{MAINASSETS}}/js/select2/select2.full.min.js"></script>
-    <script src="{{MAINASSETS}}/js/select2/select2-custom.js"></script>
-    <script src="{{MAINASSETS}}/js/editor/ckeditor/ckeditor.js"></script>
-    <script src="{{MAINASSETS}}/js/editor/ckeditor/adapters/jquery.js"></script>
-    <script src="{{MAINASSETS}}/js/editor/ckeditor/styles.js"></script>
-    <script src="{{MAINASSETS}}/js/editor/ckeditor/ckeditor.custom.js"></script>
-    <!-- Plugins JS Ends-->
-    <!-- Theme js-->
-    <script src="{{MAINASSETS}}/js/script.js"></script>
-    <script src="{{MAINASSETS}}/js/theme-customizer/customizer.js"></script>
-    <!-- login js-->
-    <!-- Plugin used-->
-  </body>
+<script src="{{MAINASSETS}}/js/select2/select2.full.min.js"></script>
+<script src="{{MAINASSETS}}/js/select2/select2-custom.js"></script>
+<script src="{{MAINASSETS}}/js/editor/ckeditor/ckeditor.js"></script>
+<script src="{{MAINASSETS}}/js/editor/ckeditor/adapters/jquery.js"></script>
+<script src="{{MAINASSETS}}/js/editor/ckeditor/styles.js"></script>
+<script src="{{MAINASSETS}}/js/editor/ckeditor/ckeditor.custom.js"></script>
+<!-- Plugins JS Ends-->
+<!-- Theme js-->
+<script src="{{MAINASSETS}}/js/script.js"></script>
+<script src="{{MAINASSETS}}/js/theme-customizer/customizer.js"></script>
+<!-- login js-->
+<!-- Plugin used-->
+</body>
 <!-- login js-->
 <script>
     function deleteRow(r) {
