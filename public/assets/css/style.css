@@ -28547,7 +28547,7 @@ body[class*=dark-] .for-light {
   align-items: center;
 }
 .page-wrapper .page-header .header-wrapper .nav-right .cart-dropdown li .media .media-body {
-  margin-right: 20px;
+  margin-left: 20px;
 }
 .page-wrapper .page-header .header-wrapper .nav-right .cart-dropdown li + li {
   margin-top: 0;
@@ -34064,6 +34064,19 @@ html[dir=rtl] .page-wrapper.compact-small .page-body-wrapper div.sidebar-wrapper
     display: none !important;
   }
 }
+
+
+  
+  .field-icon {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    color: #000;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+
 
 /**=====================
     63. Box-layout CSS ends

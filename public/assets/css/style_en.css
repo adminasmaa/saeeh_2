@@ -34066,3 +34066,13 @@
   /**=====================
       63. Box-layout CSS ends
   ==========================**/
+
+  .field-icon {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    color: #000;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  

@@ -657,9 +657,39 @@
     <script src="{{MAINASSETS}}/js/typeahead/typeahead.custom.js"></script>
     <script src="{{MAINASSETS}}/js/typeahead-search/handlebars.js"></script>
     <script src="{{MAINASSETS}}/js/typeahead-search/typeahead-custom.js"></script>
+    <script src="{{MAINASSETS}}/js/dropzone/dropzone.js"></script>
+    <script src="{{MAINASSETS}}/js/dropzone/dropzone-script.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatables/jquery.dataTables.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.buttons.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/jszip.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/buttons.colVis.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/pdfmake.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/vfs_fonts.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.autoFill.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.select.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/buttons.bootstrap4.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/buttons.html5.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/buttons.print.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.bootstrap4.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.responsive.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/responsive.bootstrap4.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.keyTable.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.colReorder.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.fixedHeader.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.rowReorder.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.scroller.min.js"></script>
+    <script src="{{MAINASSETS}}/js/datatable/datatable-extension/custom.js"></script>
+    <script src="{{MAINASSETS}}/js/tooltip-init.js"></script>
+
+    <script src="{{MAINASSETS}}/js/select2/select2.full.min.js"></script>
+    <script src="{{MAINASSETS}}/js/select2/select2-custom.js"></script>
+    <script src="{{MAINASSETS}}/js/editor/ckeditor/ckeditor.js"></script>
+    <script src="{{MAINASSETS}}/js/editor/ckeditor/adapters/jquery.js"></script>
+    <script src="{{MAINASSETS}}/js/editor/ckeditor/styles.js"></script>
+    <script src="{{MAINASSETS}}/js/editor/ckeditor/ckeditor.custom.js"></script>
     <!-- Plugins JS Ends-->
     <!-- Theme js-->
-    <script src="{{MAINASSETS}}/js/script.js"></script>
+    <script src="{{MAINASSETS}}/js/script.js"></script>          
     <script src="{{MAINASSETS}}/js/theme-customizer/customizer.js"></script>
     <!-- login js-->
     <!-- Plugin used-->
