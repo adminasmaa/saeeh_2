@@ -17,6 +17,10 @@
           rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900&amp;display=swap"
           rel="stylesheet">
+   
+      <!-- Font Awesome-->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"
+    crossorigin />
     <link rel="stylesheet" type="text/css" href="{{MAINASSETS}}/css/font-awesome.css">
     <!-- ico-font-->
     <link rel="stylesheet" type="text/css" href="{{MAINASSETS}}/css/vendors/icofont.css">
@@ -127,22 +131,33 @@
                         </div>
                     </li>
                     <li><span class="header-search"><i data-feather="search"></i></span></li>
-                    <li class="onhover-dropdown">
-                        <div class="notification-box"><i data-feather="bell"> </i></div>
-                        <div class="onhover-show-div notification-dropdown">
+                    <!-- <li class="onhover-dropdown">
+                        <div class="notification-box "><i class="fas fa-globe lang-icon"></i></div>
+                        <div class="onhover-show-div notification-dropdown lang-dropdown">
                             <ul>
                                 @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
 
-                                    <li class="b-l-primary border-1">
+                                    <li class="li-lang">
                                         <a hreflang="{{ $localeCode }}"
                                            href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                                           <span class="font-danger">{{ $properties['native'] }}</span></a>
+                                           <span >{{ $properties['native'] }}</span></a>
                                     </li>
                                 @endforeach
                             </ul>
                         </div>
+                    </li> -->
+                    <li class="language-nav">
+                        <div class="translate_wrapper">
+                        <div class="current_lang">
+                            <div class="lang"><i class="flag-icon flag-icon-us"></i><span class="lang-txt">EN  </span></div>
+                        </div>
+                        <div class="more_lang">
+                            <div class="lang selected" data-value="en"><i class="flag-icon flag-icon-us"></i><span class="lang-txt">English</span></div>
+                        
+                            <div class="lang" data-value="ae"><i class="flag-icon flag-icon-ae"></i><span class="lang-txt">العربية</span></div>
+                        </div>
+                        </div>
                     </li>
-
                     <li>
                         <div class="mode"><i class="fa fa-moon-o"></i></div>
                     </li>
