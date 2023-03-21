@@ -110,181 +110,44 @@
                                 {{--                                        <div class="lang" data-value="ae"><i class="{{app()->isLocale('ar')? 'flag-icon flag-icon-us' : 'flag-icon flag-icon-ae'}}"></i><span class="lang-txt"><a  href="{{ route('lang.switch', $lang) }}">{{$language}}</a></span></div>--}}
                                 {{--                                    @endif--}}
                                 {{--                                @endforeach--}}
+
+{{--                                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)--}}
+
+{{--                                    <div class="lang" data-value="ae"><i--}}
+{{--                                            class="{{$properties['native']=='Arabic'? 'flag-icon flag-icon-us' : 'flag-icon flag-icon-ae'}}"></i><span--}}
+{{--                                            class="lang-txt"><a--}}
+{{--                                                hreflang="{{ $localeCode }}"--}}
+{{--                                                href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"--}}
+
+{{--                                            >{{ $properties['native'] }}</a></span>--}}
+{{--                                    </div>--}}
+
+{{--                                @endforeach--}}
                             </div>
                         </div>
                     </li>
                     <li><span class="header-search"><i data-feather="search"></i></span></li>
                     <li class="onhover-dropdown">
-                        <div class="notification-box"><i data-feather="bell"> </i><span
-                                class="badge rounded-pill badge-secondary">4 </span></div>
+                        <div class="notification-box"><i data-feather="bell"> </i></div>
                         <div class="onhover-show-div notification-dropdown">
-                            <h6 class="f-18 mb-0 dropdown-title">Notitications </h6>
                             <ul>
-                                <li class="b-l-primary border-4">
-                                    <p>Delivery processing <span class="font-danger">10 min.</span></p>
-                                </li>
-                                <li class="b-l-success border-4">
-                                    <p>Order Complete<span class="font-success">1 hr</span></p>
-                                </li>
-                                <li class="b-l-info border-4">
-                                    <p>Tickets Generated<span class="font-info">3 hr</span></p>
-                                </li>
-                                <li class="b-l-warning border-4">
-                                    <p>Delivery Complete<span class="font-warning">6 hr</span></p>
-                                </li>
-                                <li><a class="f-w-700" href="#">Check all</a></li>
+                                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+
+                                    <li class="b-l-primary border-1">
+                                        <a hreflang="{{ $localeCode }}"
+                                           href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                           <span class="font-danger">{{ $properties['native'] }}</span></a>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                     </li>
-                    <li class="onhover-dropdown">
-                        <div class="notification-box"><i data-feather="star"></i></div>
-                        <div class="onhover-show-div bookmark-flip">
-                            <div class="flip-card">
-                                <div class="flip-card-inner">
-                                    <div class="front">
-                                        <h6 class="f-18 mb-0 dropdown-title">Bookmark</h6>
-                                        <ul class="bookmark-dropdown">
-                                            <li>
-                                                <div class="row">
-                                                    <div class="col-4 text-center">
-                                                        <div class="bookmark-content">
-                                                            <div class="bookmark-icon"><i data-feather="file-text"></i>
-                                                            </div>
-                                                            <span>Forms</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-4 text-center">
-                                                        <div class="bookmark-content">
-                                                            <div class="bookmark-icon"><i data-feather="user"></i></div>
-                                                            <span>Profile</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-4 text-center">
-                                                        <div class="bookmark-content">
-                                                            <div class="bookmark-icon"><i data-feather="server"></i>
-                                                            </div>
-                                                            <span>Tables</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="text-center"><a class="flip-btn f-w-700" id="flip-btn"
-                                                                       href="javascript:void(0)">Add New Bookmark</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="back">
-                                        <ul>
-                                            <li>
-                                                <div class="bookmark-dropdown flip-back-content">
-                                                    <input type="text" placeholder="search...">
-                                                </div>
-                                            </li>
-                                            <li><a class="f-w-700 d-block flip-back" id="flip-back"
-                                                   href="javascript:void(0)">Back</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+
                     <li>
                         <div class="mode"><i class="fa fa-moon-o"></i></div>
                     </li>
-                    <li class="cart-nav onhover-dropdown">
-                        <div class="cart-box"><i data-feather="shopping-cart"></i><span
-                                class="badge rounded-pill badge-primary">2</span></div>
-                        <div class="cart-dropdown onhover-show-div">
-                            <h6 class="f-18 mb-0 dropdown-title">Cart</h6>
-                            <ul>
-                                <li>
-                                    <div class="media"><img class="img-fluid b-r-5 me-3 img-60" src="#" alt="">
-                                        <div class="media-body"><span>Furniture Chair for Home</span>
-                                            <div class="qty-box">
-                                                <div class="input-group"><span class="input-group-prepend">
-                                <button class="btn quantity-left-minus" type="button" data-type="minus"
-                                        data-field="">-</button></span>
-                                                    <input class="form-control input-number" type="text" name="quantity"
-                                                           value="1"><span class="input-group-prepend">
-                                <button class="btn quantity-right-plus" type="button" data-type="plus"
-                                        data-field="">+</button></span>
-                                                </div>
-                                            </div>
-                                            <h6 class="font-primary">$500</h6>
-                                        </div>
-                                        <div class="close-circle"><a class="bg-danger" href="#"><i data-feather="x"></i></a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="media"><img class="img-fluid b-r-5 me-3 img-60" src="#" alt="">
-                                        <div class="media-body"><span>Furniture Chair for Home</span>
-                                            <div class="qty-box">
-                                                <div class="input-group"><span class="input-group-prepend">
-                                <button class="btn quantity-left-minus" type="button" data-type="minus"
-                                        data-field="">-</button></span>
-                                                    <input class="form-control input-number" type="text" name="quantity"
-                                                           value="1"><span class="input-group-prepend">
-                                <button class="btn quantity-right-plus" type="button" data-type="plus"
-                                        data-field="">+</button></span>
-                                                </div>
-                                            </div>
-                                            <h6 class="font-primary">$500.00</h6>
-                                        </div>
-                                        <div class="close-circle"><a class="bg-danger" href="#"><i data-feather="x"></i></a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="total">
-                                    <h6 class="mb-0">Order Total : <span class="f-right">$1000.00</span></h6>
-                                </li>
-                                <li class="text-center"><a class="d-block mb-3 view-cart f-w-700" href="cart.html">Go to
-                                        your cart</a><a class="btn btn-primary view-checkout" href="checkout.html">Checkout</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="onhover-dropdown"><i data-feather="message-square"></i>
-                        <div class="chat-dropdown onhover-show-div">
-                            <h6 class="f-18 mb-0 dropdown-title">Messages</h6>
-                            <ul class="py-0">
-                                <li>
-                                    <div class="media"><img class="img-fluid b-r-5 me-2"
-                                                            src="{{MAINASSETS}}/images/user/1.jpg" alt="">
-                                        <div class="media-body">
-                                            <h6>Teressa</h6>
-                                            <p>Reference site about Lorem Ipsum, give information on its origins.</p>
-                                            <p class="f-8 font-primary mb-0">3 hours ago</p>
-                                        </div>
-                                        <span class="badge rounded-circle badge-primary">2</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="media"><img class="img-fluid b-r-5 me-2"
-                                                            src="{{MAINASSETS}}/images/user/2.jpg" alt="">
-                                        <div class="media-body">
-                                            <h6>Kori Thomas</h6>
-                                            <p>Lorem Ipsum is simply dummy give information on its origins....</p>
-                                            <p class="f-8 font-primary mb-0">1 hr ago</p>
-                                        </div>
-                                        <span class="badge rounded-circle badge-primary">2</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="media"><img class="img-fluid b-r-5 me-2"
-                                                            src="{{MAINASSETS}}/images/user/14.png" alt="">
-                                        <div class="media-body">
-                                            <h6>Ain Chavez</h6>
-                                            <p>Lorem Ipsum is simply dummy...</p>
-                                            <p class="f-8 font-primary mb-0">32 mins ago</p>
-                                        </div>
-                                        <span class="badge rounded-circle badge-primary">2</span>
-                                    </div>
-                                </li>
-                                <li class="text-center"><a class="f-w-700" href="#">View All </a></li>
-                            </ul>
-                        </div>
-                    </li>
+
+
                     <li class="maximize"><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i
                                 data-feather="maximize"></i></a></li>
                     <li class="profile-nav onhover-dropdown p-0 me-0">
@@ -416,7 +279,6 @@
                                         data-feather="film"></i><span>@lang('site.cities') @endlang</span></a>
 
                             </li>
-
 
 
                             <li class="sidebar-list"><a
@@ -572,37 +434,37 @@
 
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav"
-                                    href="{{route('dashboard.commissions.index')}}">
+                                   href="{{route('dashboard.commissions.index')}}">
                                     <i data-feather="plus-circle"></i><span>@lang('site.commissions') @endlang</span></a>
                             </li>
 
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav"
-                                    href="{{route('dashboard.notifications.index')}}">
+                                   href="{{route('dashboard.notifications.index')}}">
                                     <i data-feather="droplet"></i><span>@lang('site.notifications') @endlang</span></a>
                             </li>
 
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav"
-                                    href="{{route('dashboard.balances.index')}}">
+                                   href="{{route('dashboard.balances.index')}}">
                                     <i data-feather="dollar-sign"></i><span>@lang('site.balances') @endlang</span></a>
                             </li>
 
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav"
-                                    href="{{route('dashboard.invoices.index')}}">
+                                   href="{{route('dashboard.invoices.index')}}">
                                     <i data-feather="anchor"></i><span>@lang('site.invoices') @endlang</span></a>
                             </li>
 
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav"
-                                    href="{{route('dashboard.deposits.index')}}">
+                                   href="{{route('dashboard.deposits.index')}}">
                                     <i data-feather="credit-card"></i><span>@lang('site.deposits') @endlang</span></a>
                             </li>
 
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav"
-                                    href="{{route('dashboard.sections.index')}}">
+                                   href="{{route('dashboard.sections.index')}}">
                                     <i data-feather="list"></i><span>@lang('site.sections') @endlang</span></a>
                             </li>
                         </ul>
@@ -626,44 +488,44 @@
         </footer>
     </div>
 </div>
- <!-- latest jquery-->
- <script src="{{MAINASSETS}}/js/jquery-3.5.1.min.js"></script>
-    <!-- Bootstrap js-->
-    <script src="{{MAINASSETS}}/js/bootstrap/bootstrap.bundle.min.js"></script>
-    <!-- feather icon js-->
-    <script src="{{MAINASSETS}}/js/icons/feather-icon/feather.min.js"></script>
-    <script src="{{MAINASSETS}}/js/icons/feather-icon/feather-icon.js"></script>
-    <!-- scrollbar js-->
-    <script src="{{MAINASSETS}}/js/scrollbar/simplebar.js"></script>
-    <script src="{{MAINASSETS}}/js/scrollbar/custom.js"></script>
-    <!-- Sidebar jquery-->
-    <script src="{{MAINASSETS}}/js/config.js"></script>
-    <!-- Plugins JS start-->
-    <script src="{{MAINASSETS}}/js/sidebar-menu.js"></script>
-    <script src="{{MAINASSETS}}/js/chart/chartist/chartist.js"></script>
-    <script src="{{MAINASSETS}}/js/chart/chartist/chartist-plugin-tooltip.js"></script>
-    <script src="{{MAINASSETS}}/js/chart/knob/knob.min.js"></script>
-    <script src="{{MAINASSETS}}/js/chart/knob/knob-chart.js"></script>
-    <script src="{{MAINASSETS}}/js/chart/apex-chart/apex-chart.js"></script>
-    <script src="{{MAINASSETS}}/js/chart/apex-chart/stock-prices.js"></script>
-    <script src="{{MAINASSETS}}/js/notify/bootstrap-notify.min.js"></script>
-    <script src="{{MAINASSETS}}/js/dashboard/default.js"></script>
-    <script src="{{MAINASSETS}}/js/notify/index.js"></script>
-    <script src="{{MAINASSETS}}/js/datepicker/date-picker/datepicker.js"></script>
-    <script src="{{MAINASSETS}}/js/datepicker/date-picker/datepicker.en.js"></script>
-    <script src="{{MAINASSETS}}/js/datepicker/date-picker/datepicker.custom.js"></script>
-    <script src="{{MAINASSETS}}/js/typeahead/handlebars.js"></script>
-    <script src="{{MAINASSETS}}/js/typeahead/typeahead.bundle.js"></script>
-    <script src="{{MAINASSETS}}/js/typeahead/typeahead.custom.js"></script>
-    <script src="{{MAINASSETS}}/js/typeahead-search/handlebars.js"></script>
-    <script src="{{MAINASSETS}}/js/typeahead-search/typeahead-custom.js"></script>
-    <!-- Plugins JS Ends-->
-    <!-- Theme js-->
-    <script src="{{MAINASSETS}}/js/script.js"></script>
-    <script src="{{MAINASSETS}}/js/theme-customizer/customizer.js"></script>
-    <!-- login js-->
-    <!-- Plugin used-->
-  </body>
+<!-- latest jquery-->
+<script src="{{MAINASSETS}}/js/jquery-3.5.1.min.js"></script>
+<!-- Bootstrap js-->
+<script src="{{MAINASSETS}}/js/bootstrap/bootstrap.bundle.min.js"></script>
+<!-- feather icon js-->
+<script src="{{MAINASSETS}}/js/icons/feather-icon/feather.min.js"></script>
+<script src="{{MAINASSETS}}/js/icons/feather-icon/feather-icon.js"></script>
+<!-- scrollbar js-->
+<script src="{{MAINASSETS}}/js/scrollbar/simplebar.js"></script>
+<script src="{{MAINASSETS}}/js/scrollbar/custom.js"></script>
+<!-- Sidebar jquery-->
+<script src="{{MAINASSETS}}/js/config.js"></script>
+<!-- Plugins JS start-->
+<script src="{{MAINASSETS}}/js/sidebar-menu.js"></script>
+<script src="{{MAINASSETS}}/js/chart/chartist/chartist.js"></script>
+<script src="{{MAINASSETS}}/js/chart/chartist/chartist-plugin-tooltip.js"></script>
+<script src="{{MAINASSETS}}/js/chart/knob/knob.min.js"></script>
+<script src="{{MAINASSETS}}/js/chart/knob/knob-chart.js"></script>
+<script src="{{MAINASSETS}}/js/chart/apex-chart/apex-chart.js"></script>
+<script src="{{MAINASSETS}}/js/chart/apex-chart/stock-prices.js"></script>
+<script src="{{MAINASSETS}}/js/notify/bootstrap-notify.min.js"></script>
+<script src="{{MAINASSETS}}/js/dashboard/default.js"></script>
+<script src="{{MAINASSETS}}/js/notify/index.js"></script>
+<script src="{{MAINASSETS}}/js/datepicker/date-picker/datepicker.js"></script>
+<script src="{{MAINASSETS}}/js/datepicker/date-picker/datepicker.en.js"></script>
+<script src="{{MAINASSETS}}/js/datepicker/date-picker/datepicker.custom.js"></script>
+<script src="{{MAINASSETS}}/js/typeahead/handlebars.js"></script>
+<script src="{{MAINASSETS}}/js/typeahead/typeahead.bundle.js"></script>
+<script src="{{MAINASSETS}}/js/typeahead/typeahead.custom.js"></script>
+<script src="{{MAINASSETS}}/js/typeahead-search/handlebars.js"></script>
+<script src="{{MAINASSETS}}/js/typeahead-search/typeahead-custom.js"></script>
+<!-- Plugins JS Ends-->
+<!-- Theme js-->
+<script src="{{MAINASSETS}}/js/script.js"></script>
+<script src="{{MAINASSETS}}/js/theme-customizer/customizer.js"></script>
+<!-- login js-->
+<!-- Plugin used-->
+</body>
 <!-- login js-->
 <script>
     function deleteRow(r) {
