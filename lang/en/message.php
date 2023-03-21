@@ -4,7 +4,8 @@ return [
     'User register successfully.' => 'User register successfully.',
     'User updated successfully'=>'.User updated successfully',
     'chanagepassword'=>'Chanage Password Successfully',
-    'category retrieved successfully.'=>'category retrieved successfully',
+    '
+    '=>'category retrieved successfully',
     'data retrieved successfully.'=>'Data Retrieved Successfully.',
     'wrong credientials' => 'Wrong Credientials',
     'User login successfully.'=>'User login successfully.',
