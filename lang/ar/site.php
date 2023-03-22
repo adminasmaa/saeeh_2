@@ -490,6 +490,12 @@ return [
     'carposition'     =>'مواقف السيارات',
     'swimmingpool'     =>'المسبح',
     'descrption'   =>'الوصف',
+    'Main Statistics' =>'الاحصائيات',
+    'Total Statistics' =>'كل الاحصائيات',
+    'Good Morning' =>'صباح الخير',
+    'God Almighty loves that when one of you performs a deed, he should be perfect.' =>'إنَّ اللهَ تعالى يُحِبُّ إذا عمِلَ أحدُكمْ عملًا أنْ يُتقِنَه',
+    'Happy Day' =>'يوم سعيد',
+
 
 
 

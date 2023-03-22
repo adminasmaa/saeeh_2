@@ -27,13 +27,12 @@
                             <div class="media">
                                 <div class="media-body">
                                     <div class="greeting-user">
-                                        <h4 class="f-w-600 font-primary" id="greeting">Good Morning</h4>
-                                        <p>Here whats happing in your account today</p>
-                                        <div class="whatsnew-btn"><a class="btn btn-primary">Whats New !</a></div>
+                                        <h4 class="f-w-600 font-primary" id="greeting">{{__('site.Good Morning')}}</h4>
+                                        <p>{{__('site.God Almighty loves that when one of you performs a deed, he should be perfect.')}}</p>
+                                        <div class="whatsnew-btn"><a class="btn btn-primary">{{__('site.Happy Day')}}</a></div>
                                     </div>
                                 </div>
                                 <div class="badge-groups">
-                                    <div class="badge f-10"><i class="me-1" data-feather="clock"></i><span id="txt"></span></div>
                                 </div>
                             </div>
                             <div class="cartoon"><img class="img-fluid" src="{{MAINASSETS}}/images/dashboard/cartoon.png" alt=""></div>
@@ -44,46 +43,11 @@
                     <div class="card earning-card">
                         <div class="card-body p-0">
                             <div class="row m-0">
-                                <div class="col-xl-3 earning-content p-0">
-                                    <div class="row m-0 chart-left">
-                                        <div class="col-xl-12 p-0 left_side_earning">
-                                            <h5>Dashboard</h5>
-                                            <p class="font-roboto">Overview of last month</p>
-                                        </div>
-                                        <div class="col-xl-12 p-0 left_side_earning">
-                                            <h5>$4055.56 </h5>
-                                            <p class="font-roboto">This Month Earning</p>
-                                        </div>
-                                        <div class="col-xl-12 p-0 left_side_earning">
-                                            <h5>$1004.11</h5>
-                                            <p class="font-roboto">This Month Profit</p>
-                                        </div>
-                                        <div class="col-xl-12 p-0 left_side_earning">
-                                            <h5>90%</h5>
-                                            <p class="font-roboto">This Month Sale</p>
-                                        </div>
-                                        <div class="col-xl-12 p-0 left-btn"><a class="btn btn-gradient">Summary</a></div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-9 p-0">
+                                <div class="col-xl-12 p-0">
                                     <div class="chart-right">
                                         <div class="row m-0 p-tb">
-                                            <div class="col-xl-8 col-md-8 col-sm-8 col-12 p-0">
-                                                <div class="inner-top-left">
-                                                    <ul class="d-flex list-unstyled">
-                                                        <li>Daily</li>
-                                                        <li class="active">Weekly</li>
-                                                        <li>Monthly</li>
-                                                        <li>Yearly</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
                                             <div class="col-xl-4 col-md-4 col-sm-4 col-12 p-0 justify-content-end">
                                                 <div class="inner-top-right">
-                                                    <ul class="d-flex list-unstyled justify-content-end">
-                                                        <li>Online</li>
-                                                        <li>Store</li>
-                                                    </ul>
                                                 </div>
                                             </div>
                                         </div>
@@ -91,41 +55,58 @@
                                             <div class="col-xl-12">
                                                 <div class="card-body p-0">
                                                     <div class="current-sale-container">
-                                                        <div id="chart-currently"></div>
+                                                        <div id="vc-chart"></div>
+                                                            <script>
+                                                                window.addEventListener('load', () => {
+                                                                    /*======> Config Chart <========*/
+                                                                    let chartConfigs = {
+                                                                            type: "column2d",
+                                                                            renderAt: 'chart-container',
+                                                                            width: "100%",
+                                                                            height: "480",
+                                                                            //=====> Data Set via json File <=====//
+                                                                            dataFormat: "json",
+                                                                            dataSource: 
+                                                                            {
+                                                                                "chart": {
+                                                                                    "caption": "{{__('site.Main Statistics')}}",
+                                                                                    "subCaption": "",
+                                                                                    "baseFont": "DIN NEXT",
+                                                                                    "theme": "fusion",
+                                                                                    "exportEnabled":true,
+                                                                                    "paletteColors": "#60CE76,#4831d4,#2E3E5F,#ea2087,#ac4e444e,#F9C832"
+                                                                                },
+                                                                                "data": [{
+                                                                                    "label": "{{__('site.cars')}}",
+                                                                                    "value": "{{$cars}}"
+                                                                                }, {
+                                                                                    "label": "{{__('site.places')}}",
+                                                                                    "value": "{{$places}}"
+                                                                                }, {
+                                                                                    "label": "{{__('site.aqars')}}",
+                                                                                    "value": "{{$aqars}}"
+                                                                                }, {
+                                                                                    "label": "{{__('site.users')}}",
+                                                                                    "value": "{{$users}}"
+                                                                                }]
+                                                                            },
+                                                                        };
+                                                                    let fusioncharts = new FusionCharts(chartConfigs).render('vc-chart');
+                                                                    /*======> Responsive BreakPoints <========*/
+                                                                    responsiveChart(fusioncharts ,{
+                                                                        small:"360",
+                                                                        medium:"470",
+                                                                        large:"480",
+                                                                        xLarge:"510"
+                                                                    });
+                                                                });
+                                                            </script>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row border-top m-0">
-                                        <div class="col-xl-4 ps-0 col-md-6 col-sm-6">
-                                            <div class="media p-0">
-                                                <div class="media-left"><i class="icofont icofont-crown"></i></div>
-                                                <div class="media-body">
-                                                    <h6>Referral Earning</h6>
-                                                    <p>$5,000.20</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-4 col-md-6 col-sm-6">
-                                            <div class="media p-0">
-                                                <div class="media-left bg-secondary"><i class="icofont icofont-heart-alt"></i></div>
-                                                <div class="media-body">
-                                                    <h6>Cash Balance</h6>
-                                                    <p>$2,657.21</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-4 col-md-12 pe-0">
-                                            <div class="media p-0">
-                                                <div class="media-left"><i class="icofont icofont-cur-dollar"></i></div>
-                                                <div class="media-body">
-                                                    <h6>Sales forcasting</h6>
-                                                    <p>$9,478.50     </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -224,24 +205,49 @@
                     </div>
                 </div>
                 <div class="col-xl-6 xl-50 appointment box-col-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <div class="header-top">
-                                <h5 class="m-0">Market Value</h5>
-                                <div class="card-header-right-icon">
-                                    <div class="dropdown">
-                                        <button class="btn dropdown-toggle" id="dropdownMenuButton" type="button" data-bs-toggle="dropdown" aria-expanded="false">Year</button>
-                                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton"><a class="dropdown-item" href="#">Year</a><a class="dropdown-item" href="#">Month</a><a class="dropdown-item" href="#">Day</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-Body">
-                            <div class="radar-chart">
-                                <div id="marketchart">       </div>
-                            </div>
-                        </div>
-                    </div>
+                    <div id="support-chart" ></div>
+                        <script>
+                            window.addEventListener('load', () => {
+                                /*======> Config Chart <========*/
+                                let chartConfigs = {
+                                        type: "doughnut2d",
+                                        renderAt: 'chart-container',
+                                        width: "100%",
+                                        height: "600",
+                                        //=====> Data Set via json File <=====//
+                                        dataFormat: "json",
+                                        dataSource: 
+                                        {
+                                            "chart": {
+                                                "caption": "{{__('site.Main Statistics')}}",
+                                                "subCaption": "",
+                                                "numberPrefix": "",
+                                                "defaultCenterLabel": "{{__('Total Statistics')}}: {{$cars+$places+$aqars}} ",
+                                                "centerLabel": "Revenue from $label: $value",
+                                                "paletteColors": "#60CE76,#4831d4,#2E3E5F,#ea2087,#ac4e444e,#F9C832",
+                                                "decimals": "0",
+                                                "theme": "fusion"
+                                            },
+                                            "data": [
+                                                {
+                                                    "label": "{{__('site.cars')}}",
+                                                    "value": "{{$cars}}"
+                                                }, {
+                                                    "label": "{{__('site.places')}}",
+                                                    "value": "{{$places}}"
+                                                }, {
+                                                    "label": "{{__('site.aqars')}}",
+                                                    "value": "{{$aqars}}"
+                                                }, {
+                                                    "label": "{{__('site.users')}}",
+                                                    "value": "{{$users}}"
+                                                }
+                                            ]
+                                        },
+                                    };
+                                let fusioncharts = new FusionCharts(chartConfigs).render('support-chart');
+                            });
+                        </script>     
                 </div>
                 <div class="col-xl-6 col-lg-12 xl-50 calendar-sec box-col-6">
                     <div class="card gradient-primary o-hidden">
@@ -261,4 +267,18 @@
         </div>
         <!-- Container-fluid Ends-->
     </div>
+
+
+
+    <div id="vc-chart" class="mb15"></div>
+           
+            
+        </div> 
+            
+
+@endsection
+@section('scripts')
+<script type="text/javascript" src="{{MAINASSETS}}/js/fusioncharts.js"></script>
+<script type="text/javascript" src="{{MAINASSETS}}/js/fusioncharts.theme.fusion.js"></script>
+
 @endsection
