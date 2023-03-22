@@ -183,7 +183,7 @@
                                             </div>
                                             <br>
                                             <div class="row">
-                                                <div class="col-md-6 form-group col-12 p-2">
+                                                <div class="form-group col-12 p-2">
 <!-- 
                                                     <span class="text-danger">*</span>
                                                             <label>@lang('site.display_photo')</label>
@@ -204,7 +204,7 @@
                                                     </div>
                                                 </div>
                                                 </div>
-                                                <div class="col-md-6 form-group col-12 p-2">
+                                                <div class="form-group col-12 p-2">
                                                         <!-- <label>@lang('site.images')</label>
                                                         <input type="file" name="images[]" class="form-control"
                                                             value="{{ old('images[]') }}" multiple required> -->

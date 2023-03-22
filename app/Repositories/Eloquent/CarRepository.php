@@ -32,7 +32,7 @@ class CarRepository implements CarRepositoryInterfaceAlias
         // TODO: Implement create() method.
 
         $users = User::all();
-        $categories = Category::where('parent_id','=',null)->where('type','=',2)->get();
+        $categories = Category::where('parent_id','=',2)->where('type','=',2)->get();
         $ads = Ads::all();
         return view('dashboard.cars.create', compact('users', 'categories', 'ads'));
     }
@@ -44,9 +44,9 @@ class CarRepository implements CarRepositoryInterfaceAlias
         $car = Car::find($Id);
 
         $users = User::all();
-        $categories = Category::where('parent_id','=',null)->where('type','=',2)->get();
+        $categories = Category::where('parent_id','=',2)->where('type','=',2)->get();
 
-        $subcategories = Category::where('parent_id','!=',null)->get();
+        $subcategories = Category::where('parent_id','!=',2)->where('type','=',2)->get();
 
 
         $ads = Ads::all();
