@@ -46,7 +46,7 @@ class CarRepository implements CarRepositoryInterfaceAlias
         $users = User::all();
         $categories = Category::where('parent_id','=',null)->where('type','=',2)->get();
 
-        $subcategories = Category::get();
+        $subcategories = Category::where('parent_id','!=',null)->get();
 
 
         $ads = Ads::all();

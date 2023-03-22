@@ -6,14 +6,14 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-6">
-                        <h3>Default</h3>
+                        <h3></h3>
                     </div>
                     <div class="col-6">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">                                       <i data-feather="home"></i></a></li>
-                            <li class="breadcrumb-item">Dashboard</li>
-                            <li class="breadcrumb-item active">Default      </li>
-                        </ol>
+{{--                        <ol class="breadcrumb">--}}
+{{--                            <li class="breadcrumb-item"><a href="index.html">                                       <i data-feather="home"></i></a></li>--}}
+{{--                            <li class="breadcrumb-item">Dashboard</li>--}}
+{{--                            <li class="breadcrumb-item active">Default      </li>--}}
+{{--                        </ol>--}}
                     </div>
                 </div>
             </div>
@@ -144,7 +144,7 @@
                                         </div>
                                         <div class="media-body">
                                             <div class="right-chart-content">
-                                                <h4>1001</h4><span>Purchase </span>
+                                                <h4>{{$cars}}</h4><span>@lang('site.cars') @endlang </span>
                                             </div>
                                         </div>
                                     </div>
@@ -158,7 +158,7 @@
                                         </div>
                                         <div class="media-body">
                                             <div class="right-chart-content">
-                                                <h4>1005</h4><span>Sales</span>
+                                                <h4>{{$places}}</h4><span>@lang('site.places')</span>
                                             </div>
                                         </div>
                                     </div>
@@ -172,7 +172,7 @@
                                         </div>
                                         <div class="media-body">
                                             <div class="right-chart-content">
-                                                <h4>100</h4><span>Sales return</span>
+                                                <h4>{{$aqars}}</h4><span>@lang('site.aqars') </span>
                                             </div>
                                         </div>
                                     </div>
@@ -186,7 +186,7 @@
                                         </div>
                                         <div class="media-body">
                                             <div class="right-chart-content">
-                                                <h4>101</h4><span>Purchase ret</span>
+                                                <h4>{{$users}}</h4><span>@lang('site.users') </span>
                                             </div>
                                         </div>
                                     </div>
@@ -200,10 +200,10 @@
                         <div class="card-body">
                             <div class="media align-items-center">
                                 <div class="media-body right-chart-content">
-                                    <h4>$95,900<span class="new-box">Hot</span></h4><span>Purchase Order Value</span>
+                                    <h4>{{$notifications}}<span class="new-box"></span></h4><span>@lang('site.notifications')</span>
                                 </div>
                                 <div class="knob-block text-center">
-                                    <input class="knob1" data-width="10" data-height="70" data-thickness=".3" data-angleoffset="0" data-linecap="round" data-fgcolor="#7366ff" data-bgcolor="#eef5fb" value="60">
+                                    <input class="knob1" data-width="10" data-height="70" data-thickness=".3" data-angleoffset="0" data-linecap="round" data-fgcolor="#7366ff" data-bgcolor="#eef5fb" value="10">
                                 </div>
                             </div>
                         </div>
@@ -223,7 +223,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-4 xl-50 appointment box-col-6">
+                <div class="col-xl-6 xl-50 appointment box-col-6">
                     <div class="card">
                         <div class="card-header">
                             <div class="header-top">
@@ -243,59 +243,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-4 xl-100 chat-sec box-col-6">
-                    <div class="card chat-default">
-                        <div class="card-header card-no-border">
-                            <div class="media media-dashboard">
-                                <div class="media-body">
-                                    <h5 class="mb-0">Live Chat</h5>
-                                </div>
-                                <div class="icon-box"><i data-feather="more-horizontal"></i></div>
-                            </div>
-                        </div>
-                        <div class="card-body chat-box">
-                            <div class="chat">
-                                <div class="media left-side-chat">
-                                    <div class="media-body d-flex">
-                                        <div class="img-profile"> <img class="img-fluid" src="{{MAINASSETS}}/images/user.jpg" alt="Profile"></div>
-                                        <div class="main-chat">
-                                            <div class="message-main"><span class="mb-0">Hi deo, Please send me link.</span></div>
-                                            <div class="sub-message message-main"><span class="mb-0">Right Now</span></div>
-                                        </div>
-                                    </div>
-                                    <p class="f-w-400">7:28 PM</p>
-                                </div>
-                                <div class="media right-side-chat">
-                                    <p class="f-w-400">7:28 PM</p>
-                                    <div class="media-body text-end">
-                                        <div class="message-main pull-right"><span class="mb-0 text-start">How can do for you</span>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="media left-side-chat">
-                                    <div class="media-body d-flex">
-                                        <div class="img-profile"> <img class="img-fluid" src="{{MAINASSETS}}/images/user.jpg" alt="Profile"></div>
-                                        <div class="main-chat">
-                                            <div class="sub-message message-main mt-0"><span>It's argently</span></div>
-                                        </div>
-                                    </div>
-                                    <p class="f-w-400">7:28 PM</p>
-                                </div>
-                                <div class="media right-side-chat">
-                                    <div class="media-body text-end">
-                                        <div class="message-main pull-right"><span class="loader-span mb-0 text-start" id="wave"><span class="dot"></span><span class="dot"></span><span class="dot"></span></span></div>
-                                    </div>
-                                </div>
-                                <div class="input-group">
-                                    <input class="form-control" id="mail" type="text" placeholder="Type Your Message..." name="text">
-                                    <div class="send-msg"><i data-feather="send"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-12 xl-50 calendar-sec box-col-6">
+                <div class="col-xl-6 col-lg-12 xl-50 calendar-sec box-col-6">
                     <div class="card gradient-primary o-hidden">
                         <div class="card-body">
                             <div class="setting-dot">
