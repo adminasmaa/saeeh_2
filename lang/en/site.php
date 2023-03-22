@@ -189,6 +189,11 @@ return [
     'carposition'     =>'Car Position',
     'swimmingpool'     =>'Swimming Pool',
     'descrption'   =>'Descrption',
+    'Main Statistics' =>'Main Statistics',
+    'Total Statistics' =>'Total Statistics',
+    'Good Morning' =>'Good Morning',
+    'God Almighty loves that when one of you performs a deed, he should be perfect.' =>'God Almighty loves that when one of you performs a deed, he should be perfect.',
+    'Happy Day' =>'Happy Day',
 
 
 
