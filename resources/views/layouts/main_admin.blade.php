@@ -35,6 +35,7 @@
     <link rel="stylesheet" type="text/css" href="{{MAINASSETS}}/css/vendors/animate.css">
     <link rel="stylesheet" type="text/css" href="{{MAINASSETS}}/css/vendors/chartist.css">
     <link rel="stylesheet" type="text/css" href="{{MAINASSETS}}/css/vendors/date-picker.css">
+    <link rel="stylesheet" type="text/css" href="{{MAINASSETS}}/css/vendors/dropzone.css">
     <!-- Plugins css Ends-->
     <!-- Bootstrap css-->
     <link rel="stylesheet" type="text/css" href="{{MAINASSETS}}/css/vendors/bootstrap.css">
@@ -52,8 +53,6 @@
 
     <link rel="stylesheet" type="text/css" href="{{MAINASSETS}}/css/vendors/datatables.css">
     <link rel="stylesheet" type="text/css" href="{{MAINASSETS}}/css/vendors/datatable-extension.css">
-    <link rel="stylesheet" type="text/css" href="{{MAINASSETS}}/css/vendors/dropzone.css">
-
 
     <link rel="stylesheet" href="{{MAINDASHBOARD}}/plugins/noty/noty.css">
     <script src="{{MAINDASHBOARD}}//plugins/noty/noty.min.js"></script>
