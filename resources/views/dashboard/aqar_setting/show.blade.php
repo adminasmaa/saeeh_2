@@ -105,35 +105,3 @@
 
 @endsection
 
-@section('scripts')
-    <!-- <script>
-
-
-        $(document).ready(function () {
-            var test=$('input[name="price"]:checked').val();
-            $("div.desc").hide();
-            $("#price" + test).show();
-
-            var category_id =$('input[name="category_id"]:checked').val();
-            $("#floor").hide();
-            $("#floornumber").hide();
-            $("#space").hide();
-            $("#unitnumber").hide();
-            $("#bathroomnumber").hide();
-            $("#hallnumber").hide();
-            $("#personnumber").hide();
-            $("#swimmingpool").hide();
-            $.ajax({
-                url: '{{ url('dashboard/aqars/getsetting') }}' + '/' +category_id ,
-                success: data => {
-                    data.forEach(model =>
-                        $("#" + model.input_id).show()
-                    )
-                }
-            });
-
-        });
-
-
-    </script> -->
-@endsection
