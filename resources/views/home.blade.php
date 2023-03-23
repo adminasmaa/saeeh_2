@@ -280,5 +280,20 @@
 @section('scripts')
 <script type="text/javascript" src="{{MAINASSETS}}/js/fusioncharts.js"></script>
 <script type="text/javascript" src="{{MAINASSETS}}/js/fusioncharts.theme.fusion.js"></script>
+<script>
+// greeting
+var today = new Date()
+var curHr = today.getHours()
+
+if (curHr >= 0 && curHr < 4) {
+    document.getElementById("greeting").innerHTML = "@lang('site.Good Afternoon')";
+} else if (curHr >= 4 && curHr < 12) {
+    document.getElementById("greeting").innerHTML = "@lang('site.Good Morning')";
+} else if (curHr >= 12 && curHr < 16) {
+    document.getElementById("greeting").innerHTML = "@lang('site.Good Afternoon')";
+} else {
+    document.getElementById("greeting").innerHTML = "@lang('site.Good Afternoon')";
+}
+</script>
 
 @endsection
