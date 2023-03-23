@@ -143,6 +143,8 @@ class RepositoryServiceProvider extends ServiceProvider
 
         $this->app->bind(AqarCommentRepositoryInterface::class, AqarCommentRepository::class);
 
+        $this->app->bind(AqarSettingRepositoryInterface::class, AqarSettingRepository::class);
+
     }
 
     /**
