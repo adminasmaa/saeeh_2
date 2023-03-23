@@ -44,6 +44,7 @@ use App\Http\Controllers\Dashboard\PoolController;
 use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Dashboard\ContactController;
 use App\Http\Controllers\Dashboard\AqarCommentController;
+use App\Http\Controllers\Dashboard\AqarSettingController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedirect', 'localizationRedirect', 'localeViewPath')->group(function () {
@@ -99,6 +100,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         //aquarcategories
         Route::resource('aquarcategories', AquarCategoryController::class);
         Route::resource('aquarbooking', AqarBookingController::class);
+        Route::resource('aqar_setting', AqarSettingController::class);
 
         //services
         Route::resource('services', ServiceController::class);

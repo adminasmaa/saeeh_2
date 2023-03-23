@@ -541,6 +541,9 @@
                                         <a href="{{route('dashboard.aqar_comments.index')}}">{{__('site.aqar_comments')}}</a>
                                     </li>
 
+                                    <li>
+                                        <a href="{{route('dashboard.aqar_setting.index')}}">{{__('site.aqar_setting')}}</a>
+                                    </li>
                                 </ul>
                             </li>
 
