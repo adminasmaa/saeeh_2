@@ -204,8 +204,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-6 xl-50 appointment box-col-6">
-                    <div id="support-chart" ></div>
+                <div class="col-xl-6  col-lg-12 xl-50 appointment box-col-6">
+                    <div id="support-chart" class="card gradient-primary o-hidden"></div>
                         <script>
                             window.addEventListener('load', () => {
                                 /*======> Config Chart <========*/
@@ -250,7 +250,7 @@
                         </script>     
                 </div>
                 <div class="col-xl-6 col-lg-12 xl-50 calendar-sec box-col-6">
-                    <div class="card gradient-primary o-hidden">
+                    <div class="card gradient-primary o-hidden custom-height">
                         <div class="card-body">
                             <div class="setting-dot">
                                 <div class="setting-bg-primary date-picker-setting pull-right">

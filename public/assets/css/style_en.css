@@ -12338,7 +12338,7 @@
     position: relative;
   }
   .profile-greeting .cartoon {
-    margin: -35px -60px 65px 0;
+    margin: -35px -60px 45px 0;
   }
   .profile-greeting .card-body {
     padding: 40px;
@@ -34212,3 +34212,6 @@ margin-bottom: 15px;
         color: #000;
         font-size: 3.12rem;
     }
+    .custom-height{
+      height: 95.2%;
+  }

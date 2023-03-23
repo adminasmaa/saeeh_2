@@ -41,6 +41,7 @@
     <link rel="stylesheet" type="text/css" href="{{MAINASSETS}}/css/vendors/bootstrap.css">
     <!-- App css-->
     <link rel="stylesheet" type="text/css" href="{{MAINASSETS}}/css/style.css">
+    
     <link id="color" rel="stylesheet" href="{{MAINASSETS}}/css/color-1.css" media="screen">
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="{{MAINASSETS}}/css/responsive.css">
