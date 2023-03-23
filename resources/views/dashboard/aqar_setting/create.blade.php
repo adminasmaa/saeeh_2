@@ -111,27 +111,3 @@
 @endsection
 
 
-@section('scripts')
-
-<script>
-
-// $('#category_id').on('change',function(e){
-//     var categoryId = e.target.value;
-
-
-
-//     $.get("{{url('dashboard/SubCategories')}}/"+categoryId, function(data){
-//         console.log(data);
-//         $('#sub_category_id').empty();
-//         $('#sub_category_id').append('<option>  Select Please  </option>');
-//         $.each(data, function(key, value){
-//             $('#sub_category_id').append('<option value="'+value.id+'">'+value.name_ar+'</option>')
-
-//         });
-//     })
-// })
-
-</script>
-@endsection
-
-
