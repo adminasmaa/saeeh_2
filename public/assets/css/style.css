@@ -49322,6 +49322,16 @@ margin-bottom: 15px;
     table.dataTable thead  th:nth-child(4) , table.dataTable thead  th:nth-child(5){
         width: 10% !important;
     }
+    #noty_layout__topRight {
+        top: 40% !important;
+        right: 45% !important;
+        background-color: #ffc8cb;
+    }
+    .noty_theme__mint.noty_bar .noty_body {
+        padding: 10px;
+        font-size: 16px;
+        font-weight: 500;
+    }
 /**=====================
     63. Box-layout CSS ends
 ==========================**/
