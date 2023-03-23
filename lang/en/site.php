@@ -194,6 +194,7 @@ return [
     'Good Morning' =>'Good Morning',
     'God Almighty loves that when one of you performs a deed, he should be perfect.' =>'God Almighty loves that when one of you performs a deed, he should be perfect.',
     'Happy Day' =>'Happy Day',
+    'Good Afternoon' =>'Good Afternoon',
 
 
 
