@@ -265,6 +265,30 @@
 
                                             </div>
                                             <br>
+                                            <div class="col-md-6 form-group">
+                                    <label class="form-label">@lang('site.country')</label>
+                                    <select class="form-control btn-square" name="country_id">
+                                        <option selected>@lang('site.select')</option>
+                                        @foreach($countries as $country)
+
+                                            <option value="{{$country->id}}"   @if($country->id==$user->country_id) selected @endif>{{$country->name_ar ?? ''}}</option>
+
+                                        @endforeach
+
+                                    </select>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="form-label">@lang('site.city')</label>
+                                    <select class="form-control btn-square" name="city_id">
+                                        <option selected>@lang('site.select')</option>
+                                        @foreach($cities as $city)
+
+                                            <option value="{{$city->id}}"   @if($city->id==$user->city_id) selected @endif>{{$city->name_ar ?? ''}}</option>
+
+                                        @endforeach
+
+                                    </select>
+                                </div>
                                             <div class="row">
                                             <div style="display: none;" id="space">
                                             <div class="col-sm-6 col-md-6" >

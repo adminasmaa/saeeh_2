@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Models\Category;
 use App\Models\PlaceComment;
 use App\Models\Notification;
+use App\Models\City;
+use App\Models\Country;
 use App\Repositories\Interfaces\PlaceRepositoryInterface as PlaceRepositoryInterfaceAlias;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
@@ -36,7 +38,9 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
         $categories = Category::where('parent_id','=',null)->where('type','=',0)->get();
         $place_comments = PlaceComment::all();
         $notifications = Notification::all();
-        return view('dashboard.places.create', compact('users', 'categories', 'place_comments', 'notifications'));
+        $countries = Country::all();
+        $cities = City::all();
+        return view('dashboard.places.create', compact('users', 'categories', 'place_comments', 'notifications', 'countries', 'cities'));
     }
 
     public function edit($Id)
@@ -50,7 +54,9 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
         $notifications = Notification::all();
         $categories = Category::where('parent_id','=',null)->where('type','=',0)->get();
         $subcategories = Category::get();
-        return view('dashboard.places.edit', compact('place', 'users', 'categories', 'place_comments', 'notifications','subcategories'));
+        $countries = Country::all();
+        $cities = City::all();
+        return view('dashboard.places.edit', compact('place', 'users', 'categories', 'place_comments', 'notifications','subcategories', 'countries', 'cities'));
     }
 
     public function show($Id)
@@ -63,8 +69,10 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
         $place_comments = PlaceComment::all();
         $notifications = Notification::all();
         $subcategories = Category::get();
+        $countries = Country::all();
+        $cities = City::all();
 
-        return view('dashboard.places.show', compact('place', 'users', 'categories', 'place_comments', 'notifications','subcategories'));
+        return view('dashboard.places.show', compact('place', 'users', 'categories', 'place_comments', 'notifications','subcategories', 'countries', 'cities'));
     }
 
     public function store($request)

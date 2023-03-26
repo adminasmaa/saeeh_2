@@ -61,7 +61,6 @@ class AqarSettingRepository implements AqarSettingRepositoryInterfaceAlias
 
         $aqarSetting = AqarSetting::find($Id);
         $categories = Category::where('type',1)->where('active',1)->get();
-        
         return view('dashboard.aqar_setting.show', compact('aqarSetting','categories'));
     }
 
