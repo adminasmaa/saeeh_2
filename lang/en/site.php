@@ -278,6 +278,7 @@ return [
     'subscription' => 'Subscription',
     'free_user' => 'Free User',
     'both' => 'Both',
+    'daynumber'=>'Day Number',
     'discount_price' => 'Discount Price',
 
     'persons' => 'Persons',

@@ -75,14 +75,15 @@ class CarRepository implements CarRepositoryInterfaceAlias
 
     public function store($request)
     {
-//return $request;
 
         // TODO: Implement store() method.
 
-        $request_data = $request->except(['main_image_ads', 'images','videos']);
+        $request_data = $request->except(['main_image_ads', 'images','videos','price','daynumber']);
 
         // To Make  Active
-
+        $data['daynumber'] = $request['daynumber'];
+        $data['price'] = $request['price'];
+        $request_data['changed_price']=json_encode($data)!=null?json_encode($data):json_encode([]);
         $car = Car::create($request_data);
 
         if ($request->hasFile('main_image_ads')) {
@@ -136,7 +137,11 @@ class CarRepository implements CarRepositoryInterfaceAlias
     {
         // TODO: Implement update() method.
 
-        $request_data = $request->except(['main_image_ads', '_token', '_method', 'images','videos']);
+        $request_data = $request->except(['main_image_ads', '_token', '_method', 'images','videos','price','daynumber']);
+
+        $data['daynumber'] = $request['daynumber'];
+        $data['price'] = $request['price'];
+        $request_data['changed_price']=json_encode($data)!=null?json_encode($data):json_encode([]);
         $car->update($request_data);
 
 
