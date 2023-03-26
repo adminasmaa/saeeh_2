@@ -49,6 +49,8 @@ class Car extends Model
         'sub_category_id'
     ];
 
+
+
     // relations
     public function user()
     {
