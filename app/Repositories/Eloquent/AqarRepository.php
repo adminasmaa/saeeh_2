@@ -19,6 +19,8 @@ use App\Models\Laundry;
 use App\Models\ConditionType;
 use App\Models\CarPosition;
 use App\Models\Pool;
+use App\Models\City;
+use App\Models\Country;
 use App\Repositories\Interfaces\AqarRepositoryInterface as AqarRepositoryInterfaceAlias;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
@@ -57,7 +59,9 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
         $ConditioningType = ConditionType::where('active',1)->get();
         $CarPosition=CarPosition::where('active',1)->get();
         $Pool=Pool::where('active',1)->get();
-        return view('dashboard.aqars.create', compact('users', 'categories','AnotherRoom','Area','Bathroom','ConditioningType','Floor','FloorNumber','Service','FreeService','Crew','Kitchen','Laundry','CarPosition','Pool'));
+        $countries = Country::all();
+        $cities = City::all();
+        return view('dashboard.aqars.create', compact('users', 'categories','AnotherRoom','Area','Bathroom','ConditioningType','Floor','FloorNumber','Service','FreeService','Crew','Kitchen','Laundry','CarPosition','Pool', 'countries', 'cities'));
     }
 
     public function edit($Id)
@@ -93,7 +97,9 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
         $ConditioningType = ConditionType::where('active',1)->get();
         $CarPosition=CarPosition::where('active',1)->get();
         $Pool=Pool::where('active',1)->get();
-        return view('dashboard.aqars.edit', compact('aqar', 'users', 'categories','AnotherRoom','Area','Bathroom','ConditioningType','Floor','FloorNumber','Service','FreeService','Crew','Kitchen','Laundry','CarPosition','Pool'));
+        $countries = Country::all();
+        $cities = City::all();
+        return view('dashboard.aqars.edit', compact('aqar', 'users', 'categories','AnotherRoom','Area','Bathroom','ConditioningType','Floor','FloorNumber','Service','FreeService','Crew','Kitchen','Laundry','CarPosition','Pool', 'countries', 'cities'));
     }
 
     public function show($Id)
@@ -129,8 +135,9 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
         $ConditioningType = ConditionType::where('active',1)->get();
         $CarPosition=CarPosition::where('active',1)->get();
         $Pool=Pool::where('active',1)->get();
-
-        return view('dashboard.aqars.show', compact('aqar', 'users', 'categories','AnotherRoom','Area','Bathroom','ConditioningType','Floor','FloorNumber','Service','FreeService','Crew','Kitchen','Laundry','CarPosition','Pool'));
+        $countries = Country::all();
+        $cities = City::all();
+        return view('dashboard.aqars.show', compact('aqar', 'users', 'categories','AnotherRoom','Area','Bathroom','ConditioningType','Floor','FloorNumber','Service','FreeService','Crew','Kitchen','Laundry','CarPosition','Pool', 'countries', 'cities'));
     }
 
     public function store($request)

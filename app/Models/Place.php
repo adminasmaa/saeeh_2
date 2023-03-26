@@ -48,6 +48,8 @@ class Place extends Model
         'category_id', //unsigned
         'sub_category_id', //unsigned
         'user_id', //unsigned
+        'country_id',
+        'city_id',
     ];
 
     protected $hidden=['deleted_at','updated_at'];

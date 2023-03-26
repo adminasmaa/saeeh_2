@@ -328,7 +328,30 @@
                                         </select>
                                     </div>
 
+                                    <div class="col-md-6 form-group">
+                                        <label class="form-label">@lang('site.country')</label>
+                                        <select class="form-control btn-square" name="country_id">
+                                            <option selected value="0">@lang('site.select')</option>
+                                            @foreach($countries as $country)
 
+                                                <option value="{{$country->id}}">{{$country->name_ar ?? ''}}</option>
+
+                                            @endforeach
+
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label class="form-label">@lang('site.city')</label>
+                                        <select class="form-control btn-square" name="city_id">
+                                            <option selected value="0">@lang('site.select')</option>
+                                            @foreach($cities as $city)
+
+                                                <option value="{{$city->id}}">{{$city->name_ar ?? ''}}</option>
+
+                                            @endforeach
+
+                                        </select>
+                                    </div>
                                 </div>
 
 
