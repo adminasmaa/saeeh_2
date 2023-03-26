@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\AqarBookingResource;
+use App\Http\Resources\AqarDetailResource;
+use App\Models\Aqar;
 use App\Models\AqarBooking;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -11,6 +13,25 @@ use Illuminate\Support\Arr;
 
 class AqarController extends Controller
 {
+
+    public function detailAqar(Request $request)
+    {
+        $aqar_id = $request->aqar_id;
+
+        $aqar = Aqar::where('id', $aqar_id)->first();
+        if (isset($aqar)) {
+
+            $aquar = new AqarDetailResource($aqar);
+
+
+            return $this->respondSuccess($aquar, trans('message.data retrieved successfully.'));
+        } else {
+
+            return $this->respondError(__('message.Data not found.'), ['error' => __('message.Data not found.')], 404);
+
+        }
+    }
+
     public function getBetweenDates($startDate, $endDate)
     {
         $rangArray = [];
@@ -81,6 +102,7 @@ class AqarController extends Controller
         }
 
     }
+
     public function AqarBookingDetail(Request $request)
     {
         $rule = [
@@ -105,13 +127,10 @@ class AqarController extends Controller
         } else {
 
 
-            $aqar=AqarBooking::where('aqar_id',$request->aqar_id)->first();
+            $aqar = AqarBooking::where('aqar_id', $request->aqar_id)->first();
 
 
-            $aquar= new AqarBookingResource($aqar);
-
-
-
+            $aquar = new AqarBookingResource($aqar);
 
 
             return $this->respondSuccess($aquar, trans('site.data retrieved successfully.'));
