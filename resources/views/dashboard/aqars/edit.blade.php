@@ -116,7 +116,7 @@
 
                                             <div class="col-sm-12">
                                                 <label class="form-label">@lang('site.users')</label>
-                                                <select class="form-control btn-square" name="user_id">
+                                                <select class="form-control form-select" name="user_id">
                                                     <option selected>@lang('site.select')</option>
                                                     @foreach($users as $user)
 
@@ -128,31 +128,31 @@
                                             </div>
                                             <br>
                                             <div class="col-sm-12">
-                                                <h5 class="text-decoration-underline border-bottom">@lang('site.categories')</h5>
+                                                <h5 class="  border-bottom">@lang('site.categories')</h5>
                                             </div>
                                             <div class="col">
-                                                <div class="m-t-15">
+                                            <ul class="mt-4 p-0 categories-list">
                                                 @foreach($categories as $cat)
-                                                <div class="form-check radio radio-primary">
+                                                <li class="form-check radio radio-primary">
                                                     <input class="form-check-input" id="category_id{{$cat->id}}" type="radio"  name="category_id"  value="{{$cat->id}}" {{$cat->id==$aqar->category_id? 'checked':'' }} >
                                                     <label class="form-check-label mb-0" for="category_id{{$cat->id}}">{{$cat->name_ar ?? ''}}</label>
-                                                </div>
+</li>
                                                 @endforeach
-                                                </div>
+</ul>
                                             </div>
                                             <br>
                                             <div class="col-sm-12">
-                                                <h5 class="text-decoration-underline border-bottom">@lang('site.areas')</h5>
+                                                <h5 class="  border-bottom">@lang('site.areas')</h5>
                                             </div>
                                             <div class="col">
-                                                <div class="m-t-15">
+                                            <ul class="mt-4 areas-list">
                                                 @foreach($Area as $item)
-                                                <div class="form-check radio radio-primary">
+                                                <li class="form-check radio radio-primary">
                                                     <input class="form-check-input" id="area_{{$item->id}}" type="radio"  name="area_id"  value="{{$item->id}}" {{$item->id==$aqar->area_id? 'checked':'' }}>
                                                     <label class="form-check-label mb-0" for="area_{{$item->id}}">{{$item->name_ar ?? ''}}</label>
-                                                </div>
+</li>
                                                 @endforeach
-                                                </div>
+</ul>
                                             </div>
                                             <br>
                                             <div class="row m-t-10">
@@ -239,7 +239,7 @@
 
                                             </div>
                                             <br>
-                                            <div class="row">
+                                            <!-- <div class="row">
                                                 <div class="col-md-6 form-group col-12 p-2">
                                                     <span class="text-danger">*</span>
                                                             <label>@lang('site.display_photo')</label>
@@ -263,12 +263,60 @@
 
                                                 </div>
 
+                                            </div> -->
+                                            <div class="row">
+                                                <div class="form-group col-12 p-2">
+                                                  <label>@lang('site.display_photo')</label>
+                                                  <div class="wrapper-images">
+                                                    <div class="wrapper-content control-group file-upload" id="file-upload1">
+                                                        <div class="image-box">
+                                                        <div class="content-box text-center">
+                                                            <i class="fas fa-images"></i>
+                                                        </div>
+                                                        <img loading="lazy" src="" alt="">
+                                                        </div>
+                                                        <div class="controls" style="display: none">
+                                                        <input type="file" name="main_image"  value="{{ old('main_image') }}" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                                <div class="form-group col-12 p-2">
+                                                
+                                                    <label>@lang('site.images')</label>
+                                                    <div class="upload__box">
+                                                    <div class="upload__btn-box" >
+                                                        <label class="upload__btn text-center">
+                                                                <i class="fas fa-images"></i>
+                                                        <input type="file" multiple=""  name="images[]" data-max_length="20" value="{{ old('images[]') }}" class="upload__inputfile">
+                                                        </label>
+                                                        <div class="upload__img-wrap"></div>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                <label>@lang('site.video')</label>
+                                                <div class="wrapper-images">
+                                                        <div class="wrapper-content control-group file-upload" id="file-upload1">
+                                                            <div class="image-box">
+                                                            <div class="content-box text-center">
+                                                                <i class="fas fa-images"></i>
+                                                            </div>
+                                                            <img loading="lazy" src="" alt="">
+                                                            </div>
+                                                            <div class="controls" style="display: none">
+                                                            <input type="file" name="videos"  value="{{ old('videos') }}">
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                             </div>
                                             <br>
                                             <div class="row">
                                             <div style="display: none;" id="space">
                                             <div class="col-sm-6 col-md-6" >
-                                                <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.space')</h5>
+                                                <h5 class="   mb-0 border-bottom">@lang('site.space')</h5>
                                             </div>
                                                 <div class="col m-t-15">
                                                             <input type="number" name="space" class="form-control"
@@ -279,7 +327,7 @@
                                             <br>
                                            <div style="display: none;" id="unitnumber">
                                             <div class="col-sm-6" >
-                                                <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.unitnumber')</h5>
+                                                <h5 class="   mb-0 border-bottom">@lang('site.unitnumber')</h5>
                                             </div>
                                                 <div class="col m-t-15">
                                                             <input type="number" name="unitnumber" class="form-control"
@@ -292,7 +340,7 @@
                                             <div class="row">
                                             <div style="display: none;" id="hallnumber">
                                             <div class="col-sm-6 col-md-6" >
-                                                <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.hallnumber')</h5>
+                                                <h5 class="   mb-0 border-bottom">@lang('site.hallnumber')</h5>
                                             </div>
                                                 <div class="col m-t-15">
                                                             <input type="number" name="hallnumber" class="form-control"
@@ -303,7 +351,7 @@
                                             <br>
                                            <div style="display: none;" id="bathroomnumber">
                                             <div class="col-sm-6" >
-                                                <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.bathroomnumber')</h5>
+                                                <h5 class="   mb-0 border-bottom">@lang('site.bathroomnumber')</h5>
                                             </div>
                                                 <div class="col m-t-15">
                                                             <input type="number" name="bathroomnumber" class="form-control"
@@ -316,7 +364,7 @@
                                             <div class="row">
                                             <div style="display: none;" id="personnumber">
                                             <div class="col-sm-6 col-md-6" >
-                                                <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.personnumber')</h5>
+                                                <h5 class="   mb-0 border-bottom">@lang('site.personnumber')</h5>
                                             </div>
                                                 <div class="col m-t-15">
                                                             <input type="number" name="personnumber" class="form-control"
@@ -328,7 +376,7 @@
                                             <br>
                                             <div style="display: none;" id="floor">
                                             <div class="col-sm-12">
-                                                <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.floor')</h5>
+                                                <h5 class="   mb-0 border-bottom">@lang('site.floor')</h5>
                                             </div>
                                             <div class="col m-t-15">
                                                 @foreach($Floor as $fl)
@@ -342,7 +390,7 @@
                                             <br>
                                             <div style="display: none;" id="floornumber">
                                             <div class="col-sm-12">
-                                                <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.floornumber')</h5>
+                                                <h5 class="   mb-0 border-bottom">@lang('site.floornumber')</h5>
                                             </div>
                                             <div class="col m-t-15">
                                                 @foreach($FloorNumber as $fln)
@@ -355,7 +403,7 @@
                                             </div>
                                             <br>
                                             <div class="col-sm-12">
-                                                <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.masterroom')</h5>
+                                                <h5 class="   mb-0 border-bottom">@lang('site.masterroom')</h5>
                                             </div>
                                             <div class="col m-t-15">
                                                 @for ($x = 1; $x <= 10; $x++)
@@ -367,7 +415,7 @@
                                             </div>
                                             <br>
                                             <div class="col-sm-12">
-                                                <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.normalroom')</h5>
+                                                <h5 class="   mb-0 border-bottom">@lang('site.normalroom')</h5>
                                             </div>
                                             <div class="col m-t-15">
                                                 @for ($y = 1; $y <= 10; $y++)
@@ -379,7 +427,7 @@
                                             </div>
                                             <br>
                                             <div class="col-sm-12">
-                                                <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.service')</h5>
+                                                <h5 class="   mb-0 border-bottom">@lang('site.service')</h5>
                                             </div>
                                             <div class="col m-t-15">
                                                 @foreach($Service as $srv)
@@ -391,7 +439,7 @@
                                             </div>
                                             <br>
                                             <div class="col-sm-12">
-                                                <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.freeservice')</h5>
+                                                <h5 class="   mb-0 border-bottom">@lang('site.freeservice')</h5>
                                             </div>
                                             <div class="col m-t-15">
                                                 @foreach($FreeService as $fsrv)
@@ -403,7 +451,7 @@
                                             </div>
                                             <br>
                                             <div class="col-sm-12">
-                                                <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.crew')</h5>
+                                                <h5 class="   mb-0 border-bottom">@lang('site.crew')</h5>
                                             </div>
                                             <div class="col m-t-15">
                                                 @foreach($Crew as $cr)
@@ -415,7 +463,7 @@
                                             </div>
                                             <br>
                                             <div class="col-sm-12">
-                                                <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.anotherrooms')</h5>
+                                                <h5 class="   mb-0 border-bottom">@lang('site.anotherrooms')</h5>
                                             </div>
                                             <div class="col m-t-15">
                                                 @foreach($AnotherRoom as $room)
@@ -427,7 +475,7 @@
                                             </div>
                                             <br>
                                             <div class="col-sm-12">
-                                                <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.carposition')</h5>
+                                                <h5 class="   mb-0 border-bottom">@lang('site.carposition')</h5>
                                             </div>
                                             <div class="col m-t-15">
                                                 @foreach($CarPosition as $position)
@@ -440,7 +488,7 @@
                                             <br>
                                             <div style="display: none;" id="swimmingpool">
                                             <div class="col-sm-12" >
-                                                <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.swimmingpool')</h5>
+                                                <h5 class="   mb-0 border-bottom">@lang('site.swimmingpool')</h5>
                                             </div>
                                             <div class="col m-t-15">
                                                 @foreach($Pool as $swp)
@@ -453,7 +501,7 @@
                                             </div>
                                             <br>
                                             <div class="col-sm-12">
-                                                <h5 class=" text-decoration-underline mb-0 border-bottom">@lang('site.kitchen')</h5>
+                                                <h5 class="   mb-0 border-bottom">@lang('site.kitchen')</h5>
                                             </div>
                                             <div class="col m-t-15">
                                                 @foreach($Kitchen as $Kitch)
@@ -465,7 +513,7 @@
                                             </div>
                                             <br>
                                             <div class="col-sm-12 ">
-                                                <h5 class="text-decoration-underline mb-0 border-bottom">@lang('site.Bathroom')</h5>
+                                                <h5 class="  mb-0 border-bottom">@lang('site.Bathroom')</h5>
                                             </div>
                                             <div class="col m-t-15">
                                                 @foreach($Bathroom as $bath)
@@ -477,7 +525,7 @@
                                             </div>
                                             <br>
                                             <div class="col-sm-12 ">
-                                                <h5 class="text-decoration-underline mb-0 border-bottom">@lang('site.laundry')</h5>
+                                                <h5 class="  mb-0 border-bottom">@lang('site.laundry')</h5>
                                             </div>
                                             <div class="col m-t-15">
                                                 @foreach($Laundry as $Laund)
@@ -489,7 +537,7 @@
                                             </div>
                                             <br>
                                             <div class="col-sm-12 ">
-                                                <h5 class="text-decoration-underline mb-0 border-bottom">@lang('site.ConditioningType')</h5>
+                                                <h5 class="  mb-0 border-bottom">@lang('site.ConditioningType')</h5>
                                             </div>
                                             <div class="col m-t-15">
                                                 @foreach($ConditioningType as $type)
