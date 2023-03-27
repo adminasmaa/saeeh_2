@@ -64,7 +64,7 @@
                                      data-bs-toggle="modal"
                                      data-bs-target="#exampleModalss" width="100px" height="100px" class="d-block"
 
-                                     onerror="this.src='{{asset('uploads/'.$aqar->main_image)}}'"
+                                     onerror="this.src='https://saeeh.com/upload/<?=$aqar->main_image?>'"
                                 >
                             </div>
                             <!-- Modal -->
@@ -85,7 +85,7 @@
                                                          src="{{asset('images/aqars/'.$aqar->main_image)}}"
                                                          alt=""
                                                          width="400px" height="aut0"
-                                                         onerror="this.src='{{asset('uploads/'.$aqar->main_image)}}'"
+                                                         onerror="this.src='https://saeeh.com/upload/<?=$aqar->main_image?>'"
                                                     >
 
                                                 </th>
@@ -239,6 +239,71 @@
 
                                             </div>
                                             <br>
+                                            <div class="row">
+                                                <div class="form-group col-12 p-2">
+<!-- 
+                                                    <span class="text-danger">*</span>
+                                                            <label>@lang('site.display_photo')</label>
+                                                            <input type="file" name="main_image" class="form-control"
+                                                                value="{{ old('main_image') }}" required> -->
+                                                  <label>@lang('site.display_photo')</label>
+                                                  <div class="wrapper-images">
+                                                    <div class="wrapper-content control-group file-upload" id="file-upload1">
+                                                        <div class="image-box">
+                                                        <div class="content-box text-center">
+                                                            <i class="fas fa-images"></i>
+                                                        </div>
+                                                        <img loading="lazy" src="{{$aqar->main_image}}" alt="">
+                                                        </div>
+                                                        <div class="controls" style="display: none">
+                                                        <input type="file" name="main_image"  value="{{ old('main_image') }}" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                                <div class="form-group col-12 p-2">
+                                                        <!-- <label>@lang('site.images')</label>
+                                                        <input type="file" name="images[]" class="form-control"
+                                                            value="{{ old('images[]') }}" multiple required> -->
+                                                    <label>@lang('site.images')</label>
+                                                    <div class="upload__box">
+                                                    <div class="upload__btn-box" >
+                                                        <label class="upload__btn text-center">
+                                                                <i class="fas fa-images"></i>
+                                                        <input type="file" multiple=""  name="images[]" data-max_length="20" value="{{ old('images[]') }}" class="upload__inputfile">
+                                                        </label>
+                                                        <div class="upload__img-wrap"></div>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <!--    <div class="row">
+                                                <div class="col-md-12 form-group col-12 p-2">
+
+                                                    <span class="text-danger">*</span>
+                                                            <label>@lang('site.video')</label>
+                                                            <input type="file" name="videos" class="form-control"
+                                                                value="{{ old('videos') }}">
+                                                </div>
+
+                                            </div> -->
+                                         <div class="row">
+                                            <div class="col-12">
+                                            <label>@lang('site.video')</label>
+                                            <div class="wrapper-images">
+                                                    <div class="wrapper-content control-group file-upload" id="file-upload1">
+                                                        <div class="image-box">
+                                                        <div class="content-box text-center">
+                                                            <i class="fas fa-images"></i>
+                                                        </div>
+                                                        <img loading="lazy" src="" alt="">
+                                                        </div>
+                                                        <div class="controls" style="display: none">
+                                                        <input type="file" name="videos"  value="{{ old('videos') }}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        </div>
                                             <div class="row">
                                                 <div class="col-md-6 form-group col-12 p-2">
                                                     <span class="text-danger">*</span>
