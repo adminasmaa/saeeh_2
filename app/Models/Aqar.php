@@ -53,6 +53,8 @@ class Aqar extends Model
         'bathroomnumber',//nullable
         'personnumber',//nullable
         'swimmingpool',//nullable
+        'details',//nullable 
+        'map_link',//nullable 
         'country_id',
         'city_id',
     ];
