@@ -1,16 +1,4 @@
-// greeting
-var today = new Date()
-var curHr = today.getHours()
 
-if (curHr >= 0 && curHr < 4) {
-    document.getElementById("greeting").innerHTML = 'مساء الخير';
-} else if (curHr >= 4 && curHr < 12) {
-    document.getElementById("greeting").innerHTML = 'صباح الخير';
-} else if (curHr >= 12 && curHr < 16) {
-    document.getElementById("greeting").innerHTML = 'مساء الخير';
-} else {
-    document.getElementById("greeting").innerHTML = 'مساء الخير';
-}
 // time 
 function startTime() {
     var today = new Date();

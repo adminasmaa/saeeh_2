@@ -53,6 +53,8 @@ class Aqar extends Model
         'bathroomnumber',//nullable
         'personnumber',//nullable
         'swimmingpool',//nullable
+        'country_id',
+        'city_id',
     ];
     // relations
     public function user(){
@@ -73,7 +75,5 @@ class Aqar extends Model
     public function aqarBooking(){
         return $this->HasMany(AqarBooking::class);
     }
-
-    
 
 }

@@ -196,6 +196,7 @@
                                                         </tr>
                                                     </table>
 
+
                                                 </div>
                                                 <br>
                                                 <div class="row">
@@ -215,6 +216,50 @@
                                                             value="{{ old('images[]') }}" multiple id="upload-imgs" />
 
                                                         <div class="img-thumbs img-thumbs-hidden" id="img-previews">
+
+                                            </div>
+                                            <br>
+                                        <div class="row">
+                                            <div class="col-md-6 form-group">
+                                        <label class="form-label">@lang('site.country')</label>
+                                        <select class="form-control btn-square" name="country_id">
+                                            <option selected value="0">@lang('site.select')</option>
+                                            @foreach($countries as $country)
+
+                                                <option value="{{$country->id}}">{{$country->name_ar ?? ''}}</option>
+
+                                            @endforeach
+
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label class="form-label">@lang('site.city')</label>
+                                        <select class="form-control btn-square" name="city_id">
+                                            <option selected value="0">@lang('site.select')</option>
+                                            @foreach($cities as $city)
+
+                                                <option value="{{$city->id}}">{{$city->name_ar ?? ''}}</option>
+
+                                            @endforeach
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                                            <div class="row">
+                                                <div class="form-group col-12 p-2">
+                                                  <label>@lang('site.display_photo')</label>
+                                                  <div class="wrapper-images">
+                                                    <div class="wrapper-content control-group file-upload" id="file-upload1">
+                                                        <div class="image-box">
+                                                        <div class="content-box text-center">
+                                                            <i class="fas fa-images"></i>
+                                                        </div>
+                                                        <img loading="lazy" src="" alt="">
+                                                        </div>
+                                                        <div class="controls" style="display: none">
+                                                        <input type="file" name="main_image"  value="{{ old('main_image') }}" required>
+
                                                         </div>
                                                     </div>
 

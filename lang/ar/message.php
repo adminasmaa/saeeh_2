@@ -3,6 +3,7 @@
 return [
     'User register successfully.' => 'تسجيل المستخدم بنجاح',
     'logout'=>'تم تسجيل الخروج ',
+    'Data not found.'=>'لم يتم العثور على البيانات',
     'chanagepassword'=>'تم تغير الرقم السري بنجاح',
     'User updated successfully'=> 'تعديل المستخدم بنجاح',
     'category retrieved successfully.'=>'تم استرداد الفئات بنجاح',

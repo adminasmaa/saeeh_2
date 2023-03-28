@@ -110,8 +110,8 @@ class AqarDataTable extends DataTable
     {
         return [
             Column::make('id'),
-            Column::make('name_ar')->title(trans('site.name_ar')), 
-            Column::make('description')->title(trans('site.description')),
+            Column::make('fixed_price')->title(trans('site.price')),
+            Column::make('comment_text')->title(trans('site.description')),
             Column::make('created_at')->title(trans('site.created_at')),
             Column::computed('action')
                 ->exportable(false)
