@@ -105,7 +105,8 @@
                                     <div class="card">
                                         <div class="card-header">
                                             <h5 class="text-danger">@lang('site.alert')</h5>
-                                            <h6 class="text-warning">@lang('site.If you have a problem adding your ad, please call us')</h6>
+                                            <h6 class="text-warning">@lang('site.If you have a problem adding your ad,
+                                                please call us')</h6>
                                             <h6 class="text-info">0707078888</h6>
                                         </div>
                                         <div class="card-body">
@@ -196,10 +197,16 @@
                                             <div class="row m-t-10">
                                                 <div class="m-checkbox-inline">
                                                     <label for="edo-ani">
-                                                    <input class="radio_animated"  type="radio" name="price" {{$aqar->fixed_price ? 'checked':'' }} data-bs-original-title="" title="" value="1" >@lang('site.fixed_price')
+                                                        <input class="radio_animated" type="radio" name="price"
+                                                            {{$aqar->fixed_price ? 'checked':'' }}
+                                                            data-bs-original-title="" title=""
+                                                            value="1">@lang('site.fixed_price')
                                                     </label>
                                                     <label for="edo-ani1">
-                                                    <input class="radio_animated" type="radio" name="price" {{is_null($aqar->fixed_price) ? 'checked':'' }} data-bs-original-title="" title="" value="2">@lang('site.changed_price')
+                                                        <input class="radio_animated" type="radio" name="price"
+                                                            {{is_null($aqar->fixed_price) ? 'checked':'' }}
+                                                            data-bs-original-title="" title=""
+                                                            value="2">@lang('site.changed_price')
                                                     </label>
                                                 </div>
                                             </div>
@@ -257,10 +264,12 @@
                                                     <div class="form-group col-12 p-2">
                                                         <label>@lang('site.display_photo')</label>
 
-                                                        <input type="file" class="form-control" name="main_image" value="{{$aqar->main_image}}"
-                                                            id="imgInp" required />
-                                                        <img id="frame"  src="{{asset('images/aqars/'.$aqar->main_image)}}"
-                                                                    alt="" onerror="this.src='https://saeeh.com/upload/<?=$aqar->main_image?>'"  width="200px" class="img-preview-thumb" />
+                                                        <input type="file" class="form-control" name="main_image"
+                                                            value="{{$aqar->main_image}}" id="imgInp" required />
+                                                        <img id="frame"
+                                                            src="{{asset('images/aqars/'.$aqar->main_image)}}" alt=""
+                                                            onerror="this.src='https://saeeh.com/upload/<?=$aqar->main_image?>'"
+                                                            width="200px" class="img-upload" />
 
                                                     </div>
                                                     <div class="form-group col-12 p-2 mb-2">
@@ -271,54 +280,65 @@
                                                             value="{{$aqar->images}}" multiple id="upload-imgs" />
 
                                                         <div class="img-thumbs " id="img-previews">
-                                                        @foreach (json_decode($aqar->images) as $img)
-                                                        <img id="frame"  src="{{asset('images/aqars/'.$img)}}"
-                                                            alt="" onerror="this.src='https://saeeh.com/upload/<?=$img?>'"  width="200px" class="img-preview-thumb" /><span class="remove-btn">x</span>
-                                                        @endforeach
+
+                                                            @foreach (json_decode($aqar->images) as $img)
+                                                            <div class="wrapper-thumb">
+                                                                <img id="frame" src="{{asset('images/aqars/'.$img)}}"
+                                                                    alt=""
+                                                                    onerror="this.src='https://saeeh.com/upload/<?=$img?>'"
+                                                                    width="200px" class="img-preview-thumb" /><span
+                                                                    class="remove-btn">x</span>
+                                                            </div>
+                                                            @endforeach
                                                         </div>
                                                     </div>
 
 
-                                            </div>
-                                            <br>
-                                            <div class="row">
+                                                </div>
+                                                <br>
+                                                <div class="row">
                                                     <div class="form-group col-12 p-2">
                                                         <label>@lang('site.video')</label>
 
                                                         <input type='file' id='videoUpload' class="form-control"
                                                             name="videos" value="{{$aqar->videos}}?>" />
-                                                        <video width="250" height="200" src="{{asset('images/aqars/'.$aqar->videos)}}" onerror="this.src='https://saeeh.com/upload/<?=$aqar->videos?>'" controls
-                                                            class="video-upload" autoplay>
+                                                        <video width="250" height="200"
+                                                            src="{{asset('images/aqars/'.$aqar->videos)}}"
+                                                            onerror="this.src='https://saeeh.com/upload/<?=$aqar->videos?>'"
+                                                            controls class="video-upload" autoplay>
                                                             Your browser does not support the video tag.
                                                         </video>
                                                     </div>
                                                 </div>
                                                 <br>
-                                            <div class="col-md-6 form-group">
-                                    <label class="form-label">@lang('site.country')</label>
-                                    <select class="form-control btn-square" name="country_id">
-                                        <option selected>@lang('site.select')</option>
-                                        @foreach($countries as $country)
+                                                <div class="col-md-6 form-group">
+                                                    <label class="form-label">@lang('site.country')</label>
+                                                    <select class="form-control btn-square" name="country_id">
+                                                        <option selected>@lang('site.select')</option>
+                                                        @foreach($countries as $country)
 
-                                            <option value="{{$country->id}}"   @if($country->id==$user->country_id) selected @endif>{{$country->name_ar ?? ''}}</option>
+                                                        <option value="{{$country->id}}" @if($country->
+                                                            id==$user->country_id) selected
+                                                            @endif>{{$country->name_ar ?? ''}}</option>
 
-                                        @endforeach
+                                                        @endforeach
 
-                                    </select>
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label class="form-label">@lang('site.city')</label>
-                                    <select class="form-control btn-square" name="city_id">
-                                        <option selected>@lang('site.select')</option>
-                                        @foreach($cities as $city)
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6 form-group">
+                                                    <label class="form-label">@lang('site.city')</label>
+                                                    <select class="form-control btn-square" name="city_id">
+                                                        <option selected>@lang('site.select')</option>
+                                                        @foreach($cities as $city)
 
-                                            <option value="{{$city->id}}"   @if($city->id==$user->city_id) selected @endif>{{$city->name_ar ?? ''}}</option>
+                                                        <option value="{{$city->id}}" @if($city->id==$user->city_id)
+                                                            selected @endif>{{$city->name_ar ?? ''}}</option>
 
-                                        @endforeach
+                                                        @endforeach
 
-                                    </select>
-                                </div>
-                                
+                                                    </select>
+                                                </div>
+
                                                 <div class="row">
                                                     <div style="display: none;" id="space">
                                                         <div class="col-sm-6 col-md-6">
@@ -661,7 +681,8 @@ $(document).ready(function() {
     $("#personnumber").hide();
     $("#swimmingpool").hide();
     $.ajax({
-        url: '{{ url('dashboard / aqars / getsetting ') }}' + '/' + category_id,
+        url: '{{ url('
+        dashboard / aqars / getsetting ') }}' + '/' + category_id,
         success: data => {
             data.forEach(model =>
                 $("#" + model.input_id).show()
@@ -671,8 +692,11 @@ $(document).ready(function() {
     jQuery('a.add-price').click(function(event) {
         event.preventDefault();
         var newRow = jQuery('<tr><td><div class="row"><div class="col-md-5 form-group col-12 p-2">' +
-            ' <label>@lang('site.personnumber')</label><input type="number"  name="person_num[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
-            '<label>@lang('site.fixed_price')</label><input type="number" name="price[]" class="form-control" >' +
+            ' <label>@lang('
+            site
+            .personnumber ')</label><input type="number"  name="person_num[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
+            '<label>@lang('
+            site.fixed_price ')</label><input type="number" name="price[]" class="form-control" >' +
             '  </div>  <div class="col-md-2 form-group col-12 p-2 "> <a class="btn btn-air-primary btn-pill btn-danger add-price w-100 m-t-30" onclick="deletetr(this)" ><i class="fa fa-trash"></i></a>' +
             '</div></div> </td>  </tr>');
         jQuery('.price-list').append(newRow);
@@ -701,7 +725,8 @@ $('input[type=radio][name=category_id]').change(function() {
     $("#personnumber").hide();
     $("#swimmingpool").hide();
     $.ajax({
-        url: '{{ url('dashboard / aqars / getsetting ') }}' + '/' + category_id,
+        url: '{{ url('
+        dashboard / aqars / getsetting ') }}' + '/' + category_id,
         success: data => {
             data.forEach(model =>
                 $("#" + model.input_id).show()
@@ -747,7 +772,9 @@ function previewImgss(event) {
         });
     }
 }
-
+$(".remove-btn").click(function() {
+    $(this).parent(".wrapper-thumb").remove();
+});
 document.getElementById("imgInp").onchange = function() {
     let imgURL = (frame.src = URL.createObjectURL(event.target.files[0]));
     document.querySelector("img").src = imgURL;
