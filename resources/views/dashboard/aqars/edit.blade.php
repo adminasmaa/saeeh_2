@@ -62,7 +62,7 @@
                                         <img src="{{asset('images/aqars/'.$aqar->main_image)}}" data-bs-toggle="modal"
                                             data-bs-target="#exampleModalss" width="100px" height="100px"
                                             class="d-block"
-                                            onerror="this.src='{{asset('uploads/'.$aqar->main_image)}}'">
+                                            onerror="this.src='https://saeeh.com/upload/<?=$aqar->main_image?>'">
                                     </div>
                                     <!-- Modal -->
                                     <div class="modal fade" id="exampleModalss" tabindex="-1"
@@ -82,7 +82,7 @@
                                                                 <img name="display_photo"
                                                                     src="{{asset('images/aqars/'.$aqar->main_image)}}"
                                                                     alt="" width="400px" height="aut0"
-                                                                    onerror="this.src='{{asset('uploads/'.$aqar->main_image)}}'">
+                                                                    onerror="this.src='https://saeeh.com/upload/<?=$aqar->main_image?>'">
 
                                                             </th>
                                                         </tr>
@@ -105,8 +105,7 @@
                                     <div class="card">
                                         <div class="card-header">
                                             <h5 class="text-danger">@lang('site.alert')</h5>
-                                            <h6 class="text-warning">@lang('site.If you have a problem adding your ad,
-                                                please call us')</h6>
+                                            <h6 class="text-warning">@lang('site.If you have a problem adding your ad, please call us')</h6>
                                             <h6 class="text-info">0707078888</h6>
                                         </div>
                                         <div class="card-body">
@@ -197,16 +196,10 @@
                                             <div class="row m-t-10">
                                                 <div class="m-checkbox-inline">
                                                     <label for="edo-ani">
-                                                        <input class="radio_animated" type="radio" name="price"
-                                                            {{$aqar->fixed_price ? 'checked':'' }}
-                                                            data-bs-original-title="" title=""
-                                                            value="1">@lang('site.fixed_price')
+                                                    <input class="radio_animated"  type="radio" name="price" {{$aqar->fixed_price ? 'checked':'' }} data-bs-original-title="" title="" value="1" >@lang('site.fixed_price')
                                                     </label>
                                                     <label for="edo-ani1">
-                                                        <input class="radio_animated" type="radio" name="price"
-                                                            {{is_null($aqar->fixed_price) ? 'checked':'' }}
-                                                            data-bs-original-title="" title=""
-                                                            value="2">@lang('site.changed_price')
+                                                    <input class="radio_animated" type="radio" name="price" {{is_null($aqar->fixed_price) ? 'checked':'' }} data-bs-original-title="" title="" value="2">@lang('site.changed_price')
                                                     </label>
                                                 </div>
                                             </div>
@@ -260,86 +253,14 @@
 
                                                 </div>
                                                 <br>
-                                                <!-- <div class="row">
-                                                <div class="col-md-6 form-group col-12 p-2">
-                                                    <span class="text-danger">*</span>
-                                                            <label>@lang('site.display_photo')</label>
-                                                            <input type="file" name="main_image" class="form-control"
-                                                                value="{{$aqar->main_image}}">
-                                                </div>
-                                                <div class="col-md-6 form-group col-12 p-2">
-                                                        <label>@lang('site.images')</label>
-                                                        <input type="file" name="images[]" class="form-control"
-                                                            value="{{ old('images[]') }}" multiple>
-                                                </div>
-                                                <br>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-12 form-group col-12 p-2">
-
-                                                    <span class="text-danger">*</span>
-                                                            <label>@lang('site.video')</label>
-                                                            <input type="file" name="videos" class="form-control"
-                                                                value="{{ old('videos') }}">
-
-                                                </div>
-
-                                            </div> -->
-                                                <!-- <div class="row">
-                                                <div class="form-group col-12 p-2">
-                                                  <label>@lang('site.display_photo')</label>
-                                                  <div class="wrapper-images">
-                                                    <div class="wrapper-content control-group file-upload" id="file-upload1">
-                                                        <div class="image-box">
-                                                        <div class="content-box text-center">
-                                                            <i class="fas fa-images"></i>
-                                                        </div>
-                                                        <img loading="lazy" src="" alt="">
-                                                        </div>
-                                                        <div class="controls" style="display: none">
-                                                        <input type="file" name="main_image"  value="{{ old('main_image') }}" required>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                </div>
-                                                <div class="form-group col-12 p-2">
-                                                
-                                                    <label>@lang('site.images')</label>
-                                                    <div class="upload__box">
-                                                    <div class="upload__btn-box" >
-                                                        <label class="upload__btn text-center">
-                                                                <i class="fas fa-images"></i>
-                                                        <input type="file" multiple=""  name="images[]" data-max_length="20" value="{{ old('images[]') }}" class="upload__inputfile">
-                                                        </label>
-                                                        <div class="upload__img-wrap"></div>
-                                                    </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-12">
-                                                <label>@lang('site.video')</label>
-                                                <div class="wrapper-images">
-                                                        <div class="wrapper-content control-group file-upload" id="file-upload1">
-                                                            <div class="image-box">
-                                                            <div class="content-box text-center">
-                                                                <i class="fas fa-images"></i>
-                                                            </div>
-                                                            <img loading="lazy" src="" alt="">
-                                                            </div>
-                                                            <div class="controls" style="display: none">
-                                                            <input type="file" name="videos"  value="{{ old('videos') }}">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                            </div> -->
                                                 <div class="row">
                                                     <div class="form-group col-12 p-2">
                                                         <label>@lang('site.display_photo')</label>
 
-                                                        <input type="file" class="form-control" name="main_image"
+                                                        <input type="file" class="form-control" name="main_image" value="{{$aqar->main_image}}"
                                                             id="imgInp" required />
-                                                        <img id="frame" src="" width="200px" class="img-upload" />
+                                                        <img id="frame"  src="{{asset('images/aqars/'.$aqar->main_image)}}"
+                                                                    alt="" onerror="this.src='https://saeeh.com/upload/<?=$aqar->main_image?>'"  width="200px" class="img-preview-thumb" />
 
                                                     </div>
                                                     <div class="form-group col-12 p-2 mb-2">
@@ -347,26 +268,57 @@
                                                         <label>@lang('site.images')</label>
 
                                                         <input type="file" class="form-control" name="images[]"
-                                                            value="{{ old('images[]') }}" multiple id="upload-imgs" />
+                                                            value="{{$aqar->images}}" multiple id="upload-imgs" />
 
-                                                        <div class="img-thumbs img-thumbs-hidden" id="img-previews">
+                                                        <div class="img-thumbs " id="img-previews">
+                                                        @foreach (json_decode($aqar->images) as $img)
+                                                        <img id="frame"  src="{{asset('images/aqars/'.$img)}}"
+                                                            alt="" onerror="this.src='https://saeeh.com/upload/<?=$img?>'"  width="200px" class="img-preview-thumb" /><span class="remove-btn">x</span>
+                                                        @endforeach
                                                         </div>
                                                     </div>
 
-                                                </div>
-                                                <div class="row">
+
+                                            </div>
+                                            <br>
+                                            <div class="row">
                                                     <div class="form-group col-12 p-2">
                                                         <label>@lang('site.video')</label>
 
                                                         <input type='file' id='videoUpload' class="form-control"
-                                                            name="videos" value="{{ old('videos') }}" />
-                                                        <video width="250" height="200" style="display:none" controls
+                                                            name="videos" value="{{$aqar->videos}}?>" />
+                                                        <video width="250" height="200" src="{{asset('images/aqars/'.$aqar->videos)}}" onerror="this.src='https://saeeh.com/upload/<?=$aqar->videos?>'" controls
                                                             class="video-upload" autoplay>
                                                             Your browser does not support the video tag.
                                                         </video>
                                                     </div>
                                                 </div>
                                                 <br>
+                                            <div class="col-md-6 form-group">
+                                    <label class="form-label">@lang('site.country')</label>
+                                    <select class="form-control btn-square" name="country_id">
+                                        <option selected>@lang('site.select')</option>
+                                        @foreach($countries as $country)
+
+                                            <option value="{{$country->id}}"   @if($country->id==$user->country_id) selected @endif>{{$country->name_ar ?? ''}}</option>
+
+                                        @endforeach
+
+                                    </select>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="form-label">@lang('site.city')</label>
+                                    <select class="form-control btn-square" name="city_id">
+                                        <option selected>@lang('site.select')</option>
+                                        @foreach($cities as $city)
+
+                                            <option value="{{$city->id}}"   @if($city->id==$user->city_id) selected @endif>{{$city->name_ar ?? ''}}</option>
+
+                                        @endforeach
+
+                                    </select>
+                                </div>
+                                
                                                 <div class="row">
                                                     <div style="display: none;" id="space">
                                                         <div class="col-sm-6 col-md-6">
@@ -709,8 +661,7 @@ $(document).ready(function() {
     $("#personnumber").hide();
     $("#swimmingpool").hide();
     $.ajax({
-        url: '{{ url('
-        dashboard / aqars / getsetting ') }}' + '/' + category_id,
+        url: '{{ url('dashboard / aqars / getsetting ') }}' + '/' + category_id,
         success: data => {
             data.forEach(model =>
                 $("#" + model.input_id).show()
@@ -720,10 +671,9 @@ $(document).ready(function() {
     jQuery('a.add-price').click(function(event) {
         event.preventDefault();
         var newRow = jQuery('<tr><td><div class="row"><div class="col-md-5 form-group col-12 p-2">' +
-            '<input type="number"  name="person_num[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
-            '<input type="number" name="price[]" class="form-control" >' +
-            '  </div>  <div class="col-md-2 form-group col-12 p-2 "> <a class="btn btn-air-primary btn-pill btn-danger add-price w-100" onclick="deletetr(this)" ><i class="fa fa-trash"></i></a>' +
-
+            ' <label>@lang('site.personnumber')</label><input type="number"  name="person_num[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
+            '<label>@lang('site.fixed_price')</label><input type="number" name="price[]" class="form-control" >' +
+            '  </div>  <div class="col-md-2 form-group col-12 p-2 "> <a class="btn btn-air-primary btn-pill btn-danger add-price w-100 m-t-30" onclick="deletetr(this)" ><i class="fa fa-trash"></i></a>' +
             '</div></div> </td>  </tr>');
         jQuery('.price-list').append(newRow);
     });
@@ -751,8 +701,7 @@ $('input[type=radio][name=category_id]').change(function() {
     $("#personnumber").hide();
     $("#swimmingpool").hide();
     $.ajax({
-        url: '{{ url('
-        dashboard / aqars / getsetting ') }}' + '/' + category_id,
+        url: '{{ url('dashboard / aqars / getsetting ') }}' + '/' + category_id,
         success: data => {
             data.forEach(model =>
                 $("#" + model.input_id).show()

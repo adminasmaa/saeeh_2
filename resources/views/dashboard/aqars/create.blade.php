@@ -57,8 +57,7 @@
                                     <div class="card">
                                         <div class="card-header">
                                             <h5 class="text-danger">@lang('site.alert')</h5>
-                                            <h6 class="text-warning">@lang('site.If you have a problem adding your ad,
-                                                please call us')</h6>
+                                            <h6 class="text-warning">@lang('site.If you have a problem adding your ad, please call us')</h6>
                                             <h6 class="text-info">0707078888</h6>
                                         </div>
                                         <div class="card-body">
@@ -196,6 +195,7 @@
                                                         </tr>
                                                     </table>
 
+
                                                 </div>
                                                 <br>
                                                 <div class="row">
@@ -215,11 +215,10 @@
                                                             value="{{ old('images[]') }}" multiple id="upload-imgs" />
 
                                                         <div class="img-thumbs img-thumbs-hidden" id="img-previews">
-                                                        </div>
-                                                    </div>
 
-                                                </div>
-                                                <div class="row">
+                                            </div>
+                                            <br>
+                                            <div class="row">
                                                     <div class="form-group col-12 p-2">
                                                         <label>@lang('site.video')</label>
 
@@ -231,6 +230,33 @@
                                                         </video>
                                                     </div>
                                                 </div>
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-md-6 form-group">
+                                                    <label class="form-label">@lang('site.country')</label>
+                                                    <select class="form-control btn-square" name="country_id">
+                                                        <option selected value="0">@lang('site.select')</option>
+                                                        @foreach($countries as $country)
+
+                                                            <option value="{{$country->id}}">{{$country->name_ar ?? ''}}</option>
+
+                                                        @endforeach
+
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6 form-group">
+                                                    <label class="form-label">@lang('site.city')</label>
+                                                    <select class="form-control btn-square" name="city_id">
+                                                        <option selected value="0">@lang('site.select')</option>
+                                                        @foreach($cities as $city)
+
+                                                            <option value="{{$city->id}}">{{$city->name_ar ?? ''}}</option>
+
+                                                        @endforeach
+
+                                                    </select>
+                                                </div>
+                                            </div>            
                                                 <br>
                                                 <div class="row">
                                                     <div style="display: none;" id="space">
@@ -485,10 +511,10 @@
                                         <div class="col m-t-15">
                                             @foreach($Laundry as $Laund)
                                             <div class="form-check form-check-inline checkbox checkbox-solid-primary">
-                                                <input class="form-check-input" id="bath_{{$Laund->id}}" type="checkbox"
+                                                <input class="form-check-input" id="laundry_{{$Laund->id}}" type="checkbox"
                                                     name="laundry_id[]" value="{{$Laund->id}}">
                                                 <label class="form-check-label"
-                                                    for="bath_{{$Laund->id}}">{{$Laund->name_ar ?? ''}}<span
+                                                    for="laundry_{{$Laund->id}}">{{$Laund->name_ar ?? ''}}<span
                                                         class="digits"></span></label>
                                             </div>
                                             @endforeach
@@ -546,16 +572,12 @@
 @section('scripts')
 <script>
 $(document).ready(function() {
-    jQuery('a.add-price').click(function(event) {
+    jQuery('a.add-price').click(function (event) {
         event.preventDefault();
         var newRow = jQuery('<tr><td><div class="row"><div class="col-md-5 form-group col-12 p-2">' +
-            ' <label>@lang('
-            site
-            .personnumber ')</label><input type="number"  name="person_num[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
-            '<label>@lang('
-            site.fixed_price ')</label><input type="number" name="price[]" class="form-control" >' +
+            ' <label>@lang('site.personnumber')</label><input type="number"  name="person_num[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
+            '<label>@lang('site.fixed_price')</label><input type="number" name="price[]" class="form-control" >' +
             '  </div>  <div class="col-md-2 form-group col-12 p-2 "> <a class="btn btn-air-primary btn-pill btn-danger add-price w-100 m-t-30" onclick="deletetr(this)" ><i class="fa fa-trash"></i></a>' +
-
             '</div></div> </td>  </tr>');
         jQuery('.price-list').append(newRow);
     });
@@ -574,18 +596,17 @@ function deletetr(r) {
 
 
 $('input[type=radio][name=category_id]').change(function() {
-    var category_id = $('input[name="category_id"]:checked').val();
-    $("#floor").hide();
-    $("#floornumber").hide();
-    $("#space").hide();
-    $("#unitnumber").hide();
-    $("#bathroomnumber").hide();
-    $("#hallnumber").hide();
-    $("#personnumber").hide();
-    $("#swimmingpool").hide();
+    var category_id =$('input[name="category_id"]:checked').val();
+    $("#floor").hide(); 
+    $("#floornumber").hide(); 
+    $("#space").hide(); 
+    $("#unitnumber").hide(); 
+    $("#bathroomnumber").hide(); 
+    $("#hallnumber").hide(); 
+    $("#personnumber").hide(); 
+    $("#swimmingpool").hide(); 
     $.ajax({
-        url: '{{ url('
-        dashboard / aqars / getsetting ') }}' + '/' + category_id,
+        url: '{{ url('dashboard/aqars/getsetting') }}' + '/' +category_id ,
         success: data => {
             data.forEach(model =>
                 $("#" + model.input_id).show()

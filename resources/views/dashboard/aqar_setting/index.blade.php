@@ -36,19 +36,6 @@
 
 
                         </div>
-                        <div class="bg-secondary-lighten card-header d-flex justify-content-between">
-                            <h5>@lang('site.add') </h5>
-                            <div class="text-end  group-btn-top">
-                                <div class="form-group d-flex form-group justify-content-between">
-
-                                    <a href="{{route('dashboard.aqar_setting.create')}}" class="btn btn-air-primary btn-pill btn-primary"><i
-                                            class="fa fa-plus p-1"></i>
-                                        @lang('site.add')</a>
-                                </div>
-                            </div>
-
-
-                        </div>
                         <div class="card-body">
 
                             <div class="dt-ext table-responsive">
@@ -99,60 +86,6 @@
 
 
     <script src="/vendor/datatables/buttons.server-side.js"></script>
-
-
-
-
-    {!! $dataTable->scripts() !!}
-
-    <script>
-        function confirmDelete($id) {
-            console.log("Tapped Delete button")
-            var that = document.getElementById("deleteForm" + $id);
-            var n = new Noty({
-                text: "@lang('site.confirm_delete')",
-                type: "error",
-                killer: true,
-                buttons: [
-                    Noty.button("@lang('site.yes')", 'btn btn-success mr-2', function () {
-                        that.submit();
-                    }),
-                    Noty.button("@lang('site.no')", 'btn btn-primary mr-2', function () {
-                        n.close();
-                    })
-                ]
-            });
-            n.show();
-        }
-
-        $(document).ready(function () {
-
-            $("#deleteForm").on('click', "#delete", function (e) {
-
-                console.log("Tapped Delete button")
-                var that = $(this)
-                e.preventDefault();
-                var n = new Noty({
-                    text: "@lang('site.confirm_delete')",
-                    type: "error",
-                    killer: true,
-                    buttons: [
-                        Noty.button("@lang('site.yes')", 'btn btn-success mr-2', function () {
-                            that.closest('form').submit();
-                        }),
-                        Noty.button("@lang('site.no')", 'btn btn-primary mr-2', function () {
-                            n.close();
-                        })
-                    ]
-                });
-                n.show();
-
-            });
-
-
-        });
-    </script>
-
 
 @endsection
 

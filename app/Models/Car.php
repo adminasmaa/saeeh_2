@@ -46,8 +46,12 @@ class Car extends Model
         'ads_id', //unsigned
         'user_id', //unsigned
         'category_id', //unsigned
-        'sub_category_id'
+        'sub_category_id',
+        'country_id',
+        'city_id',
     ];
+
+
 
     // relations
     public function user()

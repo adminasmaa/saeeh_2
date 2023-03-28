@@ -10,6 +10,8 @@ use App\Models\User;
 use App\Repositories\Interfaces\CarRepositoryInterface as CarRepositoryInterfaceAlias;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
+use App\Models\City;
+use App\Models\Country;
 use Alert;
 
 class CarRepository implements CarRepositoryInterfaceAlias
@@ -34,7 +36,9 @@ class CarRepository implements CarRepositoryInterfaceAlias
         $users = User::all();
         $categories = Category::where('parent_id','=',2)->where('type','=',2)->get();
         $ads = Ads::all();
-        return view('dashboard.cars.create', compact('users', 'categories', 'ads'));
+        $countries = Country::all();
+        $cities = City::all();
+        return view('dashboard.cars.create', compact('users', 'categories', 'ads', 'countries', 'cities'));
     }
 
     public function edit($Id)
@@ -47,12 +51,13 @@ class CarRepository implements CarRepositoryInterfaceAlias
         $categories = Category::where('parent_id','=',2)->where('type','=',2)->get();
 
         $subcategories = Category::where('parent_id','!=',2)->where('type','=',2)->get();
-
+        $countries = Country::all();
+        $cities = City::all();
 
         $ads = Ads::all();
 
 
-        return view('dashboard.cars.edit', compact('car', 'users', 'categories', 'ads','subcategories'));
+        return view('dashboard.cars.edit', compact('car', 'users', 'categories', 'ads','subcategories', 'countries', 'cities'));
     }
 
     public function show($Id)
@@ -65,24 +70,26 @@ class CarRepository implements CarRepositoryInterfaceAlias
         $categories = Category::all();
 
         $subcategories = Category::get();
-
+        $countries = Country::all();
+        $cities = City::all();
         $ads = Ads::all();
 
 
-        return view('dashboard.cars.show', compact('car', 'users', 'categories', 'ads','subcategories'));
+        return view('dashboard.cars.show', compact('car', 'users', 'categories', 'ads','subcategories', 'countries', 'cities'));
     }
 
 
     public function store($request)
     {
-//return $request;
 
         // TODO: Implement store() method.
 
-        $request_data = $request->except(['main_image_ads', 'images','videos']);
+        $request_data = $request->except(['main_image_ads', 'images','videos','price','daynumber']);
 
         // To Make  Active
-
+        $data['daynumber'] = $request['daynumber'];
+        $data['price'] = $request['price'];
+        $request_data['changed_price']=json_encode($data)!=null?json_encode($data):json_encode([]);
         $car = Car::create($request_data);
 
         if ($request->hasFile('main_image_ads')) {
@@ -136,7 +143,11 @@ class CarRepository implements CarRepositoryInterfaceAlias
     {
         // TODO: Implement update() method.
 
-        $request_data = $request->except(['main_image_ads', '_token', '_method', 'images','videos']);
+        $request_data = $request->except(['main_image_ads', '_token', '_method', 'images','videos','price','daynumber']);
+
+        $data['daynumber'] = $request['daynumber'];
+        $data['price'] = $request['price'];
+        $request_data['changed_price']=json_encode($data)!=null?json_encode($data):json_encode([]);
         $car->update($request_data);
 
 
