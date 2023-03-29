@@ -56,6 +56,9 @@ return [
     'website_address' => 'عنوان الموقع ',
     'brands' => 'ماركات العربيات',
 
+
+
+
     'full_names' => 'الاسم الكامل',
     'Saeeh' => 'سائح',
     'start_date' => 'تاريخ البدء',
@@ -488,6 +491,7 @@ return [
     'place_comments' => ' تعليقات الاماكن ',
     'personnumber' => 'عدد الاشخاص',
     'space' => 'المساحة',
+    'services_aqars'=>'خدمات العقارات',
     'unitnumber' => 'عدد الوحدات',
     'hallnumber' => 'عدد الصالات',
     'bathroomnumber' => 'عدد دورات المياه',
@@ -509,7 +513,19 @@ return [
         'title' => 'عنوان الموضوع باللغة العربية',
         'content' => 'المحتوي باللغة العربية',
         'notes' => 'ملاحظات باللغة العربية',
+        'car_positions' => 'مكان السيارة ',
 
+
+        'floor'=>'الطابق',
+        'service'=>'الخدمات',
+        'bathroom'=>'مرافق الحمامات',
+        'free_service'=>'الخدمات المجانيه ',
+        'laundry'=>'مرافق الغسيل والكوى',
+        'kitchen'=>'المطابخ',
+        'crew'=>'طاقم العمل',
+        'conditioning_type'=>'انواع التكيفات',
+        'another_room'=>'غرف اخري ',
+        'floor_number'=>'عدد الادوار',
 
     ],
 
@@ -520,6 +536,17 @@ return [
         'title' => 'عنوان الموضوع باللغة الانجليزية',
         'content' => 'المحتوي باللغة الانجليزية',
         'notes' => 'ملاحظات باللغة الانجليزية',
+        'car_positions'=>'Car Positions',
+        'floor'=>'Floor',
+        'service'=>'Service',
+        'bathroom'=>'Bathroom',
+        'free_service'=>'Free Service',
+        'laundry'=>'Laundry',
+        'kitchen'=>'Kitchen',
+        'crew'=>'Crew',
+        'conditioning_type'=>'Conditioning Type',
+        'another_room'=>'Another Room',
+        'floor_number'=>'floor_number',
 
     ],
     'fa' => [

@@ -5,6 +5,7 @@ use App\Http\Controllers\Dashboard\RoleController;
 use App\Http\Controllers\Dashboard\CountryController;
 use App\Http\Controllers\Dashboard\CityController;
 use App\Http\Controllers\Dashboard\CategoryController;
+use App\Http\Controllers\Dashboard\ServiceAqarController;
 use App\Http\Controllers\Dashboard\QuestionController;
 use App\Http\Controllers\Dashboard\ProblemController;
 use App\Http\Controllers\Dashboard\MediatorController;
@@ -96,6 +97,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         //aqars
         Route::resource('aqars', AqarController::class);
         Route::resource('aqar_comments', AqarCommentController::class);
+        Route::resource('services_aqars', ServiceAqarController::class);
 
         //aquarcategories
         Route::resource('aquarcategories', AquarCategoryController::class);
