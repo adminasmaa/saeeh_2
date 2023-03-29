@@ -279,6 +279,7 @@ return [
     'free_user' => 'Free User',
     'both' => 'Both',
     'daynumber'=>'Day Number',
+    'services_aqars'=>'Services Aqars',
     'discount_price' => 'Discount Price',
 
     'persons' => 'Persons',
