@@ -20,8 +20,7 @@
                 </div>
             </div>
         </div>
-
-
+       
         <div class="container-fluid">
 
             <div class="row">
@@ -48,65 +47,68 @@
                                         @lang('site.edit')</button>
                                 </div>
                             </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                        @include('partials._errors')
+                                        <center>
+                                        <div class="col-sm-8">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="col-sm-12">
+                                                        <h5 class="text-decoration-underline border-bottom">@lang('site.categories')</h5>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="m-t-15">                                               
+                                                            <select class="form-control btn-square" name="category_id" id="category_id" onchange="getdetails(this.value)">
+                                                                <option selected value="0">@lang('site.select')</option>
+                                                                @foreach($categories as $cat)
+                                                                    <option value="{{$cat->id}}"  {{$cat->id==$aqarSetting->category_id? 'selected':'' }} >{{$cat->name_ar ?? ''}}</option>
+                                                                @endforeach
 
-
-                        </div>
-
-                        <div class="card">
-                        <center>
-                        <div class="card-body">
-                                @include('partials._errors')
-                                <center>
-                                <div class="col-sm-8">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h5 class="text-danger">@lang('site.alert')</h5>
-                                            <h6 class="text-warning">@lang('site.If you have a problem adding your ad, please call us')</h6>
-                                            <h6 class="text-info">0707078888</h6>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="table-responsive p-2" id="result_data">
+                                                    <table  class="table table-bordered table-striped">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>#</th>                                                        
+                                                                <th scope="col">@lang('site.input_id')</th>
+                                                                <th scope="col">@lang('site.display')</th>
+                                                                <th scope="col">@lang('site.required')</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        @foreach($details as $detail)         
+                                                            <tr>
+                                                                <td>{{$detail->id}}</td>
+                                                                <td style="width: 30%;">{{$detail->input_id}}</td>    
+                                                                <input type="hidden" name="ID" id="ID" value=""/>    
+                                                                <td class="w-50">
+                                                                    <label class="switch">
+                                                                        <input type="checkbox" name="display" id="{{$detail->ID }}" {{$detail->display==1? 'checked':'' }} data-bs-original-title="" title=""><span class="switch-state"></span>
+                                                                    </label>
+                                                                </td>
+                                                                </td>
+                                                                <td class="w-50">
+                                                                    <label class="switch">
+                                                                        <input type="checkbox" name="required" id="{{$detail->ID }}" {{$detail->required==1? 'checked':'' }} data-bs-original-title="" title=""><span class="switch-state"></span>
+                                                                    </label>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach  
+                                                        </tbody>
+                                                    </table>
+                                                    </div>
+                                                    <div id="result_data1">
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="card-body">
-                                            <div class="col-sm-12">
-                                                <h5 class="text-decoration-underline border-bottom">@lang('site.categories')</h5>
-                                            </div>
-                                            <div class="col">
-                                                <div class="m-t-15">
-                                                @foreach($categories as $cat)
-                                                <div class="form-check radio radio-primary">
-                                                    <input class="form-check-input" id="category_id{{$cat->id}}" type="radio"  name="category_id"  value="{{$cat->id}}" {{$cat->id==$aqarSetting->category_id? 'checked':'' }} >
-                                                    <label class="form-check-label mb-0" for="category_id{{$cat->id}}">{{$cat->name_ar ?? ''}}</label>
-                                                </div>
-                                                @endforeach
-                                                </div>
-                                            </div>
-                                            <br>
-                                            <div class="row m-t-10">
-                                                <!--<div class="col-md-6">-->
-
-                                                <div class="col-md-6 form-group col-12 p-2 ">
-                                                <label>@lang('site.input_id')</label>
-                                                <input type="text" name="input_id" class="form-control"
-                                                    value="{{$aqarSetting->input_id}}"
-                                                    >
-                                                </div>
-                                                <div class="col-md-6 form-group">
-                                                <label class="form-label">@lang('site.display')</label><span class="text-danger">*</span>
-                                                <select class="form-control btn-square" name="display">
-                                                        <option selected>@lang('site.select')</option>
-                                                    <option value="1"
-                                                            @if($aqarSetting->display=='view') selected @endif>@lang('site.view')
-                                                    </option>
-                                                    <option value="0"
-                                                            @if($aqarSetting->display=='notview') selected @endif>@lang('site.notview')
-                                                    </option>                                           
-
-                                                </select>
-                                            </div>
-                                        
-                                                
-                                        </div>
-                                    </div>
+                                        </center>
                                 </div>
-                                </center>
                             </div>
 
                         </form>
@@ -116,6 +118,56 @@
         </div>
     </div>
     <!-- Container-fluid Ends-->
+
+@endsection
+
+@section('scripts')
+<script>
+
+   
+function getdetails(category_id)
+{
+  
+    $.ajax({
+        url: '{{ url('dashboard/aqarsetting/getsetting') }}' + '/' +category_id ,
+        success : function(html)
+		{ 
+           
+            $("#result_data1").show();
+            var element = $('#result_data');
+            element.empty();
+            $('#result_data1').html(html) ;
+            
+        }
+    })
+}
+</script>
+<script>
+
+$(document).ready(function() {
+    
+$('input[type=checkbox][name=display]').change(function() {
+    var element = $(this);
+    var detail_id = element.attr("id");
+    var check=this.checked;
+    if(check==true){check=1;}else{check=0;}
+    $.ajax({
+        url: '{{ url('dashboard/aqarsetting/active_input_display') }}' + '/' +detail_id + '/' +check,
+        success: function (data) {
+            Snackbar.show({
+            text: 'تم التحديث',
+             showAction: false,
+             pos: 'bottom-center'
+    });
+        
+}
+       
+    })
+    
+});
+});
+
+</script>
 
 @endsection
 

@@ -105,8 +105,7 @@
                                     <div class="card">
                                         <div class="card-header">
                                             <h5 class="text-danger">@lang('site.alert')</h5>
-                                            <h6 class="text-warning">@lang('site.If you have a problem adding your ad,
-                                                please call us')</h6>
+                                            <h6 class="text-warning">@lang('site.If you have a problem adding your ad, please call us')</h6>
                                             <h6 class="text-info">0707078888</h6>
                                         </div>
                                         <div class="card-body">
@@ -196,18 +195,12 @@
                                             </div>
                                             <div class="row m-t-10">
                                                 <div class="m-checkbox-inline">
-                                                    <label for="edo-ani">
-                                                        <input class="radio_animated" type="radio" name="price"
-                                                            {{$aqar->fixed_price ? 'checked':'' }}
-                                                            data-bs-original-title="" title=""
-                                                            value="1">@lang('site.fixed_price')
-                                                    </label>
-                                                    <label for="edo-ani1">
-                                                        <input class="radio_animated" type="radio" name="price"
-                                                            {{is_null($aqar->fixed_price) ? 'checked':'' }}
-                                                            data-bs-original-title="" title=""
-                                                            value="2">@lang('site.changed_price')
-                                                    </label>
+                                                        <label for="edo-ani">
+                                                        <input class="radio_animated"  type="radio" name="price" {{$aqar->fixed_price ? 'checked':'' }} data-bs-original-title="" title="" value="1" >@lang('site.fixed_price')
+                                                        </label>
+                                                        <label for="edo-ani1">
+                                                        <input class="radio_animated" type="radio" name="price" {{is_null($aqar->fixed_price) ? 'checked':'' }} data-bs-original-title="" title="" value="2">@lang('site.changed_price')
+                                                        </label>
                                                 </div>
                                             </div>
                                             <div class="row m-t-10">
@@ -303,7 +296,7 @@
                                                         <input type='file' id='videoUpload' class="form-control"
                                                             name="videos" value="{{$aqar->videos}}?>" />
                                                         <video width="250" height="200"
-                                                            src="{{asset('images/aqars/'.$aqar->videos)}}"
+                                                            src="{{asset('images/aqars/videos/'.$aqar->videos)}}"
                                                             onerror="this.src='https://saeeh.com/upload/<?=$aqar->videos?>'"
                                                             controls class="video-upload" autoplay>
                                                             Your browser does not support the video tag.
@@ -681,8 +674,7 @@ $(document).ready(function() {
     $("#personnumber").hide();
     $("#swimmingpool").hide();
     $.ajax({
-        url: '{{ url('
-        dashboard / aqars / getsetting ') }}' + '/' + category_id,
+        url: '{{ url('dashboard / aqars / getsetting ') }}' + '/' + category_id,
         success: data => {
             data.forEach(model =>
                 $("#" + model.input_id).show()
@@ -692,11 +684,8 @@ $(document).ready(function() {
     jQuery('a.add-price').click(function(event) {
         event.preventDefault();
         var newRow = jQuery('<tr><td><div class="row"><div class="col-md-5 form-group col-12 p-2">' +
-            ' <label>@lang('
-            site
-            .personnumber ')</label><input type="number"  name="person_num[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
-            '<label>@lang('
-            site.fixed_price ')</label><input type="number" name="price[]" class="form-control" >' +
+            ' <label>@lang('site.personnumber')</label><input type="number"  name="person_num[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
+            '<label>@lang('site.fixed_price')</label><input type="number" name="price[]" class="form-control" >' +
             '  </div>  <div class="col-md-2 form-group col-12 p-2 "> <a class="btn btn-air-primary btn-pill btn-danger add-price w-100 m-t-30" onclick="deletetr(this)" ><i class="fa fa-trash"></i></a>' +
             '</div></div> </td>  </tr>');
         jQuery('.price-list').append(newRow);
@@ -725,8 +714,7 @@ $('input[type=radio][name=category_id]').change(function() {
     $("#personnumber").hide();
     $("#swimmingpool").hide();
     $.ajax({
-        url: '{{ url('
-        dashboard / aqars / getsetting ') }}' + '/' + category_id,
+        url: '{{ url('dashboard / aqars / getsetting ') }}' + '/' + category_id,
         success: data => {
             data.forEach(model =>
                 $("#" + model.input_id).show()
