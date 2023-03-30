@@ -27,7 +27,7 @@
                 <!-- Individual column searching (text inputs) Starts-->
                 <div class="col-sm-12">
                     <div class="card mt-30">
-                        <form action="{{ route('dashboard.aqar_setting.update', $aqarSetting->ID) }}" method="post"
+                        <form action="" method="post"
                               enctype="multipart/form-data"
                               id="" class="form-main">
 
@@ -42,9 +42,9 @@
                                         <!--<i class="fa fa-backward"></i>-->
                                         @lang('site.back')
                                     </button>
-                                    <button type="submit" class="btn btn-air-primary btn-pill btn-primary"><i
+                                    <!-- <button type="submit" class="btn btn-air-primary btn-pill btn-primary"><i
                                             class="fa fa-magic"></i>
-                                        @lang('site.edit')</button>
+                                        @lang('site.edit')</button> -->
                                 </div>
                             </div>
                             </div>
@@ -63,7 +63,7 @@
                                                             <select class="form-control btn-square" name="category_id" id="category_id" onchange="getdetails(this.value)">
                                                                 <option selected value="0">@lang('site.select')</option>
                                                                 @foreach($categories as $cat)
-                                                                    <option value="{{$cat->id}}"  {{$cat->id==$aqarSetting->category_id? 'selected':'' }} >{{$cat->name_ar ?? ''}}</option>
+                                                                    <option value="{{$cat->id}}">{{$cat->name_ar ?? ''}}</option>
                                                                 @endforeach
 
                                                             </select>
@@ -81,10 +81,11 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
+                                                        @if($details)
                                                         @foreach($details as $detail)         
                                                             <tr>
                                                                 <td>{{$detail->id}}</td>
-                                                                <td style="width: 30%;">{{$detail->input_id}}</td>    
+                                                                <td style="width: 30%;">{{$detail->name_ar}}</td>    
                                                                 <input type="hidden" name="ID" id="ID" value=""/>    
                                                                 <td class="w-50">
                                                                     <label class="switch">
@@ -98,7 +99,8 @@
                                                                     </label>
                                                                 </td>
                                                             </tr>
-                                                        @endforeach  
+                                                        @endforeach 
+                                                        @endif 
                                                         </tbody>
                                                     </table>
                                                     </div>
@@ -137,35 +139,71 @@ function getdetails(category_id)
             var element = $('#result_data');
             element.empty();
             $('#result_data1').html(html) ;
+
+            $('input[type=checkbox][name=display]').change(function() {
+            var element = $(this);
+            var detail_id = element.attr("id");
+            var check=this.checked;
+            if(check==true){check=1;}else{check=0;}
+            $.ajax({
+                url: '{{ url('dashboard/aqarsetting/active_input_display') }}' + '/' +detail_id + '/' +check,
+                success: function (data) {
+                var n = new Noty({
+                text: "{{__('site.updated_successfully')}}",
+                type: "information",
+                killer: true,
+                buttons: [
+                    Noty.button("اغلاق", 'btn btn-primary mr-2', function () {
+                        n.close();
+                    })
+                ]
+            });
+            n.show();
+                
+                }
+
+                
             
+            })
+            
+        });
+
+        $('input[type=checkbox][name=required]').change(function() {
+            var element = $(this);
+            var detail_id = element.attr("id");
+            var check=this.checked;
+            if(check==true){check=1;}else{check=0;}
+            $.ajax({
+                url: '{{ url('dashboard/aqarsetting/active_input_required') }}' + '/' +detail_id + '/' +check,
+                success: function (data) {
+                var n = new Noty({
+                text: "{{__('site.updated_successfully')}}",
+                type: "information",
+                killer: true,
+                buttons: [
+                    Noty.button("اغلاق", 'btn btn-primary mr-2', function () {
+                        n.close();
+                    })
+                ]
+            });
+            n.show();
+                
+                }
+            
+            })
+            
+        });
+
+                    
+                }
+            })
         }
-    })
-}
 </script>
 <script>
 
 $(document).ready(function() {
-    
-$('input[type=checkbox][name=display]').change(function() {
-    var element = $(this);
-    var detail_id = element.attr("id");
-    var check=this.checked;
-    if(check==true){check=1;}else{check=0;}
-    $.ajax({
-        url: '{{ url('dashboard/aqarsetting/active_input_display') }}' + '/' +detail_id + '/' +check,
-        success: function (data) {
-            Snackbar.show({
-            text: 'تم التحديث',
-             showAction: false,
-             pos: 'bottom-center'
-    });
-        
-}
-       
-    })
-    
-});
-});
+}); 
+
 
 </script>
 
