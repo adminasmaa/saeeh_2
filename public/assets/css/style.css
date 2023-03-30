@@ -49396,22 +49396,30 @@ border-radius: 15px;
 }
 .cke_top {
     border-bottom: 1px solid #ced4da !important;}
-    .page-wrapper.compact-wrapper .page-body-wrapper .sidebar-wrapper .sidebar-main .sidebar-links .simplebar-wrapper .simplebar-mask .simplebar-content-wrapper .simplebar-content > li .sidebar-submenu > li a.active ,
-    .page-wrapper.compact-wrapper .page-body-wrapper .sidebar-wrapper .sidebar-main .sidebar-links .simplebar-wrapper .simplebar-mask .simplebar-content-wrapper .simplebar-content > li .sidebar-submenu > li a:active{
+   .sidebar-list .sidebar-link.activee{
         background-color: #dad6ff;
     border-radius: 10px;
     padding: 12px 15px;
     color: #7366ff;
     }
-    .page-wrapper.compact-wrapper .page-body-wrapper .sidebar-wrapper .sidebar-main .sidebar-links .simplebar-wrapper .simplebar-mask .simplebar-content-wrapper .simplebar-content > li .sidebar-submenu > li a.active >
-    .page-wrapper.compact-wrapper .page-body-wrapper div.sidebar-wrapper .sidebar-main .sidebar-links .simplebar-wrapper .simplebar-mask .simplebar-content-wrapper .simplebar-content > li .sidebar-link.active
+    /* .page-wrapper.compact-wrapper .page-body-wrapper div.sidebar-wrapper .sidebar-main .sidebar-links .simplebar-wrapper .simplebar-mask .simplebar-content-wrapper .simplebar-content > li .sidebar-submenu li a.active >
+    .page-wrapper.compact-wrapper .page-body-wrapper .sidebar-wrapper .sidebar-main .sidebar-links .simplebar-wrapper .simplebar-mask .simplebar-content-wrapper .simplebar-content > li .sidebar-submenu > li a.active 
     {
     background-color: #dad6ff;
     border-radius: 10px;
     padding: 12px 15px;
     color: #7366ff;
+    } */
+    .display-block{display: block !important;}
+    .page-wrapper.compact-wrapper .page-body-wrapper div.sidebar-wrapper .sidebar-main .sidebar-links .simplebar-wrapper .simplebar-mask .simplebar-content-wrapper .simplebar-content > li .sidebar-submenu li a.activee {
+        color: var(--theme-deafult);
     }
-    
+    .page-wrapper.compact-wrapper .page-body-wrapper div.sidebar-wrapper .sidebar-main .sidebar-links .simplebar-wrapper .simplebar-mask .simplebar-content-wrapper .simplebar-content > li .sidebar-link.active {
+        transition: all 0.5s ease;
+        position: relative;
+        margin-bottom: 10px;
+        background-color: #dad6ff;
+    }
     .form-check-custom {
         display: flex;
         align-items: center;
