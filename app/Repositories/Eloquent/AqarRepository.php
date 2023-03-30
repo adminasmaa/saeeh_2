@@ -144,7 +144,7 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
     {
         // TODO: Implement store() method.
 
-        $request_data = $request->except(['main_image','images']);
+        $request_data = $request->except(['main_image','images','videos']);
 
         $aqar = Aqar::create($request_data);
 
@@ -171,6 +171,16 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
             }
         }
 
+        if ($request->hasFile('videos')) {
+                $thumbnail = $request->file('videos');
+                $destinationPath = 'images/aqars/videos/';
+                $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+                $thumbnail->move($destinationPath, $filename);
+                $aqar->videos = $filename;
+                $aqar->save();
+            
+            }
+
         if ($aqar) {
             Alert::success('Success', __('site.added_successfully'));
 
@@ -183,7 +193,7 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
     {
         // TODO: Implement update() method.
 
-        $request_data = $request->except(['main_image', '_token', '_method', 'images']);
+        $request_data = $request->except(['main_image', '_token', '_method', 'images','videos']);
         $aqar->update($request_data);
 
 
@@ -207,6 +217,15 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
                 $aqar->images = json_encode($data);
                 $aqar->save();
             }
+        }
+        if ($request->hasFile('videos')) {
+            $thumbnail = $request->file('videos');
+            $destinationPath = 'images/aqars/videos/';
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move($destinationPath, $filename);
+            $aqar->videos = $filename;
+            $aqar->save();
+        
         }
         if ($aqar) {
             Alert::success('Success', __('site.updated_successfully'));

@@ -58,7 +58,7 @@
     <link rel="stylesheet" href="{{MAINDASHBOARD}}/plugins/noty/noty.css">
     <script src="{{MAINDASHBOARD}}//plugins/noty/noty.min.js"></script>
 </head>
-@php $current_route = Route::currentRouteName();@endphp
+
     <!-- <body onload=""> -->
 <body>
 <!-- loader starts-->
@@ -263,19 +263,21 @@
                             </li>
                             <li class="sidebar-main-title">
                                 <div>
+                                
                                     <h6 class="lan-1">Saeeh</h6>
                                     <p class="lan-2">Dashboards,widgets </p>
                                 </div>
                             </li>
+                            @php $current_route=Route::currentRouteName();@endphp
                             <li class="sidebar-list"><a
-                                    class="sidebar-link sidebar-title link-nav"
+                                    class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.home')?'active':'' }}"
                                     href="{{route('dashboard.home')}}"><i
                                         data-feather="home"></i><span>@lang('site.dashboard') @endlang</span></a>
 
                             </li>
 
                             <li class="sidebar-list"><a
-                                    class="sidebar-link sidebar-title link-nav"
+                                    class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.settings.index')?'active':'' }}"
                                     href="{{route('dashboard.settings.index')}}"><i
                                         data-feather="settings"></i><span>@lang('site.settings') @endlang</span></a>
 

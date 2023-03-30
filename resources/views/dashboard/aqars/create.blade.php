@@ -182,7 +182,7 @@
                                                                     <div class="col-md-5 form-group col-12">
                                                                         <label>@lang('site.fixed_price')</label>
                                                                         <input type="number" name="price[]"
-                                                                            class="form-control">
+                                                                            class="form-control">       
                                                                     </div>
                                                                     <div class="col-md-2 form-group col-12">
                                                                         <a

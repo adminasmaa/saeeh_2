@@ -51,8 +51,9 @@ class AqarSettingRepository implements AqarSettingRepositoryInterfaceAlias
         // TODO: Implement edit() method.
 
         $aqarSetting = AqarSetting::find($Id);
+        $details= AqarSetting::where('category_id',$aqarSetting->category_id)->get();
         $categories = Category::where('type',1)->where('active',1)->get();
-        return view('dashboard.aqar_setting.edit', compact('aqarSetting', 'categories'));
+        return view('dashboard.aqar_setting.edit', compact('aqarSetting', 'categories','details'));
     }
 
     public function show($Id)
@@ -111,5 +112,24 @@ class AqarSettingRepository implements AqarSettingRepositoryInterfaceAlias
         }
 
         return back();
+    }
+
+    public function getsetting($id)
+    { 
+        $details = AqarSetting::where('category_id',$id)->get();
+        return view('dashboard.aqar_setting.table', compact('details'));
+    }
+
+    public function active_input_display($id,$check)
+    { 
+        $aqarSetting = AqarSetting::find($id);
+        $aqarSetting =AqarSetting::where('ID', $id)->update(['display' => (int)$check]);
+        echo  __('site.updated_successfully');
+    }
+
+
+    public function active_input_required($id)
+    { 
+        return $this->AqarSettingRepository->active_input_required($id);
     }
 }

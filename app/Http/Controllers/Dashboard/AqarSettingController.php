@@ -80,7 +80,7 @@ class AqarSettingController extends Controller
 
     public function update(Request $request, $id)
     {
-       
+       dd($request);
         $AqarSetting = AqarSetting::find($id);
         return $this->AqarSettingRepository->update($AqarSetting, $request);
 
@@ -109,5 +109,22 @@ class AqarSettingController extends Controller
     //     $aqarsetting = AqarSetting::where('category_id',$id)->where('display',1)->get();
     //     return  $aqarsetting;
     // }
+
+    public function getsetting($id)
+    { 
+        return $this->AqarSettingRepository->getsetting($id);
+    }
+
+
+    public function active_input_display($id,$check)
+    { 
+        return $this->AqarSettingRepository->active_input_display($id,$check);
+    }
+
+
+    public function active_input_required($id)
+    { 
+        return $this->AqarSettingRepository->active_input_required($id);
+    }
 
 }
