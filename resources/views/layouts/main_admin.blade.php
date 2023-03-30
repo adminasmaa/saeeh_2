@@ -41,7 +41,7 @@
     <link rel="stylesheet" type="text/css" href="{{MAINASSETS}}/css/vendors/bootstrap.css">
     <!-- App css-->
     <link rel="stylesheet" type="text/css" href="{{MAINASSETS}}/css/style.css">
-    
+
     <link id="color" rel="stylesheet" href="{{MAINASSETS}}/css/color-1.css" media="screen">
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="{{MAINASSETS}}/css/responsive.css">
@@ -387,53 +387,53 @@
                                     </li>
 
                                     <li>
-                                        <a href="{{route('dashboard.car_positions.index')}}">{{__('site.car_positions')}}</a>
+                                        <a href="{{route('dashboard.services_aqars.index')}}">{{__('site.services_aqars')}}</a>
                                     </li>
 
-                                    <li>
-                                        <a href="{{route('dashboard.place_tables.index')}}">{{__('site.place_tables')}}</a>
-                                    </li>
+{{--                                    <li>--}}
+{{--                                        <a href="{{route('dashboard.place_tables.index')}}">{{__('site.place_tables')}}</a>--}}
+{{--                                    </li>--}}
 
-                                    <li>
-                                        <a href="{{route('dashboard.services.index')}}">{{__('site.services')}}</a>
-                                    </li>
+{{--                                    <li>--}}
+{{--                                        <a href="{{route('dashboard.services.index')}}">{{__('site.services')}}</a>--}}
+{{--                                    </li>--}}
 
-                                    <li>
-                                        <a href="{{route('dashboard.free_services.index')}}">{{__('site.free_services')}}</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{route('dashboard.kitchens.index')}}">{{__('site.kitchens')}}</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{route('dashboard.laundries.index')}}">{{__('site.laundries')}}</a>
-                                    </li>
+{{--                                    <li>--}}
+{{--                                        <a href="{{route('dashboard.free_services.index')}}">{{__('site.free_services')}}</a>--}}
+{{--                                    </li>--}}
+{{--                                    <li>--}}
+{{--                                        <a href="{{route('dashboard.kitchens.index')}}">{{__('site.kitchens')}}</a>--}}
+{{--                                    </li>--}}
+{{--                                    <li>--}}
+{{--                                        <a href="{{route('dashboard.laundries.index')}}">{{__('site.laundries')}}</a>--}}
+{{--                                    </li>--}}
 
-                                    <li>
-                                        <a href="{{route('dashboard.crews.index')}}">{{__('site.crews')}}</a>
-                                    </li>
+{{--                                    <li>--}}
+{{--                                        <a href="{{route('dashboard.crews.index')}}">{{__('site.crews')}}</a>--}}
+{{--                                    </li>--}}
 
-                                    <li>
-                                        <a href="{{route('dashboard.bathrooms.index')}}">{{__('site.bathrooms')}}</a>
-                                    </li>
+{{--                                    <li>--}}
+{{--                                        <a href="{{route('dashboard.bathrooms.index')}}">{{__('site.bathrooms')}}</a>--}}
+{{--                                    </li>--}}
 
-                                    <li>
-                                        <a href="{{route('dashboard.conditioning_types.index')}}">{{__('site.conditioning_types')}}</a>
-                                    </li>
+{{--                                    <li>--}}
+{{--                                        <a href="{{route('dashboard.conditioning_types.index')}}">{{__('site.conditioning_types')}}</a>--}}
+{{--                                    </li>--}}
 
-                                    <li>
-                                        <a href="{{route('dashboard.another_rooms.index')}}">{{__('site.another_rooms')}}</a>
-                                    </li>
+{{--                                    <li>--}}
+{{--                                        <a href="{{route('dashboard.another_rooms.index')}}">{{__('site.another_rooms')}}</a>--}}
+{{--                                    </li>--}}
 
 
-                                    <li>
-                                        <a href="{{route('dashboard.floors.index')}}">{{__('site.floors')}}</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{route('dashboard.floor_numbers.index')}}">{{__('site.floor_numbers')}}</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{route('dashboard.pools.index')}}">{{__('site.pools')}}</a>
-                                    </li>
+{{--                                    <li>--}}
+{{--                                        <a href="{{route('dashboard.floors.index')}}">{{__('site.floors')}}</a>--}}
+{{--                                    </li>--}}
+{{--                                    <li>--}}
+{{--                                        <a href="{{route('dashboard.floor_numbers.index')}}">{{__('site.floor_numbers')}}</a>--}}
+{{--                                    </li>--}}
+{{--                                    <li>--}}
+{{--                                        <a href="{{route('dashboard.pools.index')}}">{{__('site.pools')}}</a>--}}
+{{--                                    </li>--}}
 
                                     <li>
                                         <a href="{{route('dashboard.aqars.index')}}">{{__('site.aqars')}}</a>
@@ -533,6 +533,7 @@
 
 <!-- latest jquery-->
 <script src="{{MAINASSETS}}/js/jquery-3.5.1.min.js"></script>
+
 <!-- Bootstrap js-->
 <script src="{{MAINASSETS}}/js/bootstrap/bootstrap.bundle.min.js"></script>
 <!-- feather icon js-->
@@ -595,6 +596,7 @@
 <!-- Theme js-->
 <script src="{{MAINASSETS}}/js/script.js"></script>
 <script src="{{MAINASSETS}}/js/theme-customizer/customizer.js"></script>
+<script src="https://cdn.tutorialjinni.com/jquery.repeater/1.2.1/jquery.repeater.min.js"></script>
 <!-- login js-->
 <!-- Plugin used-->
 </body>

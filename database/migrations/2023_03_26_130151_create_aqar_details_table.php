@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('aqar_sections', function (Blueprint $table) {
+        Schema::create('aqar_details', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name_ar')->required();
             $table->string('name_en')->nullable();
             $table->string('icon')->nullable();
+            $table->integer('parent_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('aqar_sections');
+        Schema::dropIfExists('aqar_details');
     }
 };

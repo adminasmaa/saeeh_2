@@ -519,7 +519,6 @@
                                             </div>
                                             @endforeach
                                         </div>
-
                                         <br>
                                         <div class="col-sm-12 ">
                                             <h5 class="mb-0 border-bottom">@lang('site.ConditioningType')</h5>
@@ -535,27 +534,20 @@
                                             </div>
                                             @endforeach
                                         </div>
-
-
                                         <div class="row">
-                                            <!--<div class="col-md-6">-->
-
                                             <div class="col-md-12 form-group col-12 p-2  m-t-15">
-                                                <label>@lang('site.descrption')<span
-                                                        class="text-danger">*</span></label>
+                                                <label>@lang('site.descrption')<span class="text-danger">*</span></label>
                                                 <textarea class="form-control" cols="5" rows="5" name="description"
                                                     id="editor1" required>
-
-                                                    </textarea>
+                                                </textarea>
                                             </div>
-
                                         </div>
-
+                                  
 
                                     </div>
                                 </div>
-                        </div>
-                        </center>
+</center>
+                    </div>
                 </div>
 
                 </form>
@@ -666,4 +658,5 @@ document.getElementById("videoUpload").onchange = function(event) {
     document.querySelector("video").src = blobURL;
 };
 </script>
+
 @endsection

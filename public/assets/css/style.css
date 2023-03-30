@@ -49390,3 +49390,108 @@ border-radius: 15px;
   }
 
 .img-upload , .video-upload{padding-top: 20px;}
+.cke_inner {
+    border: 1px solid #ced4da !important;
+    border-radius: 2px !important;
+}
+.cke_top {
+    border-bottom: 1px solid #ced4da !important;}
+    .page-wrapper.compact-wrapper .page-body-wrapper .sidebar-wrapper .sidebar-main .sidebar-links .simplebar-wrapper .simplebar-mask .simplebar-content-wrapper .simplebar-content > li .sidebar-submenu > li a.active ,
+    .page-wrapper.compact-wrapper .page-body-wrapper .sidebar-wrapper .sidebar-main .sidebar-links .simplebar-wrapper .simplebar-mask .simplebar-content-wrapper .simplebar-content > li .sidebar-submenu > li a:active{
+        background-color: #dad6ff;
+    border-radius: 10px;
+    padding: 12px 15px;
+    color: #7366ff;
+    }
+    .page-wrapper.compact-wrapper .page-body-wrapper .sidebar-wrapper .sidebar-main .sidebar-links .simplebar-wrapper .simplebar-mask .simplebar-content-wrapper .simplebar-content > li .sidebar-submenu > li a.active >
+    .page-wrapper.compact-wrapper .page-body-wrapper div.sidebar-wrapper .sidebar-main .sidebar-links .simplebar-wrapper .simplebar-mask .simplebar-content-wrapper .simplebar-content > li .sidebar-link.active
+    {
+    background-color: #dad6ff;
+    border-radius: 10px;
+    padding: 12px 15px;
+    color: #7366ff;
+    }
+    
+    .form-check-custom {
+        display: flex;
+        align-items: center;
+        padding-right: 0;
+        margin: 0;
+    }
+    .form-check-custom .form-check-label {
+        margin-right: 0.55rem;
+    }
+    
+    .form-check-label {
+        color: var(--kt-orm-check-label-color);
+    }
+    .form-check:not(.form-switch) .form-check-input[type=checkbox] {
+        background-size: 60% 60%;
+    }
+    .form-check-custom.form-check-solid .form-check-input {
+        border: 0;
+        background-color: #F6F1E9;
+    }
+ 
+    .btn.btn-icon:not(.btn-outline):not(.btn-dashed):not(.border-hover):not(.border-active):not(.btn-flush) {
+        border: 0;
+    }
+    .btn:not(.btn-shadow):not(.shadow):not(.shadow-sm):not(.shadow-lg) {
+        box-shadow: none !important;
+    }
+    .btn.btn-light-danger {
+        color: #F06445;
+        border-color: #FFF0ED !important;
+        background-color: #FFF0ED;
+    }
+    .btn.btn-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        width: calc(1.5em + 1.55rem + 2px);
+    }
+    .delete-row-btn{
+        padding: calc(0.55rem + 1px) calc(1.25rem + 1px);
+        color: #F06445;
+        border-color: #FFF0ED !important;
+        background-color: #FFF0ED;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: 500;
+    }
+    .mt-35{margin-top: 38px;}
+    .fs-3 {
+        font-size: 18px !important;
+    }
+    .form-check-input:checked {
+        background-color: #7366ff !important;
+        border-color: #7366ff !important;
+    }
+    .form-check:not(.form-switch) .form-check-input[type=checkbox] {
+        background-size: 60% 60%;
+    }
+    .form-check-input {
+        width: 1.75rem;
+        height: 1.75rem;}
+    .form-check-input:checked[type=checkbox] {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 11' width='13' height='11' fill='none'%3e%3cpath d='M11.0426 1.02893C11.3258 0.695792 11.8254 0.655283 12.1585 0.938451C12.4917 1.22162 12.5322 1.72124 12.249 2.05437L5.51985 9.97104C5.23224 10.3094 4.72261 10.3451 4.3907 10.05L0.828197 6.88335C0.50141 6.59288 0.471975 6.09249 0.762452 5.7657C1.05293 5.43891 1.55332 5.40948 1.88011 5.69995L4.83765 8.32889L11.0426 1.02893Z' fill='%23FFFFFF'/%3e%3c/svg%3e") !important;
+    }
+    .form-check-input:focus {
+        border-color: #7366ff;
+        box-shadow: none !important;
+    }
+
+    .btn.btn-light-primary {
+        color: #fff;
+        border-color:#7366ff;
+        background-color: #7366ff;
+    }
+    @media (min-width: 768px){
+    .mt-md-11 {
+        margin-top: 32px !important;
+    }
+    .mt-md-9 {
+        margin-top: 2.25rem !important;
+    }
+}

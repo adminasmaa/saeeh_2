@@ -25,6 +25,7 @@ use App\Repositories\Eloquent\MediatorRepository;
 use App\Repositories\Eloquent\ProblemRepository;
 use App\Repositories\Eloquent\QuestionRepository;
 use App\Repositories\Eloquent\RoleRepository;
+use App\Repositories\Eloquent\ServiceAqarRepository;
 use App\Repositories\Eloquent\ServiceRepository;
 use App\Repositories\Eloquent\SettingRepository;
 use App\Repositories\Eloquent\UserRepository;
@@ -83,6 +84,7 @@ use App\Repositories\Interfaces\PlaceCommentRepositoryInterface;
 use App\Repositories\Interfaces\ProblemRepositoryInterface;
 use App\Repositories\Interfaces\QuestionRepositoryInterface;
 use App\Repositories\Interfaces\RoleRepositoryInterface;
+use App\Repositories\Interfaces\ServiceAqarRepositoryInterface;
 use App\Repositories\Interfaces\ServiceRepositoryInterface;
 use App\Repositories\Interfaces\SettingRepositoryInterface;
 use App\Repositories\Interfaces\UserRepositoryInterface;
@@ -144,6 +146,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(AqarCommentRepositoryInterface::class, AqarCommentRepository::class);
 
         $this->app->bind(AqarSettingRepositoryInterface::class, AqarSettingRepository::class);
+        $this->app->bind(ServiceAqarRepositoryInterface::class, ServiceAqarRepository::class);
 
     }
 
