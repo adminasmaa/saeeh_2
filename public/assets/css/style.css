@@ -49410,7 +49410,7 @@ border-radius: 15px;
     padding: 12px 15px;
     color: #7366ff;
     } */
-    .display-block{display: block !important;}
+
     .page-wrapper.compact-wrapper .page-body-wrapper div.sidebar-wrapper .sidebar-main .sidebar-links .simplebar-wrapper .simplebar-mask .simplebar-content-wrapper .simplebar-content > li .sidebar-submenu li a.activee {
         color: var(--theme-deafult);
     }
@@ -49420,6 +49420,10 @@ border-radius: 15px;
         margin-bottom: 10px;
         background-color: #dad6ff;
     }
+
+   
+
+
     .form-check-custom {
         display: flex;
         align-items: center;
