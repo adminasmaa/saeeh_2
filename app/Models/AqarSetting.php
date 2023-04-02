@@ -18,5 +18,9 @@ class AqarSetting extends Model
         'display', 
         'category_id', 
     ];
+
+    public function aqarComment(){
+        return $this->HasMany(AqarComment::class);
+    }
    
 }
