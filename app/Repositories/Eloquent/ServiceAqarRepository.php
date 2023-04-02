@@ -4,6 +4,8 @@ namespace App\Repositories\Eloquent;
 
 
 use App\Models\AqarService;
+use App\Models\AqarSetting;
+use App\Models\Category;
 use App\Repositories\Interfaces\ServiceAqarRepositoryInterface as ServiceAqarRepositoryInterfaceAlias;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
@@ -65,6 +67,17 @@ class ServiceAqarRepository implements ServiceAqarRepositoryInterfaceAlias
 
         $AqarService = AqarService::create($request_data);
 
+        $categories = Category::where('parent_id', null)->where('type', '=', 1)->get();
+        foreach ($categories as $category) {
+            AqarSetting::create([
+                'detail_id' => $AqarService->id,
+                'category_id' => $category->id
+
+            ]);
+
+        }
+
+
         if ($request->sub_name_ar) {
             foreach ($request->sub_name_ar as $key => $value) {
                 AqarService::create([
@@ -98,7 +111,7 @@ class ServiceAqarRepository implements ServiceAqarRepositoryInterfaceAlias
 
         // TODO: Implement update() method.
 
-        $request_data = $request->except(['_token','_method','icon','sub_name_ar','sub_name_en']);
+        $request_data = $request->except(['_token', '_method', 'icon', 'sub_name_ar', 'sub_name_en']);
 
 
         $AqarService->update($request_data);
