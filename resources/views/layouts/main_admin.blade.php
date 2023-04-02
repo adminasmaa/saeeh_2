@@ -612,59 +612,7 @@
 
 
 </script>
-<script>
-// if ($('#pageWrapper').hasClass('compact-wrapper')) {
-//     $(".sidebar-wrapper nav").find("a").removeClass("active");
-//     $(".sidebar-wrapper nav").find("li").removeClass("active");
 
-//     var current = window.location.pathname
-//     $(".sidebar-wrapper nav ul>li a").filter(function () {
-
-//         var link = $(this).attr("href");
-//         if (link) {
-//             if (current.indexOf(link) != -1) {
-//                 $(this).parents().children('a').addClass('active');
-//                 $(this).parents().parents().children('ul').css('display', 'none');
-//                 $(this).addClass('active');
-//                 $(this).parent().parent().parent().children('a').find('div').replaceWith('<div class="according-menu"><i class="fa fa-angle-down"></i></div>');
-//                 $(this).parent().parent().parent().parent().parent().children('a').find('div').replaceWith('<div class="according-menu"><i class="fa fa-angle-down"></i></div>');
-//                 return false;
-//             }
-//         }
-//     });
-// }
-//     $(".sidebar-list > a").click(function(e) {
-//     let parent = $(this).parent();
-//     let submenu = $(this).next(".sidebar-submenu");
-    
-//     if(!submenu.hasClass('activee'))
-//       if(parent.hasClass('submenu-shown')){
-//         $(this)
-//         .next(".sidebar-submenu")
-//         .slideUp(200, function(){
-//           parent.removeClass('submenu-shown')
-//         });
-//       }else{
-//         $(this)
-//         .next(".sidebar-submenu")
-//         .slideDown(200, function(){
-//           parent.addClass('submenu-shown')
-//         });  
-//       }
-// });
-
-// $('.sidebar-submenu').on('click', 'a', (e) => {
-//   let submenu = $(e.delegateTarget);
-//   let a = $(e.currentTarget);
-//   a.toggleClass('activee');
-  
-//   if(submenu.find('a.activee').length === 0)
-//     submenu.removeClass('activee');
-//   else submenu.addClass('activee');
-  
-// });
-// $(".sidebar-submenu li a.active").parent().parent(".sidebar-submenu").addClass("d-block");
-</script>
 <!-- Plugins JS Ends-->
 @yield('js')
 @yield('scripts')
