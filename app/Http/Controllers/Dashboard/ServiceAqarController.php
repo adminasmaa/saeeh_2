@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Models\AqarService;
 use Alert;
 
+use App\Models\AqarSetting;
 use App\Repositories\Interfaces\ServiceAqarRepositoryInterface;
 use App\Services\TwoFactorService;
 use DB;
@@ -54,9 +55,7 @@ class ServiceAqarController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-
                 'name_ar' => 'required',
-
             ]
         );
 
@@ -89,9 +88,7 @@ class ServiceAqarController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-
                 'name_ar' => 'required',
-
             ]
         );
         $AqarService = AqarService::find($id);
@@ -112,6 +109,8 @@ class ServiceAqarController extends Controller
     {
         $AqarService = AqarService::find($id);
         $result = $AqarService->delete();
+        AqarSetting::where('detail_id', $id)->delete();
+
         $AqarService = AqarService::where('parent_id', $id)->delete();
 
         if ($result) {

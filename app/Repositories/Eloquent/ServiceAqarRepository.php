@@ -67,7 +67,7 @@ class ServiceAqarRepository implements ServiceAqarRepositoryInterfaceAlias
 
         $AqarService = AqarService::create($request_data);
 
-        $categories = Category::where('parent_id', null)->where('type', '=', 1)->get();
+        $categories = Category::where('parent_id', '=', 1)->where('type', '=', 1)->get();
         foreach ($categories as $category) {
             AqarSetting::create([
                 'detail_id' => $AqarService->id,
@@ -76,9 +76,10 @@ class ServiceAqarRepository implements ServiceAqarRepositoryInterfaceAlias
             ]);
 
         }
+        $arr = $request->sub_name_ar;
 
+        if ($arr[0]!=null) {
 
-        if ($request->sub_name_ar) {
             foreach ($request->sub_name_ar as $key => $value) {
                 AqarService::create([
                     'name_ar' => $request['sub_name_ar'][$key],
@@ -151,7 +152,11 @@ class ServiceAqarRepository implements ServiceAqarRepositoryInterfaceAlias
 
     public function destroy($AqarService)
     {
+
         // TODO: Implement destroy() method.
+
+        AqarSetting::where('detail_id', $AqarService->id)->delete();
+
 
         $result = $AqarService->delete();
         if ($result) {
