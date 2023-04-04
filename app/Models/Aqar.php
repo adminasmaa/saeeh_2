@@ -31,30 +31,30 @@ class Aqar extends Model
         'description', // nullable
         'comment_text', // nullable
         'comision', // required
-        'ads_id', //unsigned 
-        'area_id',//nullable 
-        'floor_id',//nullable 
-        'car_position_id',//nullable 
-        'service_id',//nullable 
-        'bathroom_id',//nullable 
-        'free_service_id',//nullable 
+        'ads_id', //unsigned
+        'area_id',//nullable
+        'floor_id',//nullable
+        'car_position_id',//nullable
+        'service_id',//nullable
+        'bathroom_id',//nullable
+        'free_service_id',//nullable
         'laundry_id',//nullable
-        'kitchen_id',//nullable 
-        'crew_id',//nullable 
-        'conditioning_type_id',//nullable 
-        'another_room_id',//nullable 
+        'kitchen_id',//nullable
+        'crew_id',//nullable
+        'conditioning_type_id',//nullable
+        'another_room_id',//nullable
         'floor_number_id',//nullable
-        'category_id', //unsigned   
-        'user_id', //unsigned 
-        'masterroom',//nullable 
-        'normalroom',//nullable 
-        'unitnumber',//nullable 
+        'category_id', //unsigned
+        'user_id', //unsigned
+        'masterroom',//nullable
+        'normalroom',//nullable
+        'unitnumber',//nullable
         'hallnumber',//nullable
         'bathroomnumber',//nullable
         'personnumber',//nullable
         'swimmingpool',//nullable
-        'details',//nullable 
-        'map_link',//nullable 
+        'details',//nullable
+        'map_link',//nullable
         'country_id',
         'city_id',
     ];
@@ -76,6 +76,10 @@ class Aqar extends Model
     // relations
     public function aqarBooking(){
         return $this->HasMany(AqarBooking::class);
+    }
+
+    public function aqarSection(){
+        return $this->HasMany(AqarSections::class);
     }
 
 }

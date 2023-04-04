@@ -19,6 +19,10 @@ class AqarSections extends Model
 
     ];
     // relations
-    
 
+
+
+    public function AqarDetail(){
+        return $this->belongsTo(AqarService::class,'section_id');
+    }// relations
 }
