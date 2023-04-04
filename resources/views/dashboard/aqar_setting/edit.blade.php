@@ -84,18 +84,18 @@
                                                         @if($details)
                                                         @foreach($details as $detail)         
                                                             <tr>
-                                                                <td>{{$detail->id}}</td>
+                                                                <td>{{$detail->ID}}</td>
                                                                 <td style="width: 30%;">{{$detail->name_ar}}</td>    
                                                                 <input type="hidden" name="ID" id="ID" value=""/>    
                                                                 <td class="w-50">
                                                                     <label class="switch">
-                                                                        <input type="checkbox" name="display" id="{{$detail->ID }}" {{$detail->display==1? 'checked':'' }} data-bs-original-title="" title=""><span class="switch-state"></span>
+                                                                        <input type="checkbox" name="display" id="{{$detail->ID}}" {{$detail->display==1? 'checked':'' }} data-bs-original-title="" title=""><span class="switch-state"></span>
                                                                     </label>
                                                                 </td>
                                                                 </td>
                                                                 <td class="w-50">
                                                                     <label class="switch">
-                                                                        <input type="checkbox" name="required" id="{{$detail->ID }}" {{$detail->required==1? 'checked':'' }} data-bs-original-title="" title=""><span class="switch-state"></span>
+                                                                        <input type="checkbox" name="required" id="{{$detail->ID}}" {{$detail->required==1? 'checked':'' }} data-bs-original-title="" title=""><span class="switch-state"></span>
                                                                     </label>
                                                                 </td>
                                                             </tr>

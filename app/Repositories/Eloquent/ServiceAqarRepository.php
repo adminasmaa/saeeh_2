@@ -116,7 +116,9 @@ class ServiceAqarRepository implements ServiceAqarRepositoryInterfaceAlias
 
 
         $AqarService->update($request_data);
-        if ($request->sub_name_ar) {
+        $arr = $request->sub_name_ar;
+
+        if ($arr[0]!=null) {
             foreach ($request->sub_name_ar as $key => $value) {
                 AqarService::create([
                     'name_ar' => $request['sub_name_ar'][$key],

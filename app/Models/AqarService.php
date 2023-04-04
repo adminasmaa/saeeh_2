@@ -20,5 +20,8 @@ class AqarService extends Model
 
     ];
     // relations
+    public function subservices(){
+        return $this->HasMany(AqarService::class,'parent_id');
+    }
 
 }
