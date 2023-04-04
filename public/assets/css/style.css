@@ -49325,6 +49325,10 @@ margin-bottom: 15px;
     #noty_layout__topRight {
         top: 40% !important;
         right: 45% !important;
+    }
+    #noty_layout__topRight .noty_type__error{
+        top: 40% !important;
+        right: 45% !important;
         background-color: #ffc8cb;
     }
     .noty_theme__mint.noty_bar .noty_body {

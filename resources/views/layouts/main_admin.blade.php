@@ -380,9 +380,7 @@
                                         <a href="{{route('dashboard.aquarcategories.index')}}">{{__('site.categories')}}</a>
                                     </li>
 
-                                    <li>
-                                        <a href="{{route('dashboard.aquarbooking.index')}}">{{__('site.bookings')}}</a>
-                                    </li>
+                                    
 
                                     <li>
                                         <a href="{{route('dashboard.areas.index')}}">{{__('site.areas')}}</a>
@@ -390,6 +388,9 @@
 
                                     <li>
                                         <a href="{{route('dashboard.services_aqars.index')}}">{{__('site.services_aqars')}}</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('dashboard.aqar_setting.edit')}}">{{__('site.aqar_setting')}}</a>
                                     </li>
 
 {{--                                    <li>--}}
@@ -440,13 +441,14 @@
                                     <li>
                                         <a href="{{route('dashboard.aqars.index')}}">{{__('site.aqars')}}</a>
                                     </li>
+                                    <li>
+                                        <a href="{{route('dashboard.aquarbooking.index')}}">{{__('site.bookings')}}</a>
+                                    </li>
 
                                     <li>
                                         <a href="{{route('dashboard.aqar_comments.index')}}">{{__('site.aqar_comments')}}</a>
                                     </li>
-                                    <li>
-                                        <a href="{{route('dashboard.aqar_setting.edit')}}">{{__('site.aqar_setting')}}</a>
-                                    </li>
+                                    
                                 </ul>
                             </li>
 

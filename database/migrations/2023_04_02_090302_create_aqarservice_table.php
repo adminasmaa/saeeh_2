@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('aqar_setting', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('ID');
             $table->integer('detail_id')->unsigned();
             $table->foreign('detail_id')->references('id')->on('aqar_details')->onUpdate('cascade')->onDelete('cascade');
             $table->integer('required')->default('0');
