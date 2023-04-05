@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Dashboard;
-
+use Response;
 use App\DataTables\AreaDataTable;
 use App\Http\Controllers\Controller;
 
@@ -118,5 +118,15 @@ class AreaController extends Controller
 
 
     }//end of destroy
+
+    public function cityareas($id)
+    {
+
+        $areas = Area::where('city_id', $id)->get();
+
+        return Response::json($areas);
+
+
+    }
 
 }

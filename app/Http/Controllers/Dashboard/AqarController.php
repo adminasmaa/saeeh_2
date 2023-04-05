@@ -115,9 +115,23 @@ class AqarController extends Controller
 
     public function getsetting($id)
     { 
-       $details = AqarService::join('aqar_setting', 'aqar_setting.detail_id', '=', 'aqar_details.id')
+       $details = AqarService::setEagerLoads([])->join('aqar_setting', 'aqar_setting.detail_id', '=', 'aqar_details.id')
+       ->where('category_id',$id)->where('display',1)->with('subservices')->get(); 
+       $arr=[]; 
+       return view('dashboard.aqars.details', compact('details','arr'));
+    }
+
+    public function getsetting1($id,$aqar_id)
+    { 
+       $details = AqarService::setEagerLoads([])->join('aqar_setting', 'aqar_setting.detail_id', '=', 'aqar_details.id')
        ->where('category_id',$id)->where('display',1)->with('subservices')->get();
-       return view('dashboard.aqars.details', compact('details'));
+       $aqar = Aqar::with('aqarSection')->find($aqar_id);
+       $arr=[];
+       foreach($aqar->aqarSection as $item){
+        array_push($arr,$item->sub_section_id);
+       }
+     //  return $arr;
+       return view('dashboard.aqars.details', compact('details','aqar','arr'));
     }
 
 }

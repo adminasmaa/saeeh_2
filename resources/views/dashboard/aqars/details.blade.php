@@ -9,7 +9,7 @@
                 </div>
                 <div class="col m-t-15">
                     <input type="number" name="space" class="form-control"
-                        value="{{$aqar->space}}" >
+                        value="{{$aqar->space ?? ''}}" >
                 </div>
             </div>
             @endif
@@ -21,7 +21,7 @@
                 </div>
                 <div class="col m-t-15">
                     <input type="number" name="unitnumber" class="form-control"
-                        value="{{$aqar->unitnumber}}">
+                        value="{{$aqar->unitnumber ?? ''}}">
                 </div>
             </div>
             @endif
@@ -33,7 +33,7 @@
                 </div>
                 <div class="col m-t-15">
                     <input type="number" name="hallnumber" class="form-control"
-                        value="{{$aqar->hallnumber}}">
+                        value="{{$aqar->hallnumber ?? ''}}">
                 </div>
             </div>
             @endif
@@ -46,7 +46,7 @@
                 </div>
                 <div class="col m-t-15">
                     <input type="number" name="bathroomnumber"
-                        class="form-control" value="{{$aqar->bathroomnumber}}">
+                        class="form-control" value="{{$aqar->bathroomnumber ?? ''}}">
                 </div>
             </div>
             @endif
@@ -59,7 +59,7 @@
                 </div>
                 <div class="col m-t-15">
                     <input type="number" name="personnumber"
-                        class="form-control" value="{{$aqar->personnumber}}">
+                        class="form-control" value="{{$aqar->personnumber ?? ''}}">
                 </div>
             </div>
             @endif
@@ -76,7 +76,7 @@
         @foreach($detail->subservices as $subservice)
             <div class="form-check form-check-inline checkbox checkbox-solid-primary">   
                 <input class="form-check-input" id="subservice_{{$subservice->id}}"
-                    type="checkbox" name="subservice[]" value="{{$detail->id}}-{{$subservice->id}}"  >
+                    type="checkbox" name="subservice[]" value="{{$detail->id}}-{{$subservice->id}}"  {{in_array($subservice->id,$arr)? 'checked':'' }}>
                 <label class="form-check-label"
                     for="subservice_{{$subservice->id}}">{{$subservice->name_ar ?? ''}}<span
                         class="digits"></span></label>

@@ -125,6 +125,36 @@
                                                 </select>
                                             </div>
                                             <br>
+                                            <div class="row">
+                                                <div class="col-md-6 form-group">
+                                                    <label class="form-label">@lang('site.country')</label>
+                                                    <select class="form-control btn-square" name="country_id" id="country_id">
+                                                        <option selected>@lang('site.select')</option>
+                                                        @foreach($countries as $country)
+
+                                                        <option value="{{$country->id}}" @if($country->
+                                                            id==$aqar->country_id) selected
+                                                            @endif>{{$country->name_ar ?? ''}}</option>
+
+                                                        @endforeach
+
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6 form-group">
+                                                    <label class="form-label">@lang('site.city')</label>
+                                                    <select class="form-control btn-square" name="city_id" id="city_id">
+                                                        <option selected>@lang('site.select')</option>
+                                                        <!-- @foreach($cities as $city)
+
+                                                        <option value="{{$city->id}}" @if($city->id==$aqar->city_id)
+                                                            selected @endif>{{$city->name_ar ?? ''}}</option>
+
+                                                        @endforeach -->
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <br>
                                             <div class="col-sm-12">
                                                 <h5 class="  border-bottom">@lang('site.categories')</h5>
                                             </div>
@@ -142,20 +172,20 @@
                                                 </ul>
                                             </div>
                                             <br>
-                                            <div class="col-sm-12">
+                                            <div class="col-sm-12" id="cityarea">
                                                 <h5 class="  border-bottom">@lang('site.areas')</h5>
                                             </div>
                                             <div class="col">
-                                                <ul class="mt-4 areas-list">
-                                                    @foreach($Area as $item)
-                                                    <li class="form-check radio radio-primary">
+                                                <ul class="mt-4 areas-list"  id="area_id">
+                                                    <!-- @foreach($Area as $item)
+                                                    <li class="form-check radio radio-primary" >
                                                         <input class="form-check-input" id="area_{{$item->id}}"
                                                             type="radio" name="area_id" value="{{$item->id}}"
                                                             {{$item->id==$aqar->area_id? 'checked':'' }}>
                                                         <label class="form-check-label mb-0"
                                                             for="area_{{$item->id}}">{{$item->name_ar ?? ''}}</label>
                                                     </li>
-                                                    @endforeach
+                                                    @endforeach -->
                                                 </ul>
                                             </div>
                                             <br>
@@ -221,11 +251,13 @@
                                                                 <td>
                                                                     <div class="row">
                                                                         <div class="col-md-5 form-group col-12">
+                                                                            <label>@lang('site.personnumber')</label>
                                                                             <input type="number" name="person_num[]"
                                                                                 class="form-control"
                                                                                 value="{{$aqar->changed_price->person_num[$x]}}" />
                                                                         </div>
                                                                         <div class="col-md-5 form-group col-12">
+                                                                            <label>@lang('site.fixed_price')</label>
                                                                             <input type="number" name="price[]"
                                                                                 class="form-control"
                                                                                 value="{{$aqar->changed_price->price[$x]}}" />
@@ -233,14 +265,14 @@
                                                                         @if($x==0)
                                                                         <div class="col-md-2 form-group col-12">
                                                                             <a
-                                                                                class="btn btn-air-primary btn-pill btn-success add-price w-100"><i
+                                                                                class="btn btn-air-primary btn-pill btn-success add-price w-100 m-t-30"><i
                                                                                     class="fa fa-plus"
                                                                                     aria-hidden="true"></i></a>
                                                                         </div>
                                                                         @endif
                                                                         @if($x!=0)
                                                                         <div class="col-md-2 form-group col-12">
-                                                                            <a class="btn btn-air-primary btn-pill btn-danger add-price w-100"
+                                                                            <a class="btn btn-air-primary btn-pill btn-danger add-price w-100 m-t-30"
                                                                                 onclick="deletetr(this)"><i
                                                                                     class="fa fa-trash"></i></a>
                                                                         </div>
@@ -258,7 +290,7 @@
                                                         <label>@lang('site.display_photo')</label>
 
                                                         <input type="file" class="form-control" name="main_image"
-                                                            value="{{$aqar->main_image}}" id="imgInp" required />
+                                                            value="{{$aqar->main_image}}" id="imgInp"  />
                                                         <img id="frame"
                                                             src="{{asset('images/aqars/'.$aqar->main_image)}}" alt=""
                                                             onerror="this.src='https://saeeh.com/upload/<?=$aqar->main_image?>'"
@@ -298,40 +330,12 @@
                                                             name="videos" value="{{$aqar->videos}}?>" />
                                                         <video width="250" height="200"
                                                             src="{{asset('images/aqars/videos/'.$aqar->videos)}}"
-                                                            onerror="this.src='https://saeeh.com/upload/<?=$aqar->videos?>'"
                                                             controls class="video-upload" autoplay>
                                                             Your browser does not support the video tag.
                                                         </video>
                                                     </div>
                                                 </div>
-                                                <br>
-                                                <div class="col-md-6 form-group">
-                                                    <label class="form-label">@lang('site.country')</label>
-                                                    <select class="form-control btn-square" name="country_id">
-                                                        <option selected>@lang('site.select')</option>
-                                                        @foreach($countries as $country)
-
-                                                        <option value="{{$country->id}}" @if($country->
-                                                            id==$aqar->country_id) selected
-                                                            @endif>{{$country->name_ar ?? ''}}</option>
-
-                                                        @endforeach
-
-                                                    </select>
-                                                </div>
-                                                <div class="col-md-6 form-group">
-                                                    <label class="form-label">@lang('site.city')</label>
-                                                    <select class="form-control btn-square" name="city_id">
-                                                        <option selected>@lang('site.select')</option>
-                                                        @foreach($cities as $city)
-
-                                                        <option value="{{$city->id}}" @if($city->id==$aqar->city_id)
-                                                            selected @endif>{{$city->name_ar ?? ''}}</option>
-
-                                                        @endforeach
-
-                                                    </select>
-                                                </div>
+                                               
 
                                                 <br>
                                                 <div id="result_data1" class="p-2  m-t-15">
@@ -371,14 +375,15 @@
 @section('scripts')
 <script>
 $(document).ready(function() {
+    $("#cityarea").hide();
     var test = $('input[name="price"]:checked').val();
     $("div.desc").hide();
     $("#price" + test).show();
 
     var category_id =$('input[name="category_id"]:checked').val();
-       
+    var aqar_id='<?php echo $aqar->id?>';
     $.ajax({
-        url: '{{ url('dashboard/aqars/getsetting') }}' + '/' +category_id ,
+        url: '{{ url('dashboard/aqars/getsetting1') }}' + '/' +category_id + '/' +aqar_id ,
         success : function(html)
 		{   
             $("#result_data1").show();
@@ -403,17 +408,74 @@ $(document).ready(function() {
         $("div.desc").hide();
         $("#price" + test).show();
     });
+
+var country_id =  $('#country_id').val();
+$.get("{{url('dashboard/countrycities')}}/"+country_id, function(data){
+    $('#city_id').empty();
+    $('#city_id').append('<option>@lang('site.select')</option>');
+    $.each(data, function(key, value){
+        $('#city_id').append('<option value="'+value.id+'">'+value.name_ar+'</option>')
+
+    });
+    
+
+
+$('#city_id').val({{$aqar->city_id}});
+
+    var city_id =$('#city_id').val();
+     var aqarrea={{$aqar->area_id}};
+            $("#cityarea").show(); 
+            $.get("{{url('dashboard/cityareas')}}/"+city_id, function(data){
+                $('#area_id').empty();
+                $.each(data, function(key, value){
+                    $('#area_id').append('<li class="form-check radio radio-primary" ><input class="form-check-input" id="area_'+value.id+'" type="radio" name="area_id" value="'+value.id+'" ' + (value.id == aqarrea ? 'checked' : '') +' ><label class="form-check-label mb-0" for="area_'+value.id+'">'+value.name_ar+'</label></li>')
+
+                });
+               
+            });
+
+});
 });
 
 function deletetr(r) {
     r.closest('tr').remove();
 }
 
+$('#country_id').on('change',function(e){
+            var country_id = e.target.value;
+
+
+
+            $.get("{{url('dashboard/countrycities')}}/"+country_id, function(data){
+                console.log(data);
+                $('#city_id').empty();
+                $('#city_id').append('<option>@lang('site.select')</option>');
+                $.each(data, function(key, value){
+                    $('#city_id').append('<option value="'+value.id+'">'+value.name_ar+'</option>')
+
+                });
+            })
+        })
+
+
+        $('#city_id').on('change',function(e){
+            var city_id = e.target.value;
+            $("#cityarea").show(); 
+            $.get("{{url('dashboard/cityareas')}}/"+city_id, function(data){
+                console.log(data);
+                $('#area_id').empty();
+                $.each(data, function(key, value){
+                    $('#area_id').append('<li class="form-check radio radio-primary" ><input class="form-check-input" id="area_'+value.id+'" type="radio" name="area_id" value="'+value.id+'" required><label class="form-check-label mb-0" for="area_'+value.id+'">'+value.name_ar+'</label></li>')
+
+                });
+            })
+        })
+
 $('input[type=radio][name=category_id]').change(function() {
     var category_id =$('input[name="category_id"]:checked').val();
-       
+    var aqar_id='<?php echo $aqar->id?>';  
        $.ajax({
-           url: '{{ url('dashboard/aqars/getsetting') }}' + '/' +category_id ,
+           url: '{{ url('dashboard/aqars/getsetting1') }}' + '/' +category_id  + '/' +aqar_id ,
            success : function(html)
            {   
                $("#result_data1").show();
