@@ -612,7 +612,7 @@
 
 
 </script>
-
+  b      
 <!-- Plugins JS Ends-->
 @yield('js')
 @yield('scripts')
