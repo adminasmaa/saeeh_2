@@ -2467,7 +2467,10 @@ body {
     font-family: Rubik, sans-serif;
     color: #2b2b2b;
 }
-
+[dir="rtl"] body {
+    font-family: 'Cairo', sans-serif;
+    color: #000;
+}
 ul {
     padding-left: 0px;
     list-style-type: none;
@@ -37983,7 +37986,6 @@ body[class*="dark-"] .for-light {
     width: 100%;
     text-align: left;
     letter-spacing: 0.7px;
-    font-family: Roboto;
     border: 1px solid #efefef;
     border-radius: 0;
     border-top-left-radius: 5px;
@@ -39932,7 +39934,6 @@ body[class*="dark-"] .for-light {
 .page-wrapper .page-body-wrapper .page-title .breadcrumb li {
     font-size: 13px;
     letter-spacing: 1px;
-    font-family: Roboto, sans-serif;
 }
 .page-wrapper
     .page-body-wrapper
@@ -40342,7 +40343,6 @@ body[class*="dark-"] .for-light {
     color: rgba(43, 43, 43, 0.6);
     letter-spacing: 0.06em;
     font-weight: 500;
-    font-family: Roboto;
     transition: all 0.3s ease;
 }
 .page-wrapper.horizontal-wrapper
@@ -41004,7 +41004,6 @@ body[class*="dark-"] .for-light {
     a
     span {
     letter-spacing: 0.7px;
-    font-family: Roboto;
     text-transform: capitalize;
     color: #2c323f;
 }
@@ -41443,7 +41442,6 @@ body[class*="dark-"] .for-light {
     position: relative;
     letter-spacing: 0.06em;
     font-weight: 500;
-    font-family: Roboto;
     transition: all 0.3s ease;
     white-space: nowrap;
     overflow: hidden;
@@ -41624,7 +41622,6 @@ body[class*="dark-"] .for-light {
     display: block;
     letter-spacing: 0.06em;
     font-weight: 500;
-    font-family: Roboto;
     cursor: pointer;
 }
 .page-wrapper.compact-wrapper
@@ -41686,7 +41683,6 @@ body[class*="dark-"] .for-light {
     display: block;
     letter-spacing: 0.06em;
     font-weight: 500;
-    font-family: Roboto;
 }
 .page-wrapper.compact-wrapper
     .page-body-wrapper
@@ -42256,7 +42252,6 @@ body[class*="dark-"] .for-light {
     a
     span {
     letter-spacing: 0.7px;
-    font-family: Roboto;
     text-transform: capitalize;
     color: #2c323f;
     font-size: 13px;
@@ -49406,17 +49401,16 @@ border-radius: 15px;
     padding: 12px 15px;
     color: #7366ff;
     }
-    /* .page-wrapper.compact-wrapper .page-body-wrapper div.sidebar-wrapper .sidebar-main .sidebar-links .simplebar-wrapper .simplebar-mask .simplebar-content-wrapper .simplebar-content > li .sidebar-submenu li a.active >
-    .page-wrapper.compact-wrapper .page-body-wrapper .sidebar-wrapper .sidebar-main .sidebar-links .simplebar-wrapper .simplebar-mask .simplebar-content-wrapper .simplebar-content > li .sidebar-submenu > li a.active 
-    {
-    background-color: #dad6ff;
-    border-radius: 10px;
-    padding: 12px 15px;
-    color: #7366ff;
-    } */
 
+.display-ul{
+    display:  block !important;
+}
+.page-wrapper.compact-wrapper .page-body-wrapper div.sidebar-wrapper .sidebar-main .sidebar-links .simplebar-wrapper .simplebar-mask .simplebar-content-wrapper .simplebar-content > li .sidebar-submenu li a{
+    color: #000;
+}
     .page-wrapper.compact-wrapper .page-body-wrapper div.sidebar-wrapper .sidebar-main .sidebar-links .simplebar-wrapper .simplebar-mask .simplebar-content-wrapper .simplebar-content > li .sidebar-submenu li a.activee {
         color: var(--theme-deafult);
+        font-weight: 600;
     }
     .page-wrapper.compact-wrapper .page-body-wrapper div.sidebar-wrapper .sidebar-main .sidebar-links .simplebar-wrapper .simplebar-mask .simplebar-content-wrapper .simplebar-content > li .sidebar-link.active {
         transition: all 0.5s ease;
@@ -49424,7 +49418,10 @@ border-radius: 15px;
         margin-bottom: 10px;
         background-color: #dad6ff;
     }
-
+    [dir="rtl"] .page-wrapper.compact-wrapper .page-body-wrapper div.sidebar-wrapper .sidebar-main .sidebar-links li a span {
+        color: #000;
+        font-weight: 600;
+    }
    
 
 

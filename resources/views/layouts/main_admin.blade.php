@@ -17,7 +17,9 @@
           rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900&amp;display=swap"
           rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Font Awesome-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"
           crossorigin/>
@@ -352,7 +354,7 @@
                                     <i data-feather="zap"></i><span>@lang('site.advertising') @endlang</span></a>
                             </li>
                             {{--list--}}
-
+                        
                             <li class="sidebar-list">
                                 <label class="badge badge-light-secondary"></label><a class="sidebar-link sidebar-title {{((in_array($current_route, 
                                 ['dashboard.categories.index','dashboard.cars.index','dashboard.bookings.index','dashboard.car_comments.index']))?'activee':'' )}}"
@@ -549,8 +551,7 @@
 <!-- scrollbar js-->
 <script src="{{MAINASSETS}}/js/scrollbar/simplebar.js"></script>
 <script src="{{MAINASSETS}}/js/scrollbar/custom.js"></script>
-<!-- Sidebar jquery-->
-<script src="{{MAINASSETS}}/js/config.js"></script>
+
 <!-- Plugins JS start-->
 
 <script src="{{MAINASSETS}}/js/chart/chartist/chartist.js"></script>
@@ -601,8 +602,6 @@
 <script src="{{MAINASSETS}}/js/editor/ckeditor/ckeditor.custom.js"></script>
 <!-- Plugins JS Ends-->
 <!-- Theme js-->
-<script src="{{MAINASSETS}}/js/sidebar-menu.js"></script>
-<script src="{{MAINASSETS}}/js/script.js"></script>
 <script src="{{MAINASSETS}}/js/theme-customizer/customizer.js"></script>
 <script src="https://cdn.tutorialjinni.com/jquery.repeater/1.2.1/jquery.repeater.min.js"></script>
 <!-- login js-->
@@ -616,9 +615,18 @@
     }
 
 
-</script>
-
+</script>  
 <!-- Plugins JS Ends-->
+<!-- Sidebar jquery-->
+<script src="{{MAINASSETS}}/js/config.js"></script>
+<script src="{{MAINASSETS}}/js/sidebar-menu.js"></script>
+<script src="{{MAINASSETS}}/js/script.js"></script>
+<script>
+    $(".sidebar-submenu li a").each(function(index) {
+      if($(this).hasClass('activee'))
+      $(this).parent().parent().addClass('display-ul');
+    });
+</script>
 @yield('js')
 @yield('scripts')
 <!-- Plugin used-->
