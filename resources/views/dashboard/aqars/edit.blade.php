@@ -382,7 +382,7 @@ $(document).ready(function() {
         success : function(html)
 		{   
             $("#result_data1").show();
-            var element = $('#result_data');
+            var element = $('#result_data1');
             element.empty();
             $('#result_data1').html(html) ;
         }
@@ -410,23 +410,18 @@ function deletetr(r) {
 }
 
 $('input[type=radio][name=category_id]').change(function() {
-    var category_id = $('input[name="category_id"]:checked').val();
-    $("#floor").hide();
-    $("#floornumber").hide();
-    $("#space").hide();
-    $("#unitnumber").hide();
-    $("#bathroomnumber").hide();
-    $("#hallnumber").hide();
-    $("#personnumber").hide();
-    $("#swimmingpool").hide();
-    $.ajax({
-        url: '{{ url('dashboard / aqars / getsetting ') }}' + '/' + category_id,
-        success: data => {
-            data.forEach(model =>
-                $("#" + model.input_id).show()
-            )
-        }
-    })
+    var category_id =$('input[name="category_id"]:checked').val();
+       
+       $.ajax({
+           url: '{{ url('dashboard/aqars/getsetting') }}' + '/' +category_id ,
+           success : function(html)
+           {   
+               $("#result_data1").show();
+               var element = $('#result_data');
+               element.empty();
+               $('#result_data1').html(html) ;
+           }
+       })
 });
 </script>
 <script>

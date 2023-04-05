@@ -1,11 +1,78 @@
+
 @foreach($details as $detail)
+
+            @if($detail->name_en=='space'&&($detail->display==1))
+            <br>
+            <div id="space">
+                <div class="col-sm-6 col-md-6">
+                    <h5 class="mb-0 border-bottom">@lang('site.space')</h5>
+                </div>
+                <div class="col m-t-15">
+                    <input type="number" name="space" class="form-control"
+                        value="{{$aqar->space}}" >
+                </div>
+            </div>
+            @endif
+            @if($detail->name_en=='unitnumber'&&($detail->display==1))
+            <br>
+            <div  id="unitnumber">
+                <div class="col-sm-6">
+                    <h5 class="mb-0 border-bottom">@lang('site.unitnumber')</h5>
+                </div>
+                <div class="col m-t-15">
+                    <input type="number" name="unitnumber" class="form-control"
+                        value="{{$aqar->unitnumber}}">
+                </div>
+            </div>
+            @endif
+            @if($detail->name_en=='hallnumber'&&($detail->display==1))
+            <br>
+            <div id="hallnumber">
+                <div class="col-sm-6 col-md-6">
+                    <h5 class="mb-0 border-bottom">@lang('site.hallnumber')</h5>
+                </div>
+                <div class="col m-t-15">
+                    <input type="number" name="hallnumber" class="form-control"
+                        value="{{$aqar->hallnumber}}">
+                </div>
+            </div>
+            @endif
+            @if($detail->name_en=='bathroomnumber'&&($detail->display==1))
+            <br>
+            <div  id="bathroomnumber">
+                <div class="col-sm-6">
+                    <h5 class="mb-0 border-bottom">@lang('site.bathroomnumber')
+                    </h5>
+                </div>
+                <div class="col m-t-15">
+                    <input type="number" name="bathroomnumber"
+                        class="form-control" value="{{$aqar->bathroomnumber}}">
+                </div>
+            </div>
+            @endif
+            @if($detail->name_en=='personnumber'&&($detail->display==1))
+            <br>
+            <div  id="personnumber">
+                <div class="col-sm-6 col-md-6">
+                    <h5 class="mb-0 border-bottom">@lang('site.personnumber')
+                    </h5>
+                </div>
+                <div class="col m-t-15">
+                    <input type="number" name="personnumber"
+                        class="form-control" value="{{$aqar->personnumber}}">
+                </div>
+            </div>
+            @endif
+
         
+        @if(count($detail->subservices)!=0)
+        <br>
         <div class="col-sm-12 ">
             <h5 class="mb-0 border-bottom">{{$detail->name_ar ?? ''}}</h5>
         </div>
         <div class="col m-t-15">
 
-        @if(count($detail->subservices)!=0)
+       
         @foreach($detail->subservices as $subservice)
             <div class="form-check form-check-inline checkbox checkbox-solid-primary">   
                 <input class="form-check-input" id="subservice_{{$subservice->id}}"
@@ -15,12 +82,7 @@
                         class="digits"></span></label>
             </div>
         @endforeach
-        @else
-        <div class="col m-t-15">
-            <input type="hidden" name="service[]" id="ID" value="{{$detail->id}}"/>
-            <input type="number" name="subservice[]" class="form-control"
-            value="">
+        
         </div>
         @endif
-        </div>
 @endforeach

@@ -4,7 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\AqarSetting;
 use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class AqarService extends Model
 {
@@ -33,9 +35,10 @@ class AqarService extends Model
     }//end of get image path
 
     // relations
+
     public function subservices()
     {
-        return $this->HasMany(AqarService::class, 'parent_id');
+        return $this->HasMany(AqarService::class, 'parent_id')->withdefault();
     }
 
     public function subsection()
