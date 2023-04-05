@@ -24,10 +24,10 @@ Route::get('/', function () {
 
 //
 
-define('MAINASSETS', URL::asset('public/assets'));
+define('MAINASSETS', URL::asset('assets'));
 define('MAINUPLOADS', URL::asset('uploads'));
 define('MAINDIST', URL::asset('dist/frontend/img'));
-define('MAINDASHBOARD', URL::asset('public/dashboard_files'));
+define('MAINDASHBOARD', URL::asset('dashboard_files'));
 
 
 
