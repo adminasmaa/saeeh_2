@@ -38,7 +38,7 @@ class AqarService extends Model
 
     public function subservices()
     {
-        return $this->HasMany(AqarService::class, 'parent_id')->withdefault();
+        return $this->HasMany(AqarService::class, 'parent_id');
     }
 
     public function subsection()

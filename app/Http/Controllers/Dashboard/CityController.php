@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use Alert;
+use Response;
 
 use App\DataTables\CitiesDataTable;
 use App\Http\Controllers\Controller;
@@ -118,5 +119,16 @@ class CityController extends Controller
 
 
     }//end of destroy
+
+
+    public function countrycities($id)
+    {
+
+        $cities = City::where('country_id', $id)->get();
+
+        return Response::json($cities);
+
+
+    }
 
 }

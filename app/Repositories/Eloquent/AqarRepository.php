@@ -8,17 +8,6 @@ use App\Models\User;
 use App\Models\Category;
 use App\Models\AnotherRoom;
 use App\Models\Area;
-use App\Models\Floor;
-use App\Models\FloorNumber;
-use App\Models\Crew;
-use App\Models\FreeService;
-use App\Models\Service;
-use App\Models\Bathroom;
-use App\Models\Kitchen;
-use App\Models\Laundry;
-use App\Models\ConditionType;
-use App\Models\CarPosition;
-use App\Models\Pool;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\AqarSections;
@@ -45,7 +34,7 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
     {
         // TODO: Implement create() method.
 
-        $users = User::all();
+        $users = User::whereNotNull('account_type')->where('active',1)->get();
         $categories = Category::where('type',1)->where('active',1)->get();
         $Area = Area::where('active',1)->get();
         $countries = Country::all();
@@ -60,7 +49,7 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
 
         $aqar = Aqar::with('aqarSection')->find($Id);   
         $aqar['changed_price']=json_decode($aqar['changed_price']);;
-        $users = User::all();
+        $users = User::whereNotNull('account_type')->where('active',1)->get();
         $categories = Category::where('type',1)->where('active',1)->get();
         $Area = Area::where('active',1)->get();
         $countries = Country::all();
@@ -74,7 +63,7 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
 
         $aqar = Aqar::find($Id);
         $aqar['changed_price']=json_decode($aqar['changed_price']);
-        $users = User::all();
+        $users = User::whereNotNull('account_type')->where('active',1)->get();
         $categories = Category::where('type',1)->where('active',1)->get();
         $Area = Area::where('active',1)->get();
         $countries = Country::all();
@@ -171,6 +160,7 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
             $aqar->save();
         
         }
+        $services=AqarSections::where('aqar_id', $aqar->id)->get()->each(function($service){ $service->delete(); });
         foreach ($request->subservice as $subserv) {
             $arr=explode('-',$subserv);
             AqarSections::create([

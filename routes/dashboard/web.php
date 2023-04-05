@@ -65,6 +65,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         //cities
         Route::get('addCity', 'App\Http\Controllers\Dashboard\CountryController@AddCity')->name('addCity');
         Route::resource('cities', CityController::class);
+        Route::get('countrycities/{id}', 'App\Http\Controllers\Dashboard\CityController@countrycities')->name('countrycities');
 
         //categories
         Route::resource('categories', CategoryController::class);
@@ -126,6 +127,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
         //areas
         Route::resource('areas', AreaController::class);
+        Route::get('cityareas/{id}', 'App\Http\Controllers\Dashboard\AreaController@cityareas')->name('cityareas');
 
         //pools
         Route::resource('pools', PoolController::class);
@@ -161,6 +163,8 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         Route::resource('invoices', InvoiceController::class);
 
         Route::get('/aqars/getsetting/{id}', 'App\Http\Controllers\Dashboard\AqarController@getsetting');
+
+        Route::get('/aqars/getsetting1/{id}/{id2}', 'App\Http\Controllers\Dashboard\AqarController@getsetting1');
 
         Route::get('aqar_setting/editsetting', 'App\Http\Controllers\Dashboard\AqarSettingController@editsetting')->name('aqar_setting.edit');
 
