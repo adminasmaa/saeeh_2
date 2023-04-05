@@ -13,10 +13,14 @@ class AqarSetting extends Model
     protected $table = 'aqar_setting';
 
     protected $fillable = [
-        'input_id', 
-        'required', 
-        'display', 
-        'category_id', 
+        'detail_id',
+        'required',
+        'display',
+        'category_id',
     ];
-   
+
+    public function aqarComment(){
+        return $this->HasMany(AqarComment::class);
+    }
+
 }

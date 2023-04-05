@@ -80,7 +80,6 @@ class AqarSettingController extends Controller
 
     public function update(Request $request, $id)
     {
-       dd($request);
         $AqarSetting = AqarSetting::find($id);
         return $this->AqarSettingRepository->update($AqarSetting, $request);
 
@@ -110,6 +109,11 @@ class AqarSettingController extends Controller
     //     return  $aqarsetting;
     // }
 
+    public function editsetting()
+    { 
+        return $this->AqarSettingRepository->editsetting();
+    }
+
     public function getsetting($id)
     { 
         return $this->AqarSettingRepository->getsetting($id);
@@ -122,9 +126,9 @@ class AqarSettingController extends Controller
     }
 
 
-    public function active_input_required($id)
+    public function active_input_required($id,$check)
     { 
-        return $this->AqarSettingRepository->active_input_required($id);
+        return $this->AqarSettingRepository->active_input_required($id,$check);
     }
 
 }

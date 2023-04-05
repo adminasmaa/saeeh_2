@@ -273,7 +273,7 @@
                                                             value="{{$aqar->images}}" multiple id="upload-imgs" />
 
                                                         <div class="img-thumbs " id="img-previews">
-
+                                                            @if($aqar->images)
                                                             @foreach (json_decode($aqar->images) as $img)
                                                             <div class="wrapper-thumb">
                                                                 <img id="frame" src="{{asset('images/aqars/'.$img)}}"
@@ -283,6 +283,7 @@
                                                                     class="remove-btn">x</span>
                                                             </div>
                                                             @endforeach
+                                                            @endif
                                                         </div>
                                                     </div>
 
@@ -311,7 +312,7 @@
                                                         @foreach($countries as $country)
 
                                                         <option value="{{$country->id}}" @if($country->
-                                                            id==$user->country_id) selected
+                                                            id==$aqar->country_id) selected
                                                             @endif>{{$country->name_ar ?? ''}}</option>
 
                                                         @endforeach
@@ -324,7 +325,7 @@
                                                         <option selected>@lang('site.select')</option>
                                                         @foreach($cities as $city)
 
-                                                        <option value="{{$city->id}}" @if($city->id==$user->city_id)
+                                                        <option value="{{$city->id}}" @if($city->id==$aqar->city_id)
                                                             selected @endif>{{$city->name_ar ?? ''}}</option>
 
                                                         @endforeach
@@ -332,313 +333,23 @@
                                                     </select>
                                                 </div>
 
+                                                <br>
+                                                <div id="result_data1" class="p-2  m-t-15">
+                                                </div>   
+
                                                 <div class="row">
-                                                    <div style="display: none;" id="space">
-                                                        <div class="col-sm-6 col-md-6">
-                                                            <h5 class="   mb-0 border-bottom">@lang('site.space')</h5>
-                                                        </div>
-                                                        <div class="col m-t-15">
-                                                            <input type="number" name="space" class="form-control"
-                                                                value="{{$aqar->space}}">
-                                                        </div>
-                                                    </div>
-                                                    <br>
-                                                    <div style="display: none;" id="unitnumber">
-                                                        <div class="col-sm-6">
-                                                            <h5 class="   mb-0 border-bottom">@lang('site.unitnumber')
-                                                            </h5>
-                                                        </div>
-                                                        <div class="col m-t-15">
-                                                            <input type="number" name="unitnumber" class="form-control"
-                                                                value="{{$aqar->unitnumber}}">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div style="display: none;" id="hallnumber">
-                                                        <div class="col-sm-6 col-md-6">
-                                                            <h5 class="   mb-0 border-bottom">@lang('site.hallnumber')
-                                                            </h5>
-                                                        </div>
-                                                        <div class="col m-t-15">
-                                                            <input type="number" name="hallnumber" class="form-control"
-                                                                value="{{$aqar->hallnumber}}">
-                                                        </div>
-                                                    </div>
-                                                    <br>
-                                                    <div style="display: none;" id="bathroomnumber">
-                                                        <div class="col-sm-6">
-                                                            <h5 class="   mb-0 border-bottom">
-                                                                @lang('site.bathroomnumber')</h5>
-                                                        </div>
-                                                        <div class="col m-t-15">
-                                                            <input type="number" name="bathroomnumber"
-                                                                class="form-control" value="{{$aqar->bathroomnumber}}">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div style="display: none;" id="personnumber">
-                                                        <div class="col-sm-6 col-md-6">
-                                                            <h5 class="   mb-0 border-bottom">@lang('site.personnumber')
-                                                            </h5>
-                                                        </div>
-                                                        <div class="col m-t-15">
-                                                            <input type="number" name="personnumber"
-                                                                class="form-control" value="{{$aqar->personnumber}}">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div style="display: none;" id="floor">
-                                                    <div class="col-sm-12">
-                                                        <h5 class="   mb-0 border-bottom">@lang('site.floor')</h5>
-                                                    </div>
-                                                    <div class="col m-t-15">
-                                                        @foreach($Floor as $fl)
-                                                        <div
-                                                            class="form-check form-check-inline checkbox checkbox-solid-primary">
-                                                            <input class="form-check-input" id="floor_{{$fl->id}}"
-                                                                type="checkbox" name="floor_id[]" value="{{$fl->id}}"
-                                                                {{ in_array($fl->id,$aqar->floor_id)? 'checked':'' }}>
-                                                            <label class="form-check-label"
-                                                                for="floor_{{$fl->id}}">{{$fl->name_ar ?? ''}}<span
-                                                                    class="digits"></span></label>
-                                                        </div>
-                                                        @endforeach
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div style="display: none;" id="floornumber">
-                                                    <div class="col-sm-12">
-                                                        <h5 class="   mb-0 border-bottom">@lang('site.floornumber')</h5>
-                                                    </div>
-                                                    <div class="col m-t-15">
-                                                        @foreach($FloorNumber as $fln)
-                                                        <div
-                                                            class="form-check form-check-inline checkbox checkbox-solid-primary">
-                                                            <input class="form-check-input"
-                                                                id="floornumber_{{$fln->id}}" type="checkbox"
-                                                                name="floor_number_id[]" value="{{$fln->id}}"
-                                                                {{ in_array($fln->id,$aqar->floor_number_id)? 'checked':'' }}>
-                                                            <label class="form-check-label"
-                                                                for="floornumber_{{$fln->id}}">{{$fln->name_ar ?? ''}}<span
-                                                                    class="digits"></span></label>
-                                                        </div>
-                                                        @endforeach
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="col-sm-12">
-                                                    <h5 class="   mb-0 border-bottom">@lang('site.masterroom')</h5>
-                                                </div>
-                                                <div class="col m-t-15">
-                                                    @for ($x = 1; $x <= 10; $x++) <div
-                                                        class="form-check form-check-inline checkbox checkbox-solid-primary">
-                                                        <input class="form-check-input" id="masterroom_{{$x}}"
-                                                            type="checkbox" name="masterroom" value="{{$x}}"
-                                                            {{ $x==$aqar->masterroom? 'checked':'' }}>
-                                                        <label class="form-check-label"
-                                                            for="masterroom_{{$x}}">{{$x}}<span
-                                                                class="digits"></span></label>
-                                                </div>
-                                                @endfor
-                                            </div>
-                                            <br>
-                                            <div class="col-sm-12">
-                                                <h5 class="   mb-0 border-bottom">@lang('site.normalroom')</h5>
-                                            </div>
-                                            <div class="col m-t-15">
-                                                @for ($y = 1; $y <= 10; $y++) <div
-                                                    class="form-check form-check-inline checkbox checkbox-solid-primary">
-                                                    <input class="form-check-input" id="normalroom_{{$y}}"
-                                                        type="checkbox" name="normalroom" value="{{$y}}"
-                                                        {{ $y==$aqar->normalroom? 'checked':'' }}>
-                                                    <label class="form-check-label" for="normalroom_{{$y}}">{{$y}}<span
-                                                            class="digits"></span></label>
-                                            </div>
-                                            @endfor
-                                        </div>
-                                        <br>
-                                        <div class="col-sm-12">
-                                            <h5 class="   mb-0 border-bottom">@lang('site.service')</h5>
-                                        </div>
-                                        <div class="col m-t-15">
-                                            @foreach($Service as $srv)
-                                            <div class="form-check form-check-inline checkbox checkbox-solid-primary">
-                                                <input class="form-check-input" id="service_{{$srv->id}}"
-                                                    type="checkbox" name="service_id[]" value="{{$srv->id}}"
-                                                    {{ in_array($srv->id,$aqar->service_id)? 'checked':'' }}>
-                                                <label class="form-check-label"
-                                                    for="service_{{$srv->id}}">{{$srv->name_ar ?? ''}}<span
-                                                        class="digits"></span></label>
-                                            </div>
-                                            @endforeach
-                                        </div>
-                                        <br>
-                                        <div class="col-sm-12">
-                                            <h5 class="   mb-0 border-bottom">@lang('site.freeservice')</h5>
-                                        </div>
-                                        <div class="col m-t-15">
-                                            @foreach($FreeService as $fsrv)
-                                            <div class="form-check form-check-inline checkbox checkbox-solid-primary">
-                                                <input class="form-check-input" id="freeservice_{{$fsrv->id}}"
-                                                    type="checkbox" name="free_service_id[]" value="{{$fsrv->id}}"
-                                                    {{ in_array($fsrv->id,$aqar->free_service_id)? 'checked':'' }}>
-                                                <label class="form-check-label"
-                                                    for="freeservice_{{$fsrv->id}}">{{$fsrv->name_ar ?? ''}}<span
-                                                        class="digits"></span></label>
-                                            </div>
-                                            @endforeach
-                                        </div>
-                                        <br>
-                                        <div class="col-sm-12">
-                                            <h5 class="   mb-0 border-bottom">@lang('site.crew')</h5>
-                                        </div>
-                                        <div class="col m-t-15">
-                                            @foreach($Crew as $cr)
-                                            <div class="form-check form-check-inline checkbox checkbox-solid-primary">
-                                                <input class="form-check-input" id="crew_{{$cr->id}}" type="checkbox"
-                                                    name="crew_id[]" value="{{$cr->id}}"
-                                                    {{ in_array($cr->id,$aqar->crew_id)? 'checked':'' }}>
-                                                <label class="form-check-label"
-                                                    for="crew_{{$cr->id}}">{{$cr->name_ar ?? ''}}<span
-                                                        class="digits"></span></label>
-                                            </div>
-                                            @endforeach
-                                        </div>
-                                        <br>
-                                        <div class="col-sm-12">
-                                            <h5 class="   mb-0 border-bottom">@lang('site.anotherrooms')</h5>
-                                        </div>
-                                        <div class="col m-t-15">
-                                            @foreach($AnotherRoom as $room)
-                                            <div class="form-check form-check-inline checkbox checkbox-solid-primary">
-                                                <input class="form-check-input" id="room_{{$room->id}}" type="checkbox"
-                                                    name="another_room_id[]" value="{{$room->id}}"
-                                                    {{ in_array($room->id,$aqar->another_room_id)? 'checked':'' }}>
-                                                <label class="form-check-label"
-                                                    for="room_{{$room->id}}">{{$room->name_ar ?? ''}}<span
-                                                        class="digits"></span></label>
-                                            </div>
-                                            @endforeach
-                                        </div>
-                                        <br>
-                                        <div class="col-sm-12">
-                                            <h5 class="   mb-0 border-bottom">@lang('site.carposition')</h5>
-                                        </div>
-                                        <div class="col m-t-15">
-                                            @foreach($CarPosition as $position)
-                                            <div class="form-check form-check-inline checkbox checkbox-solid-primary">
-                                                <input class="form-check-input" id="position_{{$position->id}}"
-                                                    type="checkbox" name="car_position_id[]" value="{{$position->id}}"
-                                                    {{ in_array($position->id,$aqar->car_position_id)? 'checked':'' }}>
-                                                <label class="form-check-label"
-                                                    for="position_{{$position->id}}">{{$position->name_ar ?? ''}}<span
-                                                        class="digits"></span></label>
-                                            </div>
-                                            @endforeach
-                                        </div>
-                                        <br>
-                                        <div style="display: none;" id="swimmingpool">
-                                            <div class="col-sm-12">
-                                                <h5 class="   mb-0 border-bottom">@lang('site.swimmingpool')</h5>
-                                            </div>
-                                            <div class="col m-t-15">
-                                                @foreach($Pool as $swp)
-                                                <div
-                                                    class="form-check form-check-inline checkbox checkbox-solid-primary">
-                                                    <input class="form-check-input" id="swimmingpool_{{$swp->id}}"
-                                                        type="checkbox" name="swimmingpool[]" value="{{$swp->id}}"
-                                                        {{ in_array($swp->id,$aqar->swimmingpool)? 'checked':'' }}>
-                                                    <label class="form-check-label"
-                                                        for="swimmingpool_{{$swp->id}}">{{$swp->name_ar ?? ''}}<span
-                                                            class="digits"></span></label>
-                                                </div>
-                                                @endforeach
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <div class="col-sm-12">
-                                            <h5 class="   mb-0 border-bottom">@lang('site.kitchen')</h5>
-                                        </div>
-                                        <div class="col m-t-15">
-                                            @foreach($Kitchen as $Kitch)
-                                            <div class="form-check form-check-inline checkbox checkbox-solid-primary">
-                                                <input class="form-check-input" id="kitchen_{{$Kitch->id}}"
-                                                    type="checkbox" name="kitchen_id[]" value="{{$Kitch->id}}"
-                                                    {{ in_array($Kitch->id,$aqar->kitchen_id)? 'checked':'' }}>
-                                                <label class="form-check-label"
-                                                    for="kitchen_{{$Kitch->id}}">{{$Kitch->name_ar ?? ''}}<span
-                                                        class="digits"></span></label>
-                                            </div>
-                                            @endforeach
-                                        </div>
-                                        <br>
-                                        <div class="col-sm-12 ">
-                                            <h5 class="  mb-0 border-bottom">@lang('site.Bathroom')</h5>
-                                        </div>
-                                        <div class="col m-t-15">
-                                            @foreach($Bathroom as $bath)
-                                            <div class="form-check form-check-inline checkbox checkbox-solid-primary">
-                                                <input class="form-check-input" id="bath_{{$bath->id}}" type="checkbox"
-                                                    name="bathroom_id[]" value="{{$bath->id}}"
-                                                    {{ in_array($bath->id,$aqar->bathroom_id)? 'checked':'' }}>
-                                                <label class="form-check-label"
-                                                    for="bath_{{$bath->id}}">{{$bath->name_ar ?? ''}}<span
-                                                        class="digits"></span></label>
-                                            </div>
-                                            @endforeach
-                                        </div>
-                                        <br>
-                                        <div class="col-sm-12 ">
-                                            <h5 class="  mb-0 border-bottom">@lang('site.laundry')</h5>
-                                        </div>
-                                        <div class="col m-t-15">
-                                            @foreach($Laundry as $Laund)
-                                            <div class="form-check form-check-inline checkbox checkbox-solid-primary">
-                                                <input class="form-check-input" id="laundry_{{$Laund->id}}"
-                                                    type="checkbox" name="laundry_id[]" value="{{$Laund->id}}"
-                                                    {{ in_array($Laund->id,$aqar->laundry_id)? 'checked':'' }}>
-                                                <label class="form-check-label"
-                                                    for="laundry_{{$Laund->id}}">{{$Laund->name_ar ?? ''}}<span
-                                                        class="digits"></span></label>
-                                            </div>
-                                            @endforeach
-                                        </div>
-                                        <br>
-                                        <div class="col-sm-12 ">
-                                            <h5 class="  mb-0 border-bottom">@lang('site.ConditioningType')</h5>
-                                        </div>
-                                        <div class="col m-t-15">
-                                            @foreach($ConditioningType as $type)
-                                            <div class="form-check form-check-inline checkbox checkbox-solid-primary">
-                                                <input class="form-check-input" id="conditioning_{{$type->id}}"
-                                                    type="checkbox" name="conditioning_type_id[]" value="{{$type->id}}"
-                                                    {{ in_array($type->id,$aqar->conditioning_type_id)? 'checked':'' }}>
-                                                <label class="form-check-label"
-                                                    for="conditioning_{{$type->id}}">{{$type->name_ar ?? ''}}<span
-                                                        class="digits"></span></label>
-                                            </div>
-                                            @endforeach
-                                        </div>
+                                                    <!--<div class="col-md-6">-->
 
+                                                    <div class="col-md-12 form-group col-12 p-2  m-t-15">
+                                                        <label>@lang('site.descrption')<span
+                                                                class="text-danger">*</span></label>
+                                                        <textarea class="form-control" cols="5" rows="5" name="description"
+                                                            id="editor1">
+                                                            {{$aqar->description}}
+                                                            </textarea>
+                                                    </div>
 
-                                        <div class="row">
-                                            <!--<div class="col-md-6">-->
-
-                                            <div class="col-md-12 form-group col-12 p-2  m-t-15">
-                                                <label>@lang('site.descrption')<span
-                                                        class="text-danger">*</span></label>
-                                                <textarea class="form-control" cols="5" rows="5" name="description"
-                                                    id="editor1">
-                                                    {{$aqar->description}}
-                                                    </textarea>
-                                            </div>
-
-                                        </div>
+                                                </div>
 
 
                                     </div>
@@ -664,21 +375,16 @@ $(document).ready(function() {
     $("div.desc").hide();
     $("#price" + test).show();
 
-    var category_id = $('input[name="category_id"]:checked').val();
-    $("#floor").hide();
-    $("#floornumber").hide();
-    $("#space").hide();
-    $("#unitnumber").hide();
-    $("#bathroomnumber").hide();
-    $("#hallnumber").hide();
-    $("#personnumber").hide();
-    $("#swimmingpool").hide();
+    var category_id =$('input[name="category_id"]:checked').val();
+       
     $.ajax({
-        url: '{{ url('dashboard / aqars / getsetting ') }}' + '/' + category_id,
-        success: data => {
-            data.forEach(model =>
-                $("#" + model.input_id).show()
-            )
+        url: '{{ url('dashboard/aqars/getsetting') }}' + '/' +category_id ,
+        success : function(html)
+		{   
+            $("#result_data1").show();
+            var element = $('#result_data1');
+            element.empty();
+            $('#result_data1').html(html) ;
         }
     });
     jQuery('a.add-price').click(function(event) {
@@ -704,23 +410,18 @@ function deletetr(r) {
 }
 
 $('input[type=radio][name=category_id]').change(function() {
-    var category_id = $('input[name="category_id"]:checked').val();
-    $("#floor").hide();
-    $("#floornumber").hide();
-    $("#space").hide();
-    $("#unitnumber").hide();
-    $("#bathroomnumber").hide();
-    $("#hallnumber").hide();
-    $("#personnumber").hide();
-    $("#swimmingpool").hide();
-    $.ajax({
-        url: '{{ url('dashboard / aqars / getsetting ') }}' + '/' + category_id,
-        success: data => {
-            data.forEach(model =>
-                $("#" + model.input_id).show()
-            )
-        }
-    })
+    var category_id =$('input[name="category_id"]:checked').val();
+       
+       $.ajax({
+           url: '{{ url('dashboard/aqars/getsetting') }}' + '/' +category_id ,
+           success : function(html)
+           {   
+               $("#result_data1").show();
+               var element = $('#result_data');
+               element.empty();
+               $('#result_data1').html(html) ;
+           }
+       })
 });
 </script>
 <script>

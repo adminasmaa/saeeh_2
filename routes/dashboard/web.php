@@ -102,7 +102,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         //aquarcategories
         Route::resource('aquarcategories', AquarCategoryController::class);
         Route::resource('aquarbooking', AqarBookingController::class);
-        Route::resource('aqar_setting', AqarSettingController::class);
+       
 
         //services
         Route::resource('services', ServiceController::class);
@@ -162,9 +162,13 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
         Route::get('/aqars/getsetting/{id}', 'App\Http\Controllers\Dashboard\AqarController@getsetting');
 
+        Route::get('aqar_setting/editsetting', 'App\Http\Controllers\Dashboard\AqarSettingController@editsetting')->name('aqar_setting.edit');
+
         Route::get('/aqarsetting/getsetting/{id}', 'App\Http\Controllers\Dashboard\AqarSettingController@getsetting');
 
         Route::get('/aqarsetting/active_input_display/{id}/{id2}', 'App\Http\Controllers\Dashboard\AqarSettingController@active_input_display');
+
+        Route::get('/aqarsetting/active_input_required/{id}/{id2}', 'App\Http\Controllers\Dashboard\AqarSettingController@active_input_required');
         //deposits
         Route::resource('deposits', DepositController::class);
 
