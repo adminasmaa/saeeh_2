@@ -62,7 +62,7 @@
                                     <img src="{{asset('images/services_aqars/'.$AqarService->icon)}}"
                                          data-bs-toggle="modal"
                                          data-bs-target="#exampleModalss" width="100px" height="100px" class="d-block"
-                                         onerror="this.src='{{asset('images/services_aqars/default.jpg')}}'"
+                                         onerror="this.src='{{asset('images/services_aqars/default.png')}}'"
                                     >
 
 
@@ -89,7 +89,7 @@
                                                              width="400px" height="aut0"
 
 
-                                                             onerror="this.src='{{asset('images/services_aqars/default.jpg')}}'"
+                                                             onerror="this.src='{{asset('images/services_aqars/default.png')}}'"
                                                         >
 
                                                     </th>
@@ -140,7 +140,7 @@
 
                                 @foreach($SubAqarService as $service)
                                     <div class="col-md-12 form-group col-12   desc">
-                                        <table class="price-list" id="tb_price">
+                                        <table>
                                             <tr>
                                                 <td>
                                                     <div class="row">
@@ -154,6 +154,12 @@
                                                             <input type="text"
                                                                    class="form-control" value="{{$service->name_en}}">
                                                         </div>
+<!-- {{--                                        <a type="button" href="{{route('dashboard.DeleteSubCategories',$service->id)}}"--}}
+{{--                                           class="btn-table  btn  btn-xs 88"--}}
+{{--                                        >--}}
+{{--                                            <i class="fa fa-trash"></i>--}}
+{{--                                        </a>--}}
+                                        <a  href="{{route('dashboard.DeleteSubCategories',$service->id)}}" class="btn btn-air-primary btn-pill btn-danger"><i class="fa fa-trash"></i></a> -->
 
                                                     </div>
                                                 </td>
@@ -164,24 +170,21 @@
 
                                 @endforeach
                                     <div class="col-md-2 form-group col-12">
-                                        <a class="btn btn-air-primary btn-pill btn-success add-price w-100 m-t-30"><i
-                                                class="fa fa-plus" aria-hidden="true"></i></a>
+                                        <!-- <a class="btn btn-air-primary btn-pill btn-success add-price w-100 m-t-30"><i
+                                                class="fa fa-plus" aria-hidden="true"></i></a> -->
                                     </div>
-                                <div class="col-md-12 form-group col-12   desc" id="price2" style="display: none;">
-                                    <table class="price-list" id="tb_price">
+                                <div class="col-md-12 form-group col-12   desc" id="price2" >
+                                <table class="price-list" id="tb_price">
                                         <tr>
                                             <td>
                                                 <div class="row">
                                                     <div class="col-md-5 form-group col-12">
                                                         <label>@lang('site.name_ar')</label>
-                                                        <input type="text" name="sub_name_ar[]" class="form-control"
-
-                                                        />
+                                                        <input type="text" name="sub_name_ar[]" class="form-control"/>
                                                     </div>
                                                     <div class="col-md-5 form-group col-12">
                                                         <label>@lang('site.name_en')</label>
-                                                        <input type="text" name="sub_name_en[]" class="form-control"
-                                                               >
+                                                        <input type="text" name="sub_name_en[]" class="form-control">
                                                     </div>
                                                     <div class="col-md-2 form-group col-12">
                                                         <a class="btn btn-air-primary btn-pill btn-success add-price w-100 m-t-30"><i
@@ -238,34 +241,34 @@
 @endsection
 @section('scripts')
 
-    <script>
+<script>
 
 
-        $(document).ready(function () {
-            jQuery('a.add-price').click(function (event) {
-                event.preventDefault();
-                var newRow = jQuery('<tr><td><div class="row"><div class="col-md-5 form-group col-12 p-2">' +
-                    ' <label>@lang('site.name_ar')</label><input type="text"  name="sub_name_ar[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
-                    '<label>@lang('site.name_en')</label><input type="text" name="sub_name_en[]" class="form-control" >' +
-                    '  </div>  <div class="col-md-2 form-group col-12 p-2 "> <a class="btn btn-air-primary btn-pill btn-danger add-price w-100 m-t-30" onclick="deletetr(this)" ><i class="fa fa-trash"></i></a>' +
+$(document).ready(function () {
+    jQuery('a.add-price').click(function (event) {
+        event.preventDefault();
+        var newRow = jQuery('<tr><td><div class="row"><div class="col-md-5 form-group col-12 p-2">' +
+            ' <label>@lang('site.name_ar')</label><input type="text"  name="sub_name_ar[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
+            '<label>@lang('site.name_en')</label><input type="text" name="sub_name_en[]" class="form-control" >' +
+            '  </div>  <div class="col-md-2 form-group col-12 p-2 "> <a class="btn btn-air-primary btn-pill btn-danger add-price w-100 m-t-30" onclick="deletetr(this)" ><i class="fa fa-trash"></i></a>' +
 
-                    '</div></div> </td>  </tr>');
-                jQuery('.price-list').append(newRow);
-            });
+            '</div></div> </td>  </tr>');
+        jQuery('.price-list').append(newRow);
+    });
 
-            $("input[name='price']").click(function () {
-                var test = $(this).val();
+    $("input[name='price']").click(function () {
+        var test = $(this).val();
 
-                $("div.desc").hide();
-                $("#price" + test).show();
-            });
-        });
+        $("div.desc").hide();
+        $("#price" + test).show();
+    });
+});
 
-        function deletetr(r) {
-            r.closest('tr').remove();
-        }
+function deletetr(r) {
+    r.closest('tr').remove();
+}
 
 
-    </script>
+</script>
 
 @endsection
