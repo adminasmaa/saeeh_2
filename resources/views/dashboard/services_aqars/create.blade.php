@@ -99,13 +99,14 @@
                                         <input class="radio_animated" type="radio" name="price"
                                                data-bs-original-title="" title="" value="2">@lang('site.subcategories')
                                     </label>
+                                    
                                 </div>
                             </div>
                             <div class="row m-t-10">
                                 <!--<div class="col-md-6">-->
 
 
-                                <div class="col-md-12 form-group col-12   desc" id="price2" style="display: none;">
+                                <div class="col-md-12 form-group col-12   desc" id="price2" >
                                     <table class="price-list" id="tb_price">
                                         <tr>
                                             <td>
