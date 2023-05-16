@@ -18,11 +18,14 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 Auth::routes();
 });
 
-Route::get('/', function () {
-    return view('welcome');
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedirect', 'localizationRedirect', 'localeViewPath')->group(function () {
+
+Route::get('/', 'App\Http\Controllers\Frontend\HomeController@index')->name('Home');
 });
 
-//
 
 define('MAINASSETS', URL::asset('assets'));
 define('MAINUPLOADS', URL::asset('uploads'));

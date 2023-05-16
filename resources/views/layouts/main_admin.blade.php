@@ -17,7 +17,9 @@
           rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900&amp;display=swap"
           rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Font Awesome-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"
           crossorigin/>
@@ -283,40 +285,40 @@
 
                             </li>
                             <li class="sidebar-list"><a
-                                    class="sidebar-link sidebar-title link-nav"
+                                    class="sidebar-link sidebar-title link-nav  {{($current_route=='dashboard.users.index')?'activee':'' }}"
                                     href="{{route('dashboard.users.index')}}"><i
                                         data-feather="users"></i><span>@lang('site.users') @endlang</span></a>
 
                             </li>
 
                             <li class="sidebar-list"><a
-                                    class="sidebar-link sidebar-title link-nav"
+                                    class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.roles.index')?'activee':'' }}"
                                     href="{{route('dashboard.roles.index')}}"><i
                                         data-feather="box"></i><span>@lang('site.roles') @endlang</span></a>
 
                             </li>
 
                             <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title link-nav"
+                                <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.message.index')?'activee':'' }}"
                                    href="{{route('dashboard.message.index')}}">
                                     <i data-feather="bell"></i><span>@lang('site.contacts') @endlang</span></a>
                             </li>
 
                             <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title link-nav"
+                                <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.contacts.index')?'activee':'' }}"
                                    href="{{route('dashboard.contacts.index')}}">
                                     <i data-feather="mail"></i><span>@lang('site.contactsus') @endlang</span></a>
                             </li>
 
                             <li class="sidebar-list"><a
-                                    class="sidebar-link sidebar-title link-nav"
+                                    class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.countries.index')?'activee':'' }}"
                                     href="{{route('dashboard.countries.index')}}"><i
                                         data-feather="map"></i><span>@lang('site.countries') @endlang</span></a>
 
                             </li>
 
                             <li class="sidebar-list"><a
-                                    class="sidebar-link sidebar-title link-nav"
+                                    class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.cities.index')?'activee':'' }}"
                                     href="{{route('dashboard.cities.index')}}"><i
                                         data-feather="film"></i><span>@lang('site.cities') @endlang</span></a>
 
@@ -324,7 +326,7 @@
 
 
                             <li class="sidebar-list"><a
-                                    class="sidebar-link sidebar-title link-nav"
+                                    class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.questions.index')?'activee':'' }}"
                                     href="{{route('dashboard.questions.index')}}"><i
                                         data-feather="bookmark"></i><span>@lang('site.questions') @endlang</span></a>
 
@@ -332,7 +334,7 @@
 
 
                             <li class="sidebar-list"><a
-                                    class="sidebar-link sidebar-title link-nav"
+                                    class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.problems.index')?'activee':'' }}"
                                     href="{{route('dashboard.problems.index')}}"><i
                                         data-feather="file-text"></i><span>@lang('site.problems') @endlang</span></a>
 
@@ -340,61 +342,63 @@
 
 
                             <li class="sidebar-list"><a
-                                    class="sidebar-link sidebar-title link-nav"
+                                    class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.mediators.index')?'activee':'' }}"
                                     href="{{route('dashboard.mediators.index')}}"><i
                                         data-feather="user-check"></i><span>@lang('site.mediators') @endlang</span></a>
 
                             </li>
 
                             <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title link-nav"
+                                <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.advertising.index')?'activee':'' }}"
                                    href="{{route('dashboard.advertising.index')}}">
                                     <i data-feather="zap"></i><span>@lang('site.advertising') @endlang</span></a>
                             </li>
                             {{--list--}}
-
+                        
                             <li class="sidebar-list">
-                                <label class="badge badge-light-secondary"></label><a class="sidebar-link sidebar-title"
+                                <label class="badge badge-light-secondary"></label><a class="sidebar-link sidebar-title {{((in_array($current_route, 
+                                ['dashboard.categories.index','dashboard.cars.index','dashboard.bookings.index','dashboard.car_comments.index']))?'activee':'' )}}"
                                                                                       href="#"><i
                                         data-feather="airplay"></i><span>@lang('site.cars') @endlang                </span></a>
                                 <ul class="sidebar-submenu">
-                                    <li><a href="{{route('dashboard.categories.index')}}" class="activee">{{__('site.categories')}}</a>
+                                    <li><a href="{{route('dashboard.categories.index')}}" class="{{($current_route=='dashboard.categories.index')?'activee':'' }}">{{__('site.categories')}}</a>
                                     </li>
 
-                                    <li><a href="{{route('dashboard.cars.index')}}">{{__('site.cars')}}</a>
+                                    <li><a href="{{route('dashboard.cars.index')}}"  class="{{($current_route=='dashboard.cars.index')?'activee':'' }}" >{{__('site.cars')}}</a>
 
                                     </li>
-                                    <li><a href="{{route('dashboard.bookings.index')}}">{{__('site.bookings')}}</a>
+                                    <li><a href="{{route('dashboard.bookings.index')}}"  class="{{($current_route=='dashboard.bookings.index')?'activee':'' }}" >{{__('site.bookings')}}</a>
                                     </li>
 
                                     <li>
-                                        <a href="{{route('dashboard.car_comments.index')}}">{{__('site.car_comments')}}</a>
+                                        <a href="{{route('dashboard.car_comments.index')}}"  class="{{($current_route=='dashboard.car_comments.index')?'activee':'' }}">{{__('site.car_comments')}}</a>
                                     </li>
                                 </ul>
                             </li>
                             <li class="sidebar-list"><a
-                                    class="sidebar-link sidebar-title "
+                                    class="sidebar-link sidebar-title {{((in_array($current_route, 
+                                ['dashboard.aquarcategories.index','dashboard.areas.index','dashboard.services_aqars.index','dashboard.aqar_setting.edit','dashboard.aqars.index','dashboard.aquarbooking.index','dashboard.aqar_comments.index']))?'activee':'' )}}"
                                     href="#"><i data-feather="layers"></i><span>@lang('site.aquars') @endlang</span></a>
                                 <ul class="sidebar-submenu">
                                     <li>
-                                        <a href="{{route('dashboard.aquarcategories.index')}}">{{__('site.categories')}}</a>
+                                        <a href="{{route('dashboard.aquarcategories.index')}}" class="{{($current_route=='dashboard.aquarcategories.index')?'activee':'' }}">{{__('site.categories')}}</a>
                                     </li>
 
                                     
 
                                     <li>
-                                        <a href="{{route('dashboard.areas.index')}}">{{__('site.areas')}}</a>
+                                        <a href="{{route('dashboard.areas.index')}}" class="{{($current_route=='dashboard.areas.index')?'activee':'' }}">{{__('site.areas')}}</a>
                                     </li>
 
                                     <li>
-                                        <a href="{{route('dashboard.services_aqars.index')}}">{{__('site.services_aqars')}}</a>
+                                        <a href="{{route('dashboard.services_aqars.index')}}" class="{{($current_route=='dashboard.services_aqars.index')?'activee':'' }}">{{__('site.services_aqars')}}</a>
                                     </li>
                                     <li>
-                                        <a href="{{route('dashboard.aqar_setting.edit')}}">{{__('site.aqar_setting')}}</a>
+                                        <a href="{{route('dashboard.aqar_setting.edit')}}" class="{{($current_route=='dashboard.aqar_setting.edit')?'activee':'' }}">{{__('site.aqar_setting')}}</a>
                                     </li>
 
 {{--                                    <li>--}}
-{{--                                        <a href="{{route('dashboard.place_tables.index')}}">{{__('site.place_tables')}}</a>--}}
+{{--                                        <a href="{{route('dashboard.place_tables.index')}}" >{{__('site.place_tables')}}</a>--}}
 {{--                                    </li>--}}
 
 {{--                                    <li>--}}
@@ -439,14 +443,14 @@
 {{--                                    </li>--}}
 
                                     <li>
-                                        <a href="{{route('dashboard.aqars.index')}}">{{__('site.aqars')}}</a>
+                                        <a href="{{route('dashboard.aqars.index')}}" class="{{($current_route=='dashboard.aqars.index')?'activee':'' }}">{{__('site.aqars')}}</a>
                                     </li>
                                     <li>
-                                        <a href="{{route('dashboard.aquarbooking.index')}}">{{__('site.bookings')}}</a>
+                                        <a href="{{route('dashboard.aquarbooking.index')}}" class="{{($current_route=='dashboard.aquarbooking.index')?'activee':'' }}">{{__('site.bookings')}}</a>
                                     </li>
 
                                     <li>
-                                        <a href="{{route('dashboard.aqar_comments.index')}}">{{__('site.aqar_comments')}}</a>
+                                        <a href="{{route('dashboard.aqar_comments.index')}}" class="{{($current_route=='dashboard.aqar_comments.index')?'activee':'' }}">{{__('site.aqar_comments')}}</a>
                                     </li>
                                     
                                 </ul>
@@ -456,60 +460,61 @@
                             {{--list--}}
 
                             <li class="sidebar-list">
-                                <label class="badge badge-light-secondary"></label><a class="sidebar-link sidebar-title"
+                                <label class="badge badge-light-secondary"></label><a class="sidebar-link sidebar-title {{((in_array($current_route, 
+                                ['dashboard.place_categories.index','dashboard.places.index','dashboard.place_comments.index']))?'activee':'' )}}"
                                                                                       href="#"><i
                                         data-feather="list"></i><span>@lang('site.places') @endlang                </span></a>
                                 <ul class="sidebar-submenu">
                                     <!-- <li><a href="{{route('dashboard.brands.index')}}">{{__('site.brands')}}</a>
                                     </li> -->
                                     <li>
-                                        <a href="{{route('dashboard.place_categories.index')}}">{{__('site.categories')}}</a>
+                                        <a href="{{route('dashboard.place_categories.index')}}" class="{{($current_route=='dashboard.place_categories.index')?'activee':'' }}">{{__('site.categories')}}</a>
                                     </li>
 
-                                    <li><a href="{{route('dashboard.places.index')}}">{{__('site.places')}}</a>
+                                    <li><a href="{{route('dashboard.places.index')}}" class="{{($current_route=='dashboard.places.index')?'activee':'' }}">{{__('site.places')}}</a>
 
                                     </li>
                                     <!-- <li><a href="{{route('dashboard.bookings.index')}}">{{__('site.bookings')}}</a>
                                     </li> -->
 
                                     <li>
-                                        <a href="{{route('dashboard.place_comments.index')}}">{{__('site.place_comments')}}</a>
+                                        <a href="{{route('dashboard.place_comments.index')}}" class="{{($current_route=='dashboard.place_comments.index')?'activee':'' }}">{{__('site.place_comments')}}</a>
                                     </li>
                                 </ul>
                             </li>
 
                             <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title link-nav"
+                                <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.commissions.index')?'activee':'' }}"
                                    href="{{route('dashboard.commissions.index')}}">
                                     <i data-feather="plus-circle"></i><span>@lang('site.commissions') @endlang</span></a>
                             </li>
 
                             <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title link-nav"
+                                <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.notifications.index')?'activee':'' }}"
                                    href="{{route('dashboard.notifications.index')}}">
                                     <i data-feather="droplet"></i><span>@lang('site.notifications') @endlang</span></a>
                             </li>
 
                             <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title link-nav"
+                                <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.balances.index')?'activee':'' }}"
                                    href="{{route('dashboard.balances.index')}}">
                                     <i data-feather="dollar-sign"></i><span>@lang('site.balances') @endlang</span></a>
                             </li>
 
                             <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title link-nav"
+                                <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.invoices.index')?'activee':'' }}"
                                    href="{{route('dashboard.invoices.index')}}">
                                     <i data-feather="anchor"></i><span>@lang('site.invoices') @endlang</span></a>
                             </li>
 
                             <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title link-nav"
+                                <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.deposits.index')?'activee':'' }}"
                                    href="{{route('dashboard.deposits.index')}}">
                                     <i data-feather="credit-card"></i><span>@lang('site.deposits') @endlang</span></a>
                             </li>
 
                             <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title link-nav"
+                                <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.sections.index')?'activee':'' }}"
                                    href="{{route('dashboard.sections.index')}}">
                                     <i data-feather="list"></i><span>@lang('site.sections') @endlang</span></a>
                             </li>
@@ -534,10 +539,8 @@
         </footer>
     </div>
 </div>
-
 <!-- latest jquery-->
 <script src="{{MAINASSETS}}/js/jquery-3.5.1.min.js"></script>
-
 <!-- Bootstrap js-->
 <script src="{{MAINASSETS}}/js/bootstrap/bootstrap.bundle.min.js"></script>
 <!-- feather icon js-->
@@ -549,7 +552,6 @@
 <!-- Sidebar jquery-->
 <script src="{{MAINASSETS}}/js/config.js"></script>
 <!-- Plugins JS start-->
-
 <script src="{{MAINASSETS}}/js/chart/chartist/chartist.js"></script>
 <script src="{{MAINASSETS}}/js/chart/chartist/chartist-plugin-tooltip.js"></script>
 <script src="{{MAINASSETS}}/js/chart/knob/knob.min.js"></script>
@@ -589,7 +591,6 @@
 <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.scroller.min.js"></script>
 <script src="{{MAINASSETS}}/js/datatable/datatable-extension/custom.js"></script>
 <script src="{{MAINASSETS}}/js/tooltip-init.js"></script>
-
 <script src="{{MAINASSETS}}/js/select2/select2.full.min.js"></script>
 <script src="{{MAINASSETS}}/js/select2/select2-custom.js"></script>
 <script src="{{MAINASSETS}}/js/editor/ckeditor/ckeditor.js"></script>
@@ -602,8 +603,6 @@
 <script src="{{MAINASSETS}}/js/script.js"></script>
 <script src="{{MAINASSETS}}/js/theme-customizer/customizer.js"></script>
 <script src="https://cdn.tutorialjinni.com/jquery.repeater/1.2.1/jquery.repeater.min.js"></script>
-<!-- login js-->
-<!-- Plugin used-->
 </body>
 <!-- login js-->
 <script>
@@ -612,10 +611,16 @@
         document.getElementById("table5").deleteRow(i);
     }
 
-
-</script>
-
+</script>  
 <!-- Plugins JS Ends-->
+<!-- Sidebar jquery-->
+
+<script>
+    $(".sidebar-submenu li a").each(function(index) {
+      if($(this).hasClass('activee'))
+      $(this).parent().parent().addClass('display-ul');
+    });
+</script>
 @yield('js')
 @yield('scripts')
 <!-- Plugin used-->
