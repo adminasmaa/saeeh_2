@@ -68,14 +68,14 @@ class PlaceCategoryRepository implements PlaceCategoryRepositoryInterfaceAlias
         // TODO: Implement store() method.
 
 //        return $request;
-        $request_data = $request->except(['image', 'name_category', 'image_category', 'city_id']);
+        $request_data = $request->except(['image', 'name_category', 'image_category']);
 
         // To Make  Active
         $request_data['active'] = 1;
         $request_data['type'] = 0;
+//        ['city_id' => json_encode($request['city_id'])
 
-
-        $category = Category::create($request_data + ['city_id' => json_encode($request['city_id'])]);
+        $category = Category::create($request_data);
 
 
 //        $category->city_id = $request_data['city_id'];
@@ -99,7 +99,7 @@ class PlaceCategoryRepository implements PlaceCategoryRepositoryInterfaceAlias
                     'name_ar' => $value,
                     'name_en' => $value,
                     'parent_id' => $category->id,
-                    'city_id' => json_encode($request['city_id'])
+//                    'city_id' => json_encode($request['city_id'])
                 ]);
 
 
@@ -133,8 +133,8 @@ class PlaceCategoryRepository implements PlaceCategoryRepositoryInterfaceAlias
         // TODO: Implement update() method.
 
 
-        $request_data = $request->except(['image', 'name_category', 'image_category', 'city_id']);
-        $category->update($request_data + ['city_id' => json_encode($request['city_id'])]);
+        $request_data = $request->except(['image', 'name_category', 'image_category']);
+        $category->update($request_data);
 
 
         if ($request->hasFile('image')) {
@@ -154,7 +154,7 @@ class PlaceCategoryRepository implements PlaceCategoryRepositoryInterfaceAlias
                     'name_ar' => $value,
                     'name_en' => $value,
                     'parent_id' => $category->id,
-                    'city_id' => json_encode($request['city_id'])
+//                    'city_id' => json_encode($request['city_id'])
                 ]);
 
 
@@ -176,9 +176,7 @@ class PlaceCategoryRepository implements PlaceCategoryRepositoryInterfaceAlias
         if ($category) {
             Alert::success('Success', __('site.updated_successfully'));
 
-            //   return redirect()->route('dashboard.users.index');
             return redirect()->route('dashboard.place_categories.index');
-//            session()->flash('success', __('site.updated_successfully'));
         } else {
             Alert::error('Error', __('site.update_faild'));
 

@@ -5,13 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Models\User;   //belongsTo
-use App\Models\Category;  //belongsTo
-use App\Models\PlaceComment;    // HasMany
+use App\Models\User;
+
+//belongsTo
+use App\Models\Category;
+
+//belongsTo
+use App\Models\PlaceComment;
+
+// HasMany
 
 class Place extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory, SoftDeletes;
+
     public $guarded = ['id'];
 
     protected $table = 'places';
@@ -52,24 +59,36 @@ class Place extends Model
         'city_id',
     ];
 
-    protected $hidden=['deleted_at','updated_at'];
+    protected $hidden = ['deleted_at', 'updated_at'];
 
     // scope
-    public function scopeMediaType($query,$mediaType){
-        if($mediaType){
+    public function scopeMediaType($query, $mediaType)
+    {
+        if ($mediaType) {
             return $query->where('social_media', $mediaType);
         }
     }
+
     // relations
-    public function user(){
-        return $this->belongsTo(User::class,'user_id');
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
+
     // relations
-    public function category(){
-        return $this->belongsTo(Category::class,'category_id');
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
     }
+
+    public function city()
+    {
+        return $this->belongsTo(City::class, 'city_id')->withDefault();
+    }
+
     // relations
-    public function placeComments(){
+    public function placeComments()
+    {
         return $this->HasMany(PlaceComment::class);
     }
 

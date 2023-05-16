@@ -73,20 +73,20 @@
                                                >
                                     </div>
 
-                                    <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label class="form-label">@lang('site.city')</label>
-                                        <select class="js-example-placeholder-multiple col-sm-12" multiple="multiple"
-                                                name="city_id[]">
-                                            <option selected>@lang('site.select')</option>
-                                            @foreach($cities as $city)
+{{--                                    <div class="col-md-6 form-group col-12 p-2 ">--}}
+{{--                                        <label class="form-label">@lang('site.city')</label>--}}
+{{--                                        <select class="js-example-placeholder-multiple col-sm-12" multiple="multiple"--}}
+{{--                                                name="city_id[]">--}}
+{{--                                            <option selected>@lang('site.select')</option>--}}
+{{--                                            @foreach($cities as $city)--}}
 
-                                                <option value="{{$city->id}}">{{$city->name_ar ?? ''}}</option>
+{{--                                                <option value="{{$city->id}}">{{$city->name_ar ?? ''}}</option>--}}
 
-                                            @endforeach
+{{--                                            @endforeach--}}
 
-                                        </select>
-                                    </div>
-                                </div>
+{{--                                        </select>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
                                 <div class="row">
                                     <!--<div class="col-md-6">-->
 

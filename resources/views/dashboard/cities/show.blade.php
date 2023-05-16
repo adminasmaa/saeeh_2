@@ -63,7 +63,7 @@
                                                  data-bs-toggle="modal"
                                                  data-bs-target="#exampleModalss" width="100px" height="100px"
                                                  class="d-block"
-                                                 onerror="this.src='{{asset('images/cities/default.jpg')}}'"
+                                                 onerror="this.src='{{asset('images/default.png')}}'"
                                             >
                                         </div>
 
@@ -90,7 +90,9 @@
                                                         <img name="soso"
                                                              src="{{asset('images/cities/'.$city->image)}}"
                                                              alt=""
-                                                             width="400px" height="aut0">
+                                                             width="400px" height="aut0"
+                                                             onerror="this.src='{{asset('images/default.png')}}'"
+                                                        >
 
                                                     </th>
                                                 </tr>
@@ -144,6 +146,21 @@
                                         @foreach($countries as $country)
 
                                             <option value="{{$country->id}}" @if($country->id==$city->country_id) selected @endif>{{$country->name_ar ?? ''}}</option>
+
+                                        @endforeach
+
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6 form-group col-12 p-2 ">
+                                    <label class="form-label">@lang('site.city')</label>
+                                    <select class="js-example-placeholder-multiple col-sm-12" multiple="multiple"
+                                            name="category_id[]" disabled>
+                                        <option>@lang('site.select')</option>
+                                        @foreach($categories as $category)
+
+                                            <option value="{{$category->id}}"
+                                                    @if(in_array($category->id,$reletedCategory)) selected @endif>{{$category->name_ar ?? ''}}</option>
 
                                         @endforeach
 
