@@ -28,7 +28,7 @@ class Category extends Model
 
     // relations
     public function places(){
-        return $this->HasMany(Place::class);
+        return $this->HasMany(Place::class,'sub_category_id');
     }
     // relations
     public function cars(){
