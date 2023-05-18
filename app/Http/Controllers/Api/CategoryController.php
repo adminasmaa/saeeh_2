@@ -54,7 +54,7 @@ class CategoryController extends Controller
 
     public function listofBrands()
     {
-        $categories = Category::where('type', '=', 2)->where('parent_id', null)->get();
+        $categories = Category::where('type', '=', 2)->get();
 
         if (count($categories)) {
 
@@ -90,7 +90,7 @@ class CategoryController extends Controller
     }
     public function listofAquarWithCategory()
     {
-        $categoriess = Category::where('type', '=', 1)->where('parent_id', null)->get();
+        $categoriess = Category::where('type', '=', 1)->get();
 
 
         if (count($categoriess)) {
