@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Resources\AqarCatageriesResource;
+use App\Http\Resources\BransCarSubResource;
 use App\Http\Resources\CityCategoryResource;
 use App\Models\City;
 use Illuminate\Http\Request;
@@ -47,6 +49,60 @@ class CategoryController extends Controller
 
         }
 
+
+    }
+
+    public function listofBrands()
+    {
+        $categories = Category::where('type', '=', 2)->where('parent_id', null)->get();
+
+        if (count($categories)) {
+
+
+            $categories = CategoryOnlyResource::collection($categories);
+            return $this->respondSuccess($categories, __('message.categories retrieved successfully.'));
+
+        } else {
+            return $this->respondError(__('message.Category not found.'), ['error' => __('message.Category not found.')], 404);
+
+        }
+
+    }
+
+    public function listofCars(Request $request)
+    {
+        $category = Category::find($request->brand_id);
+
+
+        if (count($category->subcategories)) {
+
+
+            $categories = BransCarSubResource
+
+                ::collection($category->subcategories);
+            return $this->respondSuccess($categories, __('message.categories retrieved successfully.'));
+
+        } else {
+            return $this->respondError(__('message.Category not found.'), ['error' => __('message.Category not found.')], 404);
+
+        }
+
+    }
+    public function listofAquarWithCategory()
+    {
+        $categoriess = Category::where('type', '=', 1)->where('parent_id', null)->get();
+
+
+        if (count($categoriess)) {
+
+
+            $categories = AqarCatageriesResource ::collection($categoriess);
+            return $this->respondSuccess($categories, __('message.categories retrieved successfully.'));
+
+        } else {
+            return $this->respondError(__('message.Category not found.'), ['error' => __('message.Category not found.')], 404);
+
+        }
 
     }
 
