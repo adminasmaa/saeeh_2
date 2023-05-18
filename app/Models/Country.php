@@ -24,4 +24,9 @@ class Country extends Model
     public function cities(){
         return $this->HasMany(City::class);
     }
+
+    public function getNameAttribute()
+    {
+        return (app()->getLocale() === 'ar') ? $this->name_ar : $this->name_en;
+    }
 }

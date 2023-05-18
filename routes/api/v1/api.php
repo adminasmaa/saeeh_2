@@ -34,6 +34,12 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::get('/cities', 'App\Http\Controllers\Api\CityController@cities');
     Route::get('/citydetail', 'App\Http\Controllers\Api\CityController@citydetail');
     Route::get('/countrydetail', 'App\Http\Controllers\Api\CountryController@countrydetail');
+
+//show All News Brands
+    Route::get('/listofBrands', 'App\Http\Controllers\Api\CategoryController@listofBrands');
+    Route::get('/listofCars', 'App\Http\Controllers\Api\CategoryController@listofCars');
+    Route::get('/listofAquarWithCategory', 'App\Http\Controllers\Api\CategoryController@listofAquarWithCategory');
+
 });
 
 
