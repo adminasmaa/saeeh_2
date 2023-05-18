@@ -76,6 +76,33 @@
                                                 </select>
                                             </div>
                                             <br>
+                                            <div class="row">
+                                                <div class="col-md-6 form-group">
+                                                    <label class="form-label">@lang('site.country')</label>
+                                                    <select class="form-control btn-square" name="country_id" id="country_id">
+                                                        <option selected value="0">@lang('site.select')</option>
+                                                        @foreach($countries as $country)
+
+                                                            <option value="{{$country->id}}">{{$country->name_ar ?? ''}}</option>
+
+                                                        @endforeach
+
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6 form-group">
+                                                    <label class="form-label">@lang('site.city')</label>
+                                                    <select class="form-control btn-square" name="city_id" id="city_id">
+                                                        <option selected value="0">@lang('site.select')</option>
+                                                        <!-- @foreach($cities as $city)
+
+                                                            <option value="{{$city->id}}">{{$city->name_ar ?? ''}}</option>
+
+                                                        @endforeach -->
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <br>
                                             <div class="col-sm-12">
                                                 <h5 class="border-bottom">@lang('site.categories')</h5>
                                             </div>
@@ -91,21 +118,18 @@
                                                     </li>
                                                     @endforeach
                                                 </ul>
-                                            </div>
+                                            </div>                                           
                                             <br>
-                                            <div class="col-sm-12">
+                                            <div class="col-sm-12" id="cityarea">
                                                 <h5 class="border-bottom">@lang('site.areas')</h5>
                                             </div>
                                             <div class="col">
-                                                <ul class="mt-4 areas-list">
-                                                    @foreach($Area as $item)
-                                                    <li class="form-check radio radio-primary">
-                                                        <input class="form-check-input" id="area_{{$item->id}}"
-                                                            type="radio" name="area_id" value="{{$item->id}}" required>
-                                                        <label class="form-check-label mb-0"
-                                                            for="area_{{$item->id}}">{{$item->name_ar ?? ''}}</label>
+                                                <ul class="mt-4 areas-list" id="area_id">
+                                                    <!-- @foreach($Area as $item)
+                                                    <li class="form-check radio radio-primary" >
+                                                       
                                                     </li>
-                                                    @endforeach
+                                                    @endforeach -->
                                                 </ul>
                                             </div>
                                             <br>
@@ -230,33 +254,7 @@
                                                         </video>
                                                     </div>
                                                 </div>
-                                            <br>
-                                            <div class="row">
-                                                <div class="col-md-6 form-group">
-                                                    <label class="form-label">@lang('site.country')</label>
-                                                    <select class="form-control btn-square" name="country_id">
-                                                        <option selected value="0">@lang('site.select')</option>
-                                                        @foreach($countries as $country)
-
-                                                            <option value="{{$country->id}}">{{$country->name_ar ?? ''}}</option>
-
-                                                        @endforeach
-
-                                                    </select>
-                                                </div>
-                                                <div class="col-md-6 form-group">
-                                                    <label class="form-label">@lang('site.city')</label>
-                                                    <select class="form-control btn-square" name="city_id">
-                                                        <option selected value="0">@lang('site.select')</option>
-                                                        @foreach($cities as $city)
-
-                                                            <option value="{{$city->id}}">{{$city->name_ar ?? ''}}</option>
-
-                                                        @endforeach
-
-                                                    </select>
-                                                </div>
-                                            </div>
+                                            
                                             <br> 
                                             <div id="result_data1">
                                         </div>                             
@@ -291,6 +289,7 @@
 @section('scripts')
 <script>
 $(document).ready(function() {
+    $("#cityarea").hide(); 
     jQuery('a.add-price').click(function (event) {
         event.preventDefault();
         var newRow = jQuery('<tr><td><div class="row"><div class="col-md-5 form-group col-12 p-2">' +
@@ -313,7 +312,35 @@ function deletetr(r) {
     r.closest('tr').remove();
 }
 
+$('#country_id').on('change',function(e){
+            var country_id = e.target.value;
 
+
+
+            $.get("{{url('dashboard/countrycities')}}/"+country_id, function(data){
+                console.log(data);
+                $('#city_id').empty();
+                $('#city_id').append('<option>@lang('site.select')</option>');
+                $.each(data, function(key, value){
+                    $('#city_id').append('<option value="'+value.id+'">'+value.name_ar+'</option>')
+
+                });
+            })
+        })
+
+
+        $('#city_id').on('change',function(e){
+            var city_id = e.target.value;
+            $("#cityarea").show(); 
+            $.get("{{url('dashboard/cityareas')}}/"+city_id, function(data){
+                console.log(data);
+                $('#area_id').empty();
+                $.each(data, function(key, value){
+                    $('#area_id').append('<li class="form-check radio radio-primary" ><input class="form-check-input" id="area_'+value.id+'" type="radio" name="area_id" value="'+value.id+'" required><label class="form-check-label mb-0" for="area_'+value.id+'">'+value.name_ar+'</label></li>')
+
+                });
+            })
+        })
 $('input[type=radio][name=category_id]').change(function() {
     var category_id =$('input[name="category_id"]:checked').val();
        

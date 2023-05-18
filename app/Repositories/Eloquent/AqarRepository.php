@@ -8,17 +8,6 @@ use App\Models\User;
 use App\Models\Category;
 use App\Models\AnotherRoom;
 use App\Models\Area;
-use App\Models\Floor;
-use App\Models\FloorNumber;
-use App\Models\Crew;
-use App\Models\FreeService;
-use App\Models\Service;
-use App\Models\Bathroom;
-use App\Models\Kitchen;
-use App\Models\Laundry;
-use App\Models\ConditionType;
-use App\Models\CarPosition;
-use App\Models\Pool;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\AqarSections;
@@ -45,7 +34,7 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
     {
         // TODO: Implement create() method.
 
-        $users = User::all();
+        $users = User::whereNotNull('account_type')->where('active',1)->get();
         $categories = Category::where('type',1)->where('active',1)->get();
         $Area = Area::where('active',1)->get();
         $countries = Country::all();
@@ -58,38 +47,14 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
     {
         // TODO: Implement edit() method.
 
-        $aqar = Aqar::find($Id);
-        $aqar['floor_id'] = json_decode($aqar['floor_id']);
-        $aqar['floor_number_id'] = json_decode($aqar['floor_number_id']);
-        $aqar['service_id'] = json_decode($aqar['service_id']);
-        $aqar['free_service_id'] = json_decode($aqar['free_service_id']);
-        $aqar['crew_id'] = json_decode($aqar['crew_id']);
-        $aqar['kitchen_id'] = json_decode($aqar['kitchen_id']);
-        $aqar['bathroom_id'] = json_decode($aqar['bathroom_id']);
-        $aqar['laundry_id'] = json_decode($aqar['laundry_id']);
-        $aqar['another_room_id'] = json_decode($aqar['another_room_id']);
-        $aqar['conditioning_type_id'] = json_decode($aqar['conditioning_type_id']);
-        $aqar['changed_price']=json_decode($aqar['changed_price']);
-        $aqar['car_position_id']=json_decode($aqar['car_position_id']);
-        $aqar['swimmingpool']=json_decode($aqar['swimmingpool']);
-        $users = User::all();
+        $aqar = Aqar::with('aqarSection')->find($Id);   
+        $aqar['changed_price']=json_decode($aqar['changed_price']);;
+        $users = User::whereNotNull('account_type')->where('active',1)->get();
         $categories = Category::where('type',1)->where('active',1)->get();
-        $AnotherRoom = AnotherRoom::where('active',1)->get();
         $Area = Area::where('active',1)->get();
-        $Floor = Floor::where('active',1)->get();
-        $FloorNumber = FloorNumber::where('active',1)->get();
-        $Crew = Crew::where('active',1)->get();
-        $Service = Service::where('active',1)->get();
-        $FreeService = FreeService::where('active',1)->get();
-        $Kitchen = Kitchen::where('active',1)->get();
-        $Bathroom = Bathroom::where('active',1)->get();
-        $Laundry = Laundry::where('active',1)->get();
-        $ConditioningType = ConditionType::where('active',1)->get();
-        $CarPosition=CarPosition::where('active',1)->get();
-        $Pool=Pool::where('active',1)->get();
         $countries = Country::all();
         $cities = City::all();
-        return view('dashboard.aqars.edit', compact('aqar', 'users', 'categories','AnotherRoom','Area','Bathroom','ConditioningType','Floor','FloorNumber','Service','FreeService','Crew','Kitchen','Laundry','CarPosition','Pool', 'countries', 'cities'));
+        return view('dashboard.aqars.edit', compact('aqar', 'users', 'categories','Area', 'countries', 'cities'));
     }
 
     public function show($Id)
@@ -97,37 +62,13 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
         // TODO: Implement show() method.
 
         $aqar = Aqar::find($Id);
-        $aqar['floor_id'] = json_decode($aqar['floor_id']);
-        $aqar['floor_number_id'] = json_decode($aqar['floor_number_id']);
-        $aqar['service_id'] = json_decode($aqar['service_id']);
-        $aqar['free_service_id'] = json_decode($aqar['free_service_id']);
-        $aqar['crew_id'] = json_decode($aqar['crew_id']);
-        $aqar['kitchen_id'] = json_decode($aqar['kitchen_id']);
-        $aqar['bathroom_id'] = json_decode($aqar['bathroom_id']);
-        $aqar['laundry_id'] = json_decode($aqar['laundry_id']);
-        $aqar['another_room_id'] = json_decode($aqar['another_room_id']);
-        $aqar['conditioning_type_id'] = json_decode($aqar['conditioning_type_id']);
         $aqar['changed_price']=json_decode($aqar['changed_price']);
-        $aqar['car_position_id']=json_decode($aqar['car_position_id']);
-        $aqar['swimmingpool']=json_decode($aqar['swimmingpool']);
-        $users = User::all();
+        $users = User::whereNotNull('account_type')->where('active',1)->get();
         $categories = Category::where('type',1)->where('active',1)->get();
-        $AnotherRoom = AnotherRoom::where('active',1)->get();
         $Area = Area::where('active',1)->get();
-        $Floor = Floor::where('active',1)->get();
-        $FloorNumber = FloorNumber::where('active',1)->get();
-        $Crew = Crew::where('active',1)->get();
-        $Service = Service::where('active',1)->get();
-        $FreeService = FreeService::where('active',1)->get();
-        $Kitchen = Kitchen::where('active',1)->get();
-        $Bathroom = Bathroom::where('active',1)->get();
-        $Laundry = Laundry::where('active',1)->get();
-        $ConditioningType = ConditionType::where('active',1)->get();
-        $CarPosition=CarPosition::where('active',1)->get();
-        $Pool=Pool::where('active',1)->get();
         $countries = Country::all();
         $cities = City::all();
-        return view('dashboard.aqars.show', compact('aqar', 'users', 'categories','AnotherRoom','Area','Bathroom','ConditioningType','Floor','FloorNumber','Service','FreeService','Crew','Kitchen','Laundry','CarPosition','Pool', 'countries', 'cities'));
+        return view('dashboard.aqars.show', compact('aqar', 'users', 'categories','Area', 'countries', 'cities'));
     }
 
     public function store($request)
@@ -167,28 +108,15 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
                 $aqar->save();
             
             }
-        $x=0;
         foreach ($request->subservice as $subserv) {
             $arr=explode('-',$subserv);
-            if(count($arr)==2){
             AqarSections::create([
                 'section_id' => $arr[0],
                 'sub_section_id' => $arr[1],
                 'aqar_id'=>$aqar->id
 
             ]);
-            }else{
-               // return $request->service[0];
-                AqarSections::create([
-                    'section_id' => $request->service[$x],
-                    'sub_section_id' => $arr[0],
-                    'aqar_id'=>$aqar->id
-    
-                ]);
-                $x++;
-
-            }
-
+           
         }
 
         if ($aqar) {
@@ -203,17 +131,12 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
     {
         // TODO: Implement update() method.
 
-        $request_data = $request->except(['main_image', '_token', '_method', 'images','videos']);
+        $request_data = $request->except(['main_image', '_token', '_method', 'images','videos','subservice']);
         $aqar->update($request_data);
 
 
         if ($request->hasFile('main_image')) {
-//            $thumbnail = $request->file('main_image');
-//            $destinationPath = 'images/aqars/';
-//            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-//            $thumbnail->move($destinationPath, $filename);
-//            $aqar->main_image = $filename;
-//            $aqar->save();
+
             UploadImage('images/aqars/','main_image', $aqar, $request->file('main_image'));
         }
 
@@ -236,6 +159,17 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
             $aqar->videos = $filename;
             $aqar->save();
         
+        }
+        $services=AqarSections::where('aqar_id', $aqar->id)->get()->each(function($service){ $service->delete(); });
+        foreach ($request->subservice as $subserv) {
+            $arr=explode('-',$subserv);
+            AqarSections::create([
+                'section_id' => $arr[0],
+                'sub_section_id' => $arr[1],
+                'aqar_id'=>$aqar->id
+
+            ]);
+           
         }
         if ($aqar) {
             Alert::success('Success', __('site.updated_successfully'));
