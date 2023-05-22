@@ -29,6 +29,7 @@ class CategoryController extends Controller
 
         $city = City::find($city_id);
 
+//        return $city;
 //        $categories = $city->categoriesTotal;
 //        foreach (Category::where('type', '=', 0)->where('parent_id', null)->where('id','!=',1)->where('id','!=',2)->get() as $cat) {
 //
@@ -40,7 +41,7 @@ class CategoryController extends Controller
 //            }
 //        }
 
-        if (count($city)) {
+        if (isset($city)) {
             $cities = City::find($request->city_id);
             $categories = new CityCategoryResource($cities);
 
