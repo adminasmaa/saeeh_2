@@ -22,12 +22,12 @@ class CategoryController extends Controller
 {
 
 
-    public function categories(Request $request)
+    public function citydetails(Request $request)
     {
 
         $city_id = $request->city_id;
         $categories = [];
-        foreach (Category::where('type', '=', 0)->where('parent_id', null)->get() as $cat) {
+        foreach (Category::where('type', '=', 0)->where('parent_id', null)->where('id','!=',1)->where('id','!=',2)->get() as $cat) {
 
             $city = json_decode($cat->city_id);
 
