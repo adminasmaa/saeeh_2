@@ -3,17 +3,40 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\CommentResource;
 use App\Http\Resources\PlaceResource;
 use App\Http\Resources\PlacesResource;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\Place;
+use App\Models\PlaceComment;
 use Illuminate\Http\Request;
 
 
 class PlaceController extends Controller
 {
+
+    public function CustomerReviews(Request $request)
+    {
+
+        $comments=PlaceComment::where('place_id',$request->place_id)->get();
+
+
+        if (isset($comments)) {
+
+
+            $placeComments = new CommentResource($comments);
+
+
+            return $this->respondSuccess($placeComments, __('message.Comments retrieved successfully.'));
+        } else {
+            return $this->respondError(__('Place not found.'), ['error' => __('Place not found.')], 404);
+
+
+        }
+
+    }
 
     public function searchPlace(Request $request)
     {
@@ -61,8 +84,8 @@ class PlaceController extends Controller
 
             }
 
-            $categories=implode(',',$categories);
-            $places = Place::wherein('category_id',  [$categories])->get();
+            $categories = implode(',', $categories);
+            $places = Place::wherein('category_id', [$categories])->get();
 
 
         } else {
