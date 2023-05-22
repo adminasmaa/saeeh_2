@@ -26,22 +26,24 @@ class CategoryController extends Controller
     {
 
         $city_id = $request->city_id;
-        $categories = [];
-        foreach (Category::where('type', '=', 0)->where('parent_id', null)->where('id','!=',1)->where('id','!=',2)->get() as $cat) {
 
-            $city = json_decode($cat->city_id);
+        $city = City::find($city_id);
 
-            if (in_array($city_id, $city)) {
-                array_push($categories, $cat);
+//        $categories = $city->categoriesTotal;
+//        foreach (Category::where('type', '=', 0)->where('parent_id', null)->where('id','!=',1)->where('id','!=',2)->get() as $cat) {
+//
+//            $city = json_decode($cat->city_id);
+//
+//            if (in_array($city_id, $city)) {
+//                array_push($categories, $cat);
+//
+//            }
+//        }
 
-            }
-        }
-
-        if (count($categories)) {
+        if (count($city)) {
             $cities = City::find($request->city_id);
             $categories = new CityCategoryResource($cities);
 
-//            $categories = CategoryOnlyResource::collection($categories);
             return $this->respondSuccess($categories, __('message.categories retrieved successfully.'));
 
         } else {
@@ -78,7 +80,6 @@ class CategoryController extends Controller
 
 
             $categories = BransCarSubResource
-
                 ::collection($category->subcategories);
             return $this->respondSuccess($categories, __('message.categories retrieved successfully.'));
 
@@ -88,6 +89,7 @@ class CategoryController extends Controller
         }
 
     }
+
     public function listofAquarWithCategory()
     {
         $categoriess = Category::where('type', '=', 1)->get();
@@ -96,7 +98,7 @@ class CategoryController extends Controller
         if (count($categoriess)) {
 
 
-            $categories = AqarCatageriesResource ::collection($categoriess);
+            $categories = AqarCatageriesResource::collection($categoriess);
             return $this->respondSuccess($categories, __('message.categories retrieved successfully.'));
 
         } else {
@@ -110,7 +112,7 @@ class CategoryController extends Controller
     {
         $city_id = $request->city_id;
         $categories = [];
-        foreach (Category::where('type', '=', 0)->where('parent_id', null)->where('id','!=',1)->where('id','!=',2)->get() as $cat) {
+        foreach (Category::where('type', '=', 0)->where('parent_id', null)->where('id', '!=', 1)->where('id', '!=', 2)->get() as $cat) {
 
             $city = json_decode($cat->city_id);
 
