@@ -20,6 +20,7 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::get('/home/subcategories', 'App\Http\Controllers\Api\CategoryController@subcategories');
     Route::get('/placedetail', 'App\Http\Controllers\Api\PlaceController@placedetail');
     Route::post('/searchPlace', 'App\Http\Controllers\Api\PlaceController@searchPlace');
+    Route::get('/CustomerReviews', 'App\Http\Controllers\Api\PlaceController@CustomerReviews');
     Route::get('/Availabledays', 'App\Http\Controllers\Api\AqarController@Availabledays');
     Route::post('/AddAqar', 'App\Http\Controllers\Api\AqarController@AddAqar');
     Route::get('/detailAqar', 'App\Http\Controllers\Api\AqarController@detailAqar');

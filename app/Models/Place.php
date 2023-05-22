@@ -43,6 +43,9 @@ class Place extends Model
         'time_check',// nullable
         'seen_counter',// required
         'delivery',// nullable
+        'facebook',// nullable
+        'instagram',// nullable
+        'twitter',// nullable
         'diff_time',// nullable
         'const_time',// nullable
         'latitude',// nullable

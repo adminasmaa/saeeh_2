@@ -52,6 +52,8 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{{asset('frontend/assets/styles/styles.css')}}"/>
     <link rel="stylesheet" href="{{asset('frontend/assets/styles/responsive-styles.css')}}"/>
+    <script src="{{MAINASSETS}}/js/jquery-3.5.1.min.js"></script>
+
 </head>
 
 <body>
@@ -2458,7 +2460,7 @@
                                                     <div class="box-search mb-sm-0 mb-3">
                                                         <select
                                                             class="ddl-select"
-                                                            id="list3"
+                                                            id="list7"
                                                             name="city_id"
                                                         >
                                                             <option>المدينه</option>
@@ -2517,7 +2519,7 @@
                                                     <div class="box-search mb-sm-0 mb-3">
                                                         <select
                                                             class="ddl-select"
-                                                            id="list5"
+                                                            id="country_id"
                                                             name="country_id"
                                                         >
                                                             <option>الدوله</option>
@@ -2531,7 +2533,7 @@
                                                     <div class="box-search mb-sm-0 mb-3">
                                                         <select
                                                             class="ddl-select"
-                                                            id="list7"
+                                                            id="city_id"
                                                             name="city_id"
                                                         >
                                                             <option>المدينه</option>
@@ -3429,5 +3431,24 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <!-- Main JS -->
 <script src="{{asset('frontend/assets/js/script.js')}}"></script>
+
+<script>
+    $('#list').on('change',function(e){
+        var list = e.target.value;
+
+
+
+        $.get("{{url('dashboard/countrycities')}}/"+list, function(data){
+            console.log(data);
+            $('#list7').empty();
+            $('#list7').append('<option>@lang('site.select')</option>');
+            $.each(data, function(key, value){
+                $('#list7').append('<option value="'+value.id+'">'+value.name_ar+'</option>')
+
+            });
+        })
+    })
+
+</script>
 </body>
 </html>
