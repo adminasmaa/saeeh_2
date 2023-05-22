@@ -25,23 +25,23 @@ class CityCategoryResource extends JsonResource
 
         }
 
-        $city_id = $this->id;
-        $categories = [];
-        foreach (Category::where('type', '=', 0)->where('parent_id',null)->get() as $cat) {
-
-            $city = json_decode($cat->city_id);
-
-            if (in_array($city_id, $city)) {
-                array_push($categories, $cat);
-
-            }
-        }
+//        $city_id = $this->id;
+//        $categories = [];
+//        foreach (Category::where('type', '=', 0)->where('parent_id',null)->get() as $cat) {
+//
+//            $city = json_decode($cat->city_id);
+//
+//            if (in_array($city_id, $city)) {
+//                array_push($categories, $cat);
+//
+//            }
+//        }
         return [
             "id" => $this->id,
             "name" => $this->$name,
             "image" => asset('images/cities') . "/" . $this->image,
             "active" => $this->active,
-            "categories" => CategoryOnlyResource::collection($categories),
+            "categories" => CategoryOnlyResource::collection($this->categoriesTotal),
         ];
     }
 }

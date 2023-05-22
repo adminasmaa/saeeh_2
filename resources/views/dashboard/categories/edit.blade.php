@@ -122,6 +122,20 @@
                                     >
                                 </div>
 
+
+                                <div class="col-md-6 form-group col-12 p-2 ">
+                                    <label class="form-label">@lang('site.category')</label>
+                                    <select class="js-example-placeholder-multiple col-sm-12" multiple="multiple"
+                                            name="category_id[]">
+                                        <option selected>@lang('site.select')</option>
+                                        @foreach($categories as $category)
+
+                                            <option value="{{$category->id}}">{{$category->name ?? ''}}</option>
+
+                                        @endforeach
+
+                                    </select>
+                                </div>
                                 <div class="col-md-6 form-group col-12 p-2 ">
                                     <label class="form-label">@lang('site.city')</label>
                                     <select class="js-example-placeholder-multiple col-sm-12" multiple="multiple"
