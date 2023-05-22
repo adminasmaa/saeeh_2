@@ -23,15 +23,16 @@ class PlaceController extends Controller
         $comments=PlaceComment::where('place_id',$request->place_id)->get();
 
 
+
         if (isset($comments)) {
 
 
-            $placeComments = new CommentResource($comments);
+            $placeComments = CommentResource::collection(($comments));
 
 
-            return $this->respondSuccess($placeComments, __('message.Comments retrieved successfully.'));
+            return $this->respondSuccess($placeComments, __('message.Comment retrieved successfully.'));
         } else {
-            return $this->respondError(__('Place not found.'), ['error' => __('Place not found.')], 404);
+            return $this->respondError(__('Comment not found.'), ['error' => __('Comment not found.')], 404);
 
 
         }
