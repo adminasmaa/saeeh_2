@@ -51,6 +51,7 @@ class ContactsDataTable extends DataTable
             })->editColumn('user_id', function ($model) {
                 return (!empty($model->user_id)) ? $model->user->firstname : '';
             })
+            ->addIndexColumn()
             ->addColumn('action', function ($model) {
                 $actions = '';
 
@@ -88,7 +89,7 @@ class ContactsDataTable extends DataTable
             ->setTableId('contacts-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            //->dom('Bfrtip')
+            ->dom('Bfrtip')
             ->orderBy(1)
             ->selectStyleSingle()
             ->buttons([
@@ -108,7 +109,8 @@ class ContactsDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            Column::make('id'),
+            Column::make('DT_RowIndex')->data('DT_RowIndex')->name('DT_RowIndex')->title('#'),
+
             Column::make('name')->title(trans('site.name')),
             Column::make('phone')->title(trans('site.phone')),
             Column::make('message')->title(trans('site.message')),

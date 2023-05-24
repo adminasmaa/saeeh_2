@@ -48,6 +48,7 @@ class RolesDataTable extends DataTable
             ->editColumn('created_at', function ($model) {
                 return (!empty($model->created_at)) ? $model->created_at->diffForHumans() : '';
             })
+            ->addIndexColumn()
             ->addColumn('action', function ($model) {
                 $actions = '';
 
@@ -88,7 +89,7 @@ class RolesDataTable extends DataTable
             ->setTableId('roles-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            //->dom('Bfrtip')
+            ->dom('Bfrtip')
             ->orderBy(1)
             ->selectStyleSingle()
             ->buttons([
@@ -108,7 +109,8 @@ class RolesDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            Column::make('id'),
+            Column::make('DT_RowIndex')->data('DT_RowIndex')->name('DT_RowIndex')->title('#'),
+
             Column::make('name')->title(trans('site.name')),
             Column::make('display_name')->title(trans('site.display_name')),
             Column::make('created_at')->title(trans('site.created_at')),
