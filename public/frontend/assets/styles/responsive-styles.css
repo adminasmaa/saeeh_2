@@ -16,9 +16,7 @@
 }
 
 @media (min-width: 1600px) {
-  .container {
-    max-width: 1520px;
-  }
+
   .hero-section {
     margin-top: -9px;
     padding-top: 0%;
@@ -437,7 +435,7 @@
   .about-card p {
     font-size: 14px;
   }
- 
+
   .tabs a {
     padding: 8px 20px;
     font-weight: 500;

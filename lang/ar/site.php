@@ -394,7 +394,7 @@ return [
     'approved' => 'موافق',
     'un_approved' => 'غير مواقق',
     'admin_approved' => 'موافقة الادمن',
-    'icon' => 'الصورة',
+    'icon' => 'الايقونه',
     'pages' => ' الصفحات',
     'addss' => 'اضف مدن جديدة',
 
