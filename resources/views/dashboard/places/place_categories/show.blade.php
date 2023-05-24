@@ -57,13 +57,20 @@
                                     <div class="d-flex align-items-center">
                                         <div class="col-md-6">
                                             <label class="d-block">@lang('site.image')</label>
-                                            {{--                                        <img src="{{asset('images/employee/'.$user->image)}}" data-bs-toggle="modal"--}}
-                                            {{--                                            data-bs-target="#exampleModalss" width="100px" height="100px">--}}
-
 
                                             <img src="{{asset('images/categories/'.$category->image)}}"
                                                  data-bs-toggle="modal"
                                                  data-bs-target="#exampleModalss" width="100px" height="100px"
+                                                 class="d-block"
+                                                 onerror="this.src='{{asset('images/categories/default.jpg')}}'"
+                                            >
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="d-block">@lang('site.icon')</label>
+
+                                            <img src="{{asset('images/categories/'.$category->icon)}}"
+                                                 width="100px" height="100px"
                                                  class="d-block"
                                                  onerror="this.src='{{asset('images/categories/default.jpg')}}'"
                                             >
@@ -125,19 +132,19 @@
                                 </div>
 
 
-                                <div class="col-md-6 form-group col-12 p-2 ">
-                                    <label class="form-label">@lang('site.city')</label>
-                                    <select class="js-example-placeholder-multiple col-sm-12" multiple="multiple"
-                                            readonly="">
-                                        @foreach($cities as $city)
+{{--                                <div class="col-md-6 form-group col-12 p-2 ">--}}
+{{--                                    <label class="form-label">@lang('site.city')</label>--}}
+{{--                                    <select class="js-example-placeholder-multiple col-sm-12" multiple="multiple"--}}
+{{--                                            readonly="">--}}
+{{--                                        @foreach($cities as $city)--}}
 
-                                            <option value="{{$city->id}}"
-                                                    @if(in_array($city->id,$citiesrelated)) selected @endif>{{$city->name_ar ?? ''}}</option>
+{{--                                            <option value="{{$city->id}}"--}}
+{{--                                                    @if(in_array($city->id,$citiesrelated)) selected @endif>{{$city->name_ar ?? ''}}</option>--}}
 
-                                        @endforeach
+{{--                                        @endforeach--}}
 
-                                    </select>
-                                </div>
+{{--                                    </select>--}}
+{{--                                </div>--}}
 
                             </div>
 

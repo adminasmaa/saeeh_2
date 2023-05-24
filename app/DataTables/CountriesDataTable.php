@@ -49,6 +49,7 @@ class CountriesDataTable extends DataTable
             ->editColumn('created_at', function ($model) {
                 return (! empty($model->created_at)) ? $model->created_at->diffForHumans() : '';
             })
+            ->addIndexColumn()
             ->addColumn('action', function ($model) {
                 $actions = '';
 
@@ -89,7 +90,7 @@ class CountriesDataTable extends DataTable
                     ->setTableId('countries-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
-                    //->dom('Bfrtip')
+                   ->dom('Bfrtip')
                     ->orderBy(1)
                     ->selectStyleSingle()
             ->buttons([
@@ -109,7 +110,8 @@ class CountriesDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            Column::make('id'),
+            Column::make('DT_RowIndex')->data('DT_RowIndex')->name('DT_RowIndex')->title('#'),
+
             Column::make('name_ar')->title(trans('site.ar.name')),
             Column::make('code')->title(trans('site.code')),
             Column::make('created_at')->title(trans('site.created_at')),

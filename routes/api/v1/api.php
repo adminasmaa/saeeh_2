@@ -14,12 +14,13 @@ Route::get('/countries', 'App\Http\Controllers\Api\CountryController@countries')
 Route::group(['middleware' => 'auth:api'], function () {
 
 
-    Route::get('/home/categories', 'App\Http\Controllers\Api\CategoryController@categories');
+    Route::get('/home/citydetails', 'App\Http\Controllers\Api\CategoryController@citydetails');
     Route::get('/categorydetail', 'App\Http\Controllers\Api\CategoryController@categorydetail');
     Route::get('/CityListCategories', 'App\Http\Controllers\Api\CategoryController@CityListCategories');
     Route::get('/home/subcategories', 'App\Http\Controllers\Api\CategoryController@subcategories');
     Route::get('/placedetail', 'App\Http\Controllers\Api\PlaceController@placedetail');
     Route::post('/searchPlace', 'App\Http\Controllers\Api\PlaceController@searchPlace');
+    Route::get('/CustomerReviews', 'App\Http\Controllers\Api\PlaceController@CustomerReviews');
     Route::get('/Availabledays', 'App\Http\Controllers\Api\AqarController@Availabledays');
     Route::post('/AddAqar', 'App\Http\Controllers\Api\AqarController@AddAqar');
     Route::get('/detailAqar', 'App\Http\Controllers\Api\AqarController@detailAqar');
@@ -34,6 +35,12 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::get('/cities', 'App\Http\Controllers\Api\CityController@cities');
     Route::get('/citydetail', 'App\Http\Controllers\Api\CityController@citydetail');
     Route::get('/countrydetail', 'App\Http\Controllers\Api\CountryController@countrydetail');
+
+//show All News Brands
+    Route::get('/listofBrands', 'App\Http\Controllers\Api\CategoryController@listofBrands');
+    Route::get('/listofCars', 'App\Http\Controllers\Api\CategoryController@listofCars');
+    Route::get('/listofAquarWithCategory', 'App\Http\Controllers\Api\CategoryController@listofAquarWithCategory');
+
 });
 
 

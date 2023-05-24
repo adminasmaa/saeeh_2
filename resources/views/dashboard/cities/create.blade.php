@@ -86,6 +86,21 @@
 {{--                                            >--}}
 {{--                                        </div>--}}
 
+
+                                        <div class="col-md-6 form-group col-12 p-2 ">
+                                            <label class="form-label">@lang('site.category')</label>
+                                            <select class="js-example-placeholder-multiple col-sm-12" multiple="multiple"
+                                                    name="category_id[]">
+                                                <option selected>@lang('site.select')</option>
+                                                @foreach($categories as $category)
+
+                                                    <option value="{{$category->id}}">{{$category->name ?? ''}}</option>
+
+                                                @endforeach
+
+                                            </select>
+                                        </div>
+                                    </div>
                                         <div class="col-md-6 form-group">
                                             <label class="form-label">@lang('site.country')</label>
                                             <select class="form-control btn-square" name="country_id">

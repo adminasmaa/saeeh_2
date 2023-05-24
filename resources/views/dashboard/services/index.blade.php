@@ -81,7 +81,6 @@
 @endsection
 
 @section('scripts')
-    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 
 
     <script>
@@ -97,7 +96,7 @@
 
 
 
-    <script src="/vendor/datatables/buttons.server-side.js"></script>
+    <script src="/datatables/buttons.server-side.js"></script>
 
 
 

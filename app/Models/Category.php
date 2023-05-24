@@ -26,9 +26,13 @@ class Category extends Model
 
     protected $hidden=['deleted_at','updated_at'];
 
+    public function getNameAttribute()
+    {
+        return (app()->getLocale() === 'ar') ? $this->name_ar : $this->name_en;
+    }
     // relations
     public function places(){
-        return $this->HasMany(Place::class);
+        return $this->HasMany(Place::class,'sub_category_id');
     }
     // relations
     public function cars(){

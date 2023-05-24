@@ -49,6 +49,7 @@ class PlacesDataTable extends DataTable
             ->editColumn('created_at', function ($model) {
                 return (!empty($model->created_at)) ? $model->created_at->diffForHumans() : '';
             })
+            ->addIndexColumn()
             ->addColumn('action', function ($model) {
                 $actions = '';
 
@@ -89,7 +90,7 @@ class PlacesDataTable extends DataTable
             ->setTableId('places-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            //->dom('Bfrtip')
+            ->dom('Bfrtip')
             ->orderBy(1)
             ->selectStyleSingle()
             ->buttons([
@@ -109,8 +110,9 @@ class PlacesDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            Column::make('id'),
-            Column::make('name_ar')->title(trans('site.name_ar')), 
+            Column::make('DT_RowIndex')->data('DT_RowIndex')->name('DT_RowIndex')->title('#'),
+
+            Column::make('name_ar')->title(trans('site.name_ar')),
             Column::make('descrption_ar')->title(trans('site.descrption_ar')),
             Column::make('phone_one')->title(trans('site.phone_one')),
             Column::make('created_at')->title(trans('site.created_at')),
