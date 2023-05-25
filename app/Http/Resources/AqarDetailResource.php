@@ -52,6 +52,7 @@ class AqarDetailResource extends JsonResource
             "comment_text" => $this->comment_text ?? '',
             "comision" => $this->comision ?? '',
             "area" => $this->area->name ?? '',
+            "favorite" => (count($this->favoriteuser)>0 ? true : false),
 
             "rate" => $this->aqarComment->avg('rating') ?? '',
             "fixed_price" => $this->fixed_price ?? 0,
