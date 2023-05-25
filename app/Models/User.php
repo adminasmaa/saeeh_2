@@ -143,4 +143,11 @@ class User extends Authenticatable
     public function deposit(){
         return $this->HasMany(Deposit::class);
     }
+
+    public function FavouriteAqars(){
+        return $this->belongsToMany(Aqar::class,'aqar_user','aqar_id','user_id');
+    }
+    public function FavouriteCities(){
+        return $this->belongsToMany(Aqar::class,'city_user','city_id','user_id');
+    }
 }
