@@ -39,7 +39,7 @@ class AqarDetailResource extends JsonResource
 
         }
         return [
-            "id" => $this->id,
+            "id" => $this->id ?? '',
             "name" => $this->$name ?? '',
             "description" => $this->description ?? '',
             "status" => $this->status ?? '',
@@ -51,7 +51,11 @@ class AqarDetailResource extends JsonResource
             "images" => $this->images ?? '',
             "comment_text" => $this->comment_text ?? '',
             "comision" => $this->comision ?? '',
-            "fixed_price" => $this->fixed_price ?? '',
+            "area" => $this->area->name ?? '',
+            "favorite" => (count($this->favoriteuser)>0 ? true : false),
+
+            "rate" => $this->aqarComment->avg('rating') ?? '',
+            "fixed_price" => $this->fixed_price ?? 0,
             "changed_price" => $this->changed_price ?? '',
             "category" => new staticResource($this->category),
             'aqarSection' => $this->aqarSection->map(function ($category) {

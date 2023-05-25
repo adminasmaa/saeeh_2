@@ -26,7 +26,7 @@ class CarResource extends JsonResource
             "category" => $this->category ?? '',
             "car_numbers" => $this->car_numbers ?? '',
             "car_delivery_date" => $this->car_delivery_date ?? '',
-            "fixed_price" => $this->fixed_price ?? '',
+            "fixed_price" => $this->fixed_price ?? 0,
             "changed_price" => $this->changed_price ?? '',
 
         ];

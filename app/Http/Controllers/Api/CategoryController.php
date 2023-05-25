@@ -93,7 +93,7 @@ class CategoryController extends Controller
 
     public function listofAquarWithCategory()
     {
-        $categoriess = Category::where('type', '=', 1)->get();
+        $categoriess = Category::where('type', '=', 1)->where('parent_id', '=', 1)->get();
 
 
         if (count($categoriess)) {

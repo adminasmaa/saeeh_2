@@ -37,7 +37,7 @@ class AqarBookingResource extends JsonResource
             "id" => $this->id,
             "book_status" => $this->book_status ?? '',
             "aqar_id" => $this->aqar_id ?? '',
-            "fixed_price" => $this->fixed_price ?? '',
+            "fixed_price" => $this->fixed_price ?? 0,
             "delivery_date" => $this->delivery_date ?? '',
             "reciept_date" => $this->reciept_date ?? '',
             'day_count' => $diff,

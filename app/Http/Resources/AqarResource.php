@@ -29,12 +29,16 @@ class AqarResource extends JsonResource
             "description" => $this->description ?? '',
             "category" => $this->category ?? '',
             "status" => $this->status ?? '',
+            "rate" => $this->aqarComment->avg('rating') ?? '',
+            "favorite" => (count($this->favoriteuser)>0 ? true : false),
+
+
             "distance" => $this->distance ?? '',
             "time" => $this->time ?? '',
             "image" => asset('images/aqars')."/".$this->main_image_ads,
             "comment_text" => $this->comment_text ?? '',
             "comision" => $this->comision ?? '',
-            "fixed_price" => $this->fixed_price ?? '',
+            "fixed_price" => $this->fixed_price ?? 0,
             "changed_price" => $this->changed_price ?? '',
 
         ];

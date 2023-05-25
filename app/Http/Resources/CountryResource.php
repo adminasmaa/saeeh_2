@@ -23,9 +23,9 @@ class CountryResource extends JsonResource
 
         }
         return [
-            "id" => $this->id,
-            "name" => $this->$name,
-            "code" => $this->code,
+            "id" => $this->id ?? '',
+            "name" => $this->$name ?? '',
+            "code" => $this->code ?? '',
             "image" => asset('images/countries')."/".$this->image,
             "flag_image" => asset('images/countries')."/".$this->flag_image,
 //            "active" => $this->active,

@@ -62,6 +62,10 @@ class Aqar extends Model
     public function user(){
         return $this->belongsTo(User::class,'user_id');
     }
+
+    public function area(){
+        return $this->belongsTo(Area::class,'area_id');
+    }
     // relations
     public function category(){
         return $this->belongsTo(Category::class,'category_id');
@@ -80,6 +84,11 @@ class Aqar extends Model
 
     public function aqarSection(){
         return $this->HasMany(AqarSections::class);
+    }
+
+    public function favoriteuser(){
+
+        return $this->belongsToMany(User::class,'aqar_user','user_id','aqar_id');
     }
 
 }
