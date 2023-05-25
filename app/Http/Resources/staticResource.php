@@ -23,8 +23,8 @@ class staticResource extends JsonResource
 
         }
         return [
-            "id" => $this->id,
-            "name" => $this->$name,
+            "id" => $this->id ?? '',
+            "name" => $this->$name ?? '',
         ];
     }
 }

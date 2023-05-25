@@ -2,6 +2,7 @@
 
 return [
     'User register successfully.' => 'User register successfully.',
+    'Comment retrieved successfully.' => 'Comment retrieved successfully.',
     'User updated successfully'=>'.User updated successfully',
     'chanagepassword'=>'Chanage Password Successfully',
     'category retrieved successfully'=>'category retrieved successfully',

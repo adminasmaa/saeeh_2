@@ -15,11 +15,11 @@ class PlacesResource extends JsonResource
     public function toArray($request)
     {
         return [
-            "id" => $this->id,
-            "address" => $this->address ,
-            "name" => $this->name,
-            "phone" => $this->phone,
-            "phone2" => $this->phone2,
+            "id" => $this->id ?? '',
+            "address" => $this->address ?? '' ,
+            "name" => $this->name ?? '',
+            "phone" => $this->phone ?? '',
+            "phone2" => $this->phone2 ?? '',
             "display_photo" => asset('images/places')."/".$this->display_photo,
         ];
     }

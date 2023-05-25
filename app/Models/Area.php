@@ -15,15 +15,21 @@ class Area extends Model
     protected $table = 'areas';
 
     protected $fillable = [
-        'name_en', // nullable 
+        'name_en', // nullable
         'name_ar', // required
         'latitude', // nullable
         'longitude', // nullable
         'active', // required,default (0)
-        'city_id', //unsigned 
+        'city_id', //unsigned
     ];
     // relations
     public function city(){
         return $this->belongsTo(City::class,'city_id');
+    }
+
+
+    public function getNameAttribute()
+    {
+        return (app()->getLocale() === 'ar') ? $this->name_ar : $this->name_en;
     }
 }

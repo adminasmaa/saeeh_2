@@ -20,7 +20,7 @@ class CommentResource extends JsonResource
         return [
             "id" => $this->id,
             'description' => $this->description ?? '',
-            "rating " => $this->rating ?? '',
+            "rating " => $this->rating ?? 0,
             "status" => $this->status ?? '',
             'user' => new UserResource($this->user),
             "created_at" => $this->created_at ?? '',

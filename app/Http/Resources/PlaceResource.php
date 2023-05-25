@@ -28,7 +28,7 @@ class PlaceResource extends JsonResource
         }
 
         return [
-            "id" => $this->id,
+            "id" => $this->id ?? '',
             'name' => $this->$name ?? '',
             'description' => $this->$description ?? '',
             "address " => $this->address ?? '',
