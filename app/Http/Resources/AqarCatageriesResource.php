@@ -2,8 +2,8 @@
 
 namespace App\Http\Resources;
 
-use App\Http\Resources\AqarResource;
 
+use App\Http\Resources\AqarDetailResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class AqarCatageriesResource extends JsonResource
@@ -33,7 +33,7 @@ class AqarCatageriesResource extends JsonResource
             "image" => asset('images/categories') . "/" . $this->image,
             "active" => $this->active ?? '',
 
-            "aqar" =>AqarResource::collection($this->aqars)
+            "aqar" =>AqarDetailResource::collection($this->aqars)
 
         ];
     }
