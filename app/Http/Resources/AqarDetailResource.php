@@ -3,18 +3,7 @@
 namespace App\Http\Resources;
 
 use App\Http\Resources\staticResource;
-use App\Models\AnotherRoom;
-use App\Models\Area;
-use App\Models\Bathroom;
-use App\Models\CarPosition;
-use App\Models\ConditionType;
-use App\Models\Crew;
-use App\Models\Floor;
-use App\Models\FloorNumber;
-use App\Models\FreeService;
-use App\Models\Kitchen;
-use App\Models\Laundry;
-use App\Models\Service;
+
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class AqarDetailResource extends JsonResource
