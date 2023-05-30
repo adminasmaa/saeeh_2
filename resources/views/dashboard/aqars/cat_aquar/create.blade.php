@@ -71,19 +71,19 @@
                                                >
                                     </div>
 
-                                    <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label class="form-label">@lang('site.city')</label>
-                                        <select class="js-example-placeholder-multiple col-sm-12" multiple="multiple"
-                                                name="city_id[]">
-                                            <option selected>@lang('site.select')</option>
-                                            @foreach($cities as $city)
+{{--                                    <div class="col-md-6 form-group col-12 p-2 ">--}}
+{{--                                        <label class="form-label">@lang('site.city')</label>--}}
+{{--                                        <select class="js-example-placeholder-multiple col-sm-12" multiple="multiple"--}}
+{{--                                                name="city_id[]">--}}
+{{--                                            <option selected>@lang('site.select')</option>--}}
+{{--                                            @foreach($cities as $city)--}}
 
-                                                <option value="{{$city->id}}">{{$city->name_ar ?? ''}}</option>
+{{--                                                <option value="{{$city->id}}">{{$city->name_ar ?? ''}}</option>--}}
 
-                                            @endforeach
+{{--                                            @endforeach--}}
 
-                                        </select>
-                                    </div>
+{{--                                        </select>--}}
+{{--                                    </div>--}}
                                 </div>
                                 <div class="row">
                                     <!--<div class="col-md-6">-->
@@ -105,6 +105,13 @@
 
                                         <label>@lang('site.image')</label>
                                         <input type="file" name="image" class="form-control" value="{{ old('image') }}">
+
+
+                                    </div>       <div class="col-md-6 form-group col-12 p-2">
+
+
+                                        <label>@lang('site.icon')</label>
+                                        <input type="file" name="icon" class="form-control" value="{{ old('icon') }}">
 
 
                                     </div>

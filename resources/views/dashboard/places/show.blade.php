@@ -206,7 +206,7 @@
                                         <input type="text" name="share_link" class="form-control"
                                         value="{{ $place->share_link ?? '' }}" readonly=""disabled>
                                     </div>
-                                    
+
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.phone_one')<span class="text-danger">*</span></label>
                                         <input type="integer" name="phone_one" class="form-control"
@@ -289,7 +289,7 @@
                                         <option value="instagram"
                                                 @if($place->social_media=='instagram') selected @endif>instagram
                                         </option>
-                                        
+
                                     </select>
                                     <!-- <select class="form-control btn-square" name="social_media">
                                     <option disabled
@@ -307,7 +307,32 @@
                                 </div>
 
                                 <div class="row">
+
+
                                     <!--<div class="col-md-6">-->
+
+
+                            <div class="col-md-6 form-group col-12 p-2 ">
+                                <label>@lang('site.facebook')<span class="text-danger">*</span></label>
+                                <input type="text" name="facebook" class="form-control"
+                                       value="{{ $place->facebook ?? '' }}" readonly=""disabled
+                                    >
+                                </div>
+
+                            <div class="col-md-6 form-group col-12 p-2 ">
+                                <label>@lang('site.instagram')<span class="text-danger">*</span></label>
+                                <input type="text" name="instagram" class="form-control"
+                                       value="{{ $place->instagram ?? '' }}" readonly=""disabled
+                                    >
+                                </div>
+
+                            <div class="col-md-6 form-group col-12 p-2 ">
+                                <label>@lang('site.twitter')<span class="text-danger">*</span></label>
+                                <input type="text" name="twitter" class="form-control"
+                                       value="{{ $place->twitter ?? '' }}" readonly=""disabled
+                                    >
+                                </div>
+
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.address')<span class="text-danger">*</span></label>
                                 <input type="text" name="address" class="form-control"
@@ -344,7 +369,7 @@
 
 
                         <div class="row">
-                            
+
                             <div class="col-md-6 form-group  col-12 p-2">
                                 <label class="form-label">@lang('site.categories')</label>
                                 <select class="form-control btn-square" name="category_id" readonly=""disabled>
@@ -396,7 +421,7 @@
                                 </select>
                             </div>
                         </div>
-                        
+
                         <div class="row">
                             <label> @lang('site.images')</label>
                             @isset($place['images'])

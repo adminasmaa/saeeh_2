@@ -82,18 +82,18 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
 //        $category->save();
 
         if ($request->hasFile('image')) {
-//            $thumbnail = $request->file('image');
-//            $destinationPath = 'images/categories/';
-//            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-//            $thumbnail->move($destinationPath, $filename);
-//            $category->image = $filename;
-//            $category->save();
 
             UploadImage('images/categories/','image', $category, $request->file('image'));
 
         }
 
-        if (isset($request['name_category'])) {
+        if ($request->hasFile('icon')) {
+
+            UploadImage('images/categories/','icon', $category, $request->file('icon'));
+
+        }
+
+        if (!empty($request['name_category'])) {
 
             foreach ($request['name_category'] as $key => $value) {
                 $cat = Category::create([
@@ -102,9 +102,9 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
                 ]);
 
 
-//                if (isset($request['image_category'][$key])) {
+                if (!empty($request['image_category'][$key])) {
 
-                $image = $request['image_category'][$key];
+                $image = $request['image_category'][$key] ?? '';
 
 
                 $destinationPath = 'images/categories/';
@@ -116,7 +116,7 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
                 $cat->save();
 
             }
-//            }
+            }
 
         }
         if ($category) {
@@ -137,13 +137,14 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
 
 
         if ($request->hasFile('image')) {
-//            $thumbnail = $request->file('image');
-//            $destinationPath = 'images/categories/';
-//            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-//            $thumbnail->move($destinationPath, $filename);
-//            $category->image = $filename;
-//            $category->save();
+
             UploadImage('images/categories/','image', $category, $request->file('image'));
+        }
+
+
+        if ($request->hasFile('icon')) {
+
+            UploadImage('images/categories/','icon', $category, $request->file('icon'));
         }
 
         if (isset($request['name_category'])) {
@@ -157,7 +158,7 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
 
 //            if (isset($request['image_category'][$key])) {
 
-                $image = $request['image_category'][$key];
+                $image = $request['image_category'][$key] ?? '';
 
 
                 $destinationPath = 'images/categories/';

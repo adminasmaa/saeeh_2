@@ -2,6 +2,7 @@
 
 return [
     'User register successfully.' => 'تسجيل المستخدم بنجاح',
+    'Comment retrieved successfully.' =>'تم استرداد البيانات بنجاح',
     'logout'=>'تم تسجيل الخروج ',
     'Data not found.'=>'لم يتم العثور على البيانات',
     'chanagepassword'=>'تم تغير الرقم السري بنجاح',

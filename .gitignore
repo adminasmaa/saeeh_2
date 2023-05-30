@@ -6,7 +6,6 @@
 /public/storage
 /public/index.php
 /storage/*.key
-routes/web.php
 /vendor
 /images
 .env

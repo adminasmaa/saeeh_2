@@ -78,21 +78,22 @@ class PlaceCategoryRepository implements PlaceCategoryRepositoryInterfaceAlias
         $category = Category::create($request_data);
 
 
-//        $category->city_id = $request_data['city_id'];
-//        $category->save();
+
 
         if ($request->hasFile('image')) {
-//            $thumbnail = $request->file('image');
-//            $destinationPath = 'images/categories/';
-//            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-//            $thumbnail->move($destinationPath, $filename);
-//            $category->image = $filename;
-//            $category->save();
+
             UploadImage('images/categories/', 'image', $category, $request->file('image'));
 
         }
 
-        if (isset($request['name_category'])) {
+
+        if ($request->hasFile('icon')) {
+
+            UploadImage('images/categories/', 'icon', $category, $request->file('icon'));
+
+        }
+
+        if (!empty($request['name_category'])) {
 
             foreach ($request['name_category'] as $key => $value) {
                 $cat = Category::create([
@@ -103,9 +104,9 @@ class PlaceCategoryRepository implements PlaceCategoryRepositoryInterfaceAlias
                 ]);
 
 
-//                if (isset($request['image_category'][$key])) {
+                if (!empty($request['image_category'][$key])) {
 
-                $image = $request['image_category'][$key];
+                $image = $request['image_category'][$key] ?? '';
 
 
                 $destinationPath = 'images/categories/';
@@ -117,7 +118,7 @@ class PlaceCategoryRepository implements PlaceCategoryRepositoryInterfaceAlias
                 $cat->save();
 
             }
-//            }
+            }
 
         }
         if ($category) {
@@ -138,16 +139,17 @@ class PlaceCategoryRepository implements PlaceCategoryRepositoryInterfaceAlias
 
 
         if ($request->hasFile('image')) {
-//            $thumbnail = $request->file('image');
-//            $destinationPath = 'images/categories/';
-//            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-//            $thumbnail->move($destinationPath, $filename);
-//            $category->image = $filename;
-//            $category->save();
+
             UploadImage('images/categories/', 'image', $category, $request->file('image'));
         }
 
-        if (isset($request['name_category'])) {
+
+        if ($request->hasFile('icon')) {
+
+            UploadImage('images/categories/', 'icon', $category, $request->file('icon'));
+        }
+
+        if (!empty($request['name_category'])) {
 
             foreach ($request['name_category'] as $key => $value) {
                 $cat = Category::create([
@@ -158,19 +160,20 @@ class PlaceCategoryRepository implements PlaceCategoryRepositoryInterfaceAlias
                 ]);
 
 
-//            if (isset($request['image_category'][$key])) {
+                if (!empty($request['image_category'][$key])) {
 
-                $image = $request['image_category'][$key];
+                    $image = $request['image_category'][$key] ?? '';
 
 
-                $destinationPath = 'images/categories/';
-                $extension = $image->getClientOriginalExtension(); // getting image extension
-                $name = time() . '' . rand(11111, 99999) . '.' . $extension; // renameing image
-                $image->move($destinationPath, $name); // uploading file to given
-                $cat->image = $name;
+                    $destinationPath = 'images/categories/';
+                    $extension = $image->getClientOriginalExtension(); // getting image extension
+                    $name = time() . '' . rand(11111, 99999) . '.' . $extension; // renameing image
+                    $image->move($destinationPath, $name); // uploading file to given
+                    $cat->image = $name;
 
-                $cat->save();
+                    $cat->save();
 
+                }
             }
         }
         if ($category) {

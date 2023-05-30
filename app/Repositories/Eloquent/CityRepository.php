@@ -3,12 +3,12 @@
 namespace App\Repositories\Eloquent;
 
 use App\Models\Category;
+use App\Models\category_city;
 use App\Models\City;
 use App\Models\Country;
 use App\Repositories\Interfaces\CityRepositoryInterface as ICityRepositoryAlias;
 use Alert;
 
-use http\Client\Request;
 use Intervention\Image\Facades\Image;
 
 class CityRepository implements ICityRepositoryAlias
@@ -27,8 +27,7 @@ class CityRepository implements ICityRepositoryAlias
         // TODO: Implement create() method.
 
         $countries = Country::get();
-        $categories = Category::where('type', '=', 0)->get();
-
+        $categories = Category::get();
 
         return view('dashboard.cities.create', compact('countries', 'categories'));
     }
@@ -38,12 +37,13 @@ class CityRepository implements ICityRepositoryAlias
         // TODO: Implement edit() method.
 
         $city = City::find($Id);
+
         $countries = Country::get();
 
-        $categories = Category::where('type', '=', 0)->get();
-        $Category_id = $city->categoriesTotal->pluck('id');
-        $reletedCategory = json_decode($Category_id) ?? [];
-        return view('dashboard.cities.edit', compact('city', 'countries', 'categories', 'reletedCategory'));
+        $categories = Category::get();
+        $categoryrelated = category_city::where('city_id', $Id)->pluck('category_id')->toArray();
+
+        return view('dashboard.cities.edit', compact('city', 'countries', 'categories', 'categoryrelated'));
     }
 
     public function show($Id)
@@ -52,13 +52,14 @@ class CityRepository implements ICityRepositoryAlias
 
 
         $city = City::find($Id);
+
         $countries = Country::get();
-        $categories = Category::where('type', '=', 0)->get();
 
-        $Category_id = $city->categoriesTotal->pluck('id');
-        $reletedCategory = json_decode($Category_id) ?? [];
+        $categories = Category::get();
+        $categoryrelated = category_city::where('city_id', $Id)->pluck('category_id')->toArray();
 
-        return view('dashboard.cities.show', compact('city', 'countries','categories','reletedCategory'));
+
+        return view('dashboard.cities.show', compact('city', 'countries', 'categories','categoryrelated'));
     }
 
     public function destroy($city)
@@ -66,6 +67,7 @@ class CityRepository implements ICityRepositoryAlias
         // TODO: Implement destroy() method.
 
         $result = $city->delete();
+
         if ($result) {
             Alert::toast('Deleted', __('site.deleted_successfully'));
         } else {
@@ -88,6 +90,7 @@ class CityRepository implements ICityRepositoryAlias
         $city = City::create($request_data);
 
         $city->categoriesTotal()->attach($request->category_id);
+
         if ($request->hasFile('image')) {
 //            $thumbnail = $request->file('image');
 //            $destinationPath = 'images/cities/';
@@ -114,11 +117,11 @@ class CityRepository implements ICityRepositoryAlias
 
 
         $request_data = $request->except(['image', 'category_id']);
+        $city->categoriesTotal()->sync($request->category_id);
 
 
         $city->update($request_data);
 
-        $city->categoriesTotal()->sync($request->category_id);
 
         if ($request->hasFile('image')) {
 //            $thumbnail = $request->file('image');

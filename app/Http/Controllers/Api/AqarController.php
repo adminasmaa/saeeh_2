@@ -5,10 +5,15 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\AqarBookingResource;
 use App\Http\Resources\AqarDetailResource;
+use App\Http\Resources\CommentResource;
 use App\Models\Aqar;
 use App\Models\AqarBooking;
+use App\Models\AqarComment;
+use App\Models\PlaceComment;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
 
 
 class AqarController extends Controller
@@ -19,6 +24,7 @@ class AqarController extends Controller
         $aqar_id = $request->aqar_id;
 
         $aqar = Aqar::where('id', $aqar_id)->first();
+
         if (isset($aqar)) {
 
             $aquar = new AqarDetailResource($aqar);
@@ -30,6 +36,45 @@ class AqarController extends Controller
             return $this->respondError(__('message.Data not found.'), ['error' => __('message.Data not found.')], 404);
 
         }
+    }
+
+
+    public function AqarFavourite(Request $request)
+    {
+        $user_id = Auth::id();
+
+        $users = User::find($user_id);
+
+
+        $user = $users->FavouriteAqars()->toggle($request->aqar_id);
+
+        $status = ($user['attached'] !== []) ? 'added' : 'deleted';
+
+        return $this->respondSuccess($status, trans('message.data retrieved successfully.'));
+
+
+    }
+
+
+    public function AqarsReviews(Request $request)
+    {
+
+        $comments = AqarComment::where('aqar_id', $request->aqar_id)->paginate(10);
+
+
+        if (isset($comments)) {
+
+
+            $placeComments = CommentResource::collection(($comments));
+
+
+            return $this->respondSuccess($placeComments, __('message.Comment retrieved successfully.'));
+        } else {
+            return $this->respondError(__('Comment not found.'), ['error' => __('Comment not found.')], 404);
+
+
+        }
+
     }
 
     public function getBetweenDates($startDate, $endDate)

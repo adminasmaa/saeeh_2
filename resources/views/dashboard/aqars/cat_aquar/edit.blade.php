@@ -66,6 +66,18 @@
 
 
                                 </div>
+
+                                <div class="col-sm-12">
+
+
+                                    <label>@lang('site.icon')</label>
+                                    <img src="{{asset('images/categories/'.$category->icon)}}" data-bs-toggle="modal"
+                                        width="100px" height="100px" class="d-block"
+                                         onerror="this.src='{{asset('images/categories/default.jpg')}}'"
+                                    >
+
+
+                                </div>
                             </div>
 
                             <!-- Modal -->
@@ -154,6 +166,13 @@
 
                                     <label>@lang('site.image')</label>
                                     <input type="file" name="image" class="form-control" value="{{ old('image') }}">
+
+
+                                </div>       <div class="col-md-6 form-group col-12 p-2">
+
+
+                                    <label>@lang('site.icon')</label>
+                                    <input type="file" name="icon" class="form-control" value="{{ old('icon') }}">
 
 
                                 </div>

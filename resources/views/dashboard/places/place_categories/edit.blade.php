@@ -66,6 +66,17 @@
 
 
                                 </div>
+                                <div class="col-sm-12">
+
+
+                                    <label>@lang('site.icon')</label>
+                                    <img src="{{asset('images/categories/'.$category->icon)}}"
+                                         width="100px" height="100px" class="d-block"
+                                         onerror="this.src='{{asset('images/categories/default.jpg')}}'"
+                                    >
+
+
+                                </div>
                             </div>
 
                             <!-- Modal -->
@@ -122,21 +133,21 @@
                                     >
                                 </div>
 
-{{--                                <div class="col-md-6 form-group col-12 p-2 ">--}}
-{{--                                    <label class="form-label">@lang('site.city')</label>--}}
-{{--                                    <select class="js-example-placeholder-multiple col-sm-12" multiple="multiple"--}}
-{{--                                            name="city_id[]">--}}
-{{--                                        <option >@lang('site.select')</option>--}}
-{{--                                        @foreach($cities as $city)--}}
+                                {{--                                <div class="col-md-6 form-group col-12 p-2 ">--}}
+                                {{--                                    <label class="form-label">@lang('site.city')</label>--}}
+                                {{--                                    <select class="js-example-placeholder-multiple col-sm-12" multiple="multiple"--}}
+                                {{--                                            name="city_id[]">--}}
+                                {{--                                        <option >@lang('site.select')</option>--}}
+                                {{--                                        @foreach($cities as $city)--}}
 
-{{--                                            <option value="{{$city->id}}"--}}
-{{--                                                    @if(in_array($city->id,$citiesrelated)) selected @endif>{{$city->name_ar ?? ''}}</option>--}}
+                                {{--                                            <option value="{{$city->id}}"--}}
+                                {{--                                                    @if(in_array($city->id,$citiesrelated)) selected @endif>{{$city->name_ar ?? ''}}</option>--}}
 
-{{--                                        @endforeach--}}
+                                {{--                                        @endforeach--}}
 
-{{--                                    </select>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
+                                {{--                                    </select>--}}
+                                {{--                                </div>--}}
+                            </div>
                             <div class="row">
                                 <!--<div class="col-md-6">-->
 
@@ -157,6 +168,14 @@
 
 
                                 </div>
+                                <div class="col-md-6 form-group col-12 p-2">
+
+
+                                    <label>@lang('site.icon')</label>
+                                    <input type="file" name="icon" class="form-control" value="{{ old('icon') }}">
+
+
+                                </div>
                             </div>
 
                             <br>
@@ -164,72 +183,72 @@
                             <h4 class="card-title">@lang('site.subcategories')</h4>
                             <table class="price-list" id="tb_price">
 
-                            @foreach($subcategories as $cat)
+                                @foreach($subcategories as $cat)
                                     <tr><td>
-                                <div class="row">
+                                            <div class="row">
 
-                                    <div class="col-md-4 form-group col-12 p-2">
-
-
-                                        <label>@lang('site.ar.name')</label>
-                                        <input type="text" class="form-control"
-                                               value="{{ $cat->name_ar ?? '' }}">
-                                    </div>
-
-                                    <div class="col-md-5 form-group col-12 p-2">
+                                                <div class="col-md-4 form-group col-12 p-2">
 
 
-                                        <label>@lang('site.image')</label>
-                                        <input type="file" class="form-control"
-                                               value="{{ old('image') }}">
+                                                    <label>@lang('site.ar.name')</label>
+                                                    <input type="text" class="form-control"
+                                                           value="{{ $cat->name_ar ?? '' }}">
+                                                </div>
+
+                                                <div class="col-md-5 form-group col-12 p-2">
 
 
-                                    </div>
-
-                                    <div class="col-md-3 form-group col-12 p-2">
-
-                                        <img src="{{asset('images/categories/'.$cat->image)}}"
-                                             width="100px" height="100px">
+                                                    <label>@lang('site.image')</label>
+                                                    <input type="file" class="form-control"
+                                                           value="{{ old('image') }}">
 
 
-{{--                                        <a type="button" href="{{route('dashboard.DeleteSubCategories',$cat->id)}}"--}}
-{{--                                           class="btn-table  btn  btn-xs 88"--}}
-{{--                                        >--}}
-{{--                                            <i class="fa fa-trash"></i>--}}
-{{--                                        </a>--}}
-                                        <a  href="{{route('dashboard.DeleteSubCategories',$cat->id)}}" class="btn btn-air-primary btn-pill btn-danger"><i class="fa fa-trash"></i></a>
+                                                </div>
 
-                                    </div>
+                                                <div class="col-md-3 form-group col-12 p-2">
 
-                                </div>
+                                                    <img src="{{asset('images/categories/'.$cat->image)}}"
+                                                         width="100px" height="100px">
+
+
+                                                    {{--                                        <a type="button" href="{{route('dashboard.DeleteSubCategories',$cat->id)}}"--}}
+                                                    {{--                                           class="btn-table  btn  btn-xs 88"--}}
+                                                    {{--                                        >--}}
+                                                    {{--                                            <i class="fa fa-trash"></i>--}}
+                                                    {{--                                        </a>--}}
+                                                    <a  href="{{route('dashboard.DeleteSubCategories',$cat->id)}}" class="btn btn-air-primary btn-pill btn-danger"><i class="fa fa-trash"></i></a>
+
+                                                </div>
+
+                                            </div>
                                         </td>
                                     </tr>
-                                    @endforeach
+                                @endforeach
                             </table>
 
 
 
 
-                                    <div class="col-md-2 form-group col-12 p-2">
+                            <div class="col-md-2 form-group col-12 p-2">
 
-                                        <br>
-                                        <a class="btn btn-air-primary btn-pill btn-success add-price w-100"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                                <br>
+                                <a class="btn btn-air-primary btn-pill btn-success add-price w-100"><i class="fa fa-plus" aria-hidden="true"></i></a>
 
-                                    </div>
-
-                                </div>
-
-                                <table class="categories-list" id="table5">
-
-
-                                </table>
-
+                            </div>
 
                         </div>
-                    </form>
+
+                        <table class="categories-list" id="table5">
+
+
+                        </table>
+
+
                 </div>
+                </form>
             </div>
         </div>
+    </div>
     </div>
     </div>
 
@@ -270,4 +289,3 @@
         }
     </script>
 @endsection
-

@@ -69,6 +69,19 @@
                                             >
                                         </div>
 
+                                        <div class="col-md-6">
+                                            <label class="d-block">@lang('site.icon')</label>
+                                            {{--                                        <img src="{{asset('images/employee/'.$user->image)}}" data-bs-toggle="modal"--}}
+                                            {{--                                            data-bs-target="#exampleModalss" width="100px" height="100px">--}}
+
+
+                                            <img src="{{asset('images/categories/'.$category->icon)}}"
+                                                width="100px" height="100px"
+                                                 class="d-block"
+                                                 onerror="this.src='{{asset('images/categories/default.jpg')}}'"
+                                            >
+                                        </div>
+
 
                                     </div>
                                 </div>

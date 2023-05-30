@@ -55,7 +55,7 @@ class User extends Authenticatable
         'phone',
         'country_code'
     ];
-    
+
 
     /**
      * The attributes that should be hidden for serialization.
@@ -94,6 +94,10 @@ class User extends Authenticatable
     // relations
     public function carComment(){
         return $this->HasMany(CarComment::class);
+    }
+
+    public function country(){
+        return $this->belongsTo(Country::class,'country_id');
     }
     // relations
     public function commission(){
@@ -138,5 +142,12 @@ class User extends Authenticatable
     // relations
     public function deposit(){
         return $this->HasMany(Deposit::class);
+    }
+
+    public function FavouriteAqars(){
+        return $this->belongsToMany(Aqar::class,'aqar_user','aqar_id','user_id');
+    }
+    public function FavouriteCities(){
+        return $this->belongsToMany(Aqar::class,'city_user','city_id','user_id');
     }
 }

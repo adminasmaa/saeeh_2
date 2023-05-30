@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\CityOnlyResource;
 use App\Http\Resources\CityResource;
 use App\Models\City;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class CityController extends Controller
@@ -25,6 +27,22 @@ class CityController extends Controller
 
         return $this->respondSuccess($cities, 'cities retrieved successfully.');
     }
+    public function CityFavourite(Request $request)
+    {
+        $user_id = Auth::id();
+
+        $users = User::find($user_id);
+
+
+        $user = $users->FavouriteCities()->toggle($request->aqar_id);
+
+        $status = ($user['attached'] !== []) ? 'added' : 'deleted';
+
+        return $this->respondSuccess($status, trans('message.data retrieved successfully.'));
+
+
+    }
+
 
 
     public function citydetail(Request $request)

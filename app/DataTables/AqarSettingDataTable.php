@@ -49,6 +49,7 @@ class AqarSettingDataTable extends DataTable
             ->editColumn('created_at', function ($model) {
                 return (!empty($model->created_at)) ? $model->created_at->diffForHumans() : '';
             })
+            ->addIndexColumn()
             ->addColumn('action', function ($model) {
                 $actions = '';
                 $actions .= DTHelper::dtEditButton(route($this->getRoutes()['update'], $model->id), trans('site.edit'), $this->getPermissions()['update']);
@@ -88,7 +89,7 @@ class AqarSettingDataTable extends DataTable
             ->setTableId('aqar_setting-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            //->dom('Bfrtip')
+            ->dom('Bfrtip')
             ->orderBy(1)
             ->selectStyleSingle()
             ->buttons([
@@ -107,9 +108,9 @@ class AqarSettingDataTable extends DataTable
      */
     public function getColumns(): array
     {
-        return [ 
-            Column::make('ID'),
-            Column::make('input_id')->title(trans('site.input_id')), 
+        return [
+            Column::make('DT_RowIndex')->data('DT_RowIndex')->name('DT_RowIndex')->title('#'),
+            Column::make('input_id')->title(trans('site.input_id')),
             Column::make('display')->title(trans('site.display')),
             // Column::make('category_id')->title(trans('site.category_id')),
             Column::computed('action')

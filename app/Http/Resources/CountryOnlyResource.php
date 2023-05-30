@@ -24,10 +24,10 @@ class CountryOnlyResource extends JsonResource
 
         }
         return [
-            "id" => $this->id,
-            "name" => $this->$name,
-            "code" => $this->code,
-            "currency" => $this->currency,
+            "id" => $this->id ?? '',
+            "name" => $this->$name ?? '',
+            "code" => $this->code ?? '',
+            "currency" => $this->currency ?? '',
             "flag_image" => asset('images/countries')."/".$this->flag_image,
             "image" => asset('images/countries')."/".$this->image,
             "cities"=>CityOnlyResource::collection($this->cities)

@@ -163,7 +163,7 @@
                                                value="{{$place->name_ar}}"
                                             >
                                     </div>
-                                    
+
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.name_en')</label>
                                         <input type="text" name="name_en" class="form-control"
@@ -222,7 +222,28 @@
                                                value="{{$place->share_link}}"
                                                >
                                     </div>
-                                    
+
+                                    <div class="col-md-6 form-group col-12 p-2 ">
+                                        <label>@lang('site.facebook')</label>
+                                        <input type="text" name="facebook" class="form-control"
+                                               value="{{$place->facebook}}"
+                                               >
+                                    </div>
+
+                                    <div class="col-md-6 form-group col-12 p-2 ">
+                                        <label>@lang('site.instagram')</label>
+                                        <input type="text" name="instagram" class="form-control"
+                                               value="{{$place->instagram}}"
+                                               >
+                                    </div>
+
+                                    <div class="col-md-6 form-group col-12 p-2 ">
+                                        <label>@lang('site.twitter')</label>
+                                        <input type="text" name="twitter" class="form-control"
+                                               value="{{$place->twitter}}"
+                                               >
+                                    </div>
+
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.phone_one')<span class="text-danger">*</span></label>
                                         <input type="text" name="phone_one" class="form-control"
@@ -317,7 +338,7 @@
                                         </option>
                                         <option value="instagram"
                                                 @if($place->social_media=='instagram') selected @endif>@lang('site.instagram')
-                                        </option>                                           
+                                        </option>
 
                                     </select>
                                 </div>
@@ -347,7 +368,7 @@
                                                value="{{$place->descrption_en}}"
                                                >
                                     </div>
-                                    
+
                                     <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                     <label class="form-label">@lang('site.users')</label>
                                     <select class="form-control btn-square" name="user_id">
@@ -355,12 +376,12 @@
                                         @foreach($users as $user)
 
                                             <option value="{{$user->id}}"@if($place->user_id==$user->id) selected @endif>{{$user->firstname . $user->lastname ?? ''}}</option>
-                                        
+
                                         @endforeach
 
                                     </select>
                                 </div>
-                                
+
                                 </div>
                                 <div class="row">
                                 <div class="col-md-6 form-group"><span class="text-danger">*</span>
@@ -415,7 +436,7 @@
                                     </select>
                                 </div>
                                 </div>
-                                
+
                                 <div class="row">
 
 

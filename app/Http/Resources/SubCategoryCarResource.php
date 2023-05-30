@@ -16,7 +16,7 @@ class SubCategoryCarResource extends JsonResource
     {
 
         return [
-            "id" => $this->id,
+            "id" => $this->id ?? '',
             "name" => $this->name ?? '',
             "description" => $this->description ?? '',
             "comment_text" => $this->comment_text ?? '',
@@ -26,7 +26,7 @@ class SubCategoryCarResource extends JsonResource
             "category" => $this->category ?? '',
             "car_numbers" => $this->car_numbers ?? '',
             "car_delivery_date" => $this->car_delivery_date ?? '',
-            "fixed_price" => $this->fixed_price ?? '',
+            "fixed_price" => $this->fixed_price ?? 0,
             "changed_price" => $this->changed_price ?? '',
 
         ];

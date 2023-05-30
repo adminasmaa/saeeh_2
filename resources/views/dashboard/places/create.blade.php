@@ -123,7 +123,25 @@
                                                value="{{old('share_link')}}"
                                                >
                                     </div>
-                                    
+                                    <div class="col-md-6 form-group col-12 p-2 ">
+                                        <label>@lang('site.facebook')</label>
+                                        <input type="text" name="facebook" class="form-control"
+                                               value="{{old('facebook')}}"
+                                               >
+                                    </div>
+                                    <div class="col-md-6 form-group col-12 p-2 ">
+                                        <label>@lang('site.instagram')</label>
+                                        <input type="text" name="instagram" class="form-control"
+                                               value="{{old('instagram')}}"
+                                               >
+                                    </div>
+                                    <div class="col-md-6 form-group col-12 p-2 ">
+                                        <label>@lang('site.twitter')</label>
+                                        <input type="text" name="twitter" class="form-control"
+                                               value="{{old('twitter')}}"
+                                               >
+                                    </div>
+
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.phone_one')<span class="text-danger">*</span></label>
                                         <input type="text" name="phone_one" class="form-control"

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Resources\AqarCatageriesResource;
+use App\Http\Resources\BransCarSubResource;
 use App\Http\Resources\CityCategoryResource;
 use App\Models\City;
 use Illuminate\Http\Request;
@@ -20,26 +22,29 @@ class CategoryController extends Controller
 {
 
 
-    public function categories(Request $request)
+    public function citydetails(Request $request)
     {
 
         $city_id = $request->city_id;
-        $categories = [];
-        foreach (Category::where('type', '=', 0)->where('parent_id', null)->get() as $cat) {
 
-            $city = json_decode($cat->city_id);
+        $city = City::find($city_id);
 
-            if (in_array($city_id, $city)) {
-                array_push($categories, $cat);
+//        return $city;
+//        $categories = $city->categoriesTotal;
+//        foreach (Category::where('type', '=', 0)->where('parent_id', null)->where('id','!=',1)->where('id','!=',2)->get() as $cat) {
+//
+//            $city = json_decode($cat->city_id);
+//
+//            if (in_array($city_id, $city)) {
+//                array_push($categories, $cat);
+//
+//            }
+//        }
 
-            }
-        }
-
-        if (count($categories)) {
+        if (isset($city)) {
             $cities = City::find($request->city_id);
             $categories = new CityCategoryResource($cities);
 
-//            $categories = CategoryOnlyResource::collection($categories);
             return $this->respondSuccess($categories, __('message.categories retrieved successfully.'));
 
         } else {
@@ -50,11 +55,65 @@ class CategoryController extends Controller
 
     }
 
+    public function listofBrands()
+    {
+        $categories = Category::where('type', '=', 2)->get();
+
+        if (count($categories)) {
+
+
+            $categories = CategoryOnlyResource::collection($categories);
+            return $this->respondSuccess($categories, __('message.categories retrieved successfully.'));
+
+        } else {
+            return $this->respondError(__('message.Category not found.'), ['error' => __('message.Category not found.')], 404);
+
+        }
+
+    }
+
+    public function listofCars(Request $request)
+    {
+        $category = Category::find($request->brand_id);
+
+
+        if (count($category->subcategories)) {
+
+
+            $categories = BransCarSubResource
+                ::collection($category->subcategories);
+            return $this->respondSuccess($categories, __('message.categories retrieved successfully.'));
+
+        } else {
+            return $this->respondError(__('message.Category not found.'), ['error' => __('message.Category not found.')], 404);
+
+        }
+
+    }
+
+    public function listofAquarWithCategory()
+    {
+        $categoriess = Category::where('type', '=', 1)->where('parent_id', '=', 1)->get();
+
+
+        if (count($categoriess)) {
+
+
+            $categories = AqarCatageriesResource::collection($categoriess);
+            return $this->respondSuccess($categories, __('message.categories retrieved successfully.'));
+
+        } else {
+            return $this->respondError(__('message.Category not found.'), ['error' => __('message.Category not found.')], 404);
+
+        }
+
+    }
+
     public function CityListCategories(Request $request)
     {
         $city_id = $request->city_id;
         $categories = [];
-        foreach (Category::where('type', '=', 0)->where('parent_id', null)->get() as $cat) {
+        foreach (Category::where('type', '=', 0)->where('parent_id', null)->where('id', '!=', 1)->where('id', '!=', 2)->get() as $cat) {
 
             $city = json_decode($cat->city_id);
 

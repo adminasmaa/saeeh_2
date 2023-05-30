@@ -2,12 +2,11 @@
 
 namespace App\Http\Resources;
 
-use App\Http\Resources\PlaceResource;
-use App\Http\Resources\SubCategoryResource;
+use App\Http\Resources\CarResource;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class SubCategoryResource extends JsonResource
+class BransCarSubResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -21,18 +20,20 @@ class SubCategoryResource extends JsonResource
 
         if ($lang == 'ar') {
             $name = 'name_ar';
+            $description = 'description_ar';
         } else {
             $name = 'name_en';
+            $description = 'description_en';
 
         }
         return [
             "id" => $this->id,
             "name" => $this->$name,
+            "description" => $this->$description,
             "image" => asset('images/categories') . "/" . $this->image,
-            "places" => PlaceResource::collection($this->places),
-//            "car" => CarResource::collection($this->carscategories),
-            "subcategories"=>$this->when(!$this->subcategories->isEmpty(), SubCategoryResource::collection($this->subcategories)),
-//            "aqar" =>AqarResource::collection($this->aqars)
+            "active" => $this->active ?? '',
+
+            "car" => CarResource::collection($this->carscategories),
         ];
     }
 }
