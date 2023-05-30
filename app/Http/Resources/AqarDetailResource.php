@@ -37,7 +37,7 @@ class AqarDetailResource extends JsonResource
             "banner" => asset('images/aqars') . "/" . $this->main_image_ads,
             "videos" => asset('images/aqars') . "/" . $this->videos,
             'path' => asset('images/aqars') . "/",
-            "images" => $this->images ?? '',
+            "images" => $this->images ?? [],
             "comment_text" => $this->comment_text ?? '',
             "comision" => $this->comision ?? '',
             "area" => $this->area->name ?? '',
