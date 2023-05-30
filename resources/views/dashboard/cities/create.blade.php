@@ -67,7 +67,7 @@
                                         <label>@lang('site.en.name')<span class="text-danger">*</span></label>
                                         <input type="text" name="name_en" class="form-control"
                                                value="{{old('name_en')}}"
-                                               >
+                                        >
                                     </div>
 
                                     <div class="col-md-6 form-group">
@@ -79,12 +79,12 @@
 
                                     <div class="row">
 
-{{--                                        <div class="col-md-6 form-group">--}}
-{{--                                            <label>@lang('site.code')<span class="text-danger">*</span></label>--}}
-{{--                                            <input type="text" name="code" class="form-control"--}}
-{{--                                                   value="{{old('code')}}"--}}
-{{--                                            >--}}
-{{--                                        </div>--}}
+                                        {{--                                        <div class="col-md-6 form-group">--}}
+                                        {{--                                            <label>@lang('site.code')<span class="text-danger">*</span></label>--}}
+                                        {{--                                            <input type="text" name="code" class="form-control"--}}
+                                        {{--                                                   value="{{old('code')}}"--}}
+                                        {{--                                            >--}}
+                                        {{--                                        </div>--}}
 
 
                                         <div class="col-md-6 form-group col-12 p-2 ">
@@ -107,7 +107,24 @@
                                                 <option selected>@lang('site.select')</option>
                                                 @foreach($countries as $country)
 
-                                                    <option value="{{$country->id}}">{{$country->name_ar ?? ''}}</option>
+                                                    <option
+                                                        value="{{$country->id}}">{{$country->name_ar ?? ''}}</option>
+
+                                                @endforeach
+
+                                            </select>
+                                        </div>
+
+
+                                        <div class="col-md-6 form-group col-12 p-2 ">
+                                            <label class="form-label">@lang('site.categories')</label>
+                                            <select class="js-example-placeholder-multiple col-sm-12"
+                                                    multiple="multiple"
+                                                    name="category_id[]">
+                                                <option selected>@lang('site.select')</option>
+                                                @foreach($categories as $category)
+
+                                                    <option value="{{$category->id}}">{{$category->name_ar ?? ''}}</option>
 
                                                 @endforeach
 

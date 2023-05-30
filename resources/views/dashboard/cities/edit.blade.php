@@ -61,7 +61,7 @@
                                     <label>@lang('site.image')</label>
                                     <img src="{{asset('images/cities/'.$city->image)}}" data-bs-toggle="modal"
                                          data-bs-target="#exampleModalss" width="100px" height="100px" class="d-block"
-                                         onerror="this.src='{{asset('images/cities/default.jpg')}}'"
+                                         onerror="this.src='{{asset('images/default.png')}}'"
                                     >
 
 
@@ -87,7 +87,7 @@
                                                              width="400px" height="aut0"
 
 
-                                                             onerror="this.src='{{asset('images/cities/default.jpg')}}'"
+                                                             onerror="this.src='{{asset('images/default.png')}}'"
                                                         >
 
                                                     </th>
@@ -161,6 +161,22 @@
                                 </div>
 
 
+                                <div class="col-md-6 form-group col-12 p-2 ">
+                                    <label class="form-label">@lang('site.city')</label>
+                                    <select class="js-example-placeholder-multiple col-sm-12" multiple="multiple"
+                                            name="category_id[]">
+                                        <option>@lang('site.select')</option>
+                                        @foreach($categories as $category)
+
+                                            <option value="{{$category->id}}"
+                                                    @if(in_array($category->id,$reletedCategory)) selected @endif>{{$category->name_ar ?? ''}}</option>
+
+                                        @endforeach
+
+                                    </select>
+                                </div>
+
+
                                 <div class="col-md-6 form-group col-12 p-2">
 
 
@@ -172,6 +188,7 @@
 
 
                             </div>
+                        </div>
 
                     </form>
                 </div>
@@ -179,8 +196,6 @@
         </div>
         <!-- Individual column searching (text inputs) Ends-->
     </div>
-    </div>
-    <!-- Container-fluid Ends-->
-    </div>
+
 
 @endsection
