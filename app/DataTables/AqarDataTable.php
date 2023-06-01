@@ -113,7 +113,7 @@ class AqarDataTable extends DataTable
             Column::make('DT_RowIndex')->data('DT_RowIndex')->name('DT_RowIndex')->title('#'),
 
             Column::make('name_ar')->title(trans('site.name_ar')),
-            Column::make('description')->title(trans('site.description')),
+//            Column::make('description')->title(trans('site.description')),
             Column::make('created_at')->title(trans('site.created_at')),
             Column::computed('action')
                 ->exportable(false)

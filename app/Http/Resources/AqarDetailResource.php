@@ -31,7 +31,7 @@ class AqarDetailResource extends JsonResource
             "id" => $this->id ?? '',
             "name" => $this->$name ?? '',
             "description" => $this->description ?? '',
-            "status" => $this->status ?? '',
+//            "status" => $this->status ?? '',
             "distance" => $this->distance ?? 0,
             "time" => $this->time ?? '',
             "banner" => asset('images/aqars') . "/" . $this->main_image_ads,
@@ -45,7 +45,7 @@ class AqarDetailResource extends JsonResource
 
             "rate" => $this->aqarComment->avg('rating') ?? 0,
             "fixed_price" => $this->fixed_price ?? 0,
-            "changed_price" => [$this->changed_price] ?? [],
+            "changed_price" => json_decode($this->changed_price) ?? [],
             "category" => new staticResource($this->category),
             'aqarSection' => $this->aqarSection->map(function ($category) {
                 $category = $category->AqarDetail;
