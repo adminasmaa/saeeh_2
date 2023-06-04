@@ -79,6 +79,7 @@ return [
     'female' => 'Female',
     'male' => 'Male',
 
+    'reviewElements' => 'ReviewElements',
 
     'namess' => 'Name',
     'emails' => 'Email',

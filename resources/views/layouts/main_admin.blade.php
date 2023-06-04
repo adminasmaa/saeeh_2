@@ -353,6 +353,13 @@
                                    href="{{route('dashboard.advertising.index')}}">
                                     <i data-feather="zap"></i><span>@lang('site.advertising') @endlang</span></a>
                             </li>
+
+                            <li class="sidebar-list"><a
+                                    class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.reviewElements.index')?'activee':'' }}"
+                                    href="{{route('dashboard.reviewElements.index')}}"><i
+                                        data-feather="bar-chart-2"></i><span>@lang('site.reviewElements') @endlang</span></a>
+
+                            </li>
                             {{--list--}}
                         
                             <li class="sidebar-list">

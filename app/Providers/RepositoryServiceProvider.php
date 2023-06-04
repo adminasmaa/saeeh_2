@@ -44,6 +44,7 @@ use App\Repositories\Eloquent\SectionRepository;
 use App\Repositories\Eloquent\DepositRepository;
 use App\Repositories\Eloquent\PoolRepository;
 use App\Repositories\Eloquent\AqarCommentRepository;
+use App\Repositories\Eloquent\ReviewElementRepository;
 
 use App\Repositories\Interfaces\ContactRepositoryInterface;
 use App\Repositories\Interfaces\PoolRepositoryInterface;
@@ -87,7 +88,10 @@ use App\Repositories\Interfaces\RoleRepositoryInterface;
 use App\Repositories\Interfaces\ServiceAqarRepositoryInterface;
 use App\Repositories\Interfaces\ServiceRepositoryInterface;
 use App\Repositories\Interfaces\SettingRepositoryInterface;
+use App\Repositories\Interfaces\ReviewElementRepositoryInterface;
+
 use App\Repositories\Interfaces\UserRepositoryInterface;
+
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -147,6 +151,8 @@ class RepositoryServiceProvider extends ServiceProvider
 
         $this->app->bind(AqarSettingRepositoryInterface::class, AqarSettingRepository::class);
         $this->app->bind(ServiceAqarRepositoryInterface::class, ServiceAqarRepository::class);
+
+        $this->app->bind(ReviewElementRepositoryInterface::class, ReviewElementRepository::class);
 
     }
 

@@ -46,6 +46,8 @@ use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Dashboard\ContactController;
 use App\Http\Controllers\Dashboard\AqarCommentController;
 use App\Http\Controllers\Dashboard\AqarSettingController;
+use App\Http\Controllers\Dashboard\ReviewElementController;
+
 use Illuminate\Support\Facades\Route;
 
 Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedirect', 'localizationRedirect', 'localeViewPath')->group(function () {
@@ -178,6 +180,9 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
         //sections
         Route::resource('sections', SectionController::class);
+
+        //sections
+        Route::resource('reviewElements', ReviewElementController::class);
 
     }); //end of dashboard routes
 });

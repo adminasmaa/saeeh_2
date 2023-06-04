@@ -35,6 +35,8 @@ return [
     'demo_work' => 'اجراءات النظافة',
     'demo_loc' => 'اجراءات العقارات ',
 
+    'reviewElements' => '  عناصر التقييمات',
+
     'sections' => 'الأقسام',
 
     'input_id' => 'القسم',
