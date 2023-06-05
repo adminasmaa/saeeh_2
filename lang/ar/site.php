@@ -28,7 +28,7 @@ return [
     'deposit' => 'العربون',
     'aquarbooking' => 'حجوزات العقارات',
     'bookings' => 'حجوزات السيارات',
-    'aqar_comments' => 'تقييمات العقارات ',
+    'aqar_comments' => 'تعليقات العقارات ',
     'check_view' => 'تحقق من العرض',
     'demo_clean' => 'اجراءات الاستلام والتسليم',
     'demo_status' => 'اجراءات الاسعار',
@@ -36,6 +36,10 @@ return [
     'demo_loc' => 'اجراءات العقارات ',
 
     'reviewElements' => '  عناصر التقييمات',
+
+    'aqar_reviews' => ' تقييمات العقارات ',
+    'car_reviews'  => ' تقييمات السيارات ',
+    'place_reviews'=> ' تقييمات الاماكن ',
 
     'sections' => 'الأقسام',
 
