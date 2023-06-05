@@ -45,6 +45,8 @@ use App\Repositories\Eloquent\DepositRepository;
 use App\Repositories\Eloquent\PoolRepository;
 use App\Repositories\Eloquent\AqarCommentRepository;
 use App\Repositories\Eloquent\ReviewElementRepository;
+use App\Repositories\Eloquent\AqarReviewRepository;
+use App\Repositories\Eloquent\CarReviewRepository;
 
 use App\Repositories\Interfaces\ContactRepositoryInterface;
 use App\Repositories\Interfaces\PoolRepositoryInterface;
@@ -89,6 +91,8 @@ use App\Repositories\Interfaces\ServiceAqarRepositoryInterface;
 use App\Repositories\Interfaces\ServiceRepositoryInterface;
 use App\Repositories\Interfaces\SettingRepositoryInterface;
 use App\Repositories\Interfaces\ReviewElementRepositoryInterface;
+use App\Repositories\Interfaces\AqarReviewRepositoryInterface;
+use App\Repositories\Interfaces\CarReviewRepositoryInterface;
 
 use App\Repositories\Interfaces\UserRepositoryInterface;
 
@@ -153,6 +157,8 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(ServiceAqarRepositoryInterface::class, ServiceAqarRepository::class);
 
         $this->app->bind(ReviewElementRepositoryInterface::class, ReviewElementRepository::class);
+        $this->app->bind(AqarReviewRepositoryInterface::class, AqarReviewRepository::class);
+        $this->app->bind(CarReviewRepositoryInterface::class, CarReviewRepository::class);
 
     }
 

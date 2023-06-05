@@ -81,6 +81,10 @@ return [
 
     'reviewElements' => 'ReviewElements',
 
+    'aqar_reviews' => 'AqarReviews',
+    'car_reviews' => 'CarReviews',
+    'place_reviews' => 'PlaceReviews',
+
     'namess' => 'Name',
     'emails' => 'Email',
     'typess' => 'Type',

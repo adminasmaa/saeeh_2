@@ -380,6 +380,10 @@
                                     <li>
                                         <a href="{{route('dashboard.car_comments.index')}}"  class="{{($current_route=='dashboard.car_comments.index')?'activee':'' }}">{{__('site.car_comments')}}</a>
                                     </li>
+
+                                    <li>
+                                        <a href="{{route('dashboard.car_reviews.index')}}" class="{{($current_route=='dashboard.car_reviews.index')?'activee':'' }}">{{__('site.car_reviews')}}</a>
+                                    </li>
                                 </ul>
                             </li>
                             <li class="sidebar-list"><a
@@ -460,6 +464,10 @@
                                         <a href="{{route('dashboard.aqar_comments.index')}}" class="{{($current_route=='dashboard.aqar_comments.index')?'activee':'' }}">{{__('site.aqar_comments')}}</a>
                                     </li>
                                     
+                                    <li>
+                                        <a href="{{route('dashboard.aqar_reviews.index')}}" class="{{($current_route=='dashboard.aqar_reviews.index')?'activee':'' }}">{{__('site.aqar_reviews')}}</a>
+                                    </li>
+
                                 </ul>
                             </li>
 
