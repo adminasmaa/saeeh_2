@@ -18,7 +18,10 @@ class ReviewElement extends Model
         'name_ar', // required
         'name_en', // nullable
         'icon', // required
-    
+
     ];
-   
+
+    protected $hidden = ['deleted_at', 'updated_at', 'created_at'];
+
+
 }
