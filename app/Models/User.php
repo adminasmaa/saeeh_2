@@ -154,4 +154,8 @@ class User extends Authenticatable
     public function FavouriteCar(){
         return $this->belongsToMany(Aqar::class,'car_user','car_id','user_id');
     }
+
+    public function FavouritePalace(){
+        return $this->belongsToMany(Aqar::class,'user_palace','place_id','user_id');
+    }
 }

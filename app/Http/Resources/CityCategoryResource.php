@@ -41,7 +41,7 @@ class CityCategoryResource extends JsonResource
             "name" => $this->$name,
             "image" => asset('images/cities') . "/" . $this->image,
             "active" => $this->active,
-            "categories" => CategoryOnlyResource::collection($this->categoriesTotal),
+            "categories" => CategoryOnlyResource::collection($this->categoriesTotal->where('type', '=', 0)->where('parent_id', null)->where('id', '!=', 1)->where('id', '!=', 2)),
         ];
     }
 }
