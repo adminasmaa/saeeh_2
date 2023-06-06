@@ -59,7 +59,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
         //users
-        Route::resource('users', UserController::class);
+        Route::resource('users', UserController::class)->middleware(['permission:create_users|update_users,require_all']);
 
         //roles
         Route::resource('roles', RoleController::class)->except(['show']);
