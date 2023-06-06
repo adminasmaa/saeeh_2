@@ -172,7 +172,7 @@
                                         @foreach($categories as $category)
 
                                             <option value="{{$category->id}}"
-                                                    @if(in_array($category->id,$reletedCategory)) selected @endif>{{$category->name_ar ?? ''}}</option>
+                                                    @if(in_array($category->id,$categoryrelated)) selected @endif>{{$category->name_ar ?? ''}}</option>
 
                                         @endforeach
 

@@ -8,13 +8,13 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-6">
-                        <h3>@lang('site.car_reviews')</h3>
+                        <h3>@lang('site.place_reviews')</h3>
                     </div>
                     <div class="col-6">
                         <ol class="breadcrumb">
 
                             <li class="breadcrumb-item">@lang('site.dashboard')</li>
-                            <li class="breadcrumb-item active">@lang('site.car_reviews') @endlang</li>
+                            <li class="breadcrumb-item active">@lang('site.place_reviews') @endlang</li>
                         </ol>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                             <div class="col-md-6 form-group col-12 p-2">
                                 <label>@lang('site.rate')<span class="text-danger">*</span></label>
                                 <input type="float" name="rate" class="form-control"
-                                       value="{{ $CarReview->rate }}" readonly=""disabled
+                                       value="{{ $PlaceReview->rate }}" readonly=""disabled
                                 >
                             </div>
 
@@ -64,7 +64,7 @@
                                     @foreach($users as $user)
 
                                     <option value="{{$user->id}}"
-                                                        {{$user->id==$CarReview->user_id? 'selected':'' }}>
+                                                        {{$user->id==$PlaceReview->user_id? 'selected':'' }}>
                                                         {{$user->firstname . $user->lastname ?? ''}}</option>
 
                                     @endforeach
@@ -73,13 +73,13 @@
                             </div>
 
                             <div class="col-md-6 form-group">
-                                <label class="form-label">@lang('site.cars')</label>
-                                <select class="form-control btn-square" name="car_id" readonly=""disabled>
+                                <label class="form-label">@lang('site.places')</label>
+                                <select class="form-control btn-square" name="place_id" readonly=""disabled>
                                     <option selected>@lang('site.select')</option>
-                                    @foreach($cars as $car)
+                                    @foreach($places as $place)
 
-                                        <option value="{{$car->id}}"
-                                                @if($CarReview->car_id==$car->id) selected @endif>{{$car->name ?? ''}}</option>
+                                        <option value="{{$place->id}}"
+                                                @if($PlaceReview->place_id==$place->id) selected @endif>{{$place->name_ar ?? ''}}</option>
 
                                     @endforeach
 
