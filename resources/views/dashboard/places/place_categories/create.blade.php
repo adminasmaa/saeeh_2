@@ -70,22 +70,22 @@
                                         <label>@lang('site.en.name')<span class="text-danger">*</span></label>
                                         <input type="text" name="name_en" class="form-control"
                                                value="{{old('name_en')}}"
-                                               >
+                                        >
                                     </div>
 
-{{--                                    <div class="col-md-6 form-group col-12 p-2 ">--}}
-{{--                                        <label class="form-label">@lang('site.city')</label>--}}
-{{--                                        <select class="js-example-placeholder-multiple col-sm-12" multiple="multiple"--}}
-{{--                                                name="city_id[]">--}}
-{{--                                            <option selected>@lang('site.select')</option>--}}
-{{--                                            @foreach($cities as $city)--}}
+                                    {{--                                    <div class="col-md-6 form-group col-12 p-2 ">--}}
+                                    {{--                                        <label class="form-label">@lang('site.city')</label>--}}
+                                    {{--                                        <select class="js-example-placeholder-multiple col-sm-12" multiple="multiple"--}}
+                                    {{--                                                name="city_id[]">--}}
+                                    {{--                                            <option selected>@lang('site.select')</option>--}}
+                                    {{--                                            @foreach($cities as $city)--}}
 
-{{--                                                <option value="{{$city->id}}">{{$city->name_ar ?? ''}}</option>--}}
+                                    {{--                                                <option value="{{$city->id}}">{{$city->name_ar ?? ''}}</option>--}}
 
-{{--                                            @endforeach--}}
+                                    {{--                                            @endforeach--}}
 
-{{--                                        </select>--}}
-{{--                                    </div>--}}
+                                    {{--                                        </select>--}}
+                                    {{--                                    </div>--}}
                                 </div>
                                 <div class="row">
                                     <!--<div class="col-md-6">-->
@@ -126,43 +126,43 @@
 
                                 <div class="row m-0">
                                     <h4 class="card-title">@lang('site.subcategories')</h4>
-{{--                                    <div class="col-md-3 form-group col-12 p-2">--}}
+                                    {{--                                    <div class="col-md-3 form-group col-12 p-2">--}}
 
 
-{{--                                        <label>@lang('site.name')</label>--}}
-{{--                                        <input type="text" name="name_category[]" class="form-control"--}}
-{{--                                               value="{{ old('name') }}">--}}
-{{--                                    </div>--}}
+                                    {{--                                        <label>@lang('site.name')</label>--}}
+                                    {{--                                        <input type="text" name="name_category[]" class="form-control"--}}
+                                    {{--                                               value="{{ old('name') }}">--}}
+                                    {{--                                    </div>--}}
 
-{{--                                    <div class="col-md-3 form-group col-12 p-2">--}}
-
-
-{{--                                        <label>@lang('site.image')</label>--}}
-{{--                                        <input type="file" name="image_category[]" class="form-control"--}}
-{{--                                               value="{{ old('image') }}">--}}
-
-{{--                                    </div>--}}
+                                    {{--                                    <div class="col-md-3 form-group col-12 p-2">--}}
 
 
-{{--                                    <div class="col-md-2 form-group col-12 p-2">--}}
+                                    {{--                                        <label>@lang('site.image')</label>--}}
+                                    {{--                                        <input type="file" name="image_category[]" class="form-control"--}}
+                                    {{--                                               value="{{ old('image') }}">--}}
 
-{{--                                        <br>--}}
-{{--                                        <a--}}
-{{--                                            class="btn btn-air-primary btn-pill btn-primary add-category w-100">@lang('site.add')</a>--}}
-{{--                                    </div>--}}
-
-
-{{--                                </div>--}}
+                                    {{--                                    </div>--}}
 
 
-{{--                                <table class="categories-list" id="table5">--}}
+                                    {{--                                    <div class="col-md-2 form-group col-12 p-2">--}}
 
-{{--                                    --}}{{--                                <div class="row m-0 sub-categories">--}}
+                                    {{--                                        <br>--}}
+                                    {{--                                        <a--}}
+                                    {{--                                            class="btn btn-air-primary btn-pill btn-primary add-category w-100">@lang('site.add')</a>--}}
+                                    {{--                                    </div>--}}
 
 
-{{--                                    --}}{{--                                </div>--}}
+                                    {{--                                </div>--}}
 
-{{--                                </table>--}}
+
+                                    {{--                                <table class="categories-list" id="table5">--}}
+
+                                    {{--                                    --}}{{--                                <div class="row m-0 sub-categories">--}}
+
+
+                                    {{--                                    --}}{{--                                </div>--}}
+
+                                    {{--                                </table>--}}
                                     <div class="col-md-12 form-group col-12 desc" id="price2" >
                                         <table class="price-list" id="tb_price">
                                             <tr><td>
@@ -183,17 +183,17 @@
                                     </div>
 
 
+                                </div>
+
+
                             </div>
-
-
                     </div>
                 </div>
             </div>
-        </div>
 
-        </form>
-        <!--    </div>-->
-    </div>
+            </form>
+            <!--    </div>-->
+        </div>
     </div><!--</div>-->
 
     </div>

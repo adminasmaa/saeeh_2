@@ -353,6 +353,13 @@
                                    href="{{route('dashboard.advertising.index')}}">
                                     <i data-feather="zap"></i><span>@lang('site.advertising') @endlang</span></a>
                             </li>
+
+                            <li class="sidebar-list"><a
+                                    class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.reviewElements.index')?'activee':'' }}"
+                                    href="{{route('dashboard.reviewElements.index')}}"><i
+                                        data-feather="bar-chart-2"></i><span>@lang('site.reviewElements') @endlang</span></a>
+
+                            </li>
                             {{--list--}}
                         
                             <li class="sidebar-list">
@@ -372,6 +379,10 @@
 
                                     <li>
                                         <a href="{{route('dashboard.car_comments.index')}}"  class="{{($current_route=='dashboard.car_comments.index')?'activee':'' }}">{{__('site.car_comments')}}</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="{{route('dashboard.car_reviews.index')}}" class="{{($current_route=='dashboard.car_reviews.index')?'activee':'' }}">{{__('site.car_reviews')}}</a>
                                     </li>
                                 </ul>
                             </li>
@@ -453,6 +464,10 @@
                                         <a href="{{route('dashboard.aqar_comments.index')}}" class="{{($current_route=='dashboard.aqar_comments.index')?'activee':'' }}">{{__('site.aqar_comments')}}</a>
                                     </li>
                                     
+                                    <li>
+                                        <a href="{{route('dashboard.aqar_reviews.index')}}" class="{{($current_route=='dashboard.aqar_reviews.index')?'activee':'' }}">{{__('site.aqar_reviews')}}</a>
+                                    </li>
+
                                 </ul>
                             </li>
 

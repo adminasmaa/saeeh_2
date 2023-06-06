@@ -79,6 +79,11 @@ return [
     'female' => 'Female',
     'male' => 'Male',
 
+    'reviewElements' => 'ReviewElements',
+
+    'aqar_reviews' => 'AqarReviews',
+    'car_reviews' => 'CarReviews',
+    'place_reviews' => 'PlaceReviews',
 
     'namess' => 'Name',
     'emails' => 'Email',

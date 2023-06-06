@@ -59,7 +59,7 @@ class AqarController extends Controller
     public function AqarsReviews(Request $request)
     {
 
-        $comments = AqarComment::where('aqar_id', $request->aqar_id)->get();
+        $comments = AqarComment::where('aqar_id', $request->aqar_id)->paginate(10);
 
 
         if (isset($comments)) {

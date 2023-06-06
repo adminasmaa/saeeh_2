@@ -46,6 +46,10 @@ use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Dashboard\ContactController;
 use App\Http\Controllers\Dashboard\AqarCommentController;
 use App\Http\Controllers\Dashboard\AqarSettingController;
+use App\Http\Controllers\Dashboard\ReviewElementController;
+use App\Http\Controllers\Dashboard\AqarReviewController;
+use App\Http\Controllers\Dashboard\CarReviewController;
+
 use Illuminate\Support\Facades\Route;
 
 Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedirect', 'localizationRedirect', 'localeViewPath')->group(function () {
@@ -178,6 +182,15 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
         //sections
         Route::resource('sections', SectionController::class);
+
+        //reviewElements
+        Route::resource('reviewElements', ReviewElementController::class);
+
+        //aqar_reviews
+        Route::resource('aqar_reviews', AqarReviewController::class);
+
+        //car_reviews
+        Route::resource('car_reviews', CarReviewController::class);
 
     }); //end of dashboard routes
 });

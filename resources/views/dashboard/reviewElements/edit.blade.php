@@ -8,13 +8,13 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-6">
-                        <h3>@lang('site.cities')</h3>
+                        <h3>@lang('site.reviewElements')</h3>
                     </div>
                     <div class="col-6">
                         <ol class="breadcrumb">
 
                             <li class="breadcrumb-item">@lang('site.dashboard')</li>
-                            <li class="breadcrumb-item active">@lang('site.cities') @endlang</li>
+                            <li class="breadcrumb-item active">@lang('site.reviewElements') @endlang</li>
                         </ol>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
         <div class="container-fluid">
             <div class="row second-chart-list third-news-update">
                 <div class="col-xl-12 col-lg-11 xl-50 morning-sec box-col-12">
-                    <form action="{{ route('dashboard.cities.update', $city->id) }}" method="post"
+                    <form action="{{ route('dashboard.reviewElements.update', $reviewElement->id) }}" method="post"
                           enctype="multipart/form-data">
 
                         {{ csrf_field() }}
@@ -59,9 +59,10 @@
 
 
                                     <label>@lang('site.image')</label>
-                                    <img src="{{asset('images/cities/'.$city->image)}}" data-bs-toggle="modal"
+                                    <img src="{{asset('images/reviewElements/'.$reviewElement->icon)}}"
+                                         data-bs-toggle="modal"
                                          data-bs-target="#exampleModalss" width="100px" height="100px" class="d-block"
-                                         onerror="this.src='{{asset('images/default.png')}}'"
+                                         onerror="this.src='{{asset('images/reviewElements/default.jpg')}}'"
                                     >
 
 
@@ -83,11 +84,12 @@
                                                 <tr>
                                                     <th>
                                                         <img name="soso"
-                                                             src="{{asset('images/cities/'.$city->image)}}" alt=""
+                                                             src="{{asset('images/reviewElements/'.$reviewElement->icon)}}"
+                                                             alt=""
                                                              width="400px" height="aut0"
 
 
-                                                             onerror="this.src='{{asset('images/default.png')}}'"
+                                                             onerror="this.src='{{asset('images/reviewElements/default.jpg')}}'"
                                                         >
 
                                                     </th>
@@ -107,88 +109,49 @@
                             </div>
                             <!--  End Of Modal -->
                             <div class="row">
+                                <!--<div class="col-md-6">-->
 
                                 <div class="col-md-6 form-group col-12 p-2">
-                                    <label>@lang('site.ar.name')<span class="text-danger">*</span></label>
-                                    <input type="text" name="name_ar" class="form-control" value="{{ $city->name_ar }}"
+                                    <label>@lang('site.name_ar')<span class="text-danger">*</span></label>
+                                    <input type="text" name="name_ar" class="form-control"
+                                           value="{{ $reviewElement->name_ar }}"
                                            required>
                                 </div>
-                                <div class="col-md-6 form-group col-12 p-2">
-                                    <label>@lang('site.en.name')<span class="text-danger">*</span></label>
-                                    <input type="text" name="name_en" class="form-control" value="{{ $city->name_en }}"
-                                    >
-                                </div>
-
 
                                 <div class="col-md-6 form-group col-12 p-2 ">
-                                    <label>@lang('site.order')<span class="text-danger">*</span></label>
-                                    <input type="text" name="order" class="form-control" value="{{ $city->order }}"
-                                    >
+                                    <label>@lang('site.name_en')</label>
+                                    <input type="text" name="name_en" class="form-control"
+                                           value="{{ $reviewElement->name_en }}"
+                                           required>
                                 </div>
+                            </div>
 
-                                <div class="col-md-6 form-group col-12 p-2 ">
-                                    <label class="form-label">@lang('site.category')</label>
-                                    <select class="js-example-placeholder-multiple col-sm-12" multiple="multiple"
-                                            name="category_id[]">
-                                        <option selected>@lang('site.select')</option>
-                                        @foreach($categories as $category)
-
-                                            <option value="{{$category->id}}"  @if(in_array($category->id,$categoryrelated)) selected @endif>{{$category->name ?? ''}}</option>
-
-                                        @endforeach
-
-                                    </select>
-                                </div>
-
-                                {{--                                <div class="col-md-6 form-group col-12 p-2 ">--}}
-                                {{--                                    <label>@lang('site.code')<span class="text-danger">*</span></label>--}}
-                                {{--                                    <input type="text" name="code" class="form-control" value="{{ $city->code }}"--}}
-                                {{--                                    >--}}
-                                {{--                                </div>--}}
-
-                                <div class="col-md-6 form-group">
-                                    <label class="form-label">@lang('site.country')</label>
-                                    <select class="form-control btn-square" name="country_id">
-                                        <option selected>@lang('site.select')</option>
-                                        @foreach($countries as $country)
-
-                                            <option value="{{$country->id}}"
-                                                    @if($country->id==$city->country_id) selected @endif>{{$country->name_ar ?? ''}}</option>
-
-                                        @endforeach
-
-                                    </select>
-                                </div>
-
-
-                                <div class="col-md-6 form-group col-12 p-2 ">
-                                    <label class="form-label">@lang('site.city')</label>
-                                    <select class="js-example-placeholder-multiple col-sm-12" multiple="multiple"
-                                            name="category_id[]">
-                                        <option>@lang('site.select')</option>
-                                        @foreach($categories as $category)
-
-                                            <option value="{{$category->id}}"
-                                                    @if(in_array($category->id,$reletedCategory)) selected @endif>{{$category->name_ar ?? ''}}</option>
-
-                                        @endforeach
-
-                                    </select>
-                                </div>
-
+                            <div class="row">
 
                                 <div class="col-md-6 form-group col-12 p-2">
 
 
                                     <label>@lang('site.image')</label>
-                                    <input type="file" name="image" class="form-control" value="{{ old('image') }}">
+                                    <input type="file" name="icon" class="form-control"
+                                           value="{{ old('icon') }}">
 
 
                                 </div>
-
-
                             </div>
+
+                            <br>
+
+
+
+
                         </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
 
                     </form>
                 </div>
@@ -196,6 +159,8 @@
         </div>
         <!-- Individual column searching (text inputs) Ends-->
     </div>
-
+    </div>
+    <!-- Container-fluid Ends-->
+    </div>
 
 @endsection

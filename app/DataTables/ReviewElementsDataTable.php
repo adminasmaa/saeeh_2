@@ -3,7 +3,7 @@
 namespace App\DataTables;
 
 use App\Helpers\DTHelper;
-use App\Models\Aqar;
+use App\Models\ReviewElement;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -13,9 +13,9 @@ use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class AqarDataTable extends DataTable
+class ReviewElementsDataTable extends DataTable
 {
-    private $crudName = 'aqars';
+    private $crudName = 'reviewElements';
 
     private function getRoutes()
     {
@@ -64,20 +64,19 @@ class AqarDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Aqar $model
+     * @param \App\Models\ReviewElement $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Aqar $model): QueryBuilder
+    public function query(ReviewElement $model): QueryBuilder
     {
         return $model->newQuery();
     }
 
     public function count()
     {
-        return Aqar::count();
+        return ReviewElement::count();
 
     }
-
 
     /**
      * Optional method if you want to use html builder.
@@ -87,10 +86,10 @@ class AqarDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-            ->setTableId('aqars-table')
+            ->setTableId('reviewElements-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-           ->dom('Bfrtip')
+            ->dom('Bfrtip')
             ->orderBy(1)
             ->selectStyleSingle()
             ->buttons([
@@ -113,7 +112,8 @@ class AqarDataTable extends DataTable
             Column::make('DT_RowIndex')->data('DT_RowIndex')->name('DT_RowIndex')->title('#'),
 
             Column::make('name_ar')->title(trans('site.name_ar')),
-//            Column::make('description')->title(trans('site.description')),
+            Column::make('name_en')->title(trans('site.name_en')),
+            Column::make('icon')->title(trans('site.icon')),
             Column::make('created_at')->title(trans('site.created_at')),
             Column::computed('action')
                 ->exportable(false)
@@ -130,6 +130,6 @@ class AqarDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'aqars_' . date('YmdHis');
+        return 'ReviewElements_' . date('YmdHis');
     }
 }

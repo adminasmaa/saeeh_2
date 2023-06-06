@@ -81,6 +81,9 @@ class Aqar extends Model
     public function aqarBooking(){
         return $this->HasMany(AqarBooking::class);
     }
+   public function aqarReview(){
+        return $this->HasMany(AqarReview::class);
+    }
 
     public function aqarSection(){
         return $this->HasMany(AqarSections::class);

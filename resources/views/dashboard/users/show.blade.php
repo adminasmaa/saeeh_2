@@ -86,7 +86,7 @@
                                             <tr>
                                                 <th>
                                                     <img name="soso" src="{{asset('images/employee/'.$user->image)}}" alt=""
-                                                        width="400px" height="aut0">
+                                                        width="400px" height="aut0"    onerror="this.src='{{asset('images/employee/default.jpg')}}'">
 
                                                 </th>
                                             </tr>

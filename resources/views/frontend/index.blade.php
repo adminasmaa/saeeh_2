@@ -375,25 +375,25 @@
                                 <ul class="sub-menu__sub-list px-0 list-unstyled">
 
                                     @foreach($CategoriesPlaces as $categoryplace)
-                                    <li class="sub-menu__sub-item pb-2">
-                                        <a href="#" class="sub-menu-link">
-                                            <div class="d-flex align-items-center">
-                                                <div class="pb-1">
+                                        <li class="sub-menu__sub-item pb-2">
+                                            <a href="#" class="sub-menu-link">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="pb-1">
 
-                                                    <img src="{{asset('images/categories/'.$categoryplace->icon)}}"
-                                                         alt="car-icon"
-                                                         class="ps-2"
-                                                         width="30px"
-                                                         height="30px"
+                                                        <img src="{{asset('images/categories/'.$categoryplace->icon)}}"
+                                                             alt="car-icon"
+                                                             class="ps-2"
+                                                             width="30px"
+                                                             height="30px"
 
-                                                         onerror="this.src='{{asset('images/categories/default.jpg')}}'"
-                                                    >
+                                                             onerror="this.src='{{asset('images/categories/default.jpg')}}'"
+                                                        >
 
+                                                    </div>
+                                                    <div>{{$categoryplace->name ?? ''}}</div>
                                                 </div>
-                                                <div>{{$categoryplace->name ?? ''}}</div>
-                                            </div>
-                                        </a>
-                                    </li>
+                                            </a>
+                                        </li>
                                     @endforeach
                                 </ul>
                             </div>
@@ -2061,19 +2061,19 @@
                     <div class="owl-carousel owl-theme restaurant-owl">
 
                         @foreach($CategoriesPlaces as $place)
-                        <div class="card-tour mb-3">
+                            <div class="card-tour mb-3">
 
-                            <img src="{{asset('images/categories/'.$place->image)}}"
-                                 class="card-img-top"
-                                 alt="Card image cap"
-                                 onerror="this.src='{{asset('frontend/assets/images/restaurants/restaurant-1.jpg')}}'"
-                            >
-                            <div
-                                class="card-tour-body d-flex justify-content-center align-items-center"
-                            >
-                                <h2 class="card-title">{{$place->name ??''}}</h2>
+                                <img src="{{asset('images/categories/'.$place->image)}}"
+                                     class="card-img-top"
+                                     alt="Card image cap"
+                                     onerror="this.src='{{asset('frontend/assets/images/restaurants/restaurant-1.jpg')}}'"
+                                >
+                                <div
+                                    class="card-tour-body d-flex justify-content-center align-items-center"
+                                >
+                                    <h2 class="card-title">{{$place->name ??''}}</h2>
+                                </div>
                             </div>
-                        </div>
                         @endforeach
                     </div>
                 </div>
@@ -2092,32 +2092,32 @@
                     <div class="owl-carousel owl-theme review-owl">
 
                         @foreach($PlacesComments as $comment)
-                        <div class="card card-reviews">
-                            <div class="card-block">
-                                <div class="card-yazı">
-                                    <p class="text-center">
+                            <div class="card card-reviews">
+                                <div class="card-block">
+                                    <div class="card-yazı">
+                                        <p class="text-center">
 
-                                        {{$comment->description ?? ''}}
+                                            {{$comment->description ?? ''}}
 
-                                    </p>
-                                    <div class="card-sahip">
-                                        <div class="favicon">
+                                        </p>
+                                        <div class="card-sahip">
+                                            <div class="favicon">
 
-                                            <img src="{{asset('images/employee/'.$comment->user->image)}}" data-bs-toggle="modal"
-                                                 height="40"
-                                                 width="40" class="d-block"
-                                                 onerror="this.src='https://i.hizliresim.com/yqQzON.jpg'"
-                                            >
+                                                <img src="{{asset('images/employee/'.$comment->user->image)}}" data-bs-toggle="modal"
+                                                     height="40"
+                                                     width="40" class="d-block"
+                                                     onerror="this.src='https://i.hizliresim.com/yqQzON.jpg'"
+                                                >
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="isim text-center">
-                                    <h1>{{$comment->user->firstname .' '. $comment->user->lastname}} </h1>
-                                    <p>{{$comment->user->country->name ?? ''}}</p>
+                                    <div class="isim text-center">
+                                        <h1>{{$comment->user->firstname .' '. $comment->user->lastname}} </h1>
+                                        <p>{{$comment->user->country->name ?? ''}}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         @endforeach
                     </div>
                 </div>
