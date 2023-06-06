@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -88,5 +89,10 @@ class Car extends Model
         return $this->HasMany(Car::class,'sub_category_id');
 
 
+    }
+
+    public function favoriteuser(){
+
+        return $this->belongsToMany(User::class,'car_user','user_id','car_id');
     }
 }
