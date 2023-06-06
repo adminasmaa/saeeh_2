@@ -86,9 +86,11 @@ class Aqar extends Model
     }
 
     public function aqarSection(){
-        return $this->HasMany(AqarSections::class);
-    }
-
+                return $this->belongsToMany(AqarService::class,'aqar_sections','aqar_id','section_id')->distinct()->withPivot('aqar_id')->with(['subsection' => function ($q) {
+                      $q->where('aqar_sections.aqar_id', $this->id);                       
+                  }]);
+  
+      }
     public function favoriteuser(){
 
         return $this->belongsToMany(User::class,'aqar_user','user_id','aqar_id');

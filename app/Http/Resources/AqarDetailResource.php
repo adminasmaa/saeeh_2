@@ -48,11 +48,7 @@ class AqarDetailResource extends JsonResource
             "fixed_price" => $this->fixed_price ?? 0,
             "changed_price" => json_decode($this->changed_price) ?? [],
             "category" => new staticResource($this->category),
-            'aqarSection' => $this->aqarSection->map(function ($category) {
-                $category = $category->AqarDetail;
-                return $category;
-            })
-
+            'aqarSection' => $this->aqarSection
 
         ];
     }

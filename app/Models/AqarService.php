@@ -15,7 +15,6 @@ class AqarService extends Model
     public $guarded = ['id'];
 
     protected $table = 'aqar_details';
-    protected $with = ['subsection'];
     protected $appends = ['image_path'];
 
     protected $fillable = [
@@ -43,7 +42,7 @@ class AqarService extends Model
 
     public function subsection()
     {
-        return $this->HasMany(AqarService::class, 'parent_id')->join('aqar_sections', 'aqar_details.id', '=', 'aqar_sections.sub_section_id');
+        return $this->belongsToMany(AqarService::class, 'aqar_sections', 'section_id', 'sub_section_id');
     }
 
 }
