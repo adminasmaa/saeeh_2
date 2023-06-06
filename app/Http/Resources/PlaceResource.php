@@ -39,6 +39,8 @@ class PlaceResource extends JsonResource
             "phone_two" => $this->phone_two ?? '',
             "longitude" => $this->longitude ?? '',
             "latitude" => $this->latitude ?? '',
+            "favorite" => (count($this->favoriteuser)>0 ? true : false),
+            "rate" => $this->placeComments->avg('rating') ?? 0,
             "path"=>asset('images/places/'),
             "images" => $this->images,
             "display_photo" => asset('images/places') . "/" . $this->display_photo,

@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Models\User;
 
 //belongsTo
 use App\Models\Category;
@@ -93,6 +93,11 @@ class Place extends Model
     public function placeComments()
     {
         return $this->HasMany(PlaceComment::class);
+    }
+
+    public function favoriteuser(){
+
+        return $this->belongsToMany(User::class,'user_palace','user_id','place_id');
     }
 
 }

@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Auth;
 class CarController extends Controller
 {
 
-    public function FavouriteCar(Request $request)
+    public function CarFavourite(Request $request)
     {
         $user_id = Auth::id();
 

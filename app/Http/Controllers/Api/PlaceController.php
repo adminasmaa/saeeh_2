@@ -11,11 +11,30 @@ use App\Models\City;
 use App\Models\Country;
 use App\Models\Place;
 use App\Models\PlaceComment;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class PlaceController extends Controller
 {
+
+
+    public function PlaceFavourite(Request $request)
+    {
+        $user_id = Auth::id();
+
+        $users = User::find($user_id);
+
+
+        $user = $users->FavouritePalace()->toggle($request->place_id);
+
+        $status = ($user['attached'] !== []) ? 'added' : 'deleted';
+
+        return $this->respondSuccess($status, trans('message.data retrieved successfully.'));
+
+
+    }
 
     public function CustomerReviews(Request $request)
     {
