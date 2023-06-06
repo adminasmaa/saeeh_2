@@ -51,7 +51,7 @@
                             <div class="col-md-6 form-group col-12 p-2">
                                 <label>@lang('site.rate')<span class="text-danger">*</span></label>
                                 <input type="float" name="rate" class="form-control"
-                                       value="{{ $AqarReview->rate }}" readonly
+                                       value="{{ $AqarReview->rate }}" readonly=""disabled
                                 >
                             </div>
 
@@ -59,7 +59,7 @@
 
                             <div class="col-md-6 form-group">
                                 <label class="form-label">@lang('site.users')<span class="text-danger">*</span></label>
-                                <select class="form-control btn-square" name="user_id" readonly="">
+                                <select class="form-control btn-square" name="user_id" readonly=""disabled>
                                     <option selected>@lang('site.select')</option>
                                     @foreach($users as $user)
 
@@ -74,7 +74,7 @@
 
                             <div class="col-md-6 form-group">
                                 <label class="form-label">@lang('site.aqars')</label>
-                                <select class="form-control btn-square" name="aqar_id" readonly="">
+                                <select class="form-control btn-square" name="aqar_id" readonly=""disabled>
                                     <option selected>@lang('site.select')</option>
                                     @foreach($aqars as $aqar)
 
@@ -89,7 +89,7 @@
                         </br>
                             <div class="col-md-6 form-group">
                                 <label class="form-label">@lang('site.reviewElements')</label>
-                                <select class="form-control btn-square" name="review_element_id" readonly="">
+                                <select class="form-control btn-square" name="review_element_id" readonly=""disabled>
                                     <option selected>@lang('site.select')</option>
                                     @foreach($ReviewElement as $reviewElements)
 

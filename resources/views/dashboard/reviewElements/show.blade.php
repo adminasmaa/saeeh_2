@@ -108,13 +108,13 @@
                                 <div class="col-md-6 form-group col-12 p-2">
                                     <label>@lang('site.name_ar')<span class="text-danger">*</span></label>
                                     <input type="text" name="name_ar" class="form-control"
-                                           value="{{ $reviewElement->name_ar }}" readonly
+                                           value="{{ $reviewElement->name_ar }}" readonly=""disabled
                                            required>
                                 </div>
 
                                 <div class="col-md-6 form-group col-12 p-2 ">
                                     <label>@lang('site.name_en')</label>
-                                    <input type="text" name="name_en" class="form-control" readonly
+                                    <input type="text" name="name_en" class="form-control" readonly=""disabled
                                            value="{{ $reviewElement->name_en }}"
                                            >
                                 </div>
