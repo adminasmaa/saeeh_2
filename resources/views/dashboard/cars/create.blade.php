@@ -240,30 +240,32 @@
                                         </select>
                                     </div>
 
-                                    <div class="col-md-6 form-group">
-                                        <label class="form-label">@lang('site.country')</label>
-                                        <select class="form-control btn-square" name="country_id">
-                                            <option selected value="0">@lang('site.select')</option>
-                                            @foreach($countries as $country)
+                                    <div class="row">
+                                                <div class="col-md-6 form-group">
+                                                    <label class="form-label">@lang('site.country')</label>
+                                                    <select class="form-control btn-square" name="country_id" id="country_id">
+                                                        <option selected value="0">@lang('site.select')</option>
+                                                        @foreach($countries as $country)
 
-                                                <option value="{{$country->id}}">{{$country->name_ar ?? ''}}</option>
+                                                            <option value="{{$country->id}}">{{$country->name_ar ?? ''}}</option>
 
-                                            @endforeach
+                                                        @endforeach
 
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6 form-group">
-                                        <label class="form-label">@lang('site.city')</label>
-                                        <select class="form-control btn-square" name="city_id">
-                                            <option selected value="0">@lang('site.select')</option>
-                                            @foreach($cities as $city)
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6 form-group">
+                                                    <label class="form-label">@lang('site.city')</label>
+                                                    <select class="form-control btn-square" name="city_id" id="city_id">
+                                                        <option selected value="0">@lang('site.select')</option>
+                                                        <!-- @foreach($cities as $city)
 
-                                                <option value="{{$city->id}}">{{$city->name_ar ?? ''}}</option>
+                                                            <option value="{{$city->id}}">{{$city->name_ar ?? ''}}</option>
 
-                                            @endforeach
+                                                        @endforeach -->
 
-                                        </select>
-                                    </div>
+                                                    </select>
+                                                </div>
+                                            </div>
                                 </div>
 
 
@@ -353,6 +355,35 @@
             r.closest('tr').remove();
         }
 
+        $('#country_id').on('change',function(e){
+            var country_id = e.target.value;
+
+
+
+            $.get("{{url('dashboard/countrycities')}}/"+country_id, function(data){
+                console.log(data);
+                $('#city_id').empty();
+                $('#city_id').append('<option>@lang('site.select')</option>');
+                $.each(data, function(key, value){
+                    $('#city_id').append('<option value="'+value.id+'">'+value.name_ar+'</option>')
+
+                });
+            })
+        })
+
+
+        $('#city_id').on('change',function(e){
+            var city_id = e.target.value;
+            $("#cityarea").show(); 
+            $.get("{{url('dashboard/cityareas')}}/"+city_id, function(data){
+                console.log(data);
+                $('#area_id').empty();
+                $.each(data, function(key, value){
+                    $('#area_id').append('<li class="form-check radio radio-primary" ><input class="form-check-input" id="area_'+value.id+'" type="radio" name="area_id" value="'+value.id+'" required><label class="form-check-label mb-0" for="area_'+value.id+'">'+value.name_ar+'</label></li>')
+
+                });
+            })
+        })
         $('#category_id').on('change',function(e){
             var categoryId = e.target.value;
 

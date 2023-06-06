@@ -386,22 +386,22 @@
                                 <div class="row">
                                 <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                     <label class="form-label">@lang('site.categories')</label>
-                                    <select class="form-control btn-square" name="category_id"id="category_id">
-                                        <option selected>@lang('site.select')</option>
+                                    <select class="form-control btn-square" name="category_id" id="category_id">
+                                        <option selected value="0">@lang('site.select')</option>
                                         @foreach($categories as $cat)
 
-                                            <option value="{{$cat->id}}"@if($place->category_id==$cat->id) selected @endif>{{$cat->name_ar ?? ''}}</option>
+                                            <option value="{{$cat->id}}"
+                                                    @if($place->category_id==$cat->id) selected @endif>{{$cat->name_ar ?? ''}}</option>
 
                                         @endforeach
 
                                     </select>
                                 </div>
 
-
                                 <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                     <label class="form-label">@lang('site.subcategories')</label>
                                     <select class="form-control btn-square" name="sub_category_id" id="sub_category_id">
-                                                                                <option >@lang('site.select')</option>
+                                        <option value="0">@lang('site.select')</option>
                                         @foreach($subcategories as $cats)
 
                                             <option value="{{$cats->id}}"
@@ -516,7 +516,6 @@
 @section('scripts')
 
     <script>
-
         $('#category_id').on('change', function (e) {
             var categoryId = e.target.value;
 
@@ -531,7 +530,6 @@
                 });
             })
         })
-
     </script>
 
 @endsection

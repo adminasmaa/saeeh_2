@@ -195,7 +195,7 @@ return [
     'Contact_name' => 'الاسم ',
     'contact_phone' => 'التليفون',
 
-
+    'Select Please' => 'من فضلك اختار',
     'Register' => 'التسجيل',
     'website_link' => 'رابط الموقع',
     'ads_top' => 'الاعلان ثابت في الاعلى',
