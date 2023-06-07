@@ -44,7 +44,7 @@ class AqarDetailResource extends JsonResource
             "favorite" => (count($this->favoriteuser)>0 ? true : false),
 
             "rate" => $this->aqarComment->avg('rating') ?? 0,
-            "aqarReview" => $this->aqarReview,
+            "aqarReview" => AqarReviewResource::collection($this->aqarReview),
             "fixed_price" => $this->fixed_price ?? 0,
             "changed_price" => json_decode($this->changed_price) ?? [],
             "category" => new staticResource($this->category),
