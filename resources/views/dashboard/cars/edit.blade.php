@@ -62,8 +62,7 @@
                                     <img src="{{asset('images/cars/'.$car->main_image_ads)}}"
                                          data-bs-toggle="modal"
                                          data-bs-target="#exampleModalss" width="100px" height="100px" class="d-block"
-                                         onerror="this.src='{{asset('images/cars/default.jpg')}}'"
-                                    >
+                                         onerror="this.src='{{asset('images/cars/default.jpg')}}'">
 
 
                                 </div>
