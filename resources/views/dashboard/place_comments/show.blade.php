@@ -52,14 +52,14 @@
                             <div class="col-md-6 form-group col-12 p-2">
                                 <label>@lang('site.description')<span class="text-danger">*</span></label>
                                 <input type="text" name="description" class="form-control"
-                                       value="{{ $PlaceComment->description }}" readonly
+                                       value="{{ $PlaceComment->description }}" readonly=""disabled
                                 >
                             </div>
 
                             <div class="col-md-6 form-group col-12 p-2">
                                 <label>@lang('site.rating')<span class="text-danger">*</span></label>
                                 <input type="number" name="rating" class="form-control"
-                                       value="{{ $PlaceComment->rating }}" readonly
+                                       value="{{ $PlaceComment->rating }}" readonly=""disabled
                                 >
                             </div>
 
@@ -103,7 +103,7 @@
                             <div class="col-md-6 form-group col-12 p-2">
                                 <label>@lang('site.places')</label>
                                 <input type="text" name="place_id" class="form-control"
-                                       value="{{$places['name_ar']}}" readonly
+                                       value="{{$places['name_ar']}}" readonly=""disabled
                                 >
                             </div>
 

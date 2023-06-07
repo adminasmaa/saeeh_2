@@ -108,7 +108,7 @@
                             <div class="col-md-6 form-group col-12 p-2">
                                 <label>@lang('site.name')<span class="text-danger">*</span></label>
                                 <input type="text" name="name" class="form-control"
-                                       value="{{ $car->name }}" readonly
+                                       value="{{ $car->name }}" readonly=""disabled
                                 >
                             </div>
 
@@ -116,48 +116,47 @@
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.year')<span class="text-danger">*</span></label>
                                 <input type="text" name="year" class="form-control"
-                                       value="{{ $car->year }}" readonly
+                                       value="{{ $car->year }}" readonly=""disabled
                                 >
                             </div>
 
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.color')<span class="text-danger">*</span></label>
                                 <input type="color" name="color" class="form-control"
-                                       value="{{ $car->color }}" readonly
+                                       value="{{ $car->color }}" readonly=""disabled
                                 >
                             </div>
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.category')<span class="text-danger">*</span></label>
                                 <input type="text" name="category" class="form-control"
-                                       value="{{ $car->category ?? '' }}" readonly
+                                       value="{{ $car->category ?? '' }}" readonly=""disabled
                                 >
                             </div>
 
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.number')<span class="text-danger">*</span></label>
                                 <input type="text" name="car_numbers" class="form-control"
-                                       value="{{ $car->car_numbers ?? '' }}" readonly>
+                                       value="{{ $car->car_numbers ?? '' }}" readonly=""disabled>
                             </div>
 
 
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.date')<span class="text-danger">*</span></label>
-                                <input type="date" name="car_delivery_date" class="form-control"
-                                       value="{{ $car->car_delivery_date }}" readonly>
+                                <input type="datetime" name="car_delivery_date" class="form-control"
+                                       value="{{ $car->car_delivery_date }}" disabled readonly=""
+                                >
                             </div>
-
-
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.price')<span class="text-danger">*</span></label>
                                 <input type="text" name="fixed_price" class="form-control"
-                                       value="{{ $car->fixed_price ?? '' }}" readonly
+                                       value="{{ $car->fixed_price ?? '' }}" readonly=""disabled
                                 >
                             </div>
 
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.changed_price')<span class="text-danger">*</span></label>
                                 <input type="text" name="changed_price" class="form-control"
-                                       value="{{ $car->changed_price ?? '' }}" readonly=""
+                                       value="{{ $car->changed_price ?? '' }}" readonly=""disabled
                                 >
                             </div>
 
@@ -170,7 +169,7 @@
 
                             <div class="col-md-6 form-group">
                                 <label class="form-label">@lang('site.users')</label>
-                                <select class="form-control btn-square" name="user_id" readonly="">
+                                <select class="form-control btn-square" name="user_id" readonly=""disabled>
                                     <option selected>@lang('site.select')</option>
                                     @foreach($users as $user)
 
@@ -184,7 +183,7 @@
 
                             <div class="col-md-6 form-group">
                                 <label class="form-label">@lang('site.advertising')</label>
-                                <select class="form-control btn-square" name="ads_id" readonly="">
+                                <select class="form-control btn-square" name="ads_id" readonly=""disabled>
                                     <option selected>@lang('site.select')</option>
                                     @foreach($ads as $ad)
 
