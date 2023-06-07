@@ -290,7 +290,7 @@
 
                                                         <div class="img-thumbs " id="img-previews">
                                                             @if($aqar->images)
-                                                            @foreach (json_decode($aqar->images) as $img)
+                                                            @foreach ((explode(',',$aqar->images)) as $img)
                                                             <div class="wrapper-thumb">
                                                                 <img id="frame" src="{{asset('images/aqars/'.$img)}}"
                                                                     alt=""
