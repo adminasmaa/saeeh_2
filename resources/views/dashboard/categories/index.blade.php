@@ -3,10 +3,6 @@
 
 @section('content')
 
-
-
-
-
     <div class="page-body">
         <div class="container-fluid">
             <div class="page-title">
@@ -36,9 +32,8 @@
 
 
                         </div>
-
                         <div class="bg-secondary-lighten card-header d-flex justify-content-between">
-                            <h5>@lang('site.add') </h5>
+                            <h5></h5>
                             <div class="text-end  group-btn-top">
                                 <div class="form-group d-flex form-group justify-content-between">
 
@@ -50,7 +45,6 @@
 
 
                         </div>
-
                         <div class="card-body">
 
                             <div class="dt-ext table-responsive">
@@ -70,13 +64,6 @@
         </div>
     </div>
     </div>
-
-
-
-
-
-
-
 
 @endsection
 

@@ -69,12 +69,12 @@ class CategoriesDataTable extends DataTable
      */
     public function query(Category $model): QueryBuilder
     {
-        return $model->where('type',2)->where('parent_id',null)->newQuery();
+        return $model->where('type',2)->where('parent_id',2)->newQuery();
     }
 
     public function count()
     {
-        return Category::where('type',2)->where('parent_id',null)->count();
+        return Category::where('type',2)->where('parent_id',2)->count();
 
     }
 
