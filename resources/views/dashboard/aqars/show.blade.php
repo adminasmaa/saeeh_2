@@ -60,7 +60,7 @@
                                         <img src="{{asset('images/aqars/'.$aqar->main_image)}}" data-bs-toggle="modal"
                                             data-bs-target="#exampleModalss" width="100px" height="100px"
                                             class="d-block"
-                                            onerror="this.src='https://saeeh.com/upload/<?=$aqar->main_image?>'">
+                                            onerror="this.src='{{asset('images/aqars/default.jpg')}}'">
                                     </div>
                                     <!-- Modal -->
                                     <div class="modal fade" id="exampleModalss" tabindex="-1"
@@ -80,7 +80,7 @@
                                                                 <img name="display_photo"
                                                                     src="{{asset('images/aqars/'.$aqar->main_image)}}"
                                                                     alt="" width="400px" height="aut0"
-                                                                    onerror="this.src='https://saeeh.com/upload/<?=$aqar->main_image?>'">
+                                                                    onerror="this.src='{{asset('images/aqars/default.jpg')}}'">
 
                                                             </th>
                                                         </tr>
@@ -277,7 +277,7 @@
                                                             value="{{$aqar->main_image}}" id="imgInp"  readonly=""/>
                                                         <img id="frame"
                                                             src="{{asset('images/aqars/'.$aqar->main_image)}}" alt=""
-                                                            onerror="this.src='https://saeeh.com/upload/<?=$aqar->main_image?>'"
+                                                            onerror="this.src='{{asset('images/aqars/default.jpg')}}'"
                                                             width="200px" class="img-upload" />
 
                                                     </div>
@@ -294,7 +294,7 @@
                                                             <div class="wrapper-thumb">
                                                                 <img id="frame" src="{{asset('images/aqars/'.$img)}}"
                                                                     alt=""
-                                                                    onerror="this.src='https://saeeh.com/upload/<?=$img?>'"
+                                                                    onerror="this.src='{{asset('images/aqars/default.jpg')}}'"
                                                                     width="200px" class="img-preview-thumb" /><span
                                                                     class="remove-btn">x</span>
                                                             </div>
