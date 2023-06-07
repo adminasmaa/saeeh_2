@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\ReviewElement;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -11,8 +12,6 @@ use App\Models\User;
 use App\Models\Aqar;
 
 //belongsTo
-use App\Models\ReviewElement;
-
 // belongsTo
 class AqarReview extends Model
 {
@@ -45,5 +44,16 @@ class AqarReview extends Model
     public function reviewElement()
     {
         return $this->belongsTo(ReviewElement::class, 'review_element_id');
+    }
+    public function RateTotal($id){
+        return AqarReview::where('review_element_id',$id)->sum('rate');
+
+
+    }
+
+    public function CountUser($id){
+        return AqarReview::where('review_element_id',$id)->count('user_id');
+
+
     }
 }
