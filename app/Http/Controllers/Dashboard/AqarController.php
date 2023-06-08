@@ -125,12 +125,12 @@ class AqarController extends Controller
     { 
        $details = AqarService::setEagerLoads([])->join('aqar_setting', 'aqar_setting.detail_id', '=', 'aqar_details.id')
        ->where('category_id',$id)->where('display',1)->with('subservices')->get();
-       $aqar = Aqar::with('aqarSection')->find($aqar_id);
+       $aqar = Aqar::with('aqarSubSection')->find($aqar_id);
        $arr=[];
-       foreach($aqar->aqarSection as $item){
+       foreach($aqar->aqarSubSection as $item){
         array_push($arr,$item->sub_section_id);
        }
-     //  return $arr;
+      // return $arr;
        return view('dashboard.aqars.details', compact('details','aqar','arr'));
     }
 
