@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\CategoryOnlyResource;
+use App\Http\Resources\PlaceReviewResource;
 
 class PlaceResource extends JsonResource
 {
@@ -41,6 +42,8 @@ class PlaceResource extends JsonResource
             "latitude" => $this->latitude ?? '',
             "favorite" => (count($this->favoriteuser)>0 ? true : false),
             "rate" => $this->placeComments->avg('rating') ?? 0,
+            "PlaceReview" => PlaceReviewResource::collection($this->PlaceReview)->unique('name'),
+
             "path"=>asset('images/places/'),
             "images" => $this->images,
             "display_photo" => asset('images/places') . "/" . $this->display_photo,

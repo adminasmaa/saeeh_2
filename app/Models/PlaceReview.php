@@ -27,5 +27,17 @@ class PlaceReview extends Model
     public function place(){
         return $this->belongsTo(Place::class,'place_id');
     }
-   
+
+    public function RateTotal($id){
+        return PlaceReview::where('place_id',$id)->sum('rate');
+
+
+    }
+
+    public function CountUser($id){
+        return PlaceReview::where('place_id',$id)->count('user_id');
+
+
+    }
+
 }

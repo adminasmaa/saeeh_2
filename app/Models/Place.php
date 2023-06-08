@@ -79,6 +79,12 @@ class Place extends Model
     }
 
     // relations
+
+
+    public function PlaceReview(){
+        return $this->HasMany(PlaceReview::class)->distinct();
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');
