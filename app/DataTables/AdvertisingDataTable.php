@@ -4,7 +4,6 @@ namespace App\DataTables;
 
 use App\Helpers\DTHelper;
 use App\Models\Ads;
-use App\Models\Advertising;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -88,7 +87,7 @@ class AdvertisingDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-            ->setTableId('advertising-table')
+            ->setTableId('ads-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
             ->dom('Bfrtip')
@@ -131,6 +130,6 @@ class AdvertisingDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'Advertising_' . date('YmdHis');
+        return 'Ads_' . date('YmdHis');
     }
 }

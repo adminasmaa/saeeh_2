@@ -19,7 +19,7 @@ class AdvertisingRepository implements AdvertisingRepositoryInterfaceAlias
 
         return $data->render('dashboard.advertising.index', [
             'title' => trans('site.advertising'),
-            'model' => 'advertising',
+            'model' => 'ads',
             'count' => $data->count(),
 
         ]);

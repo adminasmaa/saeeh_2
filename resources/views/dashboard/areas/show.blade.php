@@ -90,7 +90,7 @@
                                 </div>
                                 <div class="col-md-6 form-group col-12 p-2">
                                 <label class="form-label">@lang('site.cities')</label>
-                                <select class="form-control btn-square" name="city_id" readonly="" >
+                                <select class="form-control btn-square" name="city_id" readonly="" disabled>
                                     <option selected>@lang('site.select')</option>
                                     @foreach($cities as $city)
 

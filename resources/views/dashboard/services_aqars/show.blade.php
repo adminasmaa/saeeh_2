@@ -51,56 +51,54 @@
 
                                 <div class="col-sm-12">
 
-
-                                    <label>@lang('site.image')</label>
-                                    <img src="{{asset('images/services_aqars/'.$AqarService->icon)}}"
-                                         data-bs-toggle="modal"
-                                         data-bs-target="#exampleModalss" width="100px" height="100px" class="d-block"
-                                         onerror="this.src='{{asset('images/services_aqars/default.jpg')}}'"
-                                    >
-
+                                <label>@lang('site.image')</label>
+                                <img src="{{asset('images/services_aqars/'.$AqarService->icon)}}"
+                                     data-bs-toggle="modal"
+                                     data-bs-target="#exampleModalss" width="100px" height="100px" class="d-block"
+                                     onerror="this.src='{{asset('images/services_aqars/default.jpg')}}'"
+                                >
 
                                 </div>
                             </div>
 
                             <!-- Modal -->
                             <div class="modal fade" id="exampleModalss" tabindex="-1"
-                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">@lang('site.image')</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <table class="border-5">
-                                                <tr>
-                                                    <th>
-                                                        <img name="soso"
-                                                             src="{{asset('images/services_aqars/'.$AqarService->icon)}}"
-                                                             alt=""
-                                                             width="400px" height="aut0"
+                             aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">@lang('site.image')</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <table class="border-5">
+                                            <tr>
+                                                <th>
+                                                    <img name="soso"
+                                                         src="{{asset('images/services_aqars/'.$AqarService->icon)}}"
+                                                         alt=""
+                                                         width="400px" height="aut0"
 
 
-                                                             onerror="this.src='{{asset('images/services_aqars/default.jpg')}}'"
-                                                        >
+                                                         onerror="this.src='{{asset('images/services_aqars/default.jpg')}}'"
+                                                    >
 
-                                                    </th>
-                                                </tr>
-
-
-                                            </table>
+                                                </th>
+                                            </tr>
 
 
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">@lang('site.Cancel')</button>
-                                        </div>
+                                        </table>
+
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">@lang('site.Cancel')</button>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                             <!--  End Of Modal -->
                             <div class="row">
                                 <!--<div class="col-md-6">-->
@@ -108,13 +106,13 @@
                                 <div class="col-md-6 form-group col-12 p-2">
                                     <label>@lang('site.name_ar')<span class="text-danger">*</span></label>
                                     <input type="text" name="name_ar" class="form-control"
-                                           value="{{ $AqarService->name_ar }}" readonly
+                                           value="{{ $AqarService->name_ar }}" readonly disabled
                                     >
                                 </div>
                                 <div class="col-md-6 form-group col-12 p-2">
                                     <label>@lang('site.name_en')<span class="text-danger">*</span></label>
                                     <input type="text" name="name_en" class="form-control"
-                                           value="{{ $AqarService->name_en }}" readonly
+                                           value="{{ $AqarService->name_en }}" readonly disabled
                                     >
                                 </div>
 
@@ -141,12 +139,12 @@
                                                         <div class="col-md-5 form-group col-12">
                                                             <label>@lang('site.name_ar')</label>
                                                             <input type="text" name="sub_name_ar[]"
-                                                                   class="form-control" value="{{$service->name_ar}}" readonly/>
+                                                                   class="form-control" value="{{$service->name_ar}}" readonly disabled/>
                                                         </div>
                                                         <div class="col-md-5 form-group col-12">
                                                             <label>@lang('site.name_en')</label>
                                                             <input type="text" name="sub_name_en[]"
-                                                                   class="form-control" value="{{$service->name_en}}" readonly>
+                                                                   class="form-control" value="{{$service->name_en}}" readonly disabled>
                                                         </div>
 
                                                     </div>

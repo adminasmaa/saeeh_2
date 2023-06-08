@@ -36,7 +36,6 @@
 
 
                         </div>
-
                         <div class="bg-secondary-lighten card-header d-flex justify-content-between">
                             <h5>@lang('site.add') </h5>
                             <div class="text-end  group-btn-top">
@@ -50,7 +49,6 @@
 
 
                         </div>
-
                         <div class="card-body">
 
                             <div class="dt-ext table-responsive">

@@ -254,7 +254,7 @@
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.address')</label><span class="text-danger">*</span>
-                                        <input type="number" name="address" class="form-control"
+                                        <input type="text" name="address" class="form-control"
                                                value="{{old('address')}}"
                                                >
                                     </div>
