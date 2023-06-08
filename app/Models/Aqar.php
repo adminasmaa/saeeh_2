@@ -94,6 +94,11 @@ class Aqar extends Model
                   }]);
   
       }
+
+    public function aqarSubSection(){
+        return $this->HasMany(AqarSections::class);
+
+    }
     public function favoriteuser(){
 
         return $this->belongsToMany(User::class,'aqar_user','user_id','aqar_id');

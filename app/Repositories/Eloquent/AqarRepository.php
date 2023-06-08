@@ -35,7 +35,7 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
         // TODO: Implement create() method.
 
         $users = User::whereNotNull('account_type')->where('active',1)->get();
-        $categories = Category::where('type',1)->where('active',1)->get();
+        $categories = Category::where('type',1)->where('parent_id',1)->where('active',1)->get();
         $Area = Area::where('active',1)->get();
         $countries = Country::all();
         $cities = City::all();
@@ -50,7 +50,7 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
         $aqar = Aqar::with('aqarSection')->find($Id);   
         $aqar['changed_price']=json_decode($aqar['changed_price']);;
         $users = User::whereNotNull('account_type')->where('active',1)->get();
-        $categories = Category::where('type',1)->where('active',1)->get();
+        $categories = Category::where('type',1)->where('parent_id',1)->where('active',1)->get();
         $Area = Area::where('active',1)->get();
         $countries = Country::all();
         $cities = City::all();
@@ -64,7 +64,7 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
         $aqar = Aqar::find($Id);
         $aqar['changed_price']=json_decode($aqar['changed_price']);
         $users = User::whereNotNull('account_type')->where('active',1)->get();
-        $categories = Category::where('type',1)->where('active',1)->get();
+        $categories = Category::where('type',1)->where('parent_id',1)->where('active',1)->get();
         $Area = Area::where('active',1)->get();
         $countries = Country::all();
         $cities = City::all();
@@ -94,7 +94,7 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
                 $file_name = $_FILES['images']['name'][$key];
                 $files->move($destinationPath, $file_name);
                 $data[] = $_FILES['images']['name'][$key];
-                $aqar->images = json_encode($data);
+                $aqar->images = implode(',',$data);
                 $aqar->save();
             }
         }
@@ -147,7 +147,7 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
                 $file_name = $_FILES['images']['name'][$key];
                 $files->move($destinationPath, $file_name);
                 $data[] = $_FILES['images']['name'][$key];
-                $aqar->images = json_encode($data);
+                $aqar->images = implode(',',$data);
                 $aqar->save();
             }
         }
