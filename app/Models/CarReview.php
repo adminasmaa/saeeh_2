@@ -26,5 +26,17 @@ class CarReview extends Model
     public function car(){
         return $this->belongsTo(Car::class,'car_id');
     }
-   
+
+    public function RateTotal($id){
+        return CarReview::where('car_id',$id)->sum('rate');
+
+
+    }
+
+    public function CountUser($id){
+        return CarReview::where('car_id',$id)->count('user_id');
+
+
+    }
+
 }

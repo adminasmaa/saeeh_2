@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use App\Http\Resources\staticResource;
+use App\Http\Resources\CarReviewResource;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -29,7 +30,7 @@ class CarDetailResource extends JsonResource
             "videos" => asset('images/cars') . "/" . $this->videos,
             'path' => asset('images/cars') . "/",
             'images' =>explode(",",$this->images) ?? [],
-
+            "CarReview" => CarReviewResource::collection($this->CarReview)->unique('name'),
             "favorite" => (count($this->favoriteuser)>0 ? true : false),
 
             "rate" => $this->carComment->avg('rating') ?? 0,

@@ -22,7 +22,9 @@ use App\Models\CarBooking;
 
 // HasMany
 
-class Car extends Model
+class
+
+Car extends Model
 {
     use HasFactory, SoftDeletes;
 
@@ -51,6 +53,10 @@ class Car extends Model
         'country_id',
         'city_id',
     ];
+
+    public function CarReview(){
+        return $this->HasMany(CarReview::class)->distinct();
+    }
 
 
 
