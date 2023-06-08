@@ -3,7 +3,7 @@
 namespace App\DataTables;
 
 use App\Helpers\DTHelper;
-use App\Models\Category;
+use App\Models\PlaceReview;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -13,9 +13,9 @@ use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class CategoriesDataTable extends DataTable
+class PlaceReviewDataTable extends DataTable
 {
-    private $crudName = 'categories';
+    private $crudName = 'place_reviews';
 
     private function getRoutes()
     {
@@ -53,7 +53,6 @@ class CategoriesDataTable extends DataTable
             ->addColumn('action', function ($model) {
                 $actions = '';
 
-                $actions .= DTHelper::dtEditButton(route($this->getRoutes()['update'], $model->id), trans('site.edit'), $this->getPermissions()['update']);
                 $actions .= DTHelper::dtDeleteButton(route($this->getRoutes()['delete'], $model->id), trans('site.delete'), $this->getPermissions()['delete'], $model->id);
                 $actions .= DTHelper::dtShowButton(route($this->getRoutes()['show'], $model->id), trans('site.show'), $this->getPermissions()['delete']);
 
@@ -64,17 +63,17 @@ class CategoriesDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Category $model
+     * @param \App\Models\PlaceReview $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Category $model): QueryBuilder
+    public function query(PlaceReview $model): QueryBuilder
     {
-        return $model->where('type',2)->where('parent_id',2)->newQuery();
+        return $model->newQuery();
     }
 
     public function count()
     {
-        return Category::where('type',2)->where('parent_id',2)->count();
+        return PlaceReview::count();
 
     }
 
@@ -86,7 +85,7 @@ class CategoriesDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-            ->setTableId('categories-table')
+            ->setTableId('place_reviews-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
            ->dom('Bfrtip')
@@ -111,8 +110,7 @@ class CategoriesDataTable extends DataTable
         return [
             Column::make('DT_RowIndex')->data('DT_RowIndex')->name('DT_RowIndex')->title('#'),
 
-            Column::make('name_ar')->title(trans('site.ar.name')),
-//            Column::make('description')->title(trans('site.description')),
+            Column::make('rate')->title(trans('site.rate')),
             Column::make('created_at')->title(trans('site.created_at')),
             Column::computed('action')
                 ->exportable(false)
@@ -129,6 +127,6 @@ class CategoriesDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'Categories_' . date('YmdHis');
+        return 'PlaceReviews_' . date('YmdHis');
     }
 }

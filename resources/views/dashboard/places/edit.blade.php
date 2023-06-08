@@ -386,22 +386,22 @@
                                 <div class="row">
                                 <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                     <label class="form-label">@lang('site.categories')</label>
-                                    <select class="form-control btn-square" name="category_id"id="category_id">
-                                        <option selected>@lang('site.select')</option>
+                                    <select class="form-control btn-square" name="category_id" id="category_id">
+                                        <option selected value="0">@lang('site.select')</option>
                                         @foreach($categories as $cat)
 
-                                            <option value="{{$cat->id}}"@if($place->category_id==$cat->id) selected @endif>{{$cat->name_ar ?? ''}}</option>
+                                            <option value="{{$cat->id}}"
+                                                    @if($place->category_id==$cat->id) selected @endif>{{$cat->name_ar ?? ''}}</option>
 
                                         @endforeach
 
                                     </select>
                                 </div>
 
-
                                 <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                     <label class="form-label">@lang('site.subcategories')</label>
                                     <select class="form-control btn-square" name="sub_category_id" id="sub_category_id">
-                                                                                <option >@lang('site.select')</option>
+                                        <option value="0">@lang('site.select')</option>
                                         @foreach($subcategories as $cats)
 
                                             <option value="{{$cats->id}}"
@@ -411,30 +411,31 @@
 
                                     </select>
                                 </div>
-                                <div class="col-md-6 form-group">
-                                    <label class="form-label">@lang('site.country')</label>
-                                    <select class="form-control btn-square" name="country_id">
-                                        <option selected>@lang('site.select')</option>
-                                        @foreach($countries as $country)
+                                <div class="row">
+                                                <div class="col-md-6 form-group">
+                                                    <label class="form-label">@lang('site.country')</label>
+                                                    <select class="form-control btn-square" name="country_id" id="country_id">
+                                                        <option selected>@lang('site.select')</option>
+                                                        @foreach($countries as $country)
 
-                                            <option value="{{$country->id}}"   @if($country->id==$user->country_id) selected @endif>{{$country->name_ar ?? ''}}</option>
+                                                        <option value="{{$country->id}}" @if($country->
+                                                            id==$place->country_id) selected
+                                                            @endif>{{$country->name_ar ?? ''}}</option>
 
-                                        @endforeach
+                                                        @endforeach
 
-                                    </select>
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label class="form-label">@lang('site.city')</label>
-                                    <select class="form-control btn-square" name="city_id">
-                                        <option selected>@lang('site.select')</option>
-                                        @foreach($cities as $city)
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6 form-group">
+                                                    <label class="form-label">@lang('site.city')</label>
+                                                    <select class="form-control btn-square" name="city_id" id="city_id">
+                                                        <option selected>@lang('site.select')</option>
+                                                      
+                                                    </select>
+                                                </div>
+                                            </div>
+                            </div>
 
-                                            <option value="{{$city->id}}"   @if($city->id==$user->city_id) selected @endif>{{$city->name_ar ?? ''}}</option>
-
-                                        @endforeach
-
-                                    </select>
-                                </div>
                                 </div>
 
                                 <div class="row">
@@ -516,7 +517,34 @@
 @section('scripts')
 
     <script>
+        $(document).ready(function () {
+            var country_id =  $('#country_id').val();
+                $.get("{{url('dashboard/countrycities')}}/"+country_id, function(data){
+                    $('#city_id').empty();
+                    $('#city_id').append('<option>@lang('site.select')</option>');
+                    $.each(data, function(key, value){
+                        $('#city_id').append('<option value="'+value.id+'">'+value.name_ar+'</option>')
 
+                });
+                $('#city_id').val({{$place->city_id}});
+
+        });
+    });
+        $('#country_id').on('change',function(e){
+            var country_id = e.target.value;
+
+
+
+            $.get("{{url('dashboard/countrycities')}}/"+country_id, function(data){
+                console.log(data);
+                $('#city_id').empty();
+                $('#city_id').append('<option>@lang('site.select')</option>');
+                $.each(data, function(key, value){
+                    $('#city_id').append('<option value="'+value.id+'">'+value.name_ar+'</option>')
+
+                });
+            })
+        })
         $('#category_id').on('change', function (e) {
             var categoryId = e.target.value;
 
@@ -531,6 +559,8 @@
                 });
             })
         })
+
+    </script>
 
     </script>
 

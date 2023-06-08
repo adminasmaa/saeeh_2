@@ -18,9 +18,12 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::get('/categorydetail', 'App\Http\Controllers\Api\CategoryController@categorydetail');
     Route::get('/CityListCategories', 'App\Http\Controllers\Api\CategoryController@CityListCategories');
     Route::get('/home/subcategories', 'App\Http\Controllers\Api\CategoryController@subcategories');
+
+    // start palaces
     Route::get('/placedetail', 'App\Http\Controllers\Api\PlaceController@placedetail');
     Route::post('/searchPlace', 'App\Http\Controllers\Api\PlaceController@searchPlace');
     Route::get('/CustomerReviews', 'App\Http\Controllers\Api\PlaceController@CustomerReviews');
+    Route::post('/PlaceFavourite', 'App\Http\Controllers\Api\PlaceController@PlaceFavourite');
 
     // start aquars
     Route::get('/Availabledays', 'App\Http\Controllers\Api\AqarController@Availabledays');
@@ -53,7 +56,7 @@ Route::group(['middleware' => 'auth:api'], function () {
 
 
     //cars models
-    Route::post('/FavouriteCar', 'App\Http\Controllers\Api\CarController@FavouriteCar');
+    Route::post('/CarFavourite', 'App\Http\Controllers\Api\CarController@CarFavourite');
     Route::get('/CarsReviews', 'App\Http\Controllers\Api\CarController@CarsReviews');
     Route::get('/detailCar', 'App\Http\Controllers\Api\CarController@detailCar');
 

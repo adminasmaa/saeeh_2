@@ -495,6 +495,11 @@
                                     <li>
                                         <a href="{{route('dashboard.place_comments.index')}}" class="{{($current_route=='dashboard.place_comments.index')?'activee':'' }}">{{__('site.place_comments')}}</a>
                                     </li>
+
+                                    <li>
+                                        <a href="{{route('dashboard.place_reviews.index')}}" class="{{($current_route=='dashboard.place_reviews.index')?'activee':'' }}">{{__('site.place_reviews')}}</a>
+                                    </li>
+
                                 </ul>
                             </li>
 

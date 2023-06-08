@@ -108,7 +108,7 @@
                             <div class="col-md-6 form-group col-12 p-2">
                                 <label>@lang('site.name')<span class="text-danger">*</span></label>
                                 <input type="text" name="name" class="form-control"
-                                       value="{{ $car->name }}" readonly
+                                       value="{{ $car->name }}" readonly=""disabled
                                 >
                             </div>
 
@@ -116,48 +116,47 @@
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.year')<span class="text-danger">*</span></label>
                                 <input type="text" name="year" class="form-control"
-                                       value="{{ $car->year }}" readonly
+                                       value="{{ $car->year }}" readonly=""disabled
                                 >
                             </div>
 
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.color')<span class="text-danger">*</span></label>
                                 <input type="color" name="color" class="form-control"
-                                       value="{{ $car->color }}" readonly
+                                       value="{{ $car->color }}" readonly=""disabled
                                 >
                             </div>
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.category')<span class="text-danger">*</span></label>
                                 <input type="text" name="category" class="form-control"
-                                       value="{{ $car->category ?? '' }}" readonly
+                                       value="{{ $car->category ?? '' }}" readonly=""disabled
                                 >
                             </div>
 
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.number')<span class="text-danger">*</span></label>
                                 <input type="text" name="car_numbers" class="form-control"
-                                       value="{{ $car->car_numbers ?? '' }}" readonly>
+                                       value="{{ $car->car_numbers ?? '' }}" readonly=""disabled>
                             </div>
 
 
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.date')<span class="text-danger">*</span></label>
-                                <input type="date" name="car_delivery_date" class="form-control"
-                                       value="{{ $car->car_delivery_date }}" readonly>
+                                <input type="datetime" name="car_delivery_date" class="form-control"
+                                       value="{{ $car->car_delivery_date }}" disabled readonly=""
+                                >
                             </div>
-
-
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.price')<span class="text-danger">*</span></label>
                                 <input type="text" name="fixed_price" class="form-control"
-                                       value="{{ $car->fixed_price ?? '' }}" readonly
+                                       value="{{ $car->fixed_price ?? '' }}" readonly=""disabled
                                 >
                             </div>
 
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.changed_price')<span class="text-danger">*</span></label>
                                 <input type="text" name="changed_price" class="form-control"
-                                       value="{{ $car->changed_price ?? '' }}" readonly=""
+                                       value="{{ $car->changed_price ?? '' }}" readonly=""disabled
                                 >
                             </div>
 
@@ -170,7 +169,7 @@
 
                             <div class="col-md-6 form-group">
                                 <label class="form-label">@lang('site.users')</label>
-                                <select class="form-control btn-square" name="user_id" readonly="">
+                                <select class="form-control btn-square" name="user_id" readonly=""disabled>
                                     <option selected>@lang('site.select')</option>
                                     @foreach($users as $user)
 
@@ -184,7 +183,7 @@
 
                             <div class="col-md-6 form-group">
                                 <label class="form-label">@lang('site.advertising')</label>
-                                <select class="form-control btn-square" name="ads_id" readonly="">
+                                <select class="form-control btn-square" name="ads_id" readonly=""disabled>
                                     <option selected>@lang('site.select')</option>
                                     @foreach($ads as $ad)
 
@@ -223,44 +222,49 @@
 
                                 </select>
                             </div>
-                            <div class="col-md-6 form-group col-12 p-2">
-                                <label class="form-label">@lang('site.country')</label>
-                                <select class="form-control btn-square" name="country_id" disabled>
-                                    <option selected></option>
-                                    @foreach($countries as $country)
+                            <div class="row">
+                                                <div class="col-md-6 form-group">
+                                                    <label class="form-label">@lang('site.country')</label>
+                                                    <select class="form-control btn-square" name="country_id" id="country_id" disabled readonly="">
+                                                        <option selected>@lang('site.select')</option>
+                                                        @foreach($countries as $country)
 
-                                        <option value="{{$country->id}}"   @if($country->id==$user->country_id) selected @endif>{{$country->name_ar ?? ''}}</option>
+                                                        <option value="{{$country->id}}" @if($country->
+                                                            id==$car->country_id) selected
+                                                            @endif>{{$country->name_ar ?? ''}}</option>
 
-                                    @endforeach
+                                                        @endforeach
 
-                                </select>
-                            </div>
-                            <div class="col-md-6 form-group col-12 p-2">
-                                <label class="form-label">@lang('site.city')</label>
-                                <select class="form-control btn-square" name="city_id" disabled>
-                                    <option selected></option>
-                                    @foreach($cities as $city)
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6 form-group">
+                                                    <label class="form-label">@lang('site.city')</label>
+                                                    <select class="form-control btn-square" name="city_id" id="city_id" disabled readonly="">
+                                                        <option selected>@lang('site.select')</option>
+                                                        <!-- @foreach($cities as $city)
 
-                                        <option value="{{$city->id}}"   @if($city->id==$user->city_id) selected @endif>{{$city->name_ar ?? ''}}</option>
+                                                        <option value="{{$city->id}}" @if($city->id==$car->city_id)
+                                                            selected @endif>{{$city->name_ar ?? ''}}</option>
 
-                                    @endforeach
+                                                        @endforeach -->
 
-                                </select>
-                            </div>
+                                                    </select>
+                                                </div>
+                                            </div>
                         </div>
 
 
                         <div class="row">
                             <label> @lang('site.images')</label>
-                            @isset($car['images'])
-                                @foreach(json_decode($car->images) as $key=>$image)
+                            @isset($place['images'])
+                                @foreach(json_decode($place->images) as $key=>$image)
                                     <div class="col-md-2 form-group col-2 p-1">
 
-                                        <img src="{{asset('images/cars/'.$image)}}"
+                                        <img src="{{asset('images/places/'.$image)}}"
 
                                              width="100px" height="100px"
                                              class="d-block"
-                                             onerror="this.src='{{asset('images/cars/default.jpg')}}'"
+                                             onerror="this.src='{{asset('images/places/default.jpg')}}'"
                                         >
 
                                     </div>
@@ -302,4 +306,44 @@
     <!-- Container-fluid Ends-->
     </div>
 
+@endsection
+@section('scripts')
+<script>
+$(document).ready(function() {
+var country_id =  $('#country_id').val();
+$.get("{{url('dashboard/countrycities')}}/"+country_id, function(data){
+    $('#city_id').empty();
+    $('#city_id').append('<option>@lang('site.select')</option>');
+    $.each(data, function(key, value){
+        $('#city_id').append('<option value="'+value.id+'">'+value.name_ar+'</option>')
+
+    });
+    $('#city_id').val({{$car->city_id}});
+
+});
+});
+
+function deletetr(r) {
+    r.closest('tr').remove();
+}
+
+$('#country_id').on('change',function(e){
+            var country_id = e.target.value;
+
+
+
+            $.get("{{url('dashboard/countrycities')}}/"+country_id, function(data){
+                console.log(data);
+                $('#city_id').empty();
+                $('#city_id').append('<option>@lang('site.select')</option>');
+                $.each(data, function(key, value){
+                    $('#city_id').append('<option value="'+value.id+'">'+value.name_ar+'</option>')
+
+                });
+            })
+        })
+
+
+
+</script>
 @endsection

@@ -68,7 +68,6 @@ class CarRepository implements CarRepositoryInterfaceAlias
 
         $users = User::all();
         $categories = Category::all();
-
         $subcategories = Category::get();
         $countries = Country::all();
         $cities = City::all();

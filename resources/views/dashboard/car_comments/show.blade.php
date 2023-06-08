@@ -52,7 +52,7 @@
                             <div class="col-md-6 form-group col-12 p-2">
                                 <label>@lang('site.rating')<span class="text-danger">*</span></label>
                                 <input type="float" name="rating" class="form-control"
-                                       value="{{ $CarComment->rating }}" readonly
+                                       value="{{ $CarComment->rating }}" readonly=""disabled
                                 >
                             </div>
 
@@ -76,21 +76,21 @@
                         <div class="col-md-6 form-group col-12 p-2">
                                 <label>@lang('site.demo_clean')<span class="text-danger">*</span></label>
                                 <input type="numder" name="demo_clean" class="form-control"
-                                       value="{{ $CarComment->demo_clean }}" readonly
+                                       value="{{ $CarComment->demo_clean }}" readonly=""disabled
                                 >
                             </div>
 
                             <div class="col-md-6 form-group col-12 p-2">
                                 <label>@lang('site.demo_status')<span class="text-danger">*</span></label>
                                 <input type="numder" name="demo_status" class="form-control"
-                                       value="{{ $CarComment->demo_status }}" readonly
+                                       value="{{ $CarComment->demo_status }}" readonly=""disabled
                                 >
                             </div>
 
                             <div class="col-md-6 form-group col-12 p-2">
                                 <label>@lang('site.demo_work')<span class="text-danger">*</span></label>
                                 <input type="numder" name="demo_work" class="form-control"
-                                       value="{{ $CarComment->demo_work }}" readonly
+                                       value="{{ $CarComment->demo_work }}" readonly=""disabled
                                 >
                             </div>
 
@@ -105,21 +105,20 @@
 
                             <div class="col-md-6 form-group">
                                 <label class="form-label">@lang('site.users')</label>
-                                <select class="form-control btn-square" name="user_id" readonly="">
+                                <select class="form-control btn-square" name="user_id" readonly=""disabled>
                                     <option selected>@lang('site.select')</option>
                                     @foreach($users as $user)
 
                                         <option value="{{$user->id}}"
-                                                @if($CarComment->user_id==$user->id) selected @endif>{{$user->username ?? ''}}</option>
+                                                @if($CarComment->user_id==$user->id) selected  @endif>{{$user->firstname . $user->lastname ?? ''}}</option>
 
                                     @endforeach
 
                                 </select>
                             </div>
-
                             <div class="col-md-6 form-group">
                                 <label class="form-label">@lang('site.cars')</label>
-                                <select class="form-control btn-square" name="car_id" readonly="">
+                                <select class="form-control btn-square" name="car_id" readonly=""disabled>
                                     <option selected>@lang('site.select')</option>
                                     @foreach($cars as $car)
 
@@ -131,7 +130,6 @@
                                 </select>
                             </div>
 
-
                         </div>
 
 
@@ -140,7 +138,7 @@
 
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.description')<span class="text-danger">*</span></label>
-                                <textarea class="form-control" cols="5" rows="5" name="description" readonly>
+                                <textarea class="form-control" cols="5" rows="5" name="description" readonly=""disabled>
                                         {{ $CarComment->description ?? '' }}
                                 </textarea>
                             </div>

@@ -49,6 +49,7 @@ use App\Http\Controllers\Dashboard\AqarSettingController;
 use App\Http\Controllers\Dashboard\ReviewElementController;
 use App\Http\Controllers\Dashboard\AqarReviewController;
 use App\Http\Controllers\Dashboard\CarReviewController;
+use App\Http\Controllers\Dashboard\PlaceReviewController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -191,6 +192,9 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
         //car_reviews
         Route::resource('car_reviews', CarReviewController::class);
+
+        //place_reviews
+        Route::resource('place_reviews', PlaceReviewController::class);
 
     }); //end of dashboard routes
 });
