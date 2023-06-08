@@ -99,7 +99,7 @@ return [
     'reference' => 'المرجع',
     'videos' => 'الفيديو',
 
-    'date' => 'تاريخ ',
+    'car_delivery_date' => ' اخر موعد لتسليم السيارة ',
     'color' => 'اللون',
     'rate' => 'التقيم',
     'year' => 'السنه',
@@ -357,7 +357,7 @@ return [
     'short_name' => 'الاسم المختصر',
     'display_name' => 'الاسم المعروض',
     'description' => 'الوصف',
-    'category' => 'القسم',
+    'category' => 'الماركة',
     'created_at' => 'تم اضافتة',
 
 
@@ -380,7 +380,7 @@ return [
     'resources' => 'مصادر',
     'full' => 'كامل',
     'individual' => 'فردى ',
-    'number' => 'الصلة ',
+    'car_numbers' => 'عدد سيارات هذا النوع ',
     'time' => 'الوقت',
     'areas' => 'المناطق',
 
