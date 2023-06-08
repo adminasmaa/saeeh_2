@@ -44,7 +44,6 @@ class Car extends Model
         'images', // required
         'videos', // nullable
         'comment_text', // nullable
-        'ads_id', //unsigned
         'user_id', //unsigned
         'category_id', //unsigned
         'sub_category_id',
@@ -58,12 +57,6 @@ class Car extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
-    }
-
-    // relations
-    public function ads()
-    {
-        return $this->belongsTo(Ads::class, 'ads_id');
     }
 
     // relations

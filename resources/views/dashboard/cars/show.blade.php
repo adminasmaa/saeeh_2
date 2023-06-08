@@ -134,14 +134,14 @@
                             </div>
 
                             <div class="col-md-6 form-group col-12 p-2 ">
-                                <label>@lang('site.number')<span class="text-danger">*</span></label>
-                                <input type="text" name="car_numbers" class="form-control"
+                                <label>@lang('site.car_numbers')<span class="text-danger">*</span></label>
+                                <input type="number" name="car_numbers" class="form-control"
                                        value="{{ $car->car_numbers ?? '' }}" readonly=""disabled>
                             </div>
 
 
                             <div class="col-md-6 form-group col-12 p-2 ">
-                                <label>@lang('site.date')<span class="text-danger">*</span></label>
+                                <label>@lang('site.car_delivery_date')<span class="text-danger">*</span></label>
                                 <input type="datetime" name="car_delivery_date" class="form-control"
                                        value="{{ $car->car_delivery_date }}" disabled readonly=""
                                 >
@@ -175,20 +175,6 @@
 
                                         <option value="{{$user->id}}"
                                                 @if($car->user_id==$user->id) selected @endif>{{$user->firstname . $user->lastname ?? ''}}</option>
-
-                                    @endforeach
-
-                                </select>
-                            </div>
-
-                            <div class="col-md-6 form-group">
-                                <label class="form-label">@lang('site.advertising')</label>
-                                <select class="form-control btn-square" name="ads_id" readonly=""disabled>
-                                    <option selected>@lang('site.select')</option>
-                                    @foreach($ads as $ad)
-
-                                        <option value="{{$ad->id}}"
-                                                @if($car->ads_id==$ad->id) selected @endif>{{$ad->title ?? ''}}</option>
 
                                     @endforeach
 

@@ -33,12 +33,11 @@ class CarRepository implements CarRepositoryInterfaceAlias
     {
         // TODO: Implement create() method.
 
-        $users = User::all();
+        $users = User::whereNotNull('account_type')->where('active',1)->get();
         $categories = Category::where('parent_id','=',2)->where('type','=',2)->get();
-        $ads = Ads::all();
         $countries = Country::all();
         $cities = City::all();
-        return view('dashboard.cars.create', compact('users', 'categories', 'ads', 'countries', 'cities'));
+        return view('dashboard.cars.create', compact('users', 'categories','countries', 'cities'));
     }
 
     public function edit($Id)
@@ -47,17 +46,15 @@ class CarRepository implements CarRepositoryInterfaceAlias
 
         $car = Car::find($Id);
 
-        $users = User::all();
+        $users = User::whereNotNull('account_type')->where('active',1)->get();
         $categories = Category::where('parent_id','=',2)->where('type','=',2)->get();
 
         $subcategories = Category::where('parent_id','!=',2)->where('type','=',2)->get();
         $countries = Country::all();
         $cities = City::all();
 
-        $ads = Ads::all();
 
-
-        return view('dashboard.cars.edit', compact('car', 'users', 'categories', 'ads','subcategories', 'countries', 'cities'));
+        return view('dashboard.cars.edit', compact('car', 'users', 'categories','subcategories', 'countries', 'cities'));
     }
 
     public function show($Id)
@@ -66,15 +63,13 @@ class CarRepository implements CarRepositoryInterfaceAlias
 
         $car = Car::find($Id);
 
-        $users = User::all();
+        $users = User::whereNotNull('account_type')->where('active',1)->get();
         $categories = Category::all();
         $subcategories = Category::get();
         $countries = Country::all();
         $cities = City::all();
-        $ads = Ads::all();
 
-
-        return view('dashboard.cars.show', compact('car', 'users', 'categories', 'ads','subcategories', 'countries', 'cities'));
+        return view('dashboard.cars.show', compact('car', 'users', 'categories','subcategories', 'countries', 'cities'));
     }
 
 

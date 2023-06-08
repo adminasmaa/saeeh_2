@@ -33,7 +33,7 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
     {
         // TODO: Implement create() method.
 
-        $users = User::all();
+        $users = User::whereNotNull('account_type')->where('active',1)->get();
         // $categories = Category::all();
         $categories = Category::where('parent_id','=',null)->where('type','=',0)->get();
         $place_comments = PlaceComment::all();
@@ -48,7 +48,7 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
         // TODO: Implement edit() method.
 
         $place = Place::find($Id);
-        $users = User::all();
+        $users = User::whereNotNull('account_type')->where('active',1)->get();
         // $categories = Category::all();
         $place_comments = PlaceComment::all();
         $notifications = Notification::all();
@@ -64,7 +64,7 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
         // TODO: Implement show() method.
 
         $place = Place::find($Id);
-        $users = User::all();
+        $users = User::whereNotNull('account_type')->where('active',1)->get();
         $categories = Category::all();
         $place_comments = PlaceComment::all();
         $notifications = Notification::all();
