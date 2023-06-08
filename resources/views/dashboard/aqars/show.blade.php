@@ -110,7 +110,7 @@
 
                                             <div class="col-sm-12">
                                                 <label class="form-label">@lang('site.users')</label>
-                                                <select class="form-control form-select" name="user_id" readonly="">
+                                                <select class="form-control form-select" name="user_id" readonly="" disabled>
                                                     <option selected>@lang('site.select')</option>
                                                     @foreach($users as $user)
 
@@ -126,7 +126,7 @@
                                             <div class="row">
                                                 <div class="col-md-6 form-group">
                                                     <label class="form-label">@lang('site.country')</label>
-                                                    <select class="form-control btn-square" name="country_id" id="country_id" readonly="">
+                                                    <select class="form-control btn-square" name="country_id" id="country_id" readonly="" disabled>
                                                         <option selected>@lang('site.select')</option>
                                                         @foreach($countries as $country)
 
@@ -140,7 +140,7 @@
                                                 </div>
                                                 <div class="col-md-6 form-group">
                                                     <label class="form-label">@lang('site.city')</label>
-                                                    <select class="form-control btn-square" name="city_id" id="city_id" readonly="">
+                                                    <select class="form-control btn-square" name="city_id" id="city_id" readonly="" disabled>
                                                         <option selected>@lang('site.select')</option>
                                                         <!-- @foreach($cities as $city)
 
@@ -162,7 +162,7 @@
                                                     <li class="form-check radio radio-primary">
                                                         <input class="form-check-input" id="category_id{{$cat->id}}"
                                                             type="radio" name="category_id" value="{{$cat->id}}"
-                                                            {{$cat->id==$aqar->category_id? 'checked':'' }} readonly="">
+                                                            {{$cat->id==$aqar->category_id? 'checked':'' }} readonly="" disabled>
                                                         <label class="form-check-label mb-0"
                                                             for="category_id{{$cat->id}}">{{$cat->name_ar ?? ''}}</label>
                                                     </li>
@@ -194,13 +194,13 @@
                                                     <label>@lang('site.name_ar')<span
                                                             class="text-danger">*</span></label>
                                                     <input type="text" name="name_ar" class="form-control"
-                                                        value="{{$aqar->name_ar}}" required readonly="">
+                                                        value="{{$aqar->name_ar}}" required readonly="" disabled>
                                                 </div>
 
                                                 <div class="col-md-6 form-group col-12 p-2 ">
                                                     <label>@lang('site.name_en')</label>
                                                     <input type="text" name="name_en" class="form-control"
-                                                        value="{{$aqar->name_en}}" readonly="">
+                                                        value="{{$aqar->name_en}}" readonly="" disabled>
                                                 </div>
 
                                             </div>
@@ -211,23 +211,23 @@
                                                     <label>@lang('site.time_from')<span
                                                             class="text-danger">*</span></label>
                                                     <input type="time" name="time_from" class="form-control"
-                                                        value="{{$aqar->time_from}}" readonly="">
+                                                        value="{{$aqar->time_from}}" readonly="" disabled>
                                                 </div>
 
                                                 <div class="col-md-6 form-group col-12 p-2 ">
                                                     <label>@lang('site.time_to')</label>
                                                     <input type="time" name="time_to" class="form-control"
-                                                        value="{{$aqar->time_to}}" readonly="">
+                                                        value="{{$aqar->time_to}}" readonly="" disabled>
                                                 </div>
 
                                             </div>
                                             <div class="row m-t-10">
                                                 <div class="m-checkbox-inline">
                                                         <label for="edo-ani">
-                                                        <input class="radio_animated"  type="radio" name="price" {{$aqar->fixed_price ? 'checked':'' }} data-bs-original-title="" title="" value="1" readonly="">@lang('site.fixed_price')
+                                                        <input class="radio_animated"  type="radio" name="price" {{$aqar->fixed_price ? 'checked':'' }} data-bs-original-title="" title="" value="1" readonly="" disabled>@lang('site.fixed_price')
                                                         </label>
                                                         <label for="edo-ani1">
-                                                        <input class="radio_animated" type="radio" name="price" {{is_null($aqar->fixed_price) ? 'checked':'' }} data-bs-original-title="" title="" value="2" readonly="">@lang('site.changed_price')
+                                                        <input class="radio_animated" type="radio" name="price" {{is_null($aqar->fixed_price) ? 'checked':'' }} data-bs-original-title="" title="" value="2" readonly="" disabled>@lang('site.changed_price')
                                                         </label>
                                                 </div>
                                             </div>
@@ -238,7 +238,7 @@
                                                     <label>@lang('site.fixed_price')<span
                                                             class="text-danger">*</span></label>
                                                     <input type="text" name="fixed_price" class="form-control"
-                                                        value="{{$aqar->fixed_price}}" readonly="">
+                                                        value="{{$aqar->fixed_price}}" readonly="" disabled>
                                                 </div>
 
                                                 <div class="col-md-12 form-group col-12   desc" id="price2"
@@ -252,13 +252,13 @@
                                                                             <label>@lang('site.personnumber')</label>
                                                                             <input type="number" name="person_num[]"
                                                                                 class="form-control"
-                                                                                value="{{$aqar->changed_price->person_num[$x]}}" readonly=""/>
+                                                                                value="{{$aqar->changed_price->person_num[$x]}}" readonly="" disabled/>
                                                                         </div>
                                                                         <div class="col-md-5 form-group col-12">
                                                                             <label>@lang('site.fixed_price')</label>
                                                                             <input type="number" name="price[]"
                                                                                 class="form-control"
-                                                                                value="{{$aqar->changed_price->price[$x]}}" readonly=""/>
+                                                                                value="{{$aqar->changed_price->price[$x]}}" readonly="" disabled/>
                                                                         </div>
                                                                         
                                                                     </div>
@@ -274,7 +274,7 @@
                                                         <label>@lang('site.display_photo')</label>
 
                                                         <input type="file" class="form-control" name="main_image"
-                                                            value="{{$aqar->main_image}}" id="imgInp"  readonly=""/>
+                                                            value="{{$aqar->main_image}}" id="imgInp"  readonly="" disabled/>
                                                         <img id="frame"
                                                             src="{{asset('images/aqars/'.$aqar->main_image)}}" alt=""
                                                             onerror="this.src='{{asset('images/aqars/default.jpg')}}'"
@@ -286,7 +286,7 @@
                                                         <label>@lang('site.images')</label>
 
                                                         <input type="file" class="form-control" name="images[]"
-                                                            value="{{$aqar->images}}" multiple id="upload-imgs" readonly=""/>
+                                                            value="{{$aqar->images}}" multiple id="upload-imgs" readonly="" disabled/>
 
                                                         <div class="img-thumbs " id="img-previews">
                                                             @if($aqar->images)
@@ -311,7 +311,7 @@
                                                         <label>@lang('site.video')</label>
 
                                                         <input type='file' id='videoUpload' class="form-control"
-                                                            name="videos" value="{{$aqar->videos}}?>" readonly=""/>
+                                                            name="videos" value="{{$aqar->videos}}?>" readonly="" disabled/>
                                                         <video width="250" height="200"
                                                             src="{{asset('images/aqars/videos/'.$aqar->videos)}}"
                                                             controls class="video-upload" autoplay>
@@ -332,7 +332,7 @@
                                                         <label>@lang('site.descrption')<span
                                                                 class="text-danger">*</span></label>
                                                         <textarea class="form-control" cols="5" rows="5" name="description"
-                                                            id="editor1" readonly="">
+                                                            id="editor1" readonly="" disabled>
                                                             {{$aqar->description}}
                                                             </textarea>
                                                     </div>

@@ -52,14 +52,14 @@
                             <div class="col-md-6 form-group col-12 p-2">
                                 <label>@lang('site.description')</label>
                                 <input type="text" name="description" class="form-control"
-                                       value="{{ $AqarComment->description }}" readonly
+                                       value="{{ $AqarComment->description }}" readonly="" disabled
                                 >
                             </div>
                         <!-- type="number" -->
                             <div class="col-md-6 form-group col-12 p-2">
                                 <label>@lang('site.rating')<span class="text-danger">*</span></label>
                                 <input type="float" name="rating" class="form-control"
-                                       value="{{ $AqarComment->rating }}" readonly
+                                       value="{{ $AqarComment->rating }}" readonly="" disabled
                                 >
                             </div>
 
@@ -81,7 +81,7 @@
                             <div class="col-md-6 form-group col-12 p-2">
                                 <label>@lang('site.check_view')<span class="text-danger">*</span></label>
                                 <input type="numder" name="check_view" class="form-control"
-                                       value="{{ $AqarComment->check_view }}" readonly
+                                       value="{{ $AqarComment->check_view }}" readonly="" disabled
                                 >
                             </div>
                         </div>
@@ -90,28 +90,28 @@
                         <div class="col-md-6 form-group col-12 p-2">
                                 <label>@lang('site.demo_clean')<span class="text-danger">*</span></label>
                                 <input type="numder" name="demo_clean" class="form-control"
-                                       value="{{ $AqarComment->demo_clean }}" readonly
+                                       value="{{ $AqarComment->demo_clean }}" readonly="" disabled
                                 >
                             </div>
 
                             <div class="col-md-6 form-group col-12 p-2">
                                 <label>@lang('site.demo_status')<span class="text-danger">*</span></label>
                                 <input type="numder" name="demo_status" class="form-control"
-                                       value="{{ $AqarComment->demo_status }}" readonly
+                                       value="{{ $AqarComment->demo_status }}" readonly="" disabled
                                 >
                             </div>
 
                             <div class="col-md-6 form-group col-12 p-2">
                                 <label>@lang('site.demo_work')<span class="text-danger">*</span></label>
                                 <input type="numder" name="demo_work" class="form-control"
-                                       value="{{ $AqarComment->demo_work }}" readonly
+                                       value="{{ $AqarComment->demo_work }}" readonly="" disabled
                                 >
                             </div>
 
                             <div class="col-md-6 form-group col-12 p-2">
                                 <label>@lang('site.demo_loc')<span class="text-danger">*</span></label>
                                 <input type="numder" name="demo_loc" class="form-control"
-                                       value="{{ $AqarComment->demo_loc }}" readonly
+                                       value="{{ $AqarComment->demo_loc }}" readonly="" disabled
                                 >
                             </div>
 
@@ -121,7 +121,7 @@
 
                             <div class="col-md-6 form-group">
                                 <label class="form-label">@lang('site.users')<span class="text-danger">*</span></label>
-                                <select class="form-control btn-square" name="user_id" readonly="">
+                                <select class="form-control btn-square" name="user_id" readonly="" disabled>
                                     <option selected>@lang('site.select')</option>
                                     @foreach($users as $user)
 
@@ -135,7 +135,7 @@
 
                             <div class="col-md-6 form-group">
                                 <label class="form-label">@lang('site.aqars')</label>
-                                <select class="form-control btn-square" name="aqar_id" readonly="">
+                                <select class="form-control btn-square" name="aqar_id" readonly="" disabled>
                                     <option selected>@lang('site.select')</option>
                                     @foreach($aqars as $aqar)
 
@@ -149,7 +149,7 @@
 
                             <div class="col-md-6 form-group">
                                 <label class="form-label">@lang('site.aquarbooking')</label>
-                                <select class="form-control btn-square" name="aqar_booking_id" readonly="">
+                                <select class="form-control btn-square" name="aqar_booking_id" readonly="" disabled>
                                     <option selected>@lang('site.select')</option>
                                     @foreach($AqarBooking as $AqarBooking)
 
