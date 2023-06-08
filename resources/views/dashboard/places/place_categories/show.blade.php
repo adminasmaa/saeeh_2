@@ -55,25 +55,23 @@
                                     class="col-sm-3 col-form-label input-label">@lang('site.image')</label> -->
                                 <div class="col-sm-9">
                                     <div class="d-flex align-items-center">
-                                        <div class="col-md-6">
-                                            <label class="d-block">@lang('site.image')</label>
+                                        <div class="col-md-6 form-group col-12 p-2  ">
 
-                                            <img src="{{asset('images/categories/'.$category->image)}}"
-                                                 data-bs-toggle="modal"
-                                                 data-bs-target="#exampleModalss" width="100px" height="100px"
-                                                 class="d-block"
-                                                 onerror="this.src='{{asset('images/categories/default.jpg')}}'"
+                                        <label>@lang('site.image')</label>
+                                        <img  name="image"src="{{asset('images/categories/'.$category->image)}}"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#exampleModalss" width="100px" height="100px" class="d-block"
+                                            onerror="this.src='{{asset('images/categories/default.jpg')}}'"
                                             >
                                         </div>
+                                        <div class="col-md-6 form-group col-12 p-2">
+                                        <label>@lang('site.icon')</label>
+                                        <img name="icon" src="{{asset('images/categories/'.$category->icon)}}"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#exampleModalss2" width="100px" height="100px" class="d-block"
+                                            onerror="this.src='{{asset('images/categories/default.jpg')}}'"
+                                        >
 
-                                        <div class="col-md-6">
-                                            <label class="d-block">@lang('site.icon')</label>
-
-                                            <img src="{{asset('images/categories/'.$category->icon)}}"
-                                                 width="100px" height="100px"
-                                                 class="d-block"
-                                                 onerror="this.src='{{asset('images/categories/default.jpg')}}'"
-                                            >
                                         </div>
 
 
@@ -82,38 +80,82 @@
                             </div>
 
                             <!-- Modal -->
+
                             <div class="modal fade" id="exampleModalss" tabindex="-1"
-                                 aria-labelledby="exampleModalLabel"
-                                 aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">@lang('site.image')</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <table class="border-5">
-                                                <tr>
-                                                    <th>
-                                                        <img name="soso"
-                                                             src="{{asset('images/categories/'.$category->image)}}"
-                                                             alt=""
-                                                             width="400px" height="aut0">
-
-                                                    </th>
-                                                </tr>
-
-
-                                            </table>
-
-
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">@lang('site.Cancel')</button>
-                                        </div>
+                             aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">@lang('site.image')</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
                                     </div>
+                                    <div class="modal-body">
+                                        <table class="border-5">
+                                            <tr>
+                                                <th>
+                                                    <img name="image"
+                                                         src="{{asset('images/categories/'.$category->image)}}"
+                                                         alt=""
+                                                         width="400px" height="aut0"
+
+
+                                                         onerror="this.src='{{asset('images/categories/default.jpg')}}'"
+                                                    >
+
+                                                </th>
+                                            </tr>
+
+
+                                        </table>
+                                    </div>
+                                    <br>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">@lang('site.Cancel')</button>
+                                    </div>
+                                    <br>
+                                    </div>
+                                </div>
+                                    </div>
+
+                            <div class="modal fade" id="exampleModalss2" tabindex="-1"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">@lang('site.icon')</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <table class="border-5">
+                                    <tr>
+                                        <th>
+                                            <img name="icon"
+                                                    src="{{asset('images/categories/'.$category->icon)}}"
+                                                    alt=""
+                                                    width="400px" height="aut0"
+
+
+                                                    onerror="this.src='{{asset('images/categories/default.jpg')}}'"
+                                            >
+
+                                        </th>
+                                    </tr>
+
+
+                                </table>
+                            </div>
+                            <br>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">@lang('site.Cancel')</button>
+                            </div>
+                            <br>
+                            </div>
+                        </div>
+                            </div>
                                 </div>
                             </div>
                             <!--  End Of Modal -->
@@ -153,7 +195,7 @@
 
                                 <div class="col-md-6 form-group col-12 p-2 ">
                                     <label>@lang('site.description')<span class="text-danger">*</span></label>
-                                    <textarea class="form-control" id="editor1"  cols="15" rows="5" name="description" disabled>
+                                    <textarea class="form-control" cols="2" rows="2" name="description" disabled>
                      {{ $category->description }}
                                         </textarea>
                                 </div>
@@ -170,7 +212,7 @@
 
 
                                         <label>@lang('site.ar.name')</label>
-                                        <input type="text" class="form-control"
+                                        <input type="text" class="form-control" disabled
                                                value="{{ $cat->name_ar ?? '' }}">
                                     </div>
 
