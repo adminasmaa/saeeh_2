@@ -9,7 +9,11 @@ use App\Http\Resources\CommentResource;
 use App\Models\Aqar;
 use App\Models\AqarBooking;
 use App\Models\AqarComment;
+use App\Models\AqarReview;
+use App\Models\CarComment;
+use App\Models\CarReview;
 use App\Models\PlaceComment;
+use App\Models\PlaceReview;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -116,6 +120,132 @@ class AqarController extends Controller
         return $this->respondSuccess($availableDate, 'Date is blocking');
     }
 
+
+    public function AddComment(Request $request)
+    {
+        $rule = [
+
+            'description' => 'required',
+
+            'id' => 'required',
+            'type' => 'required',
+//            'comments' => 'required|array',
+
+
+        ];
+        $customMessages = [
+            'required' => __('validation.attributes.required'),
+        ];
+
+        $validator = validator()->make($request->all(), $rule, $customMessages);
+
+        if ($validator->fails()) {
+
+            return $this->respondError('Validation Error.', $validator->errors(), 400);
+
+        } else {
+
+
+            if ($request->type == 'Aqar') {
+
+                if (!empty($request->comments)) {
+
+
+                    foreach ($request->comments as $comment) {
+
+                        AqarReview::create([
+
+                            'review_element_id' => $comment['id'],
+
+                            'rate' => $comment['value'],
+
+                            'aqar_id' => $request->id,
+
+                            'user_id' => Auth::id(),
+                        ]);
+
+                    }
+                }
+
+                $data = AqarComment::create([
+
+                    'description' => $request->description,
+
+                    'aqar_id' => $request->id,
+
+                    'user_id' => Auth::id(),
+                ]);
+
+
+            } elseif ($request->type == 'Car') {
+
+
+                if (!empty($request->comments)) {
+
+
+                    foreach ($request->comments as $comment) {
+
+                        CarReview::create([
+
+                            'car_id' => $comment['id'],
+
+                            'rate' => $comment['value'],
+
+
+                            'user_id' => Auth::id(),
+                        ]);
+
+                    }
+                }
+
+                $data = CarComment::create([
+
+                    'description' => $request->description,
+
+                    'car_id' => $request->id,
+
+                    'user_id' => Auth::id(),
+                ]);
+
+
+            } else {
+
+
+                if (!empty($request->comments)) {
+
+
+                    foreach ($request->comments as $comment) {
+
+                        PlaceReview::create([
+
+                            'place_id' => $comment['id'],
+
+                            'rate' => $comment['value'],
+
+
+                            'user_id' => Auth::id(),
+                        ]);
+
+                    }
+                }
+
+                $data = PlaceComment::create([
+
+                    'description' => $request->description,
+
+                    'place_id' => $request->id,
+
+                    'user_id' => Auth::id(),
+                ]);
+
+            }
+
+            return $this->respondSuccess($data, trans('site.added_successfully'));
+
+
+        }
+
+    }
 
     public function AddNote(Request $request)
     {

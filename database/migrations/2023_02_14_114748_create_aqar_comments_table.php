@@ -16,19 +16,19 @@ return new class extends Migration
         Schema::create('aqar_comments', function (Blueprint $table) {
             $table->increments('id');
             $table->string('description')->nullable();
-            $table->integer('rating')->required();
+            $table->integer('rating')->nullable();
             $table->boolean('status')->default (0);
             $table->boolean('check_view')->default (0);
-            $table->integer('demo_clean')->required()->default (0);
-            $table->integer('demo_status')->required()->default (0);
-            $table->integer('demo_work')->required()->default (0);
-            $table->integer('demo_loc')->required()->default (0);
+            $table->integer('demo_clean')->nullable()->default (0);
+            $table->integer('demo_status')->nullable()->default (0);
+            $table->integer('demo_work')->nullable()->default (0);
+            $table->integer('demo_loc')->nullable()->default (0);
 
             $table->integer('aqar_id')->nullable( )->unsigned();
             $table->foreign('aqar_id')->references('id')->on('aqars')->onDelete('cascade');
-            
-            $table->foreignId('user_id')->required( )->references('id')->on('users')->onDelete('cascade');
-            
+
+            $table->foreignId('user_id')->nullable( )->references('id')->on('users')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
         });
