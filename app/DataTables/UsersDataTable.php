@@ -31,16 +31,16 @@ class UsersDataTable extends DataTable
     private function getPermissions()
     {
         return [
-            'update' => 'update_'.$this->crudName,
-            'delete' => 'delete_'.$this->crudName,
-            'create' => 'create_'.$this->crudName,
+            'update' => 'update_' . $this->crudName,
+            'delete' => 'delete_' . $this->crudName,
+            'create' => 'create_' . $this->crudName,
         ];
     }
 
     /**
      * Build DataTable class.
      *
-     * @param  mixed  $query Results from query() method.
+     * @param mixed $query Results from query() method.
      * @return \Yajra\DataTables\DataTableAbstract
      */
     public function dataTable($query)
@@ -48,7 +48,7 @@ class UsersDataTable extends DataTable
         return datatables()
             ->eloquent($query)
             ->editColumn('created_at', function ($model) {
-                return (! empty($model->created_at)) ? $model->created_at->diffForHumans() : '';
+                return (!empty($model->created_at)) ? $model->created_at->diffForHumans() : '';
             })
             ->addIndexColumn()
             ->addColumn('action', function ($model) {
@@ -72,11 +72,13 @@ class UsersDataTable extends DataTable
     {
         return $model->newQuery();
     }
+
     public function count()
     {
-            return User::count();
+        return User::count();
 
     }
+
     /**
      * Optional method if you want to use html builder.
      *
@@ -85,19 +87,21 @@ class UsersDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-                    ->setTableId('users-table')
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    ->dom('Bfrtip')
-                    ->orderBy(1)
-                    ->selectStyleSingle()
-                    ->buttons([
-                        Button::make('create')->text('<i class="fa fa-plus"></i> '.trans('site.add')),
-                        Button::make('csv')->text('<i class="fa fa-download"></i> '.trans('site.export')),
-                        Button::make('print')->text('<i class="fa fa-print"></i> '.trans('site.print')),
-                        Button::make('reset')->text('<i class="fa fa-undo"></i> '.trans('site.reset')),
-                        Button::make('reload')->text('<i class="fa fa-refresh"></i> '.trans('site.reload')),
-                    ]);
+            ->setTableId('users-table')
+            ->columns($this->getColumns())
+            ->minifiedAjax()
+            ->dom('Bfrtip')
+            ->orderBy(1)
+            ->selectStyleSingle()
+            ->buttons([
+                Button::make('create')->text('<i class="fa fa-plus"></i> ' . trans('site.add')),
+                Button::make('csv')->text('<i class="fa fa-download"></i> ' . trans('site.export')),
+                Button::make('print')->text('<i class="fa fa-print"></i> ' . trans('site.print')),
+                Button::make('reset')->text('<i class="fa fa-undo"></i> ' . trans('site.reset')),
+                Button::make('reload')->text('<i class="fa fa-refresh"></i> ' . trans('site.reload')),
+            ])->language([
+                "url" => app()->getLocale() == 'ar' ? "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json" : "//cdn.datatables.net/plug-ins/1.13.4/i18n/en-GB.json"
+            ]);
     }
 
     /**

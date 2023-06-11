@@ -31,6 +31,7 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::get('/detailAqar', 'App\Http\Controllers\Api\AqarController@detailAqar');
     Route::get('/AqarsReviews', 'App\Http\Controllers\Api\AqarController@AqarsReviews');
     Route::post('/AddNote', 'App\Http\Controllers\Api\AqarController@AddNote');
+    Route::post('/AddComment', 'App\Http\Controllers\Api\AqarController@AddComment');
     Route::post('/AqarFavourite', 'App\Http\Controllers\Api\AqarController@AqarFavourite');
     Route::get('/AqarBookingDetail', 'App\Http\Controllers\Api\AqarController@AqarBookingDetail');
 

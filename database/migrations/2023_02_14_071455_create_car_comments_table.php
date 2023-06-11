@@ -16,14 +16,14 @@ return new class extends Migration
         Schema::create('car_comments', function (Blueprint $table) {
             $table->increments('id');
             $table->string('description')->nullable();
-            $table->integer('rating')->required();
+            $table->integer('rating')->nullable();
             $table->boolean('status')->default (0);
             $table->integer('demo_clean')->default (0);
             $table->integer('demo_status')->default (0);
             $table->integer('demo_work')->default (0);
             $table->integer('car_id')->nullable( )->unsigned();
             $table->foreign('car_id')->references('id')->on('cars')->onDelete('cascade');
-            $table->foreignId('user_id')->required( )->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('user_id')->nullable( )->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });

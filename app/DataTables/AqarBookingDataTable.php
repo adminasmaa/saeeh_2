@@ -98,6 +98,8 @@ class AqarBookingDataTable extends DataTable
                 Button::make('print')->text('<i class="fa fa-print"></i> ' . trans('site.print')),
                 Button::make('reset')->text('<i class="fa fa-undo"></i> ' . trans('site.reset')),
                 Button::make('reload')->text('<i class="fa fa-refresh"></i> ' . trans('site.reload')),
+            ])->language([
+                "url" => app()->getLocale() == 'ar' ? "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json":"//cdn.datatables.net/plug-ins/1.13.4/i18n/en-GB.json"
             ]);
     }
 

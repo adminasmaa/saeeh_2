@@ -15,14 +15,14 @@ return new class extends Migration
     {
         Schema::create('place_comments', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('description')->required();
+            $table->string('description')->nullable();
             $table->integer('rating');
             $table->boolean('status') ->default (0);
 
             $table->integer('place_id')->nullable( )->unsigned();
             $table->foreign('place_id')->references('id')->on('places')->onDelete('cascade');
-            $table->foreignId('user_id')->required( )->references('id')->on('users')->onDelete('cascade');
-            
+            $table->foreignId('user_id')->nullable( )->references('id')->on('users')->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
         });
