@@ -54,8 +54,8 @@
     <link rel="stylesheet" type="text/css" href="{{MAINASSETS}}/css/vendors/select2.css">
 
 
-    <link rel="stylesheet" type="text/css" href="{{MAINASSETS}}/css/vendors/datatables.css">
-    <link rel="stylesheet" type="text/css" href="{{MAINASSETS}}/css/vendors/datatable-extension.css">
+    <!-- <link rel="stylesheet" type="text/css" href="{{MAINASSETS}}/css/vendors/datatables.css">
+    <link rel="stylesheet" type="text/css" href="{{MAINASSETS}}/css/vendors/datatable-extension.css"> -->
 
     <link rel="stylesheet" href="{{MAINDASHBOARD}}/plugins/noty/noty.css">
     <script src="{{MAINDASHBOARD}}//plugins/noty/noty.min.js"></script>
@@ -642,7 +642,7 @@
 <script src="{{MAINASSETS}}/js/typeahead-search/typeahead-custom.js"></script>
 <script src="{{MAINASSETS}}/js/dropzone/dropzone.js"></script>
 <script src="{{MAINASSETS}}/js/dropzone/dropzone-script.js"></script>
-<script src="{{MAINASSETS}}/js/datatable/datatables/jquery.dataTables.min.js"></script>
+<!-- <script src="{{MAINASSETS}}/js/datatable/datatables/jquery.dataTables.min.js"></script>
 <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.buttons.min.js"></script>
 <script src="{{MAINASSETS}}/js/datatable/datatable-extension/jszip.min.js"></script>
 <script src="{{MAINASSETS}}/js/datatable/datatable-extension/buttons.colVis.min.js"></script>
@@ -661,7 +661,18 @@
 <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.fixedHeader.min.js"></script>
 <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.rowReorder.min.js"></script>
 <script src="{{MAINASSETS}}/js/datatable/datatable-extension/dataTables.scroller.min.js"></script>
-<script src="{{MAINASSETS}}/js/datatable/datatable-extension/custom.js"></script>
+<script src="{{MAINASSETS}}/js/datatable/datatable-extension/custom.js"></script> -->
+
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
+<script type="application/json" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.bootstrap4.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.print.min.js"></script>
 <script src="{{MAINASSETS}}/js/tooltip-init.js"></script>
 <script src="{{MAINASSETS}}/js/select2/select2.full.min.js"></script>
 <script src="{{MAINASSETS}}/js/select2/select2-custom.js"></script>
