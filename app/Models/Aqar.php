@@ -60,11 +60,11 @@ class Aqar extends Model
     ];
     // relations
     public function user(){
-        return $this->belongsTo(User::class,'user_id');
+        return $this->belongsTo(User::class,'user_id')->withDefault(['firstname' => '']);
     }
 
     public function area(){
-        return $this->belongsTo(Area::class,'area_id');
+        return $this->belongsTo(Area::class,'area_id')->withDefault(['name_ar' => '']);
     }
     // relations
     public function category(){

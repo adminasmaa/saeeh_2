@@ -87,17 +87,18 @@ class CarPositionDataTable extends DataTable
     {
         return $this->builder()
             ->setTableId('areas-table')
+            ->addTableClass('cell-border stripe')
             ->columns($this->getColumns())
             ->minifiedAjax()
            ->dom('Bfrtip')
             ->orderBy(1)
             ->selectStyleSingle()
             ->buttons([
-                Button::make('create')->text('<i class="fa fa-plus"></i> ' . trans('site.add')),
+              //  Button::make('create')->text('<i class="fa fa-plus"></i> ' . trans('site.add')),
                 Button::make('csv')->text('<i class="fa fa-download"></i> ' . trans('site.export')),
                 Button::make('print')->text('<i class="fa fa-print"></i> ' . trans('site.print')),
-                Button::make('reset')->text('<i class="fa fa-undo"></i> ' . trans('site.reset')),
-                Button::make('reload')->text('<i class="fa fa-refresh"></i> ' . trans('site.reload')),
+              //  Button::make('reset')->text('<i class="fa fa-undo"></i> ' . trans('site.reset')),
+              //  Button::make('reload')->text('<i class="fa fa-refresh"></i> ' . trans('site.reload')),
             ])->language([
                 "url" => app()->getLocale() == 'ar' ? "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json":"//cdn.datatables.net/plug-ins/1.13.4/i18n/en-GB.json"
             ]);
