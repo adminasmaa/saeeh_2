@@ -241,7 +241,7 @@
         <!-- Page Sidebar Start-->
         <div class="sidebar-wrapper">
             <div>
-                <div class="logo-wrapper"><a href="index.html"><img class="img-fluid for-light"
+                <div class="logo-wrapper"><a href="{{route('dashboard.home')}}"><img class="img-fluid for-light"
                                                                     src="{{MAINASSETS}}/images/logo/logo.png"
                                                                     alt=""><img class="img-fluid for-dark"
                                                                                 src="{{MAINASSETS}}/images/logo/logo_dark.png"
@@ -250,14 +250,14 @@
                     <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="grid"> </i>
                     </div>
                 </div>
-                <div class="logo-icon-wrapper"><a href="index.html"><img class="img-fluid"
+                <div class="logo-icon-wrapper"><a href="{{route('dashboard.home')}}"><img class="img-fluid"
                                                                          src="{{MAINASSETS}}/images/logo/logo-icon.png"
                                                                          alt=""></a></div>
                 <nav class="sidebar-main">
                     <div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>
                     <div id="sidebar-menu">
                         <ul class="sidebar-links" id="simple-bar">
-                            <li class="back-btn"><a href="index.html"><img class="img-fluid"
+                            <li class="back-btn"><a href="{{route('dashboard.home')}}"><img class="img-fluid"
                                                                            src="{{MAINASSETS}}/images/logo/logo-icon.png"
                                                                            alt=""></a>
                                 <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2"
@@ -265,7 +265,7 @@
                             </li>
                             <li class="sidebar-main-title">
                                 <div>
-                                
+
                                     <h6 class="lan-1">Saeeh</h6>
                                     <p class="lan-2">Dashboards,widgets </p>
                                 </div>
@@ -278,135 +278,164 @@
 
                             </li>
 
+                            @if (auth()->user()->hasPermission('read_settings'))
                             <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.settings.index')?'activee':'' }}"
                                     href="{{route('dashboard.settings.index')}}"><i
                                         data-feather="settings"></i><span>@lang('site.settings') @endlang</span></a>
 
                             </li>
+                            @endif
+                            @if (auth()->user()->hasPermission('read_users'))
                             <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title link-nav  {{($current_route=='dashboard.users.index')?'activee':'' }}"
                                     href="{{route('dashboard.users.index')}}"><i
                                         data-feather="users"></i><span>@lang('site.users') @endlang</span></a>
 
                             </li>
-
+                            @endif
+                            @if (auth()->user()->hasPermission('read_roles'))
                             <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.roles.index')?'activee':'' }}"
                                     href="{{route('dashboard.roles.index')}}"><i
                                         data-feather="box"></i><span>@lang('site.roles') @endlang</span></a>
 
                             </li>
-
+                            @endif
+                            @if (auth()->user()->hasPermission('read_message'))
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.message.index')?'activee':'' }}"
                                    href="{{route('dashboard.message.index')}}">
                                     <i data-feather="bell"></i><span>@lang('site.contacts') @endlang</span></a>
                             </li>
-
+                            @endif
+                            @if (auth()->user()->hasPermission('read_message'))
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.contacts.index')?'activee':'' }}"
                                    href="{{route('dashboard.contacts.index')}}">
                                     <i data-feather="mail"></i><span>@lang('site.contactsus') @endlang</span></a>
                             </li>
-
+                            @endif
+                            @if (auth()->user()->hasPermission('read_countries'))
                             <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.countries.index')?'activee':'' }}"
                                     href="{{route('dashboard.countries.index')}}"><i
                                         data-feather="map"></i><span>@lang('site.countries') @endlang</span></a>
 
                             </li>
-
+                            @endif
+                            @if (auth()->user()->hasPermission('read_cities'))
                             <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.cities.index')?'activee':'' }}"
                                     href="{{route('dashboard.cities.index')}}"><i
                                         data-feather="film"></i><span>@lang('site.cities') @endlang</span></a>
 
                             </li>
-
-
+                            @endif
+                            @if (auth()->user()->hasPermission('read_questions'))
                             <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.questions.index')?'activee':'' }}"
                                     href="{{route('dashboard.questions.index')}}"><i
                                         data-feather="bookmark"></i><span>@lang('site.questions') @endlang</span></a>
 
                             </li>
-
-
+                            @endif
+                            @if (auth()->user()->hasPermission('read_problems'))
                             <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.problems.index')?'activee':'' }}"
                                     href="{{route('dashboard.problems.index')}}"><i
                                         data-feather="file-text"></i><span>@lang('site.problems') @endlang</span></a>
 
                             </li>
-
-
+                            @endif
+                            @if (auth()->user()->hasPermission('read_mediators'))
                             <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.mediators.index')?'activee':'' }}"
                                     href="{{route('dashboard.mediators.index')}}"><i
                                         data-feather="user-check"></i><span>@lang('site.mediators') @endlang</span></a>
 
                             </li>
+                            @endif
 
+                            @if (auth()->user()->hasPermission('read_advertising'))
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.advertising.index')?'activee':'' }}"
                                    href="{{route('dashboard.advertising.index')}}">
                                     <i data-feather="zap"></i><span>@lang('site.advertising') @endlang</span></a>
                             </li>
+                            @endif
 
+                            @if (auth()->user()->hasPermission('read_reviewElements'))
                             <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.reviewElements.index')?'activee':'' }}"
                                     href="{{route('dashboard.reviewElements.index')}}"><i
                                         data-feather="bar-chart-2"></i><span>@lang('site.reviewElements') @endlang</span></a>
 
                             </li>
+                            @endif
                             {{--list--}}
-                        
+
                             <li class="sidebar-list">
-                                <label class="badge badge-light-secondary"></label><a class="sidebar-link sidebar-title {{((in_array($current_route, 
+                                <label class="badge badge-light-secondary"></label><a class="sidebar-link sidebar-title {{((in_array($current_route,
                                 ['dashboard.categories.index','dashboard.cars.index','dashboard.bookings.index','dashboard.car_comments.index']))?'activee':'' )}}"
                                                                                       href="#"><i
                                         data-feather="airplay"></i><span>@lang('site.cars') @endlang                </span></a>
                                 <ul class="sidebar-submenu">
+                                    @if (auth()->user()->hasPermission('read_categories'))
                                     <li><a href="{{route('dashboard.categories.index')}}" class="{{($current_route=='dashboard.categories.index')?'activee':'' }}">{{__('site.categories')}}</a>
                                     </li>
-
+                                    @endif
+                                        @if (auth()->user()->hasPermission('read_cars'))
                                     <li><a href="{{route('dashboard.cars.index')}}"  class="{{($current_route=='dashboard.cars.index')?'activee':'' }}" >{{__('site.cars')}}</a>
 
                                     </li>
+                                        @endif
+                                        @if (auth()->user()->hasPermission('read_bookings'))
                                     <li><a href="{{route('dashboard.bookings.index')}}"  class="{{($current_route=='dashboard.bookings.index')?'activee':'' }}" >{{__('site.bookings')}}</a>
                                     </li>
-
+                                        @endif
+                                        @if (auth()->user()->hasPermission('read_car_comments'))
                                     <li>
                                         <a href="{{route('dashboard.car_comments.index')}}"  class="{{($current_route=='dashboard.car_comments.index')?'activee':'' }}">{{__('site.car_comments')}}</a>
                                     </li>
+                                        @endif
+                                        @if (auth()->user()->hasPermission('read_car_reviews'))
 
-                                    <li>
+                                        <li>
                                         <a href="{{route('dashboard.car_reviews.index')}}" class="{{($current_route=='dashboard.car_reviews.index')?'activee':'' }}">{{__('site.car_reviews')}}</a>
                                     </li>
+                                        @endif
                                 </ul>
                             </li>
                             <li class="sidebar-list"><a
-                                    class="sidebar-link sidebar-title {{((in_array($current_route, 
+                                    class="sidebar-link sidebar-title {{((in_array($current_route,
                                 ['dashboard.aquarcategories.index','dashboard.areas.index','dashboard.services_aqars.index','dashboard.aqar_setting.edit','dashboard.aqars.index','dashboard.aquarbooking.index','dashboard.aqar_comments.index']))?'activee':'' )}}"
                                     href="#"><i data-feather="layers"></i><span>@lang('site.aquars') @endlang</span></a>
                                 <ul class="sidebar-submenu">
+                                    @if (auth()->user()->hasPermission('read_aquarcategories'))
                                     <li>
                                         <a href="{{route('dashboard.aquarcategories.index')}}" class="{{($current_route=='dashboard.aquarcategories.index')?'activee':'' }}">{{__('site.categories')}}</a>
                                     </li>
+                                    @endif
 
-                                    
+                                        @if (auth()->user()->hasPermission('read_areas'))
 
                                     <li>
                                         <a href="{{route('dashboard.areas.index')}}" class="{{($current_route=='dashboard.areas.index')?'activee':'' }}">{{__('site.areas')}}</a>
                                     </li>
+                                        @endif
 
-                                    <li>
+                                        @if (auth()->user()->hasPermission('read_services_aqars'))
+
+                                        <li>
                                         <a href="{{route('dashboard.services_aqars.index')}}" class="{{($current_route=='dashboard.services_aqars.index')?'activee':'' }}">{{__('site.services_aqars')}}</a>
                                     </li>
+                                        @endif
+                                        @if (auth()->user()->hasPermission('read_aqar_setting'))
                                     <li>
                                         <a href="{{route('dashboard.aqar_setting.edit')}}" class="{{($current_route=='dashboard.aqar_setting.edit')?'activee':'' }}">{{__('site.aqar_setting')}}</a>
                                     </li>
+                                        @endif
 
 {{--                                    <li>--}}
 {{--                                        <a href="{{route('dashboard.place_tables.index')}}" >{{__('site.place_tables')}}</a>--}}
@@ -452,22 +481,27 @@
 {{--                                    <li>--}}
 {{--                                        <a href="{{route('dashboard.pools.index')}}">{{__('site.pools')}}</a>--}}
 {{--                                    </li>--}}
-
+                                        @if (auth()->user()->hasPermission('read_aqars'))
                                     <li>
                                         <a href="{{route('dashboard.aqars.index')}}" class="{{($current_route=='dashboard.aqars.index')?'activee':'' }}">{{__('site.aqars')}}</a>
                                     </li>
+                                        @endif
+
+                                        @if (auth()->user()->hasPermission('read_aquarbooking'))
                                     <li>
                                         <a href="{{route('dashboard.aquarbooking.index')}}" class="{{($current_route=='dashboard.aquarbooking.index')?'activee':'' }}">{{__('site.bookings')}}</a>
                                     </li>
-
+                                        @endif
+                                        @if (auth()->user()->hasPermission('read_aqar_comments'))
                                     <li>
                                         <a href="{{route('dashboard.aqar_comments.index')}}" class="{{($current_route=='dashboard.aqar_comments.index')?'activee':'' }}">{{__('site.aqar_comments')}}</a>
                                     </li>
-                                    
+                                        @endif
+                                        @if (auth()->user()->hasPermission('read_aqar_reviews'))
                                     <li>
                                         <a href="{{route('dashboard.aqar_reviews.index')}}" class="{{($current_route=='dashboard.aqar_reviews.index')?'activee':'' }}">{{__('site.aqar_reviews')}}</a>
                                     </li>
-
+                                        @endif
                                 </ul>
                             </li>
 
@@ -475,69 +509,87 @@
                             {{--list--}}
 
                             <li class="sidebar-list">
-                                <label class="badge badge-light-secondary"></label><a class="sidebar-link sidebar-title {{((in_array($current_route, 
+                                <label class="badge badge-light-secondary"></label><a class="sidebar-link sidebar-title {{((in_array($current_route,
                                 ['dashboard.place_categories.index','dashboard.places.index','dashboard.place_comments.index']))?'activee':'' )}}"
                                                                                       href="#"><i
                                         data-feather="list"></i><span>@lang('site.places') @endlang                </span></a>
                                 <ul class="sidebar-submenu">
                                     <!-- <li><a href="{{route('dashboard.brands.index')}}">{{__('site.brands')}}</a>
                                     </li> -->
+                                    @if (auth()->user()->hasPermission('read_place_categories'))
+
                                     <li>
                                         <a href="{{route('dashboard.place_categories.index')}}" class="{{($current_route=='dashboard.place_categories.index')?'activee':'' }}">{{__('site.categories')}}</a>
                                     </li>
+                                    @endif
+                                    @if (auth()->user()->hasPermission('read_places'))
 
                                     <li><a href="{{route('dashboard.places.index')}}" class="{{($current_route=='dashboard.places.index')?'activee':'' }}">{{__('site.places')}}</a>
 
                                     </li>
+                                    @endif
                                     <!-- <li><a href="{{route('dashboard.bookings.index')}}">{{__('site.bookings')}}</a>
                                     </li> -->
-
+                                    @if (auth()->user()->hasPermission('read_place_comments'))
                                     <li>
                                         <a href="{{route('dashboard.place_comments.index')}}" class="{{($current_route=='dashboard.place_comments.index')?'activee':'' }}">{{__('site.place_comments')}}</a>
                                     </li>
+                                    @endif
+                                    @if (auth()->user()->hasPermission('read_place_comments'))
 
                                     <li>
                                         <a href="{{route('dashboard.place_reviews.index')}}" class="{{($current_route=='dashboard.place_reviews.index')?'activee':'' }}">{{__('site.place_reviews')}}</a>
                                     </li>
+                                    @endif
 
                                 </ul>
                             </li>
+                            @if (auth()->user()->hasPermission('read_commissions'))
 
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.commissions.index')?'activee':'' }}"
                                    href="{{route('dashboard.commissions.index')}}">
                                     <i data-feather="plus-circle"></i><span>@lang('site.commissions') @endlang</span></a>
                             </li>
+                            @endif
 
+                            @if (auth()->user()->hasPermission('read_notifications'))
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.notifications.index')?'activee':'' }}"
                                    href="{{route('dashboard.notifications.index')}}">
                                     <i data-feather="droplet"></i><span>@lang('site.notifications') @endlang</span></a>
                             </li>
-
+                            @endif
+                            @if (auth()->user()->hasPermission('read_balances'))
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.balances.index')?'activee':'' }}"
                                    href="{{route('dashboard.balances.index')}}">
                                     <i data-feather="dollar-sign"></i><span>@lang('site.balances') @endlang</span></a>
                             </li>
-
+                            @endif
+                            @if (auth()->user()->hasPermission('read_invoices'))
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.invoices.index')?'activee':'' }}"
                                    href="{{route('dashboard.invoices.index')}}">
                                     <i data-feather="anchor"></i><span>@lang('site.invoices') @endlang</span></a>
                             </li>
 
+                            @endif
+                            @if (auth()->user()->hasPermission('read_deposits'))
+
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.deposits.index')?'activee':'' }}"
                                    href="{{route('dashboard.deposits.index')}}">
                                     <i data-feather="credit-card"></i><span>@lang('site.deposits') @endlang</span></a>
                             </li>
-
+                            @endif
+                            @if (auth()->user()->hasPermission('read_sections'))
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.sections.index')?'activee':'' }}"
                                    href="{{route('dashboard.sections.index')}}">
                                     <i data-feather="list"></i><span>@lang('site.sections') @endlang</span></a>
                             </li>
+                            @endif
                         </ul>
                     </div>
                     <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>
@@ -631,7 +683,7 @@
         document.getElementById("table5").deleteRow(i);
     }
 
-</script>  
+</script>
 <!-- Plugins JS Ends-->
 <!-- Sidebar jquery-->
 
