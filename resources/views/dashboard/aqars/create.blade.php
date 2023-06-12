@@ -240,7 +240,7 @@
 
                                                         <div class="img-thumbs img-thumbs-hidden" id="img-previews">
 
-                                            </div>
+                                            </div> 
                                             <br>
                                             <div class="row">
                                                     <div class="form-group col-12 p-2">
