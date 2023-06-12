@@ -25,10 +25,9 @@ class RoleRepository implements IRoleRepositoryAlias
         // TODO: Implement create() method.
 
 
-        $models = ['users', 'roles','mediators','advertising','notifications','brands','cars','sections','message','bookings','car_comments','floors','commissions','conditioning_types','places','balances','invoices','deposits',
-            'countries', 'cities','categories','settings','roles','questions','problems','areas','services','car_positions','kitchens','aqars'
+        $models = ['users','problems', 'mediators','advertising','notifications','brands','cars','sections','message','bookings','car_comments','floors','commissions','conditioning_types','places','balances','invoices','deposits',
+            'countries', 'cities','categories','settings','roles','questions','problems','areas','aquarcategories','services_aqars','aqar_reviews','place_categories','aquarbooking','aqar_comments','aqar_setting','services','car_positions','kitchens','aqars','reviewElements','car_comments','car_reviews'
         ];
-
 
         $maps = ['create', 'update', 'read', 'delete'];
 
@@ -42,8 +41,8 @@ class RoleRepository implements IRoleRepositoryAlias
 
 
 
-        $models = ['users', 'roles','mediators','advertising','notifications','brands','cars','sections','message','bookings','car_comments','floors','commissions','conditioning_types','places','balances','invoices','deposits',
-            'countries', 'cities','categories','settings','roles','questions','problems','areas','services','car_positions','kitchens','aqars'
+        $models = ['users','problems', 'mediators','advertising','notifications','brands','cars','sections','message','bookings','car_comments','floors','commissions','conditioning_types','places','balances','invoices','deposits',
+            'countries', 'cities','categories','settings','roles','questions','problems','areas','aquarcategories','services_aqars','aqar_reviews','place_categories','aquarbooking','aqar_comments','aqar_setting','services','car_positions','kitchens','aqars','reviewElements','car_comments','car_reviews'
         ];
 
         $maps = ['create', 'update', 'read', 'delete'];
