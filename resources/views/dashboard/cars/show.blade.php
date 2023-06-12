@@ -239,41 +239,39 @@
                                             </div>
                         </div>
 
-
                         <div class="row">
-                            <label> @lang('site.images')</label>
-                            @isset($place['images'])
-                                @foreach(json_decode($place->images) as $key=>$image)
-                                    <div class="col-md-2 form-group col-2 p-1">
+                                                  
+                            <div class="form-group col-12 p-2 mb-2">
 
-                                        <img src="{{asset('images/places/'.$image)}}"
+                                <label>@lang('site.images')</label>
 
-                                             width="100px" height="100px"
-                                             class="d-block"
-                                             onerror="this.src='{{asset('images/places/default.jpg')}}'"
-                                        >
-
+                                <div class="img-thumbs " id="img-previews">
+                                    @if($car->images)
+                                    @foreach ((explode(',',$car->images)) as $img)
+                                    <div class="wrapper-thumb">
+                                        <img id="frame" src="{{asset('images/cars/'.$img)}}"
+                                            alt=""
+                                            onerror="this.src='{{asset('images/cars/default.jpg')}}'"
+                                            width="200px" class="img-preview-thumb" />
                                     </div>
-                                @endforeach
-                            @endisset
+                                    @endforeach
+                                    @endif
+                                </div>
+                            </div>
+
 
                         </div>
 
                         <div class="row">
-
-                            <div class="col-md-6 form-group col-12 p-2">
-
-                                <label> @lang('site.videos')</label>
-                                <br>
-                                <br>
-
-                                <video width="300" height="150" controls>
-                                    <source src="{{URL::asset("/images/cars/$car->videos")}}" type="video/mp4">
+                            <div class="form-group col-12 p-2">
+                                <label>@lang('site.video')</label>
+                                <video width="250" height="200"
+                                    src="{{asset('images/cars/videos/'.$car->videos)}}"
+                                    controls class="video-upload" autoplay>
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

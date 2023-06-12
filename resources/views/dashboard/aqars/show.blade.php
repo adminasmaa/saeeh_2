@@ -272,9 +272,7 @@
                                                 <div class="row">
                                                     <div class="form-group col-12 p-2">
                                                         <label>@lang('site.display_photo')</label>
-
-                                                        <input type="file" class="form-control" name="main_image"
-                                                            value="{{$aqar->main_image}}" id="imgInp"  readonly="" disabled/>
+                                                        <br> 
                                                         <img id="frame"
                                                             src="{{asset('images/aqars/'.$aqar->main_image)}}" alt=""
                                                             onerror="this.src='{{asset('images/aqars/default.jpg')}}'"
@@ -285,9 +283,6 @@
 
                                                         <label>@lang('site.images')</label>
 
-                                                        <input type="file" class="form-control" name="images[]"
-                                                            value="{{$aqar->images}}" multiple id="upload-imgs" readonly="" disabled/>
-
                                                         <div class="img-thumbs " id="img-previews">
                                                             @if($aqar->images)
                                                             @foreach ((explode(',',$aqar->images)) as $img)
@@ -295,8 +290,7 @@
                                                                 <img id="frame" src="{{asset('images/aqars/'.$img)}}"
                                                                     alt=""
                                                                     onerror="this.src='{{asset('images/aqars/default.jpg')}}'"
-                                                                    width="200px" class="img-preview-thumb" /><span
-                                                                    class="remove-btn">x</span>
+                                                                    width="200px" class="img-preview-thumb" />
                                                             </div>
                                                             @endforeach
                                                             @endif
@@ -310,8 +304,6 @@
                                                     <div class="form-group col-12 p-2">
                                                         <label>@lang('site.video')</label>
 
-                                                        <input type='file' id='videoUpload' class="form-control"
-                                                            name="videos" value="{{$aqar->videos}}?>" readonly="" disabled/>
                                                         <video width="250" height="200"
                                                             src="{{asset('images/aqars/videos/'.$aqar->videos)}}"
                                                             controls class="video-upload" autoplay>
@@ -470,7 +462,7 @@ $('input[type=radio][name=category_id]').change(function() {
        })
 });
 </script>
-<script>
+<!-- <script>
 var imgUploads = document.getElementById("upload-imgs"),
     imgPreviews = document.getElementById("img-previews"),
     imgUploadForms = document.getElementById("form-upload"),
@@ -522,5 +514,5 @@ document.getElementById("videoUpload").onchange = function(event) {
     document.querySelector("video").style.display = "block";
     document.querySelector("video").src = blobURL;
 };
-</script>
+</script> -->
 @endsection

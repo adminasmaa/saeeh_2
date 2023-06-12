@@ -255,8 +255,41 @@
                                             </div>
                                 </div>
 
-
                                 <div class="row">
+                                    <div class="form-group col-12 p-2">
+                                        <label>@lang('site.image')</label>
+
+                                        <input type="file" class="form-control" name="main_image"
+                                            id="imgInp" required />
+                                        <img id="frame" src="" width="200px" class="img-upload" />
+
+                                    </div>
+                                    <div class="form-group col-12 p-2 mb-3">
+
+                                        <label>@lang('site.images')</label>
+
+                                        <input type="file" class="form-control" name="images[]"
+                                            value="{{ old('images[]') }}" multiple id="upload-imgs" />
+
+                                    <div class="img-thumbs img-thumbs-hidden" id="img-previews">
+
+                                </div> 
+                            <br>
+                                <div class="row">
+                                        <div class="form-group col-12 p-2">
+                                            <label>@lang('site.video')</label>
+
+                                            <input type='file' id='videoUpload' class="form-control"
+                                                name="videos" value="{{ old('videos') }}" />
+                                            <video width="250" height="200" style="display:none" controls
+                                                class="video-upload" autoplay>
+                                                Your browser does not support the video tag.
+                                            </video>
+                                        </div>
+                                    </div>
+                                
+                            <br> 
+                                <!-- <div class="row">
 
 
                                     <div class="col-md-6 form-group col-12 p-2">
@@ -290,7 +323,7 @@
                                     </div>
 
 
-                                </div>
+                                </div> -->
                                 <br>
 
 
@@ -388,6 +421,56 @@
         })
 
     </script>
+<script>
+    var imgUploads = document.getElementById("upload-imgs"),
+        imgPreviews = document.getElementById("img-previews"),
+        imgUploadForms = document.getElementById("form-upload"),
+        totalFiles,
+        previewTitle,
+        previewTitleText,
+        img;
 
+    imgUploads.addEventListener("change", previewImgss, true);
+
+    function previewImgss(event) {
+        totalFiles = imgUploads.files.length;
+
+        if (!!totalFiles) {
+            imgPreviews.classList.remove("img-thumbs-hidden");
+        }
+
+        for (var i = 0; i < totalFiles; i++) {
+            wrapper = document.createElement("div");
+            wrapper.classList.add("wrapper-thumb");
+            removeBtn = document.createElement("span");
+            nodeRemove = document.createTextNode("x");
+            removeBtn.classList.add("remove-btn");
+            removeBtn.appendChild(nodeRemove);
+            img = document.createElement("img");
+            img.src = URL.createObjectURL(event.target.files[i]);
+            img.classList.add("img-preview-thumb");
+            wrapper.appendChild(img);
+            wrapper.appendChild(removeBtn);
+            imgPreviews.appendChild(wrapper);
+
+            $(".remove-btn").click(function() {
+                $(this).parent(".wrapper-thumb").remove();
+            });
+        }
+    }
+
+    document.getElementById("imgInp").onchange = function() {
+        let imgURL = (frame.src = URL.createObjectURL(event.target.files[0]));
+        document.querySelector("img").src = imgURL;
+    };
+
+    /*video */
+    document.getElementById("videoUpload").onchange = function(event) {
+        let file = event.target.files[0];
+        let blobURL = URL.createObjectURL(file);
+        document.querySelector("video").style.display = "block";
+        document.querySelector("video").src = blobURL;
+    };
+</script>
 @endsection
 

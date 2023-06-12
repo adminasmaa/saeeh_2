@@ -293,8 +293,58 @@
                                             </div>
                             </div>
 
+                            <br>
+                                <div class="row">
+                                    <div class="form-group col-12 p-2">
+                                        <label>@lang('site.image')</label>
 
-                            <div class="row">
+                                        <input type="file" class="form-control" name="main_image"
+                                            value="{{$car->main_image}}" id="imgInp"  />
+                                        <img id="frame"
+                                            src="{{asset('images/cars/'.$car->main_image)}}" alt=""
+                                            onerror="this.src='{{asset('images/cars/default.jpg')}}'"
+                                            width="200px" class="img-upload" />
+
+                                    </div>
+                                    <div class="form-group col-12 p-2 mb-2">
+
+                                        <label>@lang('site.images')</label>
+
+                                        <input type="file" class="form-control" name="images[]"
+                                            value="{{$car->images}}" multiple id="upload-imgs" />
+
+                                        <div class="img-thumbs " id="img-previews">
+                                            @if($car->images)
+                                            @foreach ((explode(',',$car->images)) as $img)
+                                            <div class="wrapper-thumb">
+                                                <img id="frame" src="{{asset('images/cars/'.$img)}}"
+                                                    alt=""
+                                                    onerror="this.src='{{asset('images/cars/default.jpg')}}'"
+                                                    width="200px" class="img-preview-thumb" /><span
+                                                    class="remove-btn">x</span>
+                                            </div>
+                                            @endforeach
+                                            @endif
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="form-group col-12 p-2">
+                                        <label>@lang('site.video')</label>
+
+                                        <input type='file' id='videoUpload' class="form-control"
+                                            name="videos" value="{{$car->videos}}?>" />
+                                        <video width="250" height="200"
+                                            src="{{asset('images/cars/videos/'.$car->videos)}}"
+                                            controls class="video-upload" autoplay>
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    </div>
+                                </div>
+                            <!-- <div class="row">
 
                                 <div class="col-md-6 form-group col-12 p-2">
 
@@ -307,9 +357,9 @@
                                 </div>
 
 
-                            </div>
+                            </div> -->
 
-                            <div class="row">
+                            <!-- <div class="row">
                                 <div class="col-md-6 form-group col-12 p-2">
 
 
@@ -328,8 +378,8 @@
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
-                            </div>
-                            <div class="row">
+                            </div> -->
+                            <!-- <div class="row">
 
 
                                 <div class="col-md-6 form-group col-12 p-2">
@@ -341,10 +391,10 @@
 
 
                                 </div>
-                            </div>
+                            </div> -->
 
 
-                            <div class="row">
+                            <!-- <div class="row">
                                 @isset($place['images'])
                                     @foreach(json_decode($place->images) as $key=>$image)
                                         <div class="col-md-2 form-group col-2 p-1">
@@ -360,7 +410,7 @@
                                     @endforeach
                                 @endisset
 
-                        </div>
+                        </div> -->
 
 
                             <br>
@@ -452,5 +502,57 @@
         })
 
     </script>
+<script>
+    var imgUploads = document.getElementById("upload-imgs"),
+        imgPreviews = document.getElementById("img-previews"),
+        imgUploadForms = document.getElementById("form-upload"),
+        totalFiles,
+        previewTitle,
+        previewTitleText,
+        img;
 
+    imgUploads.addEventListener("change", previewImgss, true);
+
+    function previewImgss(event) {
+        totalFiles = imgUploads.files.length;
+
+        if (!!totalFiles) {
+            imgPreviews.classList.remove("img-thumbs-hidden");
+        }
+
+        for (var i = 0; i < totalFiles; i++) {
+            wrapper = document.createElement("div");
+            wrapper.classList.add("wrapper-thumb");
+            removeBtn = document.createElement("span");
+            nodeRemove = document.createTextNode("x");
+            removeBtn.classList.add("remove-btn");
+            removeBtn.appendChild(nodeRemove);
+            img = document.createElement("img");
+            img.src = URL.createObjectURL(event.target.files[i]);
+            img.classList.add("img-preview-thumb");
+            wrapper.appendChild(img);
+            wrapper.appendChild(removeBtn);
+            imgPreviews.appendChild(wrapper);
+
+            $(".remove-btn").click(function() {
+                $(this).parent(".wrapper-thumb").remove();
+            });
+        }
+    }
+    $(".remove-btn").click(function() {
+        $(this).parent(".wrapper-thumb").remove();
+    });
+    document.getElementById("imgInp").onchange = function() {
+        let imgURL = (frame.src = URL.createObjectURL(event.target.files[0]));
+        document.querySelector("img").src = imgURL;
+    };
+
+    /*video */
+    document.getElementById("videoUpload").onchange = function(event) {
+        let file = event.target.files[0];
+        let blobURL = URL.createObjectURL(file);
+        document.querySelector("video").style.display = "block";
+        document.querySelector("video").src = blobURL;
+    };
+</script>
 @endsection
