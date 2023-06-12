@@ -224,6 +224,13 @@
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
+                                        <label>@lang('site.menu_link')</label>
+                                        <input type="text" name="menu_link" class="form-control"
+                                               value="{{$place->menu_link}}"
+                                               >
+                                    </div>
+                                    
+                                    <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.facebook')</label>
                                         <input type="text" name="facebook" class="form-control"
                                                value="{{$place->facebook}}"
@@ -257,19 +264,13 @@
                                                value="{{$place->phone_two}}"
                                                >
                                     </div>
-                                    <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.time_check')</label>
-                                        <input type="time" name="time_check" class="form-control"
-                                               value="{{$place->time_check}}"
-                                               >
-                                    </div>
-
-                                    <div class="col-md-6 form-group col-12 p-2 ">
+                                    
+                                    <!-- <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.seen_counter')<span class="text-danger">*</span></label>
                                         <input type="number" name="seen_counter" class="form-control"
                                                value="{{$place->seen_counter}}"
                                                >
-                                    </div>
+                                    </div> -->
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.delivery')</label>
                                         <input type="number" name="delivery" class="form-control"
@@ -277,15 +278,15 @@
                                                >
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.diff_time')</label>
-                                        <input type="time" name="diff_time" class="form-control"
-                                               value="{{$place->diff_time}}"
+                                        <label>@lang('site.order_by')</label>
+                                        <input type="number" name="order_by" class="form-control"
+                                               value="{{$place->order_by}}"
                                                >
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.const_time')</label>
-                                        <input type="time" name="const_time" class="form-control"
-                                               value="{{$place->const_time}}"
+                                        <label>@lang('site.work_day')</label>
+                                        <input type="text" name="work_day" class="form-control"
+                                               value="{{$place->work_day}}"
                                                >
                                     </div>
                                 </div>
@@ -440,58 +441,54 @@
 
                                 <div class="row">
 
+                                <div class="form-group col-12 p-2">
+                                    <label>@lang('site.display_photo')</label>
 
-                                    <div class="col-md-6 form-group col-12 p-2">
-
-
-                                    <label>@lang('site.display_photo')</label><span class="text-danger">*</span>
-                                    <input type="file" name="display_photo" class="form-control"
-                                    value="{{ $place->display_photo }}">
-
-
-                                    </div>
-
-                                    <div class="col-md-6 form-group col-12 p-2">
-
-
-                                    <label>@lang('site.notify_photo')</label>
-                                    <input type="file" name="notify_photo" class="form-control"
-                                    value="{{ $place->notify_photo  }}">
-
-
-                                    </div>
-                            <div class="row">
-
-
-                                <div class="col-md-6 form-group col-12 p-2">
-
-                                    <label>@lang('site.images')</label>
-                                    <input type="file" name="images[]" class="form-control"
-                                           value="{{ old('images[]') }}" multiple>
+                                    <input type="file" class="form-control" name="main_image"
+                                        value="{{$place->main_image}}" id="imgInp"  />
+                                    <img id="frame"
+                                        src="{{asset('images/places/'.$place->main_image)}}" alt=""
+                                        onerror="this.src='{{asset('images/places/default.jpg')}}'"
+                                        width="200px" class="img-upload" />
 
                                 </div>
-                            </div>
+                                <div class="form-group col-12 p-2">
+                                    <label>@lang('site.notify_photo')</label>
 
+                                    <input type="file" class="form-control" name="notify_photo"
+                                        value="{{$place->notify_photo}}" id="imgInp2"  />
+                                    <img id="frame2"
+                                        src="{{asset('images/places/'.$place->main_image)}}" alt=""
+                                        onerror="this.src='{{asset('images/places/default.jpg')}}'"
+                                        width="200px" class="img-upload2" />
+
+                                </div>
+                               
                                 </div>
                         <div class="row">
-                                @isset($place['images'])
-                                    @foreach(json_decode($place->images) as $key=>$image)
-                                        <div class="col-md-2 form-group col-2 p-1">
+                             <div class="form-group col-12 p-2 mb-2">
 
-                                            <img src="{{asset('images/places/'.$image)}}"
+                                    <label>@lang('site.images')</label>
 
-                                                 width="100px" height="100px"
-                                                 class="d-block"
-                                                 onerror="this.src='{{asset('images/places/default.jpg')}}'"
-                                            >
+                                    <input type="file" class="form-control" name="images[]"
+                                        value="{{$place->images}}" multiple id="upload-imgs" />
 
+                                    <div class="img-thumbs " id="img-previews">
+                                        @if($place->images)
+                                        @foreach ((explode(',',$place->images)) as $img)
+                                        <div class="wrapper-thumb">
+                                            <img id="frame" src="{{asset('images/places/'.$img)}}"
+                                                alt=""
+                                                onerror="this.src='{{asset('images/places/default.jpg')}}'"
+                                                width="200px" class="img-preview-thumb" /><span
+                                                class="remove-btn">x</span>
                                         </div>
-                                    @endforeach
-                                @endisset
-
+                                        @endforeach
+                                        @endif
+                                    </div>
+                            </div>
                         </div>
-
-
+                             
                             <br>
 
                         </div>
@@ -562,6 +559,60 @@
 
     </script>
 
-    </script>
+<script>
+    var imgUploads = document.getElementById("upload-imgs"),
+        imgPreviews = document.getElementById("img-previews"),
+        imgUploadForms = document.getElementById("form-upload"),
+        totalFiles,
+        previewTitle,
+        previewTitleText,
+        img;
 
+    imgUploads.addEventListener("change", previewImgss, true);
+
+    function previewImgss(event) {
+        totalFiles = imgUploads.files.length;
+
+        if (!!totalFiles) {
+            imgPreviews.classList.remove("img-thumbs-hidden");
+        }
+
+        for (var i = 0; i < totalFiles; i++) {
+            wrapper = document.createElement("div");
+            wrapper.classList.add("wrapper-thumb");
+            removeBtn = document.createElement("span");
+            nodeRemove = document.createTextNode("x");
+            removeBtn.classList.add("remove-btn");
+            removeBtn.appendChild(nodeRemove);
+            img = document.createElement("img");
+            img.src = URL.createObjectURL(event.target.files[i]);
+            img.classList.add("img-preview-thumb");
+            wrapper.appendChild(img);
+            wrapper.appendChild(removeBtn);
+            imgPreviews.appendChild(wrapper);
+
+            $(".remove-btn").click(function() {
+                $(this).parent(".wrapper-thumb").remove();
+            });
+        }
+    }
+    $(".remove-btn").click(function() {
+        $(this).parent(".wrapper-thumb").remove();
+    });
+    document.getElementById("imgInp").onchange = function() {
+        let imgURL = (frame.src = URL.createObjectURL(event.target.files[0]));
+        document.querySelector("img").src = imgURL;
+    };
+    document.getElementById("imgInp2").onchange = function() {
+        let imgURL2 = (frame2.src = URL.createObjectURL(event.target.files[0]));
+        document.querySelector("img").src = imgURL2;
+    };
+    /*video */
+    // document.getElementById("videoUpload").onchange = function(event) {
+    //     let file = event.target.files[0];
+    //     let blobURL = URL.createObjectURL(file);
+    //     document.querySelector("video").style.display = "block";
+    //     document.querySelector("video").src = blobURL;
+    // };
+</script>
 @endsection

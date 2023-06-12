@@ -40,14 +40,14 @@ class Place extends Model
         'google_mark_link',// nullable
         'place_link',// nullable
         'share_link',// nullable
-        'time_check',// nullable
+        // 'time_check',// nullable
         'seen_counter',// required
         'delivery',// nullable
         'facebook',// nullable
         'instagram',// nullable
         'twitter',// nullable
-        'diff_time',// nullable
-        'const_time',// nullable
+        // 'diff_time',// nullable
+        // 'const_time',// nullable
         'latitude',// nullable
         'longitude',// nullable
         'rest_one',// nullable
@@ -60,6 +60,10 @@ class Place extends Model
         'user_id', //unsigned
         'country_id',
         'city_id',
+        'menu_link',// nullable
+        'order_by',
+        'work_day',
+
     ];
 
     protected $hidden = ['deleted_at', 'updated_at'];

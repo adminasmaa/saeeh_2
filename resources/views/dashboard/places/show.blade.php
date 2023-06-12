@@ -208,41 +208,43 @@
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
+                                        <label>@lang('site.menu_link')</label>
+                                        <input type="text" name="menu_link" class="form-control"
+                                        value="{{ $place->menu_link ?? '' }}" readonly=""disabled>
+                                    </div>
+
+                                    <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.phone_one')<span class="text-danger">*</span></label>
-                                        <input type="integer" name="phone_one" class="form-control"
+                                        <input type="text" name="phone_one" class="form-control"
                                         value="{{ $place->phone_one ?? '' }}" readonly=""disabled>
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.phone_two')</label>
-                                        <input type="integer" name="phone_two" class="form-control"
+                                        <input type="text" name="phone_two" class="form-control"
                                         value="{{ $place->phone_two ?? '' }}" readonly=""disabled>
                                     </div>
-                                    <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.time_check')</label>
-                                        <input type="integer" name="time_check" class="form-control"
-                                        value="{{ $place->time_check ?? '' }}" readonly=""disabled>
-                                    </div>
-
-                                    <div class="col-md-6 form-group col-12 p-2 ">
+                                    
+                                    <!-- <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.seen_counter')<span class="text-danger">*</span></label>
                                         <input type="integer" name="seen_counter" class="form-control"
                                         value="{{ $place->seen_counter ?? '' }}" readonly=""disabled>
-                                    </div>
+                                    </div> -->
+
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.delivery')</label>
                                         <input type="integer" name="delivery" class="form-control"
                                         value="{{ $place->delivery ?? '' }}" readonly=""disabled>
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.diff_time')</label>
-                                        <input type="integer" name="diff_time" class="form-control"
-                                        value="{{ $place->diff_time ?? '' }}" readonly=""disabled>
+                                        <label>@lang('site.order_by')</label>
+                                        <input type="number" name="order_by" class="form-control"
+                                        value="{{ $place->order_by ?? '' }}" readonly=""disabled>
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.const_time')</label>
-                                        <input type="integer" name="const_time" class="form-control"
-                                        value="{{ $place->const_time ?? '' }}" readonly=""disabled>
+                                        <label>@lang('site.work_day')</label>
+                                        <input type="text" name="work_day" class="form-control"
+                                        value="{{ $place->work_day ?? '' }}" readonly=""disabled>
                                     </div>
                                 </div>
 
@@ -346,7 +348,7 @@
                                     >
                                 </div>
                                 <div class="col-md-6 form-group col-12 p-2 ">
-                                <label>@lang('site.descrption_en')<span class="text-danger">*</span></label>
+                                <label>@lang('site.descrption_en')</label>
                                 <input type="text" name="descrption_en" class="form-control"
                                        value="{{ $place->descrption_en ?? '' }}" readonly=""disabled
                                     >
@@ -427,7 +429,27 @@
                                             </div>
                         </div>
 
-                        <div class="row">
+                        <div class="form-group col-12 p-2 mb-2">
+
+                            <label>@lang('site.images')</label>
+
+                            <input type="file" class="form-control" name="images[]"
+                                value="{{$place->images}}" multiple id="upload-imgs" readonly="" disabled/>
+
+                            <div class="img-thumbs " id="img-previews">
+                                @if($place->images)
+                                @foreach ((explode(',',$place->images)) as $img)
+                                <div class="wrapper-thumb">
+                                    <img id="frame" src="{{asset('images/places/'.$img)}}"
+                                        alt=""
+                                        onerror="this.src='{{asset('images/places/default.jpg')}}'"
+                                        width="200px" class="img-preview-thumb" />
+                                </div>
+                                @endforeach
+                                @endif
+                            </div>
+                        </div>
+                        <!-- <div class="row">
                             <label> @lang('site.images')</label>
                             @isset($place['images'])
                                 @foreach(json_decode($place->images) as $key=>$image)
@@ -444,7 +466,7 @@
                                 @endforeach
                             @endisset
 
-                        </div>
+                        </div> -->
 
                     </div>
                 </div>
@@ -504,4 +526,5 @@ $('#country_id').on('change',function(e){
 
 
 </script>
+
 @endsection

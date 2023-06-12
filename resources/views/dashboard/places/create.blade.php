@@ -123,6 +123,14 @@
                                                value="{{old('share_link')}}"
                                                >
                                     </div>
+
+                                    <div class="col-md-6 form-group col-12 p-2 ">
+                                        <label>@lang('site.menu_link')</label>
+                                        <input type="text" name="menu_link" class="form-control"
+                                               value="{{old('menu_link')}}"
+                                               >
+                                    </div>
+
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.facebook')</label>
                                         <input type="text" name="facebook" class="form-control"
@@ -155,19 +163,12 @@
                                                value="{{old('phone_two')}}"
                                                >
                                     </div>
-                                    <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.time_check')</label>
-                                        <input type="time" name="time_check" class="form-control"
-                                               value="{{old('time_check')}}"
-                                               >
-                                    </div>
-
-                                    <div class="col-md-6 form-group col-12 p-2 ">
+                                    <!-- <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.seen_counter')<span class="text-danger">*</span></label>
                                         <input type="number" name="seen_counter" class="form-control"
                                                value="{{old('seen_counter')}}"
                                                >
-                                    </div>
+                                    </div> -->
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.delivery')</label>
                                         <input type="number" name="delivery" class="form-control"
@@ -175,15 +176,15 @@
                                                >
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.diff_time')</label>
-                                        <input type="time" name="diff_time" class="form-control"
-                                               value="{{old('diff_time')}}"
+                                        <label>@lang('site.order_by')</label>
+                                        <input type="number" name="order_by" class="form-control"
+                                               value="{{old('order_by')}}"
                                                >
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.const_time')</label>
-                                        <input type="time" name="const_time" class="form-control"
-                                               value="{{old('const_time')}}"
+                                        <label>@lang('site.work_day')</label>
+                                        <input type="text" name="work_day" class="form-control"
+                                               value="{{old('work_day')}}"
                                                >
                                     </div>
                                 </div>
@@ -207,21 +208,21 @@
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.rest_one')</label>
-                                        <input type="number" name="rest_one" class="form-control"
+                                        <input type="text" name="rest_one" class="form-control"
                                                value="{{old('rest_one')}}"
                                                >
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.rest_two')</label>
-                                        <input type="number" name="rest_two" class="form-control"
+                                        <input type="text" name="rest_two" class="form-control"
                                                value="{{old('rest_two')}}"
                                                >
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.rest_three')</label>
-                                        <input type="number" name="rest_three" class="form-control"
+                                        <input type="text" name="rest_three" class="form-control"
                                                value="{{old('rest_three')}}"
                                                >
                                     </div>
@@ -328,39 +329,34 @@
                                             </div>
                                 </div>
 
-
                                 <div class="row">
-
-
-                                <div class="col-md-6 form-group col-12 p-2">
-
-                                <span class="text-danger">*</span>
+                                    <div class="form-group col-12 p-2">
                                         <label>@lang('site.display_photo')</label>
-                                        <input type="file" name="display_photo" class="form-control"
-                                               value="{{ old('display_photo') }}">
 
+                                        <input type="file" class="form-control" name="main_image"
+                                            id="imgInp" required />
+                                        <img id="frame" src="" width="200px" class="img-upload" />
 
                                     </div>
-
-                                    <div class="col-md-6 form-group col-12 p-2">
-
-
+                                    <div class="form-group col-12 p-2">
                                         <label>@lang('site.notify_photo')</label>
-                                        <input type="file" name="notify_photo" class="form-control"
-                                               value="{{ old('notify_photo') }}">
 
+                                        <input type="file" class="form-control" name="notify_photo"
+                                            id="imgInp2" required />
+                                        <img id="frame2" src="" width="200px" class="img-upload2" />
 
                                     </div>
-                                    <div class="col-md-6 form-group col-12 p-2">
-
+                                    <div class="form-group col-12 p-2 mb-3">
 
                                         <label>@lang('site.images')</label>
-                                        <input type="file" name="images[]" class="form-control"
-                                               value="{{ old('images[]') }}" multiple>
 
+                                        <input type="file" class="form-control" name="images[]"
+                                            value="{{ old('images[]') }}" multiple id="upload-imgs" />
 
-                                    </div>
-                                </div>
+                                        <div class="img-thumbs img-thumbs-hidden" id="img-previews">
+
+                            </div>
+                                
                                 <br>
 
 
@@ -418,5 +414,58 @@
 
     </script>
 
+<script>
+var imgUploads = document.getElementById("upload-imgs"),
+    imgPreviews = document.getElementById("img-previews"),
+    imgUploadForms = document.getElementById("form-upload"),
+    totalFiles,
+    previewTitle,
+    previewTitleText,
+    img;
 
+imgUploads.addEventListener("change", previewImgss, true);
+
+function previewImgss(event) {
+    totalFiles = imgUploads.files.length;
+
+    if (!!totalFiles) {
+        imgPreviews.classList.remove("img-thumbs-hidden");
+    }
+
+    for (var i = 0; i < totalFiles; i++) {
+        wrapper = document.createElement("div");
+        wrapper.classList.add("wrapper-thumb");
+        removeBtn = document.createElement("span");
+        nodeRemove = document.createTextNode("x");
+        removeBtn.classList.add("remove-btn");
+        removeBtn.appendChild(nodeRemove);
+        img = document.createElement("img");
+        img.src = URL.createObjectURL(event.target.files[i]);
+        img.classList.add("img-preview-thumb");
+        wrapper.appendChild(img);
+        wrapper.appendChild(removeBtn);
+        imgPreviews.appendChild(wrapper);
+
+        $(".remove-btn").click(function() {
+            $(this).parent(".wrapper-thumb").remove();
+        });
+    }
+}
+
+document.getElementById("imgInp").onchange = function() {
+    let imgURL = (frame.src = URL.createObjectURL(event.target.files[0]));
+    document.querySelector("img").src = imgURL;
+};
+document.getElementById("imgInp2").onchange = function() {
+    let imgURL2 = (frame2.src = URL.createObjectURL(event.target.files[0]));
+    document.querySelector("img").src = imgURL2;
+};
+/*video */
+// document.getElementById("videoUpload").onchange = function(event) {
+//     let file = event.target.files[0];
+//     let blobURL = URL.createObjectURL(file);
+//     document.querySelector("video").style.display = "block";
+//     document.querySelector("video").src = blobURL;
+// };
+</script>
 @endsection
