@@ -27,7 +27,7 @@ class HomeController extends Controller
         $CategoriesAquar=Category::where('parent_id', '=', null)->where('type', '=', 1)->get();
         $CategoriesCar=Category::where('parent_id', '=', null)->where('type', '=', 2)->get();
         $CategoriesPlaces=Category::where('parent_id', '=', null)->where('type', '=', 0)->get();
-        $PlacesComments=PlaceComment::get();
+        $PlacesComments=PlaceComment::with('user')->get();
 
         return view('frontend.index', compact('countries', 'cities', 'places','CategoriesAquar','CategoriesCar','CategoriesPlaces','PlacesComments'));
 
