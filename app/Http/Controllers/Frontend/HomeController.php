@@ -23,11 +23,11 @@ class HomeController extends Controller
         $countries = Country::where('display_data', '=', 1)->get();
         $cities = City::where('active', '=', 1)->get();
 
-        $places = Place::get();
+        $places = Place::limit(10)->get();
         $CategoriesAquar=Category::where('parent_id', '=', null)->where('type', '=', 1)->get();
         $CategoriesCar=Category::where('parent_id', '=', null)->where('type', '=', 2)->get();
         $CategoriesPlaces=Category::where('parent_id', '=', null)->where('type', '=', 0)->get();
-        $PlacesComments=PlaceComment::with('user')->get();
+        $PlacesComments=PlaceComment::with('user')->limit(10)->get();
 
         return view('frontend.index', compact('countries', 'cities', 'places','CategoriesAquar','CategoriesCar','CategoriesPlaces','PlacesComments'));
 

@@ -88,6 +88,7 @@ class CountriesDataTable extends DataTable
     {
         return $this->builder()
                     ->setTableId('countries-table')
+                    ->addTableClass('cell-border stripe')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                    ->dom('Bfrtip')
