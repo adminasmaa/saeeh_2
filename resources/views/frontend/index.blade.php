@@ -1,59 +1,64 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Home | Saeeh</title>
-    <!-- Cairo Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet"
-    />
-    <!-- Font Awesome-->
-    <link
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-        rel="stylesheet"
-        crossorigin
-    />
-
-    <!-- Owl Carousel -->
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
-        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
-    />
-    <!-- Bootstrap-->
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-        crossorigin="anonymous"
-        type="text/css"
-        media="all"
-    />
-    <!-- intl-tel-input -->
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/css/intlTelInput.css"
-        integrity="sha512-gxWow8Mo6q6pLa1XH/CcH8JyiSDEtiwJV78E+D+QP0EVasFs8wKXq16G8CLD4CJ2SnonHr4Lm/yY2fSI2+cbmw=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
-    />
-    <!--select 2-->
-    <link
-        href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
-        rel="stylesheet"
-    />
-    <!-- CSS -->
-    <link rel="stylesheet" href="{{asset('frontend/assets/styles/styles.css')}}"/>
-    <link rel="stylesheet" href="{{asset('frontend/assets/styles/responsive-styles.css')}}"/>
-
-</head>
+ <!-- Cairo Font -->
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+ <link
+   href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap"
+   rel="stylesheet"
+ />
+ <!-- Font Awesome-->
+ <link
+   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+   rel="stylesheet"
+ />
+ <!--start rating-->
+ <link
+   rel="stylesheet"
+   href="{{asset('frontend/assets/styles/star-rating-svg.css')}}"
+   type="text/css"
+ />
+ <!--timepicker-->
+ <link rel="stylesheet" href="{{asset('frontend/assets/js/jquery-timepicker/css/jquery.timepicker.min.css')}}" />
+ <!--datepicker-->
+ <link rel="stylesheet" href="{{asset('frontend/assets/js/datepicker/css/datepicker.min.css')}}" />
+ <!-- Owl Carousel -->
+ <link
+   rel="stylesheet"
+   href="{{asset('frontend/assets/js/OwlCarousel/css/owl.carousel.min.css')}}"
+ />
+ <!-- Bootstrap-->
+ <link
+   rel="stylesheet"
+   href="{{asset('frontend/assets/vendor/bootstrap/css/bootstrap.min.css.map')}}"
+   type="text/css"
+ />
+ <link
+ rel="stylesheet"
+ href="{{asset('frontend/assets/vendor/bootstrap/css/bootstrap.min.css')}}"
+ type="text/css"
+/>
+ <link
+   rel="stylesheet"
+   href="{{asset('frontend/assets/vendor/bootstrap/css/bootstrap.rtl.min.css')}}"
+   type="text/css"
+ />
+ <!-- intl-tel-input -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/css/intlTelInput.css"
+ integrity="sha512-gxWow8Mo6q6pLa1XH/CcH8JyiSDEtiwJV78E+D+QP0EVasFs8wKXq16G8CLD4CJ2SnonHr4Lm/yY2fSI2+cbmw=="
+ crossorigin="anonymous" referrerpolicy="no-referrer" />
+ <!--select 2-->
+ <link rel="stylesheet" href="{{asset('frontend/assets/js/select2/css/select2.min.css')}}" />
+ <!-- CSS -->
+ <link rel="stylesheet" href="{{asset('frontend/assets/styles/styles.css')}}" />
+ <link rel="stylesheet" href="{{asset('frontend/assets/styles/responsive-styles.css')}}" />
+  </head>
 
 <body>
 <header class="position-relative web-view">
@@ -2554,48 +2559,31 @@
 </div>
 
 <!-- JQuery-->
-<script
-    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
-    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-></script>
-<!-- Owl Carousel -->
-<script
-    src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
-    integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-></script>
-<!-- Bootstrap-->
-<script
-    src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-    crossorigin="anonymous"
-></script>
-<script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"
-></script>
-<!--fancybox-->
-<script
-    src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"
-    integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-></script>
-<!-- intl-tel-input -->
-<script
-    src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/intlTelInput.min.js"
-    integrity="sha512-kkBkPRO6dSkCJDPNpW4Bb/1Z585gN++HKcIpClQW9IYI+4gk4yPC+eaE3CSQp3Ex+48NvzUvqmroZtR4gZnt4g=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-></script>
-<!--select 2-->
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js" integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{{asset('frontend/assets/vendor/bootstrap/js/bootstrap.js')}}"></script>
+    <!-- JQuery-->
+    <script src="{{asset('frontend/assets/js/jquery.min.js')}}" ></script>
+    <!--timepicker-->
+    <script src="{{asset('frontend/assets/js/jquery-timepicker/js/jquery.timepicker.js')}}"></script>
+    <!--datepicker-->
+    <script src="{{asset('frontend/assets/js/datepicker/js/datepicker.min.js')}}"></script>
+    <!--start rating-->
+    <script src="{{asset('frontend/assets/js/dist/jquery.star-rating-svg.js')}}"></script>
+    <!-- Owl Carousel -->
+    <script src="{{asset('frontend/assets/js/OwlCarousel/js/owl.carousel.min.js')}}"></script>
+    <!-- intl-tel-input -->
+    <script src="{{asset('frontend/assets/js/intl-tel-input/js/intlTelInput.min.js')}}"></script>
+    <!--select 2-->
+    <script src="{{asset('frontend/assets/js/select2/js/select2.min.js')}}"></script>
+    <script src="{{asset('frontend/assets/js/dist/jquery-ui.js')}}"></script>
+   <!--nouislider-->
+   <script src="{{asset('frontend/assets/js/dist/nouislider.min.js')}}"></script>
+   <!-- Main JS -->
+   <script src="{{asset('frontend/assets/js/script.js')}}"></script>
+   <script src="{{asset('frontend/assets/js/custom-rating.js')}}"></script>
+   <script src="{{asset('frontend/assets/js/sliderPrice.js')}}"></script>
+   <script src="{{asset('frontend/assets/js/filter-menu-mobile.js')}}"></script>
 <!-- Main JS -->
-<script src="{{asset('frontend/assets/js/script.js')}}"></script>
 
 <script>
     $('#list').on('change', function (e) {
