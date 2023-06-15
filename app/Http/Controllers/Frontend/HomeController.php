@@ -24,8 +24,8 @@ class HomeController extends Controller
         $cities = City::where('active', '=', 1)->get();
 
         $places = Place::limit(10)->get();
-        $CategoriesAquar=Category::where('parent_id', '=', null)->where('type', '=', 1)->get();
-        $CategoriesCar=Category::where('parent_id', '=', null)->where('type', '=', 2)->get();
+        $CategoriesAquar=Category::where('parent_id', '=', 1)->where('type', '=', 1)->get();
+        $CategoriesCar=Category::where('parent_id', '=', 2)->where('type', '=', 2)->get();
         $CategoriesPlaces=Category::where('parent_id', '=', null)->where('type', '=', 0)->get();
         $PlacesComments=PlaceComment::with('user')->limit(10)->get();
 
