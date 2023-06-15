@@ -20,19 +20,22 @@ class Setting extends Model
         'email',
         'website_link',
         'logo',
-        'theme',
         'closing_message',
         'description',
         'key_words',
-        'ads_top',
-        'ads_bottom',
         'twitter',
         'facebook',
         'instagram',
         'youtube',
         'time_difference',
         'snapchat',
-        'closing'
+        'play_store',
+        'google_play',
+        'availability_time_from',
+        'availability_time_to',
+        'phone_one',
+        'phone_two',
+        'activate'
 
     ];
 }

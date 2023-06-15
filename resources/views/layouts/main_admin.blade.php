@@ -309,7 +309,7 @@
                                     <i data-feather="bell"></i><span>@lang('site.contacts') @endlang</span></a>
                             </li>
                             @endif
-                            @if (auth()->user()->hasPermission('read_message'))
+                            @if (auth()->user()->hasPermission('read_contacts'))
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.contacts.index')?'activee':'' }}"
                                    href="{{route('dashboard.contacts.index')}}">
