@@ -81,7 +81,16 @@
                                                        aria-selected="false"><span
                                                             class=" title btn btn-light"> @lang('site.attach_link')</span></a></li>
 
-
+                                                <li><a class="show" id="pills-todaytask-tab2" data-bs-toggle="pill"
+                                                        href="#pills-todaytask2" role="tab"
+                                                        aria-controls="pills-todaytask2"
+                                                        aria-selected="false"><span
+                                                            class=" title btn btn-light"> @lang('site.home_footers')</span></a></li>
+                                                <li><a class="show" id="pills-todaytask-tab3" data-bs-toggle="pill"
+                                                        href="#pills-todaytask3" role="tab"
+                                                        aria-controls="pills-todaytask3"
+                                                        aria-selected="false"><span
+                                                            class=" title btn btn-light"> @lang('site.home_serviecs')</span></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -171,8 +180,7 @@
 
 
                                                                     <div class="col-md-9">
-                                                                        <label>@lang('site.terms_conditions')<span
-                                                                                class="text-danger">*</span></label>
+                                                                        <label>@lang('site.terms_conditions')</label>
                                                                         <textarea class="form-control" id="editor2"  cols="15" rows="5"
                                                                                   name="terms_conditions">
 
@@ -188,8 +196,7 @@
 
 
                                                                     <div class="col-md-9">
-                                                                        <label>@lang('site.website_address')<span
-                                                                                class="text-danger">*</span></label>
+                                                                        <label>@lang('site.website_address')</label>
 
                                                                         <input type="text" name="website_address"
                                                                                class="form-control"
@@ -198,8 +205,7 @@
                                                                     </div>
 
                                                                     <div class="col-md-9">
-                                                                        <label>@lang('site.email')<span
-                                                                                class="text-danger">*</span></label>
+                                                                        <label>@lang('site.email')</label>
 
                                                                         <input type="text" name="email"
                                                                                class="form-control"
@@ -208,8 +214,7 @@
                                                                     </div>
 
                                                                     <div class="col-md-9">
-                                                                        <label>@lang('site.website_link')<span
-                                                                                class="text-danger">*</span></label>
+                                                                        <label>@lang('site.website_link')</label>
 
                                                                         <input type="text" name="website_link"
                                                                                class="form-control"
@@ -217,21 +222,8 @@
 
                                                                     </div>
 
-
                                                                     <div class="col-md-9">
-                                                                        <label>@lang('site.theme')<span
-                                                                                class="text-danger">*</span></label>
-
-                                                                        <input type="text" name="theme"
-                                                                               class="form-control"
-                                                                               value="{{$setting->theme ?? ''}}">
-
-                                                                    </div>
-
-
-                                                                    <div class="col-md-9">
-                                                                        <label>@lang('site.closing_message')<span
-                                                                                class="text-danger">*</span></label>
+                                                                        <label>@lang('site.closing_message')</label>
                                                                         <textarea class="form-control" rows="5"
                                                                                   name="closing_message">
                                                                     {{$setting->closing_message ?? ''}}
@@ -240,8 +232,7 @@
                                                                     </div>
 
                                                                     <div class="col-md-9">
-                                                                        <label>@lang('site.description')<span
-                                                                                class="text-danger">*</span></label>
+                                                                        <label>@lang('site.description')</label>
                                                                         <textarea class="form-control" id="editor1"  cols="15" rows="5"
                                                                                   name="description">
 
@@ -252,37 +243,16 @@
 
 
                                                                     <div class="col-md-9">
-                                                                        <label>@lang('site.key_words')<span
-                                                                                class="text-danger">*</span></label>
+                                                                        <label>@lang('site.key_words')</label>
 
                                                                         <input type="text" name="key_words"
                                                                                class="form-control"
                                                                                value="{{$setting->key_words ?? ''}}">
 
                                                                     </div>
-                                                                    <div class="col-md-9">
-                                                                        <label>@lang('site.ads_top')<span
-                                                                                class="text-danger">*</span></label>
-
-                                                                        <input type="text" name="ads_top"
-                                                                               class="form-control"
-                                                                               value="{{$setting->ads_top ?? ''}}">
-
-                                                                    </div>
 
                                                                     <div class="col-md-9">
-                                                                        <label>@lang('site.ads_bottom')<span
-                                                                                class="text-danger">*</span></label>
-
-                                                                        <input type="text" name="ads_bottom"
-                                                                               class="form-control"
-                                                                               value="{{$setting->ads_bottom ?? ''}}">
-
-                                                                    </div>
-
-                                                                    <div class="col-md-9">
-                                                                        <label>@lang('site.time_difference')<span
-                                                                                class="text-danger">*</span></label>
+                                                                        <label>@lang('site.time_difference')</label>
 
                                                                         <input type="time" name="time_difference"
                                                                                class="form-control"
@@ -291,18 +261,17 @@
                                                                     </div>
 
                                                                     <div class="col-md-9">
-                                                                        <label>@lang('site.closing')<span
-                                                                                class="text-danger">*</span></label>
+                                                                        <label>@lang('site.activate')</label>
 
                                                                         <select class="form-control btn-square"
-                                                                                name="closing">
+                                                                                name="activate">
                                                                             <option disabled
                                                                                     selected>@lang('site.select')</option>
 
-                                                                            <option value="open"
-                                                                                    @if($setting->closing=='open') selected @endif>@lang('site.open')</option>
-                                                                            <option value="closed"
-                                                                                    @if($setting->closing=='closed') selected @endif>@lang('site.closed')</option>
+                                                                            <option value="active"
+                                                                                    @if($setting->activate=='active') selected @endif>@lang('site.active')</option>
+                                                                            <option value="not-active"
+                                                                                    @if($setting->activate=='not-active') selected @endif>@lang('site.not-active')</option>
 
 
                                                                         </select>
@@ -311,8 +280,7 @@
                                                                     </div>
 
                                                                     <div class="col-md-9">
-                                                                        <label>@lang('site.logo')<span
-                                                                                class="text-danger">*</span></label>
+                                                                        <label>@lang('site.logo')</label>
 
                                                                         <input type="file" name="logo"
                                                                                class="form-control">
@@ -354,8 +322,7 @@
 
 
                                                             <div class="col-md-9">
-                                                                <label>@lang('site.twitter')<span
-                                                                        class="text-danger">*</span></label>
+                                                                <label>@lang('site.twitter')</label>
 
                                                                 <input type="text" name="twitter"
                                                                        class="form-control"
@@ -368,8 +335,7 @@
 
 
                                                             <div class="col-md-9">
-                                                                <label>@lang('site.facebook')<span
-                                                                        class="text-danger">*</span></label>
+                                                                <label>@lang('site.facebook')</label>
 
                                                                 <input type="text" name="facebook"
                                                                        class="form-control"
@@ -383,8 +349,7 @@
 
 
                                                             <div class="col-md-9">
-                                                                <label>@lang('site.instagram')<span
-                                                                        class="text-danger">*</span></label>
+                                                                <label>@lang('site.instagram')</label>
 
                                                                 <input type="text" name="instagram"
                                                                        class="form-control"
@@ -398,8 +363,7 @@
 
 
                                                             <div class="col-md-9">
-                                                                <label>@lang('site.youtube')<span
-                                                                        class="text-danger">*</span></label>
+                                                                <label>@lang('site.youtube')</label>
 
                                                                 <input type="text" name="youtube"
                                                                        class="form-control"
@@ -413,8 +377,7 @@
 
 
                                                             <div class="col-md-9">
-                                                                <label>@lang('site.snapchat')<span
-                                                                        class="text-danger">*</span></label>
+                                                                <label>@lang('site.snapchat')</label>
 
                                                                 <input type="text" name="snapchat"
                                                                        class="form-control"
@@ -423,11 +386,213 @@
                                                             </div>
                                                         </div>
 
+                                                        <div class="row">
+
+
+                                                        <div class="col-md-9">
+                                                            <label>@lang('site.play_store')</label>
+
+                                                            <input type="text" name="play_store"
+                                                                class="form-control"
+                                                                value="{{$setting->play_store ?? ''}}">
+
+                                                        </div>
+                                                        </div>
+                                                        <div class="row">
+
+
+                                                        <div class="col-md-9">
+                                                            <label>@lang('site.google_play')</label>
+
+                                                            <input type="text" name="google_play"
+                                                                class="form-control"
+                                                                value="{{$setting->google_play ?? ''}}">
+
+                                                        </div>
+                                                        </div>
 
                                                     </div>
                                                 </div>
                                             </div>
+                                            
+                                            <div class="fade tab-pane" id="pills-todaytask2" role="tabpanel"
+                                                 aria-labelledby="pills-todaytask2-tab">
+                                                <div class="card mb-0">
 
+                                                    <div class="card-body">
+
+                                                        <div class="row">
+
+                                                            <div class="col-md-6 form-group col-12 p-2 ">
+                                                                <label>@lang('site.phone_one')</label>
+                                                                <input type="text" name="phone_one" class="form-control"
+                                                                value="{{$setting->phone_one}}"
+                                                                >
+                                                            </div>
+
+                                                            <div class="col-md-6 form-group col-12 p-2 ">
+                                                                <label>@lang('site.phone_two')</label>
+                                                                <input type="text" name="phone_two" class="form-control"
+                                                                value="{{$setting->phone_two}}"
+                                                                >
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-md-6 form-group col-12 p-2 ">
+                                                                <label>@lang('site.availability_time_from')</label>
+                                                                <input type="time" name="availability_time_from" class="form-control"
+                                                                    value="{{$setting->availability_time_from}}">
+                                                            </div>
+
+                                                            <div class="col-md-6 form-group col-12 p-2 ">
+                                                                <label>@lang('site.availability_time_to')</label>
+                                                                <input type="time" name="availability_time_to" class="form-control"
+                                                                    value="{{$setting->availability_time_to}}">
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+<!-- 
+                                            <div class="fade tab-pane" id="pills-todaytask3" role="tabpanel"
+                                                 aria-labelledby="pills-todaytask3-tab">
+                                                <div class="card mb-0">
+
+                                                    <div class="price-list" id="tb_price">
+
+                                                        <div class="row">
+
+                                                            <div class="col-md-6 form-group col-12 p-2 ">
+                                                                <label>@lang('site.name_ar')</label>
+                                                                <input type="text" name="sub_name_ar[]" class="form-control"
+                                                                >
+                                                            </div>
+
+                                                            <div class="col-md-6 form-group col-12 p-2 ">
+                                                                <label>@lang('site.name_en')</label>
+                                                                <input type="text" name="sub_name_en[]" class="form-control"
+                                                            
+                                                                >
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+
+                                                        <div class="col-md-6 form-group col-12 p-2 ">
+                                                                <label>@lang('site.descrption_ar')</label>
+                                                                <input type="text" name="sub_description_ar[]" class="form-control"
+                                                                >
+                                                            </div>
+
+                                                            <div class="col-md-6 form-group col-12 p-2 ">
+                                                                <label>@lang('site.descrption_en')</label>
+                                                                <input type="text" name="sub_description_en[]" class="form-control"
+                                                                >
+                                                            </div>
+
+                                                            <div class="col-md-9">
+                                                                        <label>@lang('site.image')</label>
+
+                                                                        <input type="file" name="image[]"
+                                                                               class="form-control" 
+                                                                               value="{{ old('image') }}">
+                                                            </div>
+
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+                                            </div> -->
+
+<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+                            <div class="fade tab-pane" id="pills-todaytask3" role="tabpanel"aria-labelledby="pills-todaytask3-tab">
+                            <?php  $x=0; ?>
+                            @foreach($home_serviecs2 as $service)
+                            <?php $x ++; ?>
+                                    <div class="col-md-12 form-group col-12   desc">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <div class="row">
+                                                        <div class="col-md-5 form-group col-12">
+                                                            <label>@lang('site.name_ar')</label>
+                                                            <input type="text" value="{{ $service->title_ar ?? '' }}"
+                                                                   class="form-control" />
+                                                        </div>
+                                                        <div class="col-md-5 form-group col-12">
+                                                            <label>@lang('site.name_en')</label>
+                                                            <input type="text"value="{{ $service->title_en ?? '' }}"
+                                                                   class="form-control" >
+                                                        </div>
+                                                        <div class="col-md-5 form-group col-12">
+                                                            <label>@lang('site.description_ar')</label>
+                                                            <input type="text" value="{{ $service->description_ar ?? '' }}" class="form-control"/>
+                                                        </div>
+                                                        <div class="col-md-5 form-group col-12">
+                                                            <label>@lang('site.description_en')</label>
+                                                            <input type="text" value="{{ $service->description_en ?? '' }}" class="form-control">
+                                                        </div>
+                                                        <div class="col-md-5 form-group col-12">
+                                                                <label>@lang('site.image')</label>
+                                                                <input type="file" name="image[]"
+                                                                    class="form-control" 
+                                                                    value="{{ $service->image ?? '' }}">
+                                                        </div>
+                                                        <div class="col-md-3 form-group col-12 p-2">
+                                                    <img src="{{asset('images/home_serviecs/'.$service->image)}}"
+                                                         width="100px" height="100px">
+                                                    <a  type="button" href="{{route('dashboard.DeleteHomeServices',$service->id)}}" class="btn btn-air-primary btn-pill btn-danger"><i class="fa fa-trash"></i></a>
+
+                                                </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                @endforeach
+                            <div class="col-md-12 form-group col-12   desc" id="price2" >
+                                <table class="price-list" id="tb_price">
+                                        <tr>
+                                            <td>
+                                                <div class="row">
+                                                <input type="hidden" name="item" class="form-control" value="{{$x??0}}"/>
+                                                    <div class="col-md-5 form-group col-12">
+                                                        <label>@lang('site.name_ar')</label>
+                                                        <input type="text" name="sub_name_ar[]" class="form-control"/>
+                                                    </div>
+                                                    <div class="col-md-5 form-group col-12">
+                                                        <label>@lang('site.name_en')</label>
+                                                        <input type="text" name="sub_name_en[]" class="form-control">
+                                                    </div>
+                                                    <div class="col-md-5 form-group col-12">
+                                                        <label>@lang('site.description_ar')</label>
+                                                        <input type="text" name="sub_description_ar[]" class="form-control"/>
+                                                    </div>
+                                                    <div class="col-md-5 form-group col-12">
+                                                        <label>@lang('site.description_en')</label>
+                                                        <input type="text" name="sub_description_en[]" class="form-control">
+                                                    </div>
+                                                    <div class="col-md-5 form-group col-12">
+                                                                        <label>@lang('site.image')</label>
+
+                                                                        <input type="file" name="image[]"
+                                                                               class="form-control" 
+                                                                               value="{{ old('image') }}">
+                                                    </div>
+                                                   
+                                                    <div class="col-md-3 form-group col-12">
+                                                        <a class="btn btn-air-primary btn-pill btn-success add-price w-100 m-t-30"><i
+                                                                class="fa fa-plus" aria-hidden="true"></i></a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <br>
                                         </div>
                                     </div>
                                 </div>
@@ -441,5 +606,39 @@
     </div>
 
 @endsection
+@section('scripts')
+    <script>
+$(document).ready(function () {
+    var x="{{$x}}";
+    jQuery('a.add-price').click(function (event) { 
+        x++;
+        event.preventDefault();
+        var newRow = jQuery('<tr><td><div class="row"><div class="col-md-5 form-group col-12 p-2">' +
+            ' <input type="hidden"  name="item" class="form-control" value="'+x+'"/><label>@lang('site.name_ar')</label><input type="text"  name="sub_name_ar[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
+            '<label>@lang('site.name_en')</label><input type="text" name="sub_name_en[]" class="form-control" ></div><div class="col-md-5 form-group col-12 p-2">' +
+            ' <label>@lang('site.description_ar')</label><input type="text"  name="sub_description_ar[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
+            '<label>@lang('site.description_en')</label><input type="text" name="sub_description_en[]" class="form-control" ></div><div class="col-md-5 form-group col-12 p-2">' +
+            '<label>@lang('site.image')</label><input type="file" name="image[]" class="form-control" ></div><div class="col-md-3 form-group col-12 ">' +
+            '  </div>  <div class="col-md-2 form-group col-12 p-2 "> <a class="btn btn-air-primary btn-pill btn-danger add-price w-100 m-t-30" onclick="deletetr(this)" ><i class="fa fa-trash"></i></a>' +
 
+            '</div></div> </td>  </tr>');
+        jQuery('.price-list').append(newRow);
+    });
+
+    $("input[name='price']").click(function () {
+        var test = $(this).val();
+
+        $("div.desc").hide();
+        $("#price" + test).show();
+    });
+});
+
+function deletetr(r) {
+    x--;
+    r.closest('tr').remove();
+}
+
+
+</script>
+@endsection
 

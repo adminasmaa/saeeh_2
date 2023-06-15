@@ -15,8 +15,8 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
-        $models = ['users', 'mediators','advertising','notifications','brands','cars','sections','message','bookings','floors','commissions','conditioning_types','places','balances','invoices','deposits',
-            'countries', 'cities','categories','settings','roles','questions','problems','areas','aquarcategories','services_aqars','aqar_reviews','place_categories','aquarbooking','aqar_comments','aqar_setting','services','car_positions','kitchens','aqars','reviewElements','car_comments','car_reviews'
+        $models = ['users','settings','roles',' message','contacts','countries','cities','questions','problems','mediators','advertising','reviewElements','categories','cars','bookings','car_comments','car_reviews','aquarcategories','areas','services_aqars','aqars','aquarbooking','aqar_comments','aqar_reviews',
+        'place_categories','places','place_comments','place_reviews','commissions','notifications','balances','invoices','deposits','sections'
         ];
         $maps = ['create', 'update', 'read', 'delete'];
 
