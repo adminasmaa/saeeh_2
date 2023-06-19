@@ -114,7 +114,6 @@ class ServiceAqarRepository implements ServiceAqarRepositoryInterfaceAlias
 
         $request_data = $request->except(['_token', '_method', 'icon', 'sub_name_ar', 'sub_name_en']);
 
-
         $AqarService->update($request_data);
         $arr = $request->sub_name_ar;
 
