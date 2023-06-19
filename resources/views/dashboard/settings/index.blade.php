@@ -510,31 +510,35 @@
 
 <!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
                             <div class="fade tab-pane" id="pills-todaytask3" role="tabpanel"aria-labelledby="pills-todaytask3-tab">
-                            <?php  $x=0; ?>
+                            <?php  $x=-1; ?>
                             @foreach($home_serviecs2 as $service)
+                           
                             <?php $x ++; ?>
                                     <div class="col-md-12 form-group col-12   desc">
                                         <table>
                                             <tr>
                                                 <td>
                                                     <div class="row">
+                                                    <input type="hidden" name="item[]" class="form-control" value="{{$x??0}}"/>
+                                                    <input type="hidden" value="{{ $service->id ?? '' }}" name="s_id[]"
+                                                                   class="form-control" />
                                                         <div class="col-md-5 form-group col-12">
                                                             <label>@lang('site.name_ar')</label>
-                                                            <input type="text" value="{{ $service->title_ar ?? '' }}"
+                                                            <input type="text" value="{{ $service->title_ar ?? '' }}" name="sub_name_ar[]"
                                                                    class="form-control" />
                                                         </div>
                                                         <div class="col-md-5 form-group col-12">
                                                             <label>@lang('site.name_en')</label>
-                                                            <input type="text"value="{{ $service->title_en ?? '' }}"
+                                                            <input type="text"value="{{ $service->title_en ?? '' }}" name="sub_name_en[]"
                                                                    class="form-control" >
                                                         </div>
                                                         <div class="col-md-5 form-group col-12">
                                                             <label>@lang('site.description_ar')</label>
-                                                            <input type="text" value="{{ $service->description_ar ?? '' }}" class="form-control"/>
+                                                            <input type="text" value="{{ $service->description_ar ?? '' }}" name="sub_description_ar[]" class="form-control"/>
                                                         </div>
                                                         <div class="col-md-5 form-group col-12">
                                                             <label>@lang('site.description_en')</label>
-                                                            <input type="text" value="{{ $service->description_en ?? '' }}" class="form-control">
+                                                            <input type="text" value="{{ $service->description_en ?? '' }}" name="sub_description_en[]" class="form-control">
                                                         </div>
                                                         <div class="col-md-5 form-group col-12">
                                                                 <label>@lang('site.image')</label>
@@ -558,30 +562,7 @@
                                         <tr>
                                             <td>
                                                 <div class="row">
-                                                <input type="hidden" name="item" class="form-control" value="{{$x??0}}"/>
-                                                    <div class="col-md-5 form-group col-12">
-                                                        <label>@lang('site.name_ar')</label>
-                                                        <input type="text" name="sub_name_ar[]" class="form-control"/>
-                                                    </div>
-                                                    <div class="col-md-5 form-group col-12">
-                                                        <label>@lang('site.name_en')</label>
-                                                        <input type="text" name="sub_name_en[]" class="form-control">
-                                                    </div>
-                                                    <div class="col-md-5 form-group col-12">
-                                                        <label>@lang('site.description_ar')</label>
-                                                        <input type="text" name="sub_description_ar[]" class="form-control"/>
-                                                    </div>
-                                                    <div class="col-md-5 form-group col-12">
-                                                        <label>@lang('site.description_en')</label>
-                                                        <input type="text" name="sub_description_en[]" class="form-control">
-                                                    </div>
-                                                    <div class="col-md-5 form-group col-12">
-                                                                        <label>@lang('site.image')</label>
-
-                                                                        <input type="file" name="image[]"
-                                                                               class="form-control" 
-                                                                               value="{{ old('image') }}">
-                                                    </div>
+                                                
                                                    
                                                     <div class="col-md-3 form-group col-12">
                                                         <a class="btn btn-air-primary btn-pill btn-success add-price w-100 m-t-30"><i
@@ -620,7 +601,6 @@ $(document).ready(function () {
             '<label>@lang('site.description_en')</label><input type="text" name="sub_description_en[]" class="form-control" ></div><div class="col-md-5 form-group col-12 p-2">' +
             '<label>@lang('site.image')</label><input type="file" name="image[]" class="form-control" ></div><div class="col-md-3 form-group col-12 ">' +
             '  </div>  <div class="col-md-2 form-group col-12 p-2 "> <a class="btn btn-air-primary btn-pill btn-danger add-price w-100 m-t-30" onclick="deletetr(this)" ><i class="fa fa-trash"></i></a>' +
-
             '</div></div> </td>  </tr>');
         jQuery('.price-list').append(newRow);
     });
@@ -634,10 +614,9 @@ $(document).ready(function () {
 });
 
 function deletetr(r) {
-    x--;
+    // x--;
     r.closest('tr').remove();
 }
-
 
 </script>
 @endsection

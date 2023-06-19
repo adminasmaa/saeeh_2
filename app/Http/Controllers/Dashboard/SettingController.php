@@ -47,7 +47,7 @@ class SettingController extends Controller
 
         ]);
         $home_serviecs = HomeServices::first();
-
+        // $home_serviecs = HomeServices::all();
         return $this->settingRepository->update($home_serviecs,$request);
 
 
