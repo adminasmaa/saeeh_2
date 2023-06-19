@@ -46,7 +46,7 @@ class SettingRepository implements ISettingRepositoryAlias
         if ($arr[0]!=null) {
             foreach ($request->sub_name_ar as $key => $value) {
                 $data=HomeServices::updateOrCreate([
-                    'id' => $request['s_id'][$key]
+                    'id' => $request['s_id'][$key]??0
                 ],[
                     'title_ar' => $request['sub_name_ar'][$key],
                     'title_en' => $request['sub_name_en'][$key],
@@ -59,7 +59,7 @@ class SettingRepository implements ISettingRepositoryAlias
         $home_serviecs1=HomeServices::find($data->id);
         // $home_serviecs1=$home_serviecs1->update($request_data);
         $k= $request['item'][$key];//
-        // return   $k;
+        // return   $request['item'][$key];
         if ($_FILES['image']['name'][$k]) {
             UploadImage('images/home_serviecs/','image', $home_serviecs1, $request->file('image')[$k]);
             }
