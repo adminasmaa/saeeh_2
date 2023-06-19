@@ -2035,22 +2035,85 @@
 @yield('js')
 @yield('scripts')
 <script>
+$(document).ready(function () {
+  $(".select2").select2();
+});
+</script>
+<script>
     $('#list').on('change', function (e) {
-        var list = e.target.value;
-
-
-        $.get("{{url('dashboard/countrycities')}}/" + list, function (data) {
-            console.log(data);
+        var lis1 = e.target.value;
+        $.get("{{url('countrycities')}}/" + lis1, function (data) {
             $('#list7').empty();
             $('#list7').append('<option>@lang('site.select')</option>');
             $.each(data, function (key, value) {
-                $('#list7').append('<option value="' + value.id + '">' + value.name_ar + '</option>').trigger("change");
+                $('#list7').append('<option value="' + value.id + '">' + value.name_ar + '</option>');
                 
 
             });
             $("#list7").trigger('change');
         })
-    })
+    });
+
+    $('#country_id').on('change', function (e) {
+        var lis1 = e.target.value;
+        $.get("{{url('countrycities')}}/" + lis1, function (data) {
+            $('#city_id').empty();
+            $('#city_id').append('<option>@lang('site.select')</option>');
+            $.each(data, function (key, value) {
+                $('#city_id').append('<option value="' + value.id + '">' + value.name_ar + '</option>');
+                
+
+            });
+            $("#city_id").trigger('change');
+        })
+    });
+
+
+    $('#list7').on('change', function (e) {
+        var lis1 = e.target.value;
+        $.get("{{url('categorycities')}}/" + lis1, function (data) {
+            $('#list2').empty();
+            $('#list2').append('<option>@lang('site.select')</option>');
+            $.each(data, function (key, value) {
+                $('#list2').append('<option value="' + value.category_id + '">' + value.name_ar + '</option>');
+                
+
+            });
+            $("#list2").trigger('change');
+        })
+    });
+
+
+    
+    $('#list6').on('change', function (e) {
+        var lis1 = e.target.value;
+        $.get("{{url('carcategory')}}/" + lis1, function (data) {
+            $('#list9').empty();
+            $('#list9').append('<option>@lang('site.select')</option>');
+            $.each(data, function (key, value) {
+                $('#list9').append('<option value="' + value.id + '">' + value.name_ar + '</option>');
+                
+
+            });
+            $("#list9").trigger('change');
+        })
+    });
+
+
+    // $('#list2').on('change', function (e) {
+    //     var lis1 = e.target.value;
+    //     $.get("{{url('dashboard/roomnumbers')}}/" + lis1, function (data) {
+    //         $('#list4').empty();
+    //         console.log(data);
+    //         $('#list4').append('<option>@lang('site.select')</option>');
+    //         $.each(data, function (key, value) {
+    //             $('#list4').append('<option value="' + value.id + '">' + value + '</option>');
+                
+
+    //         });
+    //         $("#list2").trigger('change');
+    //     })
+    // });
 
 </script>
 
