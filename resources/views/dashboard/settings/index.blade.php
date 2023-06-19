@@ -595,7 +595,7 @@ $(document).ready(function () {
         x++;
         event.preventDefault();
         var newRow = jQuery('<tr><td><div class="row"><div class="col-md-5 form-group col-12 p-2">' +
-            ' <input type="hidden"  name="item" class="form-control" value="'+x+'"/><label>@lang('site.name_ar')</label><input type="text"  name="sub_name_ar[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
+            ' <input type="hidden"  name="item[]" class="form-control" value="'+x+'"/><label>@lang('site.name_ar')</label><input type="text"  name="sub_name_ar[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
             '<label>@lang('site.name_en')</label><input type="text" name="sub_name_en[]" class="form-control" ></div><div class="col-md-5 form-group col-12 p-2">' +
             ' <label>@lang('site.description_ar')</label><input type="text"  name="sub_description_ar[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
             '<label>@lang('site.description_en')</label><input type="text" name="sub_description_en[]" class="form-control" ></div><div class="col-md-5 form-group col-12 p-2">' +
