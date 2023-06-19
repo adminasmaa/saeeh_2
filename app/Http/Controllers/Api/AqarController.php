@@ -308,7 +308,7 @@ class AqarController extends Controller
             $aquar = new AqarBookingResource($aqar);
 
 
-            return $this->respondSuccess($aquar, trans('site.data retrieved successfully.'));
+            return $this->respondSuccess($aquar, trans('message.data retrieved successfully.'));
 
 
         }
