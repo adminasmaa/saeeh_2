@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use Response;
 
 use App\DataTables\AqarDataTable;
 use App\Http\Controllers\Controller;
@@ -132,6 +133,20 @@ class AqarController extends Controller
        }
       // return $arr;
        return view('dashboard.aqars.details', compact('details','aqar','arr'));
+    }
+
+
+    public function roomnumbers($id)
+    {
+
+
+        $roomnumbers = Aqar::distinct()->join('aqar_sections', 'aqars.id', '=', 'aqar_sections.aqar_id')->join('aqar_details', 'aqar_details.id', '=', 'aqar_sections.sub_section_id')->where('aqars.category_id', $id)->where('aqar_sections.section_id', '=', 6)->groupBy('aqars.id')->select( \DB::raw('SUM(aqar_details.name_ar) as total'))
+        ->get()
+        ->pluck('total', 'aqar_details.name_ar')
+        ->toArray();
+        return Response::json($roomnumbers);
+
+
     }
 
 }

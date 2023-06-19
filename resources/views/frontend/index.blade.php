@@ -103,7 +103,7 @@
                                     <div class="col-lg-3">
                                        <div class="box-search mb-sm-0 mb-3">
                                           <select
-                                             class="ddl-select"
+                                             class="select2"
                                              id="list"
                                              name="country_id"
                                              >
@@ -118,7 +118,7 @@
                                     <div class="col-lg-3">
                                        <div class="box-search mb-sm-0 mb-3">
                                           <select
-                                             class="ddl-select"
+                                             class="select2"
                                              id="list7"
                                              name="city_id"
                                              >
@@ -133,28 +133,26 @@
                                     <div class="col-lg-3">
                                        <div class="box-search mb-sm-0 mb-3">
                                           <select
-                                             class="ddl-select"
+                                             class="select2"
                                              id="list2"
                                              name="list2"
                                              >
                                              <option>الفئة</option>
-                                             <option value="1">الفئة 2</option>
+                                             <!-- <option value="1">الفئة 2</option>
                                              <option value="2">الفئة 3</option>
-                                             <option value="3">الفئة 4</option>
+                                             <option value="3">الفئة 4</option> -->
                                           </select>
                                        </div>
                                     </div>
                                     <div class="col-lg-3">
                                        <div class="box-search mb-sm-0 mb-3">
                                           <select
-                                             class="ddl-select"
+                                             class="select2"
                                              id="list4"
                                              name="list4"
                                              >
                                              <option>عدد الغرف</option>
-                                             <option value="1">1</option>
-                                             <option value="2">2</option>
-                                             <option value="3">3</option>
+                                            
                                           </select>
                                        </div>
                                     </div>
@@ -176,7 +174,7 @@
                                     <div class="col-lg col-12">
                                        <div class="box-search mb-sm-0 mb-3">
                                           <select
-                                             class="ddl-select"
+                                             class="select2"
                                              id="country_id"
                                              name="country_id"
                                              >
@@ -191,22 +189,22 @@
                                     <div class="col-lg col-12">
                                        <div class="box-search mb-sm-0 mb-3">
                                           <select
-                                             class="ddl-select"
+                                             class="select2"
                                              id="city_id"
                                              name="city_id"
                                              >
                                              <option>المدينه</option>
-                                             @foreach($cities as $city)
+                                             <!-- @foreach($cities as $city)
                                              <option
                                                 value="{{$city->id}}">{{$city->name ?? ''}}</option>
-                                             @endforeach
+                                             @endforeach -->
                                           </select>
                                        </div>
                                     </div>
                                     <div class="col-lg col-12">
                                        <div class="box-search mb-sm-0 mb-3">
                                           <select
-                                             class="ddl-select"
+                                             class="select2"
                                              id="list6"
                                              name="list6"
                                              >
@@ -220,21 +218,21 @@
                                     <div class="col-lg col-12">
                                        <div class="box-search mb-sm-0 mb-3">
                                           <select
-                                             class="ddl-select"
+                                             class="select2"
                                              id="list9"
                                              name="list9"
                                              >
                                              <option>الفئه</option>
-                                             @foreach($CategoriesCar as $cat)
+                                             <!-- @foreach($CategoriesCar as $cat)
                                              <option value="{{$cat->id ?? ''}}">{{$cat->name ?? ''}}</option>
-                                             @endforeach
+                                             @endforeach -->
                                           </select>
                                        </div>
                                     </div>
                                     <div class="col-lg col-12">
                                        <div class="box-search mb-sm-0 mb-3">
                                           <select
-                                             class="ddl-select"
+                                             class="select2"
                                              id="list8"
                                              name="list8"
                                              >
