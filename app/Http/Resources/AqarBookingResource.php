@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Aqar;
 use App\Models\AqarBooking;
 use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -28,7 +29,7 @@ class AqarBookingResource extends JsonResource
         $diff = $endDate->diffInDays($startDate);
 
 
-        $aqar=AqarBooking::where('aqar_id',$this->aqar_id)->first();
+        $aqar=Aqar::where('aqar_id',$this->aqar_id)->first();
 
 
         $aqar->update(['day_count'=>$diff]);

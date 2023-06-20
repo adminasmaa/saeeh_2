@@ -28,6 +28,7 @@ Route::get('/', 'App\Http\Controllers\Frontend\HomeController@index')->name('Hom
 
 
 define('MAINASSETS', URL::asset('assets'));
+define('FRONTASSETS', URL::asset('frontend/assets'));
 define('MAINUPLOADS', URL::asset('uploads'));
 define('MAINDIST', URL::asset('dist/frontend/img'));
 define('MAINDASHBOARD', URL::asset('dashboard_files'));

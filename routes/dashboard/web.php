@@ -59,7 +59,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
         //users
-        Route::resource('users', UserController::class)->middleware(['permission:create_users|update_users,require_all']);
+        Route::resource('users', UserController::class);
 
         //roles
         Route::resource('roles', RoleController::class)->except(['show']);
@@ -78,6 +78,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         //DeleteSubCategories
         Route::get('DeleteSubCategories/{id}', 'App\Http\Controllers\Dashboard\CategoryController@destroy')->name('DeleteSubCategories');
         Route::get('SubCategories/{id}', 'App\Http\Controllers\Dashboard\CategoryController@SubCategories')->name('SubCategories');
+        Route::get('DeleteHomeServices/{id}', 'App\Http\Controllers\Dashboard\SettingController@destroy')->name('DeleteHomeServices');
 
         //cars
         Route::resource('cars', CarController::class);

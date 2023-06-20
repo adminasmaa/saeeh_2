@@ -433,9 +433,6 @@
 
                             <label>@lang('site.images')</label>
 
-                            <input type="file" class="form-control" name="images[]"
-                                value="{{$place->images}}" multiple id="upload-imgs" readonly="" disabled/>
-
                             <div class="img-thumbs " id="img-previews">
                                 @if($place->images)
                                 @foreach ((explode(',',$place->images)) as $img)
@@ -449,24 +446,6 @@
                                 @endif
                             </div>
                         </div>
-                        <!-- <div class="row">
-                            <label> @lang('site.images')</label>
-                            @isset($place['images'])
-                                @foreach(json_decode($place->images) as $key=>$image)
-                                    <div class="col-md-2 form-group col-2 p-1">
-
-                                        <img src="{{asset('images/places/'.$image)}}"
-
-                                             width="100px" height="100px"
-                                             class="d-block"
-                                             onerror="this.src='{{asset('images/places/default.jpg')}}'"
-                                        >
-
-                                    </div>
-                                @endforeach
-                            @endisset
-
-                        </div> -->
 
                     </div>
                 </div>

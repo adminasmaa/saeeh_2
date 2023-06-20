@@ -337,6 +337,10 @@ return [
     'activate' => 'تفعيل',
     'activess' => 'مفعل',
     'inactivess' => 'غير مفعل',
+    'not-active' => 'غير مفعل',
+    'active' => ' مفعل',
+    'availability_time_from' => ' الوقت المتاح (من)',
+    'availability_time_to' => ' الوقت المتاح (الى) ',
 
     'mangers' => 'المديرين',
     'day' => 'يوم',
@@ -424,6 +428,12 @@ return [
     'mediators' => 'الوسطاء',
 
     'notifications' => 'التنبيهات',
+    'message' => 'الرسائل',
+
+    'home_serviecs' => 'خدمات الصفحة الرئيسية',
+    'home_footers' => 'معلومات اسفل الصفحة الرئيسية',
+    'description_ar' =>'التفاصيل بالعربي',
+    'description_en' =>'التفاصيل بالانجليزي',
 
     'passwordsecurity' => 'كلمة السر والامان',
     'message' => 'الرساله',
@@ -432,7 +442,7 @@ return [
     'settings' => 'الإعدادت  ',
     'param' => 'الاسم',
     'value' => 'القيمة',
-    'contacts' => 'الرسائل',
+    'contacts' => 'تواصل معنا',
     'contactsus' => 'تواصل معنا ',
     'to' => 'مرسل من',
     'place' => 'الاماكن ',

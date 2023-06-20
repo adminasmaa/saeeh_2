@@ -160,6 +160,31 @@ $(".review-owl").owlCarousel({
 },
   margin: 20,
 });
+$(".city-owl").owlCarousel({
+  loop: true,
+  rtl: true,
+  autoplay: true,
+  lazyLoad: true,
+  autoplayTimeout: 4000,
+  nav: true,
+  navText: [
+    '<i class="fas fa-chevron-left" aria-hidden="true"></i>',
+    '<i class="fas fa-chevron-right" aria-hidden="true"></i>',
+  ],
+  margin: 20,
+
+  responsive: {
+    0: {
+      items: 1,
+    },
+    767: {
+      items: 2,
+    },
+    992: {
+      items: 4,
+    },
+  },
+});
 
 // Show the first tab by default
 $(".tabs-stage li").hide();
@@ -186,6 +211,48 @@ $(".tabs-nav-details a").on("click", function (event) {
   $(".tabs-nav-details li").removeClass("tab-active");
   $(this).parent().addClass("tab-active");
   $(".tabs-content li").hide();
+  $($(this).attr("href")).show();
+});
+
+// Show the first tab by default all booking page
+$(".tabs-content li").hide();
+$(".tabs-content li:first").show();
+$(".tabs-nav-all-booking li:first").addClass("tab-active");
+
+// Change tab class and display content
+$(".tabs-nav-all-booking a").on("click", function (event) {
+  event.preventDefault();
+  $(".tabs-nav-all-booking li").removeClass("tab-active");
+  $(this).parent().addClass("tab-active");
+  $(".tabs-content li").hide();
+  $($(this).attr("href")).show();
+});
+
+// Show the first tab by default detaills page
+$(".tabs-contentt li").hide();
+$(".tabs-contentt li:first").show();
+$(".tabs-nav-detaills li:first").addClass("tab-active");
+
+// Change tab class and display content
+$(".tabs-nav-detaills a").on("click", function (event) {
+  event.preventDefault();
+  $(".tabs-nav-detaills li").removeClass("tab-active");
+  $(this).parent().addClass("tab-active");
+  $(".tabs-contentt li").hide();
+  $($(this).attr("href")).show();
+});
+
+// Show the first tab by default cities page
+$(".tabs-content-city li").hide();
+$(".tabs-content-city li:first").show();
+$(".tabs-nav-cities li:first").addClass("tab-active");
+
+// Change tab class and display content
+$(".tabs-nav-cities a").on("click", function (event) {
+  event.preventDefault();
+  $(".tabs-nav-cities li").removeClass("tab-active");
+  $(this).parent().addClass("tab-active");
+  $(".tabs-content-city li").hide();
   $($(this).attr("href")).show();
 });
 
@@ -262,9 +329,10 @@ $(".department-img-carousel").each(function () {
   $(this).owlCarousel({
     items: 1,
     loop: true,
-    rewind: true,
     dots: true,
+    lazyLoad: true,
     autoplay: true,
+    animateIn: 'fadeIn', // add this
     navText: [
       '<i class="fas fa-chevron-left" aria-hidden="true"></i>',
       '<i class="fas fa-chevron-right" aria-hidden="true"></i>',
@@ -278,6 +346,7 @@ $(".department-img-carousel").each(function () {
       },
     },
   });
+
 });
 
 
@@ -345,7 +414,79 @@ $(document).ready(function() {
       
     });
 
-    // $(".sidebar-submenu li a").each(function(index) {
-    //   if($(this).hasClass('activee'))
-    //   $(this).parent().parent().addClass('display-ul');
-    // });
+
+    let wizardBar = document.querySelector('[data-wizard-bar]')
+    // let btnPrevious = document.querySelector('[data-btn-previous]')
+    let btnNext = document.querySelector('[data-btn-next]')
+    let currentTab = 0;
+    showTab(currentTab);
+    
+    function showTab(n) {
+      let formTabs = document.querySelectorAll('[data-form-tab]');
+      let wizardItem = document.querySelectorAll('[data-wizard-item]')
+      formTabs[n].classList.add('active')
+      wizardItem[n].classList.add('active')
+      if (n == 2) {
+        btnNext.style.display = "none";
+      } else {
+        btnNext.style.display = "block";
+      }
+     
+    }
+    
+    function nextPrev(n) {
+      let formTabs = document.querySelectorAll('[data-form-tab]');
+    
+      formTabs[currentTab].classList.remove('active')
+      currentTab = currentTab + n;
+      showTab(currentTab);
+    }
+    
+    function updateWizardBarWidth() {
+      const activeWizards = document.querySelectorAll(".wizard-item.active");
+      let wizardItem = document.querySelectorAll('[data-wizard-item]')
+      const currentWidth = ((activeWizards.length - 1) / (wizardItem.length - 1)) * 100;
+    
+      wizardBar.style.width = currentWidth + "%";
+    }
+    
+    document.querySelector('*').addEventListener('click', function (event) {
+      if (event.target.dataset.btnPrevious) {
+        let wizardItem = document.querySelectorAll('[data-wizard-item]')
+        wizardItem[currentTab].classList.remove('active')
+        nextPrev(-1)
+        updateWizardBarWidth()
+      }
+      if (event.target.dataset.btnNext) {
+        nextPrev(1)
+        updateWizardBarWidth()
+      }
+    })
+
+
+    jQuery(document).ready(function () {
+      jQuery('#datepicker').datepicker({
+          format: 'dd-mm-yyyy',
+          startDate: '+1d'
+      });
+  });
+  jQuery(document).ready(function () {
+    jQuery('#datepicker1').datepicker({
+        format: 'dd-mm-yyyy',
+        startDate: '+1d'
+    });
+});
+    
+
+$(function() {
+  $('#timepicker').timepicker();
+});
+$(function() {
+  $('#timepicker1').timepicker();
+});
+
+
+$(".sidebar-submenu li a").each(function(index) {
+      if($(this).hasClass('activee'))
+      $(this).parent().parent().addClass('display-ul');
+    });
