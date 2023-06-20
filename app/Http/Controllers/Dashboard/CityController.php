@@ -9,6 +9,7 @@ use App\DataTables\CitiesDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\City;
 use App\Models\Country;
+use App\Models\category_city;
 
 use App\Repositories\Interfaces\CityRepositoryInterface;
 use App\Services\TwoFactorService;
@@ -126,9 +127,25 @@ class CityController extends Controller
 
         $cities = City::where('country_id', $id)->get();
 
+       return $cities;
+
         return Response::json($cities);
 
 
     }
+
+    public function categorycities($id)
+    {
+
+
+        $categoryrelated = category_city::join('categories', 'categories.id', '=', 'cities-categories.category_id')->where('cities-categories.city_id', $id)->where('categories.parent_id', '=', 1)->where('categories.type', '=', 1)->get();
+
+        return Response::json($categoryrelated);
+
+
+    }
+
+
+   
 
 }

@@ -11,4 +11,10 @@ class category_city extends Model
     protected $table = 'cities-categories';
 
 
+    public function category(){
+        return $this->belongsTo(Category::class,'category_id');
+    }// relations
+
+
 }
+
