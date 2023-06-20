@@ -14,6 +14,8 @@ use App\Models\Place;
 use App\Models\PlaceComment;
 use App\Services\TwoFactorService;
 use App\Models\category_city;
+use App\Models\Setting;
+use App\Models\HomeServices;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -31,8 +33,10 @@ class HomeController extends Controller
         $CategoriesCar=Category::where('parent_id', '=', 2)->where('type', '=', 2)->get();
         $CategoriesPlaces=Category::where('parent_id', '=', null)->where('type', '=', 0)->get();
         $PlacesComments=PlaceComment::with('user')->limit(10)->get();
+        $settings=Setting::first();
+        $HomeServices=HomeServices::all();
 
-        return view('frontend.index', compact('countries', 'cities', 'places','CategoriesAquar','CategoriesCar','CategoriesPlaces','PlacesComments'));
+        return view('frontend.index', compact('countries', 'cities', 'places','CategoriesAquar','CategoriesCar','CategoriesPlaces','PlacesComments','settings','HomeServices'));
 
     }
 
