@@ -339,7 +339,9 @@ class AqarController extends Controller
 
         } else {
 
-            $success = AqarBooking::create($request->all());
+            $input = $request->all();
+            $input['user_id'] = Auth::id();
+            $success = AqarBooking::create($input);
 
             return $this->respondSuccess($success, trans('site.added_successfully'));
 
