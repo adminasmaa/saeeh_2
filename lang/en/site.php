@@ -13,6 +13,11 @@ return [
     'conditioning_types'=>'Conditioning Types',
     'crews'=>'Crews',
     'Saeeh' => 'Saeeh',
+    'home'=>'Home',
+    'contactmessage'=>'You can contact us through the following numbers',
+    'inquires' => 'For reservations and inquiries',
+    'locations'=>'Locations',
+
     'delivery_date'=>'Delivery Date',
     'visit_count'=>'Visit Count',
     'cancle_reason'=>'Cancle Reason',

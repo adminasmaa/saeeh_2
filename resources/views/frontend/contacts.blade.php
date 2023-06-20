@@ -1,471 +1,195 @@
 @extends('layouts.main_frontend')
 @section('content')
-<main>
-   <section class="position-relative">
-      <div class="hero-section hero-section-v2">
-         <div class="hero-section-image">
-            <img src="{{FRONTASSETS}}/images/slider-image.png" alt="slider image"/>
-         </div>
-         <div
-            class="slider-container w-100 d-flex justify-content-center text-center"
+
+    <div class="overlay-mobile"></div>
+    <main>
+        <!-- Desktop Breadcrumb -->
+        <section class="py-md-4 py-2">
+            <div class="container">
+                <nav class="breadcrumb-container" aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:void(0)"> @lang('site.home') </a>
+                        </li>
+                        <li>
+                <span
+                ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="9"
+                        height="15"
+                        viewBox="0 0 9 15"
+                        fill="none"
+                    >
+                    <path
+                        d="M6.71329 13.9459L0.745584 7.99587C0.67475 7.92503 0.624459 7.8483 0.594709 7.76566C0.564959 7.68302 0.55032 7.59448 0.550792 7.50003C0.550792 7.40559 0.565431 7.31705 0.594709 7.23441C0.623987 7.15177 0.674278 7.07503 0.745584 7.0042L6.71329 1.03649C6.87857 0.871213 7.08517 0.788574 7.33308 0.788574C7.581 0.788574 7.7935 0.877116 7.97058 1.0542C8.14767 1.23128 8.23621 1.43788 8.23621 1.67399C8.23621 1.9101 8.14767 2.1167 7.97058 2.29378L2.76433 7.50003L7.97058 12.7063C8.13586 12.8716 8.2185 13.0753 8.2185 13.3176C8.2185 13.5598 8.12996 13.7693 7.95288 13.9459C7.77579 14.1229 7.56919 14.2115 7.33308 14.2115C7.09697 14.2115 6.89038 14.1229 6.71329 13.9459Z"
+                        fill="#005D9F"
+                    />
+                  </svg>
+                </span>
+                        </li>
+
+                        <li class="breadcrumb-item text-gray-4" aria-current="page">
+
+
+                     @lang('site.contacts')
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </section>
+        <section class="gary-bg-data contact-hero position-relative">
+            <div class="contact-image">
+                <img
+                    src="{{FRONTASSETS}}/images/contact-us-img.png"
+                    alt="contact us image"
+                />
+            </div>
+            <div
+                class="contact-container w-100 d-flex justify-content-center align-items-center  text-center"
             >
-            <div>
-               <h2 class="title-hero">أهلا بك في سائح</h2>
-               <p class="text-hero">قم بحجز ما يناسبك من خدماتنا</p>
+                <div>
+                    <h2>  @lang('site.contacts')</h2>
+                    <p>@lang('site.contactmessage')</p>
+                </div>
             </div>
-         </div>
-      </div>
-      <div class="search-container margin-t-search">
-         <div class="container">
-            <div class="row">
-               <div class="col-12 d-flex justify-content-center">
-                  <div class="tabs">
-                     <ul class="tabs-nav list-unstyled d-flex mb-0 tabs-nav-edits">
-                        <li>
-                           <a href="#tab-1">
-                              <div
-                                 class="d-flex align-items-center justify-content-center"
-                                 >
-                                 <div class="aqar-icon ps-3">
-                                    <svg
-                                       xmlns="http://www.w3.org/2000/svg"
-                                       width="24"
-                                       height="24"
-                                       viewBox="0 0 24 24"
-                                       fill="none"
-                                       >
-                                       <g clip-path="url(#clip0_327_667)">
-                                          <path
-                                             d="M14.5715 23.1429H0.857178V6.85718L7.71432 0.857178L14.5715 6.85718V23.1429ZM14.5715 23.1429H23.1429V11.1429H14.5715M7.71432 23.1429V19.7143M5.14289 14.5715H10.2857M5.14289 9.42861H10.2857"
-                                             stroke="white"
-                                             stroke-width="2.28571"
-                                             stroke-linecap="round"
-                                             stroke-linejoin="round"
-                                             />
-                                       </g>
-                                       <defs>
-                                          <clipPath id="clip0_327_667">
-                                             <rect width="24" height="24" fill="white"/>
-                                          </clipPath>
-                                       </defs>
-                                    </svg>
-                                 </div>
-                                 <div>حجز عقار</div>
-                              </div>
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#tab-2">
-                              <div
-                                 class="d-flex align-items-center justify-content-center"
-                                 >
-                                 <div class="car-icon ps-3">
-                                    <svg
-                                       xmlns="http://www.w3.org/2000/svg"
-                                       width="29"
-                                       height="30"
-                                       viewBox="0 0 29 30"
-                                       fill="none"
-                                       >
-                                       <path
-                                          d="M16.4256 20.0001H10.6026M22.2486 20.0001H25.7424V16.0626C25.7432 15.7651 25.6451 15.4771 25.4658 15.2502C25.2865 15.0234 25.0377 14.8727 24.7641 14.8251L18.7548 13.7501L15.6104 9.25006C15.5019 9.09482 15.3612 8.96881 15.1995 8.88203C15.0378 8.79524 14.8595 8.75006 14.6787 8.75006H6.22373C5.78965 8.74682 5.36337 8.87384 4.99296 9.1168C4.62256 9.35975 4.32279 9.70897 4.12746 10.1251L3.19578 12.1626C2.70682 13.2058 2.4516 14.3572 2.45044 15.5251V20.0001H4.77963"
-                                          stroke="white"
-                                          stroke-width="2"
-                                          stroke-linecap="round"
-                                          stroke-linejoin="round"
-                                          />
-                                       <path
-                                          d="M7.69103 23.75C9.299 23.75 10.6025 22.3509 10.6025 20.625C10.6025 18.8991 9.299 17.5 7.69103 17.5C6.08306 17.5 4.77954 18.8991 4.77954 20.625C4.77954 22.3509 6.08306 23.75 7.69103 23.75Z"
-                                          stroke="white"
-                                          stroke-width="2"
-                                          stroke-linecap="round"
-                                          stroke-linejoin="round"
-                                          />
-                                       <path
-                                          d="M19.337 23.75C20.945 23.75 22.2485 22.3509 22.2485 20.625C22.2485 18.8991 20.945 17.5 19.337 17.5C17.7291 17.5 16.4255 18.8991 16.4255 20.625C16.4255 22.3509 17.7291 23.75 19.337 23.75Z"
-                                          stroke="white"
-                                          stroke-width="2"
-                                          stroke-linecap="round"
-                                          stroke-linejoin="round"
-                                          />
-                                    </svg>
-                                 </div>
-                                 <div>حجز سيارة</div>
-                              </div>
-                           </a>
-                        </li>
-                     </ul>
-                     <ul class="tabs-stage list-unstyled">
-                        <li id="tab-1">
-                           <div class="row">
-                              <div class="col-lg-10">
-                                 <div class="row">
-                                    <div class="col-lg-3">
-                                       <div class="box-search mb-sm-0 mb-3">
-                                          <select
-                                             class="select2"
-                                             id="list"
-                                             name="country_id"
-                                             >
-                                             <option>الدوله</option>
-                                             @foreach($countries as $country)
-                                             <option
-                                                value="{{$country->id}}"> {{$country->name ?? ''}} </option>
-                                             @endforeach
-                                          </select>
-                                       </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                       <div class="box-search mb-sm-0 mb-3">
-                                          <select
-                                             class="select2"
-                                             id="list7"
-                                             name="city_id"
-                                             >
-                                             <option>المدينه</option>
-                                             <!-- @foreach($cities as $city)
-                                                <option
-                                                    value="{{$city->id}}">{{$city->name ?? ''}}</option>
-                                                @endforeach -->
-                                          </select>
-                                       </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                       <div class="box-search mb-sm-0 mb-3">
-                                          <select
-                                             class="select2"
-                                             id="list2"
-                                             name="list2"
-                                             >
-                                             <option>الفئة</option>
-                                             <!-- <option value="1">الفئة 2</option>
-                                             <option value="2">الفئة 3</option>
-                                             <option value="3">الفئة 4</option> -->
-                                          </select>
-                                       </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                       <div class="box-search mb-sm-0 mb-3">
-                                          <select
-                                             class="select2"
-                                             id="list4"
-                                             name="list4"
-                                             >
-                                             <option>عدد الغرف</option>
-                                            
-                                          </select>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="col-lg-2 d-flex align-items-center">
-                                 <div
-                                    class="search-btn d-flex align-items-center justify-content-center mt-lg-0 mt-3"
-                                    >
-                                    <a href="#">بحث</a>
-                                 </div>
-                              </div>
-                           </div>
-                        </li>
-                        <li id="tab-2">
-                           <div class="row">
-                              <div class="col-lg-10">
-                                 <div class="row">
-                                    <div class="col-lg col-12">
-                                       <div class="box-search mb-sm-0 mb-3">
-                                          <select
-                                             class="select2"
-                                             id="country_id"
-                                             name="country_id"
-                                             >
-                                             <option>الدوله</option>
-                                             @foreach($countries as $country)
-                                             <option
-                                                value="{{$country->id}}">{{$country->name ?? ''}}</option>
-                                             @endforeach
-                                          </select>
-                                       </div>
-                                    </div>
-                                    <div class="col-lg col-12">
-                                       <div class="box-search mb-sm-0 mb-3">
-                                          <select
-                                             class="select2"
-                                             id="city_id"
-                                             name="city_id"
-                                             >
-                                             <option>المدينه</option>
-                                             <!-- @foreach($cities as $city)
-                                             <option
-                                                value="{{$city->id}}">{{$city->name ?? ''}}</option>
-                                             @endforeach -->
-                                          </select>
-                                       </div>
-                                    </div>
-                                    <div class="col-lg col-12">
-                                       <div class="box-search mb-sm-0 mb-3">
-                                          <select
-                                             class="select2"
-                                             id="list6"
-                                             name="list6"
-                                             >
-                                             <option>الماركه</option>
-                                             @foreach($CategoriesCar as $cat)
-                                             <option value="{{$cat->id ?? ''}}">{{$cat->name ?? ''}}</option>
-                                             @endforeach
-                                          </select>
-                                       </div>
-                                    </div>
-                                    <div class="col-lg col-12">
-                                       <div class="box-search mb-sm-0 mb-3">
-                                          <select
-                                             class="select2"
-                                             id="list9"
-                                             name="list9"
-                                             >
-                                             <option>الفئه</option>
-                                             <!-- @foreach($CategoriesCar as $cat)
-                                             <option value="{{$cat->id ?? ''}}">{{$cat->name ?? ''}}</option>
-                                             @endforeach -->
-                                          </select>
-                                       </div>
-                                    </div>
-                                    <div class="col-lg col-12">
-                                       <div class="box-search mb-sm-0 mb-3">
-                                          <select
-                                             class="select2"
-                                             id="list8"
-                                             name="list8"
-                                             >
-                                             @for ($year = (int)date('Y')+1; 1900 <= $year; $year--): 
-                                             <option value="{{$year}}">{{$year}}</option>
-                                             @endfor
-                                          </select>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="col-lg-2">
-                                 <div
-                                    class="search-btn d-flex align-items-center justify-content-center"
-                                    >
-                                    <a href="#">بحث</a>
-                                 </div>
-                              </div>
-                           </div>
-                        </li>
-                     </ul>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </section>
-   <section class="banner-section py-5">
-      <div class="container w-100">
-         <div class="row">
-            <div class="col-lg-6 col-md-6 col-12">
-               <div class="banner-image mt-lg-0 mt-3">
-                  <img src="{{FRONTASSETS}}/images/banner-1.png" alt="banner 1"/>
-                  <div class="banner-txt top-txt">
-                     <div>تجول بأقل</div>
-                     <div>الاسعار</div>
-                  </div>
-               </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-12">
-               <div class="banner-image mt-lg-0 mt-3">
-                  <img src="{{FRONTASSETS}}/images/banner-2.png" alt="banner 2"/>
-                  <div class="banner-txt bottom-txt">
-                     <div>خصم علي</div>
-                     <div>حجز عقار</div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </section>
-   <section class="tours-section py-5">
-      <div class="container w-100">
-         <div class="row pb-5">
-            <div class="col-12">
-               <div
-                  class="d-flex justify-content-between align-items-center border-bottom-header"
+        </section>
+        <section class="gary-bg-data py-md-5 py-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card-contact mb-3 p-3 d-flex">
+                <span>
+                  <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="41"
+                      height="41"
+                      viewBox="0 0 41 41"
+                      fill="none"
                   >
-                  <div>
-                     <h2>أشهر الواجهات السياحية</h2>
-                  </div>
-                  <div class="see-all">
-                     <a href="#" class="h2">
-                     <span
-                        ><img src="{{FRONTASSETS}}/images/arrow-circle.svg" alt=""
-                        /></span>
-                     الكل
-                     </a>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="row">
-            @foreach($countries as $country)
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-               <div class="card-tour mb-3">
-                  <img
-                     class="card-img-top"
-                     src="{{asset('images/countries/'.$country->image)}}"
-                     onerror="this.src='{{FRONTASSETS}}/images/tours/tour-1.jpg'"
-                     alt="Card image cap"
-                     />
-                  <div
-                     class="card-tour-body d-flex justify-content-between align-items-center"
-                     >
-                     <h2 class="card-title">{{$country->name ?? ''}}</h2>
-                     <div>
-                        <img
-                           src="{{asset('images/countries/'.$country->flag_image)}}"
-                           onerror="this.src='{{FRONTASSETS}}/images/turkey.png'"
-                           alt="turkey"
-                           class="icon-flag"
-                           />
-                     </div>
-                  </div>
-               </div>
-            </div>
-            @endforeach
-         </div>
-      </div>
-   </section>
-   <section class="about-section bg-main">
-      <div class="container w-100">
-         <div class="row pb-4">
-            <div class="col-12">
-               <div>
-                  <h2 class="text-white">لماذا تثق في سائح</h2>
-               </div>
-            </div>
-         </div>
-         <div class="row padding-row">
-         @foreach($HomeServices as $service)
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-               <div class="about-card mb-3 text-center">
-                  <img src="{{asset('images/home_serviecs/'.$service->image)}}" alt="image"/>
-                  <div class="pt-3">
-                     <h4 class="text-main">{{ $service->title_ar}}</h4>
-                     <p class="mb-0 text-light-gray">{{$service->description_ar}}</p>
-                  </div>
-               </div>
-            </div>
-         @endforeach
-         </div>
-      </div>
-   </section>
-   <section class="hotels-section py-5">
-      <div class="container w-100">
-         <div class="row pb-4">
-            <div class="col-12">
-               <div>
-                  <h2 class="text-second">فنادق وعقارات في أفضل المدن</h2>
-               </div>
-            </div>
-         </div>
-         <div class="row">
-            <div class="col-12">
-               <div class="owl-carousel owl-theme hotel-owl">
-                  @foreach($places as $place)
-                  <div class="hotel-item mb-3 round-border position-relative">
-                     <div class="hotel-img">
-                        <img
-                           src="{{asset('images/places/'.$place->display_photo)}}"
-                           onerror="this.src='{{FRONTASSETS}}/images/hotels/alrebat.jpg'"
-                           alt="image"
-                           />
-                     </div>
-                     <div class="hotel-details">
-                        <div class="hotel-name">
-                           <h2 class="text-second">{{$place->city->name}}</h2>
+                    <circle
+                        cx="20.5"
+                        cy="20.5"
+                        r="20.5"
+                        fill="#FF8600"
+                        fill-opacity="0.31"
+                    />
+                    <path
+                        d="M21 21C21.55 21 22.021 20.804 22.413 20.412C22.8043 20.0207 23 19.55 23 19C23 18.45 22.8043 17.979 22.413 17.587C22.021 17.1957 21.55 17 21 17C20.45 17 19.9793 17.1957 19.588 17.587C19.196 17.979 19 18.45 19 19C19 19.55 19.196 20.0207 19.588 20.412C19.9793 20.804 20.45 21 21 21ZM21 28.35C23.0333 26.4833 24.5417 24.7873 25.525 23.262C26.5083 21.7373 27 20.3833 27 19.2C27 17.3833 26.4207 15.8957 25.262 14.737C24.104 13.579 22.6833 13 21 13C19.3167 13 17.8957 13.579 16.737 14.737C15.579 15.8957 15 17.3833 15 19.2C15 20.3833 15.4917 21.7373 16.475 23.262C17.4583 24.7873 18.9667 26.4833 21 28.35ZM21 31C18.3167 28.7167 16.3127 26.5957 14.988 24.637C13.6627 22.679 13 20.8667 13 19.2C13 16.7 13.8043 14.7083 15.413 13.225C17.021 11.7417 18.8833 11 21 11C23.1167 11 24.979 11.7417 26.587 13.225C28.1957 14.7083 29 16.7 29 19.2C29 20.8667 28.3377 22.679 27.013 24.637C25.6877 26.5957 23.6833 28.7167 21 31Z"
+                        fill="#FF8600"
+                    />
+                  </svg>
+                </span>
+                            <div class="pe-2">
+                                <div class="h2 text-second">@lang('site.address')</div>
+                                <p class="mb-0">{{$setting->website_address ?? ''}}</p>
+                            </div>
                         </div>
-                        <img
-                           src="{{asset('images/cities/'.$place->city->image)}}"
-                           onerror="this.src='{{asset('images/places/default.png')}}'"
-                           alt="icon"
-                           class="hotel-icon"
-                           />
-                     </div>
-                  </div>
-                  @endforeach
-               </div>
-            </div>
-         </div>
-      </div>
-   </section>
-   <section class="restaurant-section py-5 bg-main">
-      <div class="container w-100">
-         <div class="row pb-4">
-            <div class="col-12">
-               <div>
-                  <h2 class="text-white">أشهر المطاعم والخدمات المختلفه</h2>
-               </div>
-            </div>
-         </div>
-         <div class="row">
-            <div class="col-12">
-               <div class="owl-carousel owl-theme restaurant-owl">
-                  @foreach($CategoriesPlaces as $place)
-                  <div class="card-tour mb-3">
-                     <img src="{{asset('images/categories/'.$place->image)}}"
-                        class="card-img-top"
-                        alt="Card image cap"
-                        onerror="this.src='{{FRONTASSETS}}/images/restaurants/restaurant-1.jpg'"
-                        >
-                     <div
-                        class="card-tour-body d-flex justify-content-center align-items-center"
-                        >
-                        <h2 class="card-title">{{$place->name ??''}}</h2>
-                     </div>
-                  </div>
-                  @endforeach
-               </div>
-            </div>
-         </div>
-      </div>
-   </section>
-   <section class="reviews py-lg-5 py-4">
-      <div class="container w-100">
-         <div class="row pb-2">
-            <div class="col-12">
-               <h2 class="text-second">آراء العملاء</h2>
-            </div>
-         </div>
-         <div class="row justify-content-center">
-            <div class="col-lg-8 col-10">
-               <div class="owl-carousel owl-theme review-owl">
-                  @foreach($PlacesComments as $comment)
-                  <div class="card card-reviews">
-                     <div class="card-block">
-                        <div class="card-yazı">
-                           <p class="text-center">
-                              {{$comment->description ?? ''}}
-                           </p>
-                           <div class="card-sahip">
-                              <div class="favicon">
-                                 <img src="{{asset('images/employee/'.$comment->user->image)}}" data-bs-toggle="modal"
-                                    height="40"
-                                    width="40" class="d-block"
-                                    onerror="this.src='https://i.hizliresim.com/yqQzON.jpg'"
-                                    >
-                              </div>
-                           </div>
+                        <div class="card-contact mb-3 p-3 d-flex">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" viewBox="0 0 41 41" fill="none">
+                    <circle cx="20.5" cy="20.5" r="20.5" fill="#FF8600" fill-opacity="0.31"/>
+                    <g clip-path="url(#clip0_574_4731)">
+                    <path
+                        d="M31 15C31 13.9 30.1 13 29 13H13C11.9 13 11 13.9 11 15V27C11 28.1 11.9 29 13 29H29C30.1 29 31 28.1 31 27V15ZM29 15L21 20L13 15H29ZM29 27H13V17L21 22L29 17V27Z"
+                        fill="#FF8600"/>
+                    </g>
+                    <defs>
+                    <clipPath id="clip0_574_4731">
+                    <rect width="24" height="24" fill="white" transform="translate(9 9)"/>
+                    </clipPath>
+                    </defs>
+                    </svg>
+                </span>
+                            <div class="pe-2">
+                                <div class="h2 text-second">@lang('site.email')</div>
+                                <p class="mb-0">{{$setting->email ?? ''}}</p>
+                            </div>
                         </div>
-                        <div class="isim text-center">
-                           <h1>{{$comment->user->firstname .' '. $comment->user->lastname}} </h1>
-                           <p>{{$comment->user->country->name ?? ''}}</p>
+                        <div class="card-contact mb-3 p-3 d-flex">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" viewBox="0 0 41 41" fill="none">
+                    <circle cx="20.5" cy="20.5" r="20.5" fill="#FF8600" fill-opacity="0.31"/>
+                    <g clip-path="url(#clip0_574_18280)">
+                    <path
+                        d="M12.4878 23.0122C12.392 23.0351 12.2926 23.0388 12.1953 23.0232C12.098 23.0077 12.0047 22.9731 11.9208 22.9214C11.8369 22.8698 11.764 22.8021 11.7062 22.7223C11.6485 22.6425 11.607 22.5521 11.5842 22.4562C11.2424 21.0605 11.2788 19.599 11.6897 18.222C12.1006 16.8451 12.8711 15.6026 13.9219 14.6225C13.9935 14.5548 14.0777 14.5019 14.1697 14.4668C14.2618 14.4316 14.3599 14.415 14.4584 14.4178C14.5568 14.4206 14.6538 14.4428 14.7437 14.483C14.8337 14.5233 14.9148 14.5809 14.9824 14.6526C15.0272 14.7004 15.0656 14.7537 15.0969 14.8113C15.1755 14.9567 15.2038 15.124 15.1775 15.2871C15.1512 15.4503 15.0718 15.6002 14.9515 15.7136C14.0936 16.5134 13.4645 17.5276 13.1291 18.6516C12.7937 19.7755 12.7642 20.9686 13.0434 22.1078C13.0664 22.2037 13.0703 22.3031 13.0548 22.4005C13.0393 22.4979 13.0047 22.5912 12.9531 22.6752C12.9015 22.7592 12.8339 22.8322 12.754 22.89C12.6742 22.9479 12.5837 22.9894 12.4878 23.0122ZM16.0393 21.3415C15.7282 20.0401 16.0641 18.9145 17.0375 17.9963C17.1578 17.883 17.2372 17.7331 17.2635 17.5699C17.2898 17.4067 17.2615 17.2395 17.1829 17.0941C17.1516 17.0365 17.1132 16.9832 17.0684 16.9354C17.0008 16.8637 16.9197 16.8061 16.8297 16.7658C16.7398 16.7255 16.6428 16.7034 16.5444 16.7006C16.4459 16.6978 16.3478 16.7144 16.2557 16.7496C16.1637 16.7847 16.0795 16.8376 16.0079 16.9053C14.6557 18.1815 14.1485 19.8814 14.5801 21.6899C14.603 21.7857 14.6445 21.876 14.7023 21.9558C14.7601 22.0356 14.833 22.1032 14.917 22.1547C15.0009 22.2063 15.0942 22.2409 15.1914 22.2564C15.2887 22.2719 15.3881 22.2681 15.4839 22.2453C15.5797 22.2224 15.6701 22.1809 15.7498 22.1231C15.8296 22.0653 15.8972 21.9923 15.9488 21.9084C16.0004 21.8245 16.0349 21.7312 16.0504 21.634C16.066 21.5367 16.0622 21.4373 16.0393 21.3415ZM20.2518 10.3336C21.4489 9.87679 22.7713 9.87133 23.9721 10.3183C25.173 10.7652 26.17 11.634 26.7771 12.7623C30.3158 19.3111 27.8667 27.5184 21.3179 31.057C20.1917 31.6682 18.8816 31.8485 17.6322 31.5642C16.3829 31.28 15.2797 30.5507 14.5287 29.5126C14.3415 29.2486 14.2446 28.9312 14.2527 28.6077C14.2607 28.2841 14.3731 27.9719 14.5732 27.7175L17.5208 23.8742L17.5307 23.8688C17.6838 23.6741 17.8828 23.5203 18.1099 23.4213C18.3369 23.3222 18.585 23.2809 18.8319 23.3011C18.8622 23.3039 18.8913 23.3084 18.9208 23.3138L21.8843 23.931C22.8058 22.635 23.3978 20.6186 23.33 19.0121L20.5371 17.9275C20.5099 17.9168 20.4833 17.9045 20.4575 17.8906C20.2371 17.7739 20.0493 17.6041 19.9111 17.3965C19.7729 17.1889 19.6886 16.9502 19.6659 16.7018L19.6651 16.6884L19.3066 11.862C19.278 11.5394 19.3546 11.2161 19.525 10.9406C19.6954 10.6651 19.9504 10.4522 20.2518 10.3336ZM20.7946 11.7325L20.7995 11.7416L21.158 16.5563L23.9513 17.6416C23.9784 17.6522 24.0048 17.6642 24.0305 17.6777C24.2598 17.7992 24.4537 17.978 24.5932 18.1968C24.7327 18.4156 24.8131 18.6668 24.8265 18.926C24.9148 20.8741 24.2185 23.2398 23.094 24.8129C22.9428 25.0225 22.74 25.1894 22.5053 25.2976C22.2707 25.4057 22.012 25.4514 21.7545 25.4302C21.7246 25.4283 21.6948 25.424 21.6656 25.4175L18.6987 24.7999L15.7581 28.6266C15.755 28.6287 15.7517 28.6305 15.7482 28.632C16.2848 29.3754 17.0739 29.8978 17.9679 30.1013C18.8619 30.3048 19.7993 30.1754 20.6048 29.7374C23.4022 28.2218 25.4841 25.6585 26.3939 22.6098C27.3036 19.5612 26.9669 16.2761 25.4575 13.4754C25.0246 12.6678 24.3125 12.0455 23.4542 11.7248C22.5958 11.4041 21.6501 11.407 20.7938 11.733L20.7946 11.7325Z"
+                        fill="#FF8600"/>
+                    </g>
+                    <defs>
+                    <clipPath id="clip0_574_18280">
+                    <rect width="24" height="24" fill="white" transform="translate(16.1465 37.2617) rotate(-118.385)"/>
+                    </clipPath>
+                    </defs>
+                    </svg>
+                </span>
+                            <div class="pe-2">
+                                <div class="h2 text-second">@lang('site.inquires')</div>
+                                <p class="mb-0">{{$setting->phone_one ?? ''}}</p>
+                                <p class="mb-0">{{$setting->phone_two ?? ''}}</p>
+                            </div>
                         </div>
-                     </div>
-                  </div>
-                  @endforeach
-               </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="card-contact mb-3 p-3">
+                            <div class="h2 text-second">ارسل بياناتك</div>
+                            <p class="w-contact-45">يمكنك ارسال رسالتك من خلال ادخال كافه بيانات فى حقول الادخال</p>
+
+                            <form action="{{url('addContacts')}}" method="post" >
+                                @csrf
+                                @include('partials._errors')
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="mb-3">
+                                        <label for="name" class="contact-lbl mb-2">@lang('site.name')</label>
+                                        <input type="text" name="name" class="form-control contact-input"
+                                               placeholder="{{trans('site.name')}}" required>
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="mb-3">
+                                        <label for="phone" class="contact-lbl mb-2"> @lang('site.phone')</label>
+                                        <input type="number" name="phone" class="form-control contact-input "
+                                               placeholder="{{trans('site.phone')}}" required>
+
+
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label for="name" class="contact-lbl mb-2">@lang('site.message')</label>
+                                        <textarea class="form-control txtarea-contact p-3" name="message"
+                                                  placeholder="{{trans('site.message')}}" rows="4" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit"
+                                            class="contact-btn d-flex justify-content-center align-items-center mt-3">
+                                        @lang('site.send')
+                                    </button>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-         </div>
-      </div>
-   </section>
-</main>
+        </section>
+        <section class="contact-map py-md-5 py-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="contact-map-title">@lang('site.locations')</h2>
+                    </div>
+                    <div class="col-12">
+                        <div class="map my-3">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d2965.0824050173574!2d-93.63905729999999!3d41.998507000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sWebFilings%2C+University+Boulevard%2C+Ames%2C+IA!5e0!3m2!1sen!2sus!4v1390839289319"
+                                width="100%" height="325" frameborder="0" class="round-border">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 @endsection

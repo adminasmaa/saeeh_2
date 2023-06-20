@@ -2,9 +2,11 @@
 
 return [
     // 'Active' => 'نشط',
-
-
-    'send' => 'المرسل',
+'contactmessage'=>'يمكنك التواصل معنا من خلال الارقام الاتيه',
+    'home' => 'الرئيسية',
+    'inquires' => 'للحجز والاستفسار',
+    'send' => 'ارسال',
+    'locations'=>'موقعنا',
     'outbox' => 'الصادر',
     'problems' => 'شكاوي ومقترحات',
     'daynumber' => 'عدد الايام',
@@ -38,8 +40,8 @@ return [
     'reviewElements' => '  عناصر التقييمات',
 
     'aqar_reviews' => ' تقييمات العقارات ',
-    'car_reviews'  => ' تقييمات السيارات ',
-    'place_reviews'=> ' تقييمات الاماكن ',
+    'car_reviews' => ' تقييمات السيارات ',
+    'place_reviews' => ' تقييمات الاماكن ',
 
     'sections' => 'الأقسام',
 
@@ -61,8 +63,6 @@ return [
     'terms_conditions' => 'الشروط والاحكام',
     'website_address' => 'عنوان الموقع ',
     'brands' => 'ماركات العربيات',
-
-
 
 
     'full_names' => 'الاسم الكامل',
@@ -432,8 +432,8 @@ return [
 
     'home_serviecs' => 'خدمات الصفحة الرئيسية',
     'home_footers' => 'معلومات اسفل الصفحة الرئيسية',
-    'description_ar' =>'التفاصيل بالعربي',
-    'description_en' =>'التفاصيل بالانجليزي',
+    'description_ar' => 'التفاصيل بالعربي',
+    'description_en' => 'التفاصيل بالانجليزي',
 
     'passwordsecurity' => 'كلمة السر والامان',
     'message' => 'الرساله',
@@ -507,7 +507,7 @@ return [
     'place_comments' => ' تعليقات الاماكن ',
     'personnumber' => 'عدد الاشخاص',
     'space' => 'المساحة',
-    'services_aqars'=>'خدمات العقارات',
+    'services_aqars' => 'خدمات العقارات',
     'unitnumber' => 'عدد الوحدات',
     'hallnumber' => 'عدد الصالات',
     'bathroomnumber' => 'عدد دورات المياه',
@@ -532,16 +532,16 @@ return [
         'car_positions' => 'مكان السيارة ',
 
 
-        'floor'=>'الطابق',
-        'service'=>'الخدمات',
-        'bathroom'=>'مرافق الحمامات',
-        'free_service'=>'الخدمات المجانيه ',
-        'laundry'=>'مرافق الغسيل والكوى',
-        'kitchen'=>'المطابخ',
-        'crew'=>'طاقم العمل',
-        'conditioning_type'=>'انواع التكيفات',
-        'another_room'=>'غرف اخري ',
-        'floor_number'=>'عدد الادوار',
+        'floor' => 'الطابق',
+        'service' => 'الخدمات',
+        'bathroom' => 'مرافق الحمامات',
+        'free_service' => 'الخدمات المجانيه ',
+        'laundry' => 'مرافق الغسيل والكوى',
+        'kitchen' => 'المطابخ',
+        'crew' => 'طاقم العمل',
+        'conditioning_type' => 'انواع التكيفات',
+        'another_room' => 'غرف اخري ',
+        'floor_number' => 'عدد الادوار',
 
     ],
 
@@ -552,17 +552,17 @@ return [
         'title' => 'عنوان الموضوع باللغة الانجليزية',
         'content' => 'المحتوي باللغة الانجليزية',
         'notes' => 'ملاحظات باللغة الانجليزية',
-        'car_positions'=>'Car Positions',
-        'floor'=>'Floor',
-        'service'=>'Service',
-        'bathroom'=>'Bathroom',
-        'free_service'=>'Free Service',
-        'laundry'=>'Laundry',
-        'kitchen'=>'Kitchen',
-        'crew'=>'Crew',
-        'conditioning_type'=>'Conditioning Type',
-        'another_room'=>'Another Room',
-        'floor_number'=>'floor_number',
+        'car_positions' => 'Car Positions',
+        'floor' => 'Floor',
+        'service' => 'Service',
+        'bathroom' => 'Bathroom',
+        'free_service' => 'Free Service',
+        'laundry' => 'Laundry',
+        'kitchen' => 'Kitchen',
+        'crew' => 'Crew',
+        'conditioning_type' => 'Conditioning Type',
+        'another_room' => 'Another Room',
+        'floor_number' => 'floor_number',
 
     ],
     'fa' => [
