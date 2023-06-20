@@ -302,7 +302,7 @@ class AqarController extends Controller
         } else {
 
 
-            $aqar = Aqar::where('aqar_id', $request->aqar_id)->first();
+            $aqar = Aqar::where('id', $request->aqar_id)->first();
 
 
             $aquar = new AqarBookingResource($aqar);
