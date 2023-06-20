@@ -18,6 +18,9 @@ class PermissionSeeder extends Seeder
         $models = ['users','settings','roles',' message','contacts','countries','cities','questions','problems','mediators','advertising','reviewElements','categories','cars','bookings','car_comments','car_reviews','aquarcategories','areas','services_aqars','aqars','aquarbooking','aqar_comments','aqar_reviews',
         'place_categories','places','place_comments','place_reviews','commissions','notifications','balances','invoices','deposits','sections'
         ];
+
+
+
         $maps = ['create', 'update', 'read', 'delete'];
 
         foreach ($models as $model) {

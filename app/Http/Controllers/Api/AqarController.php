@@ -302,13 +302,13 @@ class AqarController extends Controller
         } else {
 
 
-            $aqar = AqarBooking::where('aqar_id', $request->aqar_id)->first();
+            $aqar = Aqar::where('id', $request->aqar_id)->first();
 
 
             $aquar = new AqarBookingResource($aqar);
 
 
-            return $this->respondSuccess($aquar, trans('site.data retrieved successfully.'));
+            return $this->respondSuccess($aquar, trans('message.data retrieved successfully.'));
 
 
         }

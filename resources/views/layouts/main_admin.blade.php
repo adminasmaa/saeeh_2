@@ -274,7 +274,7 @@
                             <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.home')?'activee':'' }}"
                                     href="{{route('dashboard.home')}}"><i
-                                        data-feather="home"></i><span>@lang('site.dashboard') @endlang</span></a>
+                                        data-feather="home"></i><span>@lang('site.dashboard') </span></a>
 
                             </li>
 
@@ -282,7 +282,7 @@
                             <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.settings.index')?'activee':'' }}"
                                     href="{{route('dashboard.settings.index')}}"><i
-                                        data-feather="settings"></i><span>@lang('site.settings') @endlang</span></a>
+                                        data-feather="settings"></i><span>@lang('site.settings')</span></a>
 
                             </li>
                             @endif
@@ -290,7 +290,7 @@
                             <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title link-nav  {{($current_route=='dashboard.users.index')?'activee':'' }}"
                                     href="{{route('dashboard.users.index')}}"><i
-                                        data-feather="users"></i><span>@lang('site.users') @endlang</span></a>
+                                        data-feather="users"></i><span>@lang('site.users')</span></a>
 
                             </li>
                             @endif
@@ -298,7 +298,7 @@
                             <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.roles.index')?'activee':'' }}"
                                     href="{{route('dashboard.roles.index')}}"><i
-                                        data-feather="box"></i><span>@lang('site.roles') @endlang</span></a>
+                                        data-feather="box"></i><span>@lang('site.roles')</span></a>
 
                             </li>
                             @endif
@@ -306,21 +306,21 @@
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.message.index')?'activee':'' }}"
                                    href="{{route('dashboard.message.index')}}">
-                                    <i data-feather="bell"></i><span>@lang('site.contacts') @endlang</span></a>
+                                    <i data-feather="bell"></i><span>@lang('site.contacts') </span></a>
                             </li>
                             @endif
                             @if (auth()->user()->hasPermission('read_contacts'))
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.contacts.index')?'activee':'' }}"
                                    href="{{route('dashboard.contacts.index')}}">
-                                    <i data-feather="mail"></i><span>@lang('site.contactsus') @endlang</span></a>
+                                    <i data-feather="mail"></i><span>@lang('site.contactsus') </span></a>
                             </li>
                             @endif
                             @if (auth()->user()->hasPermission('read_countries'))
                             <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.countries.index')?'activee':'' }}"
                                     href="{{route('dashboard.countries.index')}}"><i
-                                        data-feather="map"></i><span>@lang('site.countries') @endlang</span></a>
+                                        data-feather="map"></i><span>@lang('site.countries') </span></a>
 
                             </li>
                             @endif
@@ -328,7 +328,7 @@
                             <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.cities.index')?'activee':'' }}"
                                     href="{{route('dashboard.cities.index')}}"><i
-                                        data-feather="film"></i><span>@lang('site.cities') @endlang</span></a>
+                                        data-feather="film"></i><span>@lang('site.cities') </span></a>
 
                             </li>
                             @endif
@@ -336,7 +336,7 @@
                             <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.questions.index')?'activee':'' }}"
                                     href="{{route('dashboard.questions.index')}}"><i
-                                        data-feather="bookmark"></i><span>@lang('site.questions') @endlang</span></a>
+                                        data-feather="bookmark"></i><span>@lang('site.questions') </span></a>
 
                             </li>
                             @endif
@@ -344,7 +344,7 @@
                             <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.problems.index')?'activee':'' }}"
                                     href="{{route('dashboard.problems.index')}}"><i
-                                        data-feather="file-text"></i><span>@lang('site.problems') @endlang</span></a>
+                                        data-feather="file-text"></i><span>@lang('site.problems') </span></a>
 
                             </li>
                             @endif
@@ -352,7 +352,7 @@
                             <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.mediators.index')?'activee':'' }}"
                                     href="{{route('dashboard.mediators.index')}}"><i
-                                        data-feather="user-check"></i><span>@lang('site.mediators') @endlang</span></a>
+                                        data-feather="user-check"></i><span>@lang('site.mediators')</span></a>
 
                             </li>
                             @endif
@@ -361,7 +361,7 @@
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.advertising.index')?'activee':'' }}"
                                    href="{{route('dashboard.advertising.index')}}">
-                                    <i data-feather="zap"></i><span>@lang('site.advertising') @endlang</span></a>
+                                    <i data-feather="zap"></i><span>@lang('site.advertising') </span></a>
                             </li>
                             @endif
 
@@ -369,7 +369,7 @@
                             <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.reviewElements.index')?'activee':'' }}"
                                     href="{{route('dashboard.reviewElements.index')}}"><i
-                                        data-feather="bar-chart-2"></i><span>@lang('site.reviewElements') @endlang</span></a>
+                                        data-feather="bar-chart-2"></i><span>@lang('site.reviewElements')</span></a>
 
                             </li>
                             @endif
@@ -379,7 +379,7 @@
                                 <label class="badge badge-light-secondary"></label><a class="sidebar-link sidebar-title {{((in_array($current_route,
                                 ['dashboard.categories.index','dashboard.cars.index','dashboard.bookings.index','dashboard.car_comments.index']))?'activee':'' )}}"
                                                                                       href="#"><i
-                                        data-feather="airplay"></i><span>@lang('site.cars') @endlang                </span></a>
+                                        data-feather="airplay"></i><span>@lang('site.cars')  </span></a>
                                 <ul class="sidebar-submenu">
                                     @if (auth()->user()->hasPermission('read_categories'))
                                     <li><a href="{{route('dashboard.categories.index')}}" class="{{($current_route=='dashboard.categories.index')?'activee':'' }}">{{__('site.categories')}}</a>
@@ -410,7 +410,7 @@
                             <li class="sidebar-list"><a
                                     class="sidebar-link sidebar-title {{((in_array($current_route,
                                 ['dashboard.aquarcategories.index','dashboard.areas.index','dashboard.services_aqars.index','dashboard.aqar_setting.edit','dashboard.aqars.index','dashboard.aquarbooking.index','dashboard.aqar_comments.index']))?'activee':'' )}}"
-                                    href="#"><i data-feather="layers"></i><span>@lang('site.aquars') @endlang</span></a>
+                                    href="#"><i data-feather="layers"></i><span>@lang('site.aquars')</span></a>
                                 <ul class="sidebar-submenu">
                                     @if (auth()->user()->hasPermission('read_aquarcategories'))
                                     <li>
@@ -512,7 +512,7 @@
                                 <label class="badge badge-light-secondary"></label><a class="sidebar-link sidebar-title {{((in_array($current_route,
                                 ['dashboard.place_categories.index','dashboard.places.index','dashboard.place_comments.index']))?'activee':'' )}}"
                                                                                       href="#"><i
-                                        data-feather="list"></i><span>@lang('site.places') @endlang                </span></a>
+                                        data-feather="list"></i><span>@lang('site.places')    </span></a>
                                 <ul class="sidebar-submenu">
                                     <!-- <li><a href="{{route('dashboard.brands.index')}}">{{__('site.brands')}}</a>
                                     </li> -->
@@ -549,7 +549,7 @@
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.commissions.index')?'activee':'' }}"
                                    href="{{route('dashboard.commissions.index')}}">
-                                    <i data-feather="plus-circle"></i><span>@lang('site.commissions') @endlang</span></a>
+                                    <i data-feather="plus-circle"></i><span>@lang('site.commissions')</span></a>
                             </li>
                             @endif
 
@@ -557,21 +557,21 @@
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.notifications.index')?'activee':'' }}"
                                    href="{{route('dashboard.notifications.index')}}">
-                                    <i data-feather="droplet"></i><span>@lang('site.notifications') @endlang</span></a>
+                                    <i data-feather="droplet"></i><span>@lang('site.notifications')</span></a>
                             </li>
                             @endif
                             @if (auth()->user()->hasPermission('read_balances'))
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.balances.index')?'activee':'' }}"
                                    href="{{route('dashboard.balances.index')}}">
-                                    <i data-feather="dollar-sign"></i><span>@lang('site.balances') @endlang</span></a>
+                                    <i data-feather="dollar-sign"></i><span>@lang('site.balances') </span></a>
                             </li>
                             @endif
                             @if (auth()->user()->hasPermission('read_invoices'))
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.invoices.index')?'activee':'' }}"
                                    href="{{route('dashboard.invoices.index')}}">
-                                    <i data-feather="anchor"></i><span>@lang('site.invoices') @endlang</span></a>
+                                    <i data-feather="anchor"></i><span>@lang('site.invoices') </span></a>
                             </li>
 
                             @endif
@@ -580,14 +580,14 @@
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.deposits.index')?'activee':'' }}"
                                    href="{{route('dashboard.deposits.index')}}">
-                                    <i data-feather="credit-card"></i><span>@lang('site.deposits') @endlang</span></a>
+                                    <i data-feather="credit-card"></i><span>@lang('site.deposits') </span></a>
                             </li>
                             @endif
                             @if (auth()->user()->hasPermission('read_sections'))
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.sections.index')?'activee':'' }}"
                                    href="{{route('dashboard.sections.index')}}">
-                                    <i data-feather="list"></i><span>@lang('site.sections') @endlang</span></a>
+                                    <i data-feather="list"></i><span>@lang('site.sections')</span></a>
                             </li>
                             @endif
                         </ul>
