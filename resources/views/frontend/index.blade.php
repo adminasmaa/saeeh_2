@@ -344,45 +344,17 @@
             </div>
          </div>
          <div class="row padding-row">
+         @foreach($HomeServices as $service)
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                <div class="about-card mb-3 text-center">
-                  <img src="{{FRONTASSETS}}/images/trust-icon.svg" alt="image"/>
+                  <img src="{{asset('images/home_serviecs/'.$service->image)}}" alt="image"/>
                   <div class="pt-3">
-                     <h4 class="text-main">سائح مؤكد ومضمون</h4>
-                     <p class="mb-0 text-light-gray">حجزك مضمون بنسبة ١٠٠٪</p>
+                     <h4 class="text-main">{{ $service->title_ar}}</h4>
+                     <p class="mb-0 text-light-gray">{{$service->description_ar}}</p>
                   </div>
                </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-               <div class="about-card mb-3 text-center">
-                  <img
-                     src="{{FRONTASSETS}}/images/customer-service-icon.svg"
-                     alt="image"
-                     />
-                  <div class="pt-3">
-                     <h4 class="text-main">خدمة عملاء</h4>
-                     <p class="mb-0 text-light-gray">ندعمك على مدار الاسبوع</p>
-                  </div>
-               </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-               <div class="about-card mb-3 text-center">
-                  <img src="{{FRONTASSETS}}/images/rate-icon.svg" alt="image"/>
-                  <div class="pt-3">
-                     <h4 class="text-main">تقييمات موثوقة</h4>
-                     <p class="mb-0 text-light-gray">تقييمات وتعليقات مصدقة</p>
-                  </div>
-               </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-               <div class="about-card mb-3 text-center">
-                  <img src="{{FRONTASSETS}}/images/search-icon.svg" alt="image"/>
-                  <div class="pt-3">
-                     <h4 class="text-main">بحث متقدم وذكى</h4>
-                     <p class="mb-0 text-light-gray">كل انواع البحث بين يديك</p>
-                  </div>
-               </div>
-            </div>
+         @endforeach
          </div>
       </div>
    </section>
