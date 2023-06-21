@@ -41,9 +41,10 @@ class CityRepository implements ICityRepositoryAlias
         $countries = Country::get();
 
         $categories = Category::get();
-        $categoryrelated = category_city::where('city_id', $Id)->pluck('category_id')->toArray();
+        $reletedCategory = category_city::where('city_id', $Id)->pluck('category_id')->toArray() ?? [];
 
-        return view('dashboard.cities.edit', compact('city', 'countries', 'categories', 'categoryrelated'));
+
+        return view('dashboard.cities.edit', compact('city', 'countries', 'categories', 'reletedCategory'));
     }
 
     public function show($Id)

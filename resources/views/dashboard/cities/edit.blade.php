@@ -126,19 +126,19 @@
                                     >
                                 </div>
 
-                                <div class="col-md-6 form-group col-12 p-2 ">
-                                    <label class="form-label">@lang('site.category')</label>
-                                    <select class="js-example-placeholder-multiple col-sm-12" multiple="multiple"
-                                            name="category_id[]">
-                                        <option selected>@lang('site.select')</option>
-                                        @foreach($categories as $category)
+{{--                                <div class="col-md-6 form-group col-12 p-2 ">--}}
+{{--                                    <label class="form-label">@lang('site.category')</label>--}}
+{{--                                    <select class="js-example-placeholder-multiple col-sm-12" multiple="multiple"--}}
+{{--                                            name="category_id[]">--}}
+{{--                                        <option selected>@lang('site.select')</option>--}}
+{{--                                        @foreach($categories as $category)--}}
 
-                                            <option value="{{$category->id}}"  @if(in_array($category->id,$categoryrelated)) selected @endif>{{$category->name ?? ''}}</option>
+{{--                                            <option value="{{$category->id}}"  @if(in_array($category->id,$reletedCategory)) selected @endif>{{$category->name ?? ''}}</option>--}}
 
-                                        @endforeach
+{{--                                        @endforeach--}}
 
-                                    </select>
-                                </div>
+{{--                                    </select>--}}
+{{--                                </div>--}}
 
                                 {{--                                <div class="col-md-6 form-group col-12 p-2 ">--}}
                                 {{--                                    <label>@lang('site.code')<span class="text-danger">*</span></label>--}}
@@ -162,7 +162,7 @@
 
 
                                 <div class="col-md-6 form-group col-12 p-2 ">
-                                    <label class="form-label">@lang('site.city')</label>
+                                    <label class="form-label">@lang('site.categories')</label>
                                     <select class="js-example-placeholder-multiple col-sm-12" multiple="multiple"
                                             name="category_id[]">
                                         <option>@lang('site.select')</option>
