@@ -17,7 +17,31 @@ return [
     'contactmessage'=>'You can contact us through the following numbers',
     'inquires' => 'For reservations and inquiries',
     'locations'=>'Locations',
+    'essential_questions' => 'Essential questions',
+    'Walk around for less' => 'Walk around for less' ,
+    'prices' => 'prices',
+    'Hotels and Aqars in the best cities' =>'Hotels and Aqars in the best cities',
+    'The most famous restaurants and various services' =>'The most famous restaurants and various services',
+    'aqar booking' => 'aqar booking' ,
+    'discount on' => 'discount on',
+    'customer reviews' => 'Customer Reviews',
 
+    'Usage policy' => 'Usage policy',
+    'Become a partner with us' => 'Become a partner with us',
+    'social media' =>'Social Media',
+    'serving our customers' =>'Serving Our Customers',
+    'contact with' => ' Contact With',
+    'Service available from the hour' =>'Service available from the hour',
+
+    'Download the application now' =>'Download the application now',
+    'create account' => 'Create Account ',
+    'login' => ' Login',
+    'another serviecs' => 'Another Serviecs ',
+    'language' => 'Language',
+    'help' => 'Help',
+    'All' => ' All',
+    'Important links' => 'Important links',
+    'Why trust a Saeeh' =>'Why trust a Saeeh',
     'delivery_date'=>'Delivery Date',
     'visit_count'=>'Visit Count',
     'cancle_reason'=>'Cancle Reason',
@@ -207,7 +231,6 @@ return [
     'Good Afternoon' =>'Good Afternoon',
 
 
-
     //contacts
     'contact' => 'Contact_us',  'contactsus' => 'Contact_us',
     'no_data_product' => 'The products are empty',
@@ -269,13 +292,20 @@ return [
     'delete_faild' => 'Error Happen, Delete Process Failed',
 
     'no_vendor_found' => 'Sorry No Vendor Found',
+    'room number' => 'Room Number',
 
+    'Welcome to Saeeh' => 'Welcome to Saeeh',
+    'Book what suits you from our services' =>'Book what suits you from our services',
+    'Aqar Booking' => 'Aqar Booking ',
+    'Car Booking' => 'Car Booking',
     'no_data_found' => 'Sorry No Data Found',
     'no_records' => 'Sorry No Records Found',
     'no_options' => 'No Options',
     'no_available_Times' => 'No Available Time',
     'email' => 'email not incredital ',
-
+    'discover_the_most_famous_tourist_destinations' =>'Discover the most famous tourist destinations',
+    'all_countries' =>'All Countries',
+    'find_your_favorite_country' => 'Find your favorite country',
     'country' => 'Country',
     'countries' => 'Countries',
     'city' => 'City',

@@ -7,7 +7,7 @@
                         <img src="{{FRONTASSETS}}/images/logo-white.svg" alt=""/>
 
                         <div class="google-apps">
-                            <h4 class="text-center-mobile">حمل التطبيق الان</h4>
+                            <h4 class="text-center-mobile">@lang('site.Download the application now')</h4>
                             <ul class="mt-3 d-flex list-unstyled list-icons">
                                 <li class="footer-google-app">
                                     <a href="#" target="_blank" title="store">
@@ -28,20 +28,20 @@
                 </div>
                 <div class="col-lg-3 col-md-6 center-in-mobile">
                     <div>
-                        <h3 class="footer-title text-center-mobile">روابط مهمة</h3>
+                        <h3 class="footer-title text-center-mobile">@lang('site.Important links') </h3>
                         <ul class="list-unstyled links-list">
-                            <li class="py-2"><a href="#">الرئيسية</a></li>
-                            <li class="py-2"><a href="#">الاسئلة المتكررة</a></li>
-                            <li class="py-2"><a href="#">سياسة الاستخدام</a></li>
-                            <li class="py-2"><a href="#">كن شريكا معنا</a></li>
-                            <li class="py-2"><a href="#">تواصل معنا</a></li>
+                            <li class="py-2"><a href="#">@lang('site.home')</a></li>
+                            <li class="py-2"><a href="#">@lang('site.questions') </a></li>
+                            <li class="py-2"><a href="#">@lang('site.Usage policy') </a></li>
+                            <li class="py-2"><a href="#">@lang('site.Become a partner with us')</a></li>
+                            <li class="py-2"><a href="#">@lang('site.contact')</a></li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-6 center-in-mobile">
                     <div>
-                        <h3 class="footer-title text-center-mobile">سوشيال ميديا</h3>
+                        <h3 class="footer-title text-center-mobile">@lang('site.social media') </h3>
                         <ul class="mt-3 d-flex list-unstyled list-icons">
                             <li
                                 class="footerSocialIcons d-flex align-items-center justify-content-center"
@@ -78,17 +78,17 @@
                 </div>
                 <div class="col-lg-3 col-md-6 center-in-mobile">
                     <div>
-                        <h3 class="footer-title text-center-mobile">خدمة عملائنا</h3>
+                        <h3 class="footer-title text-center-mobile">  @lang('site.serving our customers')</h3>
                         <ul class="list-unstyled list-customer">
                             <li class="py-2">
-                                خدمه متاحه من الساعة
-                                <ul class="list-unstyled list-time">
+                            @lang('site.Service available from the hour')
+                              <ul class="list-unstyled list-time">
                                     <li class="pt-2">{{$settings->availability_time_from ."-" . $settings->availability_time_to}}</li>
                                 </ul>
                             </li>
                             <li class="py-2">
-                                تواصل من خلال
-                                <ul class="list-unstyled">
+                            @lang('site.contact with')
+                                     <ul class="list-unstyled">
                                     <li class="pt-2">
                                         <a href="#" class="link-time">
                                             <div class="d-flex align-items-center">

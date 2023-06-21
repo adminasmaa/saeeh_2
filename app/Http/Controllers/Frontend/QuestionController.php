@@ -22,7 +22,4 @@ class QuestionController extends Controller
     }
 
 
-
-
-
 }
