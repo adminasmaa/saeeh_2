@@ -58,7 +58,7 @@
                           data-bs-toggle="modal"
                           data-bs-target="#registerModal"
                         >
-                          مستخدم جديد
+                        @lang('site.create account')
                         </button>
                       </li>
                       <li
@@ -70,7 +70,7 @@
                           data-bs-toggle="modal"
                           data-bs-target="#loginModal"
                         >
-                          سجل الدخول
+                        @lang('site.login')
                         </button>
                       </li>
                     </ul>
@@ -90,7 +90,7 @@
                 class="navbar-nav d-flex align-items-center flex-lg-row position-relative"
               >
                 <li class="nav-link">
-                  <a href="javascript:void(0)" class="pe-0"> الرئيسية </a>
+                  <a href="javascript:void(0)" class="pe-0"> @lang('site.home') </a>
                 </li>
                 <li class="nav-link">
                   <a
@@ -124,8 +124,8 @@
                         </defs>
                       </svg>
                     </span>
-                    حجز عقار
-                    <span class="pe-2">
+                    @lang('site.Aqar Booking')             
+                       <span class="pe-2">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
@@ -208,8 +208,8 @@
                         />
                       </svg>
                     </span>
-                    حجز سيارة
-                    <span class="pe-2">
+                    @lang('site.Car Booking')
+                       <span class="pe-2">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
@@ -295,8 +295,8 @@
                         />
                       </svg>
                     </span>
-                    خدمات مختلفة
-                    <span class="pe-2">
+                    @lang('site.another serviecs')
+                      <span class="pe-2">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
@@ -375,7 +375,7 @@
                               />
                             </svg>
                           </span>
-                          مساعدة
+                          @lang('site.help')
                         </a>
                       </li>
                       <li class="nav-link">
@@ -391,8 +391,8 @@
                                   src="{{FRONTASSETS}}/images/nav-icons/flag-ar.svg"
                                   alt="lang"
                               /></span>
-                          اللغة
-                          <span class="pe-2">
+                              @lang('site.language')
+                                 <span class="pe-2">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="16"

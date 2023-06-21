@@ -456,60 +456,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-<!-- 
-                                            <div class="fade tab-pane" id="pills-todaytask3" role="tabpanel"
-                                                 aria-labelledby="pills-todaytask3-tab">
-                                                <div class="card mb-0">
-
-                                                    <div class="price-list" id="tb_price">
-
-                                                        <div class="row">
-
-                                                            <div class="col-md-6 form-group col-12 p-2 ">
-                                                                <label>@lang('site.name_ar')</label>
-                                                                <input type="text" name="sub_name_ar[]" class="form-control"
-                                                                >
-                                                            </div>
-
-                                                            <div class="col-md-6 form-group col-12 p-2 ">
-                                                                <label>@lang('site.name_en')</label>
-                                                                <input type="text" name="sub_name_en[]" class="form-control"
-                                                            
-                                                                >
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="row">
-
-                                                        <div class="col-md-6 form-group col-12 p-2 ">
-                                                                <label>@lang('site.descrption_ar')</label>
-                                                                <input type="text" name="sub_description_ar[]" class="form-control"
-                                                                >
-                                                            </div>
-
-                                                            <div class="col-md-6 form-group col-12 p-2 ">
-                                                                <label>@lang('site.descrption_en')</label>
-                                                                <input type="text" name="sub_description_en[]" class="form-control"
-                                                                >
-                                                            </div>
-
-                                                            <div class="col-md-9">
-                                                                        <label>@lang('site.image')</label>
-
-                                                                        <input type="file" name="image[]"
-                                                                               class="form-control" 
-                                                                               value="{{ old('image') }}">
-                                                            </div>
-
-                                                        </div>
-
-
-                                                    </div>
-                                                </div>
-                                            </div> -->
-
 <!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-                            <div class="fade tab-pane" id="pills-todaytask3" role="tabpanel"aria-labelledby="pills-todaytask3-tab">
+                            
+                        <div class="fade tab-pane" id="pills-todaytask3" role="tabpanel"aria-labelledby="pills-todaytask3-tab">
                             <?php  $x=-1; ?>
                             @foreach($home_serviecs2 as $service)
                            
@@ -518,7 +467,9 @@
                                         <table>
                                             <tr>
                                                 <td>
-                                                    <div class="row">
+                                                <div class="card mb-0">
+                                                <div class="card-body"> 
+                                            <div class="row">
                                                     <input type="hidden" name="item[]" class="form-control" value="{{$x??0}}"/>
                                                     <input type="hidden" value="{{ $service->id ?? '' }}" name="s_id[]"
                                                                    class="form-control" />
@@ -542,8 +493,7 @@
                                                         </div>
                                                         <div class="col-md-5 form-group col-12">
                                                                 <label>@lang('site.image')</label>
-                                                                <input type="file" name="image[]"
-                                                                    class="form-control" 
+                                                                <input type="file" name="image[]" class="form-control" 
                                                                     value="{{ $service->image ?? '' }}">
                                                         </div>
                                                         <div class="col-md-3 form-group col-12 p-2">
@@ -551,7 +501,9 @@
                                                          width="100px" height="100px">
                                                     <a  type="button" href="{{route('dashboard.DeleteHomeServices',$service->id)}}" class="btn btn-air-primary btn-pill btn-danger"><i class="fa fa-trash"></i></a>
 
-                                                </div>
+                                            </div>
+                                            </div>
+                                            </div>
                                                 </td>
                                             </tr>
                                         </table>
@@ -562,8 +514,6 @@
                                         <tr>
                                             <td>
                                                 <div class="row">
-                                                
-                                                   
                                                     <div class="col-md-3 form-group col-12">
                                                         <a class="btn btn-air-primary btn-pill btn-success add-price w-100 m-t-30"><i
                                                                 class="fa fa-plus" aria-hidden="true"></i></a>
@@ -579,9 +529,11 @@
                                 </div>
                             </div>
                         </div>
+                            
                     </div>
                 </div>
             </form>
+            </div>
         </div>
         <!-- Container-fluid Ends-->
     </div>

@@ -10,8 +10,8 @@
             class="slider-container w-100 d-flex justify-content-center text-center"
             >
             <div>
-               <h2 class="title-hero">أهلا بك في سائح</h2>
-               <p class="text-hero">قم بحجز ما يناسبك من خدماتنا</p>
+               <h2 class="title-hero">@lang('site.Welcome to Saeeh')</h2>
+               <p class="text-hero">@lang('site.Book what suits you from our services')</p>
             </div>
          </div>
       </div>
@@ -50,7 +50,7 @@
                                        </defs>
                                     </svg>
                                  </div>
-                                 <div>حجز عقار</div>
+                                 <div>@lang('site.Aqar Booking')</div>
                               </div>
                            </a>
                         </li>
@@ -90,7 +90,7 @@
                                           />
                                     </svg>
                                  </div>
-                                 <div>حجز سيارة</div>
+                                 <div>@lang('site.Car Booking') </div>
                               </div>
                            </a>
                         </li>
@@ -107,7 +107,7 @@
                                              id="list"
                                              name="country_id"
                                              >
-                                             <option>الدوله</option>
+                                             <option>@lang('site.country')</option>
                                              @foreach($countries as $country)
                                              <option
                                                 value="{{$country->id}}"> {{$country->name ?? ''}} </option>
@@ -122,7 +122,7 @@
                                              id="list7"
                                              name="city_id"
                                              >
-                                             <option>المدينه</option>
+                                             <option>@lang('site.city')</option>
                                              <!-- @foreach($cities as $city)
                                                 <option
                                                     value="{{$city->id}}">{{$city->name ?? ''}}</option>
@@ -137,7 +137,7 @@
                                              id="list2"
                                              name="list2"
                                              >
-                                             <option>الفئة</option>
+                                             <option>@lang('site.category')</option>
                                              <!-- <option value="1">الفئة 2</option>
                                              <option value="2">الفئة 3</option>
                                              <option value="3">الفئة 4</option> -->
@@ -151,7 +151,7 @@
                                              id="list4"
                                              name="list4"
                                              >
-                                             <option>عدد الغرف</option>
+                                             <option>@lang('site.room number')</option>
                                             
                                           </select>
                                        </div>
@@ -162,7 +162,7 @@
                                  <div
                                     class="search-btn d-flex align-items-center justify-content-center mt-lg-0 mt-3"
                                     >
-                                    <a href="#">بحث</a>
+                                    <a href="#">@lang('site.search')</a>
                                  </div>
                               </div>
                            </div>
@@ -178,7 +178,7 @@
                                              id="country_id"
                                              name="country_id"
                                              >
-                                             <option>الدوله</option>
+                                             <option>@lang('site.country')</option>
                                              @foreach($countries as $country)
                                              <option
                                                 value="{{$country->id}}">{{$country->name ?? ''}}</option>
@@ -193,7 +193,7 @@
                                              id="city_id"
                                              name="city_id"
                                              >
-                                             <option>المدينه</option>
+                                             <option>@lang('site.city')</option>
                                              <!-- @foreach($cities as $city)
                                              <option
                                                 value="{{$city->id}}">{{$city->name ?? ''}}</option>
@@ -208,7 +208,7 @@
                                              id="list6"
                                              name="list6"
                                              >
-                                             <option>الماركه</option>
+                                             <option>@lang('site.brands')</option>
                                              @foreach($CategoriesCar as $cat)
                                              <option value="{{$cat->id ?? ''}}">{{$cat->name ?? ''}}</option>
                                              @endforeach
@@ -222,7 +222,7 @@
                                              id="list9"
                                              name="list9"
                                              >
-                                             <option>الفئه</option>
+                                             <option>@lang('site.category')</option>
                                              <!-- @foreach($CategoriesCar as $cat)
                                              <option value="{{$cat->id ?? ''}}">{{$cat->name ?? ''}}</option>
                                              @endforeach -->
@@ -248,7 +248,7 @@
                                  <div
                                     class="search-btn d-flex align-items-center justify-content-center"
                                     >
-                                    <a href="#">بحث</a>
+                                    <a href="#">@lang('site.search')</a>
                                  </div>
                               </div>
                            </div>
@@ -267,8 +267,8 @@
                <div class="banner-image mt-lg-0 mt-3">
                   <img src="{{FRONTASSETS}}/images/banner-1.png" alt="banner 1"/>
                   <div class="banner-txt top-txt">
-                     <div>تجول بأقل</div>
-                     <div>الاسعار</div>
+                     <div>@lang('site.Walk around for less') </div>
+                     <div>@lang('site.prices')</div>
                   </div>
                </div>
             </div>
@@ -276,8 +276,8 @@
                <div class="banner-image mt-lg-0 mt-3">
                   <img src="{{FRONTASSETS}}/images/banner-2.png" alt="banner 2"/>
                   <div class="banner-txt bottom-txt">
-                     <div>خصم علي</div>
-                     <div>حجز عقار</div>
+                     <div>@lang('site.discount on')</div>
+                     <div>@lang('site.aqar booking')</div>
                   </div>
                </div>
             </div>
@@ -292,15 +292,14 @@
                   class="d-flex justify-content-between align-items-center border-bottom-header"
                   >
                   <div>
-                     <h2>أشهر الواجهات السياحية</h2>
+                     <h2>@lang('site.discover_the_most_famous_tourist_destinations')</h2>
                   </div>
                   <div class="see-all">
                      <a href="#" class="h2">
                      <span
                         ><img src="{{FRONTASSETS}}/images/arrow-circle.svg" alt=""
                         /></span>
-                     الكل
-                     </a>
+                        @lang('site.All')                     </a>
                   </div>
                </div>
             </div>
@@ -339,7 +338,7 @@
          <div class="row pb-4">
             <div class="col-12">
                <div>
-                  <h2 class="text-white">لماذا تثق في سائح</h2>
+                  <h2 class="text-white"> @lang('site.Why trust a Saeeh')</h2>
                </div>
             </div>
          </div>
@@ -363,7 +362,7 @@
          <div class="row pb-4">
             <div class="col-12">
                <div>
-                  <h2 class="text-second">فنادق وعقارات في أفضل المدن</h2>
+                  <h2 class="text-second"> @lang('site.Hotels and Aqars in the best cities')</h2>
                </div>
             </div>
          </div>
@@ -402,7 +401,7 @@
          <div class="row pb-4">
             <div class="col-12">
                <div>
-                  <h2 class="text-white">أشهر المطاعم والخدمات المختلفه</h2>
+                  <h2 class="text-white">@lang('site.The most famous restaurants and various services') </h2>
                </div>
             </div>
          </div>
@@ -432,7 +431,7 @@
       <div class="container w-100">
          <div class="row pb-2">
             <div class="col-12">
-               <h2 class="text-second">آراء العملاء</h2>
+               <h2 class="text-second"> @lang('site.customer reviews')</h2>
             </div>
          </div>
          <div class="row justify-content-center">
@@ -447,17 +446,11 @@
                            </p>
                            <div class="card-sahip">
                               <div class="favicon">
-                                 <img src="{{asset('images/employee/'.$comment->user->image)}}" data-bs-toggle="modal"
-                                    height="40"
-                                    width="40" class="d-block"
-                                    onerror="this.src='https://i.hizliresim.com/yqQzON.jpg'"
-                                    >
                               </div>
                            </div>
                         </div>
                         <div class="isim text-center">
-                           <h1>{{$comment->user->firstname .' '. $comment->user->lastname}} </h1>
-                           <p>{{$comment->user->country->name ?? ''}}</p>
+                          
                         </div>
                      </div>
                   </div>
