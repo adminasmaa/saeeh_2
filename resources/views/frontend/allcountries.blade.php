@@ -6,7 +6,7 @@
           <nav class="breadcrumb-container" aria-label="breadcrumb">
             <ol class="breadcrumb mb-0">
               <li class="breadcrumb-item">
-                <a href="javascript:void(0)"> الرئيسية </a>
+                <a href="javascript:void(0)"> @lang('site.home') </a>
               </li>
               <li>
                 <span
@@ -24,7 +24,7 @@
                   </svg>
                 </span>
               </li>
-              
+
               <li class="breadcrumb-item text-gray-4" aria-current="page">
                 الدول
               </li>
@@ -57,9 +57,9 @@
                 </div>
               </section>
 
-           
+
             </div>
-       
+
           </div>
         </div>
       </section>
@@ -69,7 +69,7 @@
           <div class="row pb-3">
             <div class="col-12">
                   <h2 class="country-title">كل الدول  </h2>
-               
+
             </div>
           </div>
           <div class="row">
@@ -78,7 +78,7 @@
               <div class="card-tour mb-3">
                 <a href="#">
                 <div class="card-image-box">
-                <img class="card-img" src="{{asset('images/countries/'.$country->image)}}" 
+                <img class="card-img" src="{{asset('images/countries/'.$country->image)}}"
                 onerror="this.src='{{FRONTASSETS}}/images/tours/tour-1.jpg'" alt="Card image cap">
                 </div>
                 <div class="card-tour-body d-flex justify-content-between align-items-center">

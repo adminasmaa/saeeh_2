@@ -31,6 +31,10 @@ Route::get('carcategory/{id}', 'App\Http\Controllers\Frontend\HomeController@car
 Route::get('roomnumbers/{id}', 'App\Http\Controllers\Frontend\HomeController@roomnumbers')->name('roomnumbers');
 Route::get('contacts', 'App\Http\Controllers\Frontend\ContactController@contacts')->name('contacts');
 Route::get('termAndCondition', 'App\Http\Controllers\Frontend\HomeController@termAndCondition')->name('termAndCondition');
+Route::get('categories/{id}', 'App\Http\Controllers\Frontend\CategoryController@categories')->name('categories');
+
+
+
 
 });
 
