@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Frontend;
+
 use Response;
 
 
@@ -29,14 +30,23 @@ class HomeController extends Controller
         $cities = City::where('active', '=', 1)->get();
 
         $places = Place::limit(10)->get();
-        $CategoriesAquar=Category::where('parent_id', '=', 1)->where('type', '=', 1)->get();
-        $CategoriesCar=Category::where('parent_id', '=', 2)->where('type', '=', 2)->get();
-        $CategoriesPlaces=Category::where('parent_id', '=', null)->where('type', '=', 0)->get();
-        $PlacesComments=PlaceComment::with('user')->limit(10)->get();
-        $settings=Setting::first();
-        $HomeServices=HomeServices::all();
+        $CategoriesAquar = Category::where('parent_id', '=', 1)->where('type', '=', 1)->get();
+        $CategoriesCar = Category::where('parent_id', '=', 2)->where('type', '=', 2)->get();
+        $CategoriesPlaces = Category::where('parent_id', '=', null)->where('type', '=', 0)->get();
+        $PlacesComments = PlaceComment::with('user')->limit(10)->get();
+        $settings = Setting::first();
+        $HomeServices = HomeServices::all();
 
-        return view('frontend.index', compact('countries', 'cities', 'places','CategoriesAquar','CategoriesCar','CategoriesPlaces','PlacesComments','settings','HomeServices'));
+        return view('frontend.index', compact('countries', 'cities', 'places', 'CategoriesAquar', 'CategoriesCar', 'CategoriesPlaces', 'PlacesComments', 'settings', 'HomeServices'));
+
+    }
+
+    public function termAndCondition()
+    {
+        $setting = Setting::first();
+
+
+        return view('frontend.terms', compact('setting'));
 
     }
 
@@ -45,7 +55,7 @@ class HomeController extends Controller
 
         $cities = City::where('country_id', $id)->get();
 
-       return $cities;
+        return $cities;
 
         return Response::json($cities);
 
@@ -79,10 +89,10 @@ class HomeController extends Controller
     {
 
 
-        $roomnumbers = Aqar::distinct()->join('aqar_sections', 'aqars.id', '=', 'aqar_sections.aqar_id')->join('aqar_details', 'aqar_details.id', '=', 'aqar_sections.sub_section_id')->where('aqars.category_id', $id)->where('aqar_sections.section_id', '=', 6)->groupBy('aqars.id')->select( \DB::raw('SUM(aqar_details.name_ar) as total'))
-        ->get()
-        ->pluck('total', 'aqar_details.name_ar')
-        ->toArray();
+        $roomnumbers = Aqar::distinct()->join('aqar_sections', 'aqars.id', '=', 'aqar_sections.aqar_id')->join('aqar_details', 'aqar_details.id', '=', 'aqar_sections.sub_section_id')->where('aqars.category_id', $id)->where('aqar_sections.section_id', '=', 6)->groupBy('aqars.id')->select(\DB::raw('SUM(aqar_details.name_ar) as total'))
+            ->get()
+            ->pluck('total', 'aqar_details.name_ar')
+            ->toArray();
         return Response::json($roomnumbers);
 
 
