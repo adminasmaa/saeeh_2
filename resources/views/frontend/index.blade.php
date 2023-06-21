@@ -447,17 +447,11 @@
                            </p>
                            <div class="card-sahip">
                               <div class="favicon">
-                                 <img src="{{asset('images/employee/'.$comment->user->image)}}" data-bs-toggle="modal"
-                                    height="40"
-                                    width="40" class="d-block"
-                                    onerror="this.src='https://i.hizliresim.com/yqQzON.jpg'"
-                                    >
                               </div>
                            </div>
                         </div>
                         <div class="isim text-center">
-                           <h1>{{$comment->user->firstname .' '. $comment->user->lastname}} </h1>
-                           <p>{{$comment->user->country->name ?? ''}}</p>
+                          
                         </div>
                      </div>
                   </div>

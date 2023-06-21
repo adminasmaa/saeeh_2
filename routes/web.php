@@ -29,6 +29,7 @@ Route::get('countrycities/{id}', 'App\Http\Controllers\Frontend\HomeController@c
 Route::get('categorycities/{id}', 'App\Http\Controllers\Frontend\HomeController@categorycities')->name('categorycities');
 Route::get('carcategory/{id}', 'App\Http\Controllers\Frontend\HomeController@carcategory')->name('carcategory');
 Route::get('roomnumbers/{id}', 'App\Http\Controllers\Frontend\HomeController@roomnumbers')->name('roomnumbers');
+Route::get('freq_question', 'App\Http\Controllers\Frontend\QuestionController@index')->name('freq_question');
 
 });
 
