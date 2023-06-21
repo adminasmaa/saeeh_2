@@ -1,7 +1,8 @@
 <?php
 
 return [
-    // 'Active' => 'نشط',
+    'Aqar Booking' => 'حجز عقار',
+    'Car Booking' => 'حجز سيارة',
 'contactmessage'=>'يمكنك التواصل معنا من خلال الارقام الاتيه',
     'home' => 'الرئيسية',
     'inquires' => 'للحجز والاستفسار',
@@ -17,9 +18,13 @@ return [
     'currency' => 'العملة',
     'image_comment' => 'ايقؤنه ',
     'questions' => 'الاسئله المتكرره',
+    'essential_questions' => 'الاسئله الاساسيه',
     'question' => 'السؤال',
     'cars' => 'السيارات',
     'balances' => 'الأرصدة',
+    'language' => 'اللغه',
+    'help' => 'المساعدة',
+    'Important links' => 'روابط مهمه',
     'inside' => 'بالداخل',
     'outside' => 'بالخارج',
     'balance' => 'الرصيد',
@@ -55,9 +60,12 @@ return [
 
     'aqar_setting' => 'أعدادات العقارات',
     'Balances' => 'الارصدة',
-
+    'social media' => 'سوشيال ميديا',
+    'serving our customers' => 'خدمة عملائنا',
+    'contact with' => 'تواصل من خلال',
+    'Service available from the hour' =>'خدمة متاحه من الساعه',
     'pools' => 'حمامات سباحة',
-
+    'Download the application now' =>'حمل التطبيق الان',
     'delivery_date' => 'تاريخ التسليم او الوصول',
     'visit_count' => 'الزوار',
     'cancle_reason' => 'إلغاء السبب',
@@ -67,6 +75,9 @@ return [
     'website_address' => 'عنوان الموقع ',
     'brands' => 'ماركات العربيات',
 
+    'Welcome to Saeeh' => ' اهلا بك في سائح',
+    'Book what suits you from our services' => 'قم بحجز ما يناسبك من خدماتنا',
+    'Saeeh' => 'سائح',
 
     'full_names' => 'الاسم الكامل',
     'Saeeh' => 'سائح',
@@ -79,7 +90,7 @@ return [
 
     'link' => 'الرابط الخاصة',
     'offertime' => 'بعض الوقت',
-    // 'export' => 'صادرات',
+    'find_your_favorite_country' => 'ابحث عن دولتك المفضلة',
     'reset' => 'إعادة تعيين',
     'reload' => 'إعادة تحميل',
     'Accounts' => 'المحاسبة',
@@ -124,6 +135,13 @@ return [
 
     'os' => 'نظام التشغيل',
 
+    'Walk around for less' => 'تجول باقل ',
+    'prices' => 'الاسعار ',
+    'discount on' => 'خصم على ',
+    'aqar booking' => 'حجز عقار ',
+    // 'os' => 'نظام التشغيل',
+    // 'os' => 'نظام التشغيل',
+    // 'os' => 'نظام التشغيل',
 
     'web' => 'الويب',
 
@@ -197,7 +215,7 @@ return [
     'contact_message' => 'الرسالة ',
     'Contact_name' => 'الاسم ',
     'contact_phone' => 'التليفون',
-
+    'Usage policy' => 'سياسة الاستخدام',
     'Select Please' => 'من فضلك اختار',
     'Register' => 'التسجيل',
     'website_link' => 'رابط الموقع',
@@ -205,6 +223,7 @@ return [
     'ads_bottom' => 'اعلان ثابت في الاسفل',
     'time_difference' => 'فارق التوقيت',
     'closing' => 'الاغلاق',
+    'Become a partner with us' => 'كن شريكا معنا',
 
 
     'open' => 'مفتوح',
@@ -219,8 +238,20 @@ return [
     'youtube' => 'موقع YouTube',
     'snapchat' => 'سناب شات',
 
-    'attach_link' => 'روابط التواصل ',
 
+    'create account' => 'مستخدم جديد',
+    'login' => 'سجل الدخول ',
+    'another serviecs' => 'خدمات مختلفه',
+    // 'All' => ' الكل',
+    // 'All' => ' الكل',
+    // 'All' => ' الكل',
+
+    'attach_link' => 'روابط التواصل ',
+    'All' => ' الكل',
+    'customer reviews' => ' آراء العملاء',
+    'Why trust a Saeeh' =>' لماذا تثق فى سائح',
+    'Hotels and Aqars in the best cities' =>'فنادق وعقارات فى افضل المدن',
+    'The most famous restaurants and various services' =>'اشهر المطاعم والخدمات المختلفه',
     //settings
     'theme' => 'الثيم',
     'setting' => 'الاعدادات العامه',
@@ -309,6 +340,7 @@ return [
     'country' => 'الدولة ',
     'countrys' => 'دولة الميلاد',
     'countries' => 'الدول',
+    'discover_the_most_famous_tourist_destinations' => 'استكشف اشهر  الواجهات السياحيه',
     'city' => 'المدينة',
     'cities' => 'المدن',
     'phone' => 'رقم الجوال',
@@ -466,6 +498,8 @@ return [
     'floornumber' => 'عدد الأدوار',
     'masterroom' => 'عدد الغرف الماستر',
     'normalroom' => 'عدد الغرف العادية',
+    'room number' => 'عدد الغرف ',
+
     'anotherrooms' => 'غرف اخرى',
     'service' => 'الخدمات',
     'freeservice' => 'خدمات مجانية',
@@ -523,6 +557,7 @@ return [
     'God Almighty loves that when one of you performs a deed, he should be perfect.' => 'إنَّ اللهَ تعالى يُحِبُّ إذا عمِلَ أحدُكمْ عملًا أنْ يُتقِنَه',
     'Happy Day' => 'يوم سعيد',
     'Good Afternoon' => 'مساء الخير',
+    'all_countries' => 'كل الدول',
 
 
     'ar' => [
