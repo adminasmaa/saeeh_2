@@ -24,7 +24,7 @@
                   </svg>
                 </span>
               </li>
-              
+
               <li class="breadcrumb-item text-gray-4" aria-current="page">
               @lang('site.countries')
                 </li>
@@ -58,9 +58,9 @@
                 </div>
               </section>
 
-           
+
             </div>
-       
+
           </div>
         </div>
       </section>
@@ -70,7 +70,6 @@
           <div class="row pb-3">
             <div class="col-12">
                   <h2 class="country-title"> @lang('site.all_countries')</h2>
-               
             </div>
           </div>
           <div class="row">
@@ -79,7 +78,7 @@
               <div class="card-tour mb-3">
                 <a href="#">
                 <div class="card-image-box">
-                <img class="card-img" src="{{asset('images/countries/'.$country->image)}}" 
+                <img class="card-img" src="{{asset('images/countries/'.$country->image)}}"
                 onerror="this.src='{{FRONTASSETS}}/images/tours/tour-1.jpg'" alt="Card image cap">
                 </div>
                 <div class="card-tour-body d-flex justify-content-between align-items-center">

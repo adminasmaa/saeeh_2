@@ -14,6 +14,9 @@ return [
     'crews'=>'Crews',
     'Saeeh' => 'Saeeh',
     'home'=>'Home',
+    'freediscount'=>'Get instant discounts',
+    'loginSignup' => 'All you have to do is log in',
+
     'contactmessage'=>'You can contact us through the following numbers',
     'inquires' => 'For reservations and inquiries',
     'locations'=>'Locations',
@@ -42,6 +45,7 @@ return [
     'All' => ' All',
     'Important links' => 'Important links',
     'Why trust a Saeeh' =>'Why trust a Saeeh',
+    'register'=>'sign up',
     'delivery_date'=>'Delivery Date',
     'visit_count'=>'Visit Count',
     'cancle_reason'=>'Cancle Reason',
