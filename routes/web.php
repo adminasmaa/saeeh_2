@@ -33,6 +33,8 @@ Route::get('freq_question', 'App\Http\Controllers\Frontend\QuestionController@in
 Route::get('contacts', 'App\Http\Controllers\Frontend\ContactController@contacts')->name('contacts');
 Route::get('termAndCondition', 'App\Http\Controllers\Frontend\HomeController@termAndCondition')->name('termAndCondition');
 Route::get('categories/{id}', 'App\Http\Controllers\Frontend\CategoryController@categories')->name('categories');
+Route::get('subcategories/{id}', 'App\Http\Controllers\Frontend\CategoryController@subcategories')->name('subcategories');
+Route::get('detailplace/{id}', 'App\Http\Controllers\Frontend\CategoryController@detailplace')->name('detailplace');
 
 
 
