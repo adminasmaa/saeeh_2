@@ -248,13 +248,19 @@
                                                             <tr>
                                                                 <td>
                                                                     <div class="row">
-                                                                        <div class="col-md-5 form-group col-12">
+                                                                        <div class="col-md-4 form-group col-12">
                                                                             <label>@lang('site.personnumber')</label>
                                                                             <input type="number" name="person_num[]"
                                                                                 class="form-control"
                                                                                 value="{{$aqar->changed_price->person_num[$x]}}" readonly="" disabled/>
                                                                         </div>
-                                                                        <div class="col-md-5 form-group col-12">
+                                                                        <div class="col-md-4 form-group col-12">
+                                                                            <label>@lang('site.daynumber')</label>
+                                                                            <input type="number" name="day_num[]"
+                                                                                class="form-control"
+                                                                                value="{{$aqar->changed_price->day_num[$x]}}" readonly="" disabled/>
+                                                                        </div>
+                                                                        <div class="col-md-4 form-group col-12">
                                                                             <label>@lang('site.fixed_price')</label>
                                                                             <input type="number" name="price[]"
                                                                                 class="form-control"
@@ -373,6 +379,7 @@ $(document).ready(function() {
         var newRow = jQuery('<tr><td><div class="row"><div class="col-md-5 form-group col-12 p-2">' +
             ' <label>@lang('site.personnumber')</label><input type="number"  name="person_num[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
             '<label>@lang('site.fixed_price')</label><input type="number" name="price[]" class="form-control" >' +
+            ' <label>@lang('site.daynumber')</label><input type="number"  name="day_num[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
             '  </div>  <div class="col-md-2 form-group col-12 p-2 "> <a class="btn btn-air-primary btn-pill btn-danger add-price w-100 m-t-30" onclick="deletetr(this)" ><i class="fa fa-trash"></i></a>' +
             '</div></div> </td>  </tr>');
         jQuery('.price-list').append(newRow);
