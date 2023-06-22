@@ -66,6 +66,11 @@ class Place extends Model
 
     ];
 
+
+    public function getNameAttribute()
+    {
+        return (app()->getLocale() === 'ar') ? $this->name_ar : $this->name_en;
+    }
     protected $hidden = ['deleted_at', 'updated_at'];
 
     // scope
