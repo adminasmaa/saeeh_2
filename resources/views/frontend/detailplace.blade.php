@@ -559,12 +559,12 @@
                                                                data-bs-target="#videoModal">
                                                                 <div class="card-vid-box">
                                                                     <img class="card-vid"
-                                                                         src="./assets/images/restaurants/vid-image-1.png"
+                                                                         src="{{FRONTASSETS}}/images/restaurants/vid-image-1.png"
                                                                          alt="Card image cap">
                                                                 </div>
                                                                 <div class="play-icon-vid">
                                                                     <img
-                                                                        src="./assets/images/restaurants/video-play-icon.png"
+                                                                        src="{{FRONTASSETS}}/images/restaurants/video-play-icon.png"
                                                                         alt="play icon">
                                                                 </div>
                                                             </a>
@@ -577,12 +577,12 @@
                                                                data-bs-target="#videoModal">
                                                                 <div class="play-icon-vid">
                                                                     <img
-                                                                        src="./assets/images/restaurants/video-play-icon.png"
+                                                                        src="{{FRONTASSETS}}/images/restaurants/video-play-icon.png"
                                                                         alt="play icon">
                                                                 </div>
                                                                 <div class="card-vid-box">
                                                                     <img class="card-vid"
-                                                                         src="./assets/images/restaurants/vid-image-2.png"
+                                                                         src="{{FRONTASSETS}}/images/restaurants/vid-image-2.png"
                                                                          alt="Card image cap"></div>
                                                             </a>
                                                         </div>
@@ -593,12 +593,12 @@
                                                                data-bs-target="#videoModal">
                                                                 <div class="play-icon-vid">
                                                                     <img
-                                                                        src="./assets/images/restaurants/video-play-icon.png"
+                                                                        src="{{FRONTASSETS}}/images/restaurants/video-play-icon.png"
                                                                         alt="play icon">
                                                                 </div>
                                                                 <div class="card-vid-box">
                                                                     <img class="card-vid"
-                                                                         src="./assets/images/restaurants/vid-image-3.png"
+                                                                         src="{{FRONTASSETS}}/images/restaurants/vid-image-3.png"
                                                                          alt="Card image cap"></div>
                                                             </a>
                                                         </div>
@@ -609,12 +609,12 @@
                                                                data-bs-target="#videoModal">
                                                                 <div class="play-icon-vid">
                                                                     <img
-                                                                        src="./assets/images/restaurants/video-play-icon.png"
+                                                                        src="{{FRONTASSETS}}/images/restaurants/video-play-icon.png"
                                                                         alt="play icon">
                                                                 </div>
                                                                 <div class="card-vid-box">
                                                                     <img class="card-vid"
-                                                                         src="./assets/images/restaurants/vid-image-4.png"
+                                                                         src="{{FRONTASSETS}}/images/restaurants/vid-image-4.png"
                                                                          alt="Card image cap"></div>
                                                             </a>
                                                         </div>
@@ -813,7 +813,7 @@
                                                             </svg>
                                                         </button>
                                                         <img loading="lazy"
-                                                             src="./assets/images/restaurants/resto-card-2.png"
+                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-2.png"
                                                              class="of-cover" alt="image 1">
                                                     </div>
                                                 </div>
@@ -830,7 +830,7 @@
                                                             </svg>
                                                         </button>
                                                         <img loading="lazy"
-                                                             src="./assets/images/restaurants/resto-card-3.png"
+                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-3.png"
                                                              class="of-cover" alt="image 1">
                                                     </div>
                                                 </div>
@@ -846,7 +846,7 @@
                                                             </svg>
                                                         </button>
                                                         <img loading="lazy"
-                                                             src="./assets/images/restaurants/resto-card-1.png"
+                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-1.png"
                                                              class="of-cover" alt="image 1">
                                                     </div>
                                                 </div>
@@ -862,7 +862,7 @@
                                                             </svg>
                                                         </button>
                                                         <img loading="lazy"
-                                                             src="./assets/images/restaurants/resto-card-2.png"
+                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-2.png"
                                                              class="of-cover" alt="image 1">
                                                     </div>
                                                 </div>
@@ -880,7 +880,7 @@
                                                             </svg>
                                                         </button>
                                                         <img loading="lazy"
-                                                             src="./assets/images/restaurants/resto-card-3.png"
+                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-3.png"
                                                              class="of-cover" alt="image 1">
                                                     </div>
                                                 </div>
@@ -895,7 +895,7 @@
                                                             </svg>
                                                         </button>
                                                         <img loading="lazy"
-                                                             src="./assets/images/restaurants/resto-card-1.png"
+                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-1.png"
                                                              class="of-cover" alt="image 1">
                                                     </div>
                                                 </div>
@@ -910,7 +910,7 @@
                                                             </svg>
                                                         </button>
                                                         <img loading="lazy"
-                                                             src="./assets/images/restaurants/resto-card-2.png"
+                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-2.png"
                                                              class="of-cover" alt="image 1">
                                                     </div>
                                                 </div>
@@ -1021,7 +1021,7 @@
                                                             </svg>
                                                         </button>
                                                         <img loading="lazy"
-                                                             src="./assets/images/restaurants/resto-card-2.png"
+                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-2.png"
                                                              class="of-cover" alt="image 1">
                                                     </div>
                                                 </div>
@@ -1038,7 +1038,7 @@
                                                             </svg>
                                                         </button>
                                                         <img loading="lazy"
-                                                             src="./assets/images/restaurants/resto-card-3.png"
+                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-3.png"
                                                              class="of-cover" alt="image 1">
                                                     </div>
                                                 </div>
@@ -1054,7 +1054,7 @@
                                                             </svg>
                                                         </button>
                                                         <img loading="lazy"
-                                                             src="./assets/images/restaurants/resto-card-1.png"
+                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-1.png"
                                                              class="of-cover" alt="image 1">
                                                     </div>
                                                 </div>
@@ -1070,7 +1070,7 @@
                                                             </svg>
                                                         </button>
                                                         <img loading="lazy"
-                                                             src="./assets/images/restaurants/resto-card-2.png"
+                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-2.png"
                                                              class="of-cover" alt="image 1">
                                                     </div>
                                                 </div>
@@ -1088,7 +1088,7 @@
                                                             </svg>
                                                         </button>
                                                         <img loading="lazy"
-                                                             src="./assets/images/restaurants/resto-card-3.png"
+                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-3.png"
                                                              class="of-cover" alt="image 1">
                                                     </div>
                                                 </div>
@@ -1103,7 +1103,7 @@
                                                             </svg>
                                                         </button>
                                                         <img loading="lazy"
-                                                             src="./assets/images/restaurants/resto-card-1.png"
+                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-1.png"
                                                              class="of-cover" alt="image 1">
                                                     </div>
                                                 </div>
@@ -1118,7 +1118,7 @@
                                                             </svg>
                                                         </button>
                                                         <img loading="lazy"
-                                                             src="./assets/images/restaurants/resto-card-2.png"
+                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-2.png"
                                                              class="of-cover" alt="image 1">
                                                     </div>
                                                 </div>

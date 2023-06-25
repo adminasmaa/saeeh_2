@@ -310,30 +310,10 @@
                                                >
                                     </div>
 
-                                    <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.rest_one')</label>
-                                        <input type="text" name="rest_one" class="form-control"
-                                               value="{{$place->rest_one}}"
-                                               >
-                                    </div>
-
-                                    <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.rest_two')</label>
-                                        <input type="text" name="rest_two" class="form-control"
-                                               value="{{$place->rest_two}}"
-                                               >
-                                    </div>
-
-                                    <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.rest_three')</label>
-                                        <input type="text" name="rest_three" class="form-control"
-                                               value="{{$place->rest_three}}"
-                                               >
-                                    </div>
                                     <div class="col-md-6 form-group">
                                     <label class="form-label">@lang('site.social_media')</label><span class="text-danger">*</span>
                                     <select class="form-control btn-square" name="social_media">
-                                            <option selected>@lang('site.select')</option>
+                                            <option selected value="0">@lang('site.select')</option>
                                         <option value="facebook"
                                                 @if($place->social_media=='facebook') selected @endif>@lang('site.facebook')
                                         </option>
@@ -359,21 +339,21 @@
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.descrption_ar')</label>
                                         <input type="text" name="descrption_ar" class="form-control"
-                                               value="{{$place->descrption_ar}}"
+                                               value="{{$place->descrption_ar}}" required
                                                >
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.descrption_en')</label>
                                         <input type="text" name="descrption_en" class="form-control"
-                                               value="{{$place->descrption_en}}"
+                                               value="{{$place->descrption_en}}" 
                                                >
                                     </div>
 
                                     <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                     <label class="form-label">@lang('site.users')</label>
                                     <select class="form-control btn-square" name="user_id">
-                                        <option selected>@lang('site.select')</option>
+                                        <option selected disabled>@lang('site.select')</option>
                                         @foreach($users as $user)
 
                                             <option value="{{$user->id}}"@if($place->user_id==$user->id) selected @endif>{{$user->firstname . $user->lastname ?? ''}}</option>
@@ -388,7 +368,7 @@
                                 <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                     <label class="form-label">@lang('site.categories')</label>
                                     <select class="form-control btn-square" name="category_id" id="category_id">
-                                        <option selected value="0">@lang('site.select')</option>
+                                        <option selected value="0" disabled>@lang('site.select')</option>
                                         @foreach($categories as $cat)
 
                                             <option value="{{$cat->id}}"
@@ -402,7 +382,7 @@
                                 <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                     <label class="form-label">@lang('site.subcategories')</label>
                                     <select class="form-control btn-square" name="sub_category_id" id="sub_category_id">
-                                        <option value="0">@lang('site.select')</option>
+                                        <option value="0" disabled>@lang('site.select')</option>
                                         @foreach($subcategories as $cats)
 
                                             <option value="{{$cats->id}}"
@@ -416,7 +396,7 @@
                                                 <div class="col-md-6 form-group">
                                                     <label class="form-label">@lang('site.country')</label>
                                                     <select class="form-control btn-square" name="country_id" id="country_id">
-                                                        <option selected>@lang('site.select')</option>
+                                                        <option selected disabled>@lang('site.select')</option>
                                                         @foreach($countries as $country)
 
                                                         <option value="{{$country->id}}" @if($country->
@@ -430,7 +410,7 @@
                                                 <div class="col-md-6 form-group">
                                                     <label class="form-label">@lang('site.city')</label>
                                                     <select class="form-control btn-square" name="city_id" id="city_id">
-                                                        <option selected>@lang('site.select')</option>
+                                                        <option selected disabled>@lang('site.select')</option>
                                                       
                                                     </select>
                                                 </div>
@@ -444,10 +424,10 @@
                                 <div class="form-group col-12 p-2">
                                     <label>@lang('site.display_photo')</label>
 
-                                    <input type="file" class="form-control" name="main_image"
-                                        value="{{$place->main_image}}" id="imgInp"  />
+                                    <input type="file" class="form-control" name="display_photo"
+                                        value="{{$place->display_photo}}" id="imgInp"  />
                                     <img id="frame"
-                                        src="{{asset('images/places/'.$place->main_image)}}" alt=""
+                                        src="{{asset('images/places/'.$place->display_photo)}}" alt=""
                                         onerror="this.src='{{asset('images/places/default.jpg')}}'"
                                         width="200px" class="img-upload" />
 
@@ -458,7 +438,7 @@
                                     <input type="file" class="form-control" name="notify_photo"
                                         value="{{$place->notify_photo}}" id="imgInp2"  />
                                     <img id="frame2"
-                                        src="{{asset('images/places/'.$place->main_image)}}" alt=""
+                                        src="{{asset('images/places/'.$place->notify_photo)}}" alt=""
                                         onerror="this.src='{{asset('images/places/default.jpg')}}'"
                                         width="200px" class="img-upload2" />
 
@@ -490,7 +470,29 @@
                         </div>
                              
                             <br>
+                            <div class="row">
+                             <div class="form-group col-12 p-2 mb-2">
 
+                                    <label>@lang('site.videos')</label>
+
+                                    <input type="file" class="form-control" name="videos[]"
+                                        value="{{$place->videos}}" multiple id="upload-videos" />
+
+                                    <div class="video-thumbs " id="video-previews">
+                                        @if($place->videos)
+                                        @foreach ((explode(',',$place->videos)) as $video)
+                                        <div class="wrapper-thumb">
+                                            <video id="frame" src="{{asset('videos/places/'.$video)}}"
+                                                alt=""
+                                                onerror="this.src='{{asset('videos/places/default.jpg')}}'"
+                                                width="200px" class="video-preview-thumb" /><span
+                                                class="remove-btn">x</span>
+                                        </div>
+                                        @endforeach
+                                        @endif
+                                    </div>
+                            </div>
+                        </div>
                         </div>
                     </form>
                 </div>
@@ -566,8 +568,14 @@
         totalFiles,
         previewTitle,
         previewTitleText,
-        img;
-
+        img,
+        videoUpload = document.getElementById("upload-videos"),
+        videoPreviews = document.getElementById("video-previews"),
+        videoUploadForms = document.getElementById("form-upload"),
+        totalFiles2,
+        previewTitle2,
+        previewTitleText2,
+        video;
     imgUploads.addEventListener("change", previewImgss, true);
 
     function previewImgss(event) {
@@ -591,9 +599,31 @@
             wrapper.appendChild(removeBtn);
             imgPreviews.appendChild(wrapper);
 
-            $(".remove-btn").click(function() {
-                $(this).parent(".wrapper-thumb").remove();
-            });
+        }
+    }  
+    /*video */
+    videoUpload.addEventListener("change", previewVideoss, true);
+    function previewVideoss(event) {
+        totalFiles2 = videoUploads.files.length;
+
+        if (!!totalFiles2) {
+            videoPreviews.classList.remove("video-thumbs-hidden");
+        }
+
+        for (var i = 0; i < totalFiles2; i++) {
+            wrapper = document.createElement("div");
+            wrapper.classList.add("wrapper-thumb");
+            removeBtn = document.createElement("span");
+            nodeRemove = document.createTextNode("x");
+            removeBtn.classList.add("remove-btn");
+            removeBtn.appendChild(nodeRemove);
+            video = document.createElement("video");
+            video.src = URL.createObjectURL(event.target.files[i]);
+            video.classList.add("video-preview-thumb");
+            wrapper.appendChild(video);
+            wrapper.appendChild(removeBtn);
+            videoPreviews.appendChild(wrapper);
+
         }
     }
     $(".remove-btn").click(function() {
@@ -607,12 +637,6 @@
         let imgURL2 = (frame2.src = URL.createObjectURL(event.target.files[0]));
         document.querySelector("img").src = imgURL2;
     };
-    /*video */
-    // document.getElementById("videoUpload").onchange = function(event) {
-    //     let file = event.target.files[0];
-    //     let blobURL = URL.createObjectURL(file);
-    //     document.querySelector("video").style.display = "block";
-    //     document.querySelector("video").src = blobURL;
-    // };
+
 </script>
 @endsection
