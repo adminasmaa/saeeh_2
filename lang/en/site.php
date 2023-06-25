@@ -14,9 +14,17 @@ return [
     'crews'=>'Crews',
     'Saeeh' => 'Saeeh',
     'home'=>'Home',
+    'excellent'=>'Excellent',
+    'Customer reviews'=>'Customer reviews',
+    'comments'=>'Comments',
+
+    'all'=>'All',
+    'Based on reviews'=>'Based on reviews from all kinds of travelers',
     'freediscount'=>'Get instant discounts',
     'loginSignup' => 'All you have to do is log in',
-
+    'dealine'=>'Times Of Work',
+'Total'=>'Total',
+    'reviews'=>'Reviews',
     'contactmessage'=>'You can contact us through the following numbers',
     'inquires' => 'For reservations and inquiries',
     'locations'=>'Locations',

@@ -65,12 +65,19 @@ class Place extends Model
         'work_day',
 
     ];
+protected $appends=['descrption','name'];
 
 
     public function getNameAttribute()
     {
         return (app()->getLocale() === 'ar') ? $this->name_ar : $this->name_en;
     }
+
+    public function getDescrptionAttribute()
+    {
+        return (app()->getLocale() === 'ar') ? $this->descrption_ar : $this->descrption_en;
+    }
+
     protected $hidden = ['deleted_at', 'updated_at'];
 
     // scope
@@ -90,7 +97,8 @@ class Place extends Model
     // relations
 
 
-    public function PlaceReview(){
+    public function PlaceReview()
+    {
         return $this->HasMany(PlaceReview::class)->distinct();
     }
 
@@ -104,15 +112,21 @@ class Place extends Model
         return $this->belongsTo(City::class, 'city_id')->withDefault();
     }
 
+    public function country()
+    {
+        return $this->belongsTo(Country::class, 'country_id')->withDefault();
+    }
+
     // relations
     public function placeComments()
     {
         return $this->HasMany(PlaceComment::class);
     }
 
-    public function favoriteuser(){
+    public function favoriteuser()
+    {
 
-        return $this->belongsToMany(User::class,'user_palace','user_id','place_id');
+        return $this->belongsToMany(User::class, 'user_palace', 'user_id', 'place_id');
     }
 
 }
