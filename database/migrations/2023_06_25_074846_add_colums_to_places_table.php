@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('eat_types', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name_ar')->required();
-            $table->string('name_en')->nullable();
-            $table->timestamps();
-            $table->softDeletes();
+        Schema::table('places', function (Blueprint $table) {
+       
+            $table->json('videos')->nullable(); //array
+            $table->dropColumn('rest_one');
+            $table->dropColumn('rest_two');
+            $table->dropColumn('rest_three');
         });
     }
 
@@ -29,6 +29,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('eat_types');
+        Schema::table('places', function (Blueprint $table) {
+            //
+        });
     }
 };

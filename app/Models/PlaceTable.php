@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Place;  //belongsTo
 
 class PlaceTable extends Model
 {
@@ -16,6 +17,12 @@ class PlaceTable extends Model
     protected $fillable = [
         'name_ar',// required
         'name_en',// nullable
+        'place_id',// nullable
+        'type',// nullable
 
     ];
+    // relations
+    public function place(){
+        return $this->belongsTo(Place::class,'place_id');
+    }
 }
