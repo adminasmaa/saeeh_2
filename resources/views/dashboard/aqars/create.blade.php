@@ -198,17 +198,22 @@
                                                         <tr>
                                                             <td>
                                                                 <div class="row">
-                                                                    <div class="col-md-5 form-group col-12">
+                                                                    <div class="col-md-4 form-group col-12">
                                                                         <label>@lang('site.personnumber')</label>
                                                                         <input type="number" name="person_num[]"
                                                                             class="form-control" />
                                                                     </div>
-                                                                    <div class="col-md-5 form-group col-12">
+                                                                    <div class="col-md-4 form-group col-12">
+                                                                        <label>@lang('site.daynumber')</label>
+                                                                        <input type="number" name="day_num[]"
+                                                                            class="form-control" />
+                                                                    </div>
+                                                                    <div class="col-md-4 form-group col-12">
                                                                         <label>@lang('site.fixed_price')</label>
                                                                         <input type="number" name="price[]"
                                                                             class="form-control">       
                                                                     </div>
-                                                                    <div class="col-md-2 form-group col-12">
+                                                                    <div class="col-md-4 form-group col-12">
                                                                         <a
                                                                             class="btn btn-air-primary btn-pill btn-success add-price w-100 m-t-30"><i
                                                                                 class="fa fa-plus"
@@ -294,6 +299,7 @@ $(document).ready(function() {
         event.preventDefault();
         var newRow = jQuery('<tr><td><div class="row"><div class="col-md-5 form-group col-12 p-2">' +
             ' <label>@lang('site.personnumber')</label><input type="number"  name="person_num[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
+            ' <label>@lang('site.daynumber')</label><input type="number"  name="day_num[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
             '<label>@lang('site.fixed_price')</label><input type="number" name="price[]" class="form-control" >' +
             '  </div>  <div class="col-md-2 form-group col-12 p-2 "> <a class="btn btn-air-primary btn-pill btn-danger add-price w-100 m-t-30" onclick="deletetr(this)" ><i class="fa fa-trash"></i></a>' +
             '</div></div> </td>  </tr>');
