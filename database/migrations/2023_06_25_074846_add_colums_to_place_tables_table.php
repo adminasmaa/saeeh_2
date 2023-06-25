@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('break_types', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name_ar')->required();
-            $table->string('name_en')->nullable();
-            $table->timestamps();
-            $table->softDeletes();
+        Schema::table('place_tables', function (Blueprint $table) {
+            $table->enum('type',['break','meal','tawla']);
+            $table->integer('place_id')->nullable( )->unsigned();
+            $table->foreign('place_id')->references('id')->on('places')->onDelete('cascade');
         });
     }
 
@@ -29,6 +27,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('break_types');
+        Schema::table('place_tables', function (Blueprint $table) {
+            //
+        });
     }
 };

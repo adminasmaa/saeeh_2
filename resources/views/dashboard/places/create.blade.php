@@ -205,27 +205,6 @@
                                                value="{{old('longitude')}}"
                                                >
                                     </div>
-
-                                    <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.rest_one')</label>
-                                        <input type="text" name="rest_one" class="form-control"
-                                               value="{{old('rest_one')}}"
-                                               >
-                                    </div>
-
-                                    <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.rest_two')</label>
-                                        <input type="text" name="rest_two" class="form-control"
-                                               value="{{old('rest_two')}}"
-                                               >
-                                    </div>
-
-                                    <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.rest_three')</label>
-                                        <input type="text" name="rest_three" class="form-control"
-                                               value="{{old('rest_three')}}"
-                                               >
-                                    </div>
                                     <div class="col-md-6 form-group">
                                     <label class="form-label">@lang('site.social_media')</label><span class="text-danger">*</span>
                                     <select class="form-control btn-square" name="social_media">
@@ -333,7 +312,7 @@
                                     <div class="form-group col-12 p-2">
                                         <label>@lang('site.display_photo')</label>
 
-                                        <input type="file" class="form-control" name="main_image"
+                                        <input type="file" class="form-control" name="display_photo"
                                             id="imgInp" required />
                                         <img id="frame" src="" width="200px" class="img-upload" />
 
@@ -355,7 +334,22 @@
 
                                         <div class="img-thumbs img-thumbs-hidden" id="img-previews">
 
+                                    </div>
+                                <br>
+
+
                             </div>
+                            <div class="form-group col-12 p-2 mb-3">
+
+                                        <label>@lang('site.videos')</label>
+
+                                        <input type="file" class="form-control" name="videos[]"
+                                            value="{{ old('videos[]') }}" multiple id="upload-videos" />
+
+                                        <div class="video-thumbs video-thumbs-hidden" id="video-previews">
+<!-- "upload-videos"),
+    videoPreviews = document.getElementById("video-previews -->
+                                    </div>
                                 <br>
 
 
@@ -420,10 +414,16 @@ var imgUploads = document.getElementById("upload-imgs"),
     totalFiles,
     previewTitle,
     previewTitleText,
-    img;
-
+    img,
+    // /*video */
+    videoUpload = document.getElementById("upload-videos"),
+    videoPreviews = document.getElementById("video-previews"),
+    videoUploadForms = document.getElementById("form-upload"),
+    totalFiles2,
+    previewTitle2,
+    previewTitleText2,
+    video;
 imgUploads.addEventListener("change", previewImgss, true);
-
 function previewImgss(event) {
     totalFiles = imgUploads.files.length;
 
@@ -450,6 +450,33 @@ function previewImgss(event) {
         });
     }
 }
+/*video */
+videoUpload.addEventListener("change", previewVideoss, true);
+function previewVideoss(event) {
+    totalFiles2 = videoUpload.files.length;
+
+    if (!!totalFiles2) {
+        videoPreviews.classList.remove("video-thumbs-hidden");
+    }
+
+    for (var i = 0; i < totalFiles2; i++) {
+        wrapper = document.createElement("div");
+        wrapper.classList.add("wrapper-thumb");
+        removeBtn = document.createElement("span");
+        nodeRemove = document.createTextNode("x");
+        removeBtn.classList.add("remove-btn");
+        removeBtn.appendChild(nodeRemove);
+        video = document.createElement("video");
+        video.src = URL.createObjectURL(event.target.files[i]);
+        video.classList.add("video-preview-thumb");
+        wrapper.appendChild(video);
+        wrapper.appendChild(removeBtn);
+        videoPreviews.appendChild(wrapper);
+        $(".remove-btn").click(function() {
+            $(this).parent(".wrapper-thumb").remove();
+        });
+    }
+}
 
 document.getElementById("imgInp").onchange = function() {
     let imgURL = (frame.src = URL.createObjectURL(event.target.files[0]));
@@ -459,12 +486,6 @@ document.getElementById("imgInp2").onchange = function() {
     let imgURL2 = (frame2.src = URL.createObjectURL(event.target.files[0]));
     document.querySelector("img").src = imgURL2;
 };
-/*video */
-// document.getElementById("videoUpload").onchange = function(event) {
-//     let file = event.target.files[0];
-//     let blobURL = URL.createObjectURL(file);
-//     document.querySelector("video").style.display = "block";
-//     document.querySelector("video").src = blobURL;
-// };
+
 </script>
 @endsection

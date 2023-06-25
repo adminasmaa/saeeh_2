@@ -263,23 +263,6 @@
                                         value="{{ $place->longitude ?? '' }}" readonly=""disabled>
                                     </div>
 
-                                    <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.rest_one')</label>
-                                        <input type="text" name="rest_one" class="form-control"
-                                        value="{{ $place->rest_one ?? '' }}" readonly=""disabled>
-                                    </div>
-
-                                    <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.rest_two')</label>
-                                        <input type="text" name="rest_two" class="form-control"
-                                        value="{{ $place->rest_two ?? '' }}" readonly=""disabled>
-                                    </div>
-
-                                    <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.rest_three')</label>
-                                        <input type="text" name="rest_three" class="form-control"
-                                        value="{{ $place->rest_three ?? '' }}" readonly=""disabled>
-                                    </div>
                                     <div class="col-md-6 form-group">
                                     <label class="form-label">@lang('site.social_media')</label><span class="text-danger">*</span>
                                     <select class="form-control btn-square" name="social_media" readonly=""disabled>
@@ -446,6 +429,23 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group col-12 p-2 mb-2">
+
+                            <label>@lang('site.videos')</label>
+
+                            <div class="video-thumbs " id="video-previews">
+                                @if($place->videos)
+                                @foreach ((explode(',',$place->videos)) as $video)
+                                <div class="wrapper-thumb">
+                                    <img id="frame" src="{{asset('videos/places/'.$video)}}"
+                                        alt=""
+                                        onerror="this.src='{{asset('videos/places/default.jpg')}}'"
+                                        width="200px" class="video-preview-thumb" />
+                                </div>
+                                @endforeach
+                                @endif
+                            </div>
+                            </div>
 
                     </div>
                 </div>
