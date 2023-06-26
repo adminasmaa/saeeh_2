@@ -347,8 +347,7 @@
                                             value="{{ old('videos[]') }}" multiple id="upload-videos" />
 
                                         <div class="video-thumbs video-thumbs-hidden" id="video-previews">
-<!-- "upload-videos"),
-    videoPreviews = document.getElementById("video-previews -->
+
                                     </div>
                                 <br>
 
@@ -406,7 +405,6 @@
         })
 
     </script>
-
 <script>
 var imgUploads = document.getElementById("upload-imgs"),
     imgPreviews = document.getElementById("img-previews"),
