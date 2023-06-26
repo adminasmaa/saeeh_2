@@ -188,7 +188,6 @@
                                                >
                                     </div>
                                 </div>
-
                                 <div class="row">
                                     <!--<div class="col-md-6">-->
 
@@ -215,9 +214,7 @@
 
                                     </select>
                                 </div>
-
                                 </div>
-
                                 <div class="row">
                                     <!--<div class="col-md-6">-->
                                     <div class="col-md-6 form-group col-12 p-2 ">
@@ -264,7 +261,6 @@
 
                                     </select>
                                 </div>
-
                                 <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                         <label class="form-label">@lang('site.subcategories')</label>
                                         <select class="form-control btn-square" name="sub_category_id" id="sub_category_id">
@@ -307,7 +303,6 @@
                                                 </div>
                                             </div>
                                 </div>
-
                                 <div class="row">
                                     <div class="form-group col-12 p-2">
                                         <label>@lang('site.display_photo')</label>
@@ -336,8 +331,6 @@
 
                                     </div>
                                 <br>
-
-
                             </div>
                             <div class="form-group col-12 p-2 mb-3">
 
@@ -346,16 +339,59 @@
                                         <input type="file" class="form-control" name="videos[]"
                                             value="{{ old('videos[]') }}" multiple id="upload-videos" />
 
-                                        <div class="video-thumbs video-thumbs-hidden" id="video-previews">
+                                <div class="video-thumbs video-thumbs-hidden" id="video-previews">
 
-                                    </div>
-                                <br>
+                                </div>
+                                
+                                    <br>
 
 
                             </div>
 
+                            <br>
+                    <!-- PlaceTable [meal-break-tawla]-->
+                    
+                    <div class="col-md-12 form-group col-12   desc" id="price2" >
+                                <label>@lang('site.place_tables')</label>
+                                    <table class="price-list" id="tb_price">
+                                        <tr>
+                                            <td>
+                                                <div class="row">
+                                                    <div class="col-md-5 form-group col-12">
+                                                        <label>@lang('site.name_ar')</label>
+                                                        <input type="text" name="sub_name_ar[]" class="form-control"/>
+                                                    </div>
+                                                    <div class="col-md-5 form-group col-12">
+                                                        <label>@lang('site.name_en')</label>
+                                                        <input type="text" name="sub_name_en[]" class="form-control">
+                                                    </div>
+                                                    <div class="col-md-6 form-group">
+                                                        <label class="form-label">@lang('site.type')</label>
+                                                        <select class="form-control btn-square" name="sub_type[]">
+                                                                <option selected>@lang('site.select')</option>
+                                                                <option value="Meal">@lang('site.meal')</option>
+                                                                <option value="Break">@lang('site.break') </option>
+                                                                <option value="Tawla">@lang('site.tawla') </option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-2 form-group col-12">
+                                                        <a class="btn btn-air-primary btn-pill btn-success add-price w-100 m-t-30"><i
+                                                                class="fa fa-plus" aria-hidden="true"></i></a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -406,84 +442,111 @@
 
     </script>
 <script>
-var imgUploads = document.getElementById("upload-imgs"),
-    imgPreviews = document.getElementById("img-previews"),
-    imgUploadForms = document.getElementById("form-upload"),
-    totalFiles,
-    previewTitle,
-    previewTitleText,
-    img,
-    // /*video */
-    videoUpload = document.getElementById("upload-videos"),
-    videoPreviews = document.getElementById("video-previews"),
-    videoUploadForms = document.getElementById("form-upload"),
-    totalFiles2,
-    previewTitle2,
-    previewTitleText2,
-    video;
-imgUploads.addEventListener("change", previewImgss, true);
-function previewImgss(event) {
-    totalFiles = imgUploads.files.length;
+    var imgUploads = document.getElementById("upload-imgs"),
+        imgPreviews = document.getElementById("img-previews"),
+        imgUploadForms = document.getElementById("form-upload"),
+        totalFiles,
+        previewTitle,
+        previewTitleText,
+        img,
+        // /*video */
+        videoUpload = document.getElementById("upload-videos"),
+        videoPreviews = document.getElementById("video-previews"),
+        videoUploadForms = document.getElementById("form-upload"),
+        totalFiles2,
+        previewTitle2,
+        previewTitleText2,
+        video;
+    imgUploads.addEventListener("change", previewImgss, true);
+    function previewImgss(event) {
+        totalFiles = imgUploads.files.length;
 
-    if (!!totalFiles) {
-        imgPreviews.classList.remove("img-thumbs-hidden");
+        if (!!totalFiles) {
+            imgPreviews.classList.remove("img-thumbs-hidden");
+        }
+
+        for (var i = 0; i < totalFiles; i++) {
+            wrapper = document.createElement("div");
+            wrapper.classList.add("wrapper-thumb");
+            removeBtn = document.createElement("span");
+            nodeRemove = document.createTextNode("x");
+            removeBtn.classList.add("remove-btn");
+            removeBtn.appendChild(nodeRemove);
+            img = document.createElement("img");
+            img.src = URL.createObjectURL(event.target.files[i]);
+            img.classList.add("img-preview-thumb");
+            wrapper.appendChild(img);
+            wrapper.appendChild(removeBtn);
+            imgPreviews.appendChild(wrapper);
+
+            $(".remove-btn").click(function() {
+                $(this).parent(".wrapper-thumb").remove();
+            });
+        }
+    }
+    /*video */
+    videoUpload.addEventListener("change", previewVideoss, true);
+    function previewVideoss(event) {
+        totalFiles2 = videoUpload.files.length;
+
+        if (!!totalFiles2) {
+            videoPreviews.classList.remove("video-thumbs-hidden");
+        }
+
+        for (var i = 0; i < totalFiles2; i++) {
+            wrapper = document.createElement("div");
+            wrapper.classList.add("wrapper-thumb");
+            removeBtn = document.createElement("span");
+            nodeRemove = document.createTextNode("x");
+            removeBtn.classList.add("remove-btn");
+            removeBtn.appendChild(nodeRemove);
+            video = document.createElement("video");
+            video.src = URL.createObjectURL(event.target.files[i]);
+            video.classList.add("video-preview-thumb");
+            wrapper.appendChild(video);
+            wrapper.appendChild(removeBtn);
+            videoPreviews.appendChild(wrapper);
+            $(".remove-btn").click(function() {
+                $(this).parent(".wrapper-thumb").remove();
+            });
+        }
     }
 
-    for (var i = 0; i < totalFiles; i++) {
-        wrapper = document.createElement("div");
-        wrapper.classList.add("wrapper-thumb");
-        removeBtn = document.createElement("span");
-        nodeRemove = document.createTextNode("x");
-        removeBtn.classList.add("remove-btn");
-        removeBtn.appendChild(nodeRemove);
-        img = document.createElement("img");
-        img.src = URL.createObjectURL(event.target.files[i]);
-        img.classList.add("img-preview-thumb");
-        wrapper.appendChild(img);
-        wrapper.appendChild(removeBtn);
-        imgPreviews.appendChild(wrapper);
+    document.getElementById("imgInp").onchange = function() {
+        let imgURL = (frame.src = URL.createObjectURL(event.target.files[0]));
+        document.querySelector("img").src = imgURL;
+    };
+    document.getElementById("imgInp2").onchange = function() {
+        let imgURL2 = (frame2.src = URL.createObjectURL(event.target.files[0]));
+        document.querySelector("img").src = imgURL2;
+    };
 
-        $(".remove-btn").click(function() {
-            $(this).parent(".wrapper-thumb").remove();
-        });
-    }
+</script>
+<script>
+$(document).ready(function () {
+    jQuery('a.add-price').click(function (event) {
+        event.preventDefault();
+        var newRow = jQuery('<tr><td><div class="row"><div class="col-md-5 form-group col-12 p-2">' +
+            '<label>@lang('site.name_ar')</label><input type="text"  name="sub_name_ar[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
+            '<label>@lang('site.name_en')</label><input type="text" name="sub_name_en[]" class="form-control" ></div><div class="col-md-5 form-group col-6 p-2">' +
+            '<label>@lang('site.type')</label><select class="form-control btn-square" name="sub_type[]"><option selected>@lang('site.select')</option><option value="Meal">@lang('site.meal')</option><option value="Break">@lang('site.break') </option><option value="Tawla">@lang('site.tawla') </option></select></div><div class="col-md-5 form-group col-6 p-2">' +
+            '  </div>  <div class="col-md-2 form-group col-12 p-2 "> <a class="btn btn-air-primary btn-pill btn-danger add-price w-100 m-t-30" onclick="deletetr(this)" ><i class="fa fa-trash"></i></a>' +
+            '</div></div> </td>  </tr>');
+        jQuery('.price-list').append(newRow);
+    });
+
+    $("input[name='price']").click(function () {
+        var test = $(this).val();
+
+        $("div.desc").hide();
+        $("#price" + test).show();
+    });
+});
+
+function deletetr(r) {
+    r.closest('tr').remove();
 }
-/*video */
-videoUpload.addEventListener("change", previewVideoss, true);
-function previewVideoss(event) {
-    totalFiles2 = videoUpload.files.length;
 
-    if (!!totalFiles2) {
-        videoPreviews.classList.remove("video-thumbs-hidden");
-    }
-
-    for (var i = 0; i < totalFiles2; i++) {
-        wrapper = document.createElement("div");
-        wrapper.classList.add("wrapper-thumb");
-        removeBtn = document.createElement("span");
-        nodeRemove = document.createTextNode("x");
-        removeBtn.classList.add("remove-btn");
-        removeBtn.appendChild(nodeRemove);
-        video = document.createElement("video");
-        video.src = URL.createObjectURL(event.target.files[i]);
-        video.classList.add("video-preview-thumb");
-        wrapper.appendChild(video);
-        wrapper.appendChild(removeBtn);
-        videoPreviews.appendChild(wrapper);
-        $(".remove-btn").click(function() {
-            $(this).parent(".wrapper-thumb").remove();
-        });
-    }
-}
-
-document.getElementById("imgInp").onchange = function() {
-    let imgURL = (frame.src = URL.createObjectURL(event.target.files[0]));
-    document.querySelector("img").src = imgURL;
-};
-document.getElementById("imgInp2").onchange = function() {
-    let imgURL2 = (frame2.src = URL.createObjectURL(event.target.files[0]));
-    document.querySelector("img").src = imgURL2;
-};
 
 </script>
 @endsection
