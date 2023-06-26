@@ -73,6 +73,7 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
         // To Make  Active
         $request_data['active'] = 1;
         $request_data['type'] = 2;
+        $request_data['parent_id '] = 2;
 
 
         $category = Category::create($request_data + ['city_id' => json_encode($request['city_id'])]);
