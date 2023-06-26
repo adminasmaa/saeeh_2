@@ -14,13 +14,15 @@ use App\Repositories\Interfaces\PlaceRepositoryInterface as PlaceRepositoryInter
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
 use Alert;
+use App\Models\PlaceTable;
+
 class PlaceRepository implements PlaceRepositoryInterfaceAlias
 {
     public function getAll($data)
     {
 
 //        return $data->query();
-
+       
         return $data->render('dashboard.places.index', [
             'title' => trans('site.places'),
             'model' => 'places',
@@ -62,7 +64,7 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
     public function show($Id)
     {
         // TODO: Implement show() method.
-
+      //  $place_table = PlaceTable::all();
         $place = Place::find($Id);
         $users = User::whereNotNull('account_type')->where('active',1)->get();
         $categories = Category::all();
@@ -80,31 +82,30 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
     // return $request;
         // TODO: Implement store() method.
 
-        $request_data = $request->except(['_method','_token','display_photo','notify_photo','images','videos']);
-
+        $request_data = $request->except(['_method','_token','display_photo','notify_photo','images','videos','sub_name_ar','sub_name_en','sub_type']);
         // To Make  Active
-
         $place = Place::create($request_data);
-
+        
+        $arr = $request->sub_name_ar;
+        if ($arr[0]!=null) {
+            foreach ($request->sub_name_ar as $key => $value) {
+                $data=PlaceTable::Create([
+                    'name_ar' => $request['sub_name_ar'][$key],
+                    'name_en' => $request['sub_name_en'][$key],
+                    'type' => $request['sub_type'][$key],
+                    'place_id' => $place->id
+                ]);
+            }
+            
+        }
         if ($request->hasFile('display_photo')) {
-//            $thumbnail = $request->file('display_photo');
-//            $destinationPath = 'images/places/';
-//            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-//            $thumbnail->move($destinationPath, $filename);
-//            $place->display_photo = $filename;
-//            $place->save();
-            UploadImage('images/places/','display_photo', $place, $request->file('display_photo'));
+
+                UploadImage('images/places/','display_photo', $place, $request->file('display_photo'));
 
         }
-
         if ($request->hasFile('notify_photo')) {
-//            $thumbnail = $request->file('notify_photo');
-//            $destinationPath = 'images/places/';
-//            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-//            $thumbnail->move($destinationPath, $filename);
-//            $place->notify_photo = $filename;
-//            $place->save();
-            UploadImage('images/places/','notify_photo', $place, $request->file('notify_photo'));
+
+                UploadImage('images/places/','notify_photo', $place, $request->file('notify_photo'));
         }
         if ($request->hasFile('images')) {
             $images = $request->file('images');
@@ -112,9 +113,10 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
                 $destinationPath = 'images/places/';
                 $file_name = $_FILES['images']['name'][$key];
                 $files->move($destinationPath, $file_name);
-                $data[] = $_FILES['images']['name'][$key];
+                $data = $_FILES['images']['name'][$key];
                 $place->images = json_encode($data);
                 $place->save();
+                
             }
         }
         if ($request->hasFile('videos')) {
@@ -123,7 +125,7 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
                 $destinationPath = 'videos/places/';
                 $file_name = $_FILES['videos']['name'][$key];
                 $files->move($destinationPath, $file_name);
-                $data[] = $_FILES['videos']['name'][$key];
+                $data= $_FILES['videos']['name'][$key];
                 $place->videos = json_encode($data);
                 $place->save();
             }
