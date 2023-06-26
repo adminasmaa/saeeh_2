@@ -63,7 +63,19 @@
                 </div>
             </div>
             @endif
-
+            @if($detail->name_en=='daynumber'&&($detail->display==1))
+            <br>
+            <div  id="daynumber">
+                <div class="col-sm-6 col-md-6">
+                    <h5 class="mb-0 border-bottom">@lang('site.daynumber')
+                    </h5>
+                </div>
+                <div class="col m-t-15">
+                    <input type="number" name="daynumber"
+                        class="form-control" value="{{$aqar->daynumber ?? ''}}">
+                </div>
+            </div>
+            @endif
         
         @if(count($detail->subservices)!=0)
         <br>

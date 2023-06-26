@@ -50,10 +50,8 @@ class Place extends Model
         // 'const_time',// nullable
         'latitude',// nullable
         'longitude',// nullable
-        'rest_one',// nullable
-        'rest_two',// nullable
-        'rest_three',// nullable
         'images', // nullable
+        'videos', // nullable
         'social_media',// enum ,['facebook','instagram']
         'category_id', //unsigned
         'sub_category_id', //unsigned
@@ -66,6 +64,11 @@ class Place extends Model
 
     ];
 
+
+    public function getNameAttribute()
+    {
+        return (app()->getLocale() === 'ar') ? $this->name_ar : $this->name_en;
+    }
     protected $hidden = ['deleted_at', 'updated_at'];
 
     // scope
@@ -105,6 +108,11 @@ class Place extends Model
         return $this->HasMany(PlaceComment::class);
     }
 
+    // relations
+    public function placetables()
+    {
+        return $this->HasMany(PlaceTable::class);
+    }
     public function favoriteuser(){
 
         return $this->belongsToMany(User::class,'user_palace','user_id','place_id');

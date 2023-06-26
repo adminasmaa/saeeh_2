@@ -165,7 +165,6 @@
 {{--                                        </a>--}}
 {{--                                    </li>--}}
                                 </ul>
-{{--                                <div class="text-main result-count">النتايج 24 - 123</div>--}}
                             </nav>
                         </div>
                     </div>

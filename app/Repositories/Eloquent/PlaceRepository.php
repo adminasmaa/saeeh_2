@@ -77,9 +77,10 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
 
     public function store($request)
     {
+    // return $request;
         // TODO: Implement store() method.
 
-        $request_data = $request->except(['display_photo','notify_photo','images']);
+        $request_data = $request->except(['_method','_token','display_photo','notify_photo','images','videos']);
 
         // To Make  Active
 
@@ -116,6 +117,17 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
                 $place->save();
             }
         }
+        if ($request->hasFile('videos')) {
+            $videos = $request->file('videos');
+            foreach ($videos as $key => $files) {
+                $destinationPath = 'videos/places/';
+                $file_name = $_FILES['videos']['name'][$key];
+                $files->move($destinationPath, $file_name);
+                $data[] = $_FILES['videos']['name'][$key];
+                $place->videos = json_encode($data);
+                $place->save();
+            }
+        }
         if ($place) {
            Alert::success('Success', __('site.added_successfully'));
 
@@ -128,7 +140,7 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
     {
         // TODO: Implement update() method.
 
-        $request_data = $request->except(['display_photo', '_token', '_method', 'notify_photo','images']);
+        $request_data = $request->except(['display_photo', '_token', '_method', 'notify_photo','images','videos']);
         $place->update($request_data);
 
 
@@ -161,6 +173,17 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
                 $files->move($destinationPath, $file_name);
                 $data[] = $_FILES['images']['name'][$key];
                 $place->images = json_encode($data);
+                $place->save();
+            }
+        }
+        if ($request->hasFile('videos')) {
+            $videos = $request->file('videos');
+            foreach ($videos as $key => $files) {
+                $destinationPath = 'videos/places/';
+                $file_name = $_FILES['videos']['name'][$key];
+                $files->move($destinationPath, $file_name);
+                $data[] = $_FILES['videos']['name'][$key];
+                $place->videos = json_encode($data);
                 $place->save();
             }
         }
