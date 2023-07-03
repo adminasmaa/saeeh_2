@@ -36,7 +36,10 @@ return [
     'aqar booking' => 'aqar booking' ,
     'discount on' => 'discount on',
     'customer reviews' => 'Customer Reviews',
-
+    'place_tables' => 'PlaceTable',
+    'meal' => 'Meal',
+    'tawla' => 'Tawla',
+    'break' => 'Break',
     'Usage policy' => 'Usage policy',
     'Become a partner with us' => 'Become a partner with us',
     'social media' =>'Social Media',

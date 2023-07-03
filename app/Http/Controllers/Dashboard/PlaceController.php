@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\DataTables\PlacesDataTable;
 use App\Http\Controllers\Controller;
-
+use App\Models\PlaceTable;
 use App\Models\Place;
 use App\Models\Category;
 use App\Models\PlaceComment;
@@ -29,12 +29,18 @@ class PlaceController extends Controller
 
     public function index(PlacesDataTable $placesDataTable)
     {
+       
+
+      //  $place_table = PlaceTable::all();
+        $place = Place::all();
+
+       // return view('dashboard.places.index', compact('place','place_table'));
 
         return $this->PlaceRepository->getAll($placesDataTable);
 
     }
 
-
+ 
     public function show($id)
     {
         return $this->PlaceRepository->show($id);
@@ -54,40 +60,7 @@ class PlaceController extends Controller
 
     public function store(Request $request)
     {
-
-// return $request;
-
-        // $request->validate([
-
-        //         'name_ar' => 'required',
-        //         'name_en' => 'nullable',
-        //         'place_order' => 'nullable',
-        //         'place_error' => 'nullable',
-        //         'const_from' => 'nullable',
-        //         'const_to' => 'nullable',
-        //         'address' => 'nullable',
-        //         'descrption_ar' => 'nullable',
-        //         'descrption_en' => 'nullable',
-        //         'phone_one' => 'nullable',
-        //         'phone_two' => 'nullable',
-        //         'notify_photo' => 'nullable',
-        //         'google_mark_link' => 'nullable',
-        //         'place_link' => 'nullable',
-        //         'share_link' => 'nullable',
-        //         'time_check' => 'nullable',
-        //         'seen_counter' => 'required',
-        //         'delivery' => 'nullable',
-        //         'diff_time' => 'nullable',
-        //         'const_time' => 'nullable',
-        //         'latitude' => 'nullable',
-        //         'longitude' => 'nullable',
-        //         'images' => 'nullable',
-        //         'videos' => 'nullable',
-
-
-        //     ]
-        // );
-
+      //  $place_table = PlaceTable::all();
 
         return $this->PlaceRepository->store($request);
 

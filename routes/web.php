@@ -25,6 +25,7 @@ Auth::routes();
 Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedirect', 'localizationRedirect', 'localeViewPath')->group(function () {
 Route::get('/', 'App\Http\Controllers\Frontend\HomeController@index')->name('Home');
 Route::get('countries', 'App\Http\Controllers\Frontend\CountryController@index')->name('countries');
+Route::get('cities/{id}', 'App\Http\Controllers\Frontend\CityController@index')->name('cities');
 Route::get('countrycities/{id}', 'App\Http\Controllers\Frontend\HomeController@countrycities')->name('countrycities');
 Route::get('categorycities/{id}', 'App\Http\Controllers\Frontend\HomeController@categorycities')->name('categorycities');
 Route::get('carcategory/{id}', 'App\Http\Controllers\Frontend\HomeController@carcategory')->name('carcategory');

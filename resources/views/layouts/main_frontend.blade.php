@@ -69,6 +69,8 @@
 
 @yield('content')
 
+</body>
+
 {!! footerweb() !!}
 
 
