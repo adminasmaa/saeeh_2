@@ -199,6 +199,7 @@ return [
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
 
 
+        Illuminate\Auth\AuthServiceProvider::class,
 
     ],
 
@@ -216,6 +217,8 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         'Datatables' => Yajra\DataTables\Facades\DataTables::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+                'Auth' => Illuminate\Support\Facades\Auth::class,
+
 
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),

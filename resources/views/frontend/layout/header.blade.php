@@ -52,26 +52,25 @@
                       <li
                         class="btn-saeeh btn-space d-flex justify-content-center align-items-center"
                       >
-                        <button
+                        <a href="{{route('registers')}}"
                           type="button"
                           class="btn btn-main border-0 btn-frm-owner"
-                          data-bs-toggle="modal"
-                          data-bs-target="#registerModal"
+                        
                         >
                         @lang('site.create account')
-                        </button>
+                        </a>
                       </li>
                       <li
                         class="btn-outline-saeeh d-flex justify-content-center align-items-center"
                       >
-                        <button
+                        <a href="{{route('sitelogin')}}"
                           type="button"
                           class="btn btn-main border-0 btn-frm-owner"
-                          data-bs-toggle="modal"
-                          data-bs-target="#loginModal"
+                        
                         >
                         @lang('site.login')
-                        </button>
+                        </a>
+                        </a>
                       </li>
                     </ul>
                   </div>

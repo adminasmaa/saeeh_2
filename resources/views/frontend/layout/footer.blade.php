@@ -30,11 +30,11 @@
                     <div>
                         <h3 class="footer-title text-center-mobile">@lang('site.Important links') </h3>
                         <ul class="list-unstyled links-list">
-                            <li class="py-2"><a href="#">@lang('site.home')</a></li>
-                            <li class="py-2"><a href="#">@lang('site.questions') </a></li>
-                            <li class="py-2"><a href="#">@lang('site.Usage policy') </a></li>
+                            <li class="py-2"><a href="{{route('Home')}}">@lang('site.home')</a></li>
+                            <li class="py-2"><a href="{{route('freq_question')}}">@lang('site.questions') </a></li>
+                            <li class="py-2"><a href="{{route('termAndCondition')}}">@lang('site.Usage policy') </a></li>
                             <li class="py-2"><a href="#">@lang('site.Become a partner with us')</a></li>
-                            <li class="py-2"><a href="#">@lang('site.contact')</a></li>
+                            <li class="py-2"><a href="{{route('contacts')}}">@lang('site.contact')</a></li>
                         </ul>
                     </div>
                 </div>

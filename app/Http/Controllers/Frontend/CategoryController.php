@@ -35,6 +35,8 @@ class CategoryController extends Controller
     {
         $place = Place::find($id);
 
+//        return $place;
+
         return view('frontend.detailplace', compact('place'));
 
 
