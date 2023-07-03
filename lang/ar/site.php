@@ -308,6 +308,7 @@ return [
     'confirm_delete' => 'تأكيد الحذف ؟',
     'yes' => 'نعم',
     'no' => 'لا',
+    'haveprofile'=>'هل لديك حساب ',
 
     'login' => 'تسجيل الدخول',
     'dont_have_an_account' => 'ليس لديك حساب',

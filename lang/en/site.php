@@ -18,6 +18,7 @@ return [
     'Customer reviews'=>'Customer reviews',
     'comments'=>'Comments',
 
+       'haveprofile'=>'If you have an account',
     'all'=>'All',
     'Based on reviews'=>'Based on reviews from all kinds of travelers',
     'freediscount'=>'Get instant discounts',
