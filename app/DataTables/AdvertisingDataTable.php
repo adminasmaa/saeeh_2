@@ -113,7 +113,7 @@ class AdvertisingDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            Column::make('DT_RowIndex')->data('DT_RowIndex')->name('DT_RowIndex')->title('#'),
+            Column::make('id')->data('DT_RowIndex')->name('id')->title('#'),
 
             Column::make('title')->title(trans('site.title')),
             Column::make('position')->title(trans('site.position')),

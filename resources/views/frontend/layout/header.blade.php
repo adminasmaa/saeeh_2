@@ -53,7 +53,7 @@
                         class="btn-saeeh btn-space d-flex justify-content-center align-items-center"
                       >
                         <a href="{{route('registers')}}"
-                          type="button"
+                     
                           class="btn btn-main border-0 btn-frm-owner"
                         
                         >
@@ -64,7 +64,7 @@
                         class="btn-outline-saeeh d-flex justify-content-center align-items-center"
                       >
                         <a href="{{route('sitelogin')}}"
-                          type="button"
+             
                           class="btn btn-main border-0 btn-frm-owner"
                         
                         >
@@ -89,7 +89,7 @@
                 class="navbar-nav d-flex align-items-center flex-lg-row position-relative"
               >
                 <li class="nav-link">
-                  <a href="javascript:void(0)" class="pe-0"> @lang('site.home') </a>
+                  <a href="{{route('Home')}}" class="pe-0"> @lang('site.home') </a>
                 </li>
                 <li class="nav-link">
                   <a

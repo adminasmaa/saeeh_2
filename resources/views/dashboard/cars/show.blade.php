@@ -106,9 +106,15 @@
                             <!--<div class="col-md-6">-->
 
                             <div class="col-md-6 form-group col-12 p-2">
-                                <label>@lang('site.name')<span class="text-danger">*</span></label>
+                                <label>@lang('site.ar.name')<span class="text-danger">*</span></label>
                                 <input type="text" name="name" class="form-control"
-                                       value="{{ $car->name }}" readonly=""disabled
+                                       value="{{ $car->name_ar ?? ' ' }}" readonly="" disabled
+                                >
+                            </div>
+                            <div class="col-md-6 form-group col-12 p-2">
+                                <label>@lang('site.en.name')<span class="text-danger">*</span></label>
+                                <input type="text" name="name" class="form-control"
+                                       value="{{ $car->name_en ?? '' }}" readonly="" disabled
                                 >
                             </div>
 
@@ -116,27 +122,27 @@
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.year')<span class="text-danger">*</span></label>
                                 <input type="text" name="year" class="form-control"
-                                       value="{{ $car->year }}" readonly=""disabled
+                                       value="{{ $car->year }}" readonly="" disabled
                                 >
                             </div>
 
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.color')<span class="text-danger">*</span></label>
                                 <input type="color" name="color" class="form-control"
-                                       value="{{ $car->color }}" readonly=""disabled
+                                       value="{{ $car->color }}" readonly="" disabled
                                 >
                             </div>
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.category')<span class="text-danger">*</span></label>
                                 <input type="text" name="category" class="form-control"
-                                       value="{{ $car->category ?? '' }}" readonly=""disabled
+                                       value="{{ $car->category ?? '' }}" readonly="" disabled
                                 >
                             </div>
 
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.car_numbers')<span class="text-danger">*</span></label>
                                 <input type="number" name="car_numbers" class="form-control"
-                                       value="{{ $car->car_numbers ?? '' }}" readonly=""disabled>
+                                       value="{{ $car->car_numbers ?? '' }}" readonly="" disabled>
                             </div>
 
 
@@ -149,14 +155,14 @@
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.price')<span class="text-danger">*</span></label>
                                 <input type="text" name="fixed_price" class="form-control"
-                                       value="{{ $car->fixed_price ?? '' }}" readonly=""disabled
+                                       value="{{ $car->fixed_price ?? '' }}" readonly="" disabled
                                 >
                             </div>
 
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.changed_price')<span class="text-danger">*</span></label>
                                 <input type="text" name="changed_price" class="form-control"
-                                       value="{{ $car->changed_price ?? '' }}" readonly=""disabled
+                                       value="{{ $car->changed_price ?? '' }}" readonly="" disabled
                                 >
                             </div>
 
@@ -169,7 +175,7 @@
 
                             <div class="col-md-6 form-group">
                                 <label class="form-label">@lang('site.users')</label>
-                                <select class="form-control btn-square" name="user_id" readonly=""disabled>
+                                <select class="form-control btn-square" name="user_id" readonly="" disabled>
                                     <option selected>@lang('site.select')</option>
                                     @foreach($users as $user)
 
@@ -183,7 +189,7 @@
 
                             <div class="col-md-6 form-group  col-12 p-2">
                                 <label class="form-label">@lang('site.categories')</label>
-                                <select class="form-control btn-square" name="category_id" readonly=""disabled>
+                                <select class="form-control btn-square" name="category_id" readonly="" disabled>
                                     <option selected>@lang('site.select')</option>
                                     @foreach($categories as $cat)
 
@@ -197,8 +203,9 @@
 
                             <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                 <label class="form-label">@lang('site.subcategories')</label>
-                                <select class="form-control btn-square" name="sub_category_id" id="sub_category_id" disabled readonly="">
-                                    <option >@lang('site.select')</option>
+                                <select class="form-control btn-square" name="sub_category_id" id="sub_category_id"
+                                        disabled readonly="">
+                                    <option>@lang('site.select')</option>
                                     @foreach($subcategories as $cats)
 
                                         <option value="{{$cats->id}}"
@@ -209,52 +216,81 @@
                                 </select>
                             </div>
                             <div class="row">
-                                                <div class="col-md-6 form-group">
-                                                    <label class="form-label">@lang('site.country')</label>
-                                                    <select class="form-control btn-square" name="country_id" id="country_id" disabled readonly="">
-                                                        <option selected>@lang('site.select')</option>
-                                                        @foreach($countries as $country)
+                                <div class="col-md-6 form-group">
+                                    <label class="form-label">@lang('site.country')</label>
+                                    <select class="form-control btn-square" name="country_id" id="country_id" disabled
+                                            readonly="">
+                                        <option selected>@lang('site.select')</option>
+                                        @foreach($countries as $country)
 
-                                                        <option value="{{$country->id}}" @if($country->
+                                            <option value="{{$country->id}}" @if($country->
                                                             id==$car->country_id) selected
-                                                            @endif>{{$country->name_ar ?? ''}}</option>
+                                                @endif>{{$country->name_ar ?? ''}}</option>
 
-                                                        @endforeach
+                                        @endforeach
 
-                                                    </select>
-                                                </div>
-                                                <div class="col-md-6 form-group">
-                                                    <label class="form-label">@lang('site.city')</label>
-                                                    <select class="form-control btn-square" name="city_id" id="city_id" disabled readonly="">
-                                                        <option selected>@lang('site.select')</option>
-                                                        <!-- @foreach($cities as $city)
+                                    </select>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label class="form-label">@lang('site.city')</label>
+                                    <select class="form-control btn-square" name="city_id" id="city_id" disabled
+                                            readonly="">
+                                        <option selected>@lang('site.select')</option>
+                                        <!-- @foreach($cities as $city)
 
-                                                        <option value="{{$city->id}}" @if($city->id==$car->city_id)
-                                                            selected @endif>{{$city->name_ar ?? ''}}</option>
+                                            <option value="{{$city->id}}" @if($city->id==$car->city_id)
+                                                selected
+                                            @endif>{{$city->name_ar ?? ''}}</option>
 
-                                                        @endforeach -->
 
-                                                    </select>
-                                                </div>
-                                            </div>
+                                        @endforeach -->
+
+                                    </select>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="row">
-                                                  
+                            <!--<div class="col-md-6">-->
+
+                            <div class="col-md-6 form-group col-12 p-2 ">
+                                <label>@lang('site.ar.description')<span class="text-danger">*</span></label>
+                                <textarea class="form-control" cols="5" rows="5" name="description_ar" readonly>
+{{$car->description_ar ?? ''}}<
+                                        </textarea>
+                            </div>
+                            <div class="col-md-6 form-group col-12 p-2 ">
+                                <label>@lang('site.en.description')<span class="text-danger">*</span></label>
+                                <textarea class="form-control" cols="5" rows="5" name="description_en" readonly>
+{{$car->description_en ?? ''}}
+                                        </textarea>
+                            </div>
+
+                            <div class="col-md-6 form-group col-12 p-2 ">
+                                <label>@lang('site.comment_text')<span class="text-danger">*</span></label>
+                                <textarea class="form-control" cols="5" rows="5" name="comment_text" readonly>
+{{$car->comment_text ?? ''}}
+                                        </textarea>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+
                             <div class="form-group col-12 p-2 mb-2">
 
                                 <label>@lang('site.images')</label>
 
                                 <div class="img-thumbs " id="img-previews">
                                     @if($car->images)
-                                    @foreach ((explode(',',$car->images)) as $img)
-                                    <div class="wrapper-thumb">
-                                        <img id="frame" src="{{asset('images/cars/'.$img)}}"
-                                            alt=""
-                                            onerror="this.src='{{asset('images/cars/default.jpg')}}'"
-                                            width="200px" class="img-preview-thumb" />
-                                    </div>
-                                    @endforeach
+                                        @foreach ((explode(',',$car->images)) as $img)
+                                            <div class="wrapper-thumb">
+                                                <img id="frame" src="{{asset('images/cars/'.$img)}}"
+                                                     alt=""
+                                                     onerror="this.src='{{asset('images/cars/default.jpg')}}'"
+                                                     width="200px" class="img-preview-thumb"/>
+                                            </div>
+                                        @endforeach
                                     @endif
                                 </div>
                             </div>
@@ -266,8 +302,8 @@
                             <div class="form-group col-12 p-2">
                                 <label>@lang('site.video')</label>
                                 <video width="250" height="200"
-                                    src="{{asset('images/cars/videos/'.$car->videos)}}"
-                                    controls class="video-upload" autoplay>
+                                       src="{{asset('images/cars/videos/'.$car->videos)}}"
+                                       controls class="video-upload" autoplay>
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
@@ -292,42 +328,40 @@
 
 @endsection
 @section('scripts')
-<script>
-$(document).ready(function() {
-var country_id =  $('#country_id').val();
-$.get("{{url('dashboard/countrycities')}}/"+country_id, function(data){
-    $('#city_id').empty();
-    $('#city_id').append('<option>@lang('site.select')</option>');
-    $.each(data, function(key, value){
-        $('#city_id').append('<option value="'+value.id+'">'+value.name_ar+'</option>')
+    <script>
+        $(document).ready(function () {
+            var country_id = $('#country_id').val();
+            $.get("{{url('dashboard/countrycities')}}/" + country_id, function (data) {
+                $('#city_id').empty();
+                $('#city_id').append('<option>@lang('site.select')</option>');
+                $.each(data, function (key, value) {
+                    $('#city_id').append('<option value="' + value.id + '">' + value.name_ar + '</option>')
 
-    });
-    $('#city_id').val({{$car->city_id}});
+                });
+                $('#city_id').val({{$car->city_id}});
 
-});
-});
+            });
+        });
 
-function deletetr(r) {
-    r.closest('tr').remove();
-}
+        function deletetr(r) {
+            r.closest('tr').remove();
+        }
 
-$('#country_id').on('change',function(e){
+        $('#country_id').on('change', function (e) {
             var country_id = e.target.value;
 
 
-
-            $.get("{{url('dashboard/countrycities')}}/"+country_id, function(data){
+            $.get("{{url('dashboard/countrycities')}}/" + country_id, function (data) {
                 console.log(data);
                 $('#city_id').empty();
                 $('#city_id').append('<option>@lang('site.select')</option>');
-                $.each(data, function(key, value){
-                    $('#city_id').append('<option value="'+value.id+'">'+value.name_ar+'</option>')
+                $.each(data, function (key, value) {
+                    $('#city_id').append('<option value="' + value.id + '">' + value.name_ar + '</option>')
 
                 });
             })
         })
 
 
-
-</script>
+    </script>
 @endsection

@@ -10,12 +10,14 @@
               class="col-12 login-body d-lg-flex justify-content-lg-between px-0"
             >
               <div class="text-center my-lg-5 my-3 login-content">
+
+                  <form action="{{route('logins')}}" method="post" >
+            @csrf
                 <div
                   class="row d-flex justify-content-center align-items-center h-100"
                 >
 
-                 <form action="{{route('login')}}" method="post" class="form-control">
-            @csrf
+
                   <div class="col-md-10 col-10 my-lg-5 my-2">
                     <h2 class="fw-bold login-title mb-5"> @lang('site.login')</h2>
 

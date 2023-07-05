@@ -115,10 +115,11 @@ class ConditionTypeDataTable extends DataTable
      */
     public function getColumns(): array
     {
+        $lan = app()->getLocale();
         return [
-            Column::make('DT_RowIndex')->data('DT_RowIndex')->name('DT_RowIndex')->title('#'),
+            Column::make('DT_RowIndex')->data('DT_RowIndex')->name('id')->title('#'),
 
-            Column::make('name_ar')->title(trans('site.name')),
+            Column::make('name_'.$lan)->title(trans('site.name')),
             Column::make('created_at')->title(trans('site.created_at')),
             Column::computed('action')
                 ->exportable(false)
