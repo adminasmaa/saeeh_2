@@ -13,6 +13,8 @@ use App\Models\Notification;
 use App\Repositories\Interfaces\PlaceRepositoryInterface;
 use App\Services\TwoFactorService;
 use DB;
+use Alert;
+
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -89,6 +91,7 @@ class PlaceController extends Controller
 
     public function update(Request $request, $id)
     {
+      //return $request;
     //     $request->validate([
 
     //         'name_ar' => 'required',
@@ -121,11 +124,10 @@ class PlaceController extends Controller
 
     //         ]
     //     );
-        $place = Place::find($id);
+         $place = Place::find($id);
+        $place_table = PlaceTable::where('place_id', $id)->get();
 
-        return $this->PlaceRepository->update($place, $request);
-
-
+        return $this->PlaceRepository->update($place, $request,$place_table);
     }//end of update
 
     /*----------------------------------------------------
@@ -137,11 +139,26 @@ class PlaceController extends Controller
 
     public function destroy($id)
     {
-        $place =Place::find($id);
-
-        return $this->PlaceRepository->destroy($place);
-
-
+        $Place = Place::find($id);
+        $result = $Place->delete();
+        // Place::where('detail_id', $id)->delete();
+        // $PlaceTable = PlaceTable::where('place_id', $id)->delete();
+        if ($result) {
+          Alert::toast('Deleted', __('site.deleted_successfully'));
+      } else {
+          Alert::toast('Deleted', __('site.delete_faild'));
+      }
+      return back();
     }//end of destroy
-
+    public function destroy2($id)
+    {
+        $place_table = PlaceTable::find($id);
+        $result = $place_table->delete();
+        if ($result) {
+          Alert::toast('Deleted', __('site.deleted_successfully'));
+      } else {
+          Alert::toast('Deleted', __('site.delete_faild'));
+      }
+      return back();
+    }//end of destroy
 }

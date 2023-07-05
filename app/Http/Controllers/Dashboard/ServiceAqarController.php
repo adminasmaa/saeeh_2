@@ -118,7 +118,8 @@ class ServiceAqarController extends Controller
         } else {
             Alert::toast('Deleted', __('site.delete_faild'));
 
-        }
+        } 
+        
         return back();
 //        return $this->serviceAqarRepository->destroy($AqarService);
 

@@ -414,21 +414,21 @@
 
                         <div class="form-group col-12 p-2 mb-2">
 
-                            <label>@lang('site.images')</label>
+                                <label>@lang('site.images')</label>
 
-                            <div class="img-thumbs " id="img-previews">
-                                @if($place->images)
-                                @foreach ((explode(',',$place->images)) as $img)
-                                <div class="wrapper-thumb">
-                                    <img id="frame" src="{{asset('images/places/'.$img)}}"
-                                        alt=""
-                                        onerror="this.src='{{asset('images/places/default.jpg')}}'"
-                                        width="200px" class="img-preview-thumb" />
+                                <div class="img-thumbs " id="img-previews">
+                                    @if($place->images)
+                                    @foreach ((explode(',',$place->images)) as $img)
+                                    <div class="wrapper-thumb">
+                                        <img id="frame" src="{{asset('images/places/'.$img)}}"
+                                            alt=""
+                                            onerror="this.src='{{asset('images/places/default.jpg')}}'"
+                                            width="200px" class="img-preview-thumb" />
+                                    </div>
+                                    @endforeach
+                                    @endif
                                 </div>
-                                @endforeach
-                                @endif
                             </div>
-                        </div>
                         <div class="form-group col-12 p-2 mb-2">
 
                             <label>@lang('site.videos')</label>
@@ -445,8 +445,54 @@
                                 @endforeach
                                 @endif
                             </div>
-                            </div>
+                        </div>
 
+                        <div class="row m-t-10">
+                        <h4>@lang('site.place_tables')</h4>
+                            @foreach($place_table as $service)
+                                <div class="col-md-6 form-group col-12   desc">
+                                
+                                    <table class="price-list" id="tb_price">
+                                        <tr>
+                                            <td>
+                                                <div class="row">
+                                                    
+                                                <div class="col-md-6 form-group col-12 p-2 ">
+                                                        <label>@lang('site.name_ar')</label>
+                                                        <input type="text" name="sub_name_ar[]"
+                                                            class="form-control" value="{{$service->name_ar}}" readonly disabled/>
+                                                    </div>
+                                                    <div class="col-md-6 form-group col-12 p-2 ">
+                                                        <label>@lang('site.name_en')</label>
+                                                        <input type="text" name="sub_name_en[]"
+                                                            class="form-control" value="{{$service->name_en}}" readonly disabled>
+                                                    </div>
+                                                    <div class="col-md-6 form-group col-12 p-2 ">
+                                                        <label class="form-label">@lang('site.type')</label><span class="text-danger">*</span>
+                                                        <select class="form-control btn-square" name="sub_type[]" readonly disabled>
+                                                            <option selected>@lang('site.select')</option>
+
+                                                            <option value="Meal"
+                                                                    @if($service->type=='meal') selected @endif>meal
+                                                            </option>
+                                                            <option value="Break"
+                                                                    @if($service->type=='break') selected @endif>break
+                                                            </option>
+                                                            <option value="Tawla"
+                                                                    @if($service->type=='tawla') selected @endif>tawla
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+
+                            @endforeach
+
+                        </div>
                     </div>
                 </div>
             </div>
