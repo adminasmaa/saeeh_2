@@ -113,10 +113,11 @@ class AqarDataTable extends DataTable
      */
     public function getColumns(): array
     {
+        $lan = app()->getLocale();
         return [
-            Column::make('DT_RowIndex')->data('DT_RowIndex')->name('DT_RowIndex')->title('#'),
+            Column::make('id')->data('DT_RowIndex')->name('id')->title('#'),
             Column::make('id')->title(trans('site.id')),
-            Column::make('name_ar')->title(trans('site.name_ar')),
+            Column::make('name_'.$lan)->title(trans('site.name')),
             Column::make('area.name_ar')->title(trans('site.areas')),
             Column::make('user.firstname')->title(trans('site.user')),
             Column::make('created_at')->title(trans('site.created_at')),

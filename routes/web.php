@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\URL;
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
+| routes ares loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
 */
@@ -37,9 +37,13 @@ Route::get('categories/{id}', 'App\Http\Controllers\Frontend\CategoryController@
 Route::get('subcategories/{id}', 'App\Http\Controllers\Frontend\CategoryController@subcategories')->name('subcategories');
 Route::get('detailplace/{id}', 'App\Http\Controllers\Frontend\CategoryController@detailplace')->name('detailplace');
 Route::get('sitelogin', 'App\Http\Controllers\Frontend\AuthController@login')->name('sitelogin');
-Route::post('login', 'App\Http\Controllers\Frontend\AuthController@checklogin')->name('login');
+Route::post('logins', 'App\Http\Controllers\Frontend\AuthController@checklogin')->name('logins');
 Route::get('registers', 'App\Http\Controllers\Frontend\AuthController@register')->name('registers');
 Route::post('createaccount', 'App\Http\Controllers\Frontend\AuthController@createaccount')->name('createaccount');
+
+Route::get('cars', 'App\Http\Controllers\Frontend\CarController@allcars')->name('cars');
+Route::get('detailcar/{id}', 'App\Http\Controllers\Frontend\CarController@detailcar')->name('detailcar');
+
 });
 Route::post('addContacts', 'App\Http\Controllers\Frontend\ContactController@addContacts')->name('addContacts');
 define('MAINASSETS', URL::asset('assets'));
