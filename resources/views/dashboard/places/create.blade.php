@@ -320,32 +320,32 @@
                                         <img id="frame2" src="" width="200px" class="img-upload2" />
 
                                     </div>
-                                    <div class="form-group col-12 p-2 mb-3">
+                                <div class="form-group col-12 p-2 mb-3">
 
-                                        <label>@lang('site.images')</label>
+                                    <label>@lang('site.images')</label>
 
-                                        <input type="file" class="form-control" name="images[]"
-                                            value="{{ old('images[]') }}" multiple id="upload-imgs" />
+                                    <input type="file" class="form-control" name="images[]"
+                                        value="{{ old('images[]') }}" multiple id="upload-imgs" />
 
-                                        <div class="img-thumbs img-thumbs-hidden" id="img-previews">
+                                    <div class="img-thumbs img-thumbs-hidden" id="img-previews">
 
-                                    </div>
+                                </div> 
                                 <br>
                             </div>
                             <div class="form-group col-12 p-2 mb-3">
 
-                                        <label>@lang('site.videos')</label>
+                                    <label>@lang('site.videos')</label>
 
-                                        <input type="file" class="form-control" name="videos[]"
-                                            value="{{ old('videos[]') }}" multiple id="upload-videos" />
+                                    <input type="file" class="form-control" name="videos[]"
+                                        value="{{ old('videos[]') }}" multiple id="upload-videos" />
 
-                                <div class="video-thumbs video-thumbs-hidden" id="video-previews">
+                                    <div class="video-thumbs video-thumbs-hidden" id="video-previews">
 
-                                </div>
-                                
-                                    <br>
-
-
+                                </div> 
+                            <br> 
+                            <div id="result_data1">
+                            </div> 
+                             <br>
                             </div>
 
                             <br>
@@ -449,6 +449,7 @@
         previewTitle,
         previewTitleText,
         img,
+        img2,
         // /*video */
         videoUpload = document.getElementById("upload-videos"),
         videoPreviews = document.getElementById("video-previews"),
@@ -511,14 +512,13 @@
             });
         }
     }
-
     document.getElementById("imgInp").onchange = function() {
         let imgURL = (frame.src = URL.createObjectURL(event.target.files[0]));
         document.querySelector("img").src = imgURL;
     };
     document.getElementById("imgInp2").onchange = function() {
         let imgURL2 = (frame2.src = URL.createObjectURL(event.target.files[0]));
-        document.querySelector("img").src = imgURL2;
+        document.querySelector("img2").src = imgURL2;
     };
 
 </script>
