@@ -99,6 +99,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         //places
         Route::resource('places', PlaceController::class);
         Route::resource('place_categories', PlaceCategoryController::class);
+        Route::get('DeletePlaceTable/{id}', 'App\Http\Controllers\Dashboard\PlaceController@destroy2')->name('DeletePlaceTable');
 
         //place_comments
         Route::resource('place_comments', PlaceCommentController::class);

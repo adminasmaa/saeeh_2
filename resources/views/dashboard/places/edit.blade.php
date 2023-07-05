@@ -468,30 +468,95 @@
                                     </div>
                             </div>
                         </div>
-                             
-                            <br>
-                            <div class="row">
-                             <div class="form-group col-12 p-2 mb-2">
+                        <br>
+                        <div class="row">
+                            <div class="form-group col-12 p-2 mb-2">
 
-                                    <label>@lang('site.videos')</label>
+                                <label>@lang('site.videos')</label>
 
-                                    <input type="file" class="form-control" name="videos[]"
-                                        value="{{$place->videos}}" multiple id="upload-videos" />
+                                <input type="file" class="form-control" name="videos[]"
+                                    value="{{$place->videos}}" multiple id="upload-videos" />
 
-                                    <div class="video-thumbs " id="video-previews">
-                                        @if($place->videos)
-                                        @foreach ((explode(',',$place->videos)) as $video)
-                                        <div class="wrapper-thumb">
-                                            <video id="frame" src="{{asset('videos/places/'.$video)}}"
-                                                alt=""
-                                                onerror="this.src='{{asset('videos/places/default.jpg')}}'"
-                                                width="200px" class="video-preview-thumb" /><span
-                                                class="remove-btn">x</span>
-                                        </div>
-                                        @endforeach
-                                        @endif
+                                <div class="video-thumbs " id="video-previews">
+                                    @if($place->videos)
+                                    @foreach ((explode(',',$place->videos)) as $video)
+                                    <div class="wrapper-thumb">
+                                        <video id="frame" src="{{asset('videos/places/'.$video)}}"
+                                            alt=""
+                                            onerror="this.src='{{asset('videos/places/default.jpg')}}'"
+                                            width="200px" class="video-preview-thumb" /><span
+                                            class="remove-btn">x</span>
                                     </div>
+                                    @endforeach
+                                    @endif
+                                </div>
+                        </div>
+
+                        <div class="row m-t-10">
+                            <h4>@lang('site.place_tables')</h4>
+                            @foreach($place_table as $service)
+                                <div class="col-md-12 form-group col-12   desc">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <div class="row">
+                                                    <div class="col-md-5 form-group col-12">
+                                                        <label>@lang('site.name_ar')</label>
+                                                        <input type="text" name="sub_name_ar[]"
+                                                            class="form-control" value="{{$service->name_ar}}"/>
+                                                    </div>
+                                                    <div class="col-md-5 form-group col-12">
+                                                        <label>@lang('site.name_en')</label>
+                                                        <input type="text" name="sub_name_en[]"
+                                                            class="form-control" value="{{$service->name_en}}">
+                                                    </div>
+                                                    <div class="col-md-5 form-group col-12">
+                                                        <label class="form-label">@lang('site.type')</label><span class="text-danger">*</span>
+                                                        <select class="form-control btn-square" name="sub_type[]"  >
+                                                            <option selected>@lang('site.select')</option>
+
+                                                            <option value="Meal"
+                                                                    @if($service->type=='meal') selected @endif>meal
+                                                            </option>
+                                                            <option value="Break"
+                                                                    @if($service->type=='break') selected @endif>break
+                                                            </option>
+                                                            <option value="Tawla"
+                                                                    @if($service->type=='tawla') selected @endif>tawla
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-3 form-group col-12 p-4">
+                                                    <a  type="button" href="{{route('dashboard.DeletePlaceTable',$service->id)}}" class="btn btn-air-primary btn-pill btn-danger"><i class="fa fa-trash"></i></a>
+                                                </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+
+                            @endforeach
+                            <div class="col-md-12 form-group col-12   desc" id="price2" >
+                                <table class="price-list" id="tb_price">
+                                        <tr>
+                                            <td>
+                                                <div class="row">
+                                                    <div class="col-md-3 form-group col-12">
+                                                        <a class="btn btn-air-primary btn-pill btn-success add-price w-100 m-t-30"><i
+                                                                class="fa fa-plus" aria-hidden="true"></i></a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <br>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+                        </div>
                         </div>
                         </div>
                     </form>
@@ -502,7 +567,7 @@
     </div>
 
 
-    </form>
+
     </div>
     </div>
     </div>
@@ -639,4 +704,33 @@
     };
 
 </script>
+<script>
+
+$(document).ready(function () {
+    jQuery('a.add-price').click(function (event) {
+        event.preventDefault();
+        var newRow = jQuery('<tr><td><div class="row"><div class="col-md-5 form-group col-12 p-2">' +
+            '<label>@lang('site.name_ar')</label><input type="text"  name="sub_name_ar[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
+            '<label>@lang('site.name_en')</label><input type="text" name="sub_name_en[]" class="form-control" ></div><div class="col-md-5 form-group col-6 p-2">' +
+            '<label>@lang('site.type')</label><select class="form-control btn-square" name="sub_type[]"><option selected>@lang('site.select')</option><option value="Meal">@lang('site.meal')</option><option value="Break">@lang('site.break') </option><option value="Tawla">@lang('site.tawla') </option></select></div><div class="col-md-5 form-group col-6 p-2">' +
+            '  </div>  <div class="col-md-2 form-group col-12 p-2 "> <a class="btn btn-air-primary btn-pill btn-danger add-price w-100 m-t-30" onclick="deletetr(this)" ><i class="fa fa-trash"></i></a>' +
+            '</div></div> </td>  </tr>');
+        jQuery('.price-list').append(newRow);
+    });
+
+    $("input[name='price']").click(function () {
+        var test = $(this).val();
+
+        $("div.desc").hide();
+        $("#price" + test).show();
+    });
+});
+
+function deletetr(r) {
+    r.closest('tr').remove();
+}
+
+
+</script>
+
 @endsection
