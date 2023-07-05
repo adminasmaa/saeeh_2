@@ -53,6 +53,15 @@ return [
     'demo_work' => 'اجراءات النظافة',
     'demo_loc' => 'اجراءات العقارات ',
 
+    'Explore the most famous cities'=>'استكشف اشهر مدن',
+    'through site'=>' من خلال موقع',
+    'saeeeeeeh'=>'ســــــــــــــــــــائح',
+    'saeeh .. enjoy your trip with us'=>'سائح ..تمتع بسفرتك معنا',
+    'most visited'=>'الأكثر زيارة',
+    'The most famous cities'=>'أشهر مدن',
+    'Get instant discounts'=>'احصل علي خصومات  فورية',
+    'All you have to do is log in to'=>'ماعليك سوي تسجيل الدخول علي',
+
     'reviewElements' => '  عناصر التقييمات',
 
     'aqar_reviews' => ' تقييمات العقارات ',
