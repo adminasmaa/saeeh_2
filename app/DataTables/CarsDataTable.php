@@ -112,10 +112,11 @@ class CarsDataTable extends DataTable
      */
     public function getColumns(): array
     {
+        $lan = app()->getLocale();
         return [
-            Column::make('DT_RowIndex')->data('DT_RowIndex')->name('DT_RowIndex')->title('#'),
+            Column::make('id')->data('DT_RowIndex')->name('id')->title('#'),
 
-            Column::make('name')->title(trans('site.name')),
+            Column::make('name_'.$lan)->title(trans('site.name')),
             Column::make('color')->title(trans('site.color')),
             Column::make('created_at')->title(trans('site.created_at')),
             Column::computed('action')
