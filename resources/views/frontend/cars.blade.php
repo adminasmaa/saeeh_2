@@ -41,54 +41,88 @@
                         <div class="row">
                             <div class="col-lg">
                                 <div class="box-search mb-lg-0 mb-md-0 mb-3">
-                                    <select class="ddl-select" id="list" name="list">
-                                        <option>الدولة</option>
-                                        <option value="1">الدولة 1</option>
-                                        <option value="2">الدولة 2</option>
+
+
+                                    <select
+                                        class="select2"
+                                        id="country_id"
+                                        name="country_id"
+                                    >
+                                        <option>@lang('site.country')</option>
+                                        @foreach($countries as $country)
+                                            <option
+                                                value="{{$country->id}}">{{$country->name ?? ''}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
                             <div class="col-lg">
                                 <div class="box-search mb-lg-0 mb-md-0 mb-3">
-                                    <select class="ddl-select" id="list2" name="list2">
-                                        <option>المدينة</option>
-                                        <option value="1">المدينة 2</option>
-                                        <option value="2">المدينة 3</option>
-                                        <option value="3">المدينة 4</option>
+
+
+                                    <select
+                                        class="select2"
+                                        id="city_id"
+                                        name="city_id"
+                                    >
+                                        <option>@lang('site.city')</option>
+                                        <!-- @foreach($cities as $city)
+                                            <option
+                                               value="{{$city->id}}">{{$city->name ?? ''}}</option>
+
+
+
+
+                                        @endforeach -->
                                     </select>
                                 </div>
                             </div>
                             <div class="col-lg">
                                 <div class="box-search mb-lg-0 mb-md-0 mb-3">
-                                    <select class="ddl-select" id="list3" name="list3">
-                                        <option>الفئة</option>
-                                        <option value="1">الفئة 1</option>
-                                        <option value="2">الفئة 2</option>
+                                    <select
+                                        class="select2"
+                                        id="list9"
+                                        name="list9"
+                                    >
+                                        <option>@lang('site.category')</option>
+                                        <!-- @foreach($CategoriesCar as $cat)
+                                            <option value="{{$cat->id ?? ''}}">{{$cat->name ?? ''}}</option>
+
+
+
+
+                                        @endforeach -->
                                     </select>
                                 </div>
                             </div>
 
                             <div class="col-lg">
                                 <div class="box-search mb-lg-0 mb-md-0 mb-3">
-                                    <select class="ddl-select" id="list4" name="list4">
-                                        <option>الماركة</option>
-                                        <option value="1">مرسيديس</option>
-                                        <option value="2">هوينداي</option>
-                                        <option value="3">ملاكي</option>
-                                        <option value="4">فيرنا</option>
-                                        <option value="5">كيا</option>
-                                        <option value="6">نيسان</option>
+
+                                    <select
+                                        class="select2"
+                                        id="list6"
+                                        name="list6"
+                                    >
+                                        <option>@lang('site.brands')</option>
+                                        @foreach($CategoriesCar as $cat)
+                                            <option value="{{$cat->id ?? ''}}">{{$cat->name ?? ''}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
                             <div class="col-lg">
                                 <div class="box-search mb-lg-0 mb-md-0 mb-3">
-                                    <select class="ddl-select" id="list5" name="list5">
-                                        <option>السنة</option>
-                                        <option value="1">2020</option>
-                                        <option value="2">2021</option>
-                                        <option value="3">2022</option>
-                                        <option value="4">2023</option>
+
+
+                                    <select
+                                        class="ddl-select" id="list5"
+                                        name="list8"
+                                    >
+                                        @for ($year = (int)date('Y')+1; 1900 <= $year; $year--)
+                                            :
+                                            <option value="{{$year}}">{{$year}}</option>
+                                        @endfor
                                     </select>
                                 </div>
                             </div>
@@ -129,7 +163,7 @@
                     </div>
                     <div class="col-lg-9 col-md-8">
                         <h2 class="pb-3 search-result">
-                            المغرب :وجدنا 44 سيارة مناسبة لطلبك
+                            {{--                            المغرب :وجدنا 44 سيارة مناسبة لطلبك--}}
                         </h2>
                         <div class="form-group mb-4 position-relative">
                             <input
@@ -208,50 +242,25 @@
                                         <div class="row align-items-center">
                                             <div class="custom-checkbox">
                                                 <form>
-                                                    <div class="form-group">
-                                                        <input type="checkbox" id="two" checked/>
-                                                        <label for="two">
+                                                    @foreach($CategoriesCar as $cat)
+
+                                                        <div class="form-group">
+                                                            <input type="checkbox" id="two" value="{{$cat->id}}"/>
+                                                            <label for="two">
                                 <span
                                 ><img
-                                        src="{{FRONTASSETS}}/images/cars/marka-1.png"
+
+
+                                        src="{{asset('images/categories/'.$cat->image)}}"
+                                        onerror="this.src='{{FRONTASSETS}}/images/cars/marka-1.png'"
+width="30" height="30"
                                         alt="car marka"
                                     /></span>
-                                                            <span>نيسان</span>
-                                                        </label>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="checkbox" id="three"/>
-                                                        <label for="three">
-                                <span
-                                ><img
-                                        src="{{FRONTASSETS}}/images/cars/marka-2.png"
-                                        alt="car marka"
-                                    /></span>
-                                                            <span>بى ام دابليو</span>
-                                                        </label>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="checkbox" id="four"/>
-                                                        <label for="four">
-                                <span
-                                ><img
-                                        src="{{FRONTASSETS}}/images/cars/marka-3.png"
-                                        alt="car marka"
-                                    /></span>
-                                                            <span>اوبل</span>
-                                                        </label>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="checkbox" id="five"/>
-                                                        <label for="five">
-                                <span
-                                ><img
-                                        src="{{FRONTASSETS}}/images/cars/marka-4.png"
-                                        alt="car marka"
-                                    /></span>
-                                                            <span>ام جي</span>
-                                                        </label>
-                                                    </div>
+                                                                <span>{{$cat->name ?? ''}}</span>
+                                                            </label>
+                                                        </div>
+                                                    @endforeach
+
                                                 </form>
                                             </div>
                                         </div>
@@ -987,7 +996,7 @@
                                             aria-expanded="true"
                                             aria-controls="accordion-filter-4"
                                         >
-                                            <h5 class="accordion-title mb-0">التقييمات</h5>
+                                            <h5 class="accordion-title mb-0">@lang('site.comments')</h5>
                                             <div>
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -1205,8 +1214,8 @@
 
                                 <ul class="tabs-contentt list-unstyled my-4">
 
-                                        <li id="tab-car-1">
-                                            @foreach($cars as $car )
+                                    <li id="tab-car-1">
+                                        @foreach($cars as $car )
 
                                             <div
                                                 class="card card-department round-border mb-3 p-md-3 p-2"
@@ -1219,58 +1228,28 @@
                                                             class="owl-carousel owl-theme department-img-carousel"
                                                             dir="ltr"
                                                         >
-                                                            <div>
-                                                                <button class="add-to-wishlist">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                                         height="24" viewBox="0 0 24 24" fill="none">
-                                                                        <path
-                                                                            d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"
-                                                                            fill="#FF8600"></path>
-                                                                    </svg>
-                                                                </button>
-                                                                <img
-                                                                    loading="lazy"
-                                                                    src="{{FRONTASSETS}}/images/cars/car-card-1.png"
-                                                                    class="department-img-list of-cover car-image"
-                                                                    alt="image 1"
-                                                                />
-                                                            </div>
-                                                            <div>
-                                                                <button class="add-to-wishlist">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="26"
-                                                                         height="26" viewBox="0 0 26 26" fill="none">
-                                                                        <path
-                                                                            d="M23.1494 3.12177C22.563 2.44911 21.8667 1.9155 21.1003 1.55144C20.334 1.18738 19.5126 1 18.6831 1C17.8535 1 17.0321 1.18738 16.2658 1.55144C15.4994 1.9155 14.8032 2.44911 14.2167 3.12177L12.9997 4.51714L11.7826 3.12177C10.5981 1.76368 8.99153 1.0007 7.31633 1.0007C5.64114 1.0007 4.03455 1.76368 2.85001 3.12177C1.66547 4.47987 1 6.32185 1 8.24249C1 10.1631 1.66547 12.0051 2.85001 13.3632L4.06705 14.7586L12.9997 25L21.9323 14.7586L23.1494 13.3632C23.7361 12.6909 24.2015 11.8926 24.519 11.0139C24.8366 10.1353 25 9.19356 25 8.24249C25 7.29142 24.8366 6.34967 24.519 5.47104C24.2015 4.59241 23.7361 3.79412 23.1494 3.12177Z"
-                                                                            fill="white" stroke="#CACACA"
-                                                                            stroke-width="1.5" stroke-linecap="round"
-                                                                            stroke-linejoin="round"></path>
-                                                                    </svg>
-                                                                </button>
-                                                                <img
-                                                                    loading="lazy"
-                                                                    src="{{FRONTASSETS}}/images/cars/car-card-2.png"
-                                                                    class="department-img-list of-cover car-image"
-                                                                    alt="image 1"
-                                                                />
-                                                            </div>
-                                                            <div>
-                                                                <button class="add-to-wishlist">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="26"
-                                                                         height="26" viewBox="0 0 26 26" fill="none">
-                                                                        <path
-                                                                            d="M23.1494 3.12177C22.563 2.44911 21.8667 1.9155 21.1003 1.55144C20.334 1.18738 19.5126 1 18.6831 1C17.8535 1 17.0321 1.18738 16.2658 1.55144C15.4994 1.9155 14.8032 2.44911 14.2167 3.12177L12.9997 4.51714L11.7826 3.12177C10.5981 1.76368 8.99153 1.0007 7.31633 1.0007C5.64114 1.0007 4.03455 1.76368 2.85001 3.12177C1.66547 4.47987 1 6.32185 1 8.24249C1 10.1631 1.66547 12.0051 2.85001 13.3632L4.06705 14.7586L12.9997 25L21.9323 14.7586L23.1494 13.3632C23.7361 12.6909 24.2015 11.8926 24.519 11.0139C24.8366 10.1353 25 9.19356 25 8.24249C25 7.29142 24.8366 6.34967 24.519 5.47104C24.2015 4.59241 23.7361 3.79412 23.1494 3.12177Z"
-                                                                            fill="white" stroke="#CACACA"
-                                                                            stroke-width="1.5" stroke-linecap="round"
-                                                                            stroke-linejoin="round"></path>
-                                                                    </svg>
-                                                                </button>
-                                                                <img
-                                                                    loading="lazy"
-                                                                    src="{{FRONTASSETS}}/images/cars/car-card-1.png"
-                                                                    class="department-img-list of-cover car-image"
-                                                                    alt="image 1"
-                                                                />
-                                                            </div>
+                                                            @foreach(json_decode($car->images)  as $img)
+                                                                <div>
+                                                                    <button class="add-to-wishlist">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                                             width="24"
+                                                                             height="24" viewBox="0 0 24 24"
+                                                                             fill="none">
+                                                                            <path
+                                                                                d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"
+                                                                                fill="#FF8600"></path>
+                                                                        </svg>
+                                                                    </button>
+                                                                    <img
+                                                                        loading="lazy"
+                                                                        src="{{asset('images/cars/'.$img)}}"
+                                                                        onerror="this.src='{{FRONTASSETS}}/images/cars/car-card-1.png'"
+
+                                                                        class="department-img-list of-cover car-image"
+                                                                        alt="image 1"
+                                                                    />
+                                                                </div>
+                                                            @endforeach
                                                         </div>
                                                     </div>
                                                     <div class="col-md-8">
@@ -1291,7 +1270,8 @@
                                                                     >
                                                                         <div
                                                                             class="department-badge bg-main text-white">
-                                                                            <div class="pt-1">5</div>
+                                                                            <div
+                                                                                class="pt-1">{{$car->CarReview->count() ?? 0}}</div>
                                                                             <div>
                                                                                 <svg xmlns="http://www.w3.org/2000/svg"
                                                                                      width="25" height="25"
@@ -1303,7 +1283,8 @@
                                                                             </div>
                                                                         </div>
                                                                         <div class="number-ads gray-txt">
-                                                                            64 من التقييمات
+
+                                                                            {{$car->carComment->count() ?? 0}} @lang('site.comments')
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1365,7 +1346,8 @@
                                                                 class="d-flex align-items-center justify-content-between mt-3 display-block-mobile"
                                                             >
                                                                 <div class="department-price">
-                                                                    <span class="text-gray-2"> @lang('site.price'):</span>
+                                                                    <span
+                                                                        class="text-gray-2"> @lang('site.price'):</span>
                                                                     <span class="fw-bold text-main"
                                                                     >
 
@@ -1382,8 +1364,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            @endforeach
-                                        </li>
+                                        @endforeach
+                                    </li>
 
                                     <li id="tab-car-2">
                                         <div
@@ -1905,52 +1887,18 @@
                                 <ul
                                     class="pagination mb-0 justify-content-lg-start justify-content-center"
                                 >
-                                    <li class="page-item">
-                                        <a class="page-link rounded-3" href="javascript:void(0)">
-                                            <em
-                                                class="fas fa-chevron-right small text-main"
-                                                aria-hidden="true"
-                                            ></em>
-                                        </a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="javascript:void(0)">1</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link active" href="javascript:void(0)"
-                                        >2</a
-                                        >
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="javascript:void(0)">3</a>
-                                    </li>
-                                    <li
-                                        class="page-item d-flex justify-content-center align-items-center"
-                                    >
-                                        <a class="text-light-gray" href="javascript:void(0)"
-                                        >........</a
-                                        >
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="javascript:void(0)">50</a>
-                                    </li>
-                                    <li class="page-item disabled">
-                                        <a class="page-link rounded-3">
-                                            <em
-                                                class="fas fa-chevron-left small"
-                                                aria-hidden="true"
-                                            ></em>
-                                        </a>
-                                    </li>
+                                    <div> {{ $cars->links() }} </div>
+
                                 </ul>
-                                <div class="text-main result-count">النتايج 24 - 123</div>
                             </nav>
                         </div>
                         <div class="card card-department round-border mb-3 p-3">
-                            <h4 class="department-title mb-3">سجل الدخول ووفّر المال</h4>
+                            <h4 class="department-title mb-3">   @lang('site.Sign in and save money')</h4>
                             <p class="mb-4 department-txt">
-                                قد تتمكن من توفير <span class="fw-bold text-main"> 10% </span>
-                                أو أكثر في مكان الإقامة هذا عند تسجيل الدخول
+                                @lang('site.You may be able to save')
+
+                                <span class="fw-bold text-main"> 10% </span>
+                                @lang('site.or more at this property at check-in')
                             </p>
                             <ul class="d-flex align-items-center">
                                 <li
@@ -1983,3 +1931,4 @@
         </section>
     </main>
 @endsection
+
