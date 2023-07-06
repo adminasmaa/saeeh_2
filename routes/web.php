@@ -42,11 +42,11 @@ Route::get('registers', 'App\Http\Controllers\Frontend\AuthController@register')
 Route::post('createaccount', 'App\Http\Controllers\Frontend\AuthController@createaccount')->name('createaccount');
 });
 Route::post('addContacts', 'App\Http\Controllers\Frontend\ContactController@addContacts')->name('addContacts');
-define('MAINASSETS', URL::asset('assets'));
-define('FRONTASSETS', URL::asset('frontend/assets'));
+define('MAINASSETS', URL::asset('public/assets'));
+define('FRONTASSETS', URL::asset('public/frontend/assets'));
 define('MAINUPLOADS', URL::asset('uploads'));
 define('MAINDIST', URL::asset('dist/frontend/img'));
-define('MAINDASHBOARD', URL::asset('dashboard_files'));
+define('MAINDASHBOARD', URL::asset('public/dashboard_files'));
 
 
 
