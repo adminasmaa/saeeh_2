@@ -17,8 +17,11 @@ return [
     'excellent'=>'Excellent',
     'Customer reviews'=>'Customer reviews',
     'comments'=>'Comments',
-
+'Sign in and save money'=>'Sign in and save money',
+    'You may be able to save'=>'You may be able to save',
        'haveprofile'=>'If you have an account',
+
+    'or more at this property at check-in'=>'or more at this property at check-in',
     'all'=>'All',
     'Based on reviews'=>'Based on reviews from all kinds of travelers',
     'freediscount'=>'Get instant discounts',
