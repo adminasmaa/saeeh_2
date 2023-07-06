@@ -111,11 +111,13 @@ class AreaDataTable extends DataTable
      */
     public function getColumns(): array
     {
-        return [
-            Column::make('DT_RowIndex')->data('DT_RowIndex')->name('DT_RowIndex')->title('#'),
+        $lan = app()->getLocale();
 
-            Column::make('name_ar')->title(trans('site.name_ar')),
-            Column::make('name_en')->title(trans('site.name_en')),
+        return [
+            Column::make('id')->data('DT_RowIndex')->name('id')->title('#'),
+
+            Column::make('name_'.$lan)->title(trans('site.name')),
+
             Column::make('active')->title(trans('site.active')),
             Column::make('created_at')->title(trans('site.created_at')),
             Column::computed('action')

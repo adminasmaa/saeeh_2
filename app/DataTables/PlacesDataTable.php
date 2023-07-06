@@ -112,10 +112,11 @@ class PlacesDataTable extends DataTable
      */
     public function getColumns(): array
     {
+        $lan = app()->getLocale();
         return [
-            Column::make('DT_RowIndex')->data('DT_RowIndex')->name('DT_RowIndex')->title('#'),
+            Column::make('DT_RowIndex')->data('DT_RowIndex')->name('id')->title('#'),
 
-            Column::make('name_ar')->title(trans('site.name_ar')),
+            Column::make('name_'.$lan)->title(trans('site.name')),
             Column::make('descrption_ar')->title(trans('site.descrption_ar')),
             Column::make('phone_one')->title(trans('site.phone_one')),
             Column::make('created_at')->title(trans('site.created_at')),

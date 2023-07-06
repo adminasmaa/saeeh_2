@@ -153,20 +153,16 @@ class ServiceAqarRepository implements ServiceAqarRepositoryInterfaceAlias
 
     public function destroy($AqarService)
     {
-
         // TODO: Implement destroy() method.
-
         AqarSetting::where('detail_id', $AqarService->id)->delete();
 
-
         $result = $AqarService->delete();
+
         if ($result) {
             Alert::toast('Deleted', __('site.deleted_successfully'));
         } else {
             Alert::toast('Deleted', __('site.delete_faild'));
-
         }
-
         return back();
     }
 }

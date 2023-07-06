@@ -111,9 +111,15 @@
                                 <!--<div class="col-md-6">-->
 
                                 <div class="col-md-6 form-group col-12 p-2">
-                                    <label>@lang('site.name')<span class="text-danger">*</span></label>
-                                    <input type="text" name="name" class="form-control"
-                                           value="{{ $car->name }}"
+                                    <label>@lang('site.ar.name')<span class="text-danger">*</span></label>
+                                    <input type="text" name="name_ar" class="form-control"
+                                           value="{{ $car->name_ar  ?? ''}}"
+                                    >
+                                </div>
+                                <div class="col-md-6 form-group col-12 p-2">
+                                    <label>@lang('site.en.name')<span class="text-danger">*</span></label>
+                                    <input type="text" name="name_en" class="form-control"
+                                           value="{{ $car->name_en  }}"
                                     >
                                 </div>
 
@@ -125,11 +131,11 @@
                                     {{--                                    >--}}
 
                                     <select class="form-control" name="year">
-                                        @for ($year1 = (int)date('Y')+1; 1900 <= $year1; $year1--): 
+                                        @for ($year1 = (int)date('Y')+1; 1900 <= $year1; $year1--):
                                             <option value="{{$year1}}" {{$year1==$car->year? 'selected':'' }}>{{$year1}}</option>
                                         @endfor
                                     </select>
-                                </div>    
+                                </div>
 
                                 <div class="col-md-6 form-group col-12 p-2 ">
                                     <label>@lang('site.color')<span class="text-danger">*</span></label>
@@ -287,10 +293,34 @@
                                                     <label class="form-label">@lang('site.city')</label>
                                                     <select class="form-control btn-square" name="city_id" id="city_id">
                                                         <option selected>@lang('site.select')</option>
-                                                      
+
                                                     </select>
                                                 </div>
                                             </div>
+                            </div>
+
+                            <div class="row">
+                                <!--<div class="col-md-6">-->
+
+                                <div class="col-md-6 form-group col-12 p-2 ">
+                                    <label>@lang('site.ar.description')<span class="text-danger">*</span></label>
+                                    <textarea class="form-control" cols="5" rows="5" name="description_ar">
+{{$car->description_ar ?? ''}}<
+                                        </textarea>
+                                </div>
+                                <div class="col-md-6 form-group col-12 p-2 ">
+                                    <label>@lang('site.en.description')<span class="text-danger">*</span></label>
+                                    <textarea class="form-control" cols="5" rows="5" name="description_en">
+{{$car->description_en ?? ''}}
+                                        </textarea>
+                                </div>
+
+                                <div class="col-md-6 form-group col-12 p-2 ">
+                                    <label>@lang('site.comment_text')<span class="text-danger">*</span></label>
+                                    <textarea class="form-control" cols="5" rows="5" name="comment_text">
+{{$car->comment_text ?? ''}}
+                                        </textarea>
+                                </div>
                             </div>
 
                             <br>

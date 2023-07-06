@@ -113,7 +113,7 @@ class CommissionsDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            Column::make('DT_RowIndex')->data('DT_RowIndex')->name('DT_RowIndex')->title('#'),
+            Column::make('DT_RowIndex')->data('DT_RowIndex')->name('id')->title('#'),
 
             Column::make('price')->title(trans('site.price')),
             Column::make('status')->title(trans('site.status')),

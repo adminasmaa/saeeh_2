@@ -59,9 +59,15 @@
                                     <!--<div class="col-md-6">-->
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.name')<span class="text-danger">*</span></label>
-                                        <input type="text" name="name" class="form-control"
-                                               value="{{old('name')}}"
+                                        <label>@lang('site.ar.name')<span class="text-danger">*</span></label>
+                                        <input type="text" name="name_ar" class="form-control"
+                                               value="{{old('name_ar')}}"
+                                               required>
+                                    </div>
+                                    <div class="col-md-6 form-group col-12 p-2 ">
+                                        <label>@lang('site.en.name')<span class="text-danger">*</span></label>
+                                        <input type="text" name="name_en" class="form-control"
+                                               value="{{old('name_en')}}"
                                                required>
                                     </div>
 
@@ -169,8 +175,14 @@
                                     <!--<div class="col-md-6">-->
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.description')<span class="text-danger">*</span></label>
-                                        <textarea class="form-control" cols="5" rows="5" name="description">
+                                        <label>@lang('site.ar.description')<span class="text-danger">*</span></label>
+                                        <textarea class="form-control" cols="5" rows="5" name="description_ar">
+
+                                        </textarea>
+                                    </div>
+                                    <div class="col-md-6 form-group col-12 p-2 ">
+                                        <label>@lang('site.en.description')<span class="text-danger">*</span></label>
+                                        <textarea class="form-control" cols="5" rows="5" name="description_en">
 
                                         </textarea>
                                     </div>
