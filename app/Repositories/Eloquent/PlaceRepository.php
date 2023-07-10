@@ -109,7 +109,6 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
 
                 UploadImage('images/places/','notify_photo', $place, $request->file('notify_photo'));
         }
-       
         if ($request->hasFile('images')) {
             $images = $request->file('images');
             foreach ($images as $key => $files) {
@@ -134,14 +133,6 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
                 $place->save();
             }
         }
-        // if ($request->hasFile('videos')) {
-        //         $thumbnail = $request->file('videos');
-        //         $destinationPath = 'videos/places/';
-        //         $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-        //         $thumbnail->move($destinationPath, $filename);
-        //         $place->videos = $filename;
-        //         $place->save();
-        // }
         if ($place) {
            Alert::success('Success', __('site.added_successfully'));
 
@@ -149,22 +140,18 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
         }
     }
 
-    public function update($place, $request,$place_table)
+    public function update($place, $request)
     {
-
         // return $request;
-        // TODO: Implement update() method.
         $request_data = $request->except(['_method','_token','display_photo','notify_photo','images','videos','sub_name_ar','sub_name_en','sub_type']);
         $place->update($request_data);
-       // $place = Place::firstOrCreate();
        // $place2 = $place->update($request_data);
-    //    $place_table =PlaceTable::where('place_id', $place->id)->get();
+       $place_table =PlaceTable::where('place_id', $place->id)->get();
 
             if ($request->hasFile('display_photo')) {
                 UploadImage('images/places/','display_photo', $place, $request->file('display_photo'));
 
             }
-
             if ($request->hasFile('notify_photo')) {
                 UploadImage('images/places/','notify_photo', $place, $request->file('notify_photo'));
 
@@ -193,11 +180,13 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
             }
 
         $arr = $request->sub_name_ar;
-           //  var_dump($request->sub_name_ar );die;
+            // var_dump($request->sub_name_ar );die;
 
         if ($arr[0]!=null) {
             foreach ($request->sub_name_ar as $key => $value) {
                 PlaceTable::updateOrCreate([
+                        'id' => $request['id'][$key]??0
+                    ],[
                     'name_ar' => $request['sub_name_ar'][$key],
                     'name_en' => $request['sub_name_en'][$key],
                     'type' => $request['sub_type'][$key],
@@ -210,7 +199,6 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
            Alert::success('Success', __('site.updated_successfully'));
 
             return redirect()->route('dashboard.places.index');
-//          session()->flash('success', __('site.updated_successfully'));
         } else {
            Alert::error('Error', __('site.update_faild'));
 

@@ -41,6 +41,7 @@ Route::get('detailplace/{id}', 'App\Http\Controllers\Frontend\CategoryController
  Route::get('registers', 'App\Http\Controllers\Frontend\AuthController@register')->name('registers');
  Route::post('createaccount', 'App\Http\Controllers\Frontend\AuthController@createaccount')->name('createaccount');
 
+
 Route::get('cars', 'App\Http\Controllers\Frontend\CarController@allcars')->name('cars');
 Route::get('detailcar/{id}', 'App\Http\Controllers\Frontend\CarController@detailcar')->name('detailcar');
 

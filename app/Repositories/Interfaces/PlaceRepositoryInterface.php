@@ -22,5 +22,5 @@ interface PlaceRepositoryInterface
 
     public function store($request);
 
-    public function update($place, $request,$place_table);
+    public function update($place, $request);
 }

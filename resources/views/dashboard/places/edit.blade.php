@@ -500,6 +500,8 @@
                                         <tr>
                                             <td>
                                                 <div class="row">
+                                                    <input type="hidden" name="item[]" class="form-control" value="{{$x??0}}"/>
+                                                    <input type="hidden" value="{{ $service->id ?? '' }}" name="id[]" class="form-control" />
                                                     <div class="col-md-5 form-group col-12">
                                                         <label>@lang('site.name_ar')</label>
                                                         <input type="text" name="sub_name_ar[]"
@@ -710,6 +712,7 @@ $(document).ready(function () {
     jQuery('a.add-price').click(function (event) {
         event.preventDefault();
         var newRow = jQuery('<tr><td><div class="row"><div class="col-md-5 form-group col-12 p-2">' +
+        ' <input type="hidden"  name="id[]" class="form-control"/>' +
             '<label>@lang('site.name_ar')</label><input type="text"  name="sub_name_ar[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
             '<label>@lang('site.name_en')</label><input type="text" name="sub_name_en[]" class="form-control" ></div><div class="col-md-5 form-group col-6 p-2">' +
             '<label>@lang('site.type')</label><select class="form-control btn-square" name="sub_type[]"><option selected>@lang('site.select')</option><option value="Meal">@lang('site.meal')</option><option value="Break">@lang('site.break') </option><option value="Tawla">@lang('site.tawla') </option></select></div><div class="col-md-5 form-group col-6 p-2">' +
