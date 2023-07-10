@@ -116,31 +116,24 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
                 $destinationPath = 'images/places/';
                 $file_name = $_FILES['images']['name'][$key];
                 $files->move($destinationPath, $file_name);
-                $data= $_FILES['images']['name'][$key];
+                $data[]= $_FILES['images']['name'][$key];
                 $place->images = json_encode($data);
                 // $place->images = implode(',',$data);
                 $place->save();
             }
         }
-        if ($request->hasFile('videos')) {
-            $videos = $request->file('videos');
-            foreach ($videos as $key => $files) {
-                $destinationPath = 'videos/places/';
-                $file_name = $_FILES['videos']['name'][$key];
-                $files->move($destinationPath, $file_name);
-                $data= $_FILES['videos']['name'][$key];
-                $place->videos = json_encode($data);
-                // $place->videos = implode(',',$data);
-                $place->save();
-            }
-        }
+        
         // if ($request->hasFile('videos')) {
-        //         $thumbnail = $request->file('videos');
+        //     $videos = $request->file('videos');
+        //     foreach ($videos as $key => $files) {
         //         $destinationPath = 'videos/places/';
-        //         $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-        //         $thumbnail->move($destinationPath, $filename);
-        //         $place->videos = $filename;
+        //         $file_name = $_FILES['videos']['name'][$key];
+        //         $files->move($destinationPath, $file_name);
+        //         $data[]= $_FILES['videos']['name'][$key];
+        //         $place->videos = json_encode($data);
+        //         // $place->videos = implode(',',$data);
         //         $place->save();
+        //     }
         // }
         if ($place) {
            Alert::success('Success', __('site.added_successfully'));
