@@ -408,7 +408,7 @@
                                                         class="rating-see-btn py-4 d-flex justify-content-center align-items-center">
                                                         <a href="#" data-bs-toggle="modal"
                                                            data-bs-target="#YourRateModal">
-                                                            قيم الآن
+                                                            @lang('site.Rate now')
                                                         </a>
                                                     </div>
                                                 </div>

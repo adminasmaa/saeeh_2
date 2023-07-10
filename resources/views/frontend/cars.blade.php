@@ -28,7 +28,9 @@
                 </span>
                         </li>
                         <li class="breadcrumb-item text-gray-4" aria-current="page">
-                            نتايج البحث
+
+
+                            @lang('site.valuesearch')
                         </li>
                     </ol>
                 </nav>
@@ -36,107 +38,119 @@
         </section>
         <section class="py-4 filter-departments">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-10">
-                        <div class="row">
-                            <div class="col-lg">
-                                <div class="box-search mb-lg-0 mb-md-0 mb-3">
+                <form action="{{route('cars')}}" method="get">
+                    @csrf
+                    <div class="row">
+                        <div class="col-lg-10">
+                            <div class="row">
+                                <div class="col-lg">
+                                    <div class="box-search mb-lg-0 mb-md-0 mb-3">
 
 
-                                    <select
-                                        class="select2"
-                                        id="country_id"
-                                        name="country_id"
-                                    >
-                                        <option>@lang('site.country')</option>
-                                        @foreach($countries as $country)
-                                            <option
-                                                value="{{$country->id}}">{{$country->name ?? ''}}</option>
-                                        @endforeach
-                                    </select>
+                                        <select
+                                            class="select2"
+                                            id="country_id"
+                                            name="country_id"
+                                        >
+                                            <option value="">@lang('site.country')</option>
+                                            @foreach($countries as $country)
+                                                <option
+                                                    value="{{$country->id}}">{{$country->name ?? ''}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg">
-                                <div class="box-search mb-lg-0 mb-md-0 mb-3">
+                                <div class="col-lg">
+                                    <div class="box-search mb-lg-0 mb-md-0 mb-3">
 
 
-                                    <select
-                                        class="select2"
-                                        id="city_id"
-                                        name="city_id"
-                                    >
-                                        <option>@lang('site.city')</option>
-                                        <!-- @foreach($cities as $city)
-                                            <option
-                                               value="{{$city->id}}">{{$city->name ?? ''}}</option>
+                                        <select
+                                            class="select2"
+                                            id="city_id"
+                                            name="city_id"
+                                        >
+                                            <option value="">@lang('site.city')</option>
+                                            <!-- @foreach($cities as $city)
+                                                <option
+                                                   value="{{$city->id}}">{{$city->name ?? ''}}</option>
 
 
 
 
-                                        @endforeach -->
-                                    </select>
+
+
+
+                                            @endforeach -->
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg">
-                                <div class="box-search mb-lg-0 mb-md-0 mb-3">
-                                    <select
-                                        class="select2"
-                                        id="list9"
-                                        name="list9"
-                                    >
-                                        <option>@lang('site.category')</option>
-                                        <!-- @foreach($CategoriesCar as $cat)
-                                            <option value="{{$cat->id ?? ''}}">{{$cat->name ?? ''}}</option>
+                                <div class="col-lg">
+                                    <div class="box-search mb-lg-0 mb-md-0 mb-3">
 
-
-
-
-                                        @endforeach -->
-                                    </select>
+                                        <select
+                                            class="select2"
+                                            id="list6"
+                                            name="brand_id"
+                                        >
+                                            <option value="">@lang('site.brands')</option>
+                                            @foreach($CategoriesCar as $cat)
+                                                <option value="{{$cat->id ?? ''}}">{{$cat->name ?? ''}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
+                                <div class="col-lg">
+                                    <div class="box-search mb-lg-0 mb-md-0 mb-3">
+                                        <select
+                                            class="select2"
+                                            id="list9"
+                                            name="category_id"
+                                        >
+                                            <option value="">@lang('site.category')</option>
+                                            <!-- @foreach($CategoriesCar as $cat)
+                                                <option value="{{$cat->id ?? ''}}">{{$cat->name ?? ''}}</option>
 
-                            <div class="col-lg">
-                                <div class="box-search mb-lg-0 mb-md-0 mb-3">
 
-                                    <select
-                                        class="select2"
-                                        id="list6"
-                                        name="list6"
-                                    >
-                                        <option>@lang('site.brands')</option>
-                                        @foreach($CategoriesCar as $cat)
-                                            <option value="{{$cat->id ?? ''}}">{{$cat->name ?? ''}}</option>
-                                        @endforeach
-                                    </select>
+
+
+
+
+
+                                            @endforeach -->
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg">
-                                <div class="box-search mb-lg-0 mb-md-0 mb-3">
 
 
-                                    <select
-                                        class="ddl-select" id="list5"
-                                        name="list8"
-                                    >
+                                <div class="col-lg">
+                                    <div class="box-search mb-lg-0 mb-md-0 mb-3">
+
+
+                                        <select
+                                            class="ddl-select" id="list5"
+                                            name="year"
+                                        >
+                                            <option value="">@lang('site.year')</option>
+
                                         @for ($year = (int)date('Y')+1; 1900 <= $year; $year--)
-                                            :
-                                            <option value="{{$year}}">{{$year}}</option>
-                                        @endfor
-                                    </select>
+                                                :
+                                                <option value="{{$year}}">{{$year}}</option>
+                                            @endfor
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-lg-2">
-                        <div
-                            class="search-btn d-flex align-items-center justify-content-center mt-lg-0 mt-3"
-                        >
-                            <a href="#">بحث</a>
+                        <div class="col-lg-2">
+                            <div
+                                class="search-btn d-flex align-items-center justify-content-center mt-lg-0 mt-3"
+                            >
+                                <button type="submit">@lang('site.search')</button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </section>
 
@@ -169,8 +183,9 @@
                             <input
                                 type="search"
                                 class="form-control search-saeeh"
-                                placeholder="ابحث عن اسم السيارة "
-                                id="search"
+                                placeholder="{{trans('site.namecar')}} "
+                                id="myInput"
+                                onkeyup="getMySearch()"
                                 name="q"
                             />
                             <div class="search-icon">
@@ -196,14 +211,14 @@
                     <div class="col-lg-3">
                         <div class="accordion mb-5 mt-3 web-view" id="accordion_filter">
                             <div class="filter-title">
-                                <div class="d-flex justify-content-between">
-                                    <h3 class="filter-count text-second fw-bold">
-                                        366 من 2666 نتيجة
-                                    </h3>
-                                    <a href="#" class="delete-result text-main fw-bold"
-                                    >ازالة</a
-                                    >
-                                </div>
+                                {{--                                <div class="d-flex justify-content-between">--}}
+                                {{--                                    <h3 class="filter-count text-second fw-bold">--}}
+                                {{--                                        366 من 2666 نتيجة--}}
+                                {{--                                    </h3>--}}
+                                {{--                                    <a href="#" class="delete-result text-main fw-bold"--}}
+                                {{--                                    >ازالة</a--}}
+                                {{--                                    >--}}
+                                {{--                                </div>--}}
                                 <h2 class="text-second mb-0">تصفيه حسب:</h2>
                             </div>
                             <div class="accordion-item">
@@ -216,7 +231,7 @@
                                         aria-expanded="true"
                                         aria-controls="accordion-filter-1"
                                     >
-                                        <h5 class="accordion-title mb-0">الماركة</h5>
+                                        <h5 class="accordion-title mb-0">@lang('site.brands')</h5>
 
                                         <div>
                                             <svg
@@ -253,7 +268,7 @@
 
                                         src="{{asset('images/categories/'.$cat->image)}}"
                                         onerror="this.src='{{FRONTASSETS}}/images/cars/marka-1.png'"
-width="30" height="30"
+                                        width="30" height="30"
                                         alt="car marka"
                                     /></span>
                                                                 <span>{{$cat->name ?? ''}}</span>
@@ -700,7 +715,7 @@ width="30" height="30"
                                             aria-expanded="true"
                                             aria-controls="accordion-filter-1"
                                         >
-                                            <h5 class="accordion-title mb-0">الماركة</h5>
+                                            <h5 class="accordion-title mb-0">@lang('site.brands')</h5>
 
                                             <div>
                                                 <svg
@@ -1213,98 +1228,99 @@ width="30" height="30"
                                 </div>
 
                                 <ul class="tabs-contentt list-unstyled my-4">
+                                    @if(!empty($cars))
+                                        <li id="tab-car-1">
+                                            @foreach($cars as $car )
 
-                                    <li id="tab-car-1">
-                                        @foreach($cars as $car )
-
-                                            <div
-                                                class="card card-department round-border mb-3 p-md-3 p-2"
-                                            >
+                                                <div
+                                                    class="card card-department round-border mb-3 p-md-3 p-2"
+                                                >
 
 
-                                                <div class="row g-0">
-                                                    <div class="col-md-4 position-relative">
-                                                        <div
-                                                            class="owl-carousel owl-theme department-img-carousel"
-                                                            dir="ltr"
-                                                        >
-                                                            @foreach(json_decode($car->images)  as $img)
-                                                                <div>
-                                                                    <button class="add-to-wishlist">
-                                                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                                                             width="24"
-                                                                             height="24" viewBox="0 0 24 24"
-                                                                             fill="none">
-                                                                            <path
-                                                                                d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"
-                                                                                fill="#FF8600"></path>
-                                                                        </svg>
-                                                                    </button>
-                                                                    <img
-                                                                        loading="lazy"
-                                                                        src="{{asset('images/cars/'.$img)}}"
-                                                                        onerror="this.src='{{FRONTASSETS}}/images/cars/car-card-1.png'"
-
-                                                                        class="department-img-list of-cover car-image"
-                                                                        alt="image 1"
-                                                                    />
-                                                                </div>
-                                                            @endforeach
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-8">
-                                                        <div
-                                                            class="card-body card-car-body position-relative"
-                                                        >
+                                                    <div class="row g-0">
+                                                        <div class="col-md-4 position-relative">
                                                             <div
-                                                                class="row justify-content-between align-items-center mb-3 small"
+                                                                class="owl-carousel owl-theme department-img-carousel"
+                                                                dir="ltr" id="myUL"
                                                             >
-                                                                <div class="col-auto mb-lg-0 mb-3">
+                                                                @foreach(json_decode($car->images)  as $img)
+                                                                    <div class="city-item">
+                                                                        <button class="add-to-wishlist">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                 width="24"
+                                                                                 height="24" viewBox="0 0 24 24"
+                                                                                 fill="none">
+                                                                                <path
+                                                                                    d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"
+                                                                                    fill="#FF8600"></path>
+                                                                            </svg>
+                                                                        </button>
+                                                                        <img
+                                                                            loading="lazy"
+                                                                            src="{{asset('images/cars/'.$img)}}"
+                                                                            onerror="this.src='{{FRONTASSETS}}/images/cars/car-card-1.png'"
+
+                                                                            class="department-img-list of-cover car-image"
+                                                                            alt="image 1"
+                                                                        />
+                                                                    </div>
+                                                                @endforeach
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <div
+                                                                class="card-body card-car-body position-relative"
+                                                            >
+                                                                <div
+                                                                    class="row justify-content-between align-items-center mb-3 small"
+                                                                >
+                                                                    <div class="col-auto mb-lg-0 mb-3">
                                   <span class="text-main number-ads"
                                   >رقم الاعلان( {{$car->id ?? ''}})</span
                                   >
-                                                                </div>
-                                                                <div class="col-auto">
-                                                                    <div
-                                                                        class="d-flex justify-content-center align-items-center"
-                                                                    >
+                                                                    </div>
+                                                                    <div class="col-auto">
                                                                         <div
-                                                                            class="department-badge bg-main text-white">
+                                                                            class="d-flex justify-content-center align-items-center"
+                                                                        >
                                                                             <div
-                                                                                class="pt-1">{{$car->CarReview->count() ?? 0}}</div>
-                                                                            <div>
-                                                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                                                     width="25" height="25"
-                                                                                     viewBox="0 0 25 25" fill="none">
-                                                                                    <path
-                                                                                        d="M12.7529 19.6185L20.1689 24.3301L18.2009 15.4501L24.7529 9.47534L16.1249 8.70481L12.7529 0.330078L9.38093 8.70481L0.75293 9.47534L7.30493 15.4501L5.33693 24.3301L12.7529 19.6185Z"
-                                                                                        fill="white"/>
-                                                                                </svg>
+                                                                                class="department-badge bg-main text-white">
+                                                                                <div
+                                                                                    class="pt-1">{{$car->CarReview->count() ?? 0}}</div>
+                                                                                <div>
+                                                                                    <svg
+                                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                                        width="25" height="25"
+                                                                                        viewBox="0 0 25 25" fill="none">
+                                                                                        <path
+                                                                                            d="M12.7529 19.6185L20.1689 24.3301L18.2009 15.4501L24.7529 9.47534L16.1249 8.70481L12.7529 0.330078L9.38093 8.70481L0.75293 9.47534L7.30493 15.4501L5.33693 24.3301L12.7529 19.6185Z"
+                                                                                            fill="white"/>
+                                                                                    </svg>
+                                                                                </div>
                                                                             </div>
-                                                                        </div>
-                                                                        <div class="number-ads gray-txt">
+                                                                            <div class="number-ads gray-txt">
 
-                                                                            {{$car->carComment->count() ?? 0}} @lang('site.comments')
+                                                                                {{$car->carComment->count() ?? 0}} @lang('site.comments')
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <h2 class="card-title mb-2">
+                                                                <h2 class="card-title mb-2">
 
-                                                                {{$car->name ?? ''}}
-                                                            </h2>
+                                                                    <label>{{$car->name ?? ''}}</label>
+                                                                </h2>
 
-                                                            <div class="gray-txt number-ads pb-2">
+                                                                <div class="gray-txt number-ads pb-2">
                                 <span
                                 >
 
   {{$car->description ?? ''}}
                                 </span>
-                                                            </div>
-                                                            <div
-                                                                class="text-gray-2 number-ads d-flex align-items-center"
-                                                            >
-                                                                <div>
+                                                                </div>
+                                                                <div
+                                                                    class="text-gray-2 number-ads d-flex align-items-center"
+                                                                >
+                                                                    <div>
                                   <span class="ps-2">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -1321,9 +1337,9 @@ width="30" height="30"
                                       />
                                     </svg>
                                   </span>
-                                                                    <span>5 مقاعد</span>
-                                                                </div>
-                                                                <div class="padding-35">
+                                                                        <span>5 مقاعد</span>
+                                                                    </div>
+                                                                    <div class="padding-35">
                                   <span class="ps-2">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -1338,35 +1354,35 @@ width="30" height="30"
                                       />
                                     </svg>
                                   </span>
-                                                                    <span>1شنطه كبيرة</span>
+                                                                        <span>1شنطه كبيرة</span>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
 
-                                                            <div
-                                                                class="d-flex align-items-center justify-content-between mt-3 display-block-mobile"
-                                                            >
-                                                                <div class="department-price">
+                                                                <div
+                                                                    class="d-flex align-items-center justify-content-between mt-3 display-block-mobile"
+                                                                >
+                                                                    <div class="department-price">
                                                                     <span
                                                                         class="text-gray-2"> @lang('site.price'):</span>
-                                                                    <span class="fw-bold text-main"
-                                                                    >
+                                                                        <span class="fw-bold text-main"
+                                                                        >
 
                                                                      {{$car->fixed_price ?? ''}}
                                   </span>
-                                                                </div>
-                                                                <div
-                                                                    class="details-btn d-flex align-items-center justify-content-center"
-                                                                >
-                                                                    <a href="{{route('detailcar',$car->id)}}"> @lang('site.details')</a>
+                                                                    </div>
+                                                                    <div
+                                                                        class="details-btn d-flex align-items-center justify-content-center"
+                                                                    >
+                                                                        <a href="{{route('detailcar',$car->id)}}"> @lang('site.details')</a>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        @endforeach
-                                    </li>
-
+                                            @endforeach
+                                        </li>
+                                    @endif
                                     <li id="tab-car-2">
                                         <div
                                             class="card card-department round-border mb-3 p-md-3 p-2"
@@ -1442,7 +1458,7 @@ width="30" height="30"
                                                         >
                                                             <div class="col-auto mb-lg-0 mb-3">
                                   <span class="text-main number-ads"
-                                  >رقم الاعلان(12)</span
+                                  > @lang('site.id number')12)</span
                                   >
                                                             </div>
                                                             <div class="col-auto">
@@ -1869,7 +1885,7 @@ width="30" height="30"
                                                             <div
                                                                 class="details-btn d-flex align-items-center justify-content-center"
                                                             >
-                                                                <a href="#"> @lang('site.details')</a>
+                                                                <a href="{{route('detailcar',$car->id ?? 0)}}"> @lang('site.details')</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1887,7 +1903,8 @@ width="30" height="30"
                                 <ul
                                     class="pagination mb-0 justify-content-lg-start justify-content-center"
                                 >
-                                    <div> {{ $cars->links() }} </div>
+                                    {{--                                    <div> {{ $cars->links() }} </div>  <div> {{ $cars->links() }} </div>--}}
+                                    <div>{{ $cars->appends(request()->query())->links()}} </div>
 
                                 </ul>
                             </nav>
@@ -1931,4 +1948,32 @@ width="30" height="30"
         </section>
     </main>
 @endsection
+
+@section('scripts')
+    <script>
+
+        function getMySearch() {
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById("myInput");
+            console.log('input', input);
+            filter = input.value.toLowerCase();
+            ul = document.getElementById("myUL");
+            li = ul.getElementsByClassName("city-item");
+            console.log(li);
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("label");
+
+                txtValue = a.textContent || a.innerText;
+                console.log(txtValue);
+                if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
+@endsection
+
 
