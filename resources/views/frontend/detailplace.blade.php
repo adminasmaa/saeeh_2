@@ -39,7 +39,10 @@
 
 {{--                            </div>--}}
                             @if(!empty($place->images))
-                            @foreach(explode(',',$place->images) as $key=>$img)
+
+                  {{--    //      @foreach(explode(',',$place->images) as $key=>$img) --}}
+                           @foreach(json_decode($place->images) as $key=>$img)
+
                                 <div class="slide show" data-slide="{{$key+1}}">
                                     <img src="{{asset('images/places/'.$img)}}" alt=""      onerror="this.src='{{FRONTASSETS}}/images/restaurants/rest-1.png'">
 

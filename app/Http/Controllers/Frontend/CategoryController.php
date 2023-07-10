@@ -39,7 +39,7 @@ class CategoryController extends Controller
 
         return view('frontend.detailplace', compact('place'));
 
-
+         
     }
 
     public function subcategories($id)
@@ -47,7 +47,8 @@ class CategoryController extends Controller
         $category = Category::find($id);
 
 
-        if (!empty($category->subcategories) && $category->subcategories != null) {
+
+        if (!empty($category->subcategories) && $category->subcategories != null && count($category->subcategories) > 0) {
 
 
             $subcategories = Category::where('parent_id', '=', $id)->paginate(8);
@@ -55,8 +56,11 @@ class CategoryController extends Controller
 
 
         } elseif (!empty($category->places)) {
+          //  $places = $category->places;
 
-            $places = $category->places;
+          $places = Place::where('sub_category_id',$id)->paginate(5);
+
+
             return view('frontend.places', compact('category', 'places'));
 
         }

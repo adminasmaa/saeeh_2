@@ -54,7 +54,7 @@ class CarController extends Controller
     {
         $request->validate([
 
-                'name' => 'required',
+                'name_ar' => 'required',
 
             ]
         );
@@ -89,7 +89,7 @@ class CarController extends Controller
     {
         $request->validate([
 
-                'name' => 'required',
+                'name_ar' => 'required',
 
             ]
         );

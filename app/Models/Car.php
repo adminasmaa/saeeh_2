@@ -33,7 +33,8 @@ Car extends Model
     protected $table = 'cars';
 
     protected $fillable = [
-        'name', // required
+        'name_ar', // required
+        'name_en', // required
         'year', // required
         'color', // required
         'category', // required
@@ -41,7 +42,8 @@ Car extends Model
         'car_delivery_date', // required
         'fixed_price', // nullable
         'changed_price', // nullable
-        'description', // required
+        'description_ar', // required
+        'description_en', // required
         'main_image_ads', // required
         'images', // required
         'videos', // nullable
@@ -53,6 +55,16 @@ Car extends Model
         'city_id',
     ];
 
+
+    public function getNameAttribute()
+    {
+        return (app()->getLocale() === 'ar') ? $this->name_ar : $this->name_en;
+    }
+
+    public function getDescriptionAttribute()
+    {
+        return (app()->getLocale() === 'ar') ? $this->description_ar : $this->description_en;
+    }
     public function CarReview(){
         return $this->HasMany(CarReview::class)->distinct();
     }

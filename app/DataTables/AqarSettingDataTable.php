@@ -112,7 +112,7 @@ class AqarSettingDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            Column::make('DT_RowIndex')->data('DT_RowIndex')->name('DT_RowIndex')->title('#'),
+            Column::make('id')->data('DT_RowIndex')->name('id')->title('#'),
             Column::make('input_id')->title(trans('site.input_id')),
             Column::make('display')->title(trans('site.display')),
             // Column::make('category_id')->title(trans('site.category_id')),

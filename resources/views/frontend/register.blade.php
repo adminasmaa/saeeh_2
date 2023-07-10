@@ -4,13 +4,14 @@
     <main>
       <section class="py-5">
         <div class="container w-100">
+
           <div class="row d-flex justify-content-center">
             <div
               class="col-12 login-body d-lg-flex justify-content-lg-between px-0"
             >
            
               <div class="text-center my-lg-5 my-3 login-content">
-               <form action="{{route('createaccount')}}" method="post" class="form-control">
+               <form action="{{route('createaccount')}}" method="post" >
             @csrf
                 <div
                   class="row d-flex justify-content-center align-items-center h-100"
@@ -165,8 +166,9 @@
                   </div>
                 </div>
 
-                </form>
                 </div>
+                
+                </form>
               <div class="side-login-image"></div>
             </div>
           </div>
