@@ -36,10 +36,10 @@ Route::get('termAndCondition', 'App\Http\Controllers\Frontend\HomeController@ter
 Route::get('categories/{id}', 'App\Http\Controllers\Frontend\CategoryController@categories')->name('categories');
 Route::get('subcategories/{id}', 'App\Http\Controllers\Frontend\CategoryController@subcategories')->name('subcategories');
 Route::get('detailplace/{id}', 'App\Http\Controllers\Frontend\CategoryController@detailplace')->name('detailplace');
-// Route::get('sitelogin', 'App\Http\Controllers\Frontend\AuthController@login')->name('sitelogin');
-// Route::post('login', 'App\Http\Controllers\Frontend\AuthController@checklogin')->name('login');
-// Route::get('registers', 'App\Http\Controllers\Frontend\AuthController@register')->name('registers');
-// Route::post('createaccount', 'App\Http\Controllers\Frontend\AuthController@createaccount')->name('createaccount');
+Route::get('sitelogin', 'App\Http\Controllers\Frontend\AuthController@login')->name('sitelogin');
+Route::post('login', 'App\Http\Controllers\Frontend\AuthController@checklogin')->name('login');
+Route::get('registers', 'App\Http\Controllers\Frontend\AuthController@register')->name('registers');
+Route::post('createaccount', 'App\Http\Controllers\Frontend\AuthController@createaccount')->name('createaccount');
 });
 Route::post('addContacts', 'App\Http\Controllers\Frontend\ContactController@addContacts')->name('addContacts');
 define('MAINASSETS', URL::asset('assets'));
