@@ -14,9 +14,12 @@ return [
     'crews' => 'Crews',
     'Saeeh' => 'Saeeh',
     'home' => 'Home',
+    'filter by' => 'Filter By',
+    'searchmap'=>'Search on the map',
+
     'car_numbers' => 'Car Numbers',
     'details' => 'Details',
-    'category'=>'Category',
+    'category' => 'Category',
     'Reservation deposit' => 'Reservation deposit',
     'id number' => 'Id Number',
     'Receipt and delivery procedures' => 'Receipt and delivery procedures',

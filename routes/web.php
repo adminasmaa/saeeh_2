@@ -44,6 +44,7 @@ Route::get('detailplace/{id}', 'App\Http\Controllers\Frontend\CategoryController
 
 Route::get('cars', 'App\Http\Controllers\Frontend\CarController@allcars')->name('cars');
 Route::get('detailcar/{id}', 'App\Http\Controllers\Frontend\CarController@detailcar')->name('detailcar');
+Route::post('CheckCar', 'App\Http\Controllers\Frontend\CarController@CheckCar')->name('CheckCar');
 
 });
 Route::post('addContacts', 'App\Http\Controllers\Frontend\ContactController@addContacts')->name('addContacts');

@@ -142,7 +142,9 @@
                         <div
                             class="badge-ads-details bg-main round-border d-flex align-items-center justify-content-center"
                         >
-                            @lang('site.id number'){{$car->id}})
+                            @lang('site.id number')({{$car->id}})
+
+
                         </div>
                         <h2 class="pt-3">{{$car->name ?? ''}}</h2>
                         <div class="d-flex align-items-center mt-3">

@@ -21,7 +21,7 @@ return [
     'allownumber' => 'العدد المسموح بيه',
     'Arrival dates' => 'مواعيد الوصول',
     'id number' => 'رقم الاعلان',
-    'Reservation deposit'=>'عربون حجز',
+    'Reservation deposit' => 'عربون حجز',
     'Departure dates' => 'مواعيد المغادرة',
     'excellent' => 'ممتاز',
     'Rate now' => 'قيم الآن',
@@ -453,7 +453,7 @@ return [
     'audio' => 'صوت',
     'video' => 'فديو',
     'document' => 'مستند',
-
+    'filter by' => 'تصفيه حسب',
     'course_type' => 'نوع الدورة',
     'resources' => 'مصادر',
     'full' => 'كامل',
@@ -461,6 +461,7 @@ return [
     'car_numbers' => 'عدد سيارات هذا النوع ',
     'time' => 'الوقت',
     'areas' => 'المناطق',
+    'searchmap'=>'ابحث علي الخريطة',
 
     'pleaseChoose' => 'من فضلك اختر',
 
