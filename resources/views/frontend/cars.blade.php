@@ -28,7 +28,9 @@
                 </span>
                         </li>
                         <li class="breadcrumb-item text-gray-4" aria-current="page">
-                            نتايج البحث
+
+
+                            @lang('site.valuesearch')
                         </li>
                     </ol>
                 </nav>
@@ -36,73 +38,127 @@
         </section>
         <section class="py-4 filter-departments">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-10">
-                        <div class="row">
-                            <div class="col-lg">
-                                <div class="box-search mb-lg-0 mb-md-0 mb-3">
-                                    <select class="ddl-select" id="list" name="list">
-                                        <option>الدولة</option>
-                                        <option value="1">الدولة 1</option>
-                                        <option value="2">الدولة 2</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-lg">
-                                <div class="box-search mb-lg-0 mb-md-0 mb-3">
-                                    <select class="ddl-select" id="list2" name="list2">
-                                        <option>المدينة</option>
-                                        <option value="1">المدينة 2</option>
-                                        <option value="2">المدينة 3</option>
-                                        <option value="3">المدينة 4</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-lg">
-                                <div class="box-search mb-lg-0 mb-md-0 mb-3">
-                                    <select class="ddl-select" id="list3" name="list3">
-                                        <option>الفئة</option>
-                                        <option value="1">الفئة 1</option>
-                                        <option value="2">الفئة 2</option>
-                                    </select>
-                                </div>
-                            </div>
+                <form action="{{route('cars')}}" method="get">
+                    @csrf
+                    <div class="row">
+                        <div class="col-lg-10">
+                            <div class="row">
+                                <div class="col-lg">
+                                    <div class="box-search mb-lg-0 mb-md-0 mb-3">
 
-                            <div class="col-lg">
-                                <div class="box-search mb-lg-0 mb-md-0 mb-3">
-                                    <select class="ddl-select" id="list4" name="list4">
-                                        <option>الماركة</option>
-                                        <option value="1">مرسيديس</option>
-                                        <option value="2">هوينداي</option>
-                                        <option value="3">ملاكي</option>
-                                        <option value="4">فيرنا</option>
-                                        <option value="5">كيا</option>
-                                        <option value="6">نيسان</option>
-                                    </select>
+
+                                        <select
+                                            class="select2"
+                                            id="country_id"
+                                            name="country_id"
+                                        >
+                                            <option value="">@lang('site.country')</option>
+                                            @foreach($countries as $country)
+                                                <option
+                                                    value="{{$country->id}}">{{$country->name ?? ''}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg">
-                                <div class="box-search mb-lg-0 mb-md-0 mb-3">
-                                    <select class="ddl-select" id="list5" name="list5">
-                                        <option>السنة</option>
-                                        <option value="1">2020</option>
-                                        <option value="2">2021</option>
-                                        <option value="3">2022</option>
-                                        <option value="4">2023</option>
-                                    </select>
+                                <div class="col-lg">
+                                    <div class="box-search mb-lg-0 mb-md-0 mb-3">
+
+
+                                        <select
+                                            class="select2"
+                                            id="city_id"
+                                            name="city_id"
+                                        >
+                                            <option value="">@lang('site.city')</option>
+                                            <!-- @foreach($cities as $city)
+                                                <option
+                                                   value="{{$city->id}}">{{$city->name ?? ''}}</option>
+
+
+
+
+
+
+
+
+
+
+
+                                            @endforeach -->
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg">
+                                    <div class="box-search mb-lg-0 mb-md-0 mb-3">
+
+                                        <select
+                                            class="select2"
+                                            id="list6"
+                                            name="brand_id"
+                                        >
+                                            <option value="">@lang('site.brands')</option>
+                                            @foreach($CategoriesCar as $cat)
+                                                <option value="{{$cat->id ?? ''}}">{{$cat->name ?? ''}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg">
+                                    <div class="box-search mb-lg-0 mb-md-0 mb-3">
+                                        <select
+                                            class="select2"
+                                            id="list9"
+                                            name="category_id"
+                                        >
+                                            <option value="">@lang('site.category')</option>
+                                            <!-- @foreach($CategoriesCar as $cat)
+                                                <option value="{{$cat->id ?? ''}}">{{$cat->name ?? ''}}</option>
+
+
+
+
+
+
+
+
+
+
+
+                                            @endforeach -->
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-lg">
+                                    <div class="box-search mb-lg-0 mb-md-0 mb-3">
+
+
+                                        <select
+                                            class="ddl-select" id="list5"
+                                            name="year"
+                                        >
+                                            <option value="">@lang('site.year')</option>
+
+                                            @for ($year = (int)date('Y')+1; 1900 <= $year; $year--)
+                                                :
+                                                <option value="{{$year}}">{{$year}}</option>
+                                            @endfor
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-lg-2">
-                        <div
-                            class="search-btn d-flex align-items-center justify-content-center mt-lg-0 mt-3"
-                        >
-                            <a href="#">بحث</a>
+                        <div class="col-lg-2">
+                            <div
+                                class="search-btn d-flex align-items-center justify-content-center mt-lg-0 mt-3"
+                            >
+                                <button type="submit">@lang('site.search')</button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </section>
 
@@ -122,21 +178,22 @@
                                 <div
                                     class="map-data d-flex h-100 w-100 justify-content-center align-items-center"
                                 >
-                                    <h4 class="title-map">ابحث علي الخريطة</h4>
+                                    <h4 class="title-map">@lang('site.searchmap')</h4>
                                 </div>
                             </div>
                         </a>
                     </div>
                     <div class="col-lg-9 col-md-8">
                         <h2 class="pb-3 search-result">
-                            المغرب :وجدنا 44 سيارة مناسبة لطلبك
+                            {{--                            المغرب :وجدنا 44 سيارة مناسبة لطلبك--}}
                         </h2>
                         <div class="form-group mb-4 position-relative">
                             <input
                                 type="search"
                                 class="form-control search-saeeh"
-                                placeholder="ابحث عن اسم السيارة "
-                                id="search"
+                                placeholder="{{trans('site.namecar')}} "
+                                id="myInput"
+                                onkeyup="getMySearch()"
                                 name="q"
                             />
                             <div class="search-icon">
@@ -162,15 +219,8 @@
                     <div class="col-lg-3">
                         <div class="accordion mb-5 mt-3 web-view" id="accordion_filter">
                             <div class="filter-title">
-                                <div class="d-flex justify-content-between">
-                                    <h3 class="filter-count text-second fw-bold">
-                                        366 من 2666 نتيجة
-                                    </h3>
-                                    <a href="#" class="delete-result text-main fw-bold"
-                                    >ازالة</a
-                                    >
-                                </div>
-                                <h2 class="text-second mb-0">تصفيه حسب:</h2>
+
+                                <h2 class="text-second mb-0">@lang('site.filter by'):</h2>
                             </div>
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
@@ -182,7 +232,7 @@
                                         aria-expanded="true"
                                         aria-controls="accordion-filter-1"
                                     >
-                                        <h5 class="accordion-title mb-0">الماركة</h5>
+                                        <h5 class="accordion-title mb-0">@lang('site.brands')</h5>
 
                                         <div>
                                             <svg
@@ -208,113 +258,81 @@
                                         <div class="row align-items-center">
                                             <div class="custom-checkbox">
                                                 <form>
-                                                    <div class="form-group">
-                                                        <input type="checkbox" id="two" checked/>
-                                                        <label for="two">
+                                                    @foreach($CategoriesCar as $cat)
+
+                                                        <div class="form-group">
+                                                            <input type="checkbox" id="{{$cat->id}}"
+                                                                   value="{{$cat->id}}" class="check"
+                                                                   name="category_id"
+                                                                   onclick="GetAtrribute(this.id,this.name)"/>
+                                                            <label for="{{$cat->id}}">
                                 <span
                                 ><img
-                                        src="{{FRONTASSETS}}/images/cars/marka-1.png"
+
+
+                                        src="{{asset('images/categories/'.$cat->image)}}"
+                                        onerror="this.src='{{FRONTASSETS}}/images/cars/marka-1.png'"
+                                        width="30" height="30"
                                         alt="car marka"
                                     /></span>
-                                                            <span>نيسان</span>
-                                                        </label>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="checkbox" id="three"/>
-                                                        <label for="three">
-                                <span
-                                ><img
-                                        src="{{FRONTASSETS}}/images/cars/marka-2.png"
-                                        alt="car marka"
-                                    /></span>
-                                                            <span>بى ام دابليو</span>
-                                                        </label>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="checkbox" id="four"/>
-                                                        <label for="four">
-                                <span
-                                ><img
-                                        src="{{FRONTASSETS}}/images/cars/marka-3.png"
-                                        alt="car marka"
-                                    /></span>
-                                                            <span>اوبل</span>
-                                                        </label>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="checkbox" id="five"/>
-                                                        <label for="five">
-                                <span
-                                ><img
-                                        src="{{FRONTASSETS}}/images/cars/marka-4.png"
-                                        alt="car marka"
-                                    /></span>
-                                                            <span>ام جي</span>
-                                                        </label>
-                                                    </div>
+                                                                <span>{{$cat->name ?? ''}}</span>
+                                                            </label>
+                                                        </div>
+                                                    @endforeach
+
                                                 </form>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button
-                                        class="accordion-button"
-                                        type="button"
-                                        data-bs-toggle="collapse"
-                                        data-bs-target="#accordion-filter-2"
-                                        aria-expanded="true"
-                                        aria-controls="accordion-filter-2"
-                                    >
-                                        <h5 class="accordion-title mb-0">الفئة</h5>
-                                        <div>
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="15"
-                                                height="8"
-                                                viewBox="0 0 15 8"
-                                                fill="none"
-                                            >
-                                                <path
-                                                    d="M7.20766 7.19064C6.62556 7.19064 6.04345 6.96482 5.60272 6.52155L0.180867 1.06845C-0.060289 0.825909 -0.060289 0.424455 0.180867 0.181909C0.422023 -0.0606364 0.821178 -0.0606364 1.06233 0.181909L6.48419 5.635C6.88334 6.03645 7.53197 6.03645 7.93112 5.635L13.353 0.181909C13.5941 -0.0606364 13.9933 -0.0606364 14.2344 0.181909C14.4756 0.424455 14.4756 0.825909 14.2344 1.06845L8.81259 6.52155C8.37186 6.96482 7.78976 7.19064 7.20766 7.19064Z"
-                                                    fill="#005D9F"
-                                                />
-                                            </svg>
-                                        </div>
-                                    </button>
-                                </h2>
-                                <div
-                                    id="accordion-filter-2"
-                                    class="accordion-collapse collapse show"
-                                >
-                                    <div class="accordion-body">
-                                        <div class="row align-items-center">
-                                            <div class="custom-checkbox">
-                                                <form>
-                                                    <div class="form-group">
-                                                        <input type="checkbox" id="two" checked/>
-                                                        <label for="two">touareg</label>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="checkbox" id="three"/>
-                                                        <label for="three">3008</label>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="checkbox" id="four"/>
-                                                        <label for="four">GIS</label>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="checkbox" id="fou"/>
-                                                        <label for="fou">208</label>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+{{--                            <div class="accordion-item">--}}
+{{--                                <h2 class="accordion-header">--}}
+{{--                                    <button--}}
+{{--                                        class="accordion-button"--}}
+{{--                                        type="button"--}}
+{{--                                        data-bs-toggle="collapse"--}}
+{{--                                        data-bs-target="#accordion-filter-2"--}}
+{{--                                        aria-expanded="true"--}}
+{{--                                        aria-controls="accordion-filter-2"--}}
+{{--                                    >--}}
+{{--                                        <h5 class="accordion-title mb-0">@lang('site.category')</h5>--}}
+{{--                                        <div>--}}
+{{--                                            <svg--}}
+{{--                                                xmlns="http://www.w3.org/2000/svg"--}}
+{{--                                                width="15"--}}
+{{--                                                height="8"--}}
+{{--                                                viewBox="0 0 15 8"--}}
+{{--                                                fill="none"--}}
+{{--                                            >--}}
+{{--                                                <path--}}
+{{--                                                    d="M7.20766 7.19064C6.62556 7.19064 6.04345 6.96482 5.60272 6.52155L0.180867 1.06845C-0.060289 0.825909 -0.060289 0.424455 0.180867 0.181909C0.422023 -0.0606364 0.821178 -0.0606364 1.06233 0.181909L6.48419 5.635C6.88334 6.03645 7.53197 6.03645 7.93112 5.635L13.353 0.181909C13.5941 -0.0606364 13.9933 -0.0606364 14.2344 0.181909C14.4756 0.424455 14.4756 0.825909 14.2344 1.06845L8.81259 6.52155C8.37186 6.96482 7.78976 7.19064 7.20766 7.19064Z"--}}
+{{--                                                    fill="#005D9F"--}}
+{{--                                                />--}}
+{{--                                            </svg>--}}
+{{--                                        </div>--}}
+{{--                                    </button>--}}
+{{--                                </h2>--}}
+{{--                                <div--}}
+{{--                                    id="accordion-filter-2"--}}
+{{--                                    class="accordion-collapse collapse show"--}}
+{{--                                >--}}
+{{--                                    <div class="accordion-body">--}}
+{{--                                        <div class="row align-items-center">--}}
+{{--                                            <div class="custom-checkbox">--}}
+{{--                                                <form>--}}
+{{--                                                    @foreach($CategoriesCar as $cat)--}}
+{{--                                                        <div class="form-group">--}}
+{{--                                                            <input type="checkbox" id="{{$cat->name}}"  name="category_name" onclick="GetAtrribute(this.id,this.name)"/>--}}
+{{--                                                            <label for="{{$cat->name}}">{{$cat->name ?? ''}}</label>--}}
+{{--                                                        </div>--}}
+{{--                                                    @endforeach--}}
+{{--                                                </form>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
@@ -326,7 +344,7 @@
                                         aria-expanded="true"
                                         aria-controls="accordion-filter-5"
                                     >
-                                        <h5 class="accordion-title mb-0">السنة</h5>
+                                        <h5 class="accordion-title mb-0">@lang('site.year')</h5>
                                         <div>
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
@@ -351,14 +369,13 @@
                                         <div class="row align-items-center">
                                             <div class="custom-checkbox">
                                                 <form>
-                                                    <div class="form-group">
-                                                        <input type="checkbox" id="two" checked/>
-                                                        <label for="two">2010</label>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="checkbox" id="three"/>
-                                                        <label for="three">2011 </label>
-                                                    </div>
+                                                    @foreach($cars as $car)
+                                                        <div class="form-group">
+                                                            <input type="checkbox" id="{{$car->year}}"
+                                                                   value="{{$car->id}}"/>
+                                                            <label for="{{$car->year}}">{{$car->year ?? ''}}</label>
+                                                        </div>
+                                                    @endforeach
                                                 </form>
                                             </div>
                                         </div>
@@ -375,7 +392,7 @@
                                         aria-expanded="true"
                                         aria-controls="accordion-filter-6"
                                     >
-                                        <h5 class="accordion-title mb-0">اللون</h5>
+                                        <h5 class="accordion-title mb-0">@lang('site.color')</h5>
                                         <div>
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
@@ -400,14 +417,14 @@
                                         <div class="row align-items-center">
                                             <div class="custom-checkbox">
                                                 <form>
-                                                    <div class="form-group">
-                                                        <input type="checkbox" id="two" checked/>
-                                                        <label for="two">احمر </label>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="checkbox" id="three"/>
-                                                        <label for="three">اسود</label>
-                                                    </div>
+                                                    @foreach($cars as $car)
+
+                                                        <div class="form-group">
+                                                            <input type="checkbox" id="{{$car->color}}"
+                                                                   value="{{$car->id}}"/>
+                                                            <label for="{{$car->color}}">{{$car->color ?? ''}} </label>
+                                                        </div>
+                                                    @endforeach
                                                 </form>
                                             </div>
                                         </div>
@@ -424,7 +441,7 @@
                                         aria-expanded="true"
                                         aria-controls="accordion-filter-7"
                                     >
-                                        <h5 class="accordion-title mb-0">السعر باليوم</h5>
+                                        <h5 class="accordion-title mb-0"> @lang('site.price')</h5>
                                         <div>
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
@@ -449,18 +466,15 @@
                                         <div class="row align-items-center">
                                             <div class="custom-checkbox">
                                                 <form>
-                                                    <div class="form-group">
-                                                        <input type="checkbox" id="two" checked/>
-                                                        <label for="two"> 1000-0 دينار كويتى </label>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="checkbox" id="three"/>
-                                                        <label for="three"> 2000-1000 دينار كويتى </label>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="checkbox" id="four"/>
-                                                        <label for="four"> 3000-2000 دينار كويتى </label>
-                                                    </div>
+                                                    @foreach($cars as $car)
+                                                        <div class="form-group">
+                                                            <input type="checkbox" id="{{$car->fixed_price}}"
+                                                                   value="{{$car->id}}"/>
+                                                            <label
+                                                                for="{{$car->fixed_price}}"> {{$car->fixed_price ?? 0 }}</label>
+                                                        </div>
+                                                    @endforeach
+
                                                 </form>
                                             </div>
                                         </div>
@@ -691,7 +705,7 @@
                                             aria-expanded="true"
                                             aria-controls="accordion-filter-1"
                                         >
-                                            <h5 class="accordion-title mb-0">الماركة</h5>
+                                            <h5 class="accordion-title mb-0">@lang('site.brands')</h5>
 
                                             <div>
                                                 <svg
@@ -987,7 +1001,7 @@
                                             aria-expanded="true"
                                             aria-controls="accordion-filter-4"
                                         >
-                                            <h5 class="accordion-title mb-0">التقييمات</h5>
+                                            <h5 class="accordion-title mb-0">@lang('site.comments')</h5>
                                             <div>
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -1161,169 +1175,144 @@
                     <div class="col-lg-9">
                         <div class="row">
                             <div class="tabs-detaills mt-3" id="tabs-detaills">
-                                <div class="d-flex justify-content-lg-between flex-wrap">
-                                    <div class="car-sort-by">
-                                        الترتيب حسب
-                                    </div>
-                                    <ul class="tabs-nav-detaills list-unstyled d-flex mb-0 car-tabs flex-wrap">
+                                {{--                                <div class="d-flex justify-content-lg-between flex-wrap">--}}
+                                {{--                                    <div class="car-sort-by">--}}
+                                {{--                                        الترتيب حسب--}}
+                                {{--                                    </div>--}}
+                                {{--                                    <ul class="tabs-nav-detaills list-unstyled d-flex mb-0 car-tabs flex-wrap">--}}
 
-                                        <li>
-                                            <a
-                                                href="#tab-car-1"
-                                                class="tab-link d-flex align-items-center justify-content-center "
-                                            >
-                                                الافضل
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a
-                                                href="#tab-car-2"
-                                                class="tab-link d-flex align-items-center justify-content-center"
-                                            >
-                                                السعر من اعلي الي الاقل
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a
-                                                href="#tab-car-3"
-                                                class="tab-link d-flex align-items-center justify-content-center"
-                                            >
-                                                السعر من اقل الي الاعلي
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a
-                                                href="#tab-car-4"
-                                                class="tab-link d-flex align-items-center justify-content-center"
-                                            >
-                                                الاعلى تقيما
-                                            </a>
-                                        </li>
-                                    </ul>
+                                {{--                                        <li>--}}
+                                {{--                                            <a--}}
+                                {{--                                                href="#tab-car-1"--}}
+                                {{--                                                class="tab-link d-flex align-items-center justify-content-center "--}}
+                                {{--                                            >--}}
+                                {{--                                                الافضل--}}
+                                {{--                                            </a>--}}
+                                {{--                                        </li>--}}
+                                {{--                                        <li>--}}
+                                {{--                                            <a--}}
+                                {{--                                                href="#tab-car-2"--}}
+                                {{--                                                class="tab-link d-flex align-items-center justify-content-center"--}}
+                                {{--                                            >--}}
+                                {{--                                                السعر من اعلي الي الاقل--}}
+                                {{--                                            </a>--}}
+                                {{--                                        </li>--}}
+                                {{--                                        <li>--}}
+                                {{--                                            <a--}}
+                                {{--                                                href="#tab-car-3"--}}
+                                {{--                                                class="tab-link d-flex align-items-center justify-content-center"--}}
+                                {{--                                            >--}}
+                                {{--                                                السعر من اقل الي الاعلي--}}
+                                {{--                                            </a>--}}
+                                {{--                                        </li>--}}
+                                {{--                                        <li>--}}
+                                {{--                                            <a--}}
+                                {{--                                                href="#tab-car-4"--}}
+                                {{--                                                class="tab-link d-flex align-items-center justify-content-center"--}}
+                                {{--                                            >--}}
+                                {{--                                                الاعلى تقيما--}}
+                                {{--                                            </a>--}}
+                                {{--                                        </li>--}}
+                                {{--                                    </ul>--}}
 
-                                </div>
+                                {{--                                </div>--}}
 
                                 <ul class="tabs-contentt list-unstyled my-4">
-
+                                    @if(!empty($cars))
                                         <li id="tab-car-1">
                                             @foreach($cars as $car )
 
-                                            <div
-                                                class="card card-department round-border mb-3 p-md-3 p-2"
-                                            >
+                                                <div
+                                                    class="card card-department round-border mb-3 p-md-3 p-2"
+                                                >
 
 
-                                                <div class="row g-0">
-                                                    <div class="col-md-4 position-relative">
-                                                        <div
-                                                            class="owl-carousel owl-theme department-img-carousel"
-                                                            dir="ltr"
-                                                        >
-                                                            <div>
-                                                                <button class="add-to-wishlist">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                                         height="24" viewBox="0 0 24 24" fill="none">
-                                                                        <path
-                                                                            d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"
-                                                                            fill="#FF8600"></path>
-                                                                    </svg>
-                                                                </button>
-                                                                <img
-                                                                    loading="lazy"
-                                                                    src="{{FRONTASSETS}}/images/cars/car-card-1.png"
-                                                                    class="department-img-list of-cover car-image"
-                                                                    alt="image 1"
-                                                                />
-                                                            </div>
-                                                            <div>
-                                                                <button class="add-to-wishlist">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="26"
-                                                                         height="26" viewBox="0 0 26 26" fill="none">
-                                                                        <path
-                                                                            d="M23.1494 3.12177C22.563 2.44911 21.8667 1.9155 21.1003 1.55144C20.334 1.18738 19.5126 1 18.6831 1C17.8535 1 17.0321 1.18738 16.2658 1.55144C15.4994 1.9155 14.8032 2.44911 14.2167 3.12177L12.9997 4.51714L11.7826 3.12177C10.5981 1.76368 8.99153 1.0007 7.31633 1.0007C5.64114 1.0007 4.03455 1.76368 2.85001 3.12177C1.66547 4.47987 1 6.32185 1 8.24249C1 10.1631 1.66547 12.0051 2.85001 13.3632L4.06705 14.7586L12.9997 25L21.9323 14.7586L23.1494 13.3632C23.7361 12.6909 24.2015 11.8926 24.519 11.0139C24.8366 10.1353 25 9.19356 25 8.24249C25 7.29142 24.8366 6.34967 24.519 5.47104C24.2015 4.59241 23.7361 3.79412 23.1494 3.12177Z"
-                                                                            fill="white" stroke="#CACACA"
-                                                                            stroke-width="1.5" stroke-linecap="round"
-                                                                            stroke-linejoin="round"></path>
-                                                                    </svg>
-                                                                </button>
-                                                                <img
-                                                                    loading="lazy"
-                                                                    src="{{FRONTASSETS}}/images/cars/car-card-2.png"
-                                                                    class="department-img-list of-cover car-image"
-                                                                    alt="image 1"
-                                                                />
-                                                            </div>
-                                                            <div>
-                                                                <button class="add-to-wishlist">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="26"
-                                                                         height="26" viewBox="0 0 26 26" fill="none">
-                                                                        <path
-                                                                            d="M23.1494 3.12177C22.563 2.44911 21.8667 1.9155 21.1003 1.55144C20.334 1.18738 19.5126 1 18.6831 1C17.8535 1 17.0321 1.18738 16.2658 1.55144C15.4994 1.9155 14.8032 2.44911 14.2167 3.12177L12.9997 4.51714L11.7826 3.12177C10.5981 1.76368 8.99153 1.0007 7.31633 1.0007C5.64114 1.0007 4.03455 1.76368 2.85001 3.12177C1.66547 4.47987 1 6.32185 1 8.24249C1 10.1631 1.66547 12.0051 2.85001 13.3632L4.06705 14.7586L12.9997 25L21.9323 14.7586L23.1494 13.3632C23.7361 12.6909 24.2015 11.8926 24.519 11.0139C24.8366 10.1353 25 9.19356 25 8.24249C25 7.29142 24.8366 6.34967 24.519 5.47104C24.2015 4.59241 23.7361 3.79412 23.1494 3.12177Z"
-                                                                            fill="white" stroke="#CACACA"
-                                                                            stroke-width="1.5" stroke-linecap="round"
-                                                                            stroke-linejoin="round"></path>
-                                                                    </svg>
-                                                                </button>
-                                                                <img
-                                                                    loading="lazy"
-                                                                    src="{{FRONTASSETS}}/images/cars/car-card-1.png"
-                                                                    class="department-img-list of-cover car-image"
-                                                                    alt="image 1"
-                                                                />
+                                                    <div class="row g-0">
+                                                        <div class="col-md-4 position-relative">
+                                                            <div
+                                                                class="owl-carousel owl-theme department-img-carousel"
+                                                                dir="ltr" id="myUL"
+                                                            >
+                                                                @foreach(json_decode($car->images)  as $img)
+                                                                    <div class="city-item">
+                                                                        <button class="add-to-wishlist">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                 width="24"
+                                                                                 height="24" viewBox="0 0 24 24"
+                                                                                 fill="none">
+                                                                                <path
+                                                                                    d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"
+                                                                                    fill="#FF8600"></path>
+                                                                            </svg>
+                                                                        </button>
+                                                                        <img
+                                                                            loading="lazy"
+                                                                            src="{{asset('images/cars/'.$img)}}"
+                                                                            onerror="this.src='{{FRONTASSETS}}/images/cars/car-card-1.png'"
+
+                                                                            class="department-img-list of-cover car-image"
+                                                                            alt="image 1"
+                                                                        />
+                                                                    </div>
+                                                                @endforeach
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-8">
-                                                        <div
-                                                            class="card-body card-car-body position-relative"
-                                                        >
+                                                        <div class="col-md-8">
                                                             <div
-                                                                class="row justify-content-between align-items-center mb-3 small"
+                                                                class="card-body card-car-body position-relative"
                                                             >
-                                                                <div class="col-auto mb-lg-0 mb-3">
+                                                                <div
+                                                                    class="row justify-content-between align-items-center mb-3 small"
+                                                                >
+                                                                    <div class="col-auto mb-lg-0 mb-3">
                                   <span class="text-main number-ads"
-                                  >رقم الاعلان( {{$car->id ?? ''}})</span
+                                  > @lang('site.id number')( {{$car->id ?? ''}})</span
                                   >
-                                                                </div>
-                                                                <div class="col-auto">
-                                                                    <div
-                                                                        class="d-flex justify-content-center align-items-center"
-                                                                    >
+
+
+                                                                    </div>
+                                                                    <div class="col-auto">
                                                                         <div
-                                                                            class="department-badge bg-main text-white">
-                                                                            <div class="pt-1">5</div>
-                                                                            <div>
-                                                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                                                     width="25" height="25"
-                                                                                     viewBox="0 0 25 25" fill="none">
-                                                                                    <path
-                                                                                        d="M12.7529 19.6185L20.1689 24.3301L18.2009 15.4501L24.7529 9.47534L16.1249 8.70481L12.7529 0.330078L9.38093 8.70481L0.75293 9.47534L7.30493 15.4501L5.33693 24.3301L12.7529 19.6185Z"
-                                                                                        fill="white"/>
-                                                                                </svg>
+                                                                            class="d-flex justify-content-center align-items-center"
+                                                                        >
+                                                                            <div
+                                                                                class="department-badge bg-main text-white">
+                                                                                <div
+                                                                                    class="pt-1">{{$car->CarReview->count() ?? 0}}</div>
+                                                                                <div>
+                                                                                    <svg
+                                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                                        width="25" height="25"
+                                                                                        viewBox="0 0 25 25" fill="none">
+                                                                                        <path
+                                                                                            d="M12.7529 19.6185L20.1689 24.3301L18.2009 15.4501L24.7529 9.47534L16.1249 8.70481L12.7529 0.330078L9.38093 8.70481L0.75293 9.47534L7.30493 15.4501L5.33693 24.3301L12.7529 19.6185Z"
+                                                                                            fill="white"/>
+                                                                                    </svg>
+                                                                                </div>
                                                                             </div>
-                                                                        </div>
-                                                                        <div class="number-ads gray-txt">
-                                                                            64 من التقييمات
+                                                                            <div class="number-ads gray-txt">
+
+                                                                                {{$car->carComment->count() ?? 0}} @lang('site.comments')
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <h2 class="card-title mb-2">
+                                                                <h2 class="card-title mb-2">
 
-                                                                {{$car->name ?? ''}}
-                                                            </h2>
+                                                                    <label>{{$car->name ?? ''}}</label>
+                                                                </h2>
 
-                                                            <div class="gray-txt number-ads pb-2">
+                                                                <div class="gray-txt number-ads pb-2">
                                 <span
                                 >
 
   {{$car->description ?? ''}}
                                 </span>
-                                                            </div>
-                                                            <div
-                                                                class="text-gray-2 number-ads d-flex align-items-center"
-                                                            >
-                                                                <div>
+                                                                </div>
+                                                                <div
+                                                                    class="text-gray-2 number-ads d-flex align-items-center"
+                                                                >
+                                                                    <div>
                                   <span class="ps-2">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -1340,51 +1329,38 @@
                                       />
                                     </svg>
                                   </span>
-                                                                    <span>5 مقاعد</span>
-                                                                </div>
-                                                                <div class="padding-35">
-                                  <span class="ps-2">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="20"
-                                        height="20"
-                                        viewBox="0 0 20 20"
-                                        fill="none"
-                                    >
-                                      <path
-                                          d="M16.25 5H13.3333V4.16667C13.3326 3.72484 13.1568 3.3013 12.8444 2.98889C12.532 2.67647 12.1084 2.50066 11.6666 2.5H8.33329C7.89147 2.50066 7.46793 2.67647 7.15551 2.98889C6.84309 3.3013 6.66729 3.72484 6.66663 4.16667V5H3.74996C3.19756 5.00044 2.66791 5.22008 2.27731 5.61068C1.8867 6.00129 1.66707 6.53093 1.66663 7.08333V15.4167C1.66707 15.9691 1.8867 16.4987 2.27731 16.8893C2.66791 17.2799 3.19756 17.4996 3.74996 17.5H16.25C16.8024 17.4996 17.332 17.2799 17.7226 16.8893C18.1132 16.4987 18.3329 15.9691 18.3333 15.4167V7.08333C18.3329 6.53093 18.1132 6.00129 17.7226 5.61068C17.332 5.22008 16.8024 5.00044 16.25 5ZM7.49996 4.16667C7.49996 3.94565 7.58776 3.73369 7.74404 3.57741C7.90032 3.42113 8.11228 3.33333 8.33329 3.33333H11.6666C11.8876 3.33333 12.0996 3.42113 12.2559 3.57741C12.4122 3.73369 12.5 3.94565 12.5 4.16667V5H7.49996V4.16667ZM17.5 15.4167C17.5 15.7482 17.3683 16.0661 17.1338 16.3005C16.8994 16.535 16.5815 16.6667 16.25 16.6667H3.74996C3.41844 16.6667 3.1005 16.535 2.86608 16.3005C2.63166 16.0661 2.49996 15.7482 2.49996 15.4167V10.0225L7.36829 11.6458C7.41081 11.6597 7.45525 11.6667 7.49996 11.6667H12.5C12.5447 11.6667 12.5891 11.6597 12.6316 11.6458L17.5 10.0225V15.4167ZM17.5 9.17167C17.4555 9.17 17.411 9.17563 17.3683 9.18833L12.4325 10.8333H7.56746L2.63163 9.1875C2.58894 9.1748 2.54446 9.16917 2.49996 9.17083V7.08333C2.49996 6.75181 2.63166 6.43387 2.86608 6.19945C3.1005 5.96503 3.41844 5.83333 3.74996 5.83333H16.25C16.5815 5.83333 16.8994 5.96503 17.1338 6.19945C17.3683 6.43387 17.5 6.75181 17.5 7.08333V9.17167Z"
-                                          fill="#FF8600"
-                                      />
-                                    </svg>
-                                  </span>
-                                                                    <span>1شنطه كبيرة</span>
-                                                                </div>
-                                                            </div>
+                                                                        <span> @lang('site.car_numbers') {{$car->car_numbers ?? 0}}</span>
+                                                                    </div>
+                                                                    <div class="padding-35">
 
-                                                            <div
-                                                                class="d-flex align-items-center justify-content-between mt-3 display-block-mobile"
-                                                            >
-                                                                <div class="department-price">
-                                                                    <span class="text-gray-2"> @lang('site.price'):</span>
-                                                                    <span class="fw-bold text-main"
-                                                                    >
+                                                                    </div>
+                                                                </div>
+
+                                                                <div
+                                                                    class="d-flex align-items-center justify-content-between mt-3 display-block-mobile"
+                                                                >
+                                                                    <div class="department-price">
+                                                                    <span
+                                                                        class="text-gray-2"> @lang('site.price'):</span>
+                                                                        <span class="fw-bold text-main"
+                                                                        >
 
                                                                      {{$car->fixed_price ?? ''}}
                                   </span>
-                                                                </div>
-                                                                <div
-                                                                    class="details-btn d-flex align-items-center justify-content-center"
-                                                                >
-                                                                    <a href="{{route('detailcar',$car->id)}}"> @lang('site.details')</a>
+                                                                    </div>
+                                                                    <div
+                                                                        class="details-btn d-flex align-items-center justify-content-center"
+                                                                    >
+                                                                        <a href="{{route('detailcar',$car->id)}}"> @lang('site.details')</a>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
                                             @endforeach
                                         </li>
-
+                                    @endif
                                     <li id="tab-car-2">
                                         <div
                                             class="card card-department round-border mb-3 p-md-3 p-2"
@@ -1460,7 +1436,7 @@
                                                         >
                                                             <div class="col-auto mb-lg-0 mb-3">
                                   <span class="text-main number-ads"
-                                  >رقم الاعلان(12)</span
+                                  > @lang('site.id number')12)</span
                                   >
                                                             </div>
                                                             <div class="col-auto">
@@ -1887,7 +1863,7 @@
                                                             <div
                                                                 class="details-btn d-flex align-items-center justify-content-center"
                                                             >
-                                                                <a href="#"> @lang('site.details')</a>
+                                                                <a href="{{route('detailcar',$car->id ?? 0)}}"> @lang('site.details')</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1905,52 +1881,19 @@
                                 <ul
                                     class="pagination mb-0 justify-content-lg-start justify-content-center"
                                 >
-                                    <li class="page-item">
-                                        <a class="page-link rounded-3" href="javascript:void(0)">
-                                            <em
-                                                class="fas fa-chevron-right small text-main"
-                                                aria-hidden="true"
-                                            ></em>
-                                        </a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="javascript:void(0)">1</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link active" href="javascript:void(0)"
-                                        >2</a
-                                        >
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="javascript:void(0)">3</a>
-                                    </li>
-                                    <li
-                                        class="page-item d-flex justify-content-center align-items-center"
-                                    >
-                                        <a class="text-light-gray" href="javascript:void(0)"
-                                        >........</a
-                                        >
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="javascript:void(0)">50</a>
-                                    </li>
-                                    <li class="page-item disabled">
-                                        <a class="page-link rounded-3">
-                                            <em
-                                                class="fas fa-chevron-left small"
-                                                aria-hidden="true"
-                                            ></em>
-                                        </a>
-                                    </li>
+                                    {{--                                    <div> {{ $cars->links() }} </div>  <div> {{ $cars->links() }} </div>--}}
+                                    <div>{{ $cars->appends(request()->query())->links()}} </div>
+
                                 </ul>
-                                <div class="text-main result-count">النتايج 24 - 123</div>
                             </nav>
                         </div>
                         <div class="card card-department round-border mb-3 p-3">
-                            <h4 class="department-title mb-3">سجل الدخول ووفّر المال</h4>
+                            <h4 class="department-title mb-3">   @lang('site.Sign in and save money')</h4>
                             <p class="mb-4 department-txt">
-                                قد تتمكن من توفير <span class="fw-bold text-main"> 10% </span>
-                                أو أكثر في مكان الإقامة هذا عند تسجيل الدخول
+                                @lang('site.You may be able to save')
+
+                                <span class="fw-bold text-main"> 10% </span>
+                                @lang('site.or more at this property at check-in')
                             </p>
                             <ul class="d-flex align-items-center">
                                 <li
@@ -1983,3 +1926,99 @@
         </section>
     </main>
 @endsection
+
+@section('scripts')
+    <script>
+
+        function getMySearch() {
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById("myInput");
+            console.log('input', input);
+            filter = input.value.toLowerCase();
+            ul = document.getElementById("myUL");
+            li = ul.getElementsByClassName("city-item");
+            console.log(li);
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("label");
+
+                txtValue = a.textContent || a.innerText;
+                console.log(txtValue);
+                if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+
+        function GetAtrribute(id,name) {
+            console.log('id', id);
+            console.log('name', name);
+            var checkbox = document.getElementById(id);
+
+            if (checkbox.checked == true) {
+
+
+
+
+                    $.ajaxSetup({
+                    headers: {
+                    'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                }
+                });
+
+                    // $("#btn-submit").click(function(e){
+
+                    // $("#add-form").submit(function(e){
+
+
+                        // $('#spinnerss').show();
+
+                        // e.preventDefault();
+
+                        var data =id,name;
+
+
+                        console.log(data);
+                        var url = '{{route('CheckCar')}}';
+
+                        $.ajax({
+                            url:url,
+                            method:'POST',
+                            cache: false,
+                            processData:false,
+                            contentType: false,
+                            enctype: 'multipart/form-data',
+                            data: data,
+                            success:function(response){
+
+                                if(response.success){
+                                    {{--$('#spinnerss').hide();--}}
+                                    {{--window.location.href ='{{route('dashboard.products.index')}}';--}}
+
+
+                                }else{
+                                    alert("Error")
+                                }
+                            },
+                            error:function(result){
+                                console.log(result)
+
+                            }
+                        });
+
+
+
+
+
+
+            }
+            // console.log(checkbox, 'clicks');
+        }
+
+
+    </script>
+
+@endsection
+
+

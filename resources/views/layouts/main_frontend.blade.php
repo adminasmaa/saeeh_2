@@ -65,7 +65,7 @@
 <body>
 {!! headerweb() !!}
 
-   
+
 
 @yield('content')
 
@@ -112,10 +112,10 @@ $(document).ready(function () {
         var lis1 = e.target.value;
         $.get("{{url('countrycities')}}/" + lis1, function (data) {
             $('#list7').empty();
-            $('#list7').append('<option>@lang('site.select')</option>');
+            $('#list7').append('<option value="">@lang('site.select')</option>');
             $.each(data, function (key, value) {
                 $('#list7').append('<option value="' + value.id + '">' + value.name_ar + '</option>');
-                
+
 
             });
             $("#list7").trigger('change');
@@ -126,10 +126,10 @@ $(document).ready(function () {
         var lis1 = e.target.value;
         $.get("{{url('countrycities')}}/" + lis1, function (data) {
             $('#city_id').empty();
-            $('#city_id').append('<option>@lang('site.select')</option>');
+            $('#city_id').append('<option value="">@lang('site.select')</option>');
             $.each(data, function (key, value) {
                 $('#city_id').append('<option value="' + value.id + '">' + value.name_ar + '</option>');
-                
+
 
             });
             $("#city_id").trigger('change');
@@ -144,7 +144,7 @@ $(document).ready(function () {
             $('#list2').append('<option>@lang('site.select')</option>');
             $.each(data, function (key, value) {
                 $('#list2').append('<option value="' + value.category_id + '">' + value.name_ar + '</option>');
-                
+
 
             });
             $("#list2").trigger('change');
@@ -152,15 +152,15 @@ $(document).ready(function () {
     });
 
 
-    
+
     $('#list6').on('change', function (e) {
         var lis1 = e.target.value;
         $.get("{{url('carcategory')}}/" + lis1, function (data) {
             $('#list9').empty();
-            $('#list9').append('<option>@lang('site.select')</option>');
+            $('#list9').append('<option value="">@lang('site.select')</option>');
             $.each(data, function (key, value) {
                 $('#list9').append('<option value="' + value.id + '">' + value.name_ar + '</option>');
-                
+
 
             });
             $("#list9").trigger('change');
@@ -176,7 +176,7 @@ $(document).ready(function () {
     //         $('#list4').append('<option>@lang('site.select')</option>');
     //         $.each(data, function (key, value) {
     //             $('#list4').append('<option value="' + value.id + '">' + value + '</option>');
-                
+
 
     //         });
     //         $("#list2").trigger('change');
