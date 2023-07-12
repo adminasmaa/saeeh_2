@@ -55,6 +55,14 @@ class CarController extends Controller
 
     }
 
+
+    public function CheckCar(Request $request)
+    {
+
+        return $request;
+    }
+
+
     public function detailcar($id)
     {
 
