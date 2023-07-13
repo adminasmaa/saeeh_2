@@ -291,6 +291,19 @@
 
                                                 </div>
                                                 <br>
+                                                <div class="col-md-6 form-group">
+                                                    <label class="form-label">@lang('site.ads_status')</label>
+                                                    <select class="form-control btn-square" name="ads_status_id">
+                                                        <option selected value="0">@lang('site.select')</option>
+                                                        @foreach($adsStatus as $ads_status)
+
+                                                            <option value="{{$ads_status->id}}"
+                                                                    @if($aqar->ads_status_id==$ads_status->id) selected @endif>{{$ads_status->status?? ''}}</option>
+
+                                                        @endforeach
+
+                                                    </select>
+                                                </div>
                                                 <div class="row">
                                                     <div class="form-group col-12 p-2">
                                                         <label>@lang('site.display_photo')</label>

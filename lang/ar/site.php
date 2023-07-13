@@ -13,6 +13,7 @@ return [
     'Total' => 'الاجمالي',
     'reviews' => 'المراجعات',
     'comments'=>'التقيمات',
+    'ads_status'=>'حالات الاعلان',
 'You may be able to save'=>'قد تتمكن من توفير ',
     'Sign in and save money'=>'سجل الدخول ووفّر المال',
     'or more at this property at check-in'=>'أو أكثر في مكان الإقامة هذا عند تسجيل الدخول',

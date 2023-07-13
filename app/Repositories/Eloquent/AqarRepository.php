@@ -10,6 +10,7 @@ use App\Models\AnotherRoom;
 use App\Models\Area;
 use App\Models\City;
 use App\Models\Country;
+use App\Models\AdsStatus;
 use App\Models\AqarSections;
 use App\Repositories\Interfaces\AqarRepositoryInterface as AqarRepositoryInterfaceAlias;
 use Illuminate\Support\Facades\DB;
@@ -38,9 +39,10 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
         $categories = Category::where('type',1)->where('parent_id',1)->where('active',1)->get();
         $Area = Area::where('active',1)->get();
         $countries = Country::all();
+        $adsStatus = AdsStatus::all();
         $cities = City::all();
 
-        return view('dashboard.aqars.create', compact('users', 'categories','Area', 'countries', 'cities'));
+        return view('dashboard.aqars.create', compact('users', 'categories','Area', 'countries', 'cities', 'adsStatus'));
     }
 
     public function edit($Id)
@@ -54,7 +56,8 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
         $Area = Area::where('active',1)->get();
         $countries = Country::all();
         $cities = City::all();
-        return view('dashboard.aqars.edit', compact('aqar', 'users', 'categories','Area', 'countries', 'cities'));
+        $adsStatus = AdsStatus::all();
+        return view('dashboard.aqars.edit', compact('aqar', 'users', 'categories','Area', 'countries', 'cities', 'adsStatus'));
     }
 
     public function show($Id)
@@ -68,7 +71,8 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
         $Area = Area::where('active',1)->get();
         $countries = Country::all();
         $cities = City::all();
-        return view('dashboard.aqars.show', compact('aqar', 'users', 'categories','Area', 'countries', 'cities'));
+        $adsStatus = AdsStatus::all();
+        return view('dashboard.aqars.show', compact('aqar', 'users', 'categories','Area', 'countries', 'cities', 'adsStatus'));
     }
 
     public function store($request)

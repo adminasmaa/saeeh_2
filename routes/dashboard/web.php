@@ -50,6 +50,7 @@ use App\Http\Controllers\Dashboard\ReviewElementController;
 use App\Http\Controllers\Dashboard\AqarReviewController;
 use App\Http\Controllers\Dashboard\CarReviewController;
 use App\Http\Controllers\Dashboard\PlaceReviewController;
+use App\Http\Controllers\Dashboard\AdsStatusController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -199,6 +200,9 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
         //place_reviews
         Route::resource('place_reviews', PlaceReviewController::class);
+
+        //AdsStatus
+        Route::resource('ads_status', AdsStatusController::class);
 
     }); //end of dashboard routes
 });

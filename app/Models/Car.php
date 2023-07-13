@@ -52,6 +52,7 @@ Car extends Model
         'category_id', //unsigned
         'sub_category_id',
         'country_id',
+        'ads_status_id',
         'city_id',
     ];
 

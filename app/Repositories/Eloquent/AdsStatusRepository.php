@@ -3,19 +3,19 @@
 namespace App\Repositories\Eloquent;
 
 
-use App\Models\Floor;
-use App\Repositories\Interfaces\FloorRepositoryInterface as IFloorRepositoryAlias;
+use App\Models\AdsStatus;
+use App\Repositories\Interfaces\AdsStatusRepositoryInterface as IAdsStatusRepositoryAlias;
 use Illuminate\Support\Facades\Auth;
 
 use Alert;
 
-class FloorRepository implements IFloorRepositoryAlias
+class AdsStatusRepository implements IAdsStatusRepositoryAlias
 {
     public function getAll($data)
     {
-        return $data->render('dashboard.floors.index', [
-            'title' => trans('site.floors'),
-            'model' => 'floors',
+        return $data->render('dashboard.ads_status.index', [
+            'title' => trans('site.ads_status'),
+            'model' => 'ads_status',
             'count' => $data->count(),
         ]);
     }
@@ -25,31 +25,31 @@ class FloorRepository implements IFloorRepositoryAlias
         // TODO: Implement create() method.
 
 
-        return view('dashboard.floors.create');
+        return view('dashboard.ads_status.create');
     }
 
-    public function edit($data)
+    public function edit($adsStatus)
     {
         // TODO: Implement edit() method.
-        $data = Floor::find($data);
+        $adsStatus = AdsStatus::find($adsStatus);
 
-        return view('dashboard.floors.edit',compact('data'));
+        return view('dashboard.ads_status.edit',compact('adsStatus'));
     }
 
     public function show($Id)
     {
         // TODO: Implement show() method.
-        $data = Floor::find($Id);
+        $adsStatus = AdsStatus::find($Id);
 
-        return view('dashboard.floors.show',compact('data'));
+        return view('dashboard.ads_status.show',compact('adsStatus'));
     }
 
-    public function destroy($data)
+    public function destroy($adsStatus)
     {
         // TODO: Implement destroy() method.
 
 
-        $result = $data->delete();
+        $result = $adsStatus->delete();
         if ($result) {
             Alert::toast('Deleted', __('site.deleted_successfully'));
         } else {
@@ -65,34 +65,34 @@ class FloorRepository implements IFloorRepositoryAlias
         // TODO: Implement store() method.
 
         $request_data = $request->all();
-        $data = Floor::create($request_data);
+        $adsStatus = AdsStatus::create($request_data);
 
 
-        if ($data) {
+        if ($adsStatus) {
             Alert::success('Success', __('site.added_successfully'));
 
-            return redirect()->route('dashboard.floors.index');
+            return redirect()->route('dashboard.ads_status.index');
 
         }
     }
 
-    public function update($data, $request)
+    public function update($adsStatus, $request)
     {
         // TODO: Implement update() method.
 
 
         $request_data = $request->all();
 
-        $data->update($request_data);
+        $adsStatus->update($request_data);
 
 
-        if ($data) {
+        if ($adsStatus) {
             Alert::success('Success', __('site.updated_successfully'));
         } else {
             Alert::error('Error', __('site.update_faild'));
 
         }
 
-        return redirect()->route('dashboard.floors.index');
+        return redirect()->route('dashboard.ads_status.index');
     }
 }

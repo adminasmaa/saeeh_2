@@ -500,7 +500,6 @@
                                         <tr>
                                             <td>
                                                 <div class="row">
-                                                    <input type="hidden" name="item[]" class="form-control" value="{{$x??0}}"/>
                                                     <input type="hidden" value="{{ $service->id ?? '' }}" name="id[]" class="form-control" />
                                                     <div class="col-md-5 form-group col-12">
                                                         <label>@lang('site.name_ar')</label>

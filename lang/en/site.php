@@ -14,6 +14,7 @@ return [
     'crews'=>'Crews',
     'Saeeh' => 'Saeeh',
     'home'=>'Home',
+    'ads_status'=>'AdsStatus',
     'excellent'=>'Excellent',
     'Customer reviews'=>'Customer reviews',
     'comments'=>'Comments',
