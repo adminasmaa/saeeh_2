@@ -19,7 +19,6 @@ class Aqar extends Model
     protected $fillable = [
         'name_ar', // required
         'name_en', // nullable
-        'status', // required ,default (0)
         'fixed_price', // nullable ,float
         'changed_price', // nullable ,json
         'main_image', // required
@@ -56,6 +55,7 @@ class Aqar extends Model
         'details',//nullable
         'map_link',//nullable
         'country_id',
+        'ads_status_id',
         'city_id',
     ];
     // relations

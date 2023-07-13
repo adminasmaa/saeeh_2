@@ -48,7 +48,9 @@ use App\Repositories\Eloquent\ReviewElementRepository;
 use App\Repositories\Eloquent\AqarReviewRepository;
 use App\Repositories\Eloquent\CarReviewRepository;
 use App\Repositories\Eloquent\PlaceReviewRepository;
+use App\Repositories\Eloquent\AdsStatusRepository;
 
+use App\Repositories\Interfaces\AdsStatusRepositoryInterface;
 use App\Repositories\Interfaces\ContactRepositoryInterface;
 use App\Repositories\Interfaces\PoolRepositoryInterface;
 use App\Repositories\Interfaces\AdvertisingRepositoryInterface;
@@ -162,6 +164,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(AqarReviewRepositoryInterface::class, AqarReviewRepository::class);
         $this->app->bind(CarReviewRepositoryInterface::class, CarReviewRepository::class);
         $this->app->bind(PlaceReviewRepositoryInterface::class, PlaceReviewRepository::class);
+        $this->app->bind(AdsStatusRepositoryInterface::class, AdsStatusRepository::class);
 
     }
 

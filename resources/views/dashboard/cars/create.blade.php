@@ -239,6 +239,18 @@
                                         </select>
                                     </div>
 
+                                    <div class="col-md-6 form-group">
+                                                    <label class="form-label">@lang('site.ads_status')</label>
+                                                    <select class="form-control btn-square" name="ads_status_id" id="ads_status_id">
+                                                        <option selected value="0">@lang('site.select')</option>
+                                                        @foreach($adsStatus as $ads_status)
+
+                                                            <option value="{{$ads_status->id}}">{{$ads_status->status ?? ''}}</option>
+
+                                                        @endforeach
+
+                                                    </select>
+                                    </div>
                                     <div class="row">
                                                 <div class="col-md-6 form-group">
                                                     <label class="form-label">@lang('site.country')</label>
@@ -431,7 +443,21 @@
                 });
             })
         })
+        // $('#category_id').on('change',function(e){
+        //     var categoryId = e.target.value;
 
+
+
+        //     $.get("{{url('dashboard/SubCategories')}}/"+categoryId, function(data){
+        //         console.log(data);
+        //         $('#sub_category_id').empty();
+        //         $('#sub_category_id').append('<option>  Select Please  </option>');
+        //         $.each(data, function(key, value){
+        //             $('#sub_category_id').append('<option value="'+value.id+'">'+value.name_ar+'</option>')
+
+        //         });
+        //     })
+        // })
     </script>
 <script>
     var imgUploads = document.getElementById("upload-imgs"),

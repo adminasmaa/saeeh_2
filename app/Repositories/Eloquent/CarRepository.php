@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
 use App\Models\City;
 use App\Models\Country;
+use App\Models\AdsStatus;
 use Alert;
 
 class CarRepository implements CarRepositoryInterfaceAlias
@@ -37,7 +38,9 @@ class CarRepository implements CarRepositoryInterfaceAlias
         $categories = Category::where('parent_id','=',2)->where('type','=',2)->get();
         $countries = Country::all();
         $cities = City::all();
-        return view('dashboard.cars.create', compact('users', 'categories','countries', 'cities'));
+        $adsStatus = AdsStatus::all();
+
+        return view('dashboard.cars.create', compact('users', 'categories','countries', 'cities', 'adsStatus'));
     }
 
     public function edit($Id)
@@ -52,9 +55,9 @@ class CarRepository implements CarRepositoryInterfaceAlias
         $subcategories = Category::where('parent_id','!=',2)->where('type','=',2)->get();
         $countries = Country::all();
         $cities = City::all();
+        $adsStatus = AdsStatus::all();
 
-
-        return view('dashboard.cars.edit', compact('car', 'users', 'categories','subcategories', 'countries', 'cities'));
+        return view('dashboard.cars.edit', compact('car', 'users', 'categories','subcategories', 'countries', 'cities', 'adsStatus'));
     }
 
     public function show($Id)
@@ -68,8 +71,9 @@ class CarRepository implements CarRepositoryInterfaceAlias
         $subcategories = Category::get();
         $countries = Country::all();
         $cities = City::all();
+        $adsStatus = AdsStatus::all();
 
-        return view('dashboard.cars.show', compact('car', 'users', 'categories','subcategories', 'countries', 'cities'));
+        return view('dashboard.cars.show', compact('car', 'users', 'categories','subcategories', 'countries', 'cities', 'adsStatus'));
     }
 
 

@@ -36,6 +36,7 @@ Route::get('termAndCondition', 'App\Http\Controllers\Frontend\HomeController@ter
 Route::get('categories/{id}', 'App\Http\Controllers\Frontend\CategoryController@categories')->name('categories');
 Route::get('subcategories/{id}', 'App\Http\Controllers\Frontend\CategoryController@subcategories')->name('subcategories');
 Route::get('detailplace/{id}', 'App\Http\Controllers\Frontend\CategoryController@detailplace')->name('detailplace');
+
  Route::get('sitelogin', 'App\Http\Controllers\Frontend\AuthController@login')->name('sitelogin');
  Route::post('logins', 'App\Http\Controllers\Frontend\AuthController@checklogin')->name('logins');
  Route::get('registers', 'App\Http\Controllers\Frontend\AuthController@register')->name('registers');
