@@ -39,12 +39,11 @@ class SettingRepository implements ISettingRepositoryAlias
             UploadImage('images/settings/','logo', $setting, $request->file('logo'));
     
             }
-        // $home_serviecs->update($request_data);
 
-        $arr = $request->sub_name_ar;
+          if (isset($request['sub_name_ar'])) {
 
-        if ($arr[0]!=null) {
-            foreach ($request->sub_name_ar as $key => $value) {
+            foreach ($request['sub_name_ar'] as $key => $value) {
+
                 $data=HomeServices::updateOrCreate([
                     'id' => $request['s_id'][$key]??0
                 ],[
@@ -52,18 +51,21 @@ class SettingRepository implements ISettingRepositoryAlias
                     'title_en' => $request['sub_name_en'][$key],
                     'description_ar' => $request['sub_description_ar'][$key],
                     'description_en' => $request['sub_description_en'][$key],
-                  //  'parent_id' => $home_serviecs->id
                 ]);
-        // $home_serviecs1=$home_serviecs->updateOrCreate($request_data2);
-        // return $data->id;
-        $home_serviecs1=HomeServices::find($data->id);
-        // $home_serviecs1=$home_serviecs1->update($request_data);
-        $k= $request['item'][$key];//
-        // return   $request['item'][$key];
-        if ($_FILES['image']['name'][$k]) {
-            UploadImage('images/home_serviecs/','image', $home_serviecs1, $request->file('image')[$k]);
-            }
+ 
+
+          $image = $request['image'][$key] ?? '';
+          if (isset($request['image'][$key])) {
+          $destinationPath = 'images/home_serviecs/';
+          $extension = $image->getClientOriginalExtension(); 
+          $name = time() . '' . rand(11111, 99999) . '.' . $extension; 
+          $image->move($destinationPath, $name); 
+          $data->image = $name;
+
+          $data->save();
           }
+            }
+
         }
         if ($setting) {
             Alert::success('Success', __('site.updated_successfully'));

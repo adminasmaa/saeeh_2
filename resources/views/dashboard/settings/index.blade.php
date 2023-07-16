@@ -459,10 +459,8 @@
 <!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
                             
                         <div class="fade tab-pane" id="pills-todaytask3" role="tabpanel"aria-labelledby="pills-todaytask3-tab">
-                            <?php  $x=-1; ?>
                             @foreach($home_serviecs2 as $service)
                            
-                            <?php $x ++; ?>
                                     <div class="col-md-12 form-group col-12   desc">
                                         <table>
                                             <tr>
@@ -470,7 +468,6 @@
                                                 <div class="card mb-0">
                                                 <div class="card-body"> 
                                             <div class="row">
-                                                    <input type="hidden" name="item[]" class="form-control" value="{{$x??0}}"/>
                                                     <input type="hidden" value="{{ $service->id ?? '' }}" name="s_id[]"
                                                                    class="form-control" />
                                                         <div class="col-md-5 form-group col-12">
@@ -542,12 +539,10 @@
 @section('scripts')
     <script>
 $(document).ready(function () {
-    var x="{{$x}}";
     jQuery('a.add-price').click(function (event) { 
-        x++;
         event.preventDefault();
         var newRow = jQuery('<tr><td><div class="row"><div class="col-md-5 form-group col-12 p-2">' +
-            ' <input type="hidden"  name="item[]" class="form-control" value="'+x+'"/><label>@lang('site.name_ar')</label><input type="text"  name="sub_name_ar[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
+            '<label>@lang('site.name_ar')</label><input type="text"  name="sub_name_ar[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
             '<label>@lang('site.name_en')</label><input type="text" name="sub_name_en[]" class="form-control" ></div><div class="col-md-5 form-group col-12 p-2">' +
             ' <label>@lang('site.description_ar')</label><input type="text"  name="sub_description_ar[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
             '<label>@lang('site.description_en')</label><input type="text" name="sub_description_en[]" class="form-control" ></div><div class="col-md-5 form-group col-12 p-2">' +
