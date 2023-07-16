@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('color')->nullable();
             $table->string('category')->nullable();
             $table->integer('car_numbers')->nullable();
-            $table->dateTime('car_delivery_date')->nullable();
+            $table->string('car_delivery_date')->nullable();
             $table->float('fixed_price')->nullable();
             $table->json('changed_price')->nullable();
 

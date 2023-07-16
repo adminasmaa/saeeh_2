@@ -1,4 +1,9 @@
 @extends('layouts.main_frontend')
+@section('css')
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+
+@endsection
 @section('content')
 
     <div class="overlay-mobile"></div>
@@ -84,6 +89,10 @@
 
 
 
+
+
+
+
                                             @endforeach -->
                                         </select>
                                     </div>
@@ -113,6 +122,10 @@
                                             <option value="">@lang('site.category')</option>
                                             <!-- @foreach($CategoriesCar as $cat)
                                                 <option value="{{$cat->id ?? ''}}">{{$cat->name ?? ''}}</option>
+
+
+
+
 
 
 
@@ -286,53 +299,53 @@
                                     </div>
                                 </div>
                             </div>
-{{--                            <div class="accordion-item">--}}
-{{--                                <h2 class="accordion-header">--}}
-{{--                                    <button--}}
-{{--                                        class="accordion-button"--}}
-{{--                                        type="button"--}}
-{{--                                        data-bs-toggle="collapse"--}}
-{{--                                        data-bs-target="#accordion-filter-2"--}}
-{{--                                        aria-expanded="true"--}}
-{{--                                        aria-controls="accordion-filter-2"--}}
-{{--                                    >--}}
-{{--                                        <h5 class="accordion-title mb-0">@lang('site.category')</h5>--}}
-{{--                                        <div>--}}
-{{--                                            <svg--}}
-{{--                                                xmlns="http://www.w3.org/2000/svg"--}}
-{{--                                                width="15"--}}
-{{--                                                height="8"--}}
-{{--                                                viewBox="0 0 15 8"--}}
-{{--                                                fill="none"--}}
-{{--                                            >--}}
-{{--                                                <path--}}
-{{--                                                    d="M7.20766 7.19064C6.62556 7.19064 6.04345 6.96482 5.60272 6.52155L0.180867 1.06845C-0.060289 0.825909 -0.060289 0.424455 0.180867 0.181909C0.422023 -0.0606364 0.821178 -0.0606364 1.06233 0.181909L6.48419 5.635C6.88334 6.03645 7.53197 6.03645 7.93112 5.635L13.353 0.181909C13.5941 -0.0606364 13.9933 -0.0606364 14.2344 0.181909C14.4756 0.424455 14.4756 0.825909 14.2344 1.06845L8.81259 6.52155C8.37186 6.96482 7.78976 7.19064 7.20766 7.19064Z"--}}
-{{--                                                    fill="#005D9F"--}}
-{{--                                                />--}}
-{{--                                            </svg>--}}
-{{--                                        </div>--}}
-{{--                                    </button>--}}
-{{--                                </h2>--}}
-{{--                                <div--}}
-{{--                                    id="accordion-filter-2"--}}
-{{--                                    class="accordion-collapse collapse show"--}}
-{{--                                >--}}
-{{--                                    <div class="accordion-body">--}}
-{{--                                        <div class="row align-items-center">--}}
-{{--                                            <div class="custom-checkbox">--}}
-{{--                                                <form>--}}
-{{--                                                    @foreach($CategoriesCar as $cat)--}}
-{{--                                                        <div class="form-group">--}}
-{{--                                                            <input type="checkbox" id="{{$cat->name}}"  name="category_name" onclick="GetAtrribute(this.id,this.name)"/>--}}
-{{--                                                            <label for="{{$cat->name}}">{{$cat->name ?? ''}}</label>--}}
-{{--                                                        </div>--}}
-{{--                                                    @endforeach--}}
-{{--                                                </form>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
+                            {{--                            <div class="accordion-item">--}}
+                            {{--                                <h2 class="accordion-header">--}}
+                            {{--                                    <button--}}
+                            {{--                                        class="accordion-button"--}}
+                            {{--                                        type="button"--}}
+                            {{--                                        data-bs-toggle="collapse"--}}
+                            {{--                                        data-bs-target="#accordion-filter-2"--}}
+                            {{--                                        aria-expanded="true"--}}
+                            {{--                                        aria-controls="accordion-filter-2"--}}
+                            {{--                                    >--}}
+                            {{--                                        <h5 class="accordion-title mb-0">@lang('site.category')</h5>--}}
+                            {{--                                        <div>--}}
+                            {{--                                            <svg--}}
+                            {{--                                                xmlns="http://www.w3.org/2000/svg"--}}
+                            {{--                                                width="15"--}}
+                            {{--                                                height="8"--}}
+                            {{--                                                viewBox="0 0 15 8"--}}
+                            {{--                                                fill="none"--}}
+                            {{--                                            >--}}
+                            {{--                                                <path--}}
+                            {{--                                                    d="M7.20766 7.19064C6.62556 7.19064 6.04345 6.96482 5.60272 6.52155L0.180867 1.06845C-0.060289 0.825909 -0.060289 0.424455 0.180867 0.181909C0.422023 -0.0606364 0.821178 -0.0606364 1.06233 0.181909L6.48419 5.635C6.88334 6.03645 7.53197 6.03645 7.93112 5.635L13.353 0.181909C13.5941 -0.0606364 13.9933 -0.0606364 14.2344 0.181909C14.4756 0.424455 14.4756 0.825909 14.2344 1.06845L8.81259 6.52155C8.37186 6.96482 7.78976 7.19064 7.20766 7.19064Z"--}}
+                            {{--                                                    fill="#005D9F"--}}
+                            {{--                                                />--}}
+                            {{--                                            </svg>--}}
+                            {{--                                        </div>--}}
+                            {{--                                    </button>--}}
+                            {{--                                </h2>--}}
+                            {{--                                <div--}}
+                            {{--                                    id="accordion-filter-2"--}}
+                            {{--                                    class="accordion-collapse collapse show"--}}
+                            {{--                                >--}}
+                            {{--                                    <div class="accordion-body">--}}
+                            {{--                                        <div class="row align-items-center">--}}
+                            {{--                                            <div class="custom-checkbox">--}}
+                            {{--                                                <form>--}}
+                            {{--                                                    @foreach($CategoriesCar as $cat)--}}
+                            {{--                                                        <div class="form-group">--}}
+                            {{--                                                            <input type="checkbox" id="{{$cat->name}}"  name="category_name" onclick="GetAtrribute(this.id,this.name)"/>--}}
+                            {{--                                                            <label for="{{$cat->name}}">{{$cat->name ?? ''}}</label>--}}
+                            {{--                                                        </div>--}}
+                            {{--                                                    @endforeach--}}
+                            {{--                                                </form>--}}
+                            {{--                                            </div>--}}
+                            {{--                                        </div>--}}
+                            {{--                                    </div>--}}
+                            {{--                                </div>--}}
+                            {{--                            </div>--}}
 
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
@@ -371,8 +384,9 @@
                                                 <form>
                                                     @foreach($cars as $car)
                                                         <div class="form-group">
-                                                            <input type="checkbox" id="{{$car->year}}"
-                                                                   value="{{$car->id}}"/>
+                                                            <input type="checkbox" name="year" id="{{$car->year}}"
+                                                                   value="{{$car->year}}"
+                                                                   onclick="GetAtrribute(this.id,this.name)"/>
                                                             <label for="{{$car->year}}">{{$car->year ?? ''}}</label>
                                                         </div>
                                                     @endforeach
@@ -421,7 +435,10 @@
 
                                                         <div class="form-group">
                                                             <input type="checkbox" id="{{$car->color}}"
-                                                                   value="{{$car->id}}"/>
+                                                                   value="{{$car->color}}"
+                                                                   name="color"
+                                                                   onclick="GetAtrribute(this.id,this.name)"
+                                                            />
                                                             <label for="{{$car->color}}">{{$car->color ?? ''}} </label>
                                                         </div>
                                                     @endforeach
@@ -469,7 +486,11 @@
                                                     @foreach($cars as $car)
                                                         <div class="form-group">
                                                             <input type="checkbox" id="{{$car->fixed_price}}"
-                                                                   value="{{$car->id}}"/>
+                                                                   value="{{$car->id}}"
+
+                                                                   name="fixed_price"
+                                                                   onclick="GetAtrribute(this.id,this.name)"
+                                                            />
                                                             <label
                                                                 for="{{$car->fixed_price}}"> {{$car->fixed_price ?? 0 }}</label>
                                                         </div>
@@ -518,7 +539,11 @@
                                             <div class="custom-checkbox">
                                                 <form>
                                                     <div class="form-group">
-                                                        <input type="checkbox" id="rate-1" checked/>
+                                                        <input type="checkbox" id="rate-1"
+                                                               value="1"
+                                                               name="rate"
+                                                               class="check"
+                                                               onclick="GetAtrribute(this.value,this.name)"/>
                                                         <label
                                                             for="rate-1"
                                                             class="d-flex align-items-center"
@@ -545,7 +570,11 @@
                                                         </label>
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="checkbox" id="rate-2"/>
+                                                        <input type="checkbox" id="rate-2"
+                                                               value="2"
+                                                               name="rate"
+                                                               class="check"
+                                                               onclick="GetAtrribute(this.value,this.name)"/>
                                                         <label
                                                             for="rate-2"
                                                             class="d-flex align-items-center"
@@ -572,7 +601,12 @@
                                                         </label>
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="checkbox" id="rate-3"/>
+                                                        <input type="checkbox" id="rate-3"
+                                                               value="3"
+                                                               name="rate"
+                                                               class="check"
+                                                               onclick="GetAtrribute(this.value,this.name)"
+                                                        />
                                                         <label
                                                             for="rate-3"
                                                             class="d-flex align-items-center"
@@ -599,7 +633,11 @@
                                                         </label>
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="checkbox" id="rate-4"/>
+                                                        <input type="checkbox" id="rate-4"
+                                                               value="4"
+                                                               class="check"
+                                                               name="rate"
+                                                               onclick="GetAtrribute(this.value,this.name)"/>
                                                         <label
                                                             for="rate-4"
                                                             class="d-flex align-items-center"
@@ -626,7 +664,12 @@
                                                         </label>
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="checkbox" id="rate-5"/>
+                                                        <input type="checkbox" id="rate-5"
+                                                               name="rate"
+                                                               value="5"
+                                                               class="check"
+                                                               onclick="GetAtrribute(this.value,this.name)"
+                                                        />
                                                         <label
                                                             for="rate-5"
                                                             class="d-flex align-items-center"
@@ -1218,8 +1261,9 @@
                                 {{--                                </div>--}}
 
                                 <ul class="tabs-contentt list-unstyled my-4">
-                                    @if(!empty($cars))
-                                        <li id="tab-car-1">
+
+                                    <li id="tab-car-2" class="carhidden">
+                                        @if(!empty($cars))
                                             @foreach($cars as $car )
 
                                                 <div
@@ -1359,518 +1403,13 @@
                                                     </div>
                                                 </div>
                                             @endforeach
-                                        </li>
-                                    @endif
-                                    <li id="tab-car-2">
-                                        <div
-                                            class="card card-department round-border mb-3 p-md-3 p-2"
-                                        >
-                                            <div class="row g-0">
-                                                <div class="col-md-4 position-relative">
-                                                    <div
-                                                        class="owl-carousel owl-theme department-img-carousel"
-                                                        dir="ltr"
-                                                    >
-                                                        <div>
-                                                            <button class="add-to-wishlist">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="26"
-                                                                     height="26" viewBox="0 0 26 26" fill="none">
-                                                                    <path
-                                                                        d="M23.1494 3.12177C22.563 2.44911 21.8667 1.9155 21.1003 1.55144C20.334 1.18738 19.5126 1 18.6831 1C17.8535 1 17.0321 1.18738 16.2658 1.55144C15.4994 1.9155 14.8032 2.44911 14.2167 3.12177L12.9997 4.51714L11.7826 3.12177C10.5981 1.76368 8.99153 1.0007 7.31633 1.0007C5.64114 1.0007 4.03455 1.76368 2.85001 3.12177C1.66547 4.47987 1 6.32185 1 8.24249C1 10.1631 1.66547 12.0051 2.85001 13.3632L4.06705 14.7586L12.9997 25L21.9323 14.7586L23.1494 13.3632C23.7361 12.6909 24.2015 11.8926 24.519 11.0139C24.8366 10.1353 25 9.19356 25 8.24249C25 7.29142 24.8366 6.34967 24.519 5.47104C24.2015 4.59241 23.7361 3.79412 23.1494 3.12177Z"
-                                                                        fill="white" stroke="#CACACA" stroke-width="1.5"
-                                                                        stroke-linecap="round"
-                                                                        stroke-linejoin="round"></path>
-                                                                </svg>
-                                                            </button>
-                                                            <img
-                                                                loading="lazy"
-                                                                src="./assets/images/cars/car-card-1.png"
-                                                                class="department-img-list of-cover car-image"
-                                                                alt="image 1"
-                                                            />
-                                                        </div>
-                                                        <div>
-                                                            <button class="add-to-wishlist">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="26"
-                                                                     height="26" viewBox="0 0 26 26" fill="none">
-                                                                    <path
-                                                                        d="M23.1494 3.12177C22.563 2.44911 21.8667 1.9155 21.1003 1.55144C20.334 1.18738 19.5126 1 18.6831 1C17.8535 1 17.0321 1.18738 16.2658 1.55144C15.4994 1.9155 14.8032 2.44911 14.2167 3.12177L12.9997 4.51714L11.7826 3.12177C10.5981 1.76368 8.99153 1.0007 7.31633 1.0007C5.64114 1.0007 4.03455 1.76368 2.85001 3.12177C1.66547 4.47987 1 6.32185 1 8.24249C1 10.1631 1.66547 12.0051 2.85001 13.3632L4.06705 14.7586L12.9997 25L21.9323 14.7586L23.1494 13.3632C23.7361 12.6909 24.2015 11.8926 24.519 11.0139C24.8366 10.1353 25 9.19356 25 8.24249C25 7.29142 24.8366 6.34967 24.519 5.47104C24.2015 4.59241 23.7361 3.79412 23.1494 3.12177Z"
-                                                                        fill="white" stroke="#CACACA" stroke-width="1.5"
-                                                                        stroke-linecap="round"
-                                                                        stroke-linejoin="round"></path>
-                                                                </svg>
-                                                            </button>
-                                                            <img
-                                                                loading="lazy"
-                                                                src="./assets/images/cars/car-card-2.png"
-                                                                class="department-img-list of-cover car-image"
-                                                                alt="image 1"
-                                                            />
-                                                        </div>
-                                                        <div>
-                                                            <button class="add-to-wishlist">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="26"
-                                                                     height="26" viewBox="0 0 26 26" fill="none">
-                                                                    <path
-                                                                        d="M23.1494 3.12177C22.563 2.44911 21.8667 1.9155 21.1003 1.55144C20.334 1.18738 19.5126 1 18.6831 1C17.8535 1 17.0321 1.18738 16.2658 1.55144C15.4994 1.9155 14.8032 2.44911 14.2167 3.12177L12.9997 4.51714L11.7826 3.12177C10.5981 1.76368 8.99153 1.0007 7.31633 1.0007C5.64114 1.0007 4.03455 1.76368 2.85001 3.12177C1.66547 4.47987 1 6.32185 1 8.24249C1 10.1631 1.66547 12.0051 2.85001 13.3632L4.06705 14.7586L12.9997 25L21.9323 14.7586L23.1494 13.3632C23.7361 12.6909 24.2015 11.8926 24.519 11.0139C24.8366 10.1353 25 9.19356 25 8.24249C25 7.29142 24.8366 6.34967 24.519 5.47104C24.2015 4.59241 23.7361 3.79412 23.1494 3.12177Z"
-                                                                        fill="white" stroke="#CACACA" stroke-width="1.5"
-                                                                        stroke-linecap="round"
-                                                                        stroke-linejoin="round"></path>
-                                                                </svg>
-                                                            </button>
-                                                            <img
-                                                                loading="lazy"
-                                                                src="./assets/images/cars/car-card-1.png"
-                                                                class="department-img-list of-cover car-image"
-                                                                alt="image 1"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <div
-                                                        class="card-body card-car-body position-relative"
-                                                    >
-                                                        <div
-                                                            class="row justify-content-between align-items-center mb-3 small"
-                                                        >
-                                                            <div class="col-auto mb-lg-0 mb-3">
-                                  <span class="text-main number-ads"
-                                  > @lang('site.id number')12)</span
-                                  >
-                                                            </div>
-                                                            <div class="col-auto">
-                                                                <div
-                                                                    class="d-flex justify-content-center align-items-center"
-                                                                >
-                                                                    <div class="department-badge bg-main text-white">
-                                                                        <div class="pt-1">5</div>
-                                                                        <div>
-                                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                                 width="25" height="25"
-                                                                                 viewBox="0 0 25 25" fill="none">
-                                                                                <path
-                                                                                    d="M12.7529 19.6185L20.1689 24.3301L18.2009 15.4501L24.7529 9.47534L16.1249 8.70481L12.7529 0.330078L9.38093 8.70481L0.75293 9.47534L7.30493 15.4501L5.33693 24.3301L12.7529 19.6185Z"
-                                                                                    fill="white"/>
-                                                                            </svg>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="number-ads gray-txt">
-                                                                        64 من التقييمات
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <h2 class="card-title mb-2">
-                                                            فولكس ويغن volkswagen
-                                                        </h2>
+                                        @endif
 
-                                                        <div class="gray-txt number-ads pb-2">
-                                <span
-                                >سيارة ماركة فولكس رمادي غامق ويغن فئه GIS
-                                </span>
-                                                        </div>
-                                                        <div
-                                                            class="text-gray-2 number-ads d-flex align-items-center"
-                                                        >
-                                                            <div>
-                                  <span class="ps-2">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="15"
-                                        height="18"
-                                        viewBox="0 0 15 18"
-                                        fill="none"
-                                    >
-                                      <path
-                                          fill-rule="evenodd"
-                                          clip-rule="evenodd"
-                                          d="M7.3 4.28999e-06C6.13434 -0.00154801 5.00739 0.418215 4.12678 1.18195C3.24617 1.94569 2.67124 3.00195 2.50791 4.15611C2.34458 5.31028 2.60387 6.48458 3.23799 7.46267C3.87211 8.44076 4.83834 9.15673 5.95867 9.47867C4.36667 9.672 3.00133 10.2347 1.972 11.2493C0.662666 12.5387 0 14.46 0 16.9667C0 17.1346 0.0667258 17.2957 0.185499 17.4145C0.304272 17.5333 0.465363 17.6 0.633333 17.6C0.801304 17.6 0.962395 17.5333 1.08117 17.4145C1.19994 17.2957 1.26667 17.1346 1.26667 16.9667C1.26667 14.6733 1.87067 13.1267 2.86133 12.1507C3.85333 11.1733 5.336 10.6667 7.3 10.6667C9.264 10.6667 10.7467 11.1733 11.74 12.1507C12.7293 13.128 13.3333 14.6733 13.3333 16.9667C13.3333 17.1346 13.4001 17.2957 13.5188 17.4145C13.6376 17.5333 13.7987 17.6 13.9667 17.6C14.1346 17.6 14.2957 17.5333 14.4145 17.4145C14.5333 17.2957 14.6 17.1346 14.6 16.9667C14.6 14.46 13.9373 12.54 12.6267 11.2493C11.6 10.236 10.2333 9.672 8.64133 9.47867C9.75791 9.15311 10.7198 8.43604 11.3506 7.4589C11.9814 6.48175 12.2389 5.31 12.076 4.15839C11.913 3.00679 11.3405 1.9525 10.4633 1.18875C9.58612 0.425002 8.46307 0.00296898 7.3 4.28999e-06ZM3.73333 4.83334C3.73333 3.8874 4.10911 2.9802 4.77799 2.31132C5.44687 1.64244 6.35406 1.26667 7.3 1.26667C8.24594 1.26667 9.15314 1.64244 9.82201 2.31132C10.4909 2.9802 10.8667 3.8874 10.8667 4.83334C10.8667 5.77928 10.4909 6.68647 9.82201 7.35535C9.15314 8.02423 8.24594 8.40001 7.3 8.40001C6.35406 8.40001 5.44687 8.02423 4.77799 7.35535C4.10911 6.68647 3.73333 5.77928 3.73333 4.83334Z"
-                                          fill="#FF8600"
-                                      />
-                                    </svg>
-                                  </span>
-                                                                <span>5 مقاعد</span>
-                                                            </div>
-                                                            <div class="padding-35">
-                                  <span class="ps-2">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="20"
-                                        height="20"
-                                        viewBox="0 0 20 20"
-                                        fill="none"
-                                    >
-                                      <path
-                                          d="M16.25 5H13.3333V4.16667C13.3326 3.72484 13.1568 3.3013 12.8444 2.98889C12.532 2.67647 12.1084 2.50066 11.6666 2.5H8.33329C7.89147 2.50066 7.46793 2.67647 7.15551 2.98889C6.84309 3.3013 6.66729 3.72484 6.66663 4.16667V5H3.74996C3.19756 5.00044 2.66791 5.22008 2.27731 5.61068C1.8867 6.00129 1.66707 6.53093 1.66663 7.08333V15.4167C1.66707 15.9691 1.8867 16.4987 2.27731 16.8893C2.66791 17.2799 3.19756 17.4996 3.74996 17.5H16.25C16.8024 17.4996 17.332 17.2799 17.7226 16.8893C18.1132 16.4987 18.3329 15.9691 18.3333 15.4167V7.08333C18.3329 6.53093 18.1132 6.00129 17.7226 5.61068C17.332 5.22008 16.8024 5.00044 16.25 5ZM7.49996 4.16667C7.49996 3.94565 7.58776 3.73369 7.74404 3.57741C7.90032 3.42113 8.11228 3.33333 8.33329 3.33333H11.6666C11.8876 3.33333 12.0996 3.42113 12.2559 3.57741C12.4122 3.73369 12.5 3.94565 12.5 4.16667V5H7.49996V4.16667ZM17.5 15.4167C17.5 15.7482 17.3683 16.0661 17.1338 16.3005C16.8994 16.535 16.5815 16.6667 16.25 16.6667H3.74996C3.41844 16.6667 3.1005 16.535 2.86608 16.3005C2.63166 16.0661 2.49996 15.7482 2.49996 15.4167V10.0225L7.36829 11.6458C7.41081 11.6597 7.45525 11.6667 7.49996 11.6667H12.5C12.5447 11.6667 12.5891 11.6597 12.6316 11.6458L17.5 10.0225V15.4167ZM17.5 9.17167C17.4555 9.17 17.411 9.17563 17.3683 9.18833L12.4325 10.8333H7.56746L2.63163 9.1875C2.58894 9.1748 2.54446 9.16917 2.49996 9.17083V7.08333C2.49996 6.75181 2.63166 6.43387 2.86608 6.19945C3.1005 5.96503 3.41844 5.83333 3.74996 5.83333H16.25C16.5815 5.83333 16.8994 5.96503 17.1338 6.19945C17.3683 6.43387 17.5 6.75181 17.5 7.08333V9.17167Z"
-                                          fill="#FF8600"
-                                      />
-                                    </svg>
-                                  </span>
-                                                                <span>1شنطه كبيرة</span>
-                                                            </div>
-                                                        </div>
-
-                                                        <div
-                                                            class="d-flex align-items-center justify-content-between mt-3 display-block-mobile"
-                                                        >
-                                                            <div class="department-price">
-                                                                <span class="text-gray-2">سعر اليوم:</span>
-                                                                <span class="fw-bold text-main"
-                                                                >2578 درهم مغربى
-                                  </span>
-                                                            </div>
-                                                            <div
-                                                                class="details-btn d-flex align-items-center justify-content-center"
-                                                            >
-                                                                <a href="#">عرض التفاصيل</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </li>
-                                    <li id="tab-car-3">
-                                        <div
-                                            class="card card-department round-border mb-3 p-md-3 p-2"
-                                        >
-                                            <div class="row g-0">
-                                                <div class="col-md-4 position-relative">
-                                                    <div
-                                                        class="owl-carousel owl-theme department-img-carousel"
-                                                        dir="ltr"
-                                                    >
-                                                        <div>
-                                                            <button class="add-to-wishlist">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="26"
-                                                                     height="26" viewBox="0 0 26 26" fill="none">
-                                                                    <path
-                                                                        d="M23.1494 3.12177C22.563 2.44911 21.8667 1.9155 21.1003 1.55144C20.334 1.18738 19.5126 1 18.6831 1C17.8535 1 17.0321 1.18738 16.2658 1.55144C15.4994 1.9155 14.8032 2.44911 14.2167 3.12177L12.9997 4.51714L11.7826 3.12177C10.5981 1.76368 8.99153 1.0007 7.31633 1.0007C5.64114 1.0007 4.03455 1.76368 2.85001 3.12177C1.66547 4.47987 1 6.32185 1 8.24249C1 10.1631 1.66547 12.0051 2.85001 13.3632L4.06705 14.7586L12.9997 25L21.9323 14.7586L23.1494 13.3632C23.7361 12.6909 24.2015 11.8926 24.519 11.0139C24.8366 10.1353 25 9.19356 25 8.24249C25 7.29142 24.8366 6.34967 24.519 5.47104C24.2015 4.59241 23.7361 3.79412 23.1494 3.12177Z"
-                                                                        fill="white" stroke="#CACACA" stroke-width="1.5"
-                                                                        stroke-linecap="round"
-                                                                        stroke-linejoin="round"></path>
-                                                                </svg>
-                                                            </button>
-                                                            <img
-                                                                loading="lazy"
-                                                                src="./assets/images/cars/car-card-1.png"
-                                                                class="department-img-list of-cover car-image"
-                                                                alt="image 1"
-                                                            />
-                                                        </div>
-                                                        <div>
-                                                            <button class="add-to-wishlist">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="26"
-                                                                     height="26" viewBox="0 0 26 26" fill="none">
-                                                                    <path
-                                                                        d="M23.1494 3.12177C22.563 2.44911 21.8667 1.9155 21.1003 1.55144C20.334 1.18738 19.5126 1 18.6831 1C17.8535 1 17.0321 1.18738 16.2658 1.55144C15.4994 1.9155 14.8032 2.44911 14.2167 3.12177L12.9997 4.51714L11.7826 3.12177C10.5981 1.76368 8.99153 1.0007 7.31633 1.0007C5.64114 1.0007 4.03455 1.76368 2.85001 3.12177C1.66547 4.47987 1 6.32185 1 8.24249C1 10.1631 1.66547 12.0051 2.85001 13.3632L4.06705 14.7586L12.9997 25L21.9323 14.7586L23.1494 13.3632C23.7361 12.6909 24.2015 11.8926 24.519 11.0139C24.8366 10.1353 25 9.19356 25 8.24249C25 7.29142 24.8366 6.34967 24.519 5.47104C24.2015 4.59241 23.7361 3.79412 23.1494 3.12177Z"
-                                                                        fill="white" stroke="#CACACA" stroke-width="1.5"
-                                                                        stroke-linecap="round"
-                                                                        stroke-linejoin="round"></path>
-                                                                </svg>
-                                                            </button>
-                                                            <img
-                                                                loading="lazy"
-                                                                src="./assets/images/cars/car-card-2.png"
-                                                                class="department-img-list of-cover car-image"
-                                                                alt="image 1"
-                                                            />
-                                                        </div>
-                                                        <div>
-                                                            <button class="add-to-wishlist">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="26"
-                                                                     height="26" viewBox="0 0 26 26" fill="none">
-                                                                    <path
-                                                                        d="M23.1494 3.12177C22.563 2.44911 21.8667 1.9155 21.1003 1.55144C20.334 1.18738 19.5126 1 18.6831 1C17.8535 1 17.0321 1.18738 16.2658 1.55144C15.4994 1.9155 14.8032 2.44911 14.2167 3.12177L12.9997 4.51714L11.7826 3.12177C10.5981 1.76368 8.99153 1.0007 7.31633 1.0007C5.64114 1.0007 4.03455 1.76368 2.85001 3.12177C1.66547 4.47987 1 6.32185 1 8.24249C1 10.1631 1.66547 12.0051 2.85001 13.3632L4.06705 14.7586L12.9997 25L21.9323 14.7586L23.1494 13.3632C23.7361 12.6909 24.2015 11.8926 24.519 11.0139C24.8366 10.1353 25 9.19356 25 8.24249C25 7.29142 24.8366 6.34967 24.519 5.47104C24.2015 4.59241 23.7361 3.79412 23.1494 3.12177Z"
-                                                                        fill="white" stroke="#CACACA" stroke-width="1.5"
-                                                                        stroke-linecap="round"
-                                                                        stroke-linejoin="round"></path>
-                                                                </svg>
-                                                            </button>
-                                                            <img
-                                                                loading="lazy"
-                                                                src="./assets/images/cars/car-card-1.png"
-                                                                class="department-img-list of-cover car-image"
-                                                                alt="image 1"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <div
-                                                        class="card-body card-car-body position-relative"
-                                                    >
-                                                        <div
-                                                            class="row justify-content-between align-items-center mb-3 small"
-                                                        >
-                                                            <div class="col-auto mb-lg-0 mb-3">
-                                  <span class="text-main number-ads"
-                                  >رقم الاعلان(12)</span
-                                  >
-                                                            </div>
-                                                            <div class="col-auto">
-                                                                <div
-                                                                    class="d-flex justify-content-center align-items-center"
-                                                                >
-                                                                    <div class="department-badge bg-main text-white">
-                                                                        <div class="pt-1">5</div>
-                                                                        <div>
-                                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                                 width="25" height="25"
-                                                                                 viewBox="0 0 25 25" fill="none">
-                                                                                <path
-                                                                                    d="M12.7529 19.6185L20.1689 24.3301L18.2009 15.4501L24.7529 9.47534L16.1249 8.70481L12.7529 0.330078L9.38093 8.70481L0.75293 9.47534L7.30493 15.4501L5.33693 24.3301L12.7529 19.6185Z"
-                                                                                    fill="white"/>
-                                                                            </svg>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="number-ads gray-txt">
-                                                                        64 من التقييمات
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <h2 class="card-title mb-2">
-                                                            فولكس ويغن volkswagen
-                                                        </h2>
 
-                                                        <div class="gray-txt number-ads pb-2">
-                                <span
-                                >سيارة ماركة فولكس رمادي غامق ويغن فئه GIS
-                                </span>
-                                                        </div>
-                                                        <div
-                                                            class="text-gray-2 number-ads d-flex align-items-center"
-                                                        >
-                                                            <div>
-                                  <span class="ps-2">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="15"
-                                        height="18"
-                                        viewBox="0 0 15 18"
-                                        fill="none"
-                                    >
-                                      <path
-                                          fill-rule="evenodd"
-                                          clip-rule="evenodd"
-                                          d="M7.3 4.28999e-06C6.13434 -0.00154801 5.00739 0.418215 4.12678 1.18195C3.24617 1.94569 2.67124 3.00195 2.50791 4.15611C2.34458 5.31028 2.60387 6.48458 3.23799 7.46267C3.87211 8.44076 4.83834 9.15673 5.95867 9.47867C4.36667 9.672 3.00133 10.2347 1.972 11.2493C0.662666 12.5387 0 14.46 0 16.9667C0 17.1346 0.0667258 17.2957 0.185499 17.4145C0.304272 17.5333 0.465363 17.6 0.633333 17.6C0.801304 17.6 0.962395 17.5333 1.08117 17.4145C1.19994 17.2957 1.26667 17.1346 1.26667 16.9667C1.26667 14.6733 1.87067 13.1267 2.86133 12.1507C3.85333 11.1733 5.336 10.6667 7.3 10.6667C9.264 10.6667 10.7467 11.1733 11.74 12.1507C12.7293 13.128 13.3333 14.6733 13.3333 16.9667C13.3333 17.1346 13.4001 17.2957 13.5188 17.4145C13.6376 17.5333 13.7987 17.6 13.9667 17.6C14.1346 17.6 14.2957 17.5333 14.4145 17.4145C14.5333 17.2957 14.6 17.1346 14.6 16.9667C14.6 14.46 13.9373 12.54 12.6267 11.2493C11.6 10.236 10.2333 9.672 8.64133 9.47867C9.75791 9.15311 10.7198 8.43604 11.3506 7.4589C11.9814 6.48175 12.2389 5.31 12.076 4.15839C11.913 3.00679 11.3405 1.9525 10.4633 1.18875C9.58612 0.425002 8.46307 0.00296898 7.3 4.28999e-06ZM3.73333 4.83334C3.73333 3.8874 4.10911 2.9802 4.77799 2.31132C5.44687 1.64244 6.35406 1.26667 7.3 1.26667C8.24594 1.26667 9.15314 1.64244 9.82201 2.31132C10.4909 2.9802 10.8667 3.8874 10.8667 4.83334C10.8667 5.77928 10.4909 6.68647 9.82201 7.35535C9.15314 8.02423 8.24594 8.40001 7.3 8.40001C6.35406 8.40001 5.44687 8.02423 4.77799 7.35535C4.10911 6.68647 3.73333 5.77928 3.73333 4.83334Z"
-                                          fill="#FF8600"
-                                      />
-                                    </svg>
-                                  </span>
-                                                                <span>5 مقاعد</span>
-                                                            </div>
-                                                            <div class="padding-35">
-                                  <span class="ps-2">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="20"
-                                        height="20"
-                                        viewBox="0 0 20 20"
-                                        fill="none"
-                                    >
-                                      <path
-                                          d="M16.25 5H13.3333V4.16667C13.3326 3.72484 13.1568 3.3013 12.8444 2.98889C12.532 2.67647 12.1084 2.50066 11.6666 2.5H8.33329C7.89147 2.50066 7.46793 2.67647 7.15551 2.98889C6.84309 3.3013 6.66729 3.72484 6.66663 4.16667V5H3.74996C3.19756 5.00044 2.66791 5.22008 2.27731 5.61068C1.8867 6.00129 1.66707 6.53093 1.66663 7.08333V15.4167C1.66707 15.9691 1.8867 16.4987 2.27731 16.8893C2.66791 17.2799 3.19756 17.4996 3.74996 17.5H16.25C16.8024 17.4996 17.332 17.2799 17.7226 16.8893C18.1132 16.4987 18.3329 15.9691 18.3333 15.4167V7.08333C18.3329 6.53093 18.1132 6.00129 17.7226 5.61068C17.332 5.22008 16.8024 5.00044 16.25 5ZM7.49996 4.16667C7.49996 3.94565 7.58776 3.73369 7.74404 3.57741C7.90032 3.42113 8.11228 3.33333 8.33329 3.33333H11.6666C11.8876 3.33333 12.0996 3.42113 12.2559 3.57741C12.4122 3.73369 12.5 3.94565 12.5 4.16667V5H7.49996V4.16667ZM17.5 15.4167C17.5 15.7482 17.3683 16.0661 17.1338 16.3005C16.8994 16.535 16.5815 16.6667 16.25 16.6667H3.74996C3.41844 16.6667 3.1005 16.535 2.86608 16.3005C2.63166 16.0661 2.49996 15.7482 2.49996 15.4167V10.0225L7.36829 11.6458C7.41081 11.6597 7.45525 11.6667 7.49996 11.6667H12.5C12.5447 11.6667 12.5891 11.6597 12.6316 11.6458L17.5 10.0225V15.4167ZM17.5 9.17167C17.4555 9.17 17.411 9.17563 17.3683 9.18833L12.4325 10.8333H7.56746L2.63163 9.1875C2.58894 9.1748 2.54446 9.16917 2.49996 9.17083V7.08333C2.49996 6.75181 2.63166 6.43387 2.86608 6.19945C3.1005 5.96503 3.41844 5.83333 3.74996 5.83333H16.25C16.5815 5.83333 16.8994 5.96503 17.1338 6.19945C17.3683 6.43387 17.5 6.75181 17.5 7.08333V9.17167Z"
-                                          fill="#FF8600"
-                                      />
-                                    </svg>
-                                  </span>
-                                                                <span>1شنطه كبيرة</span>
-                                                            </div>
-                                                        </div>
-
-                                                        <div
-                                                            class="d-flex align-items-center justify-content-between mt-3 display-block-mobile"
-                                                        >
-                                                            <div class="department-price">
-                                                                <span class="text-gray-2">سعر اليوم:</span>
-                                                                <span class="fw-bold text-main"
-                                                                >2578 درهم مغربى
-                                  </span>
-                                                            </div>
-                                                            <div
-                                                                class="details-btn d-flex align-items-center justify-content-center"
-                                                            >
-                                                                <a href="#">عرض التفاصيل</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <li id="tab-car-1" class="carshow">
                                     </li>
-                                    <li id="tab-car-4">
-                                        <div
-                                            class="card card-department round-border mb-3 p-md-3 p-2"
-                                        >
-                                            <div class="row g-0">
-                                                <div class="col-md-4 position-relative">
-                                                    <div
-                                                        class="owl-carousel owl-theme department-img-carousel"
-                                                        dir="ltr"
-                                                    >
-                                                        <div>
-                                                            <button class="add-to-wishlist">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="26"
-                                                                     height="26" viewBox="0 0 26 26" fill="none">
-                                                                    <path
-                                                                        d="M23.1494 3.12177C22.563 2.44911 21.8667 1.9155 21.1003 1.55144C20.334 1.18738 19.5126 1 18.6831 1C17.8535 1 17.0321 1.18738 16.2658 1.55144C15.4994 1.9155 14.8032 2.44911 14.2167 3.12177L12.9997 4.51714L11.7826 3.12177C10.5981 1.76368 8.99153 1.0007 7.31633 1.0007C5.64114 1.0007 4.03455 1.76368 2.85001 3.12177C1.66547 4.47987 1 6.32185 1 8.24249C1 10.1631 1.66547 12.0051 2.85001 13.3632L4.06705 14.7586L12.9997 25L21.9323 14.7586L23.1494 13.3632C23.7361 12.6909 24.2015 11.8926 24.519 11.0139C24.8366 10.1353 25 9.19356 25 8.24249C25 7.29142 24.8366 6.34967 24.519 5.47104C24.2015 4.59241 23.7361 3.79412 23.1494 3.12177Z"
-                                                                        fill="white" stroke="#CACACA" stroke-width="1.5"
-                                                                        stroke-linecap="round"
-                                                                        stroke-linejoin="round"></path>
-                                                                </svg>
-                                                            </button>
-                                                            <img
-                                                                loading="lazy"
-                                                                src="./assets/images/cars/car-card-1.png"
-                                                                class="department-img-list of-cover car-image"
-                                                                alt="image 1"
-                                                            />
-                                                        </div>
-                                                        <div>
-                                                            <button class="add-to-wishlist">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="26"
-                                                                     height="26" viewBox="0 0 26 26" fill="none">
-                                                                    <path
-                                                                        d="M23.1494 3.12177C22.563 2.44911 21.8667 1.9155 21.1003 1.55144C20.334 1.18738 19.5126 1 18.6831 1C17.8535 1 17.0321 1.18738 16.2658 1.55144C15.4994 1.9155 14.8032 2.44911 14.2167 3.12177L12.9997 4.51714L11.7826 3.12177C10.5981 1.76368 8.99153 1.0007 7.31633 1.0007C5.64114 1.0007 4.03455 1.76368 2.85001 3.12177C1.66547 4.47987 1 6.32185 1 8.24249C1 10.1631 1.66547 12.0051 2.85001 13.3632L4.06705 14.7586L12.9997 25L21.9323 14.7586L23.1494 13.3632C23.7361 12.6909 24.2015 11.8926 24.519 11.0139C24.8366 10.1353 25 9.19356 25 8.24249C25 7.29142 24.8366 6.34967 24.519 5.47104C24.2015 4.59241 23.7361 3.79412 23.1494 3.12177Z"
-                                                                        fill="white" stroke="#CACACA" stroke-width="1.5"
-                                                                        stroke-linecap="round"
-                                                                        stroke-linejoin="round"></path>
-                                                                </svg>
-                                                            </button>
-                                                            <img
-                                                                loading="lazy"
-                                                                src="./assets/images/cars/car-card-2.png"
-                                                                class="department-img-list of-cover car-image"
-                                                                alt="image 1"
-                                                            />
-                                                        </div>
-                                                        <div>
-                                                            <button class="add-to-wishlist">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="26"
-                                                                     height="26" viewBox="0 0 26 26" fill="none">
-                                                                    <path
-                                                                        d="M23.1494 3.12177C22.563 2.44911 21.8667 1.9155 21.1003 1.55144C20.334 1.18738 19.5126 1 18.6831 1C17.8535 1 17.0321 1.18738 16.2658 1.55144C15.4994 1.9155 14.8032 2.44911 14.2167 3.12177L12.9997 4.51714L11.7826 3.12177C10.5981 1.76368 8.99153 1.0007 7.31633 1.0007C5.64114 1.0007 4.03455 1.76368 2.85001 3.12177C1.66547 4.47987 1 6.32185 1 8.24249C1 10.1631 1.66547 12.0051 2.85001 13.3632L4.06705 14.7586L12.9997 25L21.9323 14.7586L23.1494 13.3632C23.7361 12.6909 24.2015 11.8926 24.519 11.0139C24.8366 10.1353 25 9.19356 25 8.24249C25 7.29142 24.8366 6.34967 24.519 5.47104C24.2015 4.59241 23.7361 3.79412 23.1494 3.12177Z"
-                                                                        fill="white" stroke="#CACACA" stroke-width="1.5"
-                                                                        stroke-linecap="round"
-                                                                        stroke-linejoin="round"></path>
-                                                                </svg>
-                                                            </button>
-                                                            <img
-                                                                loading="lazy"
-                                                                src="./assets/images/cars/car-card-1.png"
-                                                                class="department-img-list of-cover car-image"
-                                                                alt="image 1"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <div
-                                                        class="card-body card-car-body position-relative"
-                                                    >
-                                                        <div
-                                                            class="row justify-content-between align-items-center mb-3 small"
-                                                        >
-                                                            <div class="col-auto mb-lg-0 mb-3">
-                                  <span class="text-main number-ads"
-                                  >رقم الاعلان(12)</span
-                                  >
-                                                            </div>
-                                                            <div class="col-auto">
-                                                                <div
-                                                                    class="d-flex justify-content-center align-items-center"
-                                                                >
-                                                                    <div class="department-badge bg-main text-white">
-                                                                        <div class="pt-1">5</div>
-                                                                        <div>
-                                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                                 width="25" height="25"
-                                                                                 viewBox="0 0 25 25" fill="none">
-                                                                                <path
-                                                                                    d="M12.7529 19.6185L20.1689 24.3301L18.2009 15.4501L24.7529 9.47534L16.1249 8.70481L12.7529 0.330078L9.38093 8.70481L0.75293 9.47534L7.30493 15.4501L5.33693 24.3301L12.7529 19.6185Z"
-                                                                                    fill="white"/>
-                                                                            </svg>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="number-ads gray-txt">
-                                                                        64 من التقييمات
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <h2 class="card-title mb-2">
-                                                            فولكس ويغن volkswagen
-                                                        </h2>
 
-                                                        <div class="gray-txt number-ads pb-2">
-                                <span
-                                >سيارة ماركة فولكس رمادي غامق ويغن فئه GIS
-                                </span>
-                                                        </div>
-                                                        <div
-                                                            class="text-gray-2 number-ads d-flex align-items-center"
-                                                        >
-                                                            <div>
-                                  <span class="ps-2">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="15"
-                                        height="18"
-                                        viewBox="0 0 15 18"
-                                        fill="none"
-                                    >
-                                      <path
-                                          fill-rule="evenodd"
-                                          clip-rule="evenodd"
-                                          d="M7.3 4.28999e-06C6.13434 -0.00154801 5.00739 0.418215 4.12678 1.18195C3.24617 1.94569 2.67124 3.00195 2.50791 4.15611C2.34458 5.31028 2.60387 6.48458 3.23799 7.46267C3.87211 8.44076 4.83834 9.15673 5.95867 9.47867C4.36667 9.672 3.00133 10.2347 1.972 11.2493C0.662666 12.5387 0 14.46 0 16.9667C0 17.1346 0.0667258 17.2957 0.185499 17.4145C0.304272 17.5333 0.465363 17.6 0.633333 17.6C0.801304 17.6 0.962395 17.5333 1.08117 17.4145C1.19994 17.2957 1.26667 17.1346 1.26667 16.9667C1.26667 14.6733 1.87067 13.1267 2.86133 12.1507C3.85333 11.1733 5.336 10.6667 7.3 10.6667C9.264 10.6667 10.7467 11.1733 11.74 12.1507C12.7293 13.128 13.3333 14.6733 13.3333 16.9667C13.3333 17.1346 13.4001 17.2957 13.5188 17.4145C13.6376 17.5333 13.7987 17.6 13.9667 17.6C14.1346 17.6 14.2957 17.5333 14.4145 17.4145C14.5333 17.2957 14.6 17.1346 14.6 16.9667C14.6 14.46 13.9373 12.54 12.6267 11.2493C11.6 10.236 10.2333 9.672 8.64133 9.47867C9.75791 9.15311 10.7198 8.43604 11.3506 7.4589C11.9814 6.48175 12.2389 5.31 12.076 4.15839C11.913 3.00679 11.3405 1.9525 10.4633 1.18875C9.58612 0.425002 8.46307 0.00296898 7.3 4.28999e-06ZM3.73333 4.83334C3.73333 3.8874 4.10911 2.9802 4.77799 2.31132C5.44687 1.64244 6.35406 1.26667 7.3 1.26667C8.24594 1.26667 9.15314 1.64244 9.82201 2.31132C10.4909 2.9802 10.8667 3.8874 10.8667 4.83334C10.8667 5.77928 10.4909 6.68647 9.82201 7.35535C9.15314 8.02423 8.24594 8.40001 7.3 8.40001C6.35406 8.40001 5.44687 8.02423 4.77799 7.35535C4.10911 6.68647 3.73333 5.77928 3.73333 4.83334Z"
-                                          fill="#FF8600"
-                                      />
-                                    </svg>
-                                  </span>
-                                                                <span>5 مقاعد</span>
-                                                            </div>
-                                                            <div class="padding-35">
-                                  <span class="ps-2">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="20"
-                                        height="20"
-                                        viewBox="0 0 20 20"
-                                        fill="none"
-                                    >
-                                      <path
-                                          d="M16.25 5H13.3333V4.16667C13.3326 3.72484 13.1568 3.3013 12.8444 2.98889C12.532 2.67647 12.1084 2.50066 11.6666 2.5H8.33329C7.89147 2.50066 7.46793 2.67647 7.15551 2.98889C6.84309 3.3013 6.66729 3.72484 6.66663 4.16667V5H3.74996C3.19756 5.00044 2.66791 5.22008 2.27731 5.61068C1.8867 6.00129 1.66707 6.53093 1.66663 7.08333V15.4167C1.66707 15.9691 1.8867 16.4987 2.27731 16.8893C2.66791 17.2799 3.19756 17.4996 3.74996 17.5H16.25C16.8024 17.4996 17.332 17.2799 17.7226 16.8893C18.1132 16.4987 18.3329 15.9691 18.3333 15.4167V7.08333C18.3329 6.53093 18.1132 6.00129 17.7226 5.61068C17.332 5.22008 16.8024 5.00044 16.25 5ZM7.49996 4.16667C7.49996 3.94565 7.58776 3.73369 7.74404 3.57741C7.90032 3.42113 8.11228 3.33333 8.33329 3.33333H11.6666C11.8876 3.33333 12.0996 3.42113 12.2559 3.57741C12.4122 3.73369 12.5 3.94565 12.5 4.16667V5H7.49996V4.16667ZM17.5 15.4167C17.5 15.7482 17.3683 16.0661 17.1338 16.3005C16.8994 16.535 16.5815 16.6667 16.25 16.6667H3.74996C3.41844 16.6667 3.1005 16.535 2.86608 16.3005C2.63166 16.0661 2.49996 15.7482 2.49996 15.4167V10.0225L7.36829 11.6458C7.41081 11.6597 7.45525 11.6667 7.49996 11.6667H12.5C12.5447 11.6667 12.5891 11.6597 12.6316 11.6458L17.5 10.0225V15.4167ZM17.5 9.17167C17.4555 9.17 17.411 9.17563 17.3683 9.18833L12.4325 10.8333H7.56746L2.63163 9.1875C2.58894 9.1748 2.54446 9.16917 2.49996 9.17083V7.08333C2.49996 6.75181 2.63166 6.43387 2.86608 6.19945C3.1005 5.96503 3.41844 5.83333 3.74996 5.83333H16.25C16.5815 5.83333 16.8994 5.96503 17.1338 6.19945C17.3683 6.43387 17.5 6.75181 17.5 7.08333V9.17167Z"
-                                          fill="#FF8600"
-                                      />
-                                    </svg>
-                                  </span>
-                                                                <span>1شنطه كبيرة</span>
-                                                            </div>
-                                                        </div>
-
-                                                        <div
-                                                            class="d-flex align-items-center justify-content-between mt-3 display-block-mobile"
-                                                        >
-                                                            <div class="department-price">
-                                                                <span class="text-gray-2">سعر اليوم:</span>
-                                                                <span class="fw-bold text-main"
-                                                                >2578 درهم مغربى
-                                  </span>
-                                                            </div>
-                                                            <div
-                                                                class="details-btn d-flex align-items-center justify-content-center"
-                                                            >
-                                                                <a href="{{route('detailcar',$car->id ?? 0)}}"> @lang('site.details')</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -1951,61 +1490,100 @@
             }
         }
 
-        function GetAtrribute(id,name) {
+        function GetAtrribute(id, name) {
             console.log('id', id);
             console.log('name', name);
             var checkbox = document.getElementById(id);
 
             if (checkbox.checked == true) {
+                // console.log('eeeeeeeeeeee');
 
+                const url = '{{route('checkallcar')}}';
 
+                // let data = {
+                //     id: id,
+                //     name:name
+                // };
 
-
-                    $.ajaxSetup({
-                    headers: {
-                    'X-CSRF-TOKEN': "{{ csrf_token() }}"
-                }
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    data: {
+                        name: name,
+                        value: id,
+                        // _token: $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function (data) {
+                        $("#tab-car-2").hide();
+                        // ('.carhidden').html(data);
+                        $("#tab-car-1").show();
+                        $("#tab-car-1").html(data);
+                        console.log("response", data);
+                    },
+                    error: function (data, textStatus, errorThrown) {
+                        console.log("error", data);
+                    },
                 });
 
-                    // $("#btn-submit").click(function(e){
-
-                    // $("#add-form").submit(function(e){
-
-
-                        // $('#spinnerss').show();
-
-                        // e.preventDefault();
-
-                        var data =id,name;
-
-
-                        console.log(data);
-                        var url = '{{route('CheckCar')}}';
-
-                        $.ajax({
-                            url:url,
-                            method:'POST',
-                            cache: false,
-                            processData:false,
-                            contentType: false,
-                            enctype: 'multipart/form-data',
-                            data: data,
-                            success:function(response){
-
-                                if(response.success){
-                                    {{--$('#spinnerss').hide();--}}
-                                    {{--window.location.href ='{{route('dashboard.products.index')}}';--}}
+                // let dataRequest = new Request(url, {
+                //     method: 'POST',
+                //     body: JSON.stringify(data),
+                //     headers: new Headers({
+                //         'Content-Type': 'application/json; charset=UTF-8'
+                //     })
+                // });
+                //
+                // fetch(dataRequest)
+                //     .then(function() {
+                //         // Handle response you get from the API
+                //     });
 
 
-                                }else{
-                                    alert("Error")
-                                }
-                            },
-                            error:function(result){
-                                console.log(result)
+                {{--    $.ajaxSetup({--}}
+                {{--    headers: {--}}
+                {{--    'X-CSRF-TOKEN': "{{ csrf_token() }}"--}}
+                {{--}--}}
+                {{--});--}}
 
-                            }
-                        });
+                {{--    // $("#btn-submit").click(function(e){--}}
+
+                {{--    // $("#add-form").submit(function(e){--}}
+
+
+                {{--        // $('#spinnerss').show();--}}
+
+                {{--        // e.preventDefault();--}}
+
+                {{--        var data =id,name;--}}
+
+
+                {{--        console.log(data);--}}
+                {{--        var url = '{{route('CheckCar')}}';--}}
+
+                {{--        $.ajax({--}}
+                {{--            url:url,--}}
+                {{--            method:'POST',--}}
+                {{--            cache: false,--}}
+                {{--            processData:false,--}}
+                {{--            contentType: false,--}}
+                {{--            enctype: 'multipart/form-data',--}}
+                {{--            data: data,--}}
+                {{--            success:function(response){--}}
+
+                {{--                if(response.success){--}}
+                {{--                    --}}{{--$('#spinnerss').hide();--}}
+                {{--                    --}}{{--window.location.href ='{{route('dashboard.products.index')}}';--}}
+
+
+                {{--                }else{--}}
+                {{--                    alert("Error")--}}
+                {{--                }--}}
+                {{--            },--}}
+                {{--            error:function(result){--}}
+                {{--                console.log(result)--}}
+
+                {{--            }--}}
+                {{--        });--}}
 
 
 
