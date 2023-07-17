@@ -26,7 +26,7 @@ class RoleRepository implements IRoleRepositoryAlias
 
 
         $models = ['users','settings','roles',' message','contacts','countries','cities','questions','problems','mediators','advertising','reviewElements','categories','cars','bookings','car_comments','car_reviews','aquarcategories','areas','services_aqars','aqars','aquarbooking','aqar_comments','aqar_reviews',
-        'place_categories','places','place_comments','place_reviews','commissions','notifications','balances','invoices','deposits','sections'
+        'place_categories','places','place_comments','place_reviews','ads_status','commissions','notifications','balances','invoices','deposits','sections'
         ];
         $maps = ['create', 'update', 'read', 'delete'];
 
@@ -39,7 +39,7 @@ class RoleRepository implements IRoleRepositoryAlias
         // TODO: Implement edit() method.
 
         $models = ['users','settings','roles',' message','contacts','countries','cities','questions','problems','mediators','advertising','reviewElements','categories','cars','bookings','car_comments','car_reviews','aquarcategories','areas','services_aqars','aqars','aquarbooking','aqar_comments','aqar_reviews',
-        'place_categories','places','place_comments','place_reviews','commissions','notifications','balances','invoices','deposits','sections'
+        'place_categories','places','place_comments','place_reviews','ads_status','commissions','notifications','balances','invoices','deposits','sections'
         ];
 
         $maps = ['create', 'update', 'read', 'delete'];

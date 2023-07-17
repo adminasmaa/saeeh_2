@@ -115,9 +115,9 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
                 $destinationPath = 'images/places/';
                 $file_name = $_FILES['images']['name'][$key];
                 $files->move($destinationPath, $file_name);
-                $data= $_FILES['images']['name'][$key];
+                $data[]= $_FILES['images']['name'][$key];
                 $place->images = json_encode($data);
-                // $place->images = implode(',',$data);
+                $place->images = implode(',',$data);
                 $place->save();
             }
         }
@@ -127,9 +127,8 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
                 $destinationPath = 'videos/places/';
                 $file_name = $_FILES['videos']['name'][$key];
                 $files->move($destinationPath, $file_name);
-                $data= $_FILES['videos']['name'][$key];
+                $data[]= $_FILES['videos']['name'][$key];
                 $place->videos = json_encode($data);
-                // $place->videos = implode(',',$data);
                 $place->save();
             }
         }
@@ -199,10 +198,10 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
            Alert::success('Success', __('site.updated_successfully'));
 
             return redirect()->route('dashboard.places.index');
-        } else {
-           Alert::error('Error', __('site.update_faild'));
+            } else {
+                Alert::error('Error', __('site.update_faild'));
 
-            return redirect()->route('dashboard.places.index');
+                return redirect()->route('dashboard.places.index');
 
         }
     }
