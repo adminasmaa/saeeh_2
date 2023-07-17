@@ -502,7 +502,7 @@ return [
     'paid' => 'PAID',
     'not_paid' => 'NOT PAID',
 
-    'message' => 'My Messages',
+    'messages' => 'My Messages',
     'select_all' => 'Select All',
     'created_by' => 'Created By',
     'settings' => 'Settings',

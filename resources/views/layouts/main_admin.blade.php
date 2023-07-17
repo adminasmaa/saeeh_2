@@ -304,16 +304,16 @@
                             @endif
                             @if (auth()->user()->hasPermission('read_message'))
                             <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.message.index')?'activee':'' }}"
-                                   href="{{route('dashboard.message.index')}}">
-                                    <i data-feather="bell"></i><span>@lang('site.contacts') </span></a>
+                                <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.messages.index')?'activee':'' }}"
+                                   href="{{route('dashboard.messages.index')}}">
+                                    <i data-feather="bell"></i><span>@lang('site.messages') </span></a>
                             </li>
                             @endif
                             @if (auth()->user()->hasPermission('read_contacts'))
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.contacts.index')?'activee':'' }}"
                                    href="{{route('dashboard.contacts.index')}}">
-                                    <i data-feather="mail"></i><span>@lang('site.contactsus') </span></a>
+                                    <i data-feather="mail"></i><span>@lang('site.contacts') </span></a>
                             </li>
                             @endif
                             @if (auth()->user()->hasPermission('read_countries'))
@@ -535,7 +535,7 @@
                                         <a href="{{route('dashboard.place_comments.index')}}" class="{{($current_route=='dashboard.place_comments.index')?'activee':'' }}">{{__('site.place_comments')}}</a>
                                     </li>
                                     @endif
-                                    @if (auth()->user()->hasPermission('read_place_comments'))
+                                    @if (auth()->user()->hasPermission('read_place_reviews'))
 
                                     <li>
                                         <a href="{{route('dashboard.place_reviews.index')}}" class="{{($current_route=='dashboard.place_reviews.index')?'activee':'' }}">{{__('site.place_reviews')}}</a>
@@ -544,12 +544,14 @@
 
                                 </ul>
                             </li>
+                            @if (auth()->user()->hasPermission('read_ads_status'))
 
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.ads_status.index')?'activee':'' }}"
                                    href="{{route('dashboard.ads_status.index')}}">
                                     <i data-feather="zap"></i><span>@lang('site.ads_status')</span></a>
                             </li>
+                            @endif
 
                             @if (auth()->user()->hasPermission('read_commissions'))
 

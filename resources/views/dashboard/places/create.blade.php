@@ -451,12 +451,12 @@
             img,
             img2,
             // /*video */
-            // videoUpload = document.getElementById("upload-videos"),
-            // videoPreviews = document.getElementById("video-previews"),
-            // videoUploadForms = document.getElementById("form-upload"),
-            // totalFiles2,
-            // previewTitle2,
-            // previewTitleText2,
+            videoUpload = document.getElementById("upload-videos"),
+            videoPreviews = document.getElementById("video-previews"),
+            videoUploadForms = document.getElementById("form-upload"),
+            totalFiles2,
+            previewTitle2,
+            previewTitleText2,
             video;
         imgUploads.addEventListener("change", previewImgss, true);
         function previewImgss(event) {
@@ -486,32 +486,32 @@
             }
         }
         /*video */
-        // videoUpload.addEventListener("change", previewVideoss, true);
-        // function previewVideoss(event) {
-        //     totalFiles2 = videoUpload.files.length;
+        videoUpload.addEventListener("change", previewVideoss, true);
+        function previewVideoss(event) {
+            totalFiles2 = videoUpload.files.length;
 
-        //     if (!!totalFiles2) {
-        //         videoPreviews.classList.remove("video-thumbs-hidden");
-        //     }
+            if (!!totalFiles2) {
+                videoPreviews.classList.remove("video-thumbs-hidden");
+            }
 
-        //     for (var i = 0; i < totalFiles2; i++) {
-        //         wrapper = document.createElement("div");
-        //         wrapper.classList.add("wrapper-thumb");
-        //         removeBtn = document.createElement("span");
-        //         nodeRemove = document.createTextNode("x");
-        //         removeBtn.classList.add("remove-btn");
-        //         removeBtn.appendChild(nodeRemove);
-        //         video = document.createElement("video");
-        //         video.src = URL.createObjectURL(event.target.files[i]);
-        //         video.classList.add("video-preview-thumb");
-        //         wrapper.appendChild(video);
-        //         wrapper.appendChild(removeBtn);
-        //         videoPreviews.appendChild(wrapper);
-        //         $(".remove-btn").click(function() {
-        //             $(this).parent(".wrapper-thumb").remove();
-        //         });
-        //     }
-        // }
+            for (var i = 0; i < totalFiles2; i++) {
+                wrapper = document.createElement("div");
+                wrapper.classList.add("wrapper-thumb");
+                removeBtn = document.createElement("span");
+                nodeRemove = document.createTextNode("x");
+                removeBtn.classList.add("remove-btn");
+                removeBtn.appendChild(nodeRemove);
+                video = document.createElement("video");
+                video.src = URL.createObjectURL(event.target.files[i]);
+                video.classList.add("video-preview-thumb");
+                wrapper.appendChild(video);
+                wrapper.appendChild(removeBtn);
+                videoPreviews.appendChild(wrapper);
+                $(".remove-btn").click(function() {
+                    $(this).parent(".wrapper-thumb").remove();
+                });
+            }
+        }
         document.getElementById("imgInp").onchange = function() {
             let imgURL = (frame.src = URL.createObjectURL(event.target.files[0]));
             document.querySelector("img").src = imgURL;

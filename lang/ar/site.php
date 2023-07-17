@@ -509,7 +509,7 @@ return [
     'mediators' => 'الوسطاء',
 
     'notifications' => 'التنبيهات',
-    'message' => 'الرسائل',
+    'messages' => 'الرسائل',
 
     'home_serviecs' => 'خدمات الصفحة الرئيسية',
     'home_footers' => 'معلومات اسفل الصفحة الرئيسية',
@@ -517,7 +517,7 @@ return [
     'description_en' => 'التفاصيل بالانجليزي',
 
     'passwordsecurity' => 'كلمة السر والامان',
-    'message' => 'الرساله',
+    // 'message' => 'الرساله',
     'select_all' => 'اختيار الكل',
     'created_by' => 'أُضيف بواسطة',
     'settings' => 'الإعدادت  ',
