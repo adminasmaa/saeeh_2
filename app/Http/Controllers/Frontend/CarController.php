@@ -51,37 +51,99 @@ class CarController extends Controller
         $countries = Country::where('display_data', '=', 1)->get();
         $cities = City::where('active', '=', 1)->get();
         $CategoriesCar = Category::where('parent_id', '=', 2)->where('type', '=', 2)->get();
-
-        return view('frontend.cars', compact('cars', 'countries', 'cities', 'CategoriesCar'));
+        $carsfilters = Car::get();
+        return view('frontend.cars', compact('cars', 'carsfilters', 'countries', 'cities', 'CategoriesCar'));
 
     }
 
 
     public function CheckCar(Request $request)
     {
+        $request['category_id'] = $request->array_category_id ?? [];
+        $request['array_year'] = $request->array_year ?? [];
+        $request['array_color'] = $request->array_color ?? [];
+        $request['fixed_price'] = $request->fixed_price ?? [];
+        $request['rate'] = $request->rate ?? [];
 
-        if ($request->name == 'category_id') {
-            $cars = Car::where('category_id', '=', $request->value)->paginate(2);
+//        if (isset($request)) {
+//            $cars = Car::orWhereIn('category_id', $request->category_id)
+//                ->orWhereIn('year', $request->array_year)
+//                ->orWhereIn('color', $request->array_color)
+//                ->orWhereIn('fixed_price', $request->fixed_price)
+//                ->paginate(7);
+//        }
 
-        } elseif ($request->name == 'year') {
-            $cars = Car::where('year', '=', $request->value)->paginate(2);
+//return $request;
+        if (!empty($request['category_id']) && !empty($request['array_year']) && !empty($request['array_color']) && !empty($request['fixed_price'])) {
 
+            $cars = Car::WhereIn('category_id', $request->category_id)
+                ->WhereIn('year', $request->array_year)
+                ->WhereIn('color', $request->array_color)
+                ->WhereIn('fixed_price', $request->fixed_price)
+                ->paginate(7);
+        } elseif (!empty($request['category_id']) && !empty($request['array_year']) && !empty($request['array_color'])) {
 
-        } elseif ($request->name == 'color') {
-            $cars = Car::where('color', '=', $request->value)->paginate(2);
-
-
-        } elseif ($request->name == 'fixed_price') {
-            $cars = Car::where('fixed_price', '=', $request->value)->paginate(2);
-
-
-        } elseif ($request->name == 'rate') {
-
-
-         $car_id=CarReview::where('rate', '=', $request->value)->select('car_id');
-            return 'rate' . $request->name . $request->value.$car_id;
+            $cars = Car::WhereIn('category_id', $request->category_id)
+                ->WhereIn('year', $request->array_year)
+                ->WhereIn('color', $request->array_color)
+                ->paginate(7);
 
         }
+        elseif (!empty($request['category_id']) && !empty($request['array_year'])) {
+
+
+            $cars = Car::WhereIn('category_id', $request->category_id)
+                ->WhereIn('year', $request->array_year)
+                ->paginate(7);
+
+        }
+        elseif (!empty($request['array_year']) && !empty($request['array_color'])) {
+
+
+            $cars = Car::WhereIn('year', $request->array_year)
+                ->WhereIn('color', $request->array_color)
+                ->paginate(7);
+
+        } elseif (!empty($request['category_id']) && !empty($request['fixed_price'])) {
+
+            $cars = Car::WhereIn('category_id', $request->category_id)
+                ->WhereIn('fixed_price', $request->fixed_price)
+                ->paginate(7);
+
+        } elseif (!empty($request['category_id']) && !empty($request['array_color'])) {
+
+            $cars = Car::WhereIn('category_id', $request->category_id)
+                ->WhereIn('color', $request->array_color)
+                ->paginate(7);
+
+        } elseif (!empty($request['array_year'])) {
+
+            $cars = Car::WhereIn('year', $request->array_year)
+                ->paginate(7);
+
+        }
+        elseif (!empty($request['category_id'])) {
+            $cars = Car::WhereIn('category_id', $request->category_id)
+                ->paginate(7);
+
+        } elseif (!empty($request['array_color'])) {
+            $cars = Car::WhereIn('color', $request->array_color)
+                ->paginate(7);
+
+        } elseif (!empty($request['fixed_price'])) {
+            $cars = Car::WhereIn('fixed_price', $request->fixed_price)
+                ->paginate(7);
+
+        }elseif (!empty($request['rate'])) {
+
+
+        $rate=CarReview::WhereIn('rate',$request['rate'])->select('car_id');
+
+            $cars = Car::WhereIn('id',$rate)
+                ->paginate(7);
+
+        }
+//        return $cars;
         return view('frontend.carsearch', compact('cars'));
 
     }
