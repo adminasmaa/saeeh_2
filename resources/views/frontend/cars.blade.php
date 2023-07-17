@@ -93,6 +93,7 @@
 
 
 
+
                                             @endforeach -->
                                         </select>
                                     </div>
@@ -122,19 +123,6 @@
                                             <option value="">@lang('site.category')</option>
                                             <!-- @foreach($CategoriesCar as $cat)
                                                 <option value="{{$cat->id ?? ''}}">{{$cat->name ?? ''}}</option>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
                                             @endforeach -->
@@ -275,6 +263,7 @@
 
                                                         <div class="form-group">
                                                             <input type="checkbox" id="{{$cat->id}}"
+                                                                   class="typeOfSearch"
                                                                    value="{{$cat->id}}" class="check"
                                                                    name="category_id"
                                                                    onclick="GetAtrribute(this.id,this.name)"/>
@@ -382,7 +371,7 @@
                                         <div class="row align-items-center">
                                             <div class="custom-checkbox">
                                                 <form>
-                                                    @foreach($cars as $car)
+                                                    @foreach($carsfilters->unique('year') as $car)
                                                         <div class="form-group">
                                                             <input type="checkbox" name="year" id="{{$car->year}}"
                                                                    value="{{$car->year}}"
@@ -431,7 +420,7 @@
                                         <div class="row align-items-center">
                                             <div class="custom-checkbox">
                                                 <form>
-                                                    @foreach($cars as $car)
+                                                    @foreach($carsfilters->unique('color') as $car)
 
                                                         <div class="form-group">
                                                             <input type="checkbox" id="{{$car->color}}"
@@ -483,11 +472,10 @@
                                         <div class="row align-items-center">
                                             <div class="custom-checkbox">
                                                 <form>
-                                                    @foreach($cars as $car)
+                                                    @foreach($carsfilters->unique('fixed_price') as $car)
                                                         <div class="form-group">
                                                             <input type="checkbox" id="{{$car->fixed_price}}"
-                                                                   value="{{$car->id}}"
-
+                                                                   value="{{$car->fixed_price}}"
                                                                    name="fixed_price"
                                                                    onclick="GetAtrribute(this.id,this.name)"
                                                             />
@@ -539,11 +527,15 @@
                                             <div class="custom-checkbox">
                                                 <form>
                                                     <div class="form-group">
-                                                        <input type="checkbox" id="rate-1"
+
+                                                        <input type="checkbox" name="rate" id="rate-1"
                                                                value="1"
-                                                               name="rate"
-                                                               class="check"
                                                                onclick="GetAtrribute(this.value,this.name)"/>
+{{--                                                        <input type="checkbox" id="rate-1"--}}
+{{--                                                               value="1"--}}
+{{--                                                               name="rate"--}}
+{{--                                                               class="check"--}}
+{{--                                                               onclick="GetAtrribute(this.value,this.name)"/>--}}
                                                         <label
                                                             for="rate-1"
                                                             class="d-flex align-items-center"
@@ -1469,26 +1461,26 @@
 @section('scripts')
     <script>
 
-        function getMySearch() {
-            var input, filter, ul, li, a, i, txtValue;
-            input = document.getElementById("myInput");
-            console.log('input', input);
-            filter = input.value.toLowerCase();
-            ul = document.getElementById("myUL");
-            li = ul.getElementsByClassName("city-item");
-            console.log(li);
-            for (i = 0; i < li.length; i++) {
-                a = li[i].getElementsByTagName("label");
-
-                txtValue = a.textContent || a.innerText;
-                console.log(txtValue);
-                if (txtValue.toLowerCase().indexOf(filter) > -1) {
-                    li[i].style.display = "";
-                } else {
-                    li[i].style.display = "none";
-                }
-            }
-        }
+       function getMySearch() {
+//            var input, filter, ul, li, a, i, txtValue;
+//            input = document.getElementById("myInput");
+//            console.log('input', input);
+//            filter = input.value.toLowerCase();
+//            ul = document.getElementById("myUL");
+//            li = ul.getElementsByClassName("city-item");
+//            console.log(li);
+//            for (i = 0; i < li.length; i++) {
+//                a = li[i].getElementsByTagName("label");
+//
+//                txtValue = a.textContent || a.innerText;
+//                console.log(txtValue);
+//                if (txtValue.toLowerCase().indexOf(filter) > -1) {
+//                    li[i].style.display = "";
+//                } else {
+//                    li[i].style.display = "none";
+//                }
+//            }
+       }
 
         function GetAtrribute(id, name) {
             console.log('id', id);
@@ -1496,7 +1488,7 @@
             var checkbox = document.getElementById(id);
 
             if (checkbox.checked == true) {
-                // console.log('eeeeeeeeeeee');
+                console.log('eeeeeeeeeeee');
 
                 const url = '{{route('checkallcar')}}';
 
@@ -1504,6 +1496,28 @@
                 //     id: id,
                 //     name:name
                 // };
+                var array_cat = [];
+                $("input:checkbox[name=category_id]:checked").each(function () {
+                    array_cat.push($(this).val());
+                });
+                var array_year = [];
+                $("input:checkbox[name=year]:checked").each(function () {
+                    array_year.push($(this).val());
+                });
+            var array_color = [];
+                $("input:checkbox[name=color]:checked").each(function () {
+                    array_color.push($(this).val());
+                });
+            var fixed_price = [];
+                $("input:checkbox[name=fixed_price]:checked").each(function () {
+                    fixed_price.push($(this).val());
+                });
+
+                var rate = [];
+                $("input:checkbox[name=rate]:checked").each(function () {
+                    rate.push($(this).val());
+                });
+
 
                 $.ajax({
                     type: "GET",
@@ -1511,6 +1525,12 @@
                     data: {
                         name: name,
                         value: id,
+                        array_category_id: array_cat,
+                        rate: rate,
+                        array_year: array_year,
+                        array_color: array_color,
+                        fixed_price: fixed_price,
+
                         // _token: $('meta[name="csrf-token"]').attr('content')
                     },
                     success: function (data) {
