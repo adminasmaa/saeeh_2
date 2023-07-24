@@ -25,60 +25,118 @@ class AqarController extends Controller
 
     public function detailAqar(Request $request)
     {
-        $aqar_id = $request->aqar_id;
+        $rule = [
+            'aqar_id' => 'required',
+        ];
+        $customMessages = [
+            'required' => __('validation.attributes.required'),
+        ];
 
-        $aqar = Aqar::where('id', $aqar_id)->first();
+        $validator = validator()->make($request->all(), $rule, $customMessages);
 
-        if (isset($aqar)) {
+        if ($validator->fails()) {
 
-            $aquar = new AqarDetailResource($aqar);
+            return $this->respondError('Validation Error.', $validator->errors(), 400);
 
-
-            return $this->respondSuccess($aquar, trans('message.data retrieved successfully.'));
         } else {
+            $aqar_id = $request->aqar_id;
 
-            return $this->respondError(__('message.Data not found.'), ['error' => __('message.Data not found.')], 404);
+            $aqar = Aqar::where('id', $aqar_id)->first();
 
+            if (isset($aqar)) {
+
+                $aquar = new AqarDetailResource($aqar);
+
+
+                return $this->respondSuccess($aquar, trans('message.data retrieved successfully.'));
+            } else {
+
+                return $this->respondError(__('message.Data not found.'), ['error' => __('message.Data not found.')], 404);
+
+            }
         }
     }
 
 
     public function AqarFavourite(Request $request)
     {
-        $user_id = Auth::id();
 
-        $users = User::find($user_id);
+        $rule = [
 
-
-        $user = $users->FavouriteAqars()->toggle($request->aqar_id);
-
-        $status = ($user['attached'] !== []) ? 'added' : 'deleted';
-
-        return $this->respondSuccess($status, trans('message.data retrieved successfully.'));
+            'aqar_id' => 'required',
 
 
+
+
+        ];
+        $customMessages = [
+            'required' => __('validation.attributes.required'),
+        ];
+
+        $validator = validator()->make($request->all(), $rule, $customMessages);
+
+        if ($validator->fails()) {
+
+            return $this->respondError('Validation Error.', $validator->errors(), 400);
+
+        } else {
+
+            $user_id = Auth::id();
+
+            $users = User::find($user_id);
+
+
+            $user = $users->FavouriteAqars()->toggle($request->aqar_id);
+
+            $status = ($user['attached'] !== []) ? 'favourite' : 'unfavourite';
+
+            return $this->respondSuccess($status, trans('message.data retrieved successfully.'));
+
+        }
     }
 
 
     public function AqarsReviews(Request $request)
     {
 
-        $comments = AqarComment::where('aqar_id', $request->aqar_id)->paginate(10);
+
+        $rule = [
+
+            'aqar_id' => 'required',
 
 
-        if (isset($comments)) {
 
 
-            $placeComments = CommentResource::collection(($comments));
+        ];
+        $customMessages = [
+            'required' => __('validation.attributes.required'),
+        ];
 
+        $validator = validator()->make($request->all(), $rule, $customMessages);
 
-            return $this->respondSuccess($placeComments, __('message.Comment retrieved successfully.'));
+        if ($validator->fails()) {
+
+            return $this->respondError('Validation Error.', $validator->errors(), 400);
+
         } else {
-            return $this->respondError(__('Comment not found.'), ['error' => __('Comment not found.')], 404);
 
 
+            $comments = AqarComment::where('aqar_id', $request->aqar_id)->paginate(10);
+
+
+            if (isset($comments)) {
+
+
+                $placeComments = CommentResource::collection(($comments));
+
+
+                return $this->respondSuccess($placeComments, __('message.Comment retrieved successfully.'));
+            } else {
+                return $this->respondError(__('Comment not found.'), ['error' => __('Comment not found.')], 404);
+
+
+            }
         }
-
     }
 
     public function getBetweenDates($startDate, $endDate)
