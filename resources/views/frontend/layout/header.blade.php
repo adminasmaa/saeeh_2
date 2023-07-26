@@ -53,9 +53,9 @@
                         class="btn-saeeh btn-space d-flex justify-content-center align-items-center"
                       >
                         <a href="{{route('registers')}}"
-                     
+
                           class="btn btn-main border-0 btn-frm-owner"
-                        
+
                         >
                         @lang('site.create account')
                         </a>
@@ -64,9 +64,9 @@
                         class="btn-outline-saeeh d-flex justify-content-center align-items-center"
                       >
                         <a href="{{route('sitelogin')}}"
-             
+
                           class="btn btn-main border-0 btn-frm-owner"
-                        
+
                         >
                         @lang('site.login')
                         </a>
@@ -123,7 +123,7 @@
                         </defs>
                       </svg>
                     </span>
-                    @lang('site.Aqar Booking')             
+                    @lang('site.Aqar Booking')
                        <span class="pe-2">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -148,7 +148,7 @@
 
                                     @foreach($CategoriesAquar as $category)
                                         <li class="sub-menu__sub-item pb-2">
-                                            <a href="#" class="sub-menu-link">
+                                            <a href="{{route('categories',$category->id)}}" class="sub-menu-link">
                                                 <div class="d-flex align-items-center">
                                                     <div class="pb-1 ps-1">
 
@@ -165,7 +165,7 @@
                                         </li>
                                     @endforeach
                                 </ul>
-                    
+
                   </div>
                 </li>
                 <li class="nav-link">
@@ -230,7 +230,7 @@
                   <ul class="sub-menu__sub-list px-0 list-unstyled">
                                     @foreach($CategoriesCar as $cat)
                                         <li class="sub-menu__sub-item pb-2">
-                                            <a href="#" class="sub-menu-link">
+                                            <a href="{{route('categories',$cat->id)}}" class="sub-menu-link">
                                                 <div class="d-flex align-items-center">
                                                     <div>
 
@@ -318,7 +318,7 @@
 
                         @foreach($CategoriesPlaces as $categoryplace)
                             <li class="sub-menu__sub-item pb-2">
-                                <a href="#" class="sub-menu-link">
+                                <a href="{{route('categories',$categoryplace->id)}}" class="sub-menu-link">
                                     <div class="d-flex align-items-center">
                                         <div class="pb-1">
 
