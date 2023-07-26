@@ -73,7 +73,8 @@
             class="main-menu d-flex flex-column flex-lg-row align-items-lg-center list-unstyled p-0 m-0"
         >
             <li class="nav-item">
-                <a class="nav-link active" href="#">الرئيسية </a>
+            
+                <a href="{{route('Home')}}" class="nav-link active"> @lang('site.home') </a>
             </li>
 
             <li>
