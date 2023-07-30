@@ -304,8 +304,8 @@
                             @endif
                             @if (auth()->user()->hasPermission('read_message'))
                             <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.messages.index')?'activee':'' }}"
-                                   href="{{route('dashboard.messages.index')}}">
+                                <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.message.index')?'activee':'' }}"
+                                   href="{{route('dashboard.message.index')}}">
                                     <i data-feather="bell"></i><span>@lang('site.message') </span></a>
                             </li>
                             @endif
