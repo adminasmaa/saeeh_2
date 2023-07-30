@@ -43,7 +43,11 @@
                     <div class="col-12">
                         <section class="position-relative">
                             <div class="country-image">
+                                @if(!empty($city->image))
                                 <img src="{{asset('images/cities/'.$city->image)}}"  onerror="this.src='{{asset('images/default.png')}}'" alt="city image">
+                                @else
+                                    <img src="{{asset('images/default.png')}}"  onerror="this.src='{{asset('images/default.png')}}'" alt="city image">
+                                @endif
                             </div>
                             <div class="country-container d-flex align-items-center">
                                 <div class="w-100">

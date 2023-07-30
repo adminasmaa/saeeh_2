@@ -79,21 +79,6 @@
                                                 <option
                                                    value="{{$city->id}}">{{$city->name ?? ''}}</option>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                             @endforeach -->
                                         </select>
                                     </div>
