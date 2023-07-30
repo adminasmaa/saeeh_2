@@ -306,7 +306,7 @@
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.messages.index')?'activee':'' }}"
                                    href="{{route('dashboard.messages.index')}}">
-                                    <i data-feather="bell"></i><span>@lang('site.messages') </span></a>
+                                    <i data-feather="bell"></i><span>@lang('site.message') </span></a>
                             </li>
                             @endif
                             @if (auth()->user()->hasPermission('read_contacts'))

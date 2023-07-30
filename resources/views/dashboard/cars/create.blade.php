@@ -245,7 +245,7 @@
                                                         <option selected value="0">@lang('site.select')</option>
                                                         @foreach($adsStatus as $ads_status)
 
-                                                            <option value="{{$ads_status->id}}">{{$ads_status->status ?? ''}}</option>
+                                                            <option value="{{$ads_status->id}}">{{$ads_status->status_ar ?? ''}}</option>
 
                                                         @endforeach
 
