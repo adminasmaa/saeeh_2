@@ -152,7 +152,7 @@
                                              name="list4"
                                              >
                                              <option>@lang('site.room number')</option>
-                                            
+
                                           </select>
                                        </div>
                                     </div>
@@ -236,7 +236,7 @@
                                              id="list8"
                                              name="list8"
                                              >
-                                             @for ($year = (int)date('Y')+1; 1900 <= $year; $year--): 
+                                             @for ($year = (int)date('Y')+1; 1900 <= $year; $year--):
                                              <option value="{{$year}}">{{$year}}</option>
                                              @endfor
                                           </select>
@@ -307,7 +307,7 @@
          <div class="row">
             @foreach($countries as $country)
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-               <div class="card-tour mb-3">
+               <div class="card-tour mb-3"  onclick="window.location='{{route('cities',$country->id)}}'">
                   <img
                      class="card-img-top"
                      src="{{asset('images/countries/'.$country->image)}}"
@@ -450,7 +450,7 @@
                            </div>
                         </div>
                         <div class="isim text-center">
-                          
+
                         </div>
                      </div>
                   </div>

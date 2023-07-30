@@ -8,7 +8,7 @@
           <nav class="breadcrumb-container" aria-label="breadcrumb">
             <ol class="breadcrumb mb-0">
               <li class="breadcrumb-item">
-                <a href="javascript:void(0)"> @lang('site.home') </a>
+                <a href="{{route('Home')}}"> @lang('site.home') </a>
               </li>
               <li>
                 <span
@@ -28,7 +28,7 @@
               </li>
 
               <li class="breadcrumb-item text-gray-4" aria-current="page">
-               {{$country->name_ar}}
+               {{$country->name ?? ''}}
               </li>
             </ol>
           </nav>
@@ -49,7 +49,7 @@
                   <div class="w-100">
                   <div>
                     <h2>
-                    @lang('site.Explore the most famous cities') {{$country->name_ar}} 
+                    @lang('site.Explore the most famous cities') {{$country->name ?? ''}}
                     @lang('site.through site')
                     @lang('site.saeeeeeeh')
                     </h2>
@@ -91,7 +91,7 @@
         <div class="container w-100">
           <div class="row pb-3">
             <div class="col-12">
-              <h2 class="country-title"> @lang('site.most visited') {{$country->name_ar}}</h2>
+              <h2 class="country-title"> @lang('site.most visited') {{$country->name ?? ''}}</h2>
             </div>
           </div>
           <div class="row">
@@ -124,7 +124,7 @@
                   <div
                     class="card-city-body d-flex justify-content-between align-items-center"
                   >
-                    <h2 class=" card-title">{{$city->name_ar}}</h2>
+                    <h2 class=" card-title">{{$city->name ?? ''}}</h2>
                     <div
                       class="d-flex justify-content-center align-items-center"
                     >
@@ -157,7 +157,7 @@
           </div>
           <div class="row pb-3">
             <div class="col-12">
-              <h2 class="country-title"> @lang('site.The most famous cities') {{$country->name_ar}}</h2>
+              <h2 class="country-title"> @lang('site.The most famous cities') {{$country->name ?? ''}}</h2>
             </div>
           </div>
           <div class="row">
@@ -185,7 +185,7 @@
                               stroke-linejoin="round"
                             />
                           </svg>
-                        </button> 
+                        </button>
                         <a href="#">
                         <div class="card-image-box">
                         <img class="card-img" src="{{asset('images/cities/'.$city->image)}}"
@@ -193,7 +193,7 @@
                         <div
                           class="card-city-body d-flex justify-content-between align-items-center"
                         >
-                          <h2 class=" card-title">{{$city->name_ar}}</h2>
+                          <h2 class=" card-title">{{$city->name ?? ''}}</h2>
                           <div
                             class="d-flex justify-content-center align-items-center"
                           >
@@ -247,7 +247,7 @@
         </div>
       </section>
       <section class="d-lg-flex">
-       
+
         <div class="right-container bg-main d-flex align-items-center py-lg-0 py-4">
           <div class="right-container-content">
           <h2>@lang('site.Get instant discounts') </h2>
@@ -255,7 +255,7 @@
           <div class="d-flex justify-content-between py-3">
             <div class="btn-footer-auth d-flex align-items-center justify-content-center">
               <a href="{{route('registers')}}" class="d-flex justify-content-center align-items-center w-100 h-100">
-                
+
               @lang('site.create account')
               </a>
             </div>
@@ -268,7 +268,7 @@
         </div>
         </div>
         <div class="left-container" style=" background-image: url('{{FRONTASSETS}}/images/countries/footer-image.png');">
-      
+
         </div>
       </section>
     </main>
