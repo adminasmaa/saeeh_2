@@ -54,11 +54,15 @@
 
 
                                 <div class="col-md-6 form-group col-12 p-2">
-                                    <label>@lang('site.ads_status')</label>
-                                    <input type="text" name="status" class="form-control" value="{{ $adsStatus->status }}"
+                                    <label>@lang('site.status_ar')</label>
+                                    <input type="text" name="status_ar" class="form-control" value="{{ $adsStatus->status_ar }}"
                                            disabled>
                                 </div>
-                                
+                                <div class="col-md-6 form-group col-12 p-2">
+                                    <label>@lang('site.status_en')</label>
+                                    <input type="text" name="status_en" class="form-control" value="{{ $adsStatus->status_en }}"
+                                           disabled>
+                                </div>
                             </div>
                         </div>
                     </div>

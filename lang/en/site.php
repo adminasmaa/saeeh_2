@@ -510,7 +510,8 @@ return [
     'value' => 'Value',
     'text' => 'Text',
     'order' => 'Order',
-
+    'status_ar'=>'Status_ar',
+    'status_en'=>'Status_en',
 
     'places' => 'Places',
     'name_ar' => 'Name Ar',

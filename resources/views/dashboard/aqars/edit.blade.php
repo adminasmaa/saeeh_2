@@ -298,7 +298,7 @@
                                                         @foreach($adsStatus as $ads_status)
 
                                                             <option value="{{$ads_status->id}}"
-                                                                    @if($aqar->ads_status_id==$ads_status->id) selected @endif>{{$ads_status->status?? ''}}</option>
+                                                                    @if($aqar->ads_status_id==$ads_status->id) selected @endif>{{$ads_status->status_ar?? ''}}</option>
 
                                                         @endforeach
 

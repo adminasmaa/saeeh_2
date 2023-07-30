@@ -14,7 +14,9 @@ class AdsStatus extends Model
     protected $table = 'ads_status';
 
     protected $fillable = [
-        'status', // required
+        'status_ar', // required
+        'status_en', // nullable
+
     ];
     // relations
     

@@ -59,12 +59,17 @@
                                     <!--<div class="col-md-6">-->
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.ads_status')</label>
-                                        <input type="text"  name="status" class="form-control"
-                                               value="{{old('status')}}"
+                                        <label>@lang('site.status_ar')</label>
+                                        <input type="text"  name="status_ar" class="form-control"
+                                               value="{{old('status_ar')}}"
                                                >
                                     </div>
-                                       
+                                    <div class="col-md-6 form-group col-12 p-2 ">
+                                        <label>@lang('site.status_en')</label>
+                                        <input type="text"  name="status_en" class="form-control"
+                                               value="{{old('status_en')}}"
+                                               >
+                                    </div>
                                 
                                 </div>
 
