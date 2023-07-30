@@ -249,18 +249,18 @@
       <section class="d-lg-flex">
        
         <div class="right-container bg-main d-flex align-items-center py-lg-0 py-4">
-          <div>
+          <div class="right-container-content">
           <h2>@lang('site.Get instant discounts') </h2>
           <p> @lang('site.All you have to do is log in to') www.saeeh.com</p>
           <div class="d-flex justify-content-between py-3">
             <div class="btn-footer-auth d-flex align-items-center justify-content-center">
-              <a href="{{route('registers')}}">
+              <a href="{{route('registers')}}" class="d-flex justify-content-center align-items-center w-100 h-100">
                 
               @lang('site.create account')
               </a>
             </div>
             <div class="btn-out-footer-auth d-flex align-items-center justify-content-center ">
-              <a href="{{route('sitelogin')}}" >
+              <a href="{{route('sitelogin')}}"  class="d-flex justify-content-center align-items-center w-100 h-100">
               @lang('site.login')
               </a>
             </div>
