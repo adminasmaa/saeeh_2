@@ -43,13 +43,15 @@ Route::get('detailplace/{id}', 'App\Http\Controllers\Frontend\CategoryController
  Route::post('createaccount', 'App\Http\Controllers\Frontend\AuthController@createaccount')->name('createaccount');
 
 //cars start
+Route::get('subcategorycars/{id}', 'App\Http\Controllers\Frontend\CarController@allcars')->name('subcategorycars');
 Route::get('cars', 'App\Http\Controllers\Frontend\CarController@allcars')->name('cars');
+Route::get('carscategories/{id}', 'App\Http\Controllers\Frontend\CarController@allcarscategories')->name('carscategories');
 Route::get('detailcar/{id}', 'App\Http\Controllers\Frontend\CarController@detailcar')->name('detailcar');
 Route::get('checkallcar', 'App\Http\Controllers\Frontend\CarController@CheckCar')->name('checkallcar');
 //cars end
 
 //aquar start
-Route::get('aquars', 'App\Http\Controllers\Frontend\AquarController@allaquars')->name('aquars');
+Route::get('aquars/{id}', 'App\Http\Controllers\Frontend\AquarController@allaquars')->name('aquars');
 Route::get('detailaquar/{id}', 'App\Http\Controllers\Frontend\AquarController@detailaquar')->name('detailaquar');
 //Route::get('checkallcar', 'App\Http\Controllers\Frontend\AquarController@CheckCar')->name('checkallcar');
 //aquar end
