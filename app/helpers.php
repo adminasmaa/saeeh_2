@@ -19,24 +19,28 @@ if (!function_exists('whats_send')) {
     {
 
         $mobile = $country_code . $mobile;
-        $body = $message;
-        $curl = curl_init();
 
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.ultramsg.com/instance19640/messages/chat",
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => "",
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 30,
-            CURLOPT_SSL_VERIFYHOST => 0,
-            CURLOPT_SSL_VERIFYPEER => 0,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => "POST",
-            CURLOPT_POSTFIELDS => "token=duu4f0ww69kk44us&to=%2B$mobile&body=$body&priority=1&referenceId=",
-            CURLOPT_HTTPHEADER => array(
+        $params=array(
+            'token' => 'rouxlvet3m3jl0a3',
+            'to' =>$mobile,
+            'body' => $message
+            );
+            $curl = curl_init();
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => "https://api.ultramsg.com/instance31865/messages/chat",
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => "",
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 30,
+              CURLOPT_SSL_VERIFYHOST => 0,
+              CURLOPT_SSL_VERIFYPEER => 0,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => "POST",
+              CURLOPT_POSTFIELDS => http_build_query($params),
+              CURLOPT_HTTPHEADER => array(
                 "content-type: application/x-www-form-urlencoded"
-            ),
-        ));
+              ),
+            ));
         $response = curl_exec($curl);
         $err = curl_error($curl);
 
@@ -86,7 +90,7 @@ if (!function_exists('send_sms_code')) {
     {
 
         whats_send($phone, $msg, $country_code);
-        send_sms_code_msg($msg, $phone, $country_code);
+      //  send_sms_code_msg($msg, $phone, $country_code);
     }
 }
 
