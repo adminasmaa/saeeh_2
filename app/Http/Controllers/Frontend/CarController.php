@@ -19,7 +19,26 @@ use Illuminate\Validation\Rule;
 class CarController extends Controller
 {
 
-    public function allcars(Request $request)
+    public function allcarscategories($id){
+
+
+        $category = Category::find($id);
+
+
+
+
+
+        if (!empty($category->subcategories) && $category->subcategories != null && count($category->subcategories) > 0) {
+
+
+            $subcategories = Category::where('parent_id', '=', $id)->paginate(8);
+            return view('frontend.subcategoriescar', compact('category', 'subcategories'));
+
+
+        }
+
+    }
+    public function allcars(Request $request,$id)
     {
         if (!empty($request->country_id) && !empty($request->city_id) && !empty($request->brand_id) && !empty($request->category_id) && !empty($request->year)) {
 
@@ -45,7 +64,7 @@ class CarController extends Controller
             $cars = Car::where('country_id', '=', $request->country_id)->paginate(2);
 
         } else {
-            $cars = Car::paginate(2);
+            $cars = Car::where('sub_category_id','=',$id)->paginate(2);
         }
 
         $countries = Country::where('display_data', '=', 1)->get();

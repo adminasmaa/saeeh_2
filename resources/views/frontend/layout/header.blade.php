@@ -88,7 +88,7 @@
 
                                     @foreach($CategoriesAquar as $category)
                                     <li class="sub-menu__sub-item pb-2">
-                                        <a href="#" class="sub-menu-link">
+                                        <a href="{{route('aquars',$category->id)}}" class="sub-menu-link">
                                             <div class="d-flex align-items-center">
                                                 <div class="arrow-lft">
                                                 <i class="fas fa-arrow-left"></i>
@@ -135,7 +135,7 @@
                                 <ul class="sub-menu__sub-list px-0 list-unstyled">
                                     @foreach($CategoriesCar as $cat)
                                     <li class="sub-menu__sub-item pb-2">
-                                        <a href="#" class="sub-menu-link">
+                                        <a href="{{route('carscategories',$cat->id)}}" class="sub-menu-link">
                                             <div class="d-flex align-items-center">
                                             <div class="arrow-lft">
                                                 <i class="fas fa-arrow-left"></i>
