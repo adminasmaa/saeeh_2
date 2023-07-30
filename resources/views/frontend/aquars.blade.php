@@ -101,7 +101,7 @@
                                                         </g>
                                                         <defs>
                                                             <clipPath id="clip0_281_19171">
-                                                                <rect width="20" height="20" fill="white" />
+                                                                <rect width="20" height="20" fill="white"/>
                                                             </clipPath>
                                                         </defs>
                                                     </svg>
@@ -177,7 +177,7 @@
                                                         </g>
                                                         <defs>
                                                             <clipPath id="clip0_281_19207">
-                                                                <rect width="20" height="20" fill="white" />
+                                                                <rect width="20" height="20" fill="white"/>
                                                             </clipPath>
                                                         </defs>
                                                     </svg>
@@ -257,7 +257,7 @@
                                                         </g>
                                                         <defs>
                                                             <clipPath id="clip0_281_19180">
-                                                                <rect width="20" height="20" fill="white" />
+                                                                <rect width="20" height="20" fill="white"/>
                                                             </clipPath>
                                                         </defs>
                                                     </svg>
@@ -293,7 +293,7 @@
                                                         </g>
                                                         <defs>
                                                             <clipPath id="clip0_281_19195">
-                                                                <rect width="20" height="20" fill="white" />
+                                                                <rect width="20" height="20" fill="white"/>
                                                             </clipPath>
                                                         </defs>
                                                     </svg>
@@ -345,7 +345,7 @@
                                                         </g>
                                                         <defs>
                                                             <clipPath id="clip0_281_19199">
-                                                                <rect width="20" height="20" fill="white" />
+                                                                <rect width="20" height="20" fill="white"/>
                                                             </clipPath>
                                                         </defs>
                                                     </svg>
@@ -1019,7 +1019,7 @@
                 <nav class="breadcrumb-container" aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0">
                         <li class="breadcrumb-item">
-                            <a href="javascript:void(0)"> الرئيسية </a>
+                            <a href="{{route('Home')}}"> @lang('site.home') </a>
                         </li>
                         <li>
                 <span
@@ -1038,7 +1038,7 @@
                 </span>
                         </li>
                         <li class="breadcrumb-item text-gray-4" aria-current="page">
-                            @lang('site.valuesearch')
+                            {{$category->name ?? ''}}
                         </li>
                     </ol>
                 </nav>
@@ -1078,7 +1078,8 @@
                                             <option
                                                value="{{$city->id}}">{{$city->name ?? ''}}</option>
 
-                                            @endforeach -->
+
+                                        @endforeach -->
                                     </select>
                                 </div>
                             </div>
@@ -1131,7 +1132,7 @@
                             class="d-block"
                         >
                             <div class="map-box mb-lg-0 mb-3">
-                                <img src="{{FRONTASSETS}}/images/map.png" alt="map" />
+                                <img src="{{FRONTASSETS}}/images/map.png" alt="map"/>
                                 <div
                                     class="map-data d-flex h-100 w-100 justify-content-center align-items-center"
                                 >
@@ -1141,7 +1142,7 @@
                         </a>
                     </div>
                     <div class="col-lg-9 col-md-8">
-{{--                        <h2 class="pb-3 search-result">وجدنا 44 شقة مناسبة لطلبك</h2>--}}
+                        {{--                        <h2 class="pb-3 search-result">وجدنا 44 شقة مناسبة لطلبك</h2>--}}
                         <div class="form-group mb-4 position-relative">
                             <input
                                 type="search"
@@ -1257,15 +1258,15 @@
                                             <div class="custom-checkbox">
                                                 <form>
                                                     <div class="form-group">
-                                                        <input type="checkbox" id="two" checked />
+                                                        <input type="checkbox" id="two" checked/>
                                                         <label for="two">2</label>
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="checkbox" id="three" />
+                                                        <input type="checkbox" id="three"/>
                                                         <label for="three">3</label>
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="checkbox" id="four" />
+                                                        <input type="checkbox" id="four"/>
                                                         <label for="four">4</label>
                                                     </div>
                                                 </form>
@@ -1310,15 +1311,15 @@
                                             <div class="custom-checkbox">
                                                 <form>
                                                     <div class="form-group">
-                                                        <input type="checkbox" id="two" checked />
+                                                        <input type="checkbox" id="two" checked/>
                                                         <label for="two">2</label>
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="checkbox" id="three" />
+                                                        <input type="checkbox" id="three"/>
                                                         <label for="three">3</label>
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="checkbox" id="four" />
+                                                        <input type="checkbox" id="four"/>
                                                         <label for="four">4</label>
                                                     </div>
                                                 </form>
@@ -1439,7 +1440,7 @@
                                             <div class="custom-checkbox">
                                                 <form>
                                                     <div class="form-group">
-                                                        <input type="checkbox" id="rate-1" checked />
+                                                        <input type="checkbox" id="rate-1" checked/>
                                                         <label
                                                             for="rate-1"
                                                             class="d-flex align-items-center"
@@ -1466,7 +1467,7 @@
                                                         </label>
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="checkbox" id="rate-2" />
+                                                        <input type="checkbox" id="rate-2"/>
                                                         <label
                                                             for="rate-2"
                                                             class="d-flex align-items-center"
@@ -1493,7 +1494,7 @@
                                                         </label>
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="checkbox" id="rate-3" />
+                                                        <input type="checkbox" id="rate-3"/>
                                                         <label
                                                             for="rate-3"
                                                             class="d-flex align-items-center"
@@ -1520,7 +1521,7 @@
                                                         </label>
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="checkbox" id="rate-4" />
+                                                        <input type="checkbox" id="rate-4"/>
                                                         <label
                                                             for="rate-4"
                                                             class="d-flex align-items-center"
@@ -1547,7 +1548,7 @@
                                                         </label>
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="checkbox" id="rate-5" />
+                                                        <input type="checkbox" id="rate-5"/>
                                                         <label
                                                             for="rate-5"
                                                             class="d-flex align-items-center"
@@ -1572,104 +1573,6 @@
                                                                 </div>
                                                             </div>
                                                         </label>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button
-                                        class="accordion-button"
-                                        type="button"
-                                        data-bs-toggle="collapse"
-                                        data-bs-target="#accordion-filter-5"
-                                        aria-expanded="true"
-                                        aria-controls="accordion-filter-5"
-                                    >
-                                        <h5 class="accordion-title mb-0">مطلة على</h5>
-                                        <div>
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="15"
-                                                height="8"
-                                                viewBox="0 0 15 8"
-                                                fill="none"
-                                            >
-                                                <path
-                                                    d="M7.20766 7.19064C6.62556 7.19064 6.04345 6.96482 5.60272 6.52155L0.180867 1.06845C-0.060289 0.825909 -0.060289 0.424455 0.180867 0.181909C0.422023 -0.0606364 0.821178 -0.0606364 1.06233 0.181909L6.48419 5.635C6.88334 6.03645 7.53197 6.03645 7.93112 5.635L13.353 0.181909C13.5941 -0.0606364 13.9933 -0.0606364 14.2344 0.181909C14.4756 0.424455 14.4756 0.825909 14.2344 1.06845L8.81259 6.52155C8.37186 6.96482 7.78976 7.19064 7.20766 7.19064Z"
-                                                    fill="#005D9F"
-                                                />
-                                            </svg>
-                                        </div>
-                                    </button>
-                                </h2>
-                                <div
-                                    id="accordion-filter-5"
-                                    class="accordion-collapse collapse show"
-                                >
-                                    <div class="accordion-body">
-                                        <div class="row align-items-center">
-                                            <div class="custom-checkbox">
-                                                <form>
-                                                    <div class="form-group">
-                                                        <input type="checkbox" id="two" checked />
-                                                        <label for="two">البحر</label>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="checkbox" id="three" />
-                                                        <label for="three">شارع رئيسي</label>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button
-                                        class="accordion-button"
-                                        type="button"
-                                        data-bs-toggle="collapse"
-                                        data-bs-target="#accordion-filter-6"
-                                        aria-expanded="true"
-                                        aria-controls="accordion-filter-6"
-                                    >
-                                        <h5 class="accordion-title mb-0">المسافة</h5>
-                                        <div>
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="15"
-                                                height="8"
-                                                viewBox="0 0 15 8"
-                                                fill="none"
-                                            >
-                                                <path
-                                                    d="M7.20766 7.19064C6.62556 7.19064 6.04345 6.96482 5.60272 6.52155L0.180867 1.06845C-0.060289 0.825909 -0.060289 0.424455 0.180867 0.181909C0.422023 -0.0606364 0.821178 -0.0606364 1.06233 0.181909L6.48419 5.635C6.88334 6.03645 7.53197 6.03645 7.93112 5.635L13.353 0.181909C13.5941 -0.0606364 13.9933 -0.0606364 14.2344 0.181909C14.4756 0.424455 14.4756 0.825909 14.2344 1.06845L8.81259 6.52155C8.37186 6.96482 7.78976 7.19064 7.20766 7.19064Z"
-                                                    fill="#005D9F"
-                                                />
-                                            </svg>
-                                        </div>
-                                    </button>
-                                </h2>
-                                <div
-                                    id="accordion-filter-6"
-                                    class="accordion-collapse collapse show"
-                                >
-                                    <div class="accordion-body">
-                                        <div class="row align-items-center">
-                                            <div class="custom-checkbox">
-                                                <form>
-                                                    <div class="form-group">
-                                                        <input type="checkbox" id="two" checked />
-                                                        <label for="two">مركز المدينة</label>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="checkbox" id="three" />
-                                                        <label for="three">المطار</label>
                                                     </div>
                                                 </form>
                                             </div>
@@ -1713,7 +1616,7 @@
                                             <div class="custom-checkbox">
                                                 <form>
                                                     <div class="form-group">
-                                                        <input type="checkbox" id="two" checked />
+                                                        <input type="checkbox" id="two" checked/>
                                                         <label for="two">
                                 <span class="ps-1"
                                 ><svg
@@ -1748,7 +1651,7 @@
                                                         </label>
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="checkbox" id="three" />
+                                                        <input type="checkbox" id="three"/>
                                                         <label for="three">
                                 <span class="ps-1">
                                   <svg
@@ -1771,7 +1674,7 @@
                                                         </label>
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="checkbox" id="four" />
+                                                        <input type="checkbox" id="four"/>
                                                         <label for="four">
                                 <span class="ps-1">
                                   <svg
@@ -1891,15 +1794,15 @@
                                                 <div class="custom-checkbox">
                                                     <form>
                                                         <div class="form-group">
-                                                            <input type="checkbox" id="two" checked />
+                                                            <input type="checkbox" id="two" checked/>
                                                             <label for="two">2</label>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="checkbox" id="three" />
+                                                            <input type="checkbox" id="three"/>
                                                             <label for="three">3</label>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="checkbox" id="four" />
+                                                            <input type="checkbox" id="four"/>
                                                             <label for="four">4</label>
                                                         </div>
                                                     </form>
@@ -1944,15 +1847,15 @@
                                                 <div class="custom-checkbox">
                                                     <form>
                                                         <div class="form-group">
-                                                            <input type="checkbox" id="two" checked />
+                                                            <input type="checkbox" id="two" checked/>
                                                             <label for="two">2</label>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="checkbox" id="three" />
+                                                            <input type="checkbox" id="three"/>
                                                             <label for="three">3</label>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="checkbox" id="four" />
+                                                            <input type="checkbox" id="four"/>
                                                             <label for="four">4</label>
                                                         </div>
                                                     </form>
@@ -2073,7 +1976,7 @@
                                                 <div class="custom-checkbox">
                                                     <form>
                                                         <div class="form-group">
-                                                            <input type="checkbox" id="rate-1" checked />
+                                                            <input type="checkbox" id="rate-1" checked/>
                                                             <label
                                                                 for="rate-1"
                                                                 class="d-flex align-items-center"
@@ -2100,7 +2003,7 @@
                                                             </label>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="checkbox" id="rate-2" />
+                                                            <input type="checkbox" id="rate-2"/>
                                                             <label
                                                                 for="rate-2"
                                                                 class="d-flex align-items-center"
@@ -2127,7 +2030,7 @@
                                                             </label>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="checkbox" id="rate-3" />
+                                                            <input type="checkbox" id="rate-3"/>
                                                             <label
                                                                 for="rate-3"
                                                                 class="d-flex align-items-center"
@@ -2154,7 +2057,7 @@
                                                             </label>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="checkbox" id="rate-4" />
+                                                            <input type="checkbox" id="rate-4"/>
                                                             <label
                                                                 for="rate-4"
                                                                 class="d-flex align-items-center"
@@ -2181,7 +2084,7 @@
                                                             </label>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="checkbox" id="rate-5" />
+                                                            <input type="checkbox" id="rate-5"/>
                                                             <label
                                                                 for="rate-5"
                                                                 class="d-flex align-items-center"
@@ -2249,11 +2152,11 @@
                                                 <div class="custom-checkbox">
                                                     <form>
                                                         <div class="form-group">
-                                                            <input type="checkbox" id="two" checked />
+                                                            <input type="checkbox" id="two" checked/>
                                                             <label for="two">البحر</label>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="checkbox" id="three" />
+                                                            <input type="checkbox" id="three"/>
                                                             <label for="three">شارع رئيسي</label>
                                                         </div>
                                                     </form>
@@ -2298,11 +2201,11 @@
                                                 <div class="custom-checkbox">
                                                     <form>
                                                         <div class="form-group">
-                                                            <input type="checkbox" id="two" checked />
+                                                            <input type="checkbox" id="two" checked/>
                                                             <label for="two">مركز المدينة</label>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="checkbox" id="three" />
+                                                            <input type="checkbox" id="three"/>
                                                             <label for="three">المطار</label>
                                                         </div>
                                                     </form>
@@ -2347,7 +2250,7 @@
                                                 <div class="custom-checkbox">
                                                     <form>
                                                         <div class="form-group">
-                                                            <input type="checkbox" id="two" checked />
+                                                            <input type="checkbox" id="two" checked/>
                                                             <label for="two">
                                   <span class="ps-1"
                                   ><svg
@@ -2382,7 +2285,7 @@
                                                             </label>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="checkbox" id="three" />
+                                                            <input type="checkbox" id="three"/>
                                                             <label for="three">
                                   <span class="ps-1">
                                     <svg
@@ -2405,7 +2308,7 @@
                                                             </label>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="checkbox" id="four" />
+                                                            <input type="checkbox" id="four"/>
                                                             <label for="four">
                                   <span class="ps-1">
                                     <svg
@@ -2454,129 +2357,169 @@
 
                     <div class="col-lg-9">
                         <div>
-                            <div class="card card-department round-border mb-3 p-lg-3 p-2">
-                                <div class="row g-0">
-                                    <div class="col-lg-4 position-relative">
-                                        <div
-                                            class="owl-carousel owl-theme department-img-carousel"
-                                            dir="ltr"
-                                        >
-                                            <div>
-                                                <button type="button" class="department-like">
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        width="41"
-                                                        height="40"
-                                                        viewBox="0 0 41 40"
-                                                        fill="none"
-                                                    >
-                                                        <path
-                                                            d="M37.8609 3.53629C36.8836 2.41518 35.7231 1.52584 34.4459 0.919073C33.1686 0.312305 31.7996 0 30.4171 0C29.0345 0 27.6655 0.312305 26.3883 0.919073C25.111 1.52584 23.9506 2.41518 22.9732 3.53629L20.9448 5.86189L18.9164 3.53629C16.9422 1.27279 14.2645 0.00117325 11.4725 0.00117327C8.68054 0.0011733 6.0029 1.27279 4.02866 3.53629C2.05443 5.79979 0.945313 8.86975 0.945313 12.0708C0.945312 15.2719 2.05443 18.3418 4.02866 20.6053L6.05707 22.9309L20.9448 40L35.8325 22.9309L37.8609 20.6053C38.8388 19.4848 39.6145 18.1543 40.1437 16.6899C40.6729 15.2255 40.9453 13.6559 40.9453 12.0708C40.9453 10.4857 40.6729 8.91612 40.1437 7.45174C39.6145 5.98736 38.8388 4.65687 37.8609 3.53629Z"
-                                                            fill="#FF8600"
+                            @foreach($aquars as $aquar)
+                                <div class="card card-department round-border mb-3 p-lg-3 p-2">
+                                    <div class="row g-0">
+                                        <div class="col-lg-4 position-relative">
+                                            <div
+                                                class="owl-carousel owl-theme department-img-carousel"
+                                                dir="ltr"
+                                            >
+                                                @if(!empty($aquar->images))
+                                                    @foreach(explode(',',$aquar->images) as $img)
+                                                        <div>
+                                                            <button type="button" class="department-like">
+                                                                <svg
+                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                    width="41"
+                                                                    height="40"
+                                                                    viewBox="0 0 41 40"
+                                                                    fill="none"
+                                                                >
+                                                                    <path
+                                                                        d="M37.8609 3.53629C36.8836 2.41518 35.7231 1.52584 34.4459 0.919073C33.1686 0.312305 31.7996 0 30.4171 0C29.0345 0 27.6655 0.312305 26.3883 0.919073C25.111 1.52584 23.9506 2.41518 22.9732 3.53629L20.9448 5.86189L18.9164 3.53629C16.9422 1.27279 14.2645 0.00117325 11.4725 0.00117327C8.68054 0.0011733 6.0029 1.27279 4.02866 3.53629C2.05443 5.79979 0.945313 8.86975 0.945313 12.0708C0.945312 15.2719 2.05443 18.3418 4.02866 20.6053L6.05707 22.9309L20.9448 40L35.8325 22.9309L37.8609 20.6053C38.8388 19.4848 39.6145 18.1543 40.1437 16.6899C40.6729 15.2255 40.9453 13.6559 40.9453 12.0708C40.9453 10.4857 40.6729 8.91612 40.1437 7.45174C39.6145 5.98736 38.8388 4.65687 37.8609 3.53629Z"
+                                                                        fill="#FF8600"
+                                                                    />
+                                                                </svg>
+                                                            </button>
+                                                            <img
+                                                                loading="lazy"
+
+                                                                src="{{asset('images/aqars/'.$img)}}"
+
+                                                            onerror="this.src='{{FRONTASSETS}}/images/department-1.svg'"
+                                                                class="department-img-list of-cover"
+                                                                alt="image 1"
+                                                            />
+                                                        </div>
+                                                    @endforeach
+
+                                                @else
+
+                                                    <div>
+                                                        <button type="button" class="department-like">
+                                                            <svg
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                width="41"
+                                                                height="40"
+                                                                viewBox="0 0 41 40"
+                                                                fill="none"
+                                                            >
+                                                                <path
+                                                                    d="M37.8609 3.53629C36.8836 2.41518 35.7231 1.52584 34.4459 0.919073C33.1686 0.312305 31.7996 0 30.4171 0C29.0345 0 27.6655 0.312305 26.3883 0.919073C25.111 1.52584 23.9506 2.41518 22.9732 3.53629L20.9448 5.86189L18.9164 3.53629C16.9422 1.27279 14.2645 0.00117325 11.4725 0.00117327C8.68054 0.0011733 6.0029 1.27279 4.02866 3.53629C2.05443 5.79979 0.945313 8.86975 0.945313 12.0708C0.945312 15.2719 2.05443 18.3418 4.02866 20.6053L6.05707 22.9309L20.9448 40L35.8325 22.9309L37.8609 20.6053C38.8388 19.4848 39.6145 18.1543 40.1437 16.6899C40.6729 15.2255 40.9453 13.6559 40.9453 12.0708C40.9453 10.4857 40.6729 8.91612 40.1437 7.45174C39.6145 5.98736 38.8388 4.65687 37.8609 3.53629Z"
+                                                                    fill="#FF8600"
+                                                                />
+                                                            </svg>
+                                                        </button>
+                                                        <img
+                                                            loading="lazy"
+                                                            src="{{FRONTASSETS}}/images/department-1.svg"
+                                                            class="department-img-list of-cover"
+                                                            alt="image 1"
                                                         />
-                                                    </svg>
-                                                </button>
-                                                <img
-                                                    loading="lazy"
-                                                    src="./assets/images/department-1.svg"
-                                                    class="department-img-list of-cover"
-                                                    alt="image 1"
-                                                />
-                                            </div>
-                                            <div>
-                                                <button type="button" class="department-like">
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        width="41"
-                                                        height="40"
-                                                        viewBox="0 0 41 40"
-                                                        fill="none"
-                                                    >
-                                                        <path
-                                                            d="M37.8609 3.53629C36.8836 2.41518 35.7231 1.52584 34.4459 0.919073C33.1686 0.312305 31.7996 0 30.4171 0C29.0345 0 27.6655 0.312305 26.3883 0.919073C25.111 1.52584 23.9506 2.41518 22.9732 3.53629L20.9448 5.86189L18.9164 3.53629C16.9422 1.27279 14.2645 0.00117325 11.4725 0.00117327C8.68054 0.0011733 6.0029 1.27279 4.02866 3.53629C2.05443 5.79979 0.945313 8.86975 0.945313 12.0708C0.945312 15.2719 2.05443 18.3418 4.02866 20.6053L6.05707 22.9309L20.9448 40L35.8325 22.9309L37.8609 20.6053C38.8388 19.4848 39.6145 18.1543 40.1437 16.6899C40.6729 15.2255 40.9453 13.6559 40.9453 12.0708C40.9453 10.4857 40.6729 8.91612 40.1437 7.45174C39.6145 5.98736 38.8388 4.65687 37.8609 3.53629Z"
-                                                            fill="#FF8600"
+                                                    </div>
+                                                    <div>
+                                                        <button type="button" class="department-like">
+                                                            <svg
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                width="41"
+                                                                height="40"
+                                                                viewBox="0 0 41 40"
+                                                                fill="none"
+                                                            >
+                                                                <path
+                                                                    d="M37.8609 3.53629C36.8836 2.41518 35.7231 1.52584 34.4459 0.919073C33.1686 0.312305 31.7996 0 30.4171 0C29.0345 0 27.6655 0.312305 26.3883 0.919073C25.111 1.52584 23.9506 2.41518 22.9732 3.53629L20.9448 5.86189L18.9164 3.53629C16.9422 1.27279 14.2645 0.00117325 11.4725 0.00117327C8.68054 0.0011733 6.0029 1.27279 4.02866 3.53629C2.05443 5.79979 0.945313 8.86975 0.945313 12.0708C0.945312 15.2719 2.05443 18.3418 4.02866 20.6053L6.05707 22.9309L20.9448 40L35.8325 22.9309L37.8609 20.6053C38.8388 19.4848 39.6145 18.1543 40.1437 16.6899C40.6729 15.2255 40.9453 13.6559 40.9453 12.0708C40.9453 10.4857 40.6729 8.91612 40.1437 7.45174C39.6145 5.98736 38.8388 4.65687 37.8609 3.53629Z"
+                                                                    fill="#FF8600"
+                                                                />
+                                                            </svg>
+                                                        </button>
+                                                        <img
+                                                            loading="lazy"
+                                                            src="{{FRONTASSETS}}/images/department-2.svg"
+                                                            class="department-img-list of-cover"
+                                                            alt="image 1"
                                                         />
-                                                    </svg>
-                                                </button>
-                                                <img
-                                                    loading="lazy"
-                                                    src="./assets/images/department-2.svg"
-                                                    class="department-img-list of-cover"
-                                                    alt="image 1"
-                                                />
-                                            </div>
-                                            <div>
-                                                <button type="button" class="department-like">
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        width="41"
-                                                        height="40"
-                                                        viewBox="0 0 41 40"
-                                                        fill="none"
-                                                    >
-                                                        <path
-                                                            d="M37.8609 3.53629C36.8836 2.41518 35.7231 1.52584 34.4459 0.919073C33.1686 0.312305 31.7996 0 30.4171 0C29.0345 0 27.6655 0.312305 26.3883 0.919073C25.111 1.52584 23.9506 2.41518 22.9732 3.53629L20.9448 5.86189L18.9164 3.53629C16.9422 1.27279 14.2645 0.00117325 11.4725 0.00117327C8.68054 0.0011733 6.0029 1.27279 4.02866 3.53629C2.05443 5.79979 0.945313 8.86975 0.945313 12.0708C0.945312 15.2719 2.05443 18.3418 4.02866 20.6053L6.05707 22.9309L20.9448 40L35.8325 22.9309L37.8609 20.6053C38.8388 19.4848 39.6145 18.1543 40.1437 16.6899C40.6729 15.2255 40.9453 13.6559 40.9453 12.0708C40.9453 10.4857 40.6729 8.91612 40.1437 7.45174C39.6145 5.98736 38.8388 4.65687 37.8609 3.53629Z"
-                                                            fill="#FF8600"
+                                                    </div>
+                                                    <div>
+                                                        <button type="button" class="department-like">
+                                                            <svg
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                width="41"
+                                                                height="40"
+                                                                viewBox="0 0 41 40"
+                                                                fill="none"
+                                                            >
+                                                                <path
+                                                                    d="M37.8609 3.53629C36.8836 2.41518 35.7231 1.52584 34.4459 0.919073C33.1686 0.312305 31.7996 0 30.4171 0C29.0345 0 27.6655 0.312305 26.3883 0.919073C25.111 1.52584 23.9506 2.41518 22.9732 3.53629L20.9448 5.86189L18.9164 3.53629C16.9422 1.27279 14.2645 0.00117325 11.4725 0.00117327C8.68054 0.0011733 6.0029 1.27279 4.02866 3.53629C2.05443 5.79979 0.945313 8.86975 0.945313 12.0708C0.945312 15.2719 2.05443 18.3418 4.02866 20.6053L6.05707 22.9309L20.9448 40L35.8325 22.9309L37.8609 20.6053C38.8388 19.4848 39.6145 18.1543 40.1437 16.6899C40.6729 15.2255 40.9453 13.6559 40.9453 12.0708C40.9453 10.4857 40.6729 8.91612 40.1437 7.45174C39.6145 5.98736 38.8388 4.65687 37.8609 3.53629Z"
+                                                                    fill="#FF8600"
+                                                                />
+                                                            </svg>
+                                                        </button>
+                                                        <img
+                                                            loading="lazy"
+                                                            src="{{FRONTASSETS}}/images/department-3.svg"
+                                                            class="department-img-list of-cover"
+                                                            alt="image 1"
                                                         />
-                                                    </svg>
-                                                </button>
-                                                <img
-                                                    loading="lazy"
-                                                    src="./assets/images/department-3.svg"
-                                                    class="department-img-list of-cover"
-                                                    alt="image 1"
-                                                />
+                                                    </div>
+                                                @endif
+
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-8">
-                                        <div class="card-body position-relative">
-                                            <div
-                                                class="row justify-content-lg-between align-items-center mb-3 small"
-                                            >
-                                                <div class="col-lg-4 mb-lg-0 mb-3">
-                                                    <div class="text-main number-ads">
-                                                        رقم الاعلان(12)
+                                        <div class="col-lg-8">
+                                            <div class="card-body position-relative">
+                                                <div
+                                                    class="row justify-content-lg-between align-items-center mb-3 small"
+                                                >
+                                                    <div class="col-lg-4 mb-lg-0 mb-3">
+                                                        <div class="text-main number-ads">
+                                                            @lang('site.id number'){{$aquar->id}})
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-lg-8">
-                                                    <div
-                                                        class="d-flex justify-content-lg-end align-items-center"
-                                                    >
-                                                        <div class="department-badge bg-main text-white">
-                                                            <div class="pt-1">5</div>
-                                                            <div>
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
-                                                                    <path d="M12.7529 19.6185L20.1689 24.3301L18.2009 15.4501L24.7529 9.47534L16.1249 8.70481L12.7529 0.330078L9.38093 8.70481L0.75293 9.47534L7.30493 15.4501L5.33693 24.3301L12.7529 19.6185Z" fill="white"/>
-                                                                </svg>
+                                                    <div class="col-lg-8">
+                                                        <div
+                                                            class="d-flex justify-content-lg-end align-items-center"
+                                                        >
+                                                            <div class="department-badge bg-main text-white">
+                                                                <div
+                                                                    class="pt-1">     {{$aquar->aqarReview->avg('rate')}}</div>
+                                                                <div>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="25"
+                                                                         height="25" viewBox="0 0 25 25" fill="none">
+                                                                        <path
+                                                                            d="M12.7529 19.6185L20.1689 24.3301L18.2009 15.4501L24.7529 9.47534L16.1249 8.70481L12.7529 0.330078L9.38093 8.70481L0.75293 9.47534L7.30493 15.4501L5.33693 24.3301L12.7529 19.6185Z"
+                                                                            fill="white"/>
+                                                                    </svg>
+                                                                </div>
+                                                            </div>
+                                                            <div class="number-ads gray-txt">
+                                                                @lang('site.comments')
+
+                                                                {{$aquar->aqarComment->count()}}
                                                             </div>
                                                         </div>
-                                                        <div class="number-ads gray-txt">
-                                                            64 من التقييمات
-                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <h2 class="card-title mb-2">
-                                                شقة مكونه من غرفتين تطل علي البحر
-                                            </h2>
+                                                <h2 class="card-title mb-2">
+                                                    {{$aquar->name ?? ''}}
+                                                </h2>
 
-                                            <div class="gray-txt number-ads">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="16"
-                                                    height="20"
-                                                    viewBox="0 0 16 20"
-                                                    fill="none"
-                                                >
-                                                    <path
-                                                        d="M8.20799 9.99996C8.54986 9.99996 8.84262 9.83663 9.08628 9.50996C9.32994 9.18329 9.45156 8.79107 9.45115 8.33329C9.45115 7.87496 9.32932 7.48246 9.08566 7.15579C8.842 6.82913 8.54944 6.66607 8.20799 6.66663C7.86612 6.66663 7.57335 6.82996 7.3297 7.15663C7.08604 7.48329 6.96441 7.87551 6.96483 8.33329C6.96483 8.79163 7.08666 9.18413 7.33032 9.51079C7.57398 9.83746 7.86653 10.0005 8.20799 9.99996ZM8.20799 16.125C9.47187 14.5694 10.4094 13.1561 11.0206 11.885C11.6319 10.6138 11.9375 9.48551 11.9375 8.49996C11.9375 6.98607 11.5774 5.74663 10.8572 4.78163C10.137 3.81663 9.2539 3.33385 8.20799 3.33329C7.16166 3.33329 6.2784 3.81607 5.55819 4.78163C4.83799 5.74718 4.4781 6.98663 4.47851 8.49996C4.47851 9.48607 4.78412 10.6147 5.39534 11.8858C6.00656 13.1569 6.94411 14.57 8.20799 16.125ZM8.20799 18.3333C6.54008 16.4305 5.29444 14.6633 4.47105 13.0316C3.64767 11.4 3.23577 9.8894 3.23535 8.49996C3.23535 6.41663 3.73531 4.7569 4.73522 3.52079C5.73514 2.28468 6.89272 1.66663 8.20799 1.66663C9.52366 1.66663 10.6815 2.28468 11.6814 3.52079C12.6813 4.7569 13.181 6.41663 13.1806 8.49996C13.1806 9.88885 12.7687 11.3994 11.9449 13.0316C11.1211 14.6638 9.87548 16.4311 8.20799 18.3333Z"
-                                                        fill="#9C9C9C"
-                                                    />
-                                                </svg>
-                                                <span>الرياض, حي العوالي</span>
-                                            </div>
-                                            <div class="py-3">
+                                                <div class="gray-txt number-ads">
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        width="16"
+                                                        height="20"
+                                                        viewBox="0 0 16 20"
+                                                        fill="none"
+                                                    >
+                                                        <path
+                                                            d="M8.20799 9.99996C8.54986 9.99996 8.84262 9.83663 9.08628 9.50996C9.32994 9.18329 9.45156 8.79107 9.45115 8.33329C9.45115 7.87496 9.32932 7.48246 9.08566 7.15579C8.842 6.82913 8.54944 6.66607 8.20799 6.66663C7.86612 6.66663 7.57335 6.82996 7.3297 7.15663C7.08604 7.48329 6.96441 7.87551 6.96483 8.33329C6.96483 8.79163 7.08666 9.18413 7.33032 9.51079C7.57398 9.83746 7.86653 10.0005 8.20799 9.99996ZM8.20799 16.125C9.47187 14.5694 10.4094 13.1561 11.0206 11.885C11.6319 10.6138 11.9375 9.48551 11.9375 8.49996C11.9375 6.98607 11.5774 5.74663 10.8572 4.78163C10.137 3.81663 9.2539 3.33385 8.20799 3.33329C7.16166 3.33329 6.2784 3.81607 5.55819 4.78163C4.83799 5.74718 4.4781 6.98663 4.47851 8.49996C4.47851 9.48607 4.78412 10.6147 5.39534 11.8858C6.00656 13.1569 6.94411 14.57 8.20799 16.125ZM8.20799 18.3333C6.54008 16.4305 5.29444 14.6633 4.47105 13.0316C3.64767 11.4 3.23577 9.8894 3.23535 8.49996C3.23535 6.41663 3.73531 4.7569 4.73522 3.52079C5.73514 2.28468 6.89272 1.66663 8.20799 1.66663C9.52366 1.66663 10.6815 2.28468 11.6814 3.52079C12.6813 4.7569 13.181 6.41663 13.1806 8.49996C13.1806 9.88885 12.7687 11.3994 11.9449 13.0316C11.1211 14.6638 9.87548 16.4311 8.20799 18.3333Z"
+                                                            fill="#9C9C9C"
+                                                        />
+                                                    </svg>
+                                                    <span> {{$aquar->country->name ?? ''}} , {{$aquar->city->name ?? ''}}</span>
+                                                </div>
+                                                <div class="py-3">
                           <span
                           ><svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -2593,34 +2536,35 @@
                               </g>
                               <defs>
                                 <clipPath id="clip0_421_12633">
-                                  <rect width="24" height="24" fill="white" />
+                                  <rect width="24" height="24" fill="white"/>
                                 </clipPath>
                               </defs></svg
                               ></span>
-                                                <span class="text-main position-department">
-                            يطل علي شارع رئيسى
+                                                    <span class="text-main position-department">
+                                  {{$aquar->description ?? ''}}
                           </span>
-                                            </div>
-
-                                            <div
-                                                class="d-lg-flex align-items-center justify-content-lg-between mt-2"
-                                            >
-                                                <div class="department-price">
-                                                    <span class="text-gray-2">سعر اليوم:</span>
-                                                    <span class="fw-bold text-main"
-                                                    >2578 درهم مغربى
-                            </span>
                                                 </div>
+
                                                 <div
-                                                    class="details-btn d-flex align-items-center justify-content-center mt-lg-0 mt-3"
+                                                    class="d-lg-flex align-items-center justify-content-lg-between mt-2"
                                                 >
-                                                    <a href="#">عرض التفاصيل</a>
+                                                    <div class="department-price">
+                                                        <span class="text-gray-2">@lang('site.price'):</span>
+                                                        <span class="fw-bold text-main"
+                                                        > {{$aquar->fixed_price ?? ''}}
+                            </span>
+                                                    </div>
+                                                    <div
+                                                        class="details-btn d-flex align-items-center justify-content-center mt-lg-0 mt-3"
+                                                    >
+                                                        <a href="{{route('detailaquar',$aquar->id)}}">@lang('site.details')</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endforeach
                         </div>
                         <div class="card card-department round-border mb-3 p-3">
                             <nav
@@ -2630,84 +2574,41 @@
                                     class="pagination mb-0 justify-content-lg-start justify-content-center"
                                 >
                                     <li class="page-item">
-                                        <a class="page-link rounded-3" href="javascript:void(0)">
-                                            <em
-                                                class="fas fa-chevron-right small text-main"
-                                                aria-hidden="true"
-                                            ></em>
-                                        </a>
+                                        <div>{{ $aquars->appends(request()->query())->links()}} </div>
                                     </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="javascript:void(0)">1</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link active" href="javascript:void(0)"
-                                        >2</a
-                                        >
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="javascript:void(0)">3</a>
-                                    </li>
-                                    <li
-                                        class="page-item d-flex justify-content-center align-items-center"
-                                    >
-                                        <a class="text-light-gray" href="javascript:void(0)"
-                                        >........</a
-                                        >
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="javascript:void(0)">50</a>
-                                    </li>
-                                    <li class="page-item disabled">
-                                        <a class="page-link rounded-3">
-                                            <em
-                                                class="fas fa-chevron-left small"
-                                                aria-hidden="true"
-                                            ></em>
-                                        </a>
-                                    </li>
+
                                 </ul>
-                                <div class="text-main result-count">النتايج 24 - 123</div>
                             </nav>
                         </div>
+
                         <div class="card card-department round-border mb-3 p-3">
-                            <h4 class="department-title mb-3">سجل الدخول ووفّر المال</h4>
-                            <p class="mb-4 department-txt">
-                                قد تتمكن من توفير <span class="fw-bold text-main"> 10% </span>
-                                أو أكثر في مكان الإقامة هذا عند تسجيل الدخول
-                            </p>
+
+                            <h4 class="department-title mb-3">@lang('site.freediscount') </h4>
+                            <p>@lang('site.loginSignup') <a href="{{route('sitelogin')}}">@lang('site.login')</a></p>
+                            {{--                            <p class="mb-4 department-txt">--}}
+                            {{--                                قد تتمكن من توفير <span class="fw-bold text-main"> 10% </span>--}}
+                            {{--                                أو أكثر في مكان الإقامة هذا عند تسجيل الدخول--}}
+                            {{--                            </p>--}}
                             <ul class="d-flex align-items-center">
                                 <li
                                     class="btn-outline-saeeh d-flex justify-content-center align-items-center btn-space-x"
                                 >
-                                    <button
-                                        type="button"
-                                        class="btn btn-main border-0 btn-frm-owner"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#loginModal"
-                                    >
-                                        سجل الدخول
-                                    </button>
+                                    <a href="{{route('registers')}}">  @lang('site.register') </a>
                                 </li>
                                 <li
                                     class="btn-saeeh d-flex justify-content-center align-items-center"
                                 >
-                                    <button
-                                        type="button"
-                                        class="btn btn-main border-0 btn-frm-owner"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#registerModal"
-                                    >
-                                        مستخدم جديد
-                                    </button>
+                                    <a href="{{route('sitelogin')}}">@lang('site.login') </a>
+
                                 </li>
                             </ul>
                         </div>
+
+
                     </div>
                 </div>
             </div>
         </section>
     </main>
-
 
 @endsection

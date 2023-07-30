@@ -105,57 +105,34 @@
                     @endforeach
                 </div>
 
+                <div class="card card-department round-border mb-3 p-3">
+                    <nav
+                        class="department-list-pagination d-md-flex justify-content-md-between align-items-center"
+                    >
+                        <ul
+                            class="pagination mb-0 justify-content-lg-start justify-content-center"
+                        >
+                            <li class="page-item">
+                                <div>{{ $subcategories->appends(request()->query())->links()}} </div>
+                            </li>
 
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card card-department round-border my-4 p-3">
-                            <nav
-                                class="department-list-pagination d-md-flex justify-content-md-between align-items-center">
-                                <ul class="pagination mb-0 justify-content-lg-start justify-content-center">
-                                    {{--                                    <li class="page-item">--}}
-                                    {{--                                        <a class="page-link rounded-3" href="javascript:void(0)">--}}
-                                    {{--                                            <em class="fas fa-chevron-right small text-main" aria-hidden="true"></em>--}}
-                                    {{--                                        </a>--}}
-                                    {{--                                    </li>--}}
-                                    <li class="page-item">
-                                        {{$subcategories->links()}}
-                                    </li>
-                                    {{--                                    <li class="page-item">--}}
-                                    {{--                                        <a class="page-link active" href="javascript:void(0)">2</a>--}}
-                                    {{--                                    </li>--}}
-                                    {{--                                    <li class="page-item">--}}
-                                    {{--                                        <a class="page-link" href="javascript:void(0)">3</a>--}}
-                                    {{--                                    </li>--}}
-                                    {{--                                    <li class="page-item d-flex justify-content-center align-items-center">--}}
-                                    {{--                                        <a class="text-light-gray" href="javascript:void(0)">........</a>--}}
-                                    {{--                                    </li>--}}
-                                    {{--                                    <li class="page-item">--}}
-                                    {{--                                        <a class="page-link" href="javascript:void(0)">50</a>--}}
-                                    {{--                                    </li>--}}
-                                    {{--                                    <li class="page-item disabled">--}}
-                                    {{--                                        <a class="page-link rounded-3">--}}
-                                    {{--                                            <em class="fas fa-chevron-left small" aria-hidden="true"></em>--}}
-                                    {{--                                        </a>--}}
-                                    {{--                                    </li>--}}
-                                </ul>
-                                {{--                                <div class="text-main result-count">النتايج 24 - 123</div>--}}
-                            </nav>
-                        </div>
-                    </div>
+                        </ul>
+                    </nav>
                 </div>
+
             </div>
         </section>
         <section class="d-lg-flex">
             <div class="right-container bg-main d-flex align-items-center py-lg-0 py-4">
                 <div>
                     <h2>@lang('site.freediscount') </h2>
-                    <p>@lang('site.loginSignup') www.saeeh.com</p>
+                    <p>@lang('site.loginSignup') <a href="{{route('sitelogin')}}" >@lang('site.login')</a></p>
                     <div class="d-flex justify-content-between py-3">
                         <div class="btn-footer-auth d-flex align-items-center justify-content-center">
-                            <a href="#">  @lang('site.register') </a>
+                            <a href="{{route('registers')}}">  @lang('site.register') </a>
                         </div>
                         <div class="btn-out-footer-auth d-flex align-items-center justify-content-center">
-                            <a href="#">@lang('site.login') </a>
+                            <a href="{{route('sitelogin')}}">@lang('site.login') </a>
                         </div>
                     </div>
                 </div>
