@@ -317,6 +317,7 @@
                                             <div class="pt-2 d-flex">
                                                 <div
                                                     class="tabs-social-icon d-flex align-items-center justify-content-center">
+                                                    @if(!empty($place->twitter))
                                                     <a href="{{url($place->twitter)}}}">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                              viewBox="0 0 24 24" fill="none">
@@ -325,9 +326,11 @@
                                                                 fill="white"></path>
                                                         </svg>
                                                     </a>
+                                                    @endif
                                                 </div>
                                                 <div
                                                     class="tabs-social-icon d-flex align-items-center justify-content-center">
+                                                    @if(!empty($place->instagram))
                                                     <a href="{{url($place->instagram)}}}">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                              viewBox="0 0 24 24" fill="none">
@@ -336,9 +339,11 @@
                                                                 fill="white"></path>
                                                         </svg>
                                                     </a>
+                                                    @endif
                                                 </div>
                                                 <div
                                                     class="tabs-social-icon d-flex align-items-center justify-content-center">
+                                                    @if(!empty($place->facebook))
                                                     <a href="{{url($place->facebook)}}}">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                              viewBox="0 0 24 24" fill="none">
@@ -347,6 +352,7 @@
                                                                 fill="white"></path>
                                                         </svg>
                                                     </a>
+                                                    @endif
                                                 </div>
                                             </div>
                                             <hr class="hr-saeeh">
