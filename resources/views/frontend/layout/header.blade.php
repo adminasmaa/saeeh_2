@@ -190,7 +190,7 @@
 
                                     @foreach($CategoriesPlaces as $categoryplace)
                                     <li class="sub-menu__sub-item pb-2">
-                                        <a href="#" class="sub-menu-link">
+                                        <a href="{{route('subcategories',$categoryplace->id)}}" class="sub-menu-link">
                                             <div class="d-flex align-items-center">
                                             <div class="arrow-lft">
                                                 <i class="fas fa-arrow-left"></i>
@@ -220,7 +220,7 @@
                                             <div class=" ps-1">
                                             <i class="far fa-question-circle"></i>
                                             </div>
-                                           <div>@lang('site.help')</div> 
+                                           <div>@lang('site.help')</div>
                                         </a>
                                     </li>
                                     <li class="nav-link">

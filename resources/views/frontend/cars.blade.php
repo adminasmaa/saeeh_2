@@ -1254,6 +1254,7 @@
                                                                 class="owl-carousel owl-theme department-img-carousel"
                                                                 dir="ltr" id="myUL"
                                                             >
+                                                                @if(!empty($car->images))
                                                                 @foreach(json_decode($car->images)  as $img)
                                                                     <div class="city-item">
                                                                         <button class="add-to-wishlist">
@@ -1276,6 +1277,32 @@
                                                                         />
                                                                     </div>
                                                                 @endforeach
+
+                                                                @else
+
+                                                                    <div class="city-item">
+                                                                        <button class="add-to-wishlist">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                 width="24"
+                                                                                 height="24" viewBox="0 0 24 24"
+                                                                                 fill="none">
+                                                                                <path
+                                                                                    d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"
+                                                                                    fill="#FF8600"></path>
+                                                                            </svg>
+                                                                        </button>
+                                                                        <img
+                                                                            loading="lazy"
+                                                                            src="{{FRONTASSETS}}/images/cars/car-card-1.png"
+                                                                            onerror="this.src='{{FRONTASSETS}}/images/cars/car-card-1.png'"
+
+                                                                            class="department-img-list of-cover car-image"
+                                                                            alt="image 1"
+                                                                        />
+                                                                    </div>
+
+
+                                                                @endif
                                                             </div>
                                                         </div>
                                                         <div class="col-md-8">

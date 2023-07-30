@@ -59,6 +59,8 @@
                 <div class="row" id="slideshow">
                     <div class="col-lg-10">
                         <div id="slides">
+
+                            @if(!empty($car->images))
                             @foreach(json_decode($car->images)  as $key=>$img)
 
                                 <div class="slide show" data-slide="{{$key}}">
@@ -66,6 +68,13 @@
                                          onerror="this.src='{{FRONTASSETS}}/images/cars/car.png'" alt="car"/>
                                 </div>
                             @endforeach
+
+                            @else
+                                <div class="slide show" data-slide="1">
+                                    <img src="{{FRONTASSETS}}/images/cars/car.png"
+                                         onerror="this.src='{{FRONTASSETS}}/images/cars/car.png'" alt="car"/>
+                                </div>
+                            @endif
 
                             {{--                            <div class="slide" data-slide="2">--}}
                             {{--                                <img src="{{FRONTASSETS}}/images/cars/sm-car.png" alt="car"/>--}}
@@ -114,6 +123,7 @@
 
                     <div class="col-lg-2 gallery-list-mobile">
                         <div id="gallery">
+                            @if(!empty($car->images))
                             @foreach(json_decode($car->images)  as $key=>$img)
                                 <div class="thumbnail" data-slide="{{$key}}">
                                     <img alt="car"
@@ -122,6 +132,17 @@
                                     />
                                 </div>
                             @endforeach
+
+                            @else
+
+                                <div class="thumbnail" data-slide="1">
+                                    <img alt="car"
+                                         src="{{FRONTASSETS}}/images/cars/car.png"
+                                         onerror="this.src='{{FRONTASSETS}}/images/cars/car.png'"
+                                    />
+                                </div>
+
+                            @endif
 
                             {{--                            <div class="thumbnail" data-slide="2">--}}
                             {{--                                <img src="{{FRONTASSETS}}/images/cars/sm-car.png" alt="car"/>--}}
