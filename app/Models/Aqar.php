@@ -5,13 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Models\User;   //belongsTo
-use App\Models\Ads;   //belongsTo
-use App\Models\AqarComment;    // HasMany
-use App\Models\AqarBooking;    // HasMany
+use App\Models\User;
+
+//belongsTo
+use App\Models\Ads;
+
+//belongsTo
+use App\Models\AqarComment;
+
+// HasMany
+use App\Models\AqarBooking;
+
+// HasMany
 class Aqar extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory, SoftDeletes;
+
     public $guarded = ['id'];
 
     protected $table = 'aqars';
@@ -58,50 +67,83 @@ class Aqar extends Model
         'ads_status_id',
         'city_id',
     ];
+
     // relations
-    public function user(){
-        return $this->belongsTo(User::class,'user_id')->withDefault(['firstname' => '']);
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id')->withDefault(['firstname' => '']);
     }
 
-    public function area(){
-        return $this->belongsTo(Area::class,'area_id')->withDefault(['name_ar' => '']);
+    public function getNameAttribute()
+    {
+        return (app()->getLocale() === 'ar') ? $this->name_ar : $this->name_en;
     }
+
     // relations
-    public function category(){
-        return $this->belongsTo(Category::class,'category_id');
-    }// relations
-    public function ads(){
-        return $this->belongsTo(Ads::class,'ads_id');
+
+    public function area()
+    {
+        return $this->belongsTo(Area::class, 'area_id')->withDefault(['name_ar' => '']);
     }
-   // relations
-   public function aqarComment(){
+
+    // relations
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }// relations
+
+    public function ads()
+    {
+        return $this->belongsTo(Ads::class, 'ads_id');
+    }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class, 'country_id');
+    }
+
+    public function city()
+    {
+        return $this->belongsTo(City::class, 'city_id');
+    }
+
+    // relations
+    public function aqarComment()
+    {
         return $this->HasMany(AqarComment::class);
     }
+
     // relations
-    public function aqarBooking(){
+    public function aqarBooking()
+    {
         return $this->HasMany(AqarBooking::class);
     }
-   public function aqarReview(){
+
+    public function aqarReview()
+    {
         return $this->HasMany(AqarReview::class)->distinct();
 
 
+    }
+
+    public function aqarSection()
+    {
+        return $this->belongsToMany(AqarService::class, 'aqar_sections', 'aqar_id', 'section_id')->distinct()->withPivot('aqar_id')->with(['subsection' => function ($q) {
+            $q->where('aqar_sections.aqar_id', $this->id);
+        }]);
 
     }
 
-    public function aqarSection(){
-                return $this->belongsToMany(AqarService::class,'aqar_sections','aqar_id','section_id')->distinct()->withPivot('aqar_id')->with(['subsection' => function ($q) {
-                      $q->where('aqar_sections.aqar_id', $this->id);                       
-                  }]);
-  
-      }
-
-    public function aqarSubSection(){
+    public function aqarSubSection()
+    {
         return $this->HasMany(AqarSections::class);
 
     }
-    public function favoriteuser(){
 
-        return $this->belongsToMany(User::class,'aqar_user','user_id','aqar_id');
+    public function favoriteuser()
+    {
+
+        return $this->belongsToMany(User::class, 'aqar_user', 'user_id', 'aqar_id');
     }
 
 }
