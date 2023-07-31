@@ -14,6 +14,7 @@ return [
     'crews' => 'Crews',
     'Saeeh' => 'Saeeh',
     'home'=>'Home',
+    'Accompanying'=>'Accompanying',
     'The deposit is paid at the time of booking'=>'The deposit is paid at the time of booking',
     'ads_status'=>'AdsStatus',
     'excellent'=>'Excellent',

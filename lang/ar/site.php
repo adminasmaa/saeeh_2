@@ -549,7 +549,7 @@ return [
     'masterroom' => 'عدد الغرف الماستر',
     'normalroom' => 'عدد الغرف العادية',
     'room number' => 'عدد الغرف ',
-
+'Accompanying'=>'المرافق',
     'anotherrooms' => 'غرف اخرى',
     'service' => 'الخدمات',
     'freeservice' => 'خدمات مجانية',
