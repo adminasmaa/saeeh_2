@@ -24,7 +24,7 @@ return [
     'namecar' => 'ابحث عن اسم السيارة',
     'comments' => 'التقيمات',
     'carbonbooking' => 'يتم دفع العربون فى حالة الحجز',
-
+'The deposit is paid at the time of booking'=>'يتم دفع العربون فى حالة الحجز',
     'Please follow the site policy' => 'برجاء اتباع سياسه المكان',
     'allownumber' => 'العدد المسموح بيه',
     'Arrival dates' => 'مواعيد الوصول',
