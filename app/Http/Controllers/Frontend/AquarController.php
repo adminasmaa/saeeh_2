@@ -80,7 +80,7 @@ class AquarController extends Controller
         session_start();
         Session::put('category_id', $id);
 
-        $aquars = Aqar::where('category_id', '=', $id)->with('aqarSection')->paginate(2);
+        $aquars = Aqar::where('category_id', '=', $id)->with('aqarSection')->paginate(4);
         $allaquars = Aqar::where('category_id', '=', $id)->with('aqarSection')->get();
         $roomsnumbers = Aqar::with('aqarSection')->get();
 
