@@ -513,7 +513,9 @@ return [
     'order' => 'Order',
     'status_ar'=>'Status_ar',
     'status_en'=>'Status_en',
-
+    'booking_status' =>'BookingStatus',
+    'booking_status_ar' =>'BookingStatusWithArabic',
+    'booking_status_en' =>'BookingStatusWithEnglish',
     'places' => 'Places',
     'name_ar' => 'Name Ar',
     'name_en' => 'Name En',

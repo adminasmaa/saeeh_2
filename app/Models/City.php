@@ -18,6 +18,7 @@ class City extends Model
         'image',
         'active',
         'country_id',
+        'sub_category_id',
         'order',
 
     ];

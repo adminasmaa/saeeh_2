@@ -122,7 +122,19 @@
                                        readonly>
                             </div>
 
+                            <div class="col-md-6 form-group">
+                                <label class="form-label">@lang('site.booking_status')</label>
+                                <select class="form-control btn-square" name="booking_status_id" readonly=""disabled>
+                                    <option selected>@lang('site.select')</option>
+                                    @foreach($bookingStatus as $bookingStatus)
 
+                                        <option value="{{$bookingStatus->id}}"
+                                                @if($data->booking_status_id==$bookingStatus->id) selected @endif>{{$bookingStatus->status_ar ?? ''}}</option>
+
+                                    @endforeach
+
+                                </select>
+                            </div>
                         </div>
 
 

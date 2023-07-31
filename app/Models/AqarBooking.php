@@ -13,6 +13,7 @@ use App\Models\Aqar;   //belongsTo
 use App\Models\BookingNote;    // HasMany
 use App\Models\Deposit;    // HasMany
 use App\Models\AqarComment;    // HasMany
+use App\Models\BookingStatus;   //belongsTo
 
 class AqarBooking extends Model
 {
@@ -42,6 +43,7 @@ class AqarBooking extends Model
         'city_id', //unsigned
         'commission_id', //unsigned
         'user_id', //unsigned
+        'booking_status_id', // unsigned
     ];
     protected $hidden=['deleted_at','updated_at'];
 
@@ -82,5 +84,9 @@ class AqarBooking extends Model
     // relations
     public function aqarComment(){
         return $this->HasMany(AqarComment::class);
+    }
+    // relations
+    public function bookingStatus(){
+        return $this->belongsTo(BookingStatus::class,'booking_status_id');
     }
 }
