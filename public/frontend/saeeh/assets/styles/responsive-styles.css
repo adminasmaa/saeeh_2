@@ -125,6 +125,26 @@
   }
 }
 @media (max-width: 992px) {
+  .pagination .page-item nav > div:last-child {
+    display: flex ;}
+    .pagination .page-item nav > div:last-child p {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 0.5rem;}
+      .pagination .page-item nav > div a{
+        display: none !important;
+    }
+    .pagination .page-item nav > div:last-child a:first-child,
+    .pagination .page-item nav > div:last-child a:nth-child( 2 ),
+    .pagination .page-item nav > div:last-child a:nth-last-child( 2 ),
+    .pagination .page-item nav > div:last-child a:last-child,
+    .pagination .page-item nav > div:last-child a.active,
+    .pagination .page-item nav > div:last-child a.disabled {
+  
+          display: flex !important;
+      }
+
+
   .login-body {
     width: 100%;
   }
@@ -570,7 +590,14 @@
     border-radius: 10px 10px 0 0;
     height: 300px;
   }
-
+  .side-help-image {
+    width: 100%;
+    background: url(../images/help-bg-mobile.png) center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px 10px 0 0;
+    height: 200px;
+  }
   .side-resto-image {
     width: 100%;
     background: url(../images/resto-modal-image.svg) center center;
@@ -581,11 +608,12 @@
     height: 280px;
   }
   .login-content,
+  .help-content,
   .resto-modal-content {
     width: 100%;
     order: 2;
   }
-  .login-body {
+  .login-body ,.help-body{
     display: flex;
     flex-direction: column;
   }
@@ -818,8 +846,30 @@
     max-height: 100%;
     object-fit: cover;
   }
+  .help-content label {
+    font-size: 14px;
+    line-height: 22px;}
+    .txtarea-booking {
+      padding: 0.5rem !important;}
+
+      .login-body input::placeholder,.help-body input::placeholder {
+        font-size: 14px;
+      }
+      .wizaredd {
+        padding-top: 20px;
+      }
+      .wizaredd .booking-now-btn {
+        width: 40%;
+    }
 }
 @media (max-width: 768px) {
+  .pagination .page-item nav > div:last-child {
+    display: block ;}
+  .pagination .page-item nav > div:last-child span:last-child {
+    box-shadow: none !important;
+    display: flex !important;
+    justify-content: center;
+}
   .hotel-owl .owl-stage-outer {
     padding-top: 0px;
   }
@@ -974,6 +1024,15 @@
   }
 }
 @media (max-width: 578px) {
+  .wizaredd {
+    padding-top: 0px;
+  }
+  .wizaredd .booking-now-btn{
+    width: 100%;
+  }
+  .side-help-image {
+    height: 120px;
+  }
   .breadcrumb-item a,
   .breadcrumb li {
     font-size: 14px;
@@ -1049,7 +1108,12 @@
   }
   .all-categories .box-sort-by {
     width: 100%;
+    margin-top: 15px;
   }
+  .btn-footer-auth ,.btn-out-footer-auth {
+    
+    width: 48%;}
+
   h2,
   .h2,
   .badge-ads-details,
@@ -1172,8 +1236,8 @@
     height: 115px;
   }
   .login-title {
-    font-size: 20px;
-    margin-bottom: 18px !important;
+    font-size: 18px;
+    margin-bottom: 10px !important;
   }
 
   .login-body input::placeholder,
@@ -1387,6 +1451,11 @@
   .dd-txt {
     font-size: 16px;
   }
+  .pagination .page-item nav > div:last-child a, [aria-current="page"] span, [aria-disabled="true"] span {
+    font-size: 14px;
+    width: 30px;
+    height: 30px;}
+
 }
 @media (max-width: 340px) {
   .booking-now-btn {

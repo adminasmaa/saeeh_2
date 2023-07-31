@@ -1222,7 +1222,17 @@ video.video-full {
 .login-content {
   width: 75%;
 }
-
+.help-content{
+  width: 60%;
+}
+.help-content label{
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0em;
+  color: var(--m-gray);
+  
+}
 .side-login-image {
   width: 40%;
   background: url(../images/login-bg.png) center center;
@@ -1231,7 +1241,13 @@ video.video-full {
   border-radius: 10px 0 0 10px;
   /* height: 660px; */
 }
-
+.side-help-image{
+  width: 40%;
+  background: url(../images/help.png) center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px 0 0 10px;
+}
 .modal-body {
   padding: 0;
 }
@@ -1268,7 +1284,11 @@ video.video-full {
   border-radius: 10px;
   width: 75%;
 }
-
+.help-body{
+   display: flex;
+  border: 1px solid #cfcfcf;
+  border-radius: 10px;
+}
 .emailcont {
   position: relative;
 }
@@ -1280,7 +1300,12 @@ video.video-full {
   height: 46px;
   padding-right: 40px;
 }
-
+.help-body input{
+  background: #ffffff;
+  border: 1px solid #cfcfcf;
+  border-radius: 10px;
+  height: 44px;
+}
 .field-icon {
   position: absolute;
   left: 15px;
@@ -1289,21 +1314,22 @@ video.video-full {
   cursor: pointer;
 }
 
-.login-body .form-control:focus {
+.login-body .form-control:focus,.help-body .form-control:focus  {
   color: #212529;
   background-color: #fff;
   border-color: #cfcfcf;
   outline: 0;
   box-shadow: none;
 }
-
-.login-body input::placeholder {
+.login-body input::placeholder,.help-body input::placeholder {
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
   color: #9c9c9c;
 }
-
+.booking-now-btn i ,.booking-dd-btn i{
+  font-size: 16px;
+}
 .icon-placeholder {
   position: absolute;
   right: 15px;

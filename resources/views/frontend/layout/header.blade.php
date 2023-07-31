@@ -42,6 +42,47 @@
                                         </a>
                                     </li>
                                 </ul>
+                                <div class="box-notifications  bg-white" id="box-notifications">
+                                    <div class="d-flex justify-content-start align-items-center close-notify">
+                                        <i class="fas fa-times close-btn-notify cursor "></i>
+                                    </div>
+                                    
+                                    <ul class="notifications-list px-0">
+                                        
+                                        <li class="p-3">
+                                        <a href="#">
+                                            <p class="mb-0 text-gray">
+                                            لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج
+                                            أليايت,سيت دو أيوسمود تيمبور
+                                            </p>
+                                            <p  class="mb-0  pt-1 text-gray-4">  الاحد 14 فبراير 2023
+                                            </p>
+                                        </a>
+                                        </li>
+                                        <li class="p-3">
+                                        <a href="#">
+                                            <p class="mb-0 text-gray">
+                                            لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج
+                                            أليايت,سيت دو أيوسمود تيمبور
+                                            </p>
+                                            <p  class="mb-0  pt-1 text-gray-4">  الاحد 14 فبراير 2023
+                                            </p>
+                                        </a>
+                                        </li>
+                                        <li class="p-3 ">
+                                        <a href="#">
+                                            <p class="mb-0 text-gray">
+                                            لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج
+                                            أليايت,سيت دو أيوسمود تيمبور
+                                            </p>
+                                            <p  class="mb-0  pt-1 text-gray-4">  الاحد 14 فبراير 2023
+                                            </p>
+                                        </a>
+                                        </li>
+                                
+                                    </ul>
+                                
+                                    </div>
                             </div>
                         </nav>
                     </div>
@@ -216,11 +257,13 @@
                             <div class="collapse navbar-collapse">
                                 <ul class="navbar-nav align-items-center">
                                     <li class="nav-link ms-3">
-                                        <a href="javascript:void(0)" class="d-flex align-items-center">
+                                       <a href="javascript:void(0)" class="d-flex align-items-center"
+                                        data-bs-toggle="modal"
+                                         data-bs-target="#helpModal">
                                             <div class=" ps-1">
                                             <i class="far fa-question-circle"></i>
                                             </div>
-                                           <div>@lang('site.help')</div>
+                                           <div>@lang('site.help')</div> 
                                         </a>
                                     </li>
                                     <li class="nav-link">
@@ -281,3 +324,81 @@
         </div>
     </section>
 </header>
+
+ <!-- Modal Help -->
+ <div
+      class="modal fade modal-custom modal-height-mobile"
+      id="helpModal"
+      tabindex="-1"
+      aria-labelledby="helpModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <button
+            type="button"
+            class="close-modal d-flex justify-content-center align-items-center"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+              fill="none"
+            >
+              <path
+                d="M24.3998 7.61339C24.2765 7.48978 24.1299 7.39172 23.9686 7.32481C23.8073 7.2579 23.6344 7.22346 23.4598 7.22346C23.2852 7.22346 23.1123 7.2579 22.951 7.32481C22.7897 7.39172 22.6432 7.48978 22.5198 7.61339L15.9998 14.1201L9.47981 7.60005C9.35637 7.47661 9.20982 7.37869 9.04853 7.31188C8.88725 7.24508 8.71438 7.21069 8.53981 7.21069C8.36524 7.21069 8.19237 7.24508 8.03109 7.31188C7.8698 7.37869 7.72325 7.47661 7.59981 7.60005C7.47637 7.7235 7.37845 7.87004 7.31164 8.03133C7.24483 8.19261 7.21045 8.36548 7.21045 8.54005C7.21045 8.71463 7.24483 8.88749 7.31164 9.04878C7.37845 9.21006 7.47637 9.35661 7.59981 9.48005L14.1198 16.0001L7.59981 22.5201C7.47637 22.6435 7.37845 22.79 7.31164 22.9513C7.24483 23.1126 7.21045 23.2855 7.21045 23.4601C7.21045 23.6346 7.24483 23.8075 7.31164 23.9688C7.37845 24.1301 7.47637 24.2766 7.59981 24.4001C7.72325 24.5235 7.8698 24.6214 8.03109 24.6882C8.19237 24.755 8.36524 24.7894 8.53981 24.7894C8.71438 24.7894 8.88725 24.755 9.04853 24.6882C9.20982 24.6214 9.35637 24.5235 9.47981 24.4001L15.9998 17.8801L22.5198 24.4001C22.6433 24.5235 22.7898 24.6214 22.9511 24.6882C23.1124 24.755 23.2852 24.7894 23.4598 24.7894C23.6344 24.7894 23.8072 24.755 23.9685 24.6882C24.1298 24.6214 24.2764 24.5235 24.3998 24.4001C24.5233 24.2766 24.6212 24.1301 24.688 23.9688C24.7548 23.8075 24.7892 23.6346 24.7892 23.4601C24.7892 23.2855 24.7548 23.1126 24.688 22.9513C24.6212 22.79 24.5233 22.6435 24.3998 22.5201L17.8798 16.0001L24.3998 9.48005C24.9065 8.97339 24.9065 8.12005 24.3998 7.61339Z"
+                fill="white"
+              />
+            </svg>
+          </button>
+
+          <div
+            class="modal-body help-body d-lg-flex justify-content-lg-between"
+          >
+          
+            <div class=" my-lg-5 my-3 help-content">
+              <div
+                class="row d-flex justify-content-center align-items-center h-100"
+              >
+                <div class="col-md-10 col-10 my-lg-5 my-2">
+                  <h2 class="fw-bold login-title mb-5"> الابلاغ عن اى مشكلة</h2>
+
+                  <div class="emailcont">
+                    <label for="frm-input1" class="pb-2">الاسم</label>
+                    <input
+                      type="text"
+                      class="form-control frm-input mb-3" 
+                      id="frm-input1"
+                      placeholder=" ادخل الاسم بالكامل"
+                    />
+                   
+                  </div>
+                  <div class="emailcont">
+                    <label for="frm-input2" class="pb-2">رقم الهاتف</label>
+                    <input
+                      type="text"
+                      class="form-control frm-input mb-3" 
+                      id="frm-input2"
+                      placeholder="ادخل رقم الجوال"
+                    />
+                   
+                  </div>
+                  <div class="emailcont">
+                    <label for="frm-input3">رسالة</label>
+                    <textarea class="form-control txtarea-booking px-3 py-2 mt-2" placeholder=" ادخل  ما تريد اخبارنا بيه" rows="4" id="frm-input3"></textarea>
+                   
+                  </div>
+         
+                  <button type="button" class="mt-4 btn-login"> ارسال</button>
+               
+                </div>
+              </div>
+            </div>
+            <div class="side-help-image"></div>
+          </div>
+        </div>
+      </div>
+    </div>
