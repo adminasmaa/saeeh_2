@@ -8,6 +8,7 @@ use App\Models\Category;
 
 use App\Models\City;
 use App\Models\Country;
+use Illuminate\Support\Facades\Session;
 use Response;
 
 
@@ -20,41 +21,90 @@ use Illuminate\Validation\Rule;
 class AquarController extends Controller
 {
 
-    public function allaquars(Request $request, $id)
+    public function filteraquars(Request $request)
     {
-        if (!empty($request->country_id) && !empty($request->city_id) && !empty($request->brand_id) && !empty($request->category_id) && !empty($request->year)) {
+        if (!empty($request->country_id) && !empty($request->city_id) && !empty($request->category_id)) {
 
-            $cars = Car::where('country_id', '=', $request->country_id)->where('city_id', '=', $request->city_id)->where('year', '=', $request->year)->where('category_id', '=', $request->brand_id)->paginate(2);
-        } elseif (!empty($request->country_id) && !empty($request->city_id) && !empty($request->brand_id)) {
-            $cars = Car::where('country_id', '=', $request->country_id)->where('city_id', '=', $request->city_id)->where('category_id', '=', $request->brand_id)->paginate(2);
+            $aquars = Aqar::where('country_id', '=', $request->country_id)->where('city_id', '=', $request->city_id)->where('category_id', '=', $request->category_id)->paginate(2);
+        } elseif (!empty($request->country_id) && !empty($request->category_id)) {
 
-
-        } elseif (!empty($request->country_id) && !empty($request->city_id) && !empty($request->year)) {
-
-            $cars = Car::where('country_id', '=', $request->country_id)->where('city_id', '=', $request->city_id)->where('year', '=', $request->year)->paginate(2);
-
-        } elseif (!empty($request->country_id) && !empty($request->year)) {
-
-            $cars = Car::where('country_id', '=', $request->country_id)->where('year', '=', $request->year)->paginate(2);
+            $aquars = Aqar::where('country_id', '=', $request->country_id)->where('category_id', '=', $request->category_id)->paginate(2);
 
         } elseif (!empty($request->country_id) && !empty($request->city_id)) {
 
-            $cars = Car::where('country_id', '=', $request->country_id)->where('city_id', '=', $request->city_id)->paginate(2);
+            $aquars = Aqar::where('country_id', '=', $request->country_id)->where('city_id', '=', $request->city_id)->paginate(2);
+
+        } elseif (!empty($request->category_id)) {
+
+            $aquars = Aqar::where('category_id', '=', $request->category_id)->paginate(2);
+
+        } elseif (!empty($request->city_id)) {
+
+            $aquars = Aqar::where('city_id', '=', $request->city_id)->paginate(2);
 
         } elseif (!empty($request->country_id)) {
 
-            $cars = Car::where('country_id', '=', $request->country_id)->paginate(2);
+            $aquars = Aqar::where('country_id', '=', $request->country_id)->paginate(2);
 
         } else {
-            $aquars = Aqar::where('category_id', '=', $id)->paginate(2);
+            $aquars = Aqar::paginate(2);
         }
+
+        $roomsnumbers = Aqar::with('aqarSection')->get();
+
+//        foreach ($roomsnumbers as $rooms) {
+//
+//            foreach ($rooms->aqarSection as $section) {
+//
+//                return $section->subsection->sum('name_ar');
+////                $section->subsection->sum('name_ar')
+//
+//            }
+//        }
+
+        $allaquars = Aqar::where('category_id', '=', Session::get('category_id'))->with('aqarSection')->get();
+
+        $countries = Country::where('display_data', '=', 1)->get();
+        $category = Category::first();
+        $cities = City::where('active', '=', 1)->get();
+        $CategoriesAquar = Category::where('parent_id', '=', 1)->where('type', '=', 1)->get();
+//        $carsfilters = Car::get();
+        return view('frontend.aquars', compact('allaquars','roomsnumbers', 'countries', 'cities', 'aquars', 'CategoriesAquar', 'category'));
+
+
+    }
+
+    public function allaquars(Request $request, $id)
+    {
+
+        session_start();
+        Session::put('category_id', $id);
+
+        $aquars = Aqar::where('category_id', '=', $id)->with('aqarSection')->paginate(2);
+        $allaquars = Aqar::where('category_id', '=', $id)->with('aqarSection')->get();
+        $roomsnumbers = Aqar::with('aqarSection')->get();
+
+//        $roomss = [];
+//        foreach ($roomsnumbers as $rooms) {
+//
+//            foreach ($rooms->aqarSection as $section) {
+//                $integerIDs = array_map('intval', $section->subsection->toarray());
+//
+//
+//                array_push($integerIDs,$roomss);
+////                array_push($rooms,$integerIDs);
+//
+////                $section->subsection->sum('name_ar')
+//
+//            }
+//        }
 
         $countries = Country::where('display_data', '=', 1)->get();
         $category = Category::find($id);
         $cities = City::where('active', '=', 1)->get();
         $CategoriesAquar = Category::where('parent_id', '=', 1)->where('type', '=', 1)->get();
 //        $carsfilters = Car::get();
-        return view('frontend.aquars', compact('countries', 'cities', 'aquars', 'CategoriesAquar', 'category'));
+        return view('frontend.aquars', compact('roomsnumbers','allaquars', 'countries', 'cities', 'aquars', 'CategoriesAquar', 'category'));
 
     }
 

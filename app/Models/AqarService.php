@@ -48,5 +48,9 @@ class AqarService extends Model
     {
         return $this->belongsToMany(AqarService::class, 'aqar_sections', 'section_id', 'sub_section_id');
     }
+//    public function nameintsubsection()
+//    {
+//        return $this->belongsToMany(AqarService::class, 'aqar_sections', 'section_id', 'sub_section_id')->when(is_int('name_ar'));
+//    }
 
 }
