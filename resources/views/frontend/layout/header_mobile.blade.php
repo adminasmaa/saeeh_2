@@ -33,7 +33,47 @@
                     </li>
                 </ul>
             </div>
-
+            <div class="box-notifications  bg-white" id="box-notifications">
+            <div class="d-flex justify-content-start align-items-center close-notify">
+              <i class="fas fa-times close-btn-notify cursor "></i>
+            </div>
+          
+            <ul class="notifications-list px-0">
+              
+              <li class="p-3">
+                <a href="#">
+                  <p class="mb-0 text-gray">
+                    لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج
+                    أليايت,سيت دو أيوسمود تيمبور
+                  </p>
+                  <p  class="mb-0  pt-1 text-gray-4">  الاحد 14 فبراير 2023
+                  </p>
+                </a>
+              </li>
+              <li class="p-3">
+                <a href="#">
+                  <p class="mb-0 text-gray">
+                    لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج
+                    أليايت,سيت دو أيوسمود تيمبور
+                  </p>
+                  <p  class="mb-0  pt-1 text-gray-4">  الاحد 14 فبراير 2023
+                  </p>
+                </a>
+              </li>
+              <li class="p-3 ">
+                <a href="#">
+                  <p class="mb-0 text-gray">
+                    لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج
+                    أليايت,سيت دو أيوسمود تيمبور
+                  </p>
+                  <p  class="mb-0  pt-1 text-gray-4">  الاحد 14 فبراير 2023
+                  </p>
+                </a>
+              </li>
+        
+            </ul>
+        
+          </div>
         </div>
     </div>
 </header>
@@ -41,8 +81,7 @@
     <nav class="side-menu-nav">
         <ul class="main-menu d-flex flex-column flex-lg-row align-items-lg-center list-unstyled p-0 m-0">
             <li class="nav-item">
-            
-                <a href="{{route('Home')}}" class="nav-link active"> @lang('site.home') </a>
+                <a class="nav-link active" href="#">الرئيسية </a>
             </li>
 
             <li>

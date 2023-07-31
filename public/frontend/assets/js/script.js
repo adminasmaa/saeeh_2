@@ -418,10 +418,10 @@ $(document).ready(function() {
       
     });
 
-
     let wizardBar = document.querySelector('[data-wizard-bar]')
-    // let btnPrevious = document.querySelector('[data-btn-previous]')
+    let btnPrevious = document.querySelector('[data-btn-previous]')
     let btnNext = document.querySelector('[data-btn-next]')
+    let btnSubmit = document.querySelector('[data-btn-submit]')
     let currentTab = 0;
     showTab(currentTab);
     
@@ -430,12 +430,24 @@ $(document).ready(function() {
       let wizardItem = document.querySelectorAll('[data-wizard-item]')
       formTabs[n].classList.add('active')
       wizardItem[n].classList.add('active')
-      if (n == 2) {
+      if (n == 0) {
+        btnPrevious.style.display = "none";
+      } else {
+        btnPrevious.style.display = "block";
+      }
+      if (n == 1) {
         btnNext.style.display = "none";
+        btnSubmit.style.display = "block";
       } else {
         btnNext.style.display = "block";
+        btnSubmit.style.display = "none";
       }
-     
+      if (n == 2) {
+        btnNext.style.display = "none";
+        btnSubmit.style.display = "none";
+        btnPrevious.style.display = "none";
+      }
+    
     }
     
     function nextPrev(n) {
@@ -465,8 +477,11 @@ $(document).ready(function() {
         nextPrev(1)
         updateWizardBarWidth()
       }
+      if (event.target.dataset.btnSubmit) {
+        nextPrev(1)
+        updateWizardBarWidth()
+      }
     })
-
 
     jQuery(document).ready(function () {
       jQuery('#datepicker').datepicker({

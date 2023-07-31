@@ -590,7 +590,14 @@
     border-radius: 10px 10px 0 0;
     height: 300px;
   }
-
+  .side-help-image {
+    width: 100%;
+    background: url(../images/help-bg-mobile.png) center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px 10px 0 0;
+    height: 200px;
+  }
   .side-resto-image {
     width: 100%;
     background: url(../images/resto-modal-image.svg) center center;
@@ -601,11 +608,12 @@
     height: 280px;
   }
   .login-content,
+  .help-content,
   .resto-modal-content {
     width: 100%;
     order: 2;
   }
-  .login-body {
+  .login-body ,.help-body{
     display: flex;
     flex-direction: column;
   }
@@ -838,6 +846,21 @@
     max-height: 100%;
     object-fit: cover;
   }
+  .help-content label {
+    font-size: 14px;
+    line-height: 22px;}
+    .txtarea-booking {
+      padding: 0.5rem !important;}
+
+      .login-body input::placeholder,.help-body input::placeholder {
+        font-size: 14px;
+      }
+      .wizaredd {
+        padding-top: 20px;
+      }
+      .wizaredd .booking-now-btn {
+        width: 40%;
+    }
 }
 @media (max-width: 768px) {
   .pagination .page-item nav > div:last-child {
@@ -1001,6 +1024,15 @@
   }
 }
 @media (max-width: 578px) {
+  .wizaredd {
+    padding-top: 0px;
+  }
+  .wizaredd .booking-now-btn{
+    width: 100%;
+  }
+  .side-help-image {
+    height: 120px;
+  }
   .breadcrumb-item a,
   .breadcrumb li {
     font-size: 14px;
@@ -1204,8 +1236,8 @@
     height: 115px;
   }
   .login-title {
-    font-size: 20px;
-    margin-bottom: 18px !important;
+    font-size: 18px;
+    margin-bottom: 10px !important;
   }
 
   .login-body input::placeholder,
