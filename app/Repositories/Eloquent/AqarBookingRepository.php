@@ -6,6 +6,7 @@ namespace App\Repositories\Eloquent;
 use App\Models\AqarBooking;
 use App\Repositories\Interfaces\AqarBookingRepositoryInterface as IAqarBookingRepositoryAlias;
 use Illuminate\Support\Facades\Auth;
+use App\Models\BookingStatus;   //belongsTo
 
 use Alert;
 
@@ -22,7 +23,7 @@ class AqarBookingRepository implements IAqarBookingRepositoryAlias
 
     public function create()
     {
-        // TODO: Implement create() method.
+        // // TODO: Implement create() method.
 
 
     }
@@ -32,8 +33,10 @@ class AqarBookingRepository implements IAqarBookingRepositoryAlias
     {
         // TODO: Implement show() method.
         $data = AqarBooking::find($Id);
+        
+        $bookingStatus = BookingStatus::all();
 
-        return view('dashboard.aquarbooking.show',compact('data'));
+        return view('dashboard.aquarbooking.show',compact('data', 'bookingStatus'));
     }
 
     public function destroy($data)

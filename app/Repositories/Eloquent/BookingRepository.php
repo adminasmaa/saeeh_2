@@ -9,6 +9,7 @@ use App\Models\CarBooking;
 use App\Models\CarComment;
 use App\Models\City;
 use App\Models\User;
+use App\Models\BookingStatus;   //belongsTo
 use App\Repositories\Interfaces\BookingRepositoryInterface as BookingRepositoryInterfaceAlias;
 use Illuminate\Support\Facades\DB;
 use Alert;
@@ -38,12 +39,10 @@ class BookingRepository implements BookingRepositoryInterfaceAlias
         $users = User::all();
         $ads=Ads::all();
         $cities=City::all();
+        $bookingStatus = BookingStatus::all();
 
-
-        return view('dashboard.bookings.show', compact('booking', 'users', 'cars','ads','cities'));
+        return view('dashboard.bookings.show', compact('booking', 'users', 'cars','ads','cities', 'bookingStatus'));
     }
-
-
     public function destroy($car)
     {
         // TODO: Implement destroy() method.

@@ -270,7 +270,9 @@ return [
     'time_difference' => 'فارق التوقيت',
     'closing' => 'الاغلاق',
     'Become a partner with us' => 'كن شريكا معنا',
-
+    'booking_status' =>'حالات الحجز',
+    'booking_status_ar' =>'حالات الحجز بالعربي',
+    'booking_status_en' =>'حالات الحجز بالانجليزي',
 
     'open' => 'مفتوح',
     'closed' => 'مغلق',

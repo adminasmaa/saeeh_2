@@ -126,26 +126,6 @@
                                     >
                                 </div>
 
-{{--                                <div class="col-md-6 form-group col-12 p-2 ">--}}
-{{--                                    <label class="form-label">@lang('site.category')</label>--}}
-{{--                                    <select class="js-example-placeholder-multiple col-sm-12" multiple="multiple"--}}
-{{--                                            name="category_id[]">--}}
-{{--                                        <option selected>@lang('site.select')</option>--}}
-{{--                                        @foreach($categories as $category)--}}
-
-{{--                                            <option value="{{$category->id}}"  @if(in_array($category->id,$reletedCategory)) selected @endif>{{$category->name ?? ''}}</option>--}}
-
-{{--                                        @endforeach--}}
-
-{{--                                    </select>--}}
-{{--                                </div>--}}
-
-                                {{--                                <div class="col-md-6 form-group col-12 p-2 ">--}}
-                                {{--                                    <label>@lang('site.code')<span class="text-danger">*</span></label>--}}
-                                {{--                                    <input type="text" name="code" class="form-control" value="{{ $city->code }}"--}}
-                                {{--                                    >--}}
-                                {{--                                </div>--}}
-
                                 <div class="col-md-6 form-group">
                                     <label class="form-label">@lang('site.country')</label>
                                     <select class="form-control btn-square" name="country_id">
@@ -176,6 +156,19 @@
                                     </select>
                                 </div>
 
+                                <div class="col-md-6 form-group"><span class="text-danger">*</span>
+                                    <label class="form-label">@lang('site.subcategories')</label>
+                                    <select class="form-control btn-square" name="sub_category_id" id="sub_category_id">
+                                        <option value="0">@lang('site.select')</option>
+                                        @foreach($subcategories as $cats)
+
+                                            <option value="{{$cats->id}}"
+                                                    @if($city->sub_category_id==$cats->id) selected @endif>{{$cats->name_ar ?? ''}}</option>
+
+                                        @endforeach
+
+                                    </select>
+                                </div>
 
                                 <div class="col-md-6 form-group col-12 p-2">
 

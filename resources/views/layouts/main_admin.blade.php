@@ -549,7 +549,16 @@
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.ads_status.index')?'activee':'' }}"
                                    href="{{route('dashboard.ads_status.index')}}">
-                                    <i data-feather="zap"></i><span>@lang('site.ads_status')</span></a>
+                                    <i data-feather="umbrella"></i><span>@lang('site.ads_status')</span></a>
+                            </li>
+                            @endif
+
+                            @if (auth()->user()->hasPermission('read_booking_status'))
+
+                            <li class="sidebar-list">
+                                <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.booking_status.index')?'activee':'' }}"
+                                   href="{{route('dashboard.booking_status.index')}}">
+                                    <i data-feather="underline"></i><span>@lang('site.booking_status')</span></a>
                             </li>
                             @endif
 

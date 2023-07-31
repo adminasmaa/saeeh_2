@@ -76,74 +76,58 @@
                                                value="{{old('order')}}"
                                         >
                                     </div>
+                                
+                                    <div class="col-md-6 form-group">
+                                        <label class="form-label">@lang('site.country')</label>
+                                        <select class="form-control btn-square" name="country_id">
+                                            <option selected>@lang('site.select')</option>
+                                            @foreach($countries as $country)
 
-                                    <div class="row">
+                                                <option
+                                                    value="{{$country->id}}">{{$country->name_ar ?? ''}}</option>
 
-                                        {{--                                        <div class="col-md-6 form-group">--}}
-                                        {{--                                            <label>@lang('site.code')<span class="text-danger">*</span></label>--}}
-                                        {{--                                            <input type="text" name="code" class="form-control"--}}
-                                        {{--                                                   value="{{old('code')}}"--}}
-                                        {{--                                            >--}}
-                                        {{--                                        </div>--}}
+                                            @endforeach
 
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 form-group"><span class="text-danger">*</span>
+                                        <label class="form-label">@lang('site.categories')</label>
+                                        <select class="form-control btn-square" name="category_id"id="category_id">
+                                            <option selected>@lang('site.select')</option>
+                                            @foreach($categories as $cat)
 
-                                        <div class="col-md-6 form-group col-12 p-2 ">
-                                            <label class="form-label">@lang('site.category')</label>
-                                            <select class="js-example-placeholder-multiple col-sm-12" multiple="multiple"
-                                                    name="category_id[]">
+                                                <option value="{{$cat->id}}">{{$cat->name_ar ?? ''}}</option>
+
+                                            @endforeach
+
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 form-group"><span class="text-danger">*</span>
+                                            <label class="form-label">@lang('site.subcategories')</label>
+                                            <select class="form-control btn-square" name="sub_category_id" id="sub_category_id">
                                                 <option selected>@lang('site.select')</option>
-                                                @foreach($categories as $category)
+                                                    @foreach($subcategories as $cat)
 
-                                                    <option value="{{$category->id}}">{{$category->name ?? ''}}</option>
+                                                        <option value="{{$cat->id}}">{{$cat->name_ar ?? ''}}</option>
 
-                                                @endforeach
+                                                    @endforeach
 
                                             </select>
-                                        </div>
                                     </div>
-                                        <div class="col-md-6 form-group">
-                                            <label class="form-label">@lang('site.country')</label>
-                                            <select class="form-control btn-square" name="country_id">
-                                                <option selected>@lang('site.select')</option>
-                                                @foreach($countries as $country)
+                                </div>
 
-                                                    <option
-                                                        value="{{$country->id}}">{{$country->name_ar ?? ''}}</option>
+                                <div class="row">
 
-                                                @endforeach
+                                    <div class="col-md-6 form-group">
 
-                                            </select>
-                                        </div>
+                                        <label>@lang('site.image')</label>
+                                        <input type="file" name="image" class="form-control"
+                                                value="{{ old('image') }}">
 
-
-                                        <div class="col-md-6 form-group col-12 p-2 ">
-                                            <label class="form-label">@lang('site.categories')</label>
-                                            <select class="js-example-placeholder-multiple col-sm-12"
-                                                    multiple="multiple"
-                                                    name="category_id[]">
-                                                <option selected>@lang('site.select')</option>
-                                                @foreach($categories as $category)
-
-                                                    <option value="{{$category->id}}">{{$category->name_ar ?? ''}}</option>
-
-                                                @endforeach
-
-                                            </select>
-                                        </div>
                                     </div>
-
-                                    <div class="row">
-
-                                        <div class="col-md-6 form-group">
-
-
-                                            <label>@lang('site.image')</label>
-                                            <input type="file" name="image" class="form-control"
-                                                   value="{{ old('image') }}">
-
-
-                                        </div>
-                                    </div>
+                                </div>
 
 
                                 </div>
