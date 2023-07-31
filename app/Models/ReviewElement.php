@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ReviewElement extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory, SoftDeletes;
 
     public $guarded = ['id'];
 
@@ -23,5 +23,9 @@ class ReviewElement extends Model
 
     protected $hidden = ['deleted_at', 'updated_at', 'created_at'];
 
+    public function getNameAttribute()
+    {
+        return (app()->getLocale() === 'ar') ? $this->name_ar : $this->name_en;
+    }
 
 }

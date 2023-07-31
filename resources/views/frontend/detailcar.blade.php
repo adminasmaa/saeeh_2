@@ -781,7 +781,7 @@
                                                     </div>
 
                                                     <div class="department-badge bg-main text-white">
-                                                        <div class="pt-1">5</div>
+                                                        <div class="pt-1">{{$comment->rating ?? 0}}</div>
                                                         <div>
                                                             <svg
                                                                 xmlns="http://www.w3.org/2000/svg"

@@ -27,6 +27,10 @@ class AqarService extends Model
 
     protected $hidden = ['deleted_at', 'updated_at'];
 
+    public function getNameAttribute()
+    {
+        return (app()->getLocale() === 'ar') ? $this->name_ar : $this->name_en;
+    }
     public function getImagePathAttribute()
     {
         return asset('images/services_aqars/' . $this->icon);
