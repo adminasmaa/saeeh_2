@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Frontend;
 
 
 use App\Models\Aqar;
+use App\Models\AqarReview;
+use App\Models\AqarSections;
+use App\Models\AqarService;
 use App\Models\Category;
 
 use App\Models\City;
@@ -25,29 +28,29 @@ class AquarController extends Controller
     {
         if (!empty($request->country_id) && !empty($request->city_id) && !empty($request->category_id)) {
 
-            $aquars = Aqar::where('country_id', '=', $request->country_id)->where('city_id', '=', $request->city_id)->where('category_id', '=', $request->category_id)->paginate(2);
+            $aquars = Aqar::where('country_id', '=', $request->country_id)->where('city_id', '=', $request->city_id)->where('category_id', '=', $request->category_id)->paginate(4);
         } elseif (!empty($request->country_id) && !empty($request->category_id)) {
 
-            $aquars = Aqar::where('country_id', '=', $request->country_id)->where('category_id', '=', $request->category_id)->paginate(2);
+            $aquars = Aqar::where('country_id', '=', $request->country_id)->where('category_id', '=', $request->category_id)->paginate(4);
 
         } elseif (!empty($request->country_id) && !empty($request->city_id)) {
 
-            $aquars = Aqar::where('country_id', '=', $request->country_id)->where('city_id', '=', $request->city_id)->paginate(2);
+            $aquars = Aqar::where('country_id', '=', $request->country_id)->where('city_id', '=', $request->city_id)->paginate(4);
 
         } elseif (!empty($request->category_id)) {
 
-            $aquars = Aqar::where('category_id', '=', $request->category_id)->paginate(2);
+            $aquars = Aqar::where('category_id', '=', $request->category_id)->paginate(4);
 
         } elseif (!empty($request->city_id)) {
 
-            $aquars = Aqar::where('city_id', '=', $request->city_id)->paginate(2);
+            $aquars = Aqar::where('city_id', '=', $request->city_id)->paginate(4);
 
         } elseif (!empty($request->country_id)) {
 
-            $aquars = Aqar::where('country_id', '=', $request->country_id)->paginate(2);
+            $aquars = Aqar::where('country_id', '=', $request->country_id)->paginate(4);
 
         } else {
-            $aquars = Aqar::paginate(2);
+            $aquars = Aqar::paginate(4);
         }
 
         $roomsnumbers = Aqar::with('aqarSection')->get();
@@ -69,7 +72,7 @@ class AquarController extends Controller
         $cities = City::where('active', '=', 1)->get();
         $CategoriesAquar = Category::where('parent_id', '=', 1)->where('type', '=', 1)->get();
 //        $carsfilters = Car::get();
-        return view('frontend.aquars', compact('allaquars','roomsnumbers', 'countries', 'cities', 'aquars', 'CategoriesAquar', 'category'));
+        return view('frontend.aquars', compact('allaquars', 'roomsnumbers', 'countries', 'cities', 'aquars', 'CategoriesAquar', 'category'));
 
 
     }
@@ -104,101 +107,52 @@ class AquarController extends Controller
         $cities = City::where('active', '=', 1)->get();
         $CategoriesAquar = Category::where('parent_id', '=', 1)->where('type', '=', 1)->get();
 //        $carsfilters = Car::get();
-        return view('frontend.aquars', compact('roomsnumbers','allaquars', 'countries', 'cities', 'aquars', 'CategoriesAquar', 'category'));
+        return view('frontend.aquars', compact('roomsnumbers', 'allaquars', 'countries', 'cities', 'aquars', 'CategoriesAquar', 'category'));
 
     }
 
 
-//    public function CheckCar(Request $request)
-//    {
-//        $request['category_id'] = $request->array_category_id ?? [];
-//        $request['array_year'] = $request->array_year ?? [];
-//        $request['array_color'] = $request->array_color ?? [];
-//        $request['fixed_price'] = $request->fixed_price ?? [];
-//        $request['rate'] = $request->rate ?? [];
-//
-////        if (isset($request)) {
-////            $cars = Car::orWhereIn('category_id', $request->category_id)
-////                ->orWhereIn('year', $request->array_year)
-////                ->orWhereIn('color', $request->array_color)
-////                ->orWhereIn('fixed_price', $request->fixed_price)
-////                ->paginate(7);
-////        }
-//
-////return $request;
-//        if (!empty($request['category_id']) && !empty($request['array_year']) && !empty($request['array_color']) && !empty($request['fixed_price'])) {
-//
-//            $cars = Car::WhereIn('category_id', $request->category_id)
-//                ->WhereIn('year', $request->array_year)
-//                ->WhereIn('color', $request->array_color)
-//                ->WhereIn('fixed_price', $request->fixed_price)
+    public function checkallaquar(Request $request)
+    {
+
+
+        $request['room_number'] = $request->room_number ?? [];
+        $request['floor_number'] = $request->floor_number ?? [];
+        $request['sections'] = $request->sections ?? [];
+        $request['price'] = $request->price ?? [];
+        $request['rate'] = $request->rate ?? [];
+
+//        if (isset($request)) {
+//            $cars = Car::orWhereIn('category_id', $request->category_id)
+//                ->orWhereIn('year', $request->array_year)
+//                ->orWhereIn('color', $request->array_color)
+//                ->orWhereIn('fixed_price', $request->fixed_price)
 //                ->paginate(7);
-//        } elseif (!empty($request['category_id']) && !empty($request['array_year']) && !empty($request['array_color'])) {
-//
-//            $cars = Car::WhereIn('category_id', $request->category_id)
-//                ->WhereIn('year', $request->array_year)
-//                ->WhereIn('color', $request->array_color)
-//                ->paginate(7);
-//
 //        }
-//        elseif (!empty($request['category_id']) && !empty($request['array_year'])) {
-//
-//
-//            $cars = Car::WhereIn('category_id', $request->category_id)
-//                ->WhereIn('year', $request->array_year)
-//                ->paginate(7);
-//
-//        }
-//        elseif (!empty($request['array_year']) && !empty($request['array_color'])) {
-//
-//
-//            $cars = Car::WhereIn('year', $request->array_year)
-//                ->WhereIn('color', $request->array_color)
-//                ->paginate(7);
-//
-//        } elseif (!empty($request['category_id']) && !empty($request['fixed_price'])) {
-//
-//            $cars = Car::WhereIn('category_id', $request->category_id)
-//                ->WhereIn('fixed_price', $request->fixed_price)
-//                ->paginate(7);
-//
-//        } elseif (!empty($request['category_id']) && !empty($request['array_color'])) {
-//
-//            $cars = Car::WhereIn('category_id', $request->category_id)
-//                ->WhereIn('color', $request->array_color)
-//                ->paginate(7);
-//
-//        } elseif (!empty($request['array_year'])) {
-//
-//            $cars = Car::WhereIn('year', $request->array_year)
-//                ->paginate(7);
-//
-//        }
-//        elseif (!empty($request['category_id'])) {
-//            $cars = Car::WhereIn('category_id', $request->category_id)
-//                ->paginate(7);
-//
-//        } elseif (!empty($request['array_color'])) {
-//            $cars = Car::WhereIn('color', $request->array_color)
-//                ->paginate(7);
-//
-//        } elseif (!empty($request['fixed_price'])) {
-//            $cars = Car::WhereIn('fixed_price', $request->fixed_price)
-//                ->paginate(7);
-//
-//        }elseif (!empty($request['rate'])) {
-//
-//
-//        $rate=CarReview::WhereIn('rate',$request['rate'])->select('car_id');
-//
-//            $cars = Car::WhereIn('id',$rate)
-//                ->paginate(7);
-//
-//        }
-////        return $cars;
-//        return view('frontend.carsearch', compact('cars'));
-//
-//    }
+
+//return $request;
+        if (!empty($request['price'])) {
+
+            $aquars = Aqar::WhereIn('fixed_price', $request->price)
+                ->paginate(4);
+        } elseif (!empty($request['sections'])) {
+
+            $aquar_id = AqarSections::WhereIn('section_id', $request->sections)->pluck('aqar_id');
+            $aquars = Aqar::WhereIn('id', $aquar_id)->paginate(4);
+        } elseif (!empty($request['rate'])) {
+
+
+            $aqarid = AqarReview::WhereIn('rate', $request->rate)->pluck('aqar_id');
+
+
+            $aquars = Aqar::WhereIn('id', $aqarid)->paginate(4);
+
+        }
+
+
+        return view('frontend.aquarsearch', compact('aquars'));
+
+    }
 //
 //
     public function detailaquar($id)

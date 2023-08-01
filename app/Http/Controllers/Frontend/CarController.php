@@ -156,7 +156,7 @@ class CarController extends Controller
         }elseif (!empty($request['rate'])) {
 
 
-        $rate=CarReview::WhereIn('rate',$request['rate'])->select('car_id');
+        $rate=CarReview::WhereIn('rate',$request['rate'])->pluck('car_id');
 
             $cars = Car::WhereIn('id',$rate)
                 ->paginate(7);

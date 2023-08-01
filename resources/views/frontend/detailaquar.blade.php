@@ -521,12 +521,22 @@
                                             <div class="d-flex justify-content-between reviews-contentt">
                                                 <div class="d-sm-flex w-100">
                                                     <div class="reviews-image">
+                                                        @if(!empty($comment->user->image))
                                                         <img
                                                             alt=""
                                                             onerror="this.src='{{FRONTASSETS}}/images/review-image.png'"
 
                                                             src="{{asset('images/employee/'.$comment->user->image ?? '')}}"
                                                         />
+                                                        @else
+
+                                                            <img
+                                                                alt=""
+                                                                onerror="this.src='{{FRONTASSETS}}/images/review-image.png'"
+
+                                                                src="{{FRONTASSETS}}/images/review-image.png"
+                                                            />
+                                                        @endif
                                                     </div>
                                                     <div class="w-100 padding-right">
                                                         <h2 class="reviews-title d-flex text-second">
