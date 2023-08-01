@@ -16,6 +16,7 @@ Route::group(['middleware' => 'auth:api'], function () {
 
     Route::get('/home/citydetails', 'App\Http\Controllers\Api\CategoryController@citydetails');
     Route::get('/categorydetail', 'App\Http\Controllers\Api\CategoryController@categorydetail');
+    Route::get('/placessubcategory', 'App\Http\Controllers\Api\CategoryController@placessubcategory');
     Route::get('/CityListCategories', 'App\Http\Controllers\Api\CategoryController@CityListCategories');
     Route::get('/home/subcategories', 'App\Http\Controllers\Api\CategoryController@subcategories');
 
