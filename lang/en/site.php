@@ -5,6 +5,7 @@ return [
     'services' => 'Services',
     'link' => 'Link',
     'floor_numbers' => 'Floor Numbers',
+    'floor_number' => 'Floor Numbers',
     'free_services' => 'Free Services',
     'kitchens' => 'Kitchens',
     'laundries' => 'Laundries',
