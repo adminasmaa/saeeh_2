@@ -57,6 +57,7 @@ Route::get('detailaquar/{id}', 'App\Http\Controllers\Frontend\AquarController@de
 //aquar end
 
 
+Route::get('amira', 'App\Http\Controllers\Frontend\HomeController@amira')->name('amira');
 
 
 });

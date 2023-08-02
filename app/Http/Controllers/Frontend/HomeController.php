@@ -19,7 +19,9 @@ use App\Models\Setting;
 use App\Models\HomeServices;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-
+//use Illuminate\Support\Facades\File;
+use Storage;
+use File;
 class HomeController extends Controller
 {
 
@@ -97,6 +99,57 @@ class HomeController extends Controller
 
 
     }
+
+    public function amira(){
+        $aqars=Aqar::all();
+        foreach($aqars as $aqar){
+        if($aqar->main_image){
+        $imagePath =  public_path("images/saeeh_img/".$aqar->main_image);
+        $newPath =  public_path("images/amira/");
+        $newName  = $newPath.$aqar->main_image;
+
+        $copied = File::copy($imagePath , $newName);
+        
+        if ((!$copied)) 
+        {
+            echo "Error : Not Copied";
+        }
+        else
+        { 
+            echo "Copied Successful";
+        }
+    }
+}
+    }
+
+
+    public function amira1(){
+        $aqars=Aqar::all();
+        foreach($aqars as $aqar){
+        if($aqar->images){
+        $images=explode(',',$aqar->images);
+        foreach($images as $image){
+        $imagePath =  public_path("images/saeeh_img/".$image);
+        $newPath =  public_path("images/amira/");
+        $newName  = $newPath.$aqar->main_image;
+
+        $copied = File::copy($imagePath , $newName);
+        
+        if ((!$copied)) 
+        {
+            echo "Error : Not Copied";
+        }
+        else
+        { 
+            echo "Copied Successful";
+        }
+        
+    }
+}
+}
+    }
+
+
 
 
 }
