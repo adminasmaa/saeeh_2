@@ -161,7 +161,8 @@ class CategoryController extends Controller
 
 
         if (count($subcategories) == 0) {
-            $places = PlaceResource::collection(Place::where('category_id','=', $cat_id)->orwhere('sub_category_id','=', $cat_id)->paginate(10));
+            $places = PlaceResource::collection(Place::where('category_id','=', $cat_id)->orwhere('sub_category_id','=', $cat_id)->paginate(20));
+//            $places = Place::where('category_id','=', $cat_id)->orwhere('sub_category_id','=', $cat_id)->paginate(20);
 
             return $this->respondSuccess($places, __('message.subcategories retrieved successfully.'));
         } else {

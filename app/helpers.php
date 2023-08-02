@@ -10,6 +10,10 @@ function UploadImage($path, $image, $model, $request)
     $destinationPath = $path;
     $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
     $thumbnail->move($destinationPath, $filename);
+    // $thumbnail->resize(1080, 1080);
+//    $thumbnail = Image::make(public_path() . '/'.$path.'/' . $filename);
+    $thumbnail = Image::make($filename->getRealPath());
+    $thumbnail->insert(base_path('/images/logo.png'), 'bottom-right', 2, 2)->save(base_path($path.'/' . $filename));
     $model->$image = $filename;
     $model->save();
 }

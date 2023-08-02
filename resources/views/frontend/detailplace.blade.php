@@ -23,6 +23,8 @@
                         </li>
                         <li class="breadcrumb-item">
                             <a href="javascript:void(0)"> {{$place->name ?? ''}} </a>
+                            <span
+                            >{{$place->address ?? ''}}</span>
                         </li>
 
                     </ol>
@@ -789,462 +791,462 @@
                         </ul>
                     </div>
                 </div>
-                <div class="row py-sm-5 py-3">
-                    <div class="col-12">
-                        <div class="d-flex justify-content-between align-items-center border-bottom-header">
-                            <div>
-                                <h2>مطاعم مشابهة</h2>
-                            </div>
-                            <div class="see-all">
-                                <a href="#" class="h2"> الكل </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 my-sm-5 my-3">
-                        <div class="card card-department round-border mb-3 p-lg-3 p-2">
-                            <div class="row g-0">
-                                <div class="col-lg-4 position-relative">
-                                    <div class="owl-carousel owl-theme department-img-carousel owl-loaded owl-drag"
-                                         dir="ltr">
+{{--                <div class="row py-sm-5 py-3">--}}
+{{--                    <div class="col-12">--}}
+{{--                        <div class="d-flex justify-content-between align-items-center border-bottom-header">--}}
+{{--                            <div>--}}
+{{--                                <h2>مطاعم مشابهة</h2>--}}
+{{--                            </div>--}}
+{{--                            <div class="see-all">--}}
+{{--                                <a href="#" class="h2"> الكل </a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="col-12 my-sm-5 my-3">--}}
+{{--                        <div class="card card-department round-border mb-3 p-lg-3 p-2">--}}
+{{--                            <div class="row g-0">--}}
+{{--                                <div class="col-lg-4 position-relative">--}}
+{{--                                    <div class="owl-carousel owl-theme department-img-carousel owl-loaded owl-drag"--}}
+{{--                                         dir="ltr">--}}
 
 
-                                        <div class="owl-stage-outer">
-                                            <div class="owl-stage"
-                                                 style="transform: translate3d(-828px, 0px, 0px); transition: all 0s ease 0s; width: 2898px;">
-                                                <div class="owl-item cloned" style="width: 414px;">
-                                                    <div class="resro-image">
-                                                        <button class="add-to-wishlist">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                                 height="24" viewBox="0 0 24 24" fill="none">
-                                                                <path
-                                                                    d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"
-                                                                    fill="#FF8600"></path>
-                                                            </svg>
-                                                        </button>
-                                                        <img loading="lazy"
-                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-2.png"
-                                                             class="of-cover" alt="image 1">
-                                                    </div>
-                                                </div>
-                                                <div class="owl-item cloned" style="width: 414px;">
-                                                    <div class="resro-image">
-                                                        <button class="add-to-wishlist">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="26"
-                                                                 height="26" viewBox="0 0 26 26" fill="none">
-                                                                <path
-                                                                    d="M23.1494 3.12177C22.563 2.44911 21.8667 1.9155 21.1003 1.55144C20.334 1.18738 19.5126 1 18.6831 1C17.8535 1 17.0321 1.18738 16.2658 1.55144C15.4994 1.9155 14.8032 2.44911 14.2167 3.12177L12.9997 4.51714L11.7826 3.12177C10.5981 1.76368 8.99153 1.0007 7.31633 1.0007C5.64114 1.0007 4.03455 1.76368 2.85001 3.12177C1.66547 4.47987 1 6.32185 1 8.24249C1 10.1631 1.66547 12.0051 2.85001 13.3632L4.06705 14.7586L12.9997 25L21.9323 14.7586L23.1494 13.3632C23.7361 12.6909 24.2015 11.8926 24.519 11.0139C24.8366 10.1353 25 9.19356 25 8.24249C25 7.29142 24.8366 6.34967 24.519 5.47104C24.2015 4.59241 23.7361 3.79412 23.1494 3.12177Z"
-                                                                    fill="white" stroke="#CACACA" stroke-width="1.5"
-                                                                    stroke-linecap="round"
-                                                                    stroke-linejoin="round"></path>
-                                                            </svg>
-                                                        </button>
-                                                        <img loading="lazy"
-                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-3.png"
-                                                             class="of-cover" alt="image 1">
-                                                    </div>
-                                                </div>
-                                                <div class="owl-item animated owl-animated-in fadeIn active"
-                                                     style="width: 414px;">
-                                                    <div class="resro-image">
-                                                        <button class="add-to-wishlist">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                                 height="24" viewBox="0 0 24 24" fill="none">
-                                                                <path
-                                                                    d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"
-                                                                    fill="#FF8600"></path>
-                                                            </svg>
-                                                        </button>
-                                                        <img loading="lazy"
-                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-1.png"
-                                                             class="of-cover" alt="image 1">
-                                                    </div>
-                                                </div>
-                                                <div class="owl-item animated owl-animated-in fadeIn"
-                                                     style="width: 414px;">
-                                                    <div class="resro-image">
-                                                        <button class="add-to-wishlist">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                                 height="24" viewBox="0 0 24 24" fill="none">
-                                                                <path
-                                                                    d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"
-                                                                    fill="#FF8600"></path>
-                                                            </svg>
-                                                        </button>
-                                                        <img loading="lazy"
-                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-2.png"
-                                                             class="of-cover" alt="image 1">
-                                                    </div>
-                                                </div>
-                                                <div class="owl-item animated owl-animated-in fadeIn"
-                                                     style="width: 414px;">
-                                                    <div class="resro-image">
-                                                        <button class="add-to-wishlist">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="26"
-                                                                 height="26" viewBox="0 0 26 26" fill="none">
-                                                                <path
-                                                                    d="M23.1494 3.12177C22.563 2.44911 21.8667 1.9155 21.1003 1.55144C20.334 1.18738 19.5126 1 18.6831 1C17.8535 1 17.0321 1.18738 16.2658 1.55144C15.4994 1.9155 14.8032 2.44911 14.2167 3.12177L12.9997 4.51714L11.7826 3.12177C10.5981 1.76368 8.99153 1.0007 7.31633 1.0007C5.64114 1.0007 4.03455 1.76368 2.85001 3.12177C1.66547 4.47987 1 6.32185 1 8.24249C1 10.1631 1.66547 12.0051 2.85001 13.3632L4.06705 14.7586L12.9997 25L21.9323 14.7586L23.1494 13.3632C23.7361 12.6909 24.2015 11.8926 24.519 11.0139C24.8366 10.1353 25 9.19356 25 8.24249C25 7.29142 24.8366 6.34967 24.519 5.47104C24.2015 4.59241 23.7361 3.79412 23.1494 3.12177Z"
-                                                                    fill="white" stroke="#CACACA" stroke-width="1.5"
-                                                                    stroke-linecap="round"
-                                                                    stroke-linejoin="round"></path>
-                                                            </svg>
-                                                        </button>
-                                                        <img loading="lazy"
-                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-3.png"
-                                                             class="of-cover" alt="image 1">
-                                                    </div>
-                                                </div>
-                                                <div class="owl-item cloned" style="width: 414px;">
-                                                    <div class="resro-image">
-                                                        <button class="add-to-wishlist">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                                 height="24" viewBox="0 0 24 24" fill="none">
-                                                                <path
-                                                                    d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"
-                                                                    fill="#FF8600"></path>
-                                                            </svg>
-                                                        </button>
-                                                        <img loading="lazy"
-                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-1.png"
-                                                             class="of-cover" alt="image 1">
-                                                    </div>
-                                                </div>
-                                                <div class="owl-item cloned" style="width: 414px;">
-                                                    <div class="resro-image">
-                                                        <button class="add-to-wishlist">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                                 height="24" viewBox="0 0 24 24" fill="none">
-                                                                <path
-                                                                    d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"
-                                                                    fill="#FF8600"></path>
-                                                            </svg>
-                                                        </button>
-                                                        <img loading="lazy"
-                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-2.png"
-                                                             class="of-cover" alt="image 1">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="owl-nav">
-                                            <button type="button" role="presentation" class="owl-prev"><i
-                                                    class="fas fa-chevron-left" aria-hidden="true"></i></button>
-                                            <button type="button" role="presentation" class="owl-next"><i
-                                                    class="fas fa-chevron-right" aria-hidden="true"></i></button>
-                                        </div>
-                                        <div class="owl-dots">
-                                            <button role="button" class="owl-dot active"><span></span></button>
-                                            <button role="button" class="owl-dot"><span></span></button>
-                                            <button role="button" class="owl-dot"><span></span></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-8">
-                                    <div class="card-body position-relative">
-                                        <div class="d-md-flex justify-content-md-between align-items-end mb-3">
-                                            <h2 class="card-title mb-0">لو مونسو</h2>
-                                            <div
-                                                class="d-flex justify-content-md-center align-items-center mt-md-0 mt-0">
-                                                <div class="department-badge bg-main text-white">
-                                                    <div class="pt-1">5</div>
-                                                    <div>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
-                                                             viewBox="0 0 25 25" fill="none">
-                                                            <path
-                                                                d="M12.7529 19.6185L20.1689 24.3301L18.2009 15.4501L24.7529 9.47534L16.1249 8.70481L12.7529 0.330078L9.38093 8.70481L0.75293 9.47534L7.30493 15.4501L5.33693 24.3301L12.7529 19.6185Z"
-                                                                fill="white"></path>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                                <div
-                                                    class="number-ads gray-txt">@lang('site.comments')  {{$place->placeComments()->count()}}</div>
-                                            </div>
-                                        </div>
-                                        <div class="d-md-flex justify-content-md-between">
-                                            <div class="gray-txt number-ads">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="20"
-                                                     viewBox="0 0 16 20" fill="none">
-                                                    <path
-                                                        d="M8.20799 9.99996C8.54986 9.99996 8.84262 9.83663 9.08628 9.50996C9.32994 9.18329 9.45156 8.79107 9.45115 8.33329C9.45115 7.87496 9.32932 7.48246 9.08566 7.15579C8.842 6.82913 8.54944 6.66607 8.20799 6.66663C7.86612 6.66663 7.57335 6.82996 7.3297 7.15663C7.08604 7.48329 6.96441 7.87551 6.96483 8.33329C6.96483 8.79163 7.08666 9.18413 7.33032 9.51079C7.57398 9.83746 7.86653 10.0005 8.20799 9.99996ZM8.20799 16.125C9.47187 14.5694 10.4094 13.1561 11.0206 11.885C11.6319 10.6138 11.9375 9.48551 11.9375 8.49996C11.9375 6.98607 11.5774 5.74663 10.8572 4.78163C10.137 3.81663 9.2539 3.33385 8.20799 3.33329C7.16166 3.33329 6.2784 3.81607 5.55819 4.78163C4.83799 5.74718 4.4781 6.98663 4.47851 8.49996C4.47851 9.48607 4.78412 10.6147 5.39534 11.8858C6.00656 13.1569 6.94411 14.57 8.20799 16.125ZM8.20799 18.3333C6.54008 16.4305 5.29444 14.6633 4.47105 13.0316C3.64767 11.4 3.23577 9.8894 3.23535 8.49996C3.23535 6.41663 3.73531 4.7569 4.73522 3.52079C5.73514 2.28468 6.89272 1.66663 8.20799 1.66663C9.52366 1.66663 10.6815 2.28468 11.6814 3.52079C12.6813 4.7569 13.181 6.41663 13.1806 8.49996C13.1806 9.88885 12.7687 11.3994 11.9449 13.0316C11.1211 14.6638 9.87548 16.4311 8.20799 18.3333Z"
-                                                        fill="#9C9C9C"></path>
-                                                </svg>
-                                                <span>درب شعبان ، شارع رياض زيتون القديم ، مراكش,
-                            المغرب</span>
-                                            </div>
-                                            <div
-                                                class="details-rest-btn d-flex align-items-center justify-content-center">
-                                                <a href="#">عرض التفاصيل</a>
-                                            </div>
-                                        </div>
+{{--                                        <div class="owl-stage-outer">--}}
+{{--                                            <div class="owl-stage"--}}
+{{--                                                 style="transform: translate3d(-828px, 0px, 0px); transition: all 0s ease 0s; width: 2898px;">--}}
+{{--                                                <div class="owl-item cloned" style="width: 414px;">--}}
+{{--                                                    <div class="resro-image">--}}
+{{--                                                        <button class="add-to-wishlist">--}}
+{{--                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"--}}
+{{--                                                                 height="24" viewBox="0 0 24 24" fill="none">--}}
+{{--                                                                <path--}}
+{{--                                                                    d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"--}}
+{{--                                                                    fill="#FF8600"></path>--}}
+{{--                                                            </svg>--}}
+{{--                                                        </button>--}}
+{{--                                                        <img loading="lazy"--}}
+{{--                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-2.png"--}}
+{{--                                                             class="of-cover" alt="image 1">--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="owl-item cloned" style="width: 414px;">--}}
+{{--                                                    <div class="resro-image">--}}
+{{--                                                        <button class="add-to-wishlist">--}}
+{{--                                                            <svg xmlns="http://www.w3.org/2000/svg" width="26"--}}
+{{--                                                                 height="26" viewBox="0 0 26 26" fill="none">--}}
+{{--                                                                <path--}}
+{{--                                                                    d="M23.1494 3.12177C22.563 2.44911 21.8667 1.9155 21.1003 1.55144C20.334 1.18738 19.5126 1 18.6831 1C17.8535 1 17.0321 1.18738 16.2658 1.55144C15.4994 1.9155 14.8032 2.44911 14.2167 3.12177L12.9997 4.51714L11.7826 3.12177C10.5981 1.76368 8.99153 1.0007 7.31633 1.0007C5.64114 1.0007 4.03455 1.76368 2.85001 3.12177C1.66547 4.47987 1 6.32185 1 8.24249C1 10.1631 1.66547 12.0051 2.85001 13.3632L4.06705 14.7586L12.9997 25L21.9323 14.7586L23.1494 13.3632C23.7361 12.6909 24.2015 11.8926 24.519 11.0139C24.8366 10.1353 25 9.19356 25 8.24249C25 7.29142 24.8366 6.34967 24.519 5.47104C24.2015 4.59241 23.7361 3.79412 23.1494 3.12177Z"--}}
+{{--                                                                    fill="white" stroke="#CACACA" stroke-width="1.5"--}}
+{{--                                                                    stroke-linecap="round"--}}
+{{--                                                                    stroke-linejoin="round"></path>--}}
+{{--                                                            </svg>--}}
+{{--                                                        </button>--}}
+{{--                                                        <img loading="lazy"--}}
+{{--                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-3.png"--}}
+{{--                                                             class="of-cover" alt="image 1">--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="owl-item animated owl-animated-in fadeIn active"--}}
+{{--                                                     style="width: 414px;">--}}
+{{--                                                    <div class="resro-image">--}}
+{{--                                                        <button class="add-to-wishlist">--}}
+{{--                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"--}}
+{{--                                                                 height="24" viewBox="0 0 24 24" fill="none">--}}
+{{--                                                                <path--}}
+{{--                                                                    d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"--}}
+{{--                                                                    fill="#FF8600"></path>--}}
+{{--                                                            </svg>--}}
+{{--                                                        </button>--}}
+{{--                                                        <img loading="lazy"--}}
+{{--                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-1.png"--}}
+{{--                                                             class="of-cover" alt="image 1">--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="owl-item animated owl-animated-in fadeIn"--}}
+{{--                                                     style="width: 414px;">--}}
+{{--                                                    <div class="resro-image">--}}
+{{--                                                        <button class="add-to-wishlist">--}}
+{{--                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"--}}
+{{--                                                                 height="24" viewBox="0 0 24 24" fill="none">--}}
+{{--                                                                <path--}}
+{{--                                                                    d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"--}}
+{{--                                                                    fill="#FF8600"></path>--}}
+{{--                                                            </svg>--}}
+{{--                                                        </button>--}}
+{{--                                                        <img loading="lazy"--}}
+{{--                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-2.png"--}}
+{{--                                                             class="of-cover" alt="image 1">--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="owl-item animated owl-animated-in fadeIn"--}}
+{{--                                                     style="width: 414px;">--}}
+{{--                                                    <div class="resro-image">--}}
+{{--                                                        <button class="add-to-wishlist">--}}
+{{--                                                            <svg xmlns="http://www.w3.org/2000/svg" width="26"--}}
+{{--                                                                 height="26" viewBox="0 0 26 26" fill="none">--}}
+{{--                                                                <path--}}
+{{--                                                                    d="M23.1494 3.12177C22.563 2.44911 21.8667 1.9155 21.1003 1.55144C20.334 1.18738 19.5126 1 18.6831 1C17.8535 1 17.0321 1.18738 16.2658 1.55144C15.4994 1.9155 14.8032 2.44911 14.2167 3.12177L12.9997 4.51714L11.7826 3.12177C10.5981 1.76368 8.99153 1.0007 7.31633 1.0007C5.64114 1.0007 4.03455 1.76368 2.85001 3.12177C1.66547 4.47987 1 6.32185 1 8.24249C1 10.1631 1.66547 12.0051 2.85001 13.3632L4.06705 14.7586L12.9997 25L21.9323 14.7586L23.1494 13.3632C23.7361 12.6909 24.2015 11.8926 24.519 11.0139C24.8366 10.1353 25 9.19356 25 8.24249C25 7.29142 24.8366 6.34967 24.519 5.47104C24.2015 4.59241 23.7361 3.79412 23.1494 3.12177Z"--}}
+{{--                                                                    fill="white" stroke="#CACACA" stroke-width="1.5"--}}
+{{--                                                                    stroke-linecap="round"--}}
+{{--                                                                    stroke-linejoin="round"></path>--}}
+{{--                                                            </svg>--}}
+{{--                                                        </button>--}}
+{{--                                                        <img loading="lazy"--}}
+{{--                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-3.png"--}}
+{{--                                                             class="of-cover" alt="image 1">--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="owl-item cloned" style="width: 414px;">--}}
+{{--                                                    <div class="resro-image">--}}
+{{--                                                        <button class="add-to-wishlist">--}}
+{{--                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"--}}
+{{--                                                                 height="24" viewBox="0 0 24 24" fill="none">--}}
+{{--                                                                <path--}}
+{{--                                                                    d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"--}}
+{{--                                                                    fill="#FF8600"></path>--}}
+{{--                                                            </svg>--}}
+{{--                                                        </button>--}}
+{{--                                                        <img loading="lazy"--}}
+{{--                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-1.png"--}}
+{{--                                                             class="of-cover" alt="image 1">--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="owl-item cloned" style="width: 414px;">--}}
+{{--                                                    <div class="resro-image">--}}
+{{--                                                        <button class="add-to-wishlist">--}}
+{{--                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"--}}
+{{--                                                                 height="24" viewBox="0 0 24 24" fill="none">--}}
+{{--                                                                <path--}}
+{{--                                                                    d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"--}}
+{{--                                                                    fill="#FF8600"></path>--}}
+{{--                                                            </svg>--}}
+{{--                                                        </button>--}}
+{{--                                                        <img loading="lazy"--}}
+{{--                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-2.png"--}}
+{{--                                                             class="of-cover" alt="image 1">--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="owl-nav">--}}
+{{--                                            <button type="button" role="presentation" class="owl-prev"><i--}}
+{{--                                                    class="fas fa-chevron-left" aria-hidden="true"></i></button>--}}
+{{--                                            <button type="button" role="presentation" class="owl-next"><i--}}
+{{--                                                    class="fas fa-chevron-right" aria-hidden="true"></i></button>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="owl-dots">--}}
+{{--                                            <button role="button" class="owl-dot active"><span></span></button>--}}
+{{--                                            <button role="button" class="owl-dot"><span></span></button>--}}
+{{--                                            <button role="button" class="owl-dot"><span></span></button>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="col-lg-8">--}}
+{{--                                    <div class="card-body position-relative">--}}
+{{--                                        <div class="d-md-flex justify-content-md-between align-items-end mb-3">--}}
+{{--                                            <h2 class="card-title mb-0">لو مونسو</h2>--}}
+{{--                                            <div--}}
+{{--                                                class="d-flex justify-content-md-center align-items-center mt-md-0 mt-0">--}}
+{{--                                                <div class="department-badge bg-main text-white">--}}
+{{--                                                    <div class="pt-1">5</div>--}}
+{{--                                                    <div>--}}
+{{--                                                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"--}}
+{{--                                                             viewBox="0 0 25 25" fill="none">--}}
+{{--                                                            <path--}}
+{{--                                                                d="M12.7529 19.6185L20.1689 24.3301L18.2009 15.4501L24.7529 9.47534L16.1249 8.70481L12.7529 0.330078L9.38093 8.70481L0.75293 9.47534L7.30493 15.4501L5.33693 24.3301L12.7529 19.6185Z"--}}
+{{--                                                                fill="white"></path>--}}
+{{--                                                        </svg>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                                <div--}}
+{{--                                                    class="number-ads gray-txt">@lang('site.comments')  {{$place->placeComments()->count()}}</div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="d-md-flex justify-content-md-between">--}}
+{{--                                            <div class="gray-txt number-ads">--}}
+{{--                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="20"--}}
+{{--                                                     viewBox="0 0 16 20" fill="none">--}}
+{{--                                                    <path--}}
+{{--                                                        d="M8.20799 9.99996C8.54986 9.99996 8.84262 9.83663 9.08628 9.50996C9.32994 9.18329 9.45156 8.79107 9.45115 8.33329C9.45115 7.87496 9.32932 7.48246 9.08566 7.15579C8.842 6.82913 8.54944 6.66607 8.20799 6.66663C7.86612 6.66663 7.57335 6.82996 7.3297 7.15663C7.08604 7.48329 6.96441 7.87551 6.96483 8.33329C6.96483 8.79163 7.08666 9.18413 7.33032 9.51079C7.57398 9.83746 7.86653 10.0005 8.20799 9.99996ZM8.20799 16.125C9.47187 14.5694 10.4094 13.1561 11.0206 11.885C11.6319 10.6138 11.9375 9.48551 11.9375 8.49996C11.9375 6.98607 11.5774 5.74663 10.8572 4.78163C10.137 3.81663 9.2539 3.33385 8.20799 3.33329C7.16166 3.33329 6.2784 3.81607 5.55819 4.78163C4.83799 5.74718 4.4781 6.98663 4.47851 8.49996C4.47851 9.48607 4.78412 10.6147 5.39534 11.8858C6.00656 13.1569 6.94411 14.57 8.20799 16.125ZM8.20799 18.3333C6.54008 16.4305 5.29444 14.6633 4.47105 13.0316C3.64767 11.4 3.23577 9.8894 3.23535 8.49996C3.23535 6.41663 3.73531 4.7569 4.73522 3.52079C5.73514 2.28468 6.89272 1.66663 8.20799 1.66663C9.52366 1.66663 10.6815 2.28468 11.6814 3.52079C12.6813 4.7569 13.181 6.41663 13.1806 8.49996C13.1806 9.88885 12.7687 11.3994 11.9449 13.0316C11.1211 14.6638 9.87548 16.4311 8.20799 18.3333Z"--}}
+{{--                                                        fill="#9C9C9C"></path>--}}
+{{--                                                </svg>--}}
+{{--                                                <span>درب شعبان ، شارع رياض زيتون القديم ، مراكش,--}}
+{{--                            المغرب</span>--}}
+{{--                                            </div>--}}
+{{--                                            <div--}}
+{{--                                                class="details-rest-btn d-flex align-items-center justify-content-center">--}}
+{{--                                                <a href="#">عرض التفاصيل</a>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 
-                                        <div class="pb-3">
-                        <span>
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                               fill="none">
-                            <path
-                                d="M3 10C5.483 10 7.345 7 7.345 7C7.345 7 9.207 10 11.69 10C14.172 10 16.655 7 16.655 7C16.655 7 19.138 10 21 10M3 17C5.483 17 7.345 14 7.345 14C7.345 14 9.207 17 11.69 17C14.172 17 16.655 14 16.655 14C16.655 14 19.138 17 21 17"
-                                stroke="#FF8600" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                          </svg>
-                        </span>
-                                            <span class="text-main text-restaurant">
-                          يطل علي البحر
-                        </span>
-                                        </div>
-                                        <div class="col-lg-4 d-flex align-items-center mt-3">
-                                            <div
-                                                class="w-100 details-btn d-flex align-items-center justify-content-center">
-                                                <a href="#">
-                            <span>
-                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                   fill="none">
-                                <path
-                                    d="M14.2498 8.25C14.8432 8.25 15.4232 8.07405 15.9165 7.74441C16.4099 7.41477 16.7944 6.94623 17.0215 6.39805C17.2485 5.84987 17.3079 5.24667 17.1922 4.66473C17.0764 4.08279 16.7907 3.54824 16.3712 3.12868C15.9516 2.70912 15.4171 2.4234 14.8351 2.30765C14.2532 2.19189 13.65 2.2513 13.1018 2.47836C12.5536 2.70543 12.0851 3.08994 11.7554 3.58329C11.4258 4.07664 11.2498 4.65666 11.2498 5.25C11.2498 6.04565 11.5659 6.80871 12.1285 7.37132C12.6911 7.93393 13.4542 8.25 14.2498 8.25ZM14.2498 3.75C14.5465 3.75 14.8365 3.83797 15.0832 4.0028C15.3299 4.16762 15.5221 4.40189 15.6357 4.67598C15.7492 4.95007 15.7789 5.25167 15.721 5.54264C15.6631 5.83361 15.5203 6.10088 15.3105 6.31066C15.1007 6.52044 14.8334 6.6633 14.5425 6.72118C14.2515 6.77906 13.9499 6.74935 13.6758 6.63582C13.4017 6.52229 13.1675 6.33003 13.0026 6.08336C12.8378 5.83668 12.7498 5.54667 12.7498 5.25C12.7498 4.85218 12.9079 4.47065 13.1892 4.18934C13.4705 3.90804 13.852 3.75 14.2498 3.75ZM20.5602 13.1888C20.503 13.215 19.858 13.4963 18.7161 13.4963C17.4177 13.4963 15.477 13.1325 13.0264 11.6213C12.6534 12.6801 12.1691 13.6964 11.5817 14.6531C12.6368 14.9779 13.6293 15.4791 14.517 16.1353C16.3048 17.4984 17.2498 19.4391 17.2498 21.75C17.2498 21.9489 17.1708 22.1397 17.0302 22.2803C16.8895 22.421 16.6987 22.5 16.4998 22.5C16.3009 22.5 16.1102 22.421 15.9695 22.2803C15.8289 22.1397 15.7498 21.9489 15.7498 21.75C15.7498 17.8406 12.4976 16.4334 10.6742 15.9516C10.6226 16.0172 10.5692 16.0838 10.5158 16.1484C8.67452 18.3797 6.36734 19.5403 3.80046 19.5403C3.50809 19.5417 3.21584 19.5282 2.92484 19.5C2.72592 19.4801 2.54306 19.382 2.41647 19.2273C2.28989 19.0726 2.22995 18.8739 2.24984 18.675C2.26973 18.4761 2.36782 18.2932 2.52254 18.1666C2.67726 18.0401 2.87592 17.9801 3.07484 18C5.50484 18.2419 7.6189 17.2978 9.35609 15.1875C10.527 13.7681 11.3248 12.0366 11.7233 10.7813C8.07452 8.65781 5.7439 10.4653 5.71859 10.485C5.64219 10.5502 5.55346 10.5995 5.45767 10.6297C5.36188 10.66 5.26099 10.6708 5.16097 10.6613C5.06095 10.6519 4.96386 10.6224 4.87544 10.5747C4.78703 10.527 4.7091 10.462 4.64628 10.3836C4.58346 10.3052 4.53703 10.215 4.50975 10.1183C4.48246 10.0216 4.47488 9.92045 4.48746 9.82077C4.50003 9.7211 4.5325 9.62497 4.58294 9.53809C4.63338 9.45121 4.70076 9.37534 4.78109 9.315C4.92171 9.2025 8.27046 6.59625 13.1726 9.93094C17.4355 12.8288 19.9161 11.835 19.9395 11.8238C20.0294 11.7813 20.1268 11.7572 20.226 11.7527C20.3253 11.7482 20.4245 11.7635 20.5178 11.7977C20.6111 11.8319 20.6967 11.8843 20.7696 11.9518C20.8424 12.0193 20.9012 12.1007 20.9424 12.1911C20.9835 12.2816 21.0063 12.3793 21.0094 12.4786C21.0125 12.5779 20.9959 12.6769 20.9604 12.7697C20.9249 12.8625 20.8713 12.9473 20.8028 13.0193C20.7342 13.0912 20.6521 13.1488 20.5611 13.1888H20.5602Z"
-                                    fill="white"></path>
-                              </svg>
-                            </span>
+{{--                                        <div class="pb-3">--}}
+{{--                        <span>--}}
+{{--                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"--}}
+{{--                               fill="none">--}}
+{{--                            <path--}}
+{{--                                d="M3 10C5.483 10 7.345 7 7.345 7C7.345 7 9.207 10 11.69 10C14.172 10 16.655 7 16.655 7C16.655 7 19.138 10 21 10M3 17C5.483 17 7.345 14 7.345 14C7.345 14 9.207 17 11.69 17C14.172 17 16.655 14 16.655 14C16.655 14 19.138 17 21 17"--}}
+{{--                                stroke="#FF8600" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>--}}
+{{--                          </svg>--}}
+{{--                        </span>--}}
+{{--                                            <span class="text-main text-restaurant">--}}
+{{--                          يطل علي البحر--}}
+{{--                        </span>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="col-lg-4 d-flex align-items-center mt-3">--}}
+{{--                                            <div--}}
+{{--                                                class="w-100 details-btn d-flex align-items-center justify-content-center">--}}
+{{--                                                <a href="#">--}}
+{{--                            <span>--}}
+{{--                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"--}}
+{{--                                   fill="none">--}}
+{{--                                <path--}}
+{{--                                    d="M14.2498 8.25C14.8432 8.25 15.4232 8.07405 15.9165 7.74441C16.4099 7.41477 16.7944 6.94623 17.0215 6.39805C17.2485 5.84987 17.3079 5.24667 17.1922 4.66473C17.0764 4.08279 16.7907 3.54824 16.3712 3.12868C15.9516 2.70912 15.4171 2.4234 14.8351 2.30765C14.2532 2.19189 13.65 2.2513 13.1018 2.47836C12.5536 2.70543 12.0851 3.08994 11.7554 3.58329C11.4258 4.07664 11.2498 4.65666 11.2498 5.25C11.2498 6.04565 11.5659 6.80871 12.1285 7.37132C12.6911 7.93393 13.4542 8.25 14.2498 8.25ZM14.2498 3.75C14.5465 3.75 14.8365 3.83797 15.0832 4.0028C15.3299 4.16762 15.5221 4.40189 15.6357 4.67598C15.7492 4.95007 15.7789 5.25167 15.721 5.54264C15.6631 5.83361 15.5203 6.10088 15.3105 6.31066C15.1007 6.52044 14.8334 6.6633 14.5425 6.72118C14.2515 6.77906 13.9499 6.74935 13.6758 6.63582C13.4017 6.52229 13.1675 6.33003 13.0026 6.08336C12.8378 5.83668 12.7498 5.54667 12.7498 5.25C12.7498 4.85218 12.9079 4.47065 13.1892 4.18934C13.4705 3.90804 13.852 3.75 14.2498 3.75ZM20.5602 13.1888C20.503 13.215 19.858 13.4963 18.7161 13.4963C17.4177 13.4963 15.477 13.1325 13.0264 11.6213C12.6534 12.6801 12.1691 13.6964 11.5817 14.6531C12.6368 14.9779 13.6293 15.4791 14.517 16.1353C16.3048 17.4984 17.2498 19.4391 17.2498 21.75C17.2498 21.9489 17.1708 22.1397 17.0302 22.2803C16.8895 22.421 16.6987 22.5 16.4998 22.5C16.3009 22.5 16.1102 22.421 15.9695 22.2803C15.8289 22.1397 15.7498 21.9489 15.7498 21.75C15.7498 17.8406 12.4976 16.4334 10.6742 15.9516C10.6226 16.0172 10.5692 16.0838 10.5158 16.1484C8.67452 18.3797 6.36734 19.5403 3.80046 19.5403C3.50809 19.5417 3.21584 19.5282 2.92484 19.5C2.72592 19.4801 2.54306 19.382 2.41647 19.2273C2.28989 19.0726 2.22995 18.8739 2.24984 18.675C2.26973 18.4761 2.36782 18.2932 2.52254 18.1666C2.67726 18.0401 2.87592 17.9801 3.07484 18C5.50484 18.2419 7.6189 17.2978 9.35609 15.1875C10.527 13.7681 11.3248 12.0366 11.7233 10.7813C8.07452 8.65781 5.7439 10.4653 5.71859 10.485C5.64219 10.5502 5.55346 10.5995 5.45767 10.6297C5.36188 10.66 5.26099 10.6708 5.16097 10.6613C5.06095 10.6519 4.96386 10.6224 4.87544 10.5747C4.78703 10.527 4.7091 10.462 4.64628 10.3836C4.58346 10.3052 4.53703 10.215 4.50975 10.1183C4.48246 10.0216 4.47488 9.92045 4.48746 9.82077C4.50003 9.7211 4.5325 9.62497 4.58294 9.53809C4.63338 9.45121 4.70076 9.37534 4.78109 9.315C4.92171 9.2025 8.27046 6.59625 13.1726 9.93094C17.4355 12.8288 19.9161 11.835 19.9395 11.8238C20.0294 11.7813 20.1268 11.7572 20.226 11.7527C20.3253 11.7482 20.4245 11.7635 20.5178 11.7977C20.6111 11.8319 20.6967 11.8843 20.7696 11.9518C20.8424 12.0193 20.9012 12.1007 20.9424 12.1911C20.9835 12.2816 21.0063 12.3793 21.0094 12.4786C21.0125 12.5779 20.9959 12.6769 20.9604 12.7697C20.9249 12.8625 20.8713 12.9473 20.8028 13.0193C20.7342 13.0912 20.6521 13.1488 20.5611 13.1888H20.5602Z"--}}
+{{--                                    fill="white"></path>--}}
+{{--                              </svg>--}}
+{{--                            </span>--}}
 
-                                                    التوجه الي المطعم</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card card-department round-border mb-3 p-lg-3 p-2">
-                            <div class="row g-0">
-                                <div class="col-lg-4 position-relative">
-                                    <div class="owl-carousel owl-theme department-img-carousel owl-loaded owl-drag"
-                                         dir="ltr">
+{{--                                                    التوجه الي المطعم</a>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="card card-department round-border mb-3 p-lg-3 p-2">--}}
+{{--                            <div class="row g-0">--}}
+{{--                                <div class="col-lg-4 position-relative">--}}
+{{--                                    <div class="owl-carousel owl-theme department-img-carousel owl-loaded owl-drag"--}}
+{{--                                         dir="ltr">--}}
 
 
-                                        <div class="owl-stage-outer">
-                                            <div class="owl-stage"
-                                                 style="transform: translate3d(-828px, 0px, 0px); transition: all 0s ease 0s; width: 2898px;">
-                                                <div class="owl-item cloned" style="width: 414px;">
-                                                    <div class="resro-image">
-                                                        <button class="add-to-wishlist">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                                 height="24" viewBox="0 0 24 24" fill="none">
-                                                                <path
-                                                                    d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"
-                                                                    fill="#FF8600"></path>
-                                                            </svg>
-                                                        </button>
-                                                        <img loading="lazy"
-                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-2.png"
-                                                             class="of-cover" alt="image 1">
-                                                    </div>
-                                                </div>
-                                                <div class="owl-item cloned" style="width: 414px;">
-                                                    <div class="resro-image">
-                                                        <button class="add-to-wishlist">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="26"
-                                                                 height="26" viewBox="0 0 26 26" fill="none">
-                                                                <path
-                                                                    d="M23.1494 3.12177C22.563 2.44911 21.8667 1.9155 21.1003 1.55144C20.334 1.18738 19.5126 1 18.6831 1C17.8535 1 17.0321 1.18738 16.2658 1.55144C15.4994 1.9155 14.8032 2.44911 14.2167 3.12177L12.9997 4.51714L11.7826 3.12177C10.5981 1.76368 8.99153 1.0007 7.31633 1.0007C5.64114 1.0007 4.03455 1.76368 2.85001 3.12177C1.66547 4.47987 1 6.32185 1 8.24249C1 10.1631 1.66547 12.0051 2.85001 13.3632L4.06705 14.7586L12.9997 25L21.9323 14.7586L23.1494 13.3632C23.7361 12.6909 24.2015 11.8926 24.519 11.0139C24.8366 10.1353 25 9.19356 25 8.24249C25 7.29142 24.8366 6.34967 24.519 5.47104C24.2015 4.59241 23.7361 3.79412 23.1494 3.12177Z"
-                                                                    fill="white" stroke="#CACACA" stroke-width="1.5"
-                                                                    stroke-linecap="round"
-                                                                    stroke-linejoin="round"></path>
-                                                            </svg>
-                                                        </button>
-                                                        <img loading="lazy"
-                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-3.png"
-                                                             class="of-cover" alt="image 1">
-                                                    </div>
-                                                </div>
-                                                <div class="owl-item animated owl-animated-in fadeIn active"
-                                                     style="width: 414px;">
-                                                    <div class="resro-image">
-                                                        <button class="add-to-wishlist">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                                 height="24" viewBox="0 0 24 24" fill="none">
-                                                                <path
-                                                                    d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"
-                                                                    fill="#FF8600"></path>
-                                                            </svg>
-                                                        </button>
-                                                        <img loading="lazy"
-                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-1.png"
-                                                             class="of-cover" alt="image 1">
-                                                    </div>
-                                                </div>
-                                                <div class="owl-item animated owl-animated-in fadeIn"
-                                                     style="width: 414px;">
-                                                    <div class="resro-image">
-                                                        <button class="add-to-wishlist">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                                 height="24" viewBox="0 0 24 24" fill="none">
-                                                                <path
-                                                                    d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"
-                                                                    fill="#FF8600"></path>
-                                                            </svg>
-                                                        </button>
-                                                        <img loading="lazy"
-                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-2.png"
-                                                             class="of-cover" alt="image 1">
-                                                    </div>
-                                                </div>
-                                                <div class="owl-item animated owl-animated-in fadeIn"
-                                                     style="width: 414px;">
-                                                    <div class="resro-image">
-                                                        <button class="add-to-wishlist">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="26"
-                                                                 height="26" viewBox="0 0 26 26" fill="none">
-                                                                <path
-                                                                    d="M23.1494 3.12177C22.563 2.44911 21.8667 1.9155 21.1003 1.55144C20.334 1.18738 19.5126 1 18.6831 1C17.8535 1 17.0321 1.18738 16.2658 1.55144C15.4994 1.9155 14.8032 2.44911 14.2167 3.12177L12.9997 4.51714L11.7826 3.12177C10.5981 1.76368 8.99153 1.0007 7.31633 1.0007C5.64114 1.0007 4.03455 1.76368 2.85001 3.12177C1.66547 4.47987 1 6.32185 1 8.24249C1 10.1631 1.66547 12.0051 2.85001 13.3632L4.06705 14.7586L12.9997 25L21.9323 14.7586L23.1494 13.3632C23.7361 12.6909 24.2015 11.8926 24.519 11.0139C24.8366 10.1353 25 9.19356 25 8.24249C25 7.29142 24.8366 6.34967 24.519 5.47104C24.2015 4.59241 23.7361 3.79412 23.1494 3.12177Z"
-                                                                    fill="white" stroke="#CACACA" stroke-width="1.5"
-                                                                    stroke-linecap="round"
-                                                                    stroke-linejoin="round"></path>
-                                                            </svg>
-                                                        </button>
-                                                        <img loading="lazy"
-                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-3.png"
-                                                             class="of-cover" alt="image 1">
-                                                    </div>
-                                                </div>
-                                                <div class="owl-item cloned" style="width: 414px;">
-                                                    <div class="resro-image">
-                                                        <button class="add-to-wishlist">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                                 height="24" viewBox="0 0 24 24" fill="none">
-                                                                <path
-                                                                    d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"
-                                                                    fill="#FF8600"></path>
-                                                            </svg>
-                                                        </button>
-                                                        <img loading="lazy"
-                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-1.png"
-                                                             class="of-cover" alt="image 1">
-                                                    </div>
-                                                </div>
-                                                <div class="owl-item cloned" style="width: 414px;">
-                                                    <div class="resro-image">
-                                                        <button class="add-to-wishlist">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                                 height="24" viewBox="0 0 24 24" fill="none">
-                                                                <path
-                                                                    d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"
-                                                                    fill="#FF8600"></path>
-                                                            </svg>
-                                                        </button>
-                                                        <img loading="lazy"
-                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-2.png"
-                                                             class="of-cover" alt="image 1">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="owl-nav">
-                                            <button type="button" role="presentation" class="owl-prev"><i
-                                                    class="fas fa-chevron-left" aria-hidden="true"></i></button>
-                                            <button type="button" role="presentation" class="owl-next"><i
-                                                    class="fas fa-chevron-right" aria-hidden="true"></i></button>
-                                        </div>
-                                        <div class="owl-dots">
-                                            <button role="button" class="owl-dot active"><span></span></button>
-                                            <button role="button" class="owl-dot"><span></span></button>
-                                            <button role="button" class="owl-dot"><span></span></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-8">
-                                    <div class="card-body position-relative">
-                                        <div class="d-md-flex justify-content-md-between align-items-end mb-3">
-                                            <h2 class="card-title mb-0">السلطانة</h2>
-                                            <div class="d-flex justify-content-md-center align-items-center">
-                                                <div class="department-badge bg-main text-white">
-                                                    <div class="pt-1">5</div>
-                                                    <div>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
-                                                             viewBox="0 0 25 25" fill="none">
-                                                            <path
-                                                                d="M12.7529 19.6185L20.1689 24.3301L18.2009 15.4501L24.7529 9.47534L16.1249 8.70481L12.7529 0.330078L9.38093 8.70481L0.75293 9.47534L7.30493 15.4501L5.33693 24.3301L12.7529 19.6185Z"
-                                                                fill="white"></path>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                                <div
-                                                    class="number-ads gray-txt">@lang('site.comments')  {{$place->placeComments()->count()}}</div>
+{{--                                        <div class="owl-stage-outer">--}}
+{{--                                            <div class="owl-stage"--}}
+{{--                                                 style="transform: translate3d(-828px, 0px, 0px); transition: all 0s ease 0s; width: 2898px;">--}}
+{{--                                                <div class="owl-item cloned" style="width: 414px;">--}}
+{{--                                                    <div class="resro-image">--}}
+{{--                                                        <button class="add-to-wishlist">--}}
+{{--                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"--}}
+{{--                                                                 height="24" viewBox="0 0 24 24" fill="none">--}}
+{{--                                                                <path--}}
+{{--                                                                    d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"--}}
+{{--                                                                    fill="#FF8600"></path>--}}
+{{--                                                            </svg>--}}
+{{--                                                        </button>--}}
+{{--                                                        <img loading="lazy"--}}
+{{--                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-2.png"--}}
+{{--                                                             class="of-cover" alt="image 1">--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="owl-item cloned" style="width: 414px;">--}}
+{{--                                                    <div class="resro-image">--}}
+{{--                                                        <button class="add-to-wishlist">--}}
+{{--                                                            <svg xmlns="http://www.w3.org/2000/svg" width="26"--}}
+{{--                                                                 height="26" viewBox="0 0 26 26" fill="none">--}}
+{{--                                                                <path--}}
+{{--                                                                    d="M23.1494 3.12177C22.563 2.44911 21.8667 1.9155 21.1003 1.55144C20.334 1.18738 19.5126 1 18.6831 1C17.8535 1 17.0321 1.18738 16.2658 1.55144C15.4994 1.9155 14.8032 2.44911 14.2167 3.12177L12.9997 4.51714L11.7826 3.12177C10.5981 1.76368 8.99153 1.0007 7.31633 1.0007C5.64114 1.0007 4.03455 1.76368 2.85001 3.12177C1.66547 4.47987 1 6.32185 1 8.24249C1 10.1631 1.66547 12.0051 2.85001 13.3632L4.06705 14.7586L12.9997 25L21.9323 14.7586L23.1494 13.3632C23.7361 12.6909 24.2015 11.8926 24.519 11.0139C24.8366 10.1353 25 9.19356 25 8.24249C25 7.29142 24.8366 6.34967 24.519 5.47104C24.2015 4.59241 23.7361 3.79412 23.1494 3.12177Z"--}}
+{{--                                                                    fill="white" stroke="#CACACA" stroke-width="1.5"--}}
+{{--                                                                    stroke-linecap="round"--}}
+{{--                                                                    stroke-linejoin="round"></path>--}}
+{{--                                                            </svg>--}}
+{{--                                                        </button>--}}
+{{--                                                        <img loading="lazy"--}}
+{{--                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-3.png"--}}
+{{--                                                             class="of-cover" alt="image 1">--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="owl-item animated owl-animated-in fadeIn active"--}}
+{{--                                                     style="width: 414px;">--}}
+{{--                                                    <div class="resro-image">--}}
+{{--                                                        <button class="add-to-wishlist">--}}
+{{--                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"--}}
+{{--                                                                 height="24" viewBox="0 0 24 24" fill="none">--}}
+{{--                                                                <path--}}
+{{--                                                                    d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"--}}
+{{--                                                                    fill="#FF8600"></path>--}}
+{{--                                                            </svg>--}}
+{{--                                                        </button>--}}
+{{--                                                        <img loading="lazy"--}}
+{{--                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-1.png"--}}
+{{--                                                             class="of-cover" alt="image 1">--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="owl-item animated owl-animated-in fadeIn"--}}
+{{--                                                     style="width: 414px;">--}}
+{{--                                                    <div class="resro-image">--}}
+{{--                                                        <button class="add-to-wishlist">--}}
+{{--                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"--}}
+{{--                                                                 height="24" viewBox="0 0 24 24" fill="none">--}}
+{{--                                                                <path--}}
+{{--                                                                    d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"--}}
+{{--                                                                    fill="#FF8600"></path>--}}
+{{--                                                            </svg>--}}
+{{--                                                        </button>--}}
+{{--                                                        <img loading="lazy"--}}
+{{--                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-2.png"--}}
+{{--                                                             class="of-cover" alt="image 1">--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="owl-item animated owl-animated-in fadeIn"--}}
+{{--                                                     style="width: 414px;">--}}
+{{--                                                    <div class="resro-image">--}}
+{{--                                                        <button class="add-to-wishlist">--}}
+{{--                                                            <svg xmlns="http://www.w3.org/2000/svg" width="26"--}}
+{{--                                                                 height="26" viewBox="0 0 26 26" fill="none">--}}
+{{--                                                                <path--}}
+{{--                                                                    d="M23.1494 3.12177C22.563 2.44911 21.8667 1.9155 21.1003 1.55144C20.334 1.18738 19.5126 1 18.6831 1C17.8535 1 17.0321 1.18738 16.2658 1.55144C15.4994 1.9155 14.8032 2.44911 14.2167 3.12177L12.9997 4.51714L11.7826 3.12177C10.5981 1.76368 8.99153 1.0007 7.31633 1.0007C5.64114 1.0007 4.03455 1.76368 2.85001 3.12177C1.66547 4.47987 1 6.32185 1 8.24249C1 10.1631 1.66547 12.0051 2.85001 13.3632L4.06705 14.7586L12.9997 25L21.9323 14.7586L23.1494 13.3632C23.7361 12.6909 24.2015 11.8926 24.519 11.0139C24.8366 10.1353 25 9.19356 25 8.24249C25 7.29142 24.8366 6.34967 24.519 5.47104C24.2015 4.59241 23.7361 3.79412 23.1494 3.12177Z"--}}
+{{--                                                                    fill="white" stroke="#CACACA" stroke-width="1.5"--}}
+{{--                                                                    stroke-linecap="round"--}}
+{{--                                                                    stroke-linejoin="round"></path>--}}
+{{--                                                            </svg>--}}
+{{--                                                        </button>--}}
+{{--                                                        <img loading="lazy"--}}
+{{--                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-3.png"--}}
+{{--                                                             class="of-cover" alt="image 1">--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="owl-item cloned" style="width: 414px;">--}}
+{{--                                                    <div class="resro-image">--}}
+{{--                                                        <button class="add-to-wishlist">--}}
+{{--                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"--}}
+{{--                                                                 height="24" viewBox="0 0 24 24" fill="none">--}}
+{{--                                                                <path--}}
+{{--                                                                    d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"--}}
+{{--                                                                    fill="#FF8600"></path>--}}
+{{--                                                            </svg>--}}
+{{--                                                        </button>--}}
+{{--                                                        <img loading="lazy"--}}
+{{--                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-1.png"--}}
+{{--                                                             class="of-cover" alt="image 1">--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="owl-item cloned" style="width: 414px;">--}}
+{{--                                                    <div class="resro-image">--}}
+{{--                                                        <button class="add-to-wishlist">--}}
+{{--                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"--}}
+{{--                                                                 height="24" viewBox="0 0 24 24" fill="none">--}}
+{{--                                                                <path--}}
+{{--                                                                    d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"--}}
+{{--                                                                    fill="#FF8600"></path>--}}
+{{--                                                            </svg>--}}
+{{--                                                        </button>--}}
+{{--                                                        <img loading="lazy"--}}
+{{--                                                             src="{{FRONTASSETS}}/images/restaurants/resto-card-2.png"--}}
+{{--                                                             class="of-cover" alt="image 1">--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="owl-nav">--}}
+{{--                                            <button type="button" role="presentation" class="owl-prev"><i--}}
+{{--                                                    class="fas fa-chevron-left" aria-hidden="true"></i></button>--}}
+{{--                                            <button type="button" role="presentation" class="owl-next"><i--}}
+{{--                                                    class="fas fa-chevron-right" aria-hidden="true"></i></button>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="owl-dots">--}}
+{{--                                            <button role="button" class="owl-dot active"><span></span></button>--}}
+{{--                                            <button role="button" class="owl-dot"><span></span></button>--}}
+{{--                                            <button role="button" class="owl-dot"><span></span></button>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="col-lg-8">--}}
+{{--                                    <div class="card-body position-relative">--}}
+{{--                                        <div class="d-md-flex justify-content-md-between align-items-end mb-3">--}}
+{{--                                            <h2 class="card-title mb-0">السلطانة</h2>--}}
+{{--                                            <div class="d-flex justify-content-md-center align-items-center">--}}
+{{--                                                <div class="department-badge bg-main text-white">--}}
+{{--                                                    <div class="pt-1">5</div>--}}
+{{--                                                    <div>--}}
+{{--                                                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"--}}
+{{--                                                             viewBox="0 0 25 25" fill="none">--}}
+{{--                                                            <path--}}
+{{--                                                                d="M12.7529 19.6185L20.1689 24.3301L18.2009 15.4501L24.7529 9.47534L16.1249 8.70481L12.7529 0.330078L9.38093 8.70481L0.75293 9.47534L7.30493 15.4501L5.33693 24.3301L12.7529 19.6185Z"--}}
+{{--                                                                fill="white"></path>--}}
+{{--                                                        </svg>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                                <div--}}
+{{--                                                    class="number-ads gray-txt">@lang('site.comments')  {{$place->placeComments()->count()}}</div>--}}
 
-                                            </div>
-                                        </div>
-                                        <div class="d-md-flex justify-content-md-between">
-                                            <div class="gray-txt number-ads">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="20"
-                                                     viewBox="0 0 16 20" fill="none">
-                                                    <path
-                                                        d="M8.20799 9.99996C8.54986 9.99996 8.84262 9.83663 9.08628 9.50996C9.32994 9.18329 9.45156 8.79107 9.45115 8.33329C9.45115 7.87496 9.32932 7.48246 9.08566 7.15579C8.842 6.82913 8.54944 6.66607 8.20799 6.66663C7.86612 6.66663 7.57335 6.82996 7.3297 7.15663C7.08604 7.48329 6.96441 7.87551 6.96483 8.33329C6.96483 8.79163 7.08666 9.18413 7.33032 9.51079C7.57398 9.83746 7.86653 10.0005 8.20799 9.99996ZM8.20799 16.125C9.47187 14.5694 10.4094 13.1561 11.0206 11.885C11.6319 10.6138 11.9375 9.48551 11.9375 8.49996C11.9375 6.98607 11.5774 5.74663 10.8572 4.78163C10.137 3.81663 9.2539 3.33385 8.20799 3.33329C7.16166 3.33329 6.2784 3.81607 5.55819 4.78163C4.83799 5.74718 4.4781 6.98663 4.47851 8.49996C4.47851 9.48607 4.78412 10.6147 5.39534 11.8858C6.00656 13.1569 6.94411 14.57 8.20799 16.125ZM8.20799 18.3333C6.54008 16.4305 5.29444 14.6633 4.47105 13.0316C3.64767 11.4 3.23577 9.8894 3.23535 8.49996C3.23535 6.41663 3.73531 4.7569 4.73522 3.52079C5.73514 2.28468 6.89272 1.66663 8.20799 1.66663C9.52366 1.66663 10.6815 2.28468 11.6814 3.52079C12.6813 4.7569 13.181 6.41663 13.1806 8.49996C13.1806 9.88885 12.7687 11.3994 11.9449 13.0316C11.1211 14.6638 9.87548 16.4311 8.20799 18.3333Z"
-                                                        fill="#9C9C9C"></path>
-                                                </svg>
-                                                <span>درب شعبان ، شارع رياض زيتون القديم ، مراكش,
-                            المغرب</span>
-                                            </div>
-                                            <div
-                                                class="details-rest-btn d-flex align-items-center justify-content-center">
-                                                <a href="#">عرض التفاصيل</a>
-                                            </div>
-                                        </div>
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="d-md-flex justify-content-md-between">--}}
+{{--                                            <div class="gray-txt number-ads">--}}
+{{--                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="20"--}}
+{{--                                                     viewBox="0 0 16 20" fill="none">--}}
+{{--                                                    <path--}}
+{{--                                                        d="M8.20799 9.99996C8.54986 9.99996 8.84262 9.83663 9.08628 9.50996C9.32994 9.18329 9.45156 8.79107 9.45115 8.33329C9.45115 7.87496 9.32932 7.48246 9.08566 7.15579C8.842 6.82913 8.54944 6.66607 8.20799 6.66663C7.86612 6.66663 7.57335 6.82996 7.3297 7.15663C7.08604 7.48329 6.96441 7.87551 6.96483 8.33329C6.96483 8.79163 7.08666 9.18413 7.33032 9.51079C7.57398 9.83746 7.86653 10.0005 8.20799 9.99996ZM8.20799 16.125C9.47187 14.5694 10.4094 13.1561 11.0206 11.885C11.6319 10.6138 11.9375 9.48551 11.9375 8.49996C11.9375 6.98607 11.5774 5.74663 10.8572 4.78163C10.137 3.81663 9.2539 3.33385 8.20799 3.33329C7.16166 3.33329 6.2784 3.81607 5.55819 4.78163C4.83799 5.74718 4.4781 6.98663 4.47851 8.49996C4.47851 9.48607 4.78412 10.6147 5.39534 11.8858C6.00656 13.1569 6.94411 14.57 8.20799 16.125ZM8.20799 18.3333C6.54008 16.4305 5.29444 14.6633 4.47105 13.0316C3.64767 11.4 3.23577 9.8894 3.23535 8.49996C3.23535 6.41663 3.73531 4.7569 4.73522 3.52079C5.73514 2.28468 6.89272 1.66663 8.20799 1.66663C9.52366 1.66663 10.6815 2.28468 11.6814 3.52079C12.6813 4.7569 13.181 6.41663 13.1806 8.49996C13.1806 9.88885 12.7687 11.3994 11.9449 13.0316C11.1211 14.6638 9.87548 16.4311 8.20799 18.3333Z"--}}
+{{--                                                        fill="#9C9C9C"></path>--}}
+{{--                                                </svg>--}}
+{{--                                                <span>درب شعبان ، شارع رياض زيتون القديم ، مراكش,--}}
+{{--                            المغرب</span>--}}
+{{--                                            </div>--}}
+{{--                                            <div--}}
+{{--                                                class="details-rest-btn d-flex align-items-center justify-content-center">--}}
+{{--                                                <a href="#">عرض التفاصيل</a>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 
-                                        <div class="pb-3">
-                        <span>
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                               fill="none">
-                            <path
-                                d="M3 10C5.483 10 7.345 7 7.345 7C7.345 7 9.207 10 11.69 10C14.172 10 16.655 7 16.655 7C16.655 7 19.138 10 21 10M3 17C5.483 17 7.345 14 7.345 14C7.345 14 9.207 17 11.69 17C14.172 17 16.655 14 16.655 14C16.655 14 19.138 17 21 17"
-                                stroke="#FF8600" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                          </svg>
-                        </span>
-                                            <span class="text-main text-restaurant">
-                          يطل علي البحر
-                        </span>
-                                        </div>
-                                        <div
-                                            class="discound-app d-flex align-items-center justify-content-center mb-4 py-1">
-                        <span class="discound-icon">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
-                               fill="none">
-                            <path d="M7.5 12.5L12.5 7.5" stroke="#9C9C9C" stroke-width="2" stroke-linecap="round"
-                                  stroke-linejoin="round"></path>
-                            <path
-                                d="M7.91667 8.33333C8.14679 8.33333 8.33333 8.14679 8.33333 7.91667C8.33333 7.68655 8.14679 7.5 7.91667 7.5C7.68655 7.5 7.5 7.68655 7.5 7.91667C7.5 8.14679 7.68655 8.33333 7.91667 8.33333Z"
-                                fill="#9C9C9C" stroke="#9C9C9C" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round"></path>
-                            <path
-                                d="M12.0833 12.4993C12.3134 12.4993 12.5 12.3128 12.5 12.0827C12.5 11.8526 12.3134 11.666 12.0833 11.666C11.8532 11.666 11.6666 11.8526 11.6666 12.0827C11.6666 12.3128 11.8532 12.4993 12.0833 12.4993Z"
-                                fill="#9C9C9C" stroke="#9C9C9C" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round"></path>
-                            <path
-                                d="M2.5 10C2.5 10.9849 2.69399 11.9602 3.0709 12.8701C3.44781 13.7801 4.00026 14.6069 4.6967 15.3033C5.39314 15.9997 6.21993 16.5522 7.12987 16.9291C8.03982 17.306 9.01509 17.5 10 17.5C10.9849 17.5 11.9602 17.306 12.8701 16.9291C13.7801 16.5522 14.6069 15.9997 15.3033 15.3033C15.9997 14.6069 16.5522 13.7801 16.9291 12.8701C17.306 11.9602 17.5 10.9849 17.5 10C17.5 9.01509 17.306 8.03982 16.9291 7.12987C16.5522 6.21993 15.9997 5.39314 15.3033 4.6967C14.6069 4.00026 13.7801 3.44781 12.8701 3.0709C11.9602 2.69399 10.9849 2.5 10 2.5C9.01509 2.5 8.03982 2.69399 7.12987 3.0709C6.21993 3.44781 5.39314 4.00026 4.6967 4.6967C4.00026 5.39314 3.44781 6.21993 3.0709 7.12987C2.69399 8.03982 2.5 9.01509 2.5 10Z"
-                                stroke="#9C9C9C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                          </svg>
-                        </span>
-                                            <span class="text-main discound-txt">
-                          يوجد خصم
-                          <span class="txt_10">10%</span>
-                          لمستخدمي تطبيق سائح
-                        </span>
-                                        </div>
-                                        <div class="col-lg-6 d-flex align-items-center mt-3">
-                                            <div
-                                                class="w-100 details-btn d-flex align-items-center justify-content-center">
-                                                <a href="#">
-                            <span>
-                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                   fill="none">
-                                <path
-                                    d="M14.2498 8.25C14.8432 8.25 15.4232 8.07405 15.9165 7.74441C16.4099 7.41477 16.7944 6.94623 17.0215 6.39805C17.2485 5.84987 17.3079 5.24667 17.1922 4.66473C17.0764 4.08279 16.7907 3.54824 16.3712 3.12868C15.9516 2.70912 15.4171 2.4234 14.8351 2.30765C14.2532 2.19189 13.65 2.2513 13.1018 2.47836C12.5536 2.70543 12.0851 3.08994 11.7554 3.58329C11.4258 4.07664 11.2498 4.65666 11.2498 5.25C11.2498 6.04565 11.5659 6.80871 12.1285 7.37132C12.6911 7.93393 13.4542 8.25 14.2498 8.25ZM14.2498 3.75C14.5465 3.75 14.8365 3.83797 15.0832 4.0028C15.3299 4.16762 15.5221 4.40189 15.6357 4.67598C15.7492 4.95007 15.7789 5.25167 15.721 5.54264C15.6631 5.83361 15.5203 6.10088 15.3105 6.31066C15.1007 6.52044 14.8334 6.6633 14.5425 6.72118C14.2515 6.77906 13.9499 6.74935 13.6758 6.63582C13.4017 6.52229 13.1675 6.33003 13.0026 6.08336C12.8378 5.83668 12.7498 5.54667 12.7498 5.25C12.7498 4.85218 12.9079 4.47065 13.1892 4.18934C13.4705 3.90804 13.852 3.75 14.2498 3.75ZM20.5602 13.1888C20.503 13.215 19.858 13.4963 18.7161 13.4963C17.4177 13.4963 15.477 13.1325 13.0264 11.6213C12.6534 12.6801 12.1691 13.6964 11.5817 14.6531C12.6368 14.9779 13.6293 15.4791 14.517 16.1353C16.3048 17.4984 17.2498 19.4391 17.2498 21.75C17.2498 21.9489 17.1708 22.1397 17.0302 22.2803C16.8895 22.421 16.6987 22.5 16.4998 22.5C16.3009 22.5 16.1102 22.421 15.9695 22.2803C15.8289 22.1397 15.7498 21.9489 15.7498 21.75C15.7498 17.8406 12.4976 16.4334 10.6742 15.9516C10.6226 16.0172 10.5692 16.0838 10.5158 16.1484C8.67452 18.3797 6.36734 19.5403 3.80046 19.5403C3.50809 19.5417 3.21584 19.5282 2.92484 19.5C2.72592 19.4801 2.54306 19.382 2.41647 19.2273C2.28989 19.0726 2.22995 18.8739 2.24984 18.675C2.26973 18.4761 2.36782 18.2932 2.52254 18.1666C2.67726 18.0401 2.87592 17.9801 3.07484 18C5.50484 18.2419 7.6189 17.2978 9.35609 15.1875C10.527 13.7681 11.3248 12.0366 11.7233 10.7813C8.07452 8.65781 5.7439 10.4653 5.71859 10.485C5.64219 10.5502 5.55346 10.5995 5.45767 10.6297C5.36188 10.66 5.26099 10.6708 5.16097 10.6613C5.06095 10.6519 4.96386 10.6224 4.87544 10.5747C4.78703 10.527 4.7091 10.462 4.64628 10.3836C4.58346 10.3052 4.53703 10.215 4.50975 10.1183C4.48246 10.0216 4.47488 9.92045 4.48746 9.82077C4.50003 9.7211 4.5325 9.62497 4.58294 9.53809C4.63338 9.45121 4.70076 9.37534 4.78109 9.315C4.92171 9.2025 8.27046 6.59625 13.1726 9.93094C17.4355 12.8288 19.9161 11.835 19.9395 11.8238C20.0294 11.7813 20.1268 11.7572 20.226 11.7527C20.3253 11.7482 20.4245 11.7635 20.5178 11.7977C20.6111 11.8319 20.6967 11.8843 20.7696 11.9518C20.8424 12.0193 20.9012 12.1007 20.9424 12.1911C20.9835 12.2816 21.0063 12.3793 21.0094 12.4786C21.0125 12.5779 20.9959 12.6769 20.9604 12.7697C20.9249 12.8625 20.8713 12.9473 20.8028 13.0193C20.7342 13.0912 20.6521 13.1488 20.5611 13.1888H20.5602Z"
-                                    fill="white"></path>
-                              </svg>
-                            </span>
+{{--                                        <div class="pb-3">--}}
+{{--                        <span>--}}
+{{--                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"--}}
+{{--                               fill="none">--}}
+{{--                            <path--}}
+{{--                                d="M3 10C5.483 10 7.345 7 7.345 7C7.345 7 9.207 10 11.69 10C14.172 10 16.655 7 16.655 7C16.655 7 19.138 10 21 10M3 17C5.483 17 7.345 14 7.345 14C7.345 14 9.207 17 11.69 17C14.172 17 16.655 14 16.655 14C16.655 14 19.138 17 21 17"--}}
+{{--                                stroke="#FF8600" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>--}}
+{{--                          </svg>--}}
+{{--                        </span>--}}
+{{--                                            <span class="text-main text-restaurant">--}}
+{{--                          يطل علي البحر--}}
+{{--                        </span>--}}
+{{--                                        </div>--}}
+{{--                                        <div--}}
+{{--                                            class="discound-app d-flex align-items-center justify-content-center mb-4 py-1">--}}
+{{--                        <span class="discound-icon">--}}
+{{--                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"--}}
+{{--                               fill="none">--}}
+{{--                            <path d="M7.5 12.5L12.5 7.5" stroke="#9C9C9C" stroke-width="2" stroke-linecap="round"--}}
+{{--                                  stroke-linejoin="round"></path>--}}
+{{--                            <path--}}
+{{--                                d="M7.91667 8.33333C8.14679 8.33333 8.33333 8.14679 8.33333 7.91667C8.33333 7.68655 8.14679 7.5 7.91667 7.5C7.68655 7.5 7.5 7.68655 7.5 7.91667C7.5 8.14679 7.68655 8.33333 7.91667 8.33333Z"--}}
+{{--                                fill="#9C9C9C" stroke="#9C9C9C" stroke-width="2" stroke-linecap="round"--}}
+{{--                                stroke-linejoin="round"></path>--}}
+{{--                            <path--}}
+{{--                                d="M12.0833 12.4993C12.3134 12.4993 12.5 12.3128 12.5 12.0827C12.5 11.8526 12.3134 11.666 12.0833 11.666C11.8532 11.666 11.6666 11.8526 11.6666 12.0827C11.6666 12.3128 11.8532 12.4993 12.0833 12.4993Z"--}}
+{{--                                fill="#9C9C9C" stroke="#9C9C9C" stroke-width="2" stroke-linecap="round"--}}
+{{--                                stroke-linejoin="round"></path>--}}
+{{--                            <path--}}
+{{--                                d="M2.5 10C2.5 10.9849 2.69399 11.9602 3.0709 12.8701C3.44781 13.7801 4.00026 14.6069 4.6967 15.3033C5.39314 15.9997 6.21993 16.5522 7.12987 16.9291C8.03982 17.306 9.01509 17.5 10 17.5C10.9849 17.5 11.9602 17.306 12.8701 16.9291C13.7801 16.5522 14.6069 15.9997 15.3033 15.3033C15.9997 14.6069 16.5522 13.7801 16.9291 12.8701C17.306 11.9602 17.5 10.9849 17.5 10C17.5 9.01509 17.306 8.03982 16.9291 7.12987C16.5522 6.21993 15.9997 5.39314 15.3033 4.6967C14.6069 4.00026 13.7801 3.44781 12.8701 3.0709C11.9602 2.69399 10.9849 2.5 10 2.5C9.01509 2.5 8.03982 2.69399 7.12987 3.0709C6.21993 3.44781 5.39314 4.00026 4.6967 4.6967C4.00026 5.39314 3.44781 6.21993 3.0709 7.12987C2.69399 8.03982 2.5 9.01509 2.5 10Z"--}}
+{{--                                stroke="#9C9C9C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>--}}
+{{--                          </svg>--}}
+{{--                        </span>--}}
+{{--                                            <span class="text-main discound-txt">--}}
+{{--                          يوجد خصم--}}
+{{--                          <span class="txt_10">10%</span>--}}
+{{--                          لمستخدمي تطبيق سائح--}}
+{{--                        </span>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="col-lg-6 d-flex align-items-center mt-3">--}}
+{{--                                            <div--}}
+{{--                                                class="w-100 details-btn d-flex align-items-center justify-content-center">--}}
+{{--                                                <a href="#">--}}
+{{--                            <span>--}}
+{{--                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"--}}
+{{--                                   fill="none">--}}
+{{--                                <path--}}
+{{--                                    d="M14.2498 8.25C14.8432 8.25 15.4232 8.07405 15.9165 7.74441C16.4099 7.41477 16.7944 6.94623 17.0215 6.39805C17.2485 5.84987 17.3079 5.24667 17.1922 4.66473C17.0764 4.08279 16.7907 3.54824 16.3712 3.12868C15.9516 2.70912 15.4171 2.4234 14.8351 2.30765C14.2532 2.19189 13.65 2.2513 13.1018 2.47836C12.5536 2.70543 12.0851 3.08994 11.7554 3.58329C11.4258 4.07664 11.2498 4.65666 11.2498 5.25C11.2498 6.04565 11.5659 6.80871 12.1285 7.37132C12.6911 7.93393 13.4542 8.25 14.2498 8.25ZM14.2498 3.75C14.5465 3.75 14.8365 3.83797 15.0832 4.0028C15.3299 4.16762 15.5221 4.40189 15.6357 4.67598C15.7492 4.95007 15.7789 5.25167 15.721 5.54264C15.6631 5.83361 15.5203 6.10088 15.3105 6.31066C15.1007 6.52044 14.8334 6.6633 14.5425 6.72118C14.2515 6.77906 13.9499 6.74935 13.6758 6.63582C13.4017 6.52229 13.1675 6.33003 13.0026 6.08336C12.8378 5.83668 12.7498 5.54667 12.7498 5.25C12.7498 4.85218 12.9079 4.47065 13.1892 4.18934C13.4705 3.90804 13.852 3.75 14.2498 3.75ZM20.5602 13.1888C20.503 13.215 19.858 13.4963 18.7161 13.4963C17.4177 13.4963 15.477 13.1325 13.0264 11.6213C12.6534 12.6801 12.1691 13.6964 11.5817 14.6531C12.6368 14.9779 13.6293 15.4791 14.517 16.1353C16.3048 17.4984 17.2498 19.4391 17.2498 21.75C17.2498 21.9489 17.1708 22.1397 17.0302 22.2803C16.8895 22.421 16.6987 22.5 16.4998 22.5C16.3009 22.5 16.1102 22.421 15.9695 22.2803C15.8289 22.1397 15.7498 21.9489 15.7498 21.75C15.7498 17.8406 12.4976 16.4334 10.6742 15.9516C10.6226 16.0172 10.5692 16.0838 10.5158 16.1484C8.67452 18.3797 6.36734 19.5403 3.80046 19.5403C3.50809 19.5417 3.21584 19.5282 2.92484 19.5C2.72592 19.4801 2.54306 19.382 2.41647 19.2273C2.28989 19.0726 2.22995 18.8739 2.24984 18.675C2.26973 18.4761 2.36782 18.2932 2.52254 18.1666C2.67726 18.0401 2.87592 17.9801 3.07484 18C5.50484 18.2419 7.6189 17.2978 9.35609 15.1875C10.527 13.7681 11.3248 12.0366 11.7233 10.7813C8.07452 8.65781 5.7439 10.4653 5.71859 10.485C5.64219 10.5502 5.55346 10.5995 5.45767 10.6297C5.36188 10.66 5.26099 10.6708 5.16097 10.6613C5.06095 10.6519 4.96386 10.6224 4.87544 10.5747C4.78703 10.527 4.7091 10.462 4.64628 10.3836C4.58346 10.3052 4.53703 10.215 4.50975 10.1183C4.48246 10.0216 4.47488 9.92045 4.48746 9.82077C4.50003 9.7211 4.5325 9.62497 4.58294 9.53809C4.63338 9.45121 4.70076 9.37534 4.78109 9.315C4.92171 9.2025 8.27046 6.59625 13.1726 9.93094C17.4355 12.8288 19.9161 11.835 19.9395 11.8238C20.0294 11.7813 20.1268 11.7572 20.226 11.7527C20.3253 11.7482 20.4245 11.7635 20.5178 11.7977C20.6111 11.8319 20.6967 11.8843 20.7696 11.9518C20.8424 12.0193 20.9012 12.1007 20.9424 12.1911C20.9835 12.2816 21.0063 12.3793 21.0094 12.4786C21.0125 12.5779 20.9959 12.6769 20.9604 12.7697C20.9249 12.8625 20.8713 12.9473 20.8028 13.0193C20.7342 13.0912 20.6521 13.1488 20.5611 13.1888H20.5602Z"--}}
+{{--                                    fill="white"></path>--}}
+{{--                              </svg>--}}
+{{--                            </span>--}}
 
-                                                    التوجه الي المطعم</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+{{--                                                    التوجه الي المطعم</a>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
         </section>
     </main>

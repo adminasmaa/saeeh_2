@@ -8,7 +8,7 @@
                 <nav class="breadcrumb-container" aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0">
                         <li class="breadcrumb-item">
-                            <a href="javascript:void(0)"> @lang('site.home') </a>
+                            <a href="{{route('Home')}}"> @lang('site.home') </a>
                         </li>
                         <li>
                   <span>
@@ -107,7 +107,7 @@
                                                         />
                                                     </div>
                                                 @endforeach
-                                                @else
+                                            @else
 
                                                 <div class="resro-image">
                                                     <button class="add-to-wishlist">
@@ -134,8 +134,6 @@
                                                         alt="image 1"
                                                     />
                                                 </div>
-
-
 
                                             @endif
                                         </div>
@@ -209,7 +207,8 @@
                           </svg>
                         </span>
                                                 <span class="text-main text-restaurant">
-                          يطل علي البحر
+                      <span
+                      >{{$place->address ?? ''}}</span>
                         </span>
                                             </div>
                                             <div
