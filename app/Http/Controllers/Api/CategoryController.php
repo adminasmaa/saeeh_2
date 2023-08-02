@@ -153,6 +153,25 @@ class CategoryController extends Controller
 
     }
 
+    public function placessubcategory(Request $request)
+    {
+        $cat_id = $request->category_id;
+
+        $subcategories = SubCategoryResource::collection(Category::where('parent_id', $cat_id)->get());
+
+
+        if (count($subcategories) == 0) {
+            $places = PlaceResource::collection(Place::where('category_id','=', $cat_id)->orwhere('sub_category_id','=', $cat_id)->paginate(20));
+//            $places = Place::where('category_id','=', $cat_id)->orwhere('sub_category_id','=', $cat_id)->paginate(20);
+
+            return $this->respondSuccess($places, __('message.subcategories retrieved successfully.'));
+        } else {
+            return $this->respondSuccess($subcategories, __('message.subcategories retrieved successfully.'));
+        }
+
+
+    }
+
     public function categorydetail(Request $request)
     {
         $category_id = $request->category_id;

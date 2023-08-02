@@ -201,6 +201,8 @@ return [
 
         Illuminate\Auth\AuthServiceProvider::class,
 
+        Intervention\Image\ImageServiceProvider::class
+
     ],
 
     /*
@@ -218,7 +220,7 @@ return [
         'Datatables' => Yajra\DataTables\Facades\DataTables::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
                 'Auth' => Illuminate\Support\Facades\Auth::class,
-
+        'Image' => Intervention\Image\Facades\Image::class
 
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),

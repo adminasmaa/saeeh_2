@@ -11,14 +11,21 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    public function paginate($items, $perPage = 5, $page = null, $options = [])
+    {
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $items = $items instanceof Collection ? $items : Collection::make($items);
+        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
+    }
+
     public function respondSuccess($result, $message, $code = 200)
     {
         $response = [
-            'code' =>$code,
+            'code' => $code,
             'status' => true,
             'message' => $message,
-            'data'    => $result,
-            'errorData' =>null,
+            'data' => $result,
+            'errorData' => null,
         ];
 
 
@@ -30,20 +37,24 @@ class Controller extends BaseController
      * @param $message
      * @return \Illuminate\Http\JsonResponse
      */
-    public function respondError($error, $errorMessages = [], $code )
+    public function respondError($error, $errorMessages = [], $code)
     {
-        if($code==404){$code1=404;}
-        elseif($code==500){$code1=500;}
-        else{$code1=200;}
+        if ($code == 404) {
+            $code1 = 404;
+        } elseif ($code == 500) {
+            $code1 = 500;
+        } else {
+            $code1 = 200;
+        }
         $response = [
-            'code' =>$code,
+            'code' => $code,
             'status' => false,
             'message' => $error,
-            'data'=>null,
+            'data' => null,
         ];
 
 
-        if(!empty($errorMessages)){
+        if (!empty($errorMessages)) {
             $response['errorData'] = $errorMessages;
         }
 

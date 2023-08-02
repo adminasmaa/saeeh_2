@@ -1046,77 +1046,87 @@
         </section>
         <section class="py-4 filter-departments">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-10">
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <div class="box-search mb-lg-0 mb-md-0 mb-3">
+                <form action="{{route('filteraquars')}}" method="POST">
+                    @csrf
+                    <div class="row">
+                        <div class="col-lg-10">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="box-search mb-lg-0 mb-md-0 mb-3">
 
 
-                                    <select
-                                        class="select2"
-                                        id="country_id"
-                                        name="country_id"
-                                    >
-                                        <option value="">@lang('site.country')</option>
-                                        @foreach($countries as $country)
-                                            <option
-                                                value="{{$country->id}}">{{$country->name ?? ''}}</option>
-                                        @endforeach
-                                    </select>
+                                        <select
+                                            class="select2"
+                                            id="country_id"
+                                            name="country_id"
+                                        >
+                                            <option value="">@lang('site.country')</option>
+                                            @foreach($countries as $country)
+                                                <option
+                                                    value="{{$country->id}}">{{$country->name ?? ''}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="box-search mb-lg-0 mb-md-0 mb-3">
-                                    <select
-                                        class="select2"
-                                        id="city_id"
-                                        name="city_id"
-                                    >
-                                        <option value="">@lang('site.city')</option>
-                                        <!-- @foreach($cities as $city)
-                                            <option
-                                               value="{{$city->id}}">{{$city->name ?? ''}}</option>
+                                <div class="col-lg-3">
+                                    <div class="box-search mb-lg-0 mb-md-0 mb-3">
+                                        <select
+                                            class="select2"
+                                            id="city_id"
+                                            name="city_id"
+                                        >
+                                            <option value="">@lang('site.city')</option>
+                                            <!-- @foreach($cities as $city)
+                                                <option
+                                                   value="{{$city->id}}">{{$city->name ?? ''}}</option>
 
 
-                                        @endforeach -->
-                                    </select>
+
+
+
+                                            @endforeach -->
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="box-search mb-lg-0 mb-md-0 mb-3">
-                                    <select
-                                        class="select2"
-                                        id="list6"
-                                        name="brand_id"
-                                    >
-                                        <option value="">@lang('site.categories')</option>
-                                        @foreach($CategoriesAquar as $cat)
-                                            <option value="{{$cat->id ?? ''}}">{{$cat->name ?? ''}}</option>
-                                        @endforeach
-                                    </select>
+                                <div class="col-lg-3">
+                                    <div class="box-search mb-lg-0 mb-md-0 mb-3">
+                                        <select
+                                            class="select2"
+                                            id="list6"
+                                            name="category_id"
+                                        >
+                                            <option value="">@lang('site.categories')</option>
+                                            @foreach($CategoriesAquar as $cat)
+                                                <option value="{{$cat->id ?? ''}}">{{$cat->name ?? ''}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="box-search mb-lg-0 mb-md-0 mb-3">
-                                    <select class="ddl-select" id="list4" name="list4">
-                                        <option>عدد الغرف</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                    </select>
+                                <div class="col-lg-3">
+                                    <div class="box-search mb-lg-0 mb-md-0 mb-3">
+                                        <select class="ddl-select" id="list4" name="number_rooms">
+                                            <option>@lang('site.room number')</option>
+                                            {{--                                            @foreach($roomsnumbers as $rooms)--}}
+                                            {{--                                                @foreach($rooms->aqarSection as $section)--}}
+                                            {{--                                                <option value="1">{{$section->subsection->sum('name_ar')}}</option>--}}
+                                            <option value="1">1</option>
+                                            {{--                                                @endforeach--}}
+                                            {{--                                            @endforeach--}}
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-lg-2">
-                        <div
-                            class="search-btn d-flex align-items-center justify-content-center mt-lg-0 mt-3"
-                        >
-                            <a href="#">بحث</a>
+                        <div class="col-lg-2">
+                            <div
+                                class="search-btn d-flex align-items-center justify-content-center mt-lg-0 mt-3"
+                            >
+                                <button type="submit">@lang('site.search')</button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </section>
 
@@ -1124,103 +1134,103 @@
         <section class="py-md-5 py-3">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 col-md-4 web-view">
-                        <a
-                            href="#"
-                            data-bs-toggle="modal"
-                            data-bs-target="#mapModal"
-                            class="d-block"
-                        >
-                            <div class="map-box mb-lg-0 mb-3">
-                                <img src="{{FRONTASSETS}}/images/map.png" alt="map"/>
-                                <div
-                                    class="map-data d-flex h-100 w-100 justify-content-center align-items-center"
-                                >
-                                    <h4 class="title-map">@lang('site.searchmap')</h4>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-9 col-md-8">
-                        {{--                        <h2 class="pb-3 search-result">وجدنا 44 شقة مناسبة لطلبك</h2>--}}
-                        <div class="form-group mb-4 position-relative">
-                            <input
-                                type="search"
-                                class="form-control search-saeeh"
-                                placeholder="ابحث عن اسم العقار"
-                                id="search"
-                                name="q"
-                            />
-                            <div class="search-icon">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="18"
-                                    height="18"
-                                    viewBox="0 0 18 18"
-                                    fill="none"
-                                >
-                                    <path
-                                        d="M15.9 17.3L10.3 11.7C9.8 12.1 9.225 12.4167 8.575 12.65C7.925 12.8833 7.23333 13 6.5 13C4.68333 13 3.146 12.3707 1.888 11.112C0.63 9.85333 0.000666667 8.316 0 6.5C0 4.68333 0.629333 3.146 1.888 1.888C3.14667 0.63 4.684 0.000666667 6.5 0C8.31667 0 9.854 0.629333 11.112 1.888C12.37 3.14667 12.9993 4.684 13 6.5C13 7.23333 12.8833 7.925 12.65 8.575C12.4167 9.225 12.1 9.8 11.7 10.3L17.325 15.925C17.5083 16.1083 17.6 16.3333 17.6 16.6C17.6 16.8667 17.5 17.1 17.3 17.3C17.1167 17.4833 16.8833 17.575 16.6 17.575C16.3167 17.575 16.0833 17.4833 15.9 17.3ZM6.5 11C7.75 11 8.81267 10.5623 9.688 9.687C10.5633 8.81167 11.0007 7.74933 11 6.5C11 5.25 10.5623 4.18733 9.687 3.312C8.81167 2.43667 7.74933 1.99933 6.5 2C5.25 2 4.18733 2.43767 3.312 3.313C2.43667 4.18833 1.99933 5.25067 2 6.5C2 7.75 2.43767 8.81267 3.313 9.688C4.18833 10.5633 5.25067 11.0007 6.5 11Z"
-                                        fill="#CACACA"
-                                    />
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="box-sort-by mb-lg-4 mb-md-4 mb-3 position-relative web-view">
-                <span class="icon-top-select">
-                  <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="8"
-                      viewBox="0 0 16 8"
-                      fill="none"
-                  >
-                    <path
-                        d="M7.85335 0.061111C8.43543 0.0660483 9.01559 0.296795 9.45255 0.74379L14.828 6.24267C15.067 6.48725 15.0636 6.88869 14.8204 7.12919C14.5772 7.36968 14.1781 7.36629 13.939 7.12171L8.5636 1.62283C8.16786 1.218 7.51926 1.2125 7.11671 1.61055L1.6488 7.01746C1.4056 7.25795 1.00646 7.25457 0.767368 7.00998C0.528277 6.7654 0.531682 6.36396 0.774887 6.12347L6.2428 0.716564C6.68727 0.277045 7.27127 0.0561737 7.85335 0.061111Z"
-                        fill="#FF8600"
-                    />
-                  </svg>
-                </span>
-                            <span class="icon-bottom-select">
-                  <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="15"
-                      height="8"
-                      viewBox="0 0 15 8"
-                      fill="none"
-                  >
-                    <path
-                        d="M7.20766 7.25155C6.62556 7.25155 6.04345 7.02573 5.60272 6.58246L0.180867 1.12937C-0.060289 0.886822 -0.060289 0.485368 0.180867 0.242822C0.422023 0.000276733 0.821178 0.000276733 1.06233 0.242822L6.48419 5.69591C6.88334 6.09737 7.53197 6.09737 7.93112 5.69591L13.353 0.242822C13.5941 0.000276733 13.9933 0.000276733 14.2344 0.242822C14.4756 0.485368 14.4756 0.886822 14.2344 1.12937L8.81259 6.58246C8.37186 7.02573 7.78976 7.25155 7.20766 7.25155Z"
-                        fill="#FF8600"
-                    />
-                  </svg>
-                </span>
-                            <select class="ddl-select" id="list-sort" name="list-sort">
-                                <option>الترتيب حسب</option>
-                                <option value="1">الافضل</option>
-                                <option value="2">السعر من (الاعلي الي الاقل)</option>
-                                <option value="3">السعر من (الاقل الي الاعلي)</option>
-                                <option value="4">التقييمات من(1 الي 5)</option>
-                                <option value="5">التقييمات من(5 الي1)</option>
-                            </select>
-                        </div>
-                    </div>
+                    {{--                    <div class="col-lg-3 col-md-4 web-view">--}}
+                    {{--                        <a--}}
+                    {{--                            href="#"--}}
+                    {{--                            data-bs-toggle="modal"--}}
+                    {{--                            data-bs-target="#mapModal"--}}
+                    {{--                            class="d-block"--}}
+                    {{--                        >--}}
+                    {{--                            <div class="map-box mb-lg-0 mb-3">--}}
+                    {{--                                <img src="{{FRONTASSETS}}/images/map.png" alt="map"/>--}}
+                    {{--                                <div--}}
+                    {{--                                    class="map-data d-flex h-100 w-100 justify-content-center align-items-center"--}}
+                    {{--                                >--}}
+                    {{--                                    <h4 class="title-map">@lang('site.searchmap')</h4>--}}
+                    {{--                                </div>--}}
+                    {{--                            </div>--}}
+                    {{--                        </a>--}}
+                    {{--                    </div>--}}
+                    {{--                    <div class="col-lg-9 col-md-8">--}}
+                    {{--                        --}}{{--                        <h2 class="pb-3 search-result">وجدنا 44 شقة مناسبة لطلبك</h2>--}}
+                    {{--                        <div class="form-group mb-4 position-relative">--}}
+                    {{--                            <input--}}
+                    {{--                                type="search"--}}
+                    {{--                                class="form-control search-saeeh"--}}
+                    {{--                                placeholder="ابحث عن اسم العقار"--}}
+                    {{--                                id="search"--}}
+                    {{--                                name="q"--}}
+                    {{--                            />--}}
+                    {{--                            <div class="search-icon">--}}
+                    {{--                                <svg--}}
+                    {{--                                    xmlns="http://www.w3.org/2000/svg"--}}
+                    {{--                                    width="18"--}}
+                    {{--                                    height="18"--}}
+                    {{--                                    viewBox="0 0 18 18"--}}
+                    {{--                                    fill="none"--}}
+                    {{--                                >--}}
+                    {{--                                    <path--}}
+                    {{--                                        d="M15.9 17.3L10.3 11.7C9.8 12.1 9.225 12.4167 8.575 12.65C7.925 12.8833 7.23333 13 6.5 13C4.68333 13 3.146 12.3707 1.888 11.112C0.63 9.85333 0.000666667 8.316 0 6.5C0 4.68333 0.629333 3.146 1.888 1.888C3.14667 0.63 4.684 0.000666667 6.5 0C8.31667 0 9.854 0.629333 11.112 1.888C12.37 3.14667 12.9993 4.684 13 6.5C13 7.23333 12.8833 7.925 12.65 8.575C12.4167 9.225 12.1 9.8 11.7 10.3L17.325 15.925C17.5083 16.1083 17.6 16.3333 17.6 16.6C17.6 16.8667 17.5 17.1 17.3 17.3C17.1167 17.4833 16.8833 17.575 16.6 17.575C16.3167 17.575 16.0833 17.4833 15.9 17.3ZM6.5 11C7.75 11 8.81267 10.5623 9.688 9.687C10.5633 8.81167 11.0007 7.74933 11 6.5C11 5.25 10.5623 4.18733 9.687 3.312C8.81167 2.43667 7.74933 1.99933 6.5 2C5.25 2 4.18733 2.43767 3.312 3.313C2.43667 4.18833 1.99933 5.25067 2 6.5C2 7.75 2.43767 8.81267 3.313 9.688C4.18833 10.5633 5.25067 11.0007 6.5 11Z"--}}
+                    {{--                                        fill="#CACACA"--}}
+                    {{--                                    />--}}
+                    {{--                                </svg>--}}
+                    {{--                            </div>--}}
+                    {{--                        </div>--}}
+                    {{--                        <div class="box-sort-by mb-lg-4 mb-md-4 mb-3 position-relative web-view">--}}
+                    {{--                <span class="icon-top-select">--}}
+                    {{--                  <svg--}}
+                    {{--                      xmlns="http://www.w3.org/2000/svg"--}}
+                    {{--                      width="16"--}}
+                    {{--                      height="8"--}}
+                    {{--                      viewBox="0 0 16 8"--}}
+                    {{--                      fill="none"--}}
+                    {{--                  >--}}
+                    {{--                    <path--}}
+                    {{--                        d="M7.85335 0.061111C8.43543 0.0660483 9.01559 0.296795 9.45255 0.74379L14.828 6.24267C15.067 6.48725 15.0636 6.88869 14.8204 7.12919C14.5772 7.36968 14.1781 7.36629 13.939 7.12171L8.5636 1.62283C8.16786 1.218 7.51926 1.2125 7.11671 1.61055L1.6488 7.01746C1.4056 7.25795 1.00646 7.25457 0.767368 7.00998C0.528277 6.7654 0.531682 6.36396 0.774887 6.12347L6.2428 0.716564C6.68727 0.277045 7.27127 0.0561737 7.85335 0.061111Z"--}}
+                    {{--                        fill="#FF8600"--}}
+                    {{--                    />--}}
+                    {{--                  </svg>--}}
+                    {{--                </span>--}}
+                    {{--                            <span class="icon-bottom-select">--}}
+                    {{--                  <svg--}}
+                    {{--                      xmlns="http://www.w3.org/2000/svg"--}}
+                    {{--                      width="15"--}}
+                    {{--                      height="8"--}}
+                    {{--                      viewBox="0 0 15 8"--}}
+                    {{--                      fill="none"--}}
+                    {{--                  >--}}
+                    {{--                    <path--}}
+                    {{--                        d="M7.20766 7.25155C6.62556 7.25155 6.04345 7.02573 5.60272 6.58246L0.180867 1.12937C-0.060289 0.886822 -0.060289 0.485368 0.180867 0.242822C0.422023 0.000276733 0.821178 0.000276733 1.06233 0.242822L6.48419 5.69591C6.88334 6.09737 7.53197 6.09737 7.93112 5.69591L13.353 0.242822C13.5941 0.000276733 13.9933 0.000276733 14.2344 0.242822C14.4756 0.485368 14.4756 0.886822 14.2344 1.12937L8.81259 6.58246C8.37186 7.02573 7.78976 7.25155 7.20766 7.25155Z"--}}
+                    {{--                        fill="#FF8600"--}}
+                    {{--                    />--}}
+                    {{--                  </svg>--}}
+                    {{--                </span>--}}
+                    {{--                            <select class="ddl-select" id="list-sort" name="list-sort">--}}
+                    {{--                                <option>الترتيب حسب</option>--}}
+                    {{--                                <option value="1">الافضل</option>--}}
+                    {{--                                <option value="2">السعر من (الاعلي الي الاقل)</option>--}}
+                    {{--                                <option value="3">السعر من (الاقل الي الاعلي)</option>--}}
+                    {{--                                <option value="4">التقييمات من(1 الي 5)</option>--}}
+                    {{--                                <option value="5">التقييمات من(5 الي1)</option>--}}
+                    {{--                            </select>--}}
+                    {{--                        </div>--}}
+                    {{--                    </div>--}}
                 </div>
 
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="accordion mb-5 web-view" id="accordion_filter">
-                            <div class="filter-title">
-                                <div class="d-flex justify-content-between">
-                                    <h3 class="filter-count text-second fw-bold">
-                                        366 من 2666 نتيجة
-                                    </h3>
-                                    <a href="#" class="delete-result text-main fw-bold"
-                                    >ازالة</a
-                                    >
-                                </div>
-                                <h2 class="text-second mb-0">تصفيه حسب:</h2>
-                            </div>
+                            {{--                            <div class="filter-title">--}}
+                            {{--                                <div class="d-flex justify-content-between">--}}
+                            {{--                                    <h3 class="filter-count text-second fw-bold">--}}
+                            {{--                                        366 من 2666 نتيجة--}}
+                            {{--                                    </h3>--}}
+                            {{--                                    <a href="#" class="delete-result text-main fw-bold"--}}
+                            {{--                                    >ازالة</a--}}
+                            {{--                                    >--}}
+                            {{--                                </div>--}}
+                            {{--                                <h2 class="text-second mb-0">تصفيه حسب:</h2>--}}
+                            {{--                            </div>--}}
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
                                     <button
@@ -1231,7 +1241,7 @@
                                         aria-expanded="true"
                                         aria-controls="accordion-filter-1"
                                     >
-                                        <h5 class="accordion-title mb-0">عدد الغرف</h5>
+                                        <h5 class="accordion-title mb-0">@lang('site.room number')</h5>
 
                                         <div>
                                             <svg
@@ -1258,17 +1268,19 @@
                                             <div class="custom-checkbox">
                                                 <form>
                                                     <div class="form-group">
-                                                        <input type="checkbox" id="two" checked/>
+                                                        <input type="checkbox" id="two"
+                                                               name="room_number"
+                                                               onclick="GetAtrribute(this.id,this.name)"/>
                                                         <label for="two">2</label>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <input type="checkbox" id="three"/>
-                                                        <label for="three">3</label>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="checkbox" id="four"/>
-                                                        <label for="four">4</label>
-                                                    </div>
+                                                    {{--                                                    <div class="form-group">--}}
+                                                    {{--                                                        <input type="checkbox" id="three"/>--}}
+                                                    {{--                                                        <label for="three">3</label>--}}
+                                                    {{--                                                    </div>--}}
+                                                    {{--                                                    <div class="form-group">--}}
+                                                    {{--                                                        <input type="checkbox" id="four"/>--}}
+                                                    {{--                                                        <label for="four">4</label>--}}
+                                                    {{--                                                    </div>--}}
                                                 </form>
                                             </div>
                                         </div>
@@ -1285,7 +1297,7 @@
                                         aria-expanded="true"
                                         aria-controls="accordion-filter-2"
                                     >
-                                        <h5 class="accordion-title mb-0">عدد الادوار</h5>
+                                        <h5 class="accordion-title mb-0">@lang('site.floor_number')</h5>
                                         <div>
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
@@ -1311,17 +1323,18 @@
                                             <div class="custom-checkbox">
                                                 <form>
                                                     <div class="form-group">
-                                                        <input type="checkbox" id="two" checked/>
+                                                        <input type="checkbox" id="two" name="floor_number"
+                                                               onclick="GetAtrribute(this.id,this.name)"/>
                                                         <label for="two">2</label>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <input type="checkbox" id="three"/>
-                                                        <label for="three">3</label>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="checkbox" id="four"/>
-                                                        <label for="four">4</label>
-                                                    </div>
+                                                    {{--                                                    <div class="form-group">--}}
+                                                    {{--                                                        <input type="checkbox" id="three"/>--}}
+                                                    {{--                                                        <label for="three">3</label>--}}
+                                                    {{--                                                    </div>--}}
+                                                    {{--                                                    <div class="form-group">--}}
+                                                    {{--                                                        <input type="checkbox" id="four"/>--}}
+                                                    {{--                                                        <label for="four">4</label>--}}
+                                                    {{--                                                    </div>--}}
                                                 </form>
                                             </div>
                                         </div>
@@ -1372,7 +1385,9 @@
                                                         <input
                                                             type="number"
                                                             class="input-min-price filter__input"
-                                                            name="min"
+                                                            name="price"
+                                                            id="1"
+                                                            onclick="GetAtrribute(this.id,this.name)"
                                                         />
                                                         <span>دينار</span>
                                                     </div>
@@ -1382,7 +1397,9 @@
                                                         <input
                                                             type="number"
                                                             class="input-max-price filter__input"
-                                                            name="max"
+                                                            name="price"
+                                                            id="10"
+                                                            onclick="GetAtrribute(this.id,this.name)"
                                                         />
                                                         <span>دينار</span>
                                                     </div>
@@ -1440,7 +1457,9 @@
                                             <div class="custom-checkbox">
                                                 <form>
                                                     <div class="form-group">
-                                                        <input type="checkbox" id="rate-1" checked/>
+                                                        <input type="checkbox" id="rate-1" name="rate"
+                                                               value="1"
+                                                               onclick="GetAtrribute(this.id,this.name)"/>
                                                         <label
                                                             for="rate-1"
                                                             class="d-flex align-items-center"
@@ -1467,7 +1486,9 @@
                                                         </label>
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="checkbox" id="rate-2"/>
+                                                        <input type="checkbox" id="rate-2" name="rate"
+                                                               value="2"
+                                                               onclick="GetAtrribute(this.id,this.name)"/>
                                                         <label
                                                             for="rate-2"
                                                             class="d-flex align-items-center"
@@ -1494,7 +1515,9 @@
                                                         </label>
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="checkbox" id="rate-3"/>
+                                                        <input type="checkbox" id="rate-3" name="rate"
+                                                               value="3"
+                                                               onclick="GetAtrribute(this.id,this.name)"/>
                                                         <label
                                                             for="rate-3"
                                                             class="d-flex align-items-center"
@@ -1521,7 +1544,8 @@
                                                         </label>
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="checkbox" id="rate-4"/>
+                                                        <input type="checkbox" id="rate-4" name="rate" value="4"
+                                                               onclick="GetAtrribute(this.id,this.name)"/>
                                                         <label
                                                             for="rate-4"
                                                             class="d-flex align-items-center"
@@ -1548,7 +1572,8 @@
                                                         </label>
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="checkbox" id="rate-5"/>
+                                                        <input type="checkbox" id="rate-5" name="rate" value="5"
+                                                               onclick="GetAtrribute(this.id,this.name)"/>
                                                         <label
                                                             for="rate-5"
                                                             class="d-flex align-items-center"
@@ -1590,7 +1615,7 @@
                                         aria-expanded="true"
                                         aria-controls="accordion-filter-7"
                                     >
-                                        <h5 class="accordion-title mb-0">المرافق</h5>
+                                        <h5 class="accordion-title mb-0">@lang('site.Accompanying')</h5>
                                         <div>
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
@@ -1615,9 +1640,14 @@
                                         <div class="row align-items-center">
                                             <div class="custom-checkbox">
                                                 <form>
-                                                    <div class="form-group">
-                                                        <input type="checkbox" id="two" checked/>
-                                                        <label for="two">
+                                                    @foreach($allaquars as $Aqr)
+                                                        @foreach($Aqr->aqarSection->unique('name_ar') as $key=>$section )
+                                                            <div class="form-group">
+                                                                <input type="checkbox" id="{{$section->id}}"
+                                                                       name="sections"
+                                                                       value="{{$section->id}}"
+                                                                       onclick="GetAtrribute(this.id,this.name)"/>
+                                                                <label for="{{$section->id}}">
                                 <span class="ps-1"
                                 ><svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -1647,69 +1677,11 @@
                                         stroke-linecap="round"
                                         stroke-linejoin="round"
                                     /></svg></span>
-                                                            <span>المسبح</span>
-                                                        </label>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="checkbox" id="three"/>
-                                                        <label for="three">
-                                <span class="ps-1">
-                                  <svg
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      width="24"
-                                      height="24"
-                                      viewBox="0 0 24 24"
-                                      fill="none"
-                                  >
-                                    <path
-                                        d="M14.7 6.29974C14.5168 6.48666 14.4141 6.73798 14.4141 6.99974C14.4141 7.26149 14.5168 7.51281 14.7 7.69973L16.3 9.29974C16.4869 9.48296 16.7382 9.58559 17 9.58559C17.2617 9.58559 17.513 9.48296 17.7 9.29974L21.47 5.52974C21.9728 6.64092 22.1251 7.87897 21.9064 9.07888C21.6878 10.2788 21.1087 11.3836 20.2463 12.246C19.3838 13.1084 18.279 13.6876 17.0791 13.9062C15.8792 14.1248 14.6412 13.9726 13.53 13.4697L6.61998 20.3797C6.22215 20.7776 5.68259 21.0011 5.11998 21.0011C4.55737 21.0011 4.0178 20.7776 3.61998 20.3797C3.22215 19.9819 2.99866 19.4423 2.99866 18.8797C2.99866 18.3171 3.22215 17.7776 3.61998 17.3797L10.53 10.4697C10.0271 9.35855 9.87489 8.1205 10.0935 6.92059C10.3121 5.72068 10.8913 4.61589 11.7537 3.75346C12.6161 2.89102 13.7209 2.3119 14.9208 2.09328C16.1207 1.87465 17.3588 2.0269 18.47 2.52974L14.71 6.28974L14.7 6.29974Z"
-                                        stroke="#CACACA"
-                                        stroke-width="1.5"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    />
-                                  </svg>
-                                </span>
-                                                            <span>خدمات مجانية</span>
-                                                        </label>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="checkbox" id="four"/>
-                                                        <label for="four">
-                                <span class="ps-1">
-                                  <svg
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      width="24"
-                                      height="24"
-                                      viewBox="0 0 24 24"
-                                      fill="none"
-                                  >
-                                    <path
-                                        d="M14 16H9M19 16H22V12.85C22.0007 12.612 21.9165 12.3816 21.7625 12.2001C21.6085 12.0187 21.3949 11.8981 21.16 11.86L16 11L13.3 7.4C13.2069 7.2758 13.0861 7.175 12.9472 7.10557C12.8084 7.03615 12.6552 7 12.5 7H5.24C4.86727 6.99741 4.50123 7.09902 4.18318 7.29339C3.86513 7.48775 3.60772 7.76713 3.44 8.1L2.64 9.73C2.22015 10.5646 2.00099 11.4857 2 12.42V16H4"
-                                        stroke="#CACACA"
-                                        stroke-width="1.5"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    />
-                                    <path
-                                        d="M6.5 19C7.88071 19 9 17.8807 9 16.5C9 15.1193 7.88071 14 6.5 14C5.11929 14 4 15.1193 4 16.5C4 17.8807 5.11929 19 6.5 19Z"
-                                        stroke="#CACACA"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    />
-                                    <path
-                                        d="M16.5 19C17.8807 19 19 17.8807 19 16.5C19 15.1193 17.8807 14 16.5 14C15.1193 14 14 15.1193 14 16.5C14 17.8807 15.1193 19 16.5 19Z"
-                                        stroke="#CACACA"
-                                        stroke-width="1.5"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    />
-                                  </svg>
-                                </span>
-                                                            <span>مواقف سيارات</span>
-                                                        </label>
-                                                    </div>
+                                                                    <span>{{$section->name_ar ?? ''}}</span>
+                                                                </label>
+                                                            </div>
+                                                        @endforeach
+                                                    @endforeach
                                                 </form>
                                             </div>
                                         </div>
@@ -1794,7 +1766,8 @@
                                                 <div class="custom-checkbox">
                                                     <form>
                                                         <div class="form-group">
-                                                            <input type="checkbox" id="two" checked/>
+                                                            <input type="checkbox" id="two"
+                                                                   onclick="GetAtrribute(this.id,this.name)"/>
                                                             <label for="two">2</label>
                                                         </div>
                                                         <div class="form-group">
@@ -1847,8 +1820,11 @@
                                                 <div class="custom-checkbox">
                                                     <form>
                                                         <div class="form-group">
-                                                            <input type="checkbox" id="two" checked/>
-                                                            <label for="two">2</label>
+                                                            <input type="checkbox" id="1" name="category_id"
+                                                                   onclick="GetAtrribute(this.id,this.name)"/>
+
+
+                                                            <label for="1">8</label>
                                                         </div>
                                                         <div class="form-group">
                                                             <input type="checkbox" id="three"/>
@@ -2358,7 +2334,7 @@
                     <div class="col-lg-9">
                         <div>
                             @foreach($aquars as $aquar)
-                                <div class="card card-department round-border mb-3 p-lg-3 p-2">
+                                <div class="card card-department round-border mb-3 p-lg-3 p-2" id="tab-aquar-2">
                                     <div class="row g-0">
                                         <div class="col-lg-4 position-relative">
                                             <div
@@ -2387,7 +2363,7 @@
 
                                                                 src="{{asset('images/aqars/'.$img)}}"
 
-                                                            onerror="this.src='{{FRONTASSETS}}/images/department-1.svg'"
+                                                                onerror="this.src='{{FRONTASSETS}}/images/department-1.svg'"
                                                                 class="department-img-list of-cover"
                                                                 alt="image 1"
                                                             />
@@ -2473,7 +2449,7 @@
                                                 >
                                                     <div class="col-lg-4 mb-lg-0 mb-3">
                                                         <div class="text-main number-ads">
-                                                            @lang('site.id number'){{$aquar->id}})
+                                                            @lang('site.id number')({{$aquar->id}})
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-8">
@@ -2547,6 +2523,8 @@
                                     </div>
                                 </div>
                             @endforeach
+                            <div class="card card-department round-border mb-3 p-lg-3 p-2" id="tab-aquar-3">
+                            </div>
                         </div>
                         <div class="card card-department round-border mb-3 p-3">
                             <nav
@@ -2592,5 +2570,167 @@
             </div>
         </section>
     </main>
+
+@endsection
+@section('scripts')
+    <script>
+
+        function getMySearch() {
+//            var input, filter, ul, li, a, i, txtValue;
+//            input = document.getElementById("myInput");
+//            console.log('input', input);
+//            filter = input.value.toLowerCase();
+//            ul = document.getElementById("myUL");
+//            li = ul.getElementsByClassName("city-item");
+//            console.log(li);
+//            for (i = 0; i < li.length; i++) {
+//                a = li[i].getElementsByTagName("label");
+//
+//                txtValue = a.textContent || a.innerText;
+//                console.log(txtValue);
+//                if (txtValue.toLowerCase().indexOf(filter) > -1) {
+//                    li[i].style.display = "";
+//                } else {
+//                    li[i].style.display = "none";
+//                }
+//            }
+        }
+
+        function GetAtrribute(id, name) {
+            console.log('id', id);
+            console.log('name', name);
+            var checkbox = document.getElementById(id);
+
+            if (checkbox.checked == true) {
+                console.log('eeeeeeeeeeee');
+
+                const url = '{{route('checkallaquar')}}';
+
+                // let data = {
+                //     id: id,
+                //     name:name
+                // };
+                var array_room_number = [];
+                $("input:checkbox[name=room_number]:checked").each(function () {
+                    array_room_number.push($(this).val());
+                });
+                var array_floor_number = [];
+                $("input:checkbox[name=floor_number]:checked").each(function () {
+                    array_floor_number.push($(this).val());
+                });
+                var array_price = [];
+                $("input:checkbox[name=price]:checked").each(function () {
+                    array_price.push($(this).val());
+                });
+                var array_sections = [];
+                $("input:checkbox[name=sections]:checked").each(function () {
+                    array_sections.push($(this).val());
+                });
+
+                var rate = [];
+                $("input:checkbox[name=rate]:checked").each(function () {
+                    rate.push($(this).val());
+                });
+                console.log('array_price', array_price);
+                console.log('array_sections', array_sections);
+                console.log('rate', rate);
+
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    data: {
+                        name: name,
+                        value: id,
+                        room_number: array_room_number,
+                        rate: rate,
+                        floor_number: array_floor_number,
+                        sections: array_sections,
+                        price: array_price,
+
+                        // _token: $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function (data) {
+                        $("#tab-aquar-2").hide();
+                        // ('.carhidden').html(data);
+                        $("#tab-aquar-3").show();
+                        $("#tab-aquar-3").html(data);
+                        console.log("response", data);
+                    },
+                    error: function (data, textStatus, errorThrown) {
+                        console.log("error", data);
+                    },
+                });
+
+                // let dataRequest = new Request(url, {
+                //     method: 'POST',
+                //     body: JSON.stringify(data),
+                //     headers: new Headers({
+                //         'Content-Type': 'application/json; charset=UTF-8'
+                //     })
+                // });
+                //
+                // fetch(dataRequest)
+                //     .then(function() {
+                //         // Handle response you get from the API
+                //     });
+
+
+                {{--    $.ajaxSetup({--}}
+                {{--    headers: {--}}
+                {{--    'X-CSRF-TOKEN': "{{ csrf_token() }}"--}}
+                {{--}--}}
+                {{--});--}}
+
+                {{--    // $("#btn-submit").click(function(e){--}}
+
+                {{--    // $("#add-form").submit(function(e){--}}
+
+
+                {{--        // $('#spinnerss').show();--}}
+
+                {{--        // e.preventDefault();--}}
+
+                {{--        var data =id,name;--}}
+
+
+                {{--        console.log(data);--}}
+                {{--        var url = '{{route('CheckCar')}}';--}}
+
+                {{--        $.ajax({--}}
+                {{--            url:url,--}}
+                {{--            method:'POST',--}}
+                {{--            cache: false,--}}
+                {{--            processData:false,--}}
+                {{--            contentType: false,--}}
+                {{--            enctype: 'multipart/form-data',--}}
+                {{--            data: data,--}}
+                {{--            success:function(response){--}}
+
+                {{--                if(response.success){--}}
+                {{--                    --}}{{--$('#spinnerss').hide();--}}
+                {{--                    --}}{{--window.location.href ='{{route('dashboard.products.index')}}';--}}
+
+
+                {{--                }else{--}}
+                {{--                    alert("Error")--}}
+                {{--                }--}}
+                {{--            },--}}
+                {{--            error:function(result){--}}
+                {{--                console.log(result)--}}
+
+                {{--            }--}}
+                {{--        });--}}
+
+
+
+
+
+
+            }
+            // console.log(checkbox, 'clicks');
+        }
+
+
+    </script>
 
 @endsection

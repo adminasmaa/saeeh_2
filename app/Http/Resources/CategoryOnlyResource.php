@@ -30,7 +30,7 @@ class CategoryOnlyResource extends JsonResource
             'description' => $this->description ?? '',
             "icon" => asset('images/categories')."/".$this->icon,
             "image" => asset('images/categories')."/".$this->image,
-
+            "subcategories"=> (count($this->subcategories)>0 ? true : false),
             "active" => $this->active,
         ];
     }

@@ -6,7 +6,6 @@ namespace App\Repositories\Eloquent;
 use App\Models\AdsStatus;
 use App\Repositories\Interfaces\AdsStatusRepositoryInterface as IAdsStatusRepositoryAlias;
 use Illuminate\Support\Facades\Auth;
-
 use Alert;
 
 class AdsStatusRepository implements IAdsStatusRepositoryAlias

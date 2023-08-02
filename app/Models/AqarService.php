@@ -27,6 +27,10 @@ class AqarService extends Model
 
     protected $hidden = ['deleted_at', 'updated_at'];
 
+    public function getNameAttribute()
+    {
+        return (app()->getLocale() === 'ar') ? $this->name_ar : $this->name_en;
+    }
     public function getImagePathAttribute()
     {
         return asset('images/services_aqars/' . $this->icon);
@@ -44,5 +48,9 @@ class AqarService extends Model
     {
         return $this->belongsToMany(AqarService::class, 'aqar_sections', 'section_id', 'sub_section_id');
     }
+//    public function nameintsubsection()
+//    {
+//        return $this->belongsToMany(AqarService::class, 'aqar_sections', 'section_id', 'sub_section_id')->when(is_int('name_ar'));
+//    }
 
 }

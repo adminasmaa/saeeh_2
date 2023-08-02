@@ -52,8 +52,9 @@ Route::get('checkallcar', 'App\Http\Controllers\Frontend\CarController@CheckCar'
 
 //aquar start
 Route::get('aquars/{id}', 'App\Http\Controllers\Frontend\AquarController@allaquars')->name('aquars');
+Route::post('filteraquars', 'App\Http\Controllers\Frontend\AquarController@filteraquars')->name('filteraquars');
 Route::get('detailaquar/{id}', 'App\Http\Controllers\Frontend\AquarController@detailaquar')->name('detailaquar');
-//Route::get('checkallcar', 'App\Http\Controllers\Frontend\AquarController@CheckCar')->name('checkallcar');
+Route::get('checkallaquar', 'App\Http\Controllers\Frontend\AquarController@checkallaquar')->name('checkallaquar');
 //aquar end
 
 

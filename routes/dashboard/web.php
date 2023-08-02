@@ -51,6 +51,7 @@ use App\Http\Controllers\Dashboard\AqarReviewController;
 use App\Http\Controllers\Dashboard\CarReviewController;
 use App\Http\Controllers\Dashboard\PlaceReviewController;
 use App\Http\Controllers\Dashboard\AdsStatusController;
+use App\Http\Controllers\Dashboard\BookingStatusController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -203,6 +204,9 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
         //AdsStatus
         Route::resource('ads_status', AdsStatusController::class);
+
+        //BookingStatus
+        Route::resource('booking_status', BookingStatusController::class);
 
     }); //end of dashboard routes
 });

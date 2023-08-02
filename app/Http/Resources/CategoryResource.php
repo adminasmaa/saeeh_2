@@ -31,7 +31,7 @@ class CategoryResource extends JsonResource
             "image" => asset('images/categories')."/".$this->image,
             "active" => $this->active,
             "subcategories"=> SubCategoryResource::collection($this->whenLoaded('subcategories')),
-            "places"=> $this->when($this->subcategories->isEmpty(),PlaceResource::collection($this->places)),
+//            "places"=> $this->when($this->subcategories->isEmpty(),PlaceResource::collection($this->places)),
         ];
     }
 }

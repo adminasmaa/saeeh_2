@@ -24,7 +24,7 @@ return [
     'namecar' => 'ابحث عن اسم السيارة',
     'comments' => 'التقيمات',
     'carbonbooking' => 'يتم دفع العربون فى حالة الحجز',
-
+'The deposit is paid at the time of booking'=>'يتم دفع العربون فى حالة الحجز',
     'Please follow the site policy' => 'برجاء اتباع سياسه المكان',
     'allownumber' => 'العدد المسموح بيه',
     'Arrival dates' => 'مواعيد الوصول',
@@ -270,7 +270,9 @@ return [
     'time_difference' => 'فارق التوقيت',
     'closing' => 'الاغلاق',
     'Become a partner with us' => 'كن شريكا معنا',
-
+    'booking_status' =>'حالات الحجز',
+    'booking_status_ar' =>'حالات الحجز بالعربي',
+    'booking_status_en' =>'حالات الحجز بالانجليزي',
 
     'open' => 'مفتوح',
     'closed' => 'مغلق',
@@ -547,7 +549,7 @@ return [
     'masterroom' => 'عدد الغرف الماستر',
     'normalroom' => 'عدد الغرف العادية',
     'room number' => 'عدد الغرف ',
-
+'Accompanying'=>'المرافق',
     'anotherrooms' => 'غرف اخرى',
     'service' => 'الخدمات',
     'freeservice' => 'خدمات مجانية',
@@ -606,6 +608,7 @@ return [
     'Happy Day' => 'يوم سعيد',
     'Good Afternoon' => 'مساء الخير',
     'all_countries' => 'كل الدول',
+    'floor_number' => 'عدد الادوار',
 
 
     'ar' => [
