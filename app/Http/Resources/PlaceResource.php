@@ -8,6 +8,7 @@ use App\Http\Resources\PlaceReviewResource;
 
 class PlaceResource extends JsonResource
 {
+
     /**
      * Transform the resource into an array.
      *
