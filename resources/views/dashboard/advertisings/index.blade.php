@@ -42,7 +42,7 @@
                             <div class="text-end  group-btn-top">
                                 <div class="form-group d-flex form-group justify-content-between">
 
-                                    <a href="{{route('dashboard.cities.create')}}" class="btn btn-air-primary btn-pill btn-primary"><i
+                                    <a href="{{route('dashboard.advertisings.create')}}" class="btn btn-air-primary btn-pill btn-primary"><i
                                             class="fa fa-plus p-1"></i>
                                         @lang('site.add')</a>
                                 </div>
