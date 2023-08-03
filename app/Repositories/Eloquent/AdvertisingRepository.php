@@ -15,7 +15,9 @@ class AdvertisingRepository implements AdvertisingRepositoryInterfaceAlias
     public function getAll($data)
     {
 
-//        return $data->query();
+
+       
+    //    return $data->query();
 
         return $data->render('dashboard.advertising.index', [
             'title' => trans('site.advertising'),
@@ -82,7 +84,7 @@ class AdvertisingRepository implements AdvertisingRepositoryInterfaceAlias
         if ($advertising) {
             Alert::success('Success', __('site.added_successfully'));
 
-            return redirect()->route('dashboard.advertising.index');
+            return redirect()->route('dashboard.advertisings.index');
 
         }
     }
@@ -109,12 +111,12 @@ class AdvertisingRepository implements AdvertisingRepositoryInterfaceAlias
         if ($advertising) {
             Alert::success('Success', __('site.updated_successfully'));
 
-            return redirect()->route('dashboard.advertising.index');
+            return redirect()->route('dashboard.advertisings.index');
 //            session()->flash('success', __('site.updated_successfully'));
         } else {
             Alert::error('Success', __('site.update_faild'));
 
-            return redirect()->route('dashboard.advertising.index');
+            return redirect()->route('dashboard.advertisings.index');
 
         }
     }

@@ -17,7 +17,6 @@ class Country extends Model
         'active',
         'image',
         'currency',
-        'display_data',
         'flag_image',
     ];
 

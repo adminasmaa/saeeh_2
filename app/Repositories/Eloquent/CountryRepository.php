@@ -69,7 +69,7 @@ class CountryRepository implements ICountryRepositoryAlias
         $request_data = $request->except(['image','flag_image']);
 
         // To Make User Active
-        $request_data['active'] = 1;
+        // $request_data['active'] = 1;
 
         $country = Country::create($request_data);
 
