@@ -165,7 +165,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         Route::resource('settings', SettingController::class);
 
         //advertising
-        Route::resource('advertising', AdvertisingController::class);
+        Route::resource('advertisings', AdvertisingController::class);
 
         //balances
         Route::resource('balances', BalanceController::class);

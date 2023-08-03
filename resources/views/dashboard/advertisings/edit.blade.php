@@ -26,7 +26,7 @@
         <div class="container-fluid">
             <div class="row second-chart-list third-news-update">
                 <div class="col-xl-12 col-lg-11 xl-50 morning-sec box-col-12">
-                    <form action="{{ route('dashboard.advertising.update', $advertising->id) }}" method="post"
+                    <form action="{{ route('dashboard.advertisings.update', $advertising->id) }}" method="post"
                           enctype="multipart/form-data">
 
                         {{ csrf_field() }}

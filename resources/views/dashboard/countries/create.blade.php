@@ -64,7 +64,7 @@
                                                required>
                                     </div>
 
-                                                 <div class="col-md-6 form-group">
+                                    <div class="col-md-6 form-group">
                                         <label>@lang('site.en.name')<span class="text-danger">*</span></label>
                                         <input type="text" name="name_en" class="form-control"
                                                value="{{old('name_en')}}"
@@ -88,36 +88,37 @@
                                                        value="{{old('code')}}"
                                                 >
                                             </div>
+                                            <div class="col-md-6 form-group">
+                                                        <label class="form-label">@lang('site.active')</label>
+                                                        <select class="js-example-placeholder-multiple col-sm-12" name="active">
+                                                            <option>@lang('site.select')</option>
+                                                            <option value="1">@lang('site.active')</option>
+                                                            <option value="0">@lang('site.not-active') </option>
+                                                        </select>
+                                            </div>
                                         </div>
 
                                         <div class="row">
 
                                         <div class="col-md-6 form-group">
 
-
                                             <label>@lang('site.image')</label>
                                             <input type="file" name="image" class="form-control"
                                                    value="{{ old('image') }}">
 
-
                                         </div>
                                         <div class="col-md-6 form-group">
-
 
                                             <label>@lang('site.flag_image')</label>
                                             <input type="file" name="flag_image" class="form-control"
                                                    value="{{ old('flag_image') }}">
 
-
                                         </div>
                                         </div>
-
 
                                     </div>
 
-
                                 </div>
-
 
                             </div>
                     </div>

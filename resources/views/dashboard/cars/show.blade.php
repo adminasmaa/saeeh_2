@@ -223,7 +223,7 @@
                                     @foreach($adsStatus as $ads_status)
 
                                         <option value="{{$ads_status->id}}" @if($ads_status->
-                                                        id==$aqar->ads_status_id) selected
+                                                        id==$car->ads_status_id) selected
                                             @endif>{{$ads_status->status_ar ?? ''}}</option>
 
                                     @endforeach

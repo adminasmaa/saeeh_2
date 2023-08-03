@@ -79,7 +79,7 @@
                                 
                                     <div class="col-md-6 form-group">
                                         <label class="form-label">@lang('site.country')</label>
-                                        <select class="form-control btn-square" name="country_id">
+                                        <select class="js-example-placeholder-multiple col-sm-12" name="country_id">
                                             <option selected>@lang('site.select')</option>
                                             @foreach($countries as $country)
 
@@ -91,10 +91,11 @@
                                         </select>
                                     </div>
                                 </div>
+                                
                                 <div class="row">
                                     <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                         <label class="form-label">@lang('site.categories')</label>
-                                        <select class="form-control btn-square" name="category_id"id="category_id">
+                                        <select class="js-example-placeholder-multiple col-sm-12" name="category_id"id="category_id">
                                             <option selected>@lang('site.select')</option>
                                             @foreach($categories as $cat)
 
@@ -106,7 +107,7 @@
                                     </div>
                                     <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                             <label class="form-label">@lang('site.subcategories')</label>
-                                            <select class="form-control btn-square" name="sub_category_id" id="sub_category_id">
+                                            <select class="js-example-placeholder-multiple col-sm-12" name="sub_category_id" id="sub_category_id">
                                                 <option selected>@lang('site.select')</option>
                                                     @foreach($subcategories as $cat)
 
