@@ -19,7 +19,9 @@ use App\Models\Setting;
 use App\Models\HomeServices;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-
+//use Illuminate\Support\Facades\File;
+use Storage;
+use File;
 class HomeController extends Controller
 {
 
@@ -97,6 +99,9 @@ class HomeController extends Controller
 
 
     }
+
+  
+
 
 
 }
