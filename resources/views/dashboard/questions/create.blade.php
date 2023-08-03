@@ -63,7 +63,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-12 p-2 ">
-                                        <label>@lang('site.answer')<span class="text-danger">*</span></label>
+                                        <label>@lang('site.answer')<span  class="text-danger">*</span></label>
                                         <textarea id="editor1"  cols="15" rows="5" name="answer">
 
                                         </textarea>

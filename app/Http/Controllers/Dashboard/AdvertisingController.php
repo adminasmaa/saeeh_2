@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-
-use App\DataTables\AdvertisingDataTable;
+use App\DataTables\AdsDataTable;
 use App\Http\Controllers\Controller;
 
 use App\Models\Ads;
@@ -24,7 +23,7 @@ class AdvertisingController extends Controller
         $this->AdvertisingRepository = $AdvertisingRepository;
     }
 
-    public function index(AdvertisingDataTable $AdvertisingDataTable)
+    public function index(AdsDataTable $AdvertisingDataTable)
     {
 
 //        return Ads::all();
