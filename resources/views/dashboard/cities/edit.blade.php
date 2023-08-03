@@ -126,20 +126,19 @@
                                     >
                                 </div>
 
-                                <div class="col-md-6 form-group">
+                                <div class="col-md-6 form-group col-12 p-2 ">
                                     <label class="form-label">@lang('site.country')</label>
-                                    <select class="form-control btn-square" name="country_id">
-                                        <option selected>@lang('site.select')</option>
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="country_id">
+                                        <option>@lang('site.select')</option>
                                         @foreach($countries as $country)
 
                                             <option value="{{$country->id}}"
-                                                    @if($country->id==$city->country_id) selected @endif>{{$country->name_ar ?? ''}}</option>
+                                            @if($country->id==$city->country_id) selected @endif>{{$country->name_ar ?? ''}}</option>
 
                                         @endforeach
 
                                     </select>
                                 </div>
-
 
                                 <div class="col-md-6 form-group col-12 p-2 ">
                                     <label class="form-label">@lang('site.categories')</label>
@@ -156,9 +155,10 @@
                                     </select>
                                 </div>
 
-                                <div class="col-md-6 form-group"><span class="text-danger">*</span>
+                                <div class="col-md-6 form-group col-12 p-2 ">
                                     <label class="form-label">@lang('site.subcategories')</label>
-                                    <select class="form-control btn-square" name="sub_category_id" id="sub_category_id">
+                                    <select class="js-example-placeholder-multiple col-sm-12" id="sub_category_id"
+                                            name="sub_category_id">
                                         <option value="0">@lang('site.select')</option>
                                         @foreach($subcategories as $cats)
 

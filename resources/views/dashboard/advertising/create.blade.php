@@ -81,7 +81,7 @@
 
                                     <div class="col-md-6 form-group col-12 p-2">
                                         <label class="form-label">@lang('site.position')</label>
-                                        <select class="form-control btn-square" name="country_id">
+                                        <select class="js-example-placeholder-multiple col-sm-12" name="country_id">
                                             <option selected>@lang('site.select')</option>
 
                                             <option value="upper_middle">Upper Middle</option>
@@ -95,7 +95,7 @@
 
                                     <div class="col-md-6 form-group">
                                         <label class="form-label">@lang('site.users')</label>
-                                        <select class="form-control btn-square" name="user_id">
+                                        <select class="js-example-placeholder-multiple col-sm-12" name="user_id">
                                             <option selected>@lang('site.select')</option>
                                             @foreach($users as $user)
 

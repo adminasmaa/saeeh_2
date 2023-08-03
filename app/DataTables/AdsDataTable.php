@@ -4,19 +4,18 @@ namespace App\DataTables;
 
 use App\Helpers\DTHelper;
 use App\Models\Ads;
+use Yajra\DataTables\Html\Button;
+use Yajra\DataTables\Html\Column;
+use Yajra\DataTables\Services\DataTable;
+use Yajra\DataTables\Html\Editor\Fields;
+use Yajra\DataTables\Html\Editor\Editor;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
-use Yajra\DataTables\Html\Button;
-use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
-use Yajra\DataTables\Services\DataTable;
 
-class AdvertisingDataTable extends DataTable
+class AdsDataTable extends DataTable
 {
-
-    private $crudName = 'advertising';
+    private $crudName = 'advertisings';
 
     private function getRoutes()
     {
@@ -65,14 +64,13 @@ class AdvertisingDataTable extends DataTable
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Advertising $model
+     * @param \App\Models\Ad $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Ads $model): QueryBuilder
     {
-        return $model->newQuery();
+      return $model->newQuery();
     }
-
     public function count()
     {
         return Ads::count();
@@ -87,22 +85,21 @@ class AdvertisingDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-            ->setTableId('ads-table')
-            ->addTableClass('cell-border stripe')
-            ->columns($this->getColumns())
-            ->minifiedAjax()
-            ->dom('Bfrtip')
-            ->orderBy(1)
-            ->selectStyleSingle()
-            ->buttons([
-            //   Button::make('create')->text('<i class="fa fa-plus"></i> ' . trans('site.add')),
-                Button::make('csv')->text('<i class="fa fa-download"></i> ' . trans('site.export')),
-                Button::make('print')->text('<i class="fa fa-print"></i> ' . trans('site.print')),
-            //   Button::make('reset')->text('<i class="fa fa-undo"></i> ' . trans('site.reset')),
-            //    Button::make('reload')->text('<i class="fa fa-refresh"></i> ' . trans('site.reload')),
-            ])->language([
-                "url" => app()->getLocale() == 'ar' ? "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json":"//cdn.datatables.net/plug-ins/1.13.4/i18n/en-GB.json"
-            ]);
+                    ->setTableId('ads-table')
+                    ->columns($this->getColumns())
+                    ->minifiedAjax()
+                    //->dom('Bfrtip')
+                    ->orderBy(1)
+                    ->selectStyleSingle()
+                    ->buttons([
+                        //   Button::make('create')->text('<i class="fa fa-plus"></i> ' . trans('site.add')),
+                            Button::make('csv')->text('<i class="fa fa-download"></i> ' . trans('site.export')),
+                            Button::make('print')->text('<i class="fa fa-print"></i> ' . trans('site.print')),
+                        //   Button::make('reset')->text('<i class="fa fa-undo"></i> ' . trans('site.reset')),
+                        //    Button::make('reload')->text('<i class="fa fa-refresh"></i> ' . trans('site.reload')),
+                        ])->language([
+                            "url" => app()->getLocale() == 'ar' ? "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json":"//cdn.datatables.net/plug-ins/1.13.4/i18n/en-GB.json"
+                        ]);
     }
 
     /**
@@ -116,7 +113,7 @@ class AdvertisingDataTable extends DataTable
             Column::make('id')->data('DT_RowIndex')->name('id')->title('#'),
 
             Column::make('title')->title(trans('site.title')),
-            Column::make('position')->title(trans('site.position')),
+            // Column::make('position')->title(trans('site.position')),
             Column::make('created_at')->title(trans('site.created_at')),
             Column::computed('action')
                 ->exportable(false)

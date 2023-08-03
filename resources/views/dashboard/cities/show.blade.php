@@ -165,7 +165,7 @@
                                 </div>
 
                                 <div class="col-md-6 form-group col-12 p-2 ">
-                                    <label class="form-label">@lang('site.city')</label>
+                                    <label class="form-label">@lang('site.categories')</label>
                                     <select class="js-example-placeholder-multiple col-sm-12" multiple="multiple"
                                             name="category_id[]" disabled>
                                         <option>@lang('site.select')</option>
@@ -179,6 +179,19 @@
                                     </select>
                                 </div>
 
+                                <div class="col-md-6 form-group"><span class="text-danger">*</span>
+                                <label class="form-label">@lang('site.subcategories')</label>
+                                <select class="form-control btn-square" name="sub_category_id" id="sub_category_id" disabled readonly="">
+                                    <option >@lang('site.select')</option>
+                                    @foreach($subcategories as $cats)
+
+                                        <option value="{{$cats->id}}"
+                                                @if($city->sub_category_id==$cats->id) selected @endif>{{$cats->name_ar ?? ''}}</option>
+
+                                    @endforeach
+
+                                </select>
+                            </div>
                             </div>
 
 

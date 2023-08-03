@@ -91,11 +91,10 @@
                                     </div> -->
                                     <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                     <label class="form-label">@lang('site.active')</label>
-                                    <select class="form-control btn-square" name="active">
+                                    <select class="form-control btn-square" name="active" >
                                             <option selected>@lang('site.select')</option>
-
                                             <option value="1">@lang('site.active')</option>
-                                            <option value="0">@lang('site.inactive') </option>
+                                            <option value="0">@lang('site.not-active') </option>
 
                                     </select>
                                 </div>
