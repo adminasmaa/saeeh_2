@@ -359,7 +359,7 @@
 
                             @if (auth()->user()->hasPermission('read_advertising'))
                             <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.advertising.index')?'activee':'' }}"
+                                <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.advertisings.index')?'activee':'' }}"
                                    href="{{route('dashboard.advertisings.index')}}">
                                     <i data-feather="zap"></i><span>@lang('site.advertising') </span></a>
                             </li>

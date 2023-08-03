@@ -19,7 +19,7 @@ class AdvertisingRepository implements AdvertisingRepositoryInterfaceAlias
        
     //    return $data->query();
 
-        return $data->render('dashboard.advertising.index', [
+        return $data->render('dashboard.advertisings.index', [
             'title' => trans('site.advertising'),
             'model' => 'ads',
             'count' => $data->count(),
@@ -32,7 +32,7 @@ class AdvertisingRepository implements AdvertisingRepositoryInterfaceAlias
         // TODO: Implement create() method.
         $users = User::get();
 
-        return view('dashboard.advertising.create', compact('users'));
+        return view('dashboard.advertisings.create', compact('users'));
     }
 
     public function edit($Id)
@@ -43,7 +43,7 @@ class AdvertisingRepository implements AdvertisingRepositoryInterfaceAlias
         $users = User::get();
 
 
-        return view('dashboard.advertising.edit', compact('advertising', 'users'));
+        return view('dashboard.advertisings.edit', compact('advertising', 'users'));
     }
 
     public function show($Id)
@@ -54,7 +54,7 @@ class AdvertisingRepository implements AdvertisingRepositoryInterfaceAlias
         $users = User::get();
 
 
-        return view('dashboard.advertising.show', compact('advertising', 'users'));
+        return view('dashboard.advertisings.show', compact('advertising', 'users'));
     }
 
 
@@ -77,7 +77,7 @@ class AdvertisingRepository implements AdvertisingRepositoryInterfaceAlias
 //            $advertising->ads_image = $filename;
 //            $advertising->save();
 
-            UploadImage('images/advertising/','ads_image', $advertising, $request->file('ads_image'));
+            UploadImage('images/advertisings/','ads_image', $advertising, $request->file('ads_image'));
 
         }
 
@@ -104,7 +104,7 @@ class AdvertisingRepository implements AdvertisingRepositoryInterfaceAlias
 //            $thumbnail->move($destinationPath, $filename);
 //            $advertising->ads_image = $filename;
 //            $advertising->save();
-            UploadImage('images/advertising/','ads_image', $advertising, $request->file('ads_image'));
+            UploadImage('images/advertisings/','ads_image', $advertising, $request->file('ads_image'));
         }
 
 

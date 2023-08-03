@@ -28,7 +28,7 @@
                 <!-- Individual column searching (text inputs) Starts-->
                 <div class="col-sm-12">
                     <div class="card mt-30">
-                        <form action="{{ route('dashboard.advertising.store') }}" method="post"
+                        <form action="{{ route('dashboard.advertisings.store') }}" method="post"
                               enctype="multipart/form-data"
                               id="" class="form-main">
 
