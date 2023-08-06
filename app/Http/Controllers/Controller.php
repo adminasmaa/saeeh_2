@@ -34,11 +34,12 @@ class Controller extends BaseController
 
     public function respondSuccessPaginate($result, $message, $code = 200)
     {
+        unset($result->meta->links);
         $response = [
             'code' => $code,
             'status' => true,
             'message' => $message,
-            'data' => $result->data,
+            'data' =>$result->data ,
             'pagination'=>$result->meta,
             'errorData' => null,
         ];
