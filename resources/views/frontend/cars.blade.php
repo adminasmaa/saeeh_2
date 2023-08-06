@@ -1354,7 +1354,7 @@
                                 <span
                                 >
 
-  {{$car->description ?? ''}}
+                                {!! html_entity_decode($car->description) !!}
                                 </span>
                                                                 </div>
                                                                 <div
