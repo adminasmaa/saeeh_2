@@ -115,7 +115,7 @@ class CategoryController extends Controller
 
     public function listofAquarWithCategory(Request $request)
     {
-        $aquars= Aqar::where('category_id', '=',$request->category_id)->get();
+        $aquars= Aqar::where('category_id', '=',$request->category_id)->paginate(20);
 
 
         if (count($aquars)) {
