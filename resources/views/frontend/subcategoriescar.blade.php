@@ -78,33 +78,8 @@
 
                     </div>
                 </div>
-                <div class="row">
-
-                    @foreach($subcategories as $subcat)
-                        <div class="col-lg-3 col-sm-6 col-12">
-                            <a href="{{route('subcategorycars',$subcat->id)}}">
-                                <div class="card-restaurant mb-3 position-relative">
-                                    {{--                                <img src="{{FRONTASSETS}}/images/restaurants/restaurant-cat.png" alt="Card image cap"--}}
-                                    {{--                                     class="restaurant-image">--}}
-                                    <img class="card-img" src="{{asset('images/categories/'.$subcat->image)}}"
-                                         alt="Card image cap"
-                                         onerror="this.src='{{asset('images/categories/default.jpg')}}'"
-                                    >
-                                    <div class="card-restaurant-body d-flex justify-content-center align-items-center">
-                                        <div>
-                                            <div class="restaurant-icon">
-                                                <img src="{{FRONTASSETS}}/images/restaurants/rest-icon-1.svg"
-                                                     alt="restaurant icon">
-                                            </div>
-                                            <h2 class="card-title "> {{$subcat->name ?? ''}}</h2>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    @endforeach
-                </div>
-
+                <di
+                @if(!empty($subcategories->appends(request()->query())->links()))
                 <div class="card card-department round-border mb-3 p-3">
                     <nav
                         class="department-list-pagination d-md-flex justify-content-md-between align-items-center"
@@ -119,7 +94,7 @@
                         </ul>
                     </nav>
                 </div>
-
+                @endif
             </div>
         </section>
         <section class="d-lg-flex">

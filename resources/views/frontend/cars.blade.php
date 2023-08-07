@@ -152,23 +152,23 @@
         <section class="py-md-5 py-3">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 col-md-4 web-view">
-                        <a
-                            href="#"
-                            data-bs-toggle="modal"
-                            data-bs-target="#mapModal"
-                            class="d-block"
-                        >
-                            <div class="map-box mb-lg-0 mb-3">
-                                <img src="{{FRONTASSETS}}/images/map.png" alt="map"/>
-                                <div
-                                    class="map-data d-flex h-100 w-100 justify-content-center align-items-center"
-                                >
-                                    <h4 class="title-map">@lang('site.searchmap')</h4>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+{{--                    <div class="col-lg-3 col-md-4 web-view">--}}
+{{--                        <a--}}
+{{--                            href="#"--}}
+{{--                            data-bs-toggle="modal"--}}
+{{--                            data-bs-target="#mapModal"--}}
+{{--                            class="d-block"--}}
+{{--                        >--}}
+{{--                            <div class="map-box mb-lg-0 mb-3">--}}
+{{--                                <img src="{{FRONTASSETS}}/images/map.png" alt="map"/>--}}
+{{--                                <div--}}
+{{--                                    class="map-data d-flex h-100 w-100 justify-content-center align-items-center"--}}
+{{--                                >--}}
+{{--                                    <h4 class="title-map">@lang('site.searchmap')</h4>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </a>--}}
+{{--                    </div>--}}
                     <div class="col-lg-9 col-md-8">
                         <h2 class="pb-3 search-result">
                             {{--                            المغرب :وجدنا 44 سيارة مناسبة لطلبك--}}
@@ -1354,7 +1354,9 @@
                                 <span
                                 >
 
-  {{$car->description ?? ''}}
+
+                                    {!! html_entity_decode($car->description) !!}
+
                                 </span>
                                                                 </div>
                                                                 <div
@@ -1378,6 +1380,7 @@
                                     </svg>
                                   </span>
                                                                         <span> @lang('site.car_numbers') {{$car->car_numbers ?? 0}}</span>
+
                                                                     </div>
                                                                     <div class="padding-35">
 
@@ -1394,6 +1397,14 @@
                                                                         >
 
                                                                      {{$car->fixed_price ?? ''}}
+                                  </span>
+                                                                    </div>                             <div class="department-price">
+                                                                    <span
+                                                                        class="text-gray-2"> @lang('site.year'):</span>
+                                                                        <span class="fw-bold text-main"
+                                                                        >
+
+                                                                     {{$car->year ?? ''}}
                                   </span>
                                                                     </div>
                                                                     <div
@@ -1417,19 +1428,26 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="card card-department round-border mb-3 p-3">
-                            <nav
-                                class="department-list-pagination d-md-flex justify-content-md-between align-items-center"
-                            >
-                                <ul
-                                    class="pagination mb-0 justify-content-lg-start justify-content-center"
-                                >
-                                    {{--                                    <div> {{ $cars->links() }} </div>  <div> {{ $cars->links() }} </div>--}}
-                                    <div>{{ $cars->appends(request()->query())->links()}} </div>
 
-                                </ul>
-                            </nav>
-                        </div>
+
+                        @if(!empty($cars->appends(request()->query())->links()))
+                            <div class="card card-department round-border mb-3 p-3">
+                                <nav
+                                    class="department-list-pagination d-md-flex justify-content-md-between align-items-center"
+                                >
+                                    <ul
+                                        class="pagination mb-0 justify-content-lg-start justify-content-center"
+                                    >
+                                        <li class="page-item">
+                                            <div>{{ $cars->appends(request()->query())->links()}} </div>
+                                        </li>
+
+                                    </ul>
+                                </nav>
+                            </div>
+                        @endif
+
+
                         <div class="card card-department round-border mb-3 p-3">
                             <h4 class="department-title mb-3">   @lang('site.Sign in and save money')</h4>
                             <p class="mb-4 department-txt">

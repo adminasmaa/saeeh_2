@@ -160,6 +160,7 @@
                                 />
                             </svg>
                             <span> {{$aquar->country->name ?? ''}} , {{$aquar->city->name ?? ''}}</span>
+                            <span> {{$aquar->address?? ''}} </span>
                         </div>
                         <div class="py-3">
                           <span
@@ -183,7 +184,8 @@
                               </defs></svg
                               ></span>
                             <span class="text-main position-department">
-                                  {{$aquar->description ?? ''}}
+
+                                {!! html_entity_decode($aquar->description) !!}
                           </span>
                         </div>
 
