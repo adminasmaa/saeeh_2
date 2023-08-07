@@ -27,7 +27,7 @@ class PlaceController extends Controller
         $users = User::find($user_id);
 
 
-        $user = $users->FavouritePalace()->toggle($request->place_id);
+        $user = $users->favourite_place()->toggle($request->place_id);
 
         $status = ($user['attached'] !== []) ? 'added' : 'deleted';
 
