@@ -14,7 +14,7 @@
                 <nav class="breadcrumb-container" aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0">
                         <li class="breadcrumb-item">
-                            <a href="javascript:void(0)"> @lang('site.home') </a>
+                            <a href="{{route('Home')}}"> @lang('site.home') </a>
                         </li>
                         <li>
                 <span
@@ -56,6 +56,7 @@
                                             class="select2"
                                             id="country_id"
                                             name="country_id"
+                                            required
                                         >
                                             <option value="">@lang('site.country')</option>
                                             @foreach($countries as $country)
@@ -73,6 +74,7 @@
                                             class="select2"
                                             id="city_id"
                                             name="city_id"
+                                            required
                                         >
                                             <option value="">@lang('site.city')</option>
                                             <!-- @foreach($cities as $city)
