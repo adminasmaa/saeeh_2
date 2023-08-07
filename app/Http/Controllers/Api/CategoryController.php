@@ -115,13 +115,13 @@ class CategoryController extends Controller
 
     public function listofAquarWithCategory(Request $request)
     {
-        $aquars= Aqar::where('category_id', '=',$request->category_id)->paginate(20);
+        $aquars= Aqar::where('category_id', '=',$request->category_id)->get();
 
 
         if (count($aquars)) {
 
+            $aquarss =  AqarDetailResource::collection($aquars)->response()->getData();
 
-            $aquarss = AqarDetailResource::collection($aquars);
             return $this->respondSuccessPaginate($aquarss, __('message.data retrieved successfully.'));
 
         } else {
@@ -138,6 +138,7 @@ class CategoryController extends Controller
 
         if (count($cars)) {
 
+            $carss =  CarResource::collection($cars)->response()->getData();
 
             $carss = CarResource::collection($cars);
             return $this->respondSuccessPaginate($carss, __('message.data retrieved successfully.'));
