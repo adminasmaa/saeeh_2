@@ -31,7 +31,7 @@
 }
 @media (min-width: 1400px) {
   .container {
-    max-width: 1300px;
+    max-width: 1200px;
   }
 }
 
@@ -89,9 +89,9 @@
   .hotel-name {
     width: 40%;
   }
-  .card-restaurant-body {
+  /* .card-restaurant-body {
     bottom: 5px;
-  }
+  } */
 }
 
 @media (max-width: 1200px) {
@@ -209,7 +209,7 @@
     margin-bottom: 15px;
   }
   .country-image {
-    height: 300px;
+    height: 220px;
   }
   .country-container {
     top: 14%;
@@ -1147,7 +1147,7 @@
   .right-container::after {
     content: unset;
   }
-  .search-country {
+  /* .search-country {
     height: 60px;
   }
   .search-c-icon {
@@ -1155,7 +1155,7 @@
     top: 7px;
     width: 45px;
     height: 45px;
-  }
+  } */
 
   .slide-btn {
     height: 45px;
@@ -1361,10 +1361,10 @@
   .btn-out-footer-auth a {
     font-size: 14px;
   }
-  .search-country {
+  /* .search-country {
     height: 45px;
     padding-right: 20px;
-  }
+  } */
 
   .search-c-icon svg {
     width: 20px;
