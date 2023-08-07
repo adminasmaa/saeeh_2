@@ -977,26 +977,37 @@
                             <li
                                 class="btn-saeeh btn-space d-flex justify-content-center align-items-center"
                             >
-                                <button
-                                    type="button"
-                                    class="btn btn-main border-0 btn-frm-owner"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#registerModal"
-                                >
-                                    مستخدم جديد
-                                </button>
+                                {{--                                <button--}}
+                                {{--                                    type="button"--}}
+                                {{--                                    class="btn btn-main border-0 btn-frm-owner"--}}
+                                {{--                                    data-bs-toggle="modal"--}}
+                                {{--                                    data-bs-target="#registerModal"--}}
+                                {{--                                >--}}
+                                {{--                                    مستخدم جديد--}}
+                                {{--                                </button>--}}
+
+                                <a href="{{route('registers')}}"
+                                   class="btn btn-main border-0 btn-frm-owner">  @lang('site.register') </a>
                             </li>
+                            {{--                            <li--}}
+                            {{--                                class="btn-saeeh d-flex justify-content-center align-items-center"--}}
+                            {{--                            >--}}
+                            {{--                                <a href="{{route('sitelogin')}}">@lang('site.login') </a>--}}
+                            {{--                            </li>--}}
                             <li
                                 class="btn-outline-saeeh d-flex justify-content-center align-items-center"
                             >
-                                <button
-                                    type="button"
-                                    class="btn btn-main border-0 btn-frm-owner"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#loginModal"
-                                >
-                                    سجل الدخول
-                                </button>
+                                {{--                                <button--}}
+                                {{--                                    type="button"--}}
+                                {{--                                    class="btn btn-main border-0 btn-frm-owner"--}}
+                                {{--                                    data-bs-toggle="modal"--}}
+                                {{--                                    data-bs-target="#loginModal"--}}
+                                {{--                                >--}}
+                                {{--                                    سجل الدخول--}}
+                                {{--                                </button>--}}
+
+                                <a href="{{route('sitelogin')}}"
+                                   class="btn btn-main border-0 btn-frm-owner">@lang('site.login') </a>
                             </li>
                         </ul>
                     </div>
@@ -1079,6 +1090,8 @@
                                             <!-- @foreach($cities as $city)
                                                 <option
                                                    value="{{$city->id}}">{{$city->name ?? ''}}</option>
+
+
 
 
 
@@ -1386,10 +1399,11 @@
                                                             type="number"
                                                             class="input-min-price filter__input"
                                                             name="price"
-                                                            id="1"
-                                                            onclick="GetAtrribute(this.id,this.name)"
+                                                            id="{{$minprice}}"
+                                                            value="{{$minprice}}"
+                                                            onchange="GetAtrribute(this.id,this.name)"
                                                         />
-                                                        <span>دينار</span>
+                                                        {{--                                                        <span>دينار</span>--}}
                                                     </div>
                                                     <div
                                                         class="text-gray-2 price-max d-flex align-items-center"
@@ -1398,10 +1412,11 @@
                                                             type="number"
                                                             class="input-max-price filter__input"
                                                             name="price"
-                                                            id="10"
-                                                            onclick="GetAtrribute(this.id,this.name)"
+                                                            id="{{$maxprice}}"
+                                                            value="{{$maxprice}}"
+                                                            onchange="GetAtrribute(this.id,this.name)"
                                                         />
-                                                        <span>دينار</span>
+                                                        {{--                                                        <span>دينار</span>--}}
                                                     </div>
                                                 </label>
                                             </div>
@@ -1459,7 +1474,7 @@
                                                     <div class="form-group">
                                                         <input type="checkbox" id="rate-1" name="rate"
                                                                value="1"
-                                                               onclick="GetAtrribute(this.id,this.name)"/>
+                                                               onclick="GetAtrribute(this.value,this.name)"/>
                                                         <label
                                                             for="rate-1"
                                                             class="d-flex align-items-center"
@@ -1488,7 +1503,7 @@
                                                     <div class="form-group">
                                                         <input type="checkbox" id="rate-2" name="rate"
                                                                value="2"
-                                                               onclick="GetAtrribute(this.id,this.name)"/>
+                                                               onclick="GetAtrribute(this.value,this.name)"/>
                                                         <label
                                                             for="rate-2"
                                                             class="d-flex align-items-center"
@@ -1517,7 +1532,7 @@
                                                     <div class="form-group">
                                                         <input type="checkbox" id="rate-3" name="rate"
                                                                value="3"
-                                                               onclick="GetAtrribute(this.id,this.name)"/>
+                                                               onclick="GetAtrribute(this.value,this.name)"/>
                                                         <label
                                                             for="rate-3"
                                                             class="d-flex align-items-center"
@@ -1545,7 +1560,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <input type="checkbox" id="rate-4" name="rate" value="4"
-                                                               onclick="GetAtrribute(this.id,this.name)"/>
+                                                               onclick="GetAtrribute(this.value,this.name)"/>
                                                         <label
                                                             for="rate-4"
                                                             class="d-flex align-items-center"
@@ -1573,7 +1588,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <input type="checkbox" id="rate-5" name="rate" value="5"
-                                                               onclick="GetAtrribute(this.id,this.name)"/>
+                                                               onclick="GetAtrribute(this.value,this.name)"/>
                                                         <label
                                                             for="rate-5"
                                                             class="d-flex align-items-center"
@@ -1702,11 +1717,11 @@
                                         data-bs-target="#SortByModal"><i class="fas fa-sort"></i> الترتيب</a>
                                 </div>
                                 <div class="">
-                                    <a
-                                        class="text-second fw-bold"
-                                        href="#"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#mapModal"><i class="far fa-map"></i> الخريطة</a>
+                                    {{--                                    <a--}}
+                                    {{--                                        class="text-second fw-bold"--}}
+                                    {{--                                        href="#"--}}
+                                    {{--                                        data-bs-toggle="modal"--}}
+                                    {{--                                        data-bs-target="#mapModal"><i class="far fa-map"></i> الخريطة</a>--}}
                                 </div>
                             </div>
                         </div>
@@ -1719,14 +1734,14 @@
                                     <i class="fas fa-times close-side-filter"></i>
                                 </div>
                                 <div class="filter-title">
-                                    <div class="d-flex justify-content-between">
-                                        <h3 class="filter-count text-second fw-bold">
-                                            366 من 2666 نتيجة
-                                        </h3>
-                                        <a href="#" class="delete-result text-main fw-bold"
-                                        >ازالة</a
-                                        >
-                                    </div>
+                                    {{--                                    <div class="d-flex justify-content-between">--}}
+                                    {{--                                        <h3 class="filter-count text-second fw-bold">--}}
+                                    {{--                                            366 من 2666 نتيجة--}}
+                                    {{--                                        </h3>--}}
+                                    {{--                                        <a href="#" class="delete-result text-main fw-bold"--}}
+                                    {{--                                        >ازالة</a--}}
+                                    {{--                                        >--}}
+                                    {{--                                    </div>--}}
                                     <h2 class="text-second mb-0">@lang('site.filter by'):</h2>
                                 </div>
                                 <div class="accordion-item">
@@ -1850,7 +1865,7 @@
                                             aria-expanded="true"
                                             aria-controls="accordion-filter-3"
                                         >
-                                            <h5 class="accordion-title mb-0">السعر</h5>
+                                            <h5 class="accordion-title mb-0">@lang('site.price')</h5>
                                             <div>
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -1884,7 +1899,10 @@
                                                             <input
                                                                 type="number"
                                                                 class="input-min-price filter__input"
-                                                                name="min"
+                                                                name="price"
+                                                                id="{{$minprice}}"
+                                                                value="{{$minprice}}"
+                                                                onchange="GetAtrribute(this.id,this.name)"
                                                             />
                                                             <span>دينار</span>
                                                         </div>
@@ -1894,7 +1912,10 @@
                                                             <input
                                                                 type="number"
                                                                 class="input-max-price filter__input"
-                                                                name="max"
+                                                                name="price"
+                                                                id="{{$minprice}}"
+                                                                value="{{$minprice}}"
+                                                                onchange="GetAtrribute(this.id,this.name)"
                                                             />
                                                             <span>دينار</span>
                                                         </div>
@@ -1926,7 +1947,7 @@
                                             aria-expanded="true"
                                             aria-controls="accordion-filter-4"
                                         >
-                                            <h5 class="accordion-title mb-0">التقييمات</h5>
+                                            <h5 class="accordion-title mb-0">@lang('site.comments')</h5>
                                             <div>
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -1952,7 +1973,10 @@
                                                 <div class="custom-checkbox">
                                                     <form>
                                                         <div class="form-group">
-                                                            <input type="checkbox" id="rate-1" checked/>
+                                                            <input type="checkbox" id="rate-1" name="rate" value="1"
+                                                                   onclick="GetAtrribute(this.value,this.name)"/>
+
+
                                                             <label
                                                                 for="rate-1"
                                                                 class="d-flex align-items-center"
@@ -1979,7 +2003,9 @@
                                                             </label>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="checkbox" id="rate-2"/>
+
+                                                            <input type="checkbox" id="rate-2" name="rate" value="2"
+                                                                   onclick="GetAtrribute(this.value,this.name)"/>
                                                             <label
                                                                 for="rate-2"
                                                                 class="d-flex align-items-center"
@@ -2006,7 +2032,8 @@
                                                             </label>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="checkbox" id="rate-3"/>
+                                                            <input type="checkbox" id="rate-3" name="rate" value="3"
+                                                                   onclick="GetAtrribute(this.value,this.name)"/>
                                                             <label
                                                                 for="rate-3"
                                                                 class="d-flex align-items-center"
@@ -2033,7 +2060,9 @@
                                                             </label>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="checkbox" id="rate-4"/>
+
+                                                            <input type="checkbox" id="rate-4" name="rate" value="4"
+                                                                   onclick="GetAtrribute(this.value,this.name)"/>
                                                             <label
                                                                 for="rate-4"
                                                                 class="d-flex align-items-center"
@@ -2060,7 +2089,9 @@
                                                             </label>
                                                         </div>
                                                         <div class="form-group">
-                                                            <input type="checkbox" id="rate-5"/>
+
+                                                            <input type="checkbox" id="rate-5" name="rate" value="5"
+                                                                   onclick="GetAtrribute(this.value,this.name)"/>
                                                             <label
                                                                 for="rate-5"
                                                                 class="d-flex align-items-center"
@@ -2092,104 +2123,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header">
-                                        <button
-                                            class="accordion-button"
-                                            type="button"
-                                            data-bs-toggle="collapse"
-                                            data-bs-target="#accordion-filter-5"
-                                            aria-expanded="true"
-                                            aria-controls="accordion-filter-5"
-                                        >
-                                            <h5 class="accordion-title mb-0">مطلة على</h5>
-                                            <div>
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="15"
-                                                    height="8"
-                                                    viewBox="0 0 15 8"
-                                                    fill="none"
-                                                >
-                                                    <path
-                                                        d="M7.20766 7.19064C6.62556 7.19064 6.04345 6.96482 5.60272 6.52155L0.180867 1.06845C-0.060289 0.825909 -0.060289 0.424455 0.180867 0.181909C0.422023 -0.0606364 0.821178 -0.0606364 1.06233 0.181909L6.48419 5.635C6.88334 6.03645 7.53197 6.03645 7.93112 5.635L13.353 0.181909C13.5941 -0.0606364 13.9933 -0.0606364 14.2344 0.181909C14.4756 0.424455 14.4756 0.825909 14.2344 1.06845L8.81259 6.52155C8.37186 6.96482 7.78976 7.19064 7.20766 7.19064Z"
-                                                        fill="#005D9F"
-                                                    />
-                                                </svg>
-                                            </div>
-                                        </button>
-                                    </h2>
-                                    <div
-                                        id="accordion-filter-5"
-                                        class="accordion-collapse collapse show"
-                                    >
-                                        <div class="accordion-body">
-                                            <div class="row align-items-center">
-                                                <div class="custom-checkbox">
-                                                    <form>
-                                                        <div class="form-group">
-                                                            <input type="checkbox" id="two" checked/>
-                                                            <label for="two">البحر</label>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="checkbox" id="three"/>
-                                                            <label for="three">شارع رئيسي</label>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header">
-                                        <button
-                                            class="accordion-button"
-                                            type="button"
-                                            data-bs-toggle="collapse"
-                                            data-bs-target="#accordion-filter-6"
-                                            aria-expanded="true"
-                                            aria-controls="accordion-filter-6"
-                                        >
-                                            <h5 class="accordion-title mb-0">المسافة</h5>
-                                            <div>
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="15"
-                                                    height="8"
-                                                    viewBox="0 0 15 8"
-                                                    fill="none"
-                                                >
-                                                    <path
-                                                        d="M7.20766 7.19064C6.62556 7.19064 6.04345 6.96482 5.60272 6.52155L0.180867 1.06845C-0.060289 0.825909 -0.060289 0.424455 0.180867 0.181909C0.422023 -0.0606364 0.821178 -0.0606364 1.06233 0.181909L6.48419 5.635C6.88334 6.03645 7.53197 6.03645 7.93112 5.635L13.353 0.181909C13.5941 -0.0606364 13.9933 -0.0606364 14.2344 0.181909C14.4756 0.424455 14.4756 0.825909 14.2344 1.06845L8.81259 6.52155C8.37186 6.96482 7.78976 7.19064 7.20766 7.19064Z"
-                                                        fill="#005D9F"
-                                                    />
-                                                </svg>
-                                            </div>
-                                        </button>
-                                    </h2>
-                                    <div
-                                        id="accordion-filter-6"
-                                        class="accordion-collapse collapse show"
-                                    >
-                                        <div class="accordion-body">
-                                            <div class="row align-items-center">
-                                                <div class="custom-checkbox">
-                                                    <form>
-                                                        <div class="form-group">
-                                                            <input type="checkbox" id="two" checked/>
-                                                            <label for="two">مركز المدينة</label>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="checkbox" id="three"/>
-                                                            <label for="three">المطار</label>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
+
                                 <div class="accordion-item">
                                     <h2 class="accordion-header">
                                         <button
@@ -2225,9 +2160,14 @@
                                             <div class="row align-items-center">
                                                 <div class="custom-checkbox">
                                                     <form>
-                                                        <div class="form-group">
-                                                            <input type="checkbox" id="two" checked/>
-                                                            <label for="two">
+                                                        @foreach($allaquars as $Aqr)
+                                                            @foreach($Aqr->aqarSection->unique('name_ar') as $key=>$section )
+                                                                <div class="form-group">
+                                                                    <input type="checkbox" id="{{$section->id}}"
+                                                                           name="sections"
+                                                                           value="{{$section->id}}"
+                                                                           onclick="GetAtrribute(this.id,this.name)"/>
+                                                                    <label for="{{$section->id}}">
                                   <span class="ps-1"
                                   ><svg
                                           xmlns="http://www.w3.org/2000/svg"
@@ -2257,69 +2197,13 @@
                                           stroke-linecap="round"
                                           stroke-linejoin="round"
                                       /></svg></span>
-                                                                <span>المسبح</span>
-                                                            </label>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="checkbox" id="three"/>
-                                                            <label for="three">
-                                  <span class="ps-1">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="24"
-                                        height="24"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                    >
-                                      <path
-                                          d="M14.7 6.29974C14.5168 6.48666 14.4141 6.73798 14.4141 6.99974C14.4141 7.26149 14.5168 7.51281 14.7 7.69973L16.3 9.29974C16.4869 9.48296 16.7382 9.58559 17 9.58559C17.2617 9.58559 17.513 9.48296 17.7 9.29974L21.47 5.52974C21.9728 6.64092 22.1251 7.87897 21.9064 9.07888C21.6878 10.2788 21.1087 11.3836 20.2463 12.246C19.3838 13.1084 18.279 13.6876 17.0791 13.9062C15.8792 14.1248 14.6412 13.9726 13.53 13.4697L6.61998 20.3797C6.22215 20.7776 5.68259 21.0011 5.11998 21.0011C4.55737 21.0011 4.0178 20.7776 3.61998 20.3797C3.22215 19.9819 2.99866 19.4423 2.99866 18.8797C2.99866 18.3171 3.22215 17.7776 3.61998 17.3797L10.53 10.4697C10.0271 9.35855 9.87489 8.1205 10.0935 6.92059C10.3121 5.72068 10.8913 4.61589 11.7537 3.75346C12.6161 2.89102 13.7209 2.3119 14.9208 2.09328C16.1207 1.87465 17.3588 2.0269 18.47 2.52974L14.71 6.28974L14.7 6.29974Z"
-                                          stroke="#CACACA"
-                                          stroke-width="1.5"
-                                          stroke-linecap="round"
-                                          stroke-linejoin="round"
-                                      />
-                                    </svg>
-                                  </span>
-                                                                <span>خدمات مجانية</span>
-                                                            </label>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="checkbox" id="four"/>
-                                                            <label for="four">
-                                  <span class="ps-1">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="24"
-                                        height="24"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                    >
-                                      <path
-                                          d="M14 16H9M19 16H22V12.85C22.0007 12.612 21.9165 12.3816 21.7625 12.2001C21.6085 12.0187 21.3949 11.8981 21.16 11.86L16 11L13.3 7.4C13.2069 7.2758 13.0861 7.175 12.9472 7.10557C12.8084 7.03615 12.6552 7 12.5 7H5.24C4.86727 6.99741 4.50123 7.09902 4.18318 7.29339C3.86513 7.48775 3.60772 7.76713 3.44 8.1L2.64 9.73C2.22015 10.5646 2.00099 11.4857 2 12.42V16H4"
-                                          stroke="#CACACA"
-                                          stroke-width="1.5"
-                                          stroke-linecap="round"
-                                          stroke-linejoin="round"
-                                      />
-                                      <path
-                                          d="M6.5 19C7.88071 19 9 17.8807 9 16.5C9 15.1193 7.88071 14 6.5 14C5.11929 14 4 15.1193 4 16.5C4 17.8807 5.11929 19 6.5 19Z"
-                                          stroke="#CACACA"
-                                          stroke-width="2"
-                                          stroke-linecap="round"
-                                          stroke-linejoin="round"
-                                      />
-                                      <path
-                                          d="M16.5 19C17.8807 19 19 17.8807 19 16.5C19 15.1193 17.8807 14 16.5 14C15.1193 14 14 15.1193 14 16.5C14 17.8807 15.1193 19 16.5 19Z"
-                                          stroke="#CACACA"
-                                          stroke-width="1.5"
-                                          stroke-linecap="round"
-                                          stroke-linejoin="round"
-                                      />
-                                    </svg>
-                                  </span>
-                                                                <span>مواقف سيارات</span>
-                                                            </label>
-                                                        </div>
+                                                                        <span>{{$section->name ?? ''}}</span>
+                                                                    </label>
+                                                                </div>
+                                                            @endforeach
+                                                        @endforeach
+
+
                                                     </form>
                                                 </div>
                                             </div>
@@ -2494,6 +2378,7 @@
                                                         />
                                                     </svg>
                                                     <span> {{$aquar->country->name ?? ''}} , {{$aquar->city->name ?? ''}}</span>
+                                                    <span> {{$aquar->address?? ''}} </span>
                                                 </div>
                                                 <div class="py-3">
                           <span
@@ -2523,23 +2408,24 @@
                                     </div>
                                 </div>
                             @endforeach
-                            <div class="card card-department round-border mb-3 p-lg-3 p-2" id="tab-aquar-3">
-                            </div>
-                        </div>
-                        <div class="card card-department round-border mb-3 p-3">
-                            <nav
-                                class="department-list-pagination d-md-flex justify-content-md-between align-items-center"
-                            >
-                                <ul
-                                    class="pagination mb-0 justify-content-lg-start justify-content-center"
-                                >
-                                    <li class="page-item">
-                                        <div>{{ $aquars->appends(request()->query())->links()}} </div>
-                                    </li>
 
-                                </ul>
-                            </nav>
                         </div>
+                        @if(!empty($aquars->appends(request()->query())->links()))
+                            <div class="card card-department round-border mb-3 p-3">
+                                <nav
+                                    class="department-list-pagination d-md-flex justify-content-md-between align-items-center"
+                                >
+                                    <ul
+                                        class="pagination mb-0 justify-content-lg-start justify-content-center"
+                                    >
+                                        <li class="page-item">
+                                            <div>{{ $aquars->appends(request()->query())->links()}} </div>
+                                        </li>
+
+                                    </ul>
+                                </nav>
+                            </div>
+                        @endif
 
                         <div class="card card-department round-border mb-3 p-3">
 
@@ -2575,6 +2461,46 @@
 @section('scripts')
     <script>
 
+        const slider = document.getElementById("sliderPrice");
+        const rangeMin = {{$minprice}};
+        const rangeMax = {{$maxprice}};
+        const step = 2;
+        const filterInputs = document.querySelectorAll("input.filter__input");
+        noUiSlider.create(slider, {
+            start: [rangeMin, rangeMax],
+            direction: "rtl",
+            connect: true,
+            step: step,
+            range: {
+                min: rangeMin,
+                max: rangeMax,
+            },
+
+            // make numbers whole
+            format: {
+                to: (value) => value,
+                from: (value) => value,
+            },
+        });
+
+        // bind inputs with noUiSlider
+        slider.noUiSlider.on("update", (values, handle) => {
+            filterInputs[handle].value = parseInt(values[handle]);
+            console.log("ddadadad", parseInt(values[handle]));
+
+            GetAtrribute(parseInt(values[handle]), 'price')
+
+        });
+
+        filterInputs.forEach((input, indexInput) => {
+            input.addEventListener("change", () => {
+                slider.noUiSlider.setHandle(indexInput, parseInt(input.value));
+
+                console.log('dataaaa');
+            });
+        });
+
+
         function getMySearch() {
 //            var input, filter, ul, li, a, i, txtValue;
 //            input = document.getElementById("myInput");
@@ -2601,7 +2527,7 @@
             console.log('name', name);
             var checkbox = document.getElementById(id);
 
-            if (checkbox.checked == true) {
+            if (name) {
                 console.log('eeeeeeeeeeee');
 
                 const url = '{{route('checkallaquar')}}';
@@ -2619,9 +2545,9 @@
                     array_floor_number.push($(this).val());
                 });
                 var array_price = [];
-                $("input:checkbox[name=price]:checked").each(function () {
-                    array_price.push($(this).val());
-                });
+                // $("input:number[name=price]").each(function () {
+                //     array_price.push($(this).val());
+                // });
                 var array_sections = [];
                 $("input:checkbox[name=sections]:checked").each(function () {
                     array_sections.push($(this).val());
@@ -2645,7 +2571,7 @@
                         rate: rate,
                         floor_number: array_floor_number,
                         sections: array_sections,
-                        price: array_price,
+                        price: id,
 
                         // _token: $('meta[name="csrf-token"]').attr('content')
                     },
@@ -2734,3 +2660,4 @@
     </script>
 
 @endsection
+

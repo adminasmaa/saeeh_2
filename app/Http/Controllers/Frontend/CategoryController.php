@@ -61,7 +61,8 @@ class CategoryController extends Controller
         elseif (!empty($category->places)) {
           //  $places = $category->places;
 
-          $places = Place::where('sub_category_id',$id)->paginate(5);
+          $places = Place::where('sub_category_id',$id)->simplepaginate(5);
+
 
 
             return view('frontend.places', compact('category', 'places'));

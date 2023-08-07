@@ -66,13 +66,15 @@ class AquarController extends Controller
 //        }
 
         $allaquars = Aqar::where('category_id', '=', Session::get('category_id'))->with('aqarSection')->get();
+        $minprice = Aqar::whereNotNull('fixed_price')->min("fixed_price");
+        $maxprice = Aqar::whereNotNull('fixed_price')->max("fixed_price");
 
         $countries = Country::where('display_data', '=', 1)->get();
         $category = Category::first();
         $cities = City::where('active', '=', 1)->get();
         $CategoriesAquar = Category::where('parent_id', '=', 1)->where('type', '=', 1)->get();
 //        $carsfilters = Car::get();
-        return view('frontend.aquars', compact('allaquars', 'roomsnumbers', 'countries', 'cities', 'aquars', 'CategoriesAquar', 'category'));
+        return view('frontend.aquars', compact('allaquars', 'minprice', 'maxprice', 'roomsnumbers', 'countries', 'cities', 'aquars', 'CategoriesAquar', 'category'));
 
 
     }
@@ -86,6 +88,9 @@ class AquarController extends Controller
         $aquars = Aqar::where('category_id', '=', $id)->with('aqarSection')->paginate(4);
         $allaquars = Aqar::where('category_id', '=', $id)->with('aqarSection')->get();
         $roomsnumbers = Aqar::with('aqarSection')->get();
+        $minprice = Aqar::whereNotNull('fixed_price')->min("fixed_price");
+        $maxprice = Aqar::whereNotNull('fixed_price')->max("fixed_price");
+
 
 //        $roomss = [];
 //        foreach ($roomsnumbers as $rooms) {
@@ -107,7 +112,7 @@ class AquarController extends Controller
         $cities = City::where('active', '=', 1)->get();
         $CategoriesAquar = Category::where('parent_id', '=', 1)->where('type', '=', 1)->get();
 //        $carsfilters = Car::get();
-        return view('frontend.aquars', compact('roomsnumbers', 'allaquars', 'countries', 'cities', 'aquars', 'CategoriesAquar', 'category'));
+        return view('frontend.aquars', compact('roomsnumbers', 'minprice', 'maxprice', 'allaquars', 'countries', 'cities', 'aquars', 'CategoriesAquar', 'category'));
 
     }
 
@@ -133,7 +138,7 @@ class AquarController extends Controller
 //return $request;
         if (!empty($request['price'])) {
 
-            $aquars = Aqar::WhereIn('fixed_price', $request->price)
+            $aquars = Aqar::Where('fixed_price',$request->price)
                 ->paginate(4);
         } elseif (!empty($request['sections'])) {
 

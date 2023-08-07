@@ -19,10 +19,14 @@ return [
 'You may be able to save'=>'قد تتمكن من توفير ',
     'Sign in and save money'=>'سجل الدخول ووفّر المال',
     'or more at this property at check-in'=>'أو أكثر في مكان الإقامة هذا عند تسجيل الدخول',
+
+    'We offer you the most popular restaurants at discounts'=>'نقدم لك أشهر المطاعم بخصومات تصل الي 10% ',
     'all'=>'الكل',
     'valuesearch' => 'نتايج البحث',
     'namecar' => 'ابحث عن اسم السيارة',
     'comments' => 'التقيمات',
+
+    'Go to the restaurant'=>'التوجه الي المطعم',
     'carbonbooking' => 'يتم دفع العربون فى حالة الحجز',
 'The deposit is paid at the time of booking'=>'يتم دفع العربون فى حالة الحجز',
     'Please follow the site policy' => 'برجاء اتباع سياسه المكان',

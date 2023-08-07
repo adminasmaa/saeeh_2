@@ -33,7 +33,7 @@ class BransCarSubResource extends JsonResource
             "image" => asset('images/categories') . "/" . $this->image,
             "active" => $this->active ?? '',
 
-            "car" => CarResource::collection($this->carscategories),
+//            "car" => CarResource::collection($this->carscategories),
         ];
     }
 }

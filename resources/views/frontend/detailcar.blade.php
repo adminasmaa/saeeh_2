@@ -341,8 +341,8 @@
                                     <div class="col-12">
                                         <div class="details-txt py-4">
 
-                                            {{$car->description ?? ''}}
 
+                                            {!! html_entity_decode($car->description) !!}
                                         </div>
                                         <h3 class="details-head"> {{$car->name ?? ''}}</h3>
                                     </div>

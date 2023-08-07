@@ -177,7 +177,10 @@
                                                         />
                                                     </svg>
                                                     <span
-                                                    >{{$place->descrption ?? ''}}</span> <span
+                                                    >
+
+                                                        {!! html_entity_decode($place->descrption) !!}
+                                                    </span> <span
                                                     >{{$place->country->name ?? ''}}</span> <span
                                                     >{{$place->city->name ?? ''}}</span>
                                                 </div>
@@ -233,7 +236,9 @@
                               </svg>
                             </span>
 
-                                                        التوجه الي المطعم</a
+
+                                              @lang('site.Go to the restaurant')
+                                                          </a
                                                     >
                                                 </div>
                                             </div>
@@ -246,95 +251,34 @@
 
 
                     </div>
-                </div>
-            </div>
-            </div>
-            </div>
-            </div>
+               <div  class="col-12">
+                   @if(!empty($places->appends(request()->query())->links()))
+                       <div class="card card-department round-border mb-3 p-3">
+                           <nav
+                               class="department-list-pagination d-md-flex justify-content-md-between align-items-center"
+                           >
+                               <ul
+                                   class="pagination mb-0 justify-content-lg-start justify-content-center"
+                               >
+                                   <li class="page-item">
+                                       <div>{{ $places->appends(request()->query())->links()}} </div>
+                                   </li>
+
+                               </ul>
+                           </nav>
+                       </div>
+                   @endif
+               </div>
+
+
+
             </div>
             </div>
 
-            <div> {{ $places->links() }} </div>
-            {{--
-            <div class="row">
-               --}}
-            {{--
-            <div class="col-12">
-               --}}
-            {{--
-            <div class="card card-department round-border my-4 p-3">
-               --}}
-            {{--
-            <nav class="department-list-pagination d-md-flex justify-content-md-between align-items-center">
-               --}}
-            {{--
-            <ul class="pagination mb-0 justify-content-lg-start justify-content-center">
-               --}}
-            {{--
-            <li class="page-item">--}}
-            {{--                                        <a class="page-link rounded-3" href="javascript:void(0)">--}}
-            {{--                                            <em class="fas fa-chevron-right small text-main" aria-hidden="true"></em>--}}
-            {{--                                        </a>--}}
-            {{--
-         </li>
-         --}}
-            {{--
-            <li class="page-item">--}}
-            {{--                                        <a class="page-link" href="javascript:void(0)">1</a>--}}
-            {{--
-         </li>
-         --}}
-            {{--
-            <li class="page-item">--}}
-            {{--                                        <a class="page-link active" href="javascript:void(0)">2</a>--}}
-            {{--
-         </li>
-         --}}
-            {{--
-            <li class="page-item">--}}
-            {{--                                        <a class="page-link" href="javascript:void(0)">3</a>--}}
-            {{--
-         </li>
-         --}}
-            {{--
-            <li class="page-item d-flex justify-content-center align-items-center">--}}
-            {{--                                        <a class="text-light-gray" href="javascript:void(0)">........</a>--}}
-            {{--
-         </li>
-         --}}
-            {{--
-            <li class="page-item">--}}
-            {{--                                        <a class="page-link" href="javascript:void(0)">50</a>--}}
-            {{--
-         </li>
-         --}}
-            {{--
-            <li class="page-item disabled">--}}
-            {{--                                        <a class="page-link rounded-3">--}}
-            {{--                                            <em class="fas fa-chevron-left small" aria-hidden="true"></em>--}}
-            {{--                                        </a>--}}
-            {{--
-         </li>
-         --}}
-            {{--
-         </ul>
-         --}}
-            {{--
-            <div class="text-main result-count">النتايج 24 - 123</div>
-            --}}
-            {{--
-         </nav>
-         --}}
-            {{--
-         </div>
-         --}}
-            {{--
-         </div>
-         --}}
-            {{--
-         </div>
-         --}}
-            </div>
+
+
+
+
         </section>
         <section class="d-lg-flex">
             <div class="right-container bg-main d-flex align-items-center py-lg-0 py-4">
