@@ -140,7 +140,6 @@ class CategoryController extends Controller
 
             $carss =  CarResource::collection($cars)->response()->getData();
 
-            $carss = CarResource::collection($cars);
             return $this->respondSuccessPaginate($carss, __('message.data retrieved successfully.'));
 
         } else {
