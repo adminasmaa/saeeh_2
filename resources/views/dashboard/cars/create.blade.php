@@ -76,7 +76,7 @@
                                         {{--                                        <input type="text" name="year" class="form-control"--}}
                                         {{--                                               value="{{old('year')}}"--}}
                                         {{--                                               required>--}}
-                                        <select class="form-control" name="year">
+                                        <select class="js-example-placeholder-multiple col-sm-12" name="year">
                                         @for ($year = (int)date('Y')+1; 1900 <= $year; $year--): 
                                             <option value="{{$year}}">{{$year}}</option>
                                         @endfor
@@ -102,11 +102,11 @@
                                         >
                                     </div>
 
-
+                                    <!-- VALUES(STR_TO_DATE('07-25-2012','%m-%d-%Y') -->
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.car_delivery_date')<span class="text-danger">*</span></label>
-                                        <input type="datetime" name="car_delivery_date" class="form-control"
-                                               value="{{old('car_delivery_date')}}"
+                                        <input type="datetime-local" name="car_delivery_date" class="form-control"
+                                        format="('Y-m-d\TH:i')" value="{{old('car_delivery_date')}}" 
                                         >
                                     </div>
 
@@ -140,7 +140,7 @@
 
                                         <div class="col-md-6 form-group col-12 p-2  desc" id="price1">
                                             <label>@lang('site.fixed_price')<span class="text-danger">*</span></label>
-                                            <input type="text" name="fixed_price" class="form-control"
+                                            <input type="number"  step=".1" name="fixed_price" class="form-control"
                                                    value="{{old('fixed_price')}}"
                                             >
                                         </div>
@@ -155,7 +155,7 @@
                                                             </div>
                                                             <div class="col-md-5 form-group col-12">
                                                                 <label>@lang('site.fixed_price')</label>
-                                                                <input type="number" name="price[]" class="form-control" >
+                                                                <input type="number"  step=".1" name="price[]" class="form-control" >
                                                             </div>
                                                             <div class="col-md-2 form-group col-12">
                                                                 <a class="btn btn-air-primary btn-pill btn-success add-price w-100 m-t-30"><i class="fa fa-plus" aria-hidden="true"></i></a>
@@ -201,7 +201,7 @@
 
                                     <div class="col-md-6 form-group">
                                         <label class="form-label">@lang('site.users')</label>
-                                        <select class="form-control btn-square" name="user_id">
+                                        <select class="js-example-placeholder-multiple col-sm-12" name="user_id">
                                             <option selected>@lang('site.select')</option>
                                             @foreach($users as $user)
 
@@ -215,7 +215,7 @@
 
                                     <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                         <label class="form-label">@lang('site.categories')</label>
-                                        <select class="form-control btn-square" name="category_id" id="category_id">
+                                        <select class="js-example-placeholder-multiple col-sm-12" name="category_id" id="category_id">
                                             <option selected value="0">@lang('site.select')</option>
                                             @foreach($categories as $cat)
 
@@ -228,7 +228,7 @@
 
                                     <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                         <label class="form-label">@lang('site.subcategories')</label>
-                                        <select class="form-control btn-square" name="sub_category_id" id="sub_category_id">
+                                        <select class="js-example-placeholder-multiple col-sm-12" name="sub_category_id" id="sub_category_id">
                                             <option selected value="0">@lang('site.select')</option>
                                             {{--                                        @foreach($subcategories as $cat)--}}
 
@@ -241,7 +241,7 @@
 
                                     <div class="col-md-6 form-group">
                                                     <label class="form-label">@lang('site.ads_status')</label>
-                                                    <select class="form-control btn-square" name="ads_status_id" id="ads_status_id">
+                                                    <select class="js-example-placeholder-multiple col-sm-12" name="ads_status_id" id="ads_status_id">
                                                         <option selected value="0">@lang('site.select')</option>
                                                         @foreach($adsStatus as $ads_status)
 
@@ -254,7 +254,7 @@
                                     <div class="row">
                                                 <div class="col-md-6 form-group">
                                                     <label class="form-label">@lang('site.country')</label>
-                                                    <select class="form-control btn-square" name="country_id" id="country_id">
+                                                    <select class="js-example-placeholder-multiple col-sm-12" name="country_id" id="country_id">
                                                         <option selected value="0">@lang('site.select')</option>
                                                         @foreach($countries as $country)
 
@@ -266,7 +266,7 @@
                                                 </div>
                                                 <div class="col-md-6 form-group">
                                                     <label class="form-label">@lang('site.city')</label>
-                                                    <select class="form-control btn-square" name="city_id" id="city_id">
+                                                    <select class="js-example-placeholder-multiple col-sm-12" name="city_id" id="city_id">
                                                         <option selected value="0">@lang('site.select')</option>
                                                         <!-- @foreach($cities as $city)
 
@@ -283,7 +283,7 @@
                                     <div class="form-group col-12 p-2">
                                         <label>@lang('site.image')</label>
 
-                                        <input type="file" class="form-control" name="main_image"
+                                        <input type="file" class="form-control" name="main_image_ads"
                                             id="imgInp" required />
                                         <img id="frame" src="" width="200px" class="img-upload" />
 

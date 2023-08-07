@@ -112,20 +112,18 @@ class CarRepository implements CarRepositoryInterfaceAlias
 
         }
 
-
         if ($request->hasFile('images')) {
             $images = $request->file('images');
             foreach ($images as $key => $files) {
                 $destinationPath = 'images/cars/';
                 $file_name = $_FILES['images']['name'][$key];
                 $files->move($destinationPath, $file_name);
-                $data[] = $_FILES['images']['name'][$key];
+                $data[]= $_FILES['images']['name'][$key];
                 $car->images = json_encode($data);
+                // $car->images = implode(',',$data);
                 $car->save();
             }
         }
-
-
 
 
 

@@ -95,7 +95,8 @@
                                 <div class="row">
                                     <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                         <label class="form-label">@lang('site.categories')</label>
-                                        <select class="js-example-placeholder-multiple col-sm-12" name="category_id"id="category_id">
+                                        <select class="js-example-placeholder-multiple col-sm-12" id="category_id" multiple="multiple"
+                                            name="category_id[]">
                                             <option selected>@lang('site.select')</option>
                                             @foreach($categories as $cat)
 
@@ -105,17 +106,20 @@
 
                                         </select>
                                     </div>
+
+                                    <div class="row">
                                     <div class="col-md-6 form-group"><span class="text-danger">*</span>
-                                            <label class="form-label">@lang('site.subcategories')</label>
-                                            <select class="js-example-placeholder-multiple col-sm-12" name="sub_category_id" id="sub_category_id">
-                                                <option selected>@lang('site.select')</option>
-                                                    @foreach($subcategories as $cat)
+                                        <label class="form-label">@lang('site.subcategories')</label>
+                                        <select class="js-example-placeholder-multiple col-sm-12" id="sub_category_id" multiple="multiple"
+                                            name="category_id[]">
+                                            <option selected>@lang('site.select')</option>
+                                            @foreach($subcategories as $subcategory)
 
-                                                        <option value="{{$cat->id}}">{{$cat->name_ar ?? ''}}</option>
+                                                <option value="{{$subcategory->id}}">{{$subcategory->name_ar ?? ''}}</option>
 
-                                                    @endforeach
+                                            @endforeach
 
-                                            </select>
+                                        </select>
                                     </div>
                                 </div>
 

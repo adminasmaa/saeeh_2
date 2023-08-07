@@ -28,9 +28,9 @@ class CityRepository implements ICityRepositoryAlias
 
         $countries = Country::get();
         
-        $categories = Category::where('parent_id','=',null)->where('type','=',0)->get();
-
         $subcategories = Category::where('parent_id','!=',0)->where('type','=',0)->get();
+
+        $categories = Category::where('parent_id','=',null)->where('type','=',0)->get();
 
         return view('dashboard.cities.create', compact('countries', 'categories','subcategories'));
     }
@@ -43,9 +43,9 @@ class CityRepository implements ICityRepositoryAlias
 
         $countries = Country::get();
 
-        $categories = Category::where('parent_id','=',null)->where('type','=',0)->get();
-
         $subcategories = Category::where('parent_id','!=',0)->where('type','=',0)->get();
+
+        $categories = Category::where('parent_id','=',null)->where('type','=',0)->get();
 
         $reletedCategory = category_city::where('city_id', $Id)->pluck('category_id')->toArray() ?? [];
 
@@ -62,9 +62,9 @@ class CityRepository implements ICityRepositoryAlias
 
         $countries = Country::get();
 
-        $categories = Category::get();
+        $categories = Category::where('parent_id','=',null)->where('type','=',0)->get();
 
-        $subcategories = Category::get();
+        $subcategories = Category::where('parent_id','!=',0)->where('type','=',0)->get();
 
         $categoryrelated = category_city::where('city_id', $Id)->pluck('category_id')->toArray();
 

@@ -167,7 +167,7 @@
                                 <div class="col-md-6 form-group col-12 p-2 ">
                                     <label class="form-label">@lang('site.categories')</label>
                                     <select class="js-example-placeholder-multiple col-sm-12" multiple="multiple"
-                                            name="category_id[]" disabled>
+                                            name="category_id[]" disabled  id="category_id">
                                         <option>@lang('site.select')</option>
                                         @foreach($categories as $category)
 
@@ -181,12 +181,13 @@
 
                                 <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                 <label class="form-label">@lang('site.subcategories')</label>
-                                <select class="form-control btn-square" name="sub_category_id" id="sub_category_id" disabled readonly="">
+                                <select class="js-example-placeholder-multiple col-sm-12" multiple="multiple" name="category_id[]" id="sub_category_id" disabled >
                                     <option >@lang('site.select')</option>
-                                    @foreach($subcategories as $cats)
+                                    @foreach($subcategories as $category)
 
-                                        <option value="{{$cats->id}}"
-                                                @if($city->sub_category_id==$cats->id) selected @endif>{{$cats->name_ar ?? ''}}</option>
+                                        <option value="{{$category->id}}"
+                                      
+                                        @if(in_array($category->id,$categoryrelated)) selected @endif>{{$category->name_ar ?? ''}}</option>
 
                                     @endforeach
 
