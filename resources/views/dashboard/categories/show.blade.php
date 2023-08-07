@@ -155,7 +155,6 @@
                             <!--  End Of Modal -->
                             <div class="row">
 
-
                                 <div class="col-md-6 form-group col-12 p-2">
                                     <label>@lang('site.ar.name')</label>
                                     <input type="text" name="name_ar" class="form-control" value="{{ $category->name_ar }}"
@@ -180,7 +179,6 @@
                                 </div>
                             </div>
 
-
                             <br>
 
                             <h4 class="card-title">@lang('site.subcategories')</h4>
@@ -188,13 +186,16 @@
                                 <div class="row m-0">
 
                                     <div class="col-md-3 form-group col-12 p-2">
-
-
                                         <label>@lang('site.ar.name')</label>
                                         <input type="text" class="form-control"
                                                value="{{ $cat->name_ar ?? '' }}"disabled readonly="">
                                     </div>
 
+                                    <div class="col-md-3 form-group col-12 p-2">
+                                    <label>@lang('site.en.name')</label>
+                                    <input type="text" class="form-control"
+                                        value="{{ $cat->name_en ?? '' }}"disabled readonly="">
+                                    </div>
 
                                     <div class="col-md-3 form-group col-12 p-2">
                                         <label>@lang('site.image')</label>
@@ -202,12 +203,9 @@
                                              width="100px" height="100px"disabled readonly="">
                                     </div>
 
-
                                     @endforeach
 
-
                                 </div>
-
 
                         </div>
                     </div>

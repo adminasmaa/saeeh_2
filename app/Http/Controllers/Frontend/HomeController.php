@@ -12,6 +12,8 @@ use App\Models\City;
 use App\Models\Aqar;
 use App\Models\Country;
 use App\Models\Place;
+use App\Models\Car;
+
 use App\Models\PlaceComment;
 use App\Services\TwoFactorService;
 use App\Models\category_city;
@@ -100,7 +102,7 @@ class HomeController extends Controller
 
     }
 
-  
+
 
 
 

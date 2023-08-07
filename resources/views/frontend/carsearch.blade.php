@@ -110,8 +110,8 @@
                                 <span
                                 >
 
-
                                     {!! html_entity_decode($car->description) !!}
+
                                 </span>
                             </div>
                             <div

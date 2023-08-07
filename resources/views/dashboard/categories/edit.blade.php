@@ -253,7 +253,7 @@
 
                                                     <label>@lang('site.image')</label>
                                                     <input type="file" class="form-control"
-                                                           value="{{ old('image') }}">
+                                                           value="{{ old('image_category') }}">
 
 
                                                 </div>

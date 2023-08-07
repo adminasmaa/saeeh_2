@@ -67,12 +67,14 @@ class PlaceCategoryRepository implements PlaceCategoryRepositoryInterfaceAlias
     {
         // TODO: Implement store() method.
 
-//        return $request;
+        //        return $request;
         $request_data = $request->except(['image', 'name_category', 'image_category']);
 
         // To Make  Active
         $request_data['active'] = 1;
         $request_data['type'] = 0;
+        $request_data['parent_id'] = 0;
+
 //        ['city_id' => json_encode($request['city_id'])
 
         $category = Category::create($request_data);

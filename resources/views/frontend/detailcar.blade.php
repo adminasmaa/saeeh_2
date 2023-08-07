@@ -61,7 +61,7 @@
                         <div id="slides">
 
                             @if(!empty($car->images))
-                            @foreach(json_decode($car->images)  as $key=>$img)
+                            @foreach(explode(',',$car->images)  as $key=>$img)
 
                                 <div class="slide show" data-slide="{{$key}}">
                                     <img src="{{asset('images/cars/'.$img)}}"
@@ -124,7 +124,7 @@
                     <div class="col-lg-2 gallery-list-mobile">
                         <div id="gallery">
                             @if(!empty($car->images))
-                            @foreach(json_decode($car->images)  as $key=>$img)
+                            @foreach(explode(',',$car->images)  as $key=>$img)
                                 <div class="thumbnail" data-slide="{{$key}}">
                                     <img alt="car"
                                          src="{{asset('images/cars/'.$img)}}"

@@ -1255,7 +1255,7 @@
                                                                 dir="ltr" id="myUL"
                                                             >
                                                                 @if(!empty($car->images))
-                                                                @foreach(json_decode($car->images)  as $img)
+                                                                @foreach(explode(',',$car->images)  as $img)
                                                                     <div class="city-item">
                                                                         <button class="add-to-wishlist">
                                                                             <svg xmlns="http://www.w3.org/2000/svg"

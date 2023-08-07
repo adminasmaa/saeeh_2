@@ -168,13 +168,19 @@
                                             <tr><td>
                                                     <div class="row">
                                                         <div class="col-md-5 form-group col-12">
-                                                            <input type="text"  name="name_category[]" class="form-control"/>
+                                                        <label>@lang('site.ar.name')<span class="text-danger">*</span></label>
+                                                            <input type="text"  name="name_ar_category[]" class="form-control"/>
                                                         </div>
                                                         <div class="col-md-5 form-group col-12">
+                                                        <label>@lang('site.en.name')</label>
+                                                            <input type="text"  name="name_en_category[]" class="form-control"/>
+                                                        </div>
+                                                        <div class="col-md-5 form-group col-12">
+                                                        <label>@lang('site.image')</label>
                                                             <input type="file" name="image_category[]" class="form-control" >
                                                         </div>
-                                                        <div class="col-md-2 form-group col-12">
-                                                            <a class="btn btn-air-primary btn-pill btn-success add-price w-100"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                                                        <div class="col-md-5 form-group col-12">
+                                                            <a class="btn btn-air-primary btn-pill btn-success add-price w-50"><i class="fa fa-plus" aria-hidden="true"></i></a>
                                                         </div>
                                                     </div>
                                                 </td></tr>
@@ -209,7 +215,8 @@
             jQuery('a.add-price').click(function (event) {
                 event.preventDefault();
                 var newRow = jQuery('<tr><td><div class="row"><div class="col-md-5 form-group col-12 p-2">' +
-                    '<input type="text"  name="name_category[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
+                    '<input type="text"  name="name_ar_category[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
+                    '<input type="text"  name="name_en_category[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
                     '<input type="file" name="image_category[]" class="form-control" >' +
                     '  </div>  <div class="col-md-2 form-group col-12 p-2 "> <a class="btn btn-air-primary btn-pill btn-danger add-price w-100" onclick="deletetr(this)" ><i class="fa fa-trash"></i></a>' +
 
