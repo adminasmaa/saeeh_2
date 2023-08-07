@@ -86,7 +86,7 @@ class AqarController extends Controller
             $users = User::find($user_id);
 
 
-            $user = $users->FavouriteAqars()->toggle($request->aqar_id);
+            $user = $users->favourite_aqars()->toggle($request->aqar_id);
 
             $status = ($user['attached'] !== []) ? 'favourite' : 'unfavourite';
 

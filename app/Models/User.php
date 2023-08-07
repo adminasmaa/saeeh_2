@@ -144,18 +144,18 @@ class User extends Authenticatable
         return $this->HasMany(Deposit::class);
     }
 
-    public function FavouriteAqars(){
-        return $this->belongsToMany(Aqar::class,'aqar_user','aqar_id','user_id');
+    public function favourite_aqars(){
+        return $this->belongsToMany(Aqar::class,'aqar_user');
     }
     public function FavouriteCities(){
-        return $this->belongsToMany(Aqar::class,'city_user','city_id','user_id');
+        return $this->belongsToMany(City::class,'city_user','city_id','user_id');
     }
 
-    public function FavouriteCar(){
-        return $this->belongsToMany(Aqar::class,'car_user','car_id','user_id');
+    public function favourite_car(){
+        return $this->belongsToMany(Car::class,'car_user');
     }
 
-    public function FavouritePalace(){
-        return $this->belongsToMany(Aqar::class,'user_palace','place_id','user_id');
+    public function favourite_place(){
+        return $this->belongsToMany(Place::class,'user_palace');
     }
 }
