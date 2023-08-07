@@ -46,11 +46,9 @@
                             <div class="country-container d-flex align-items-center">
                                 <div class="w-100">
                                     <div>
-                                        <h2 class="pb-4">
-
-
-                                            @lang('site.We offer you the most popular restaurants at discounts')
-                                        </h2>
+                                        <!-- <h2 class="pb-4">
+                                            نقدم لك أشهر المطاعم بخصومات
+                                            تصل الي 10% </h2> -->
                                         <div class="form-group mb-4 position-relative">
                                             <input type="search" class="form-control search-country"
                                                    placeholder="ابحث عن دولتك المفضلة" id="search" name="q">
@@ -85,10 +83,10 @@
                     @foreach($subcategories as $subcat)
                         <div class="col-lg-3 col-sm-6 col-12">
                             <a href="{{route('subcategorycars',$subcat->id)}}">
-                                <div class="card-restaurant mb-3 position-relative">
+                                <div class="card-restaurant mb-4 position-relative">
                                     {{--                                <img src="{{FRONTASSETS}}/images/restaurants/restaurant-cat.png" alt="Card image cap"--}}
                                     {{--                                     class="restaurant-image">--}}
-                                    <img class="card-img" src="{{asset('images/categories/'.$subcat->image)}}"
+                                    <img class="restaurant-image" src="{{asset('images/categories/'.$subcat->image)}}"
                                          alt="Card image cap"
                                          onerror="this.src='{{asset('images/categories/default.jpg')}}'"
                                     >
