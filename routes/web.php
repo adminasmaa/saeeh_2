@@ -58,7 +58,7 @@ Route::get('checkallaquar', 'App\Http\Controllers\Frontend\AquarController@check
 //aquar end
 
 
-Route::get('amira1', 'App\Http\Controllers\Frontend\HomeController@amira1')->name('amira1');
+Route::get('wateen1', 'App\Http\Controllers\Frontend\HomeController@wateen1')->name('wateen1');
 
 
 });

@@ -12,6 +12,8 @@ use App\Models\City;
 use App\Models\Aqar;
 use App\Models\Country;
 use App\Models\Place;
+use App\Models\Car;
+
 use App\Models\PlaceComment;
 use App\Services\TwoFactorService;
 use App\Models\category_city;
@@ -100,54 +102,6 @@ class HomeController extends Controller
 
     }
 
-    public function amira(){
-        $aqars=Aqar::all();
-        foreach($aqars as $aqar){
-        if($aqar->main_image){
-        $imagePath =  public_path("images/saeeh_img/".$aqar->main_image);
-        $newPath =  public_path("images/amira/");
-        $newName  = $newPath.$aqar->main_image;
-
-        $copied = File::copy($imagePath , $newName);
-        
-        if ((!$copied)) 
-        {
-            echo "Error : Not Copied";
-        }
-        else
-        { 
-            echo "Copied Successful";
-        }
-    }
-}
-    }
-
-
-    public function amira1(){
-        $aqars=Aqar::all();
-        foreach($aqars as $aqar){
-        if($aqar->images){
-        $images=explode(',',$aqar->images);
-        foreach($images as $image){
-        $imagePath =  public_path("images/saeeh_img/".$image);
-        $newPath =  public_path("images/amira/");
-        $newName  = $newPath.$aqar->main_image;
-
-        $copied = File::copy($imagePath , $newName);
-        
-        if ((!$copied)) 
-        {
-            echo "Error : Not Copied";
-        }
-        else
-        { 
-            echo "Copied Successful";
-        }
-        
-    }
-}
-}
-    }
 
 
 
