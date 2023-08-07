@@ -216,7 +216,10 @@ class CategoryController extends Controller
     public function categorydetail(Request $request)
     {
         $category_id = $request->category_id;
-        $category = Category::where('id', $category_id)->with('subcategories')->first();
+        $city_id = $request->city_id;
+       
+        $category = Category::where('id', $category_id)->with('subcategories', function ($q) use ($city_id) { 
+            $q->join('cities-categories', 'categories.id', '=', 'cities-categories.category_id')->where('cities-categories.city_id','=',$city_id);})->first();
         if (isset($category)) {
 
 
