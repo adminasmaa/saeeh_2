@@ -11,7 +11,7 @@
             <nav class="breadcrumb-container" aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0">
                     <li class="breadcrumb-item">
-                        <a href="javascript:void(0)"> @lang('site.home') </a>
+                        <a href="{{route('Home')}}"> @lang('site.home') </a>
                     </li>
                     <li>
                         <span><svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15"

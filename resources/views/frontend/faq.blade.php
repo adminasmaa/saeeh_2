@@ -6,7 +6,7 @@
           <nav class="breadcrumb-container" aria-label="breadcrumb">
             <ol class="breadcrumb mb-0">
               <li class="breadcrumb-item">
-                <a href="javascript:void(0)">    @lang('site.home') </a>
+                <a href="{{route('Home')}}">    @lang('site.home') </a>
               </li>
               <li>
                 <span
@@ -72,7 +72,7 @@
                   </div>
                     </div>
               </div>
-              
+
             </div>
             @endforeach
           </div>
