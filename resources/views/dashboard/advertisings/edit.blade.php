@@ -59,10 +59,10 @@
 
 
                                     <label>@lang('site.image')</label>
-                                    <img src="{{asset('images/advertising/'.$advertising->ads_image)}}"
+                                    <img src="{{asset('images/advertisings/'.$advertising->ads_image)}}"
                                          data-bs-toggle="modal"
                                          data-bs-target="#exampleModalss" width="100px" height="100px" class="d-block"
-                                         onerror="this.src='{{asset('images/advertising/default.jpg')}}'"
+                                         onerror="this.src='{{asset('images/advertisings/default.jpg')}}'"
                                     >
 
 
@@ -84,12 +84,12 @@
                                                 <tr>
                                                     <th>
                                                         <img name="soso"
-                                                             src="{{asset('images/advertising/'.$advertising->ads_image)}}"
+                                                             src="{{asset('images/advertisings/'.$advertising->ads_image)}}"
                                                              alt=""
                                                              width="400px" height="aut0"
 
 
-                                                             onerror="this.src='{{asset('images/advertising/default.jpg')}}'"
+                                                             onerror="this.src='{{asset('images/advertisings/default.jpg')}}'"
                                                         >
 
                                                     </th>
@@ -131,7 +131,7 @@
 
                                 <div class="col-md-6 form-group col-12 p-2">
                                     <label class="form-label">@lang('site.position')</label>
-                                    <select class="form-control btn-square" name="position">
+                                    <select class="js-example-placeholder-multiple col-sm-12"  name="position">
                                         <option selected>@lang('site.select')</option>
 
                                         <option value="upper_middle"
@@ -153,7 +153,7 @@
 
                                 <div class="col-md-6 form-group">
                                     <label class="form-label">@lang('site.users')</label>
-                                    <select class="form-control btn-square" name="user_id">
+                                    <select class="js-example-placeholder-multiple col-sm-12"  name="user_id">
                                         <option selected>@lang('site.select')</option>
                                         @foreach($users as $user)
 

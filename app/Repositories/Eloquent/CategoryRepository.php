@@ -68,12 +68,12 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
         // TODO: Implement store() method.
 
 //        return $request;
-        $request_data = $request->except(['image', 'name_category', 'image_category', 'city_id']);
+        $request_data = $request->except(['image', 'icon','name_ar_category', 'name_en_category','image_category', 'city_id']);
 
         // To Make  Active
         $request_data['active'] = 1;
         $request_data['type'] = 2;
-        $request_data['parent_id '] = 2;
+        $request_data['parent_id'] = 2;
 
 
         $category = Category::create($request_data + ['city_id' => json_encode($request['city_id'])]);
@@ -94,29 +94,30 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
 
         }
 
-        if (!empty($request['name_category'])) {
+        if (!empty($request['name_ar_category'])) {
 
-            foreach ($request['name_category'] as $key => $value) {
+            foreach ($request['name_ar_category'] as $key => $value) {
                 $cat = Category::create([
                     'name_ar' => $value,
+                    'name_en' => $value,
                     'parent_id' => $category->id
                 ]);
 
 
                 if (!empty($request['image_category'][$key])) {
 
-                $image = $request['image_category'][$key] ?? '';
-
-
-                $destinationPath = 'images/categories/';
-                $extension = $image->getClientOriginalExtension(); // getting image extension
-                $name = time() . '' . rand(11111, 99999) . '.' . $extension; // renameing image
-                $image->move($destinationPath, $name); // uploading file to given
-                $cat->image = $name;
-
-                $cat->save();
-
-            }
+                    $image = $request['image_category'][$key] ?? '';
+    
+    
+                    $destinationPath = 'images/categories/';
+                    $extension = $image->getClientOriginalExtension(); // getting image extension
+                    $name = time() . '' . rand(11111, 99999) . '.' . $extension; // renameing image
+                    $image->move($destinationPath, $name); // uploading file to given
+                    $cat->image = $name;
+    
+                    $cat->save();
+    
+                }
             }
 
         }
@@ -133,7 +134,7 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
         // TODO: Implement update() method.
 
 
-        $request_data = $request->except(['image', 'name_category', 'image_category', 'city_id']);
+        $request_data = $request->except(['image','icon','name_category', 'image_category', 'city_id']);
         $category->update($request_data + ['city_id' => json_encode($request['city_id'])]);
 
 
@@ -153,21 +154,23 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
             foreach ($request['name_category'] as $key => $value) {
                 $cat = Category::create([
                     'name_ar' => $value,
-                    'parent_id' => $category->id
-                ]);
+                    'name_en' => $value,
+                    'parent_id' => $category->id,
+                    ]);
+                if (!empty($request['image_category'][$key])) {
+
+                    $image = $request['image_category'][$key] ?? '';
 
 
-//            if (isset($request['image_category'][$key])) {
+                    $destinationPath = 'images/categories/';
+                    $extension = $image->getClientOriginalExtension(); // getting image extension
+                    $name = time() . '' . rand(11111, 99999) . '.' . $extension; // renameing image
+                    $image->move($destinationPath, $name); // uploading file to given
+                    $cat->image = $name;
 
-                $image = $request['image_category'][$key] ?? '';
+                    $cat->save();
 
-                $destinationPath = 'images/categories/';
-                $extension = $image->getClientOriginalExtension(); // getting image extension
-                $name = time() . '' . rand(11111, 99999) . '.' . $extension; // renameing image
-                $image->move($destinationPath, $name); // uploading file to given
-                $cat->image = $name;
-
-                $cat->save();
+                }
 
             }
         }
@@ -176,7 +179,7 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
 
             //   return redirect()->route('dashboard.users.index');
             return redirect()->route('dashboard.categories.index');
-//            session()->flash('success', __('site.updated_successfully'));
+            //   session()->flash('success', __('site.updated_successfully'));
         } else {
             Alert::error('Error', __('site.update_faild'));
 
