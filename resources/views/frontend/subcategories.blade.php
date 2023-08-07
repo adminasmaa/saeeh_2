@@ -47,8 +47,9 @@
                                 <div class="w-100">
                                     <div>
                                         <h2 class="pb-4">
-                                            نقدم لك أشهر المطاعم بخصومات
-                                            تصل الي 10% </h2>
+
+@lang('site.We offer you the most popular restaurants at discounts')
+                                        </h2>
                                         <div class="form-group mb-4 position-relative">
                                             <input type="search" class="form-control search-country"
                                                    placeholder="ابحث عن دولتك المفضلة" id="search" name="q">
@@ -74,7 +75,7 @@
             <div class="container w-100">
                 <div class="row pb-3">
                     <div class="col-12 d-flex justify-content-between">
-                        <h2 class="country-title">كل المطاعم</h2>
+                        <h2 class="country-title"> @lang('site.all') @lang('site.categories')</h2>
 
                     </div>
                 </div>
@@ -108,39 +109,24 @@
 
                 <div class="row">
                     <div class="col-12">
-                        <div class="card card-department round-border my-4 p-3">
-                            <nav
-                                class="department-list-pagination d-md-flex justify-content-md-between align-items-center">
-                                <ul class="pagination mb-0 justify-content-lg-start justify-content-center">
-                                    {{--                                    <li class="page-item">--}}
-                                    {{--                                        <a class="page-link rounded-3" href="javascript:void(0)">--}}
-                                    {{--                                            <em class="fas fa-chevron-right small text-main" aria-hidden="true"></em>--}}
-                                    {{--                                        </a>--}}
-                                    {{--                                    </li>--}}
-                                    <li class="page-item">
-                                        {{$subcategories->links()}}
-                                    </li>
-                                    {{--                                    <li class="page-item">--}}
-                                    {{--                                        <a class="page-link active" href="javascript:void(0)">2</a>--}}
-                                    {{--                                    </li>--}}
-                                    {{--                                    <li class="page-item">--}}
-                                    {{--                                        <a class="page-link" href="javascript:void(0)">3</a>--}}
-                                    {{--                                    </li>--}}
-                                    {{--                                    <li class="page-item d-flex justify-content-center align-items-center">--}}
-                                    {{--                                        <a class="text-light-gray" href="javascript:void(0)">........</a>--}}
-                                    {{--                                    </li>--}}
-                                    {{--                                    <li class="page-item">--}}
-                                    {{--                                        <a class="page-link" href="javascript:void(0)">50</a>--}}
-                                    {{--                                    </li>--}}
-                                    {{--                                    <li class="page-item disabled">--}}
-                                    {{--                                        <a class="page-link rounded-3">--}}
-                                    {{--                                            <em class="fas fa-chevron-left small" aria-hidden="true"></em>--}}
-                                    {{--                                        </a>--}}
-                                    {{--                                    </li>--}}
-                                </ul>
-                                {{--                                <div class="text-main result-count">النتايج 24 - 123</div>--}}
-                            </nav>
-                        </div>
+
+
+                        @if(!empty($subcategories->appends(request()->query())->links()))
+                            <div class="card card-department round-border my-4 p-3">
+                                <nav
+                                    class="department-list-pagination d-md-flex justify-content-md-between align-items-center"
+                                >
+                                    <ul
+                                        class="pagination mb-0 justify-content-lg-start justify-content-center"
+                                    >
+                                        <li class="page-item">
+                                            <div>{{ $subcategories->appends(request()->query())->links()}} </div>
+                                        </li>
+
+                                    </ul>
+                                </nav>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

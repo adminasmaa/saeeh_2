@@ -479,7 +479,8 @@
                                                                 </div>
                                                             </h2>
                                                             <p class="details-sm-txt mb-0">
-                                                                {{$comment->description ?? ''}}
+
+                                                                {!! html_entity_decode($comment->description) !!}
                                                             </p>
                                                         </div>
                                                     </div>

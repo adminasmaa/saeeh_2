@@ -55,6 +55,7 @@
  crossorigin="anonymous" referrerpolicy="no-referrer" />
  <!--select 2-->
  <link rel="stylesheet" href="{{FRONTASSETS}}/js/select2/css/select2.min.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.css" integrity="sha512-qveKnGrvOChbSzAdtSs8p69eoLegyh+1hwOMbmpCViIwj7rn4oJjdmMvWOuyQlTOZgTlZA0N2PXA7iA8/2TUYA==" crossorigin="anonymous" referrerpolicy="no-referrer">
  <!-- CSS -->
  <link rel="stylesheet" href="{{FRONTASSETS}}/styles/styles.css" />
  <link rel="stylesheet" href="{{FRONTASSETS}}/styles/responsive-styles.css" />
@@ -63,6 +64,8 @@
           integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
           crossorigin="anonymous"
       ></script>
+
+
 
  @yield('css')
   </head>
@@ -102,7 +105,7 @@
    <!-- Main JS -->
    <script src="{{FRONTASSETS}}/js/script.js"></script>
    <script src="{{FRONTASSETS}}/js/custom-rating.js"></script>
-   <script src="{{FRONTASSETS}}/js/sliderPrice.js"></script>
+{{--   <script src="{{FRONTASSETS}}/js/sliderPrice.js"></script>--}}
    <script src="{{FRONTASSETS}}/js/filter-menu-mobile.js"></script>
 <!-- Main JS -->
 @yield('js')

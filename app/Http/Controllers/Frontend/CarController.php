@@ -32,10 +32,14 @@ class CarController extends Controller
 
 
             $subcategories = Category::where('parent_id', '=', $id)->paginate(8);
+
+
             return view('frontend.subcategoriescar', compact('category', 'subcategories'));
 
 
         }
+
+
 
     }
     public function allcars(Request $request,$id)

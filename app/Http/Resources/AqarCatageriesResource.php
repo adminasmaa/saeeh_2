@@ -33,7 +33,7 @@ class AqarCatageriesResource extends JsonResource
             "image" => asset('images/categories') . "/" . $this->image,
             "active" => $this->active ?? '',
 
-            "aqar" =>AqarDetailResource::collection($this->aqars)
+//            "aqar" =>AqarDetailResource::collection($this->aqars)
 
         ];
     }

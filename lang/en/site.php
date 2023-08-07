@@ -10,6 +10,10 @@ return [
     'kitchens' => 'Kitchens',
     'laundries' => 'Laundries',
     'bathrooms' => 'BathRooms',
+    'We offer you the most popular restaurants at discounts'=>'We offer you the most popular restaurants at discounts up to 10%',
+
+    'Go to the restaurant'=>'Go to the restaurant',
+
     'another_rooms' => 'AnotherRooms',
     'conditioning_types' => 'Conditioning Types',
     'crews' => 'Crews',

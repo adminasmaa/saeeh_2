@@ -160,18 +160,19 @@
                                 />
                             </svg>
                             <span> {{$aquar->country->name ?? ''}} , {{$aquar->city->name ?? ''}}</span>
+                            <span> {{$aquar->address?? ''}} </span>
                         </div>
                         <div class="py-3">
-                          <span
-                          >
-                              <defs>
+                            <defs>
                                 <clipPath id="clip0_421_12633">
-                                  <rect width="24" height="24" fill="white"/>
+                                    <rect width="24" height="24" fill="white"/>
                                 </clipPath>
-                              </defs></svg
-                              ></span>
+                            </defs></svg
+                            >
                             <span class="text-main position-department">
-                            {!! html_entity_decode($aquar->description) !!}
+
+                                {!! html_entity_decode($aquar->description) !!}
+
                           </span>
                         </div>
 

@@ -110,7 +110,8 @@
                                 <span
                                 >
 
-                                {!! html_entity_decode($car->description) !!}
+                                    {!! html_entity_decode($car->description) !!}
+
                                 </span>
                             </div>
                             <div
@@ -150,6 +151,14 @@
                                     >
 
                                                                      {{$car->fixed_price ?? ''}}
+                                  </span>
+                                </div>     <div class="department-price">
+                                                                    <span
+                                                                        class="text-gray-2"> @lang('site.year'):</span>
+                                    <span class="fw-bold text-main"
+                                    >
+
+                                                                     {{$car->year ?? 0}}
                                   </span>
                                 </div>
                                 <div
