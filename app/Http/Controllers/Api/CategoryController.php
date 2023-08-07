@@ -115,7 +115,7 @@ class CategoryController extends Controller
 
     public function listofAquarWithCategory(Request $request)
     {
-        $aquars= Aqar::where('category_id', '=',$request->category_id)->paginate(20)->response()->getData();
+        $aquars= Aqar::where('category_id', '=',$request->category_id)->paginate(20);
 
 
         if (count($aquars)) {
@@ -133,7 +133,7 @@ class CategoryController extends Controller
 
     public function listofCarswithsubcategory(Request $request)
     {
-        $cars= Car::where('sub_category_id', '=',$request->sub_category_id)->paginate(20)->response()->getData();
+        $cars= Car::where('sub_category_id', '=',$request->sub_category_id)->paginate(20);
 
 
         if (count($cars)) {
@@ -203,7 +203,7 @@ class CategoryController extends Controller
         if (count($subcategories) == 0) {
             $places = PlaceResource::collection(Place::where('category_id','=', $cat_id)->orwhere('sub_category_id','=', $cat_id)->paginate(20))->response()->getData();
 //            $places = Place::where('category_id','=', $cat_id)->orwhere('sub_category_id','=', $cat_id)->paginate(20);
-              
+
             return $this->respondSuccessPaginate($places, __('message.subcategories retrieved successfully.'));
         } else {
             return $this->respondSuccess($subcategories, __('message.subcategories retrieved successfully.'));
