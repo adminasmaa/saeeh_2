@@ -157,13 +157,13 @@
 
                                 <div class="col-md-6 form-group col-12 p-2 ">
                                     <label class="form-label">@lang('site.subcategories')</label>
-                                    <select class="js-example-placeholder-multiple col-sm-12" id="sub_category_id"
-                                            name="sub_category_id">
-                                        <option value="0">@lang('site.select')</option>
-                                        @foreach($subcategories as $cats)
+                                    <select class="js-example-placeholder-multiple col-sm-12" multiple="multiple"
+                                            name="category_id[]">
+                                        <option>@lang('site.select')</option>
+                                        @foreach($subcategories as $subcategory)
 
-                                            <option value="{{$cats->id}}"
-                                                    @if($city->sub_category_id==$cats->id) selected @endif>{{$cats->name_ar ?? ''}}</option>
+                                            <option value="{{$subcategory->id}}"
+                                                    @if(in_array($subcategory->id,$reletedCategory)) selected @endif>{{$subcategory->name_ar ?? ''}}</option>
 
                                         @endforeach
 

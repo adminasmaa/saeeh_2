@@ -117,7 +117,7 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
                 $files->move($destinationPath, $file_name);
                 $data[]= $_FILES['images']['name'][$key];
                 $place->images = json_encode($data);
-                $place->images = implode(',',$data);
+                // $place->images = implode(',',$data);
                 $place->save();
             }
         }
