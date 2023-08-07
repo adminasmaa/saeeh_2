@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Resources\AqarCatageriesResource;
+use App\Http\Resources\AqarDetailResource;
 use App\Http\Resources\BransCarSubResource;
+use App\Http\Resources\CarResource;
 use App\Http\Resources\CityCategoryResource;
+use App\Models\Aqar;
+use App\Models\Car;
 use App\Models\City;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -91,7 +95,7 @@ class CategoryController extends Controller
 
     }
 
-    public function listofAquarWithCategory()
+    public function listofCategories()
     {
         $categoriess = Category::where('type', '=', 1)->where('parent_id', '=', 1)->get();
 
@@ -104,6 +108,42 @@ class CategoryController extends Controller
 
         } else {
             return $this->respondError(__('message.Category not found.'), ['error' => __('message.Category not found.')], 404);
+
+        }
+
+    }
+
+    public function listofAquarWithCategory(Request $request)
+    {
+        $aquars= Aqar::where('category_id', '=',$request->category_id)->paginate(20)->response()->getData();
+
+
+        if (count($aquars)) {
+
+
+            $aquarss = AqarDetailResource::collection($aquars);
+            return $this->respondSuccessPaginate($aquarss, __('message.data retrieved successfully.'));
+
+        } else {
+            return $this->respondError(__('message.Data not found.'), ['error' => __('message.Data not found.')], 404);
+
+        }
+
+    }
+
+    public function listofCarswithsubcategory(Request $request)
+    {
+        $cars= Car::where('sub_category_id', '=',$request->sub_category_id)->paginate(20)->response()->getData();
+
+
+        if (count($cars)) {
+
+
+            $carss = CarResource::collection($cars);
+            return $this->respondSuccessPaginate($carss, __('message.data retrieved successfully.'));
+
+        } else {
+            return $this->respondError(__('message.Data not found.'), ['error' => __('message.Data not found.')], 404);
 
         }
 

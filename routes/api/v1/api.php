@@ -54,6 +54,8 @@ Route::group(['middleware' => 'auth:api'], function () {
 //show All News Brands
     Route::get('/listofBrands', 'App\Http\Controllers\Api\CategoryController@listofBrands');
     Route::get('/listofCars', 'App\Http\Controllers\Api\CategoryController@listofCars');
+    Route::get('/listofCarswithsubcategory', 'App\Http\Controllers\Api\CategoryController@listofCarswithsubcategory');
+    Route::get('/listofCategories', 'App\Http\Controllers\Api\CategoryController@listofCategories');
     Route::get('/listofAquarWithCategory', 'App\Http\Controllers\Api\CategoryController@listofAquarWithCategory');
 
 
