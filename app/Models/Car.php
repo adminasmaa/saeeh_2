@@ -105,6 +105,6 @@ Car extends Model
 
     public function favoriteuser(){
 
-        return $this->belongsToMany(User::class,'car_user','user_id','car_id');
+        return $this->belongsToMany(User::class,'car_user','car_id','user_id');
     }
 }

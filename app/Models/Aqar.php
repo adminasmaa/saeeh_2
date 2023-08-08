@@ -143,7 +143,7 @@ class Aqar extends Model
     public function favoriteuser()
     {
 
-        return $this->belongsToMany(User::class, 'aqar_user', 'user_id', 'aqar_id');
+        return $this->belongsToMany(User::class, 'aqar_user', 'aqar_id', 'user_id');
     }
 
 }
