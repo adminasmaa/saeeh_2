@@ -71,7 +71,7 @@ class CarController extends Controller
             $cars = Car::where('sub_category_id','=',$id)->paginate(2);
         }
 
-        $countries = Country::where('display_data', '=', 1)->get();
+        $countries = Country::where('active', '=', 1)->get();
         $cities = City::where('active', '=', 1)->get();
         $CategoriesCar = Category::where('parent_id', '=', 2)->where('type', '=', 2)->get();
         $carsfilters = Car::get();

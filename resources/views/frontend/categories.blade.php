@@ -153,11 +153,11 @@
                 <p>@lang('site.loginSignup') www.saeeh.com</p>
                 <div class="d-flex justify-content-between py-3">
                     <div class="btn-footer-auth d-flex align-items-center justify-content-center">
-                        <a href="#" class="d-flex justify-content-center align-items-center w-100 h-100">
+                        <a href="{{route('registers')}}" class="d-flex justify-content-center align-items-center w-100 h-100">
                             @lang('site.register') </a>
                     </div>
                     <div class="btn-out-footer-auth d-flex align-items-center justify-content-center">
-                        <a href="#"
+                        <a href="{{route('sitelogin')}}"
                             class="d-flex justify-content-center align-items-center w-100 h-100">@lang('site.login')
                         </a>
                     </div>

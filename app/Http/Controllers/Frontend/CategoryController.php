@@ -21,8 +21,8 @@ class CategoryController extends Controller
 //        $categories = $city->categoriesTotal;
 
         $categories = Category::join('cities-categories', 'cities-categories.category_id', '=', 'categories.id')
-            ->select('categories.*', 'categories.id', 'cities-categories.category_id')->where('cities-categories.city_id', '=', $id)
-            ->paginate(8);
+            ->select('categories.*', 'categories.id', 'cities-categories.category_id')->where('cities-categories.city_id', '=', $id)->where('categories.type', '=', 0)->where('categories.parent_id', '=', NULL)
+            ->paginate(12);
 
 
         return view('frontend.categories', compact('city', 'categories'));
@@ -44,11 +44,7 @@ class CategoryController extends Controller
 
     public function subcategories($id)
     {
-        $category = Category::find($id);
-
-
-
-
+        $category = Category::with(['subcategories','places'])->find($id);
 
         if (!empty($category->subcategories) && $category->subcategories != null && count($category->subcategories) > 0) {
 
@@ -58,10 +54,10 @@ class CategoryController extends Controller
 
 
         }
-        elseif (!empty($category->places)) {
+        else {
           //  $places = $category->places;
 
-          $places = Place::where('sub_category_id',$id)->simplepaginate(5);
+          $places = Place::where('category_id',$id)->simplepaginate(5);
 
 
 
