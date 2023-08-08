@@ -111,7 +111,7 @@ class AdsDataTable extends DataTable
     {
         return [
             Column::make('id')->data('DT_RowIndex')->name('id')->title('#'),
-
+            Column::make('id')->title(trans('site.id')),
             Column::make('title')->title(trans('site.title')),
             // Column::make('position')->title(trans('site.position')),
             Column::make('created_at')->title(trans('site.created_at')),

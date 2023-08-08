@@ -237,7 +237,7 @@
                                                 <div class="col-md-6 form-group col-12 p-2  desc" id="price1">
                                                     <label>@lang('site.fixed_price')<span
                                                             class="text-danger">*</span></label>
-                                                    <input type="text" name="fixed_price" class="form-control"
+                                                    <input type="number"  step=".1" name="fixed_price" class="form-control"
                                                         value="{{$aqar->fixed_price}}" readonly="" disabled>
                                                 </div>
 
@@ -262,7 +262,7 @@
                                                                         </div>
                                                                         <div class="col-md-4 form-group col-12">
                                                                             <label>@lang('site.fixed_price')</label>
-                                                                            <input type="number" name="price[]"
+                                                                            <input type="number"  step=".1" name="price[]"
                                                                                 class="form-control"
                                                                                 value="{{$aqar->changed_price->price[$x]}}" readonly="" disabled/>
                                                                         </div>

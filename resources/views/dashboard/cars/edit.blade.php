@@ -166,14 +166,14 @@
 
                                 {{--                                <div class="col-md-6 form-group col-12 p-2 ">--}}
                                 {{--                                    <label>@lang('site.price')<span class="text-danger">*</span></label>--}}
-                                {{--                                    <input type="text" name="fixed_price" class="form-control"--}}
+                                {{--                                    <input type="number"  step=".1" name="fixed_price" class="form-control"--}}
                                 {{--                                           value="{{ $car->fixed_price ?? '' }}"--}}
                                 {{--                                    >--}}
                                 {{--                                </div>--}}
 
                                 {{--                                <div class="col-md-6 form-group col-12 p-2 ">--}}
                                 {{--                                    <label>@lang('site.changed_price')<span class="text-danger">*</span></label>--}}
-                                {{--                                    <input type="text" name="changed_price" class="form-control"--}}
+                                {{--                                    <input type="number"  step=".1" name="changed_price" class="form-control"--}}
                                 {{--                                           value="{{ $car->changed_price ?? '' }}"--}}
                                 {{--                                    >--}}
                                 {{--                                </div>--}}
@@ -489,7 +489,7 @@
                 event.preventDefault();
                 var newRow = jQuery('<tr><td><div class="row"><div class="col-md-5 form-group col-12 p-2">' +
                     ' <label>@lang('site.daynumber')</label><input type="number"  name="daynumber[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
-                    '<label>@lang('site.fixed_price')</label><input type="number" name="price[]" class="form-control" >' +
+                    '<label>@lang('site.fixed_price')</label><input type="number"  step=".1" name="price[]" class="form-control" >' +
                     '  </div>  <div class="col-md-2 form-group col-12 p-2 "> <a class="btn btn-air-primary btn-pill btn-danger add-price w-100 m-t-30" onclick="deletetr(this)" ><i class="fa fa-trash"></i></a>' +
 
                     '</div></div> </td>  </tr>');

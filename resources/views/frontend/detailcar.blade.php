@@ -302,7 +302,7 @@
                         <div
                             class="booking-now-btn py-4 w-100 d-flex justify-content-center align-items-center"
                         >
-                            <a href="#"> @lang('site.book')</a>
+                            <a href="{{route('bookingcar',$car->id)}}"> @lang('site.book')</a>
                         </div>
                     </div>
                 </div>
@@ -641,7 +641,7 @@
                                         <div
                                             class="booking-now-btn py-4 d-flex justify-content-center align-items-center"
                                         >
-                                            <a href="#">
+                                            <a href="{{route('bookingcar',$car->id)}}">
 
                                                 @lang('site.book')</a>
                                         </div>

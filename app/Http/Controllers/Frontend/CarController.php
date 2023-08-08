@@ -19,13 +19,20 @@ use Illuminate\Validation\Rule;
 class CarController extends Controller
 {
 
-    public function allcarscategories($id){
+
+    public function bookingcar($id)
+    {
+        $car = Car::findorfail($id);
+
+        return view('frontend.carbooking', compact('car'));
+
+    }
+
+    public function allcarscategories($id)
+    {
 
 
         $category = Category::find($id);
-
-
-
 
 
         if (!empty($category->subcategories) && $category->subcategories != null && count($category->subcategories) > 0) {
@@ -40,9 +47,9 @@ class CarController extends Controller
         }
 
 
-
     }
-    public function allcars(Request $request,$id)
+
+    public function allcars(Request $request, $id)
     {
         if (!empty($request->country_id) && !empty($request->city_id) && !empty($request->brand_id) && !empty($request->category_id) && !empty($request->year)) {
 
@@ -68,7 +75,7 @@ class CarController extends Controller
             $cars = Car::where('country_id', '=', $request->country_id)->paginate(2);
 
         } else {
-            $cars = Car::where('sub_category_id','=',$id)->paginate(2);
+            $cars = Car::where('sub_category_id', '=', $id)->paginate(2);
         }
 
         $countries = Country::where('active', '=', 1)->get();
@@ -111,16 +118,14 @@ class CarController extends Controller
                 ->WhereIn('color', $request->array_color)
                 ->paginate(7);
 
-        }
-        elseif (!empty($request['category_id']) && !empty($request['array_year'])) {
+        } elseif (!empty($request['category_id']) && !empty($request['array_year'])) {
 
 
             $cars = Car::WhereIn('category_id', $request->category_id)
                 ->WhereIn('year', $request->array_year)
                 ->paginate(7);
 
-        }
-        elseif (!empty($request['array_year']) && !empty($request['array_color'])) {
+        } elseif (!empty($request['array_year']) && !empty($request['array_color'])) {
 
 
             $cars = Car::WhereIn('year', $request->array_year)
@@ -144,8 +149,7 @@ class CarController extends Controller
             $cars = Car::WhereIn('year', $request->array_year)
                 ->paginate(7);
 
-        }
-        elseif (!empty($request['category_id'])) {
+        } elseif (!empty($request['category_id'])) {
             $cars = Car::WhereIn('category_id', $request->category_id)
                 ->paginate(7);
 
@@ -157,12 +161,12 @@ class CarController extends Controller
             $cars = Car::WhereIn('fixed_price', $request->fixed_price)
                 ->paginate(7);
 
-        }elseif (!empty($request['rate'])) {
+        } elseif (!empty($request['rate'])) {
 
 
-        $rate=CarReview::WhereIn('rate',$request['rate'])->pluck('car_id');
+            $rate = CarReview::WhereIn('rate', $request['rate'])->pluck('car_id');
 
-            $cars = Car::WhereIn('id',$rate)
+            $cars = Car::WhereIn('id', $rate)
                 ->paginate(7);
 
         }
