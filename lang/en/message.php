@@ -26,4 +26,5 @@ return [
     'Place not found.'=>'Place not found.',
     'logout'=>'Logout',
     'Place retrieved successfully.'=>'Place retrieved successfully.',
+    'guest successfully.'=>'Welcome to saeeh',
 ];

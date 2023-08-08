@@ -26,4 +26,5 @@ return [
     'subcategories retrieved successfully.'=>'تم استرداد الفئات بنجاح',
     'Place not found.'=>'المكان غير موجود',
     'Place retrieved successfully.'=>'تم استرداد المكان بنجاح',
+    'guest successfully.'=>'مرحبا بك ف سايح',
 ];
