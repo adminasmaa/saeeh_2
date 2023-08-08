@@ -50,8 +50,8 @@
                   <div>
                     <h2>
                     @lang('site.Explore the most famous cities') {{$country->name ?? ''}}
-                    @lang('site.through site')
-                    @lang('site.saeeeeeeh')
+                    <!-- @lang('site.through site')
+                    @lang('site.saeeeeeeh') -->
                     </h2>
                     <h2 class="text-main pb-md-3"> @lang('site.saeeh .. enjoy your trip with us')</h2>
                     <div class="form-group mb-4 position-relative">
@@ -89,7 +89,7 @@
       <!-- /section -->
       <section class="py-5">
         <div class="container w-100">
-          <div class="row pb-3">
+          <!-- <div class="row pb-3">
             <div class="col-12">
               <h2 class="country-title"> @lang('site.most visited') {{$country->name ?? ''}}</h2>
             </div>
@@ -154,7 +154,7 @@
                 @endforeach
               </div>
             </div>
-          </div>
+          </div> -->
           <div class="row pb-3">
             <div class="col-12">
               <h2 class="country-title"> @lang('site.The most famous cities') {{$country->name ?? ''}}</h2>
@@ -166,7 +166,7 @@
                 <li id="tab-detail-1">
                   <div class="row">
                   @foreach($cities as $city)
-                    <div class="col-lg-3 col-sm-6 col-12">
+                    <div class="col-lg-3 col-sm-6 col-12" onclick="window.location='{{route('categories',$city->id)}}'">
                       <div class="card-city position-relative mb-3">
                         <button class="add-to-wishlist">
                           <svg
@@ -230,46 +230,44 @@
           </div>
 
           <div class="row">
-            <div class="col-12">
-              <div class="card card-department round-border my-4 p-3">
-                <nav
-                  class="department-list-pagination d-md-flex justify-content-md-between align-items-center"
-                >
-                  <ul
-                    class="pagination mb-0 justify-content-lg-start justify-content-center"
-                  >
-                  {{$cities->links() }}
-                  </ul>
-                </nav>
-              </div>
+                <div class="col-12">
+                    <div class="card card-department round-border my-4 p-3">
+                        <nav class="department-list-pagination d-md-flex justify-content-md-between align-items-center">
+                            <ul class="pagination mb-0 justify-content-lg-start justify-content-center">
+
+                                <li class="page-item">
+                                    {{ $cities->links() }}
+                                </li>
+
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
       </section>
       <section class="d-lg-flex">
-
         <div class="right-container bg-main d-flex align-items-center py-lg-0 py-4">
-          <div class="right-container-content">
-          <h2>@lang('site.Get instant discounts') </h2>
-          <p> @lang('site.All you have to do is log in to') www.saeeh.com</p>
-          <div class="d-flex justify-content-between py-3">
-            <div class="btn-footer-auth d-flex align-items-center justify-content-center">
-              <a href="{{route('registers')}}" class="d-flex justify-content-center align-items-center w-100 h-100">
-
-              @lang('site.create account')
-              </a>
+            <div class="right-container-content">
+                <h2>@lang('site.freediscount') </h2>
+                <p>@lang('site.loginSignup') www.saeeh.com</p>
+                <div class="d-flex justify-content-between py-3">
+                    <div class="btn-footer-auth d-flex align-items-center justify-content-center">
+                        <a href="{{route('registers')}}" class="d-flex justify-content-center align-items-center w-100 h-100">
+                            @lang('site.register') </a>
+                    </div>
+                    <div class="btn-out-footer-auth d-flex align-items-center justify-content-center">
+                        <a href="{{route('sitelogin')}}"
+                            class="d-flex justify-content-center align-items-center w-100 h-100">@lang('site.login')
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="btn-out-footer-auth d-flex align-items-center justify-content-center ">
-              <a href="{{route('sitelogin')}}"  class="d-flex justify-content-center align-items-center w-100 h-100">
-              @lang('site.login')
-              </a>
-            </div>
-          </div>
         </div>
-        </div>
-        <div class="left-container" style=" background-image: url('{{FRONTASSETS}}/images/countries/footer-image.png');">
-
-        </div>
-      </section>
+        <div class="left-container" style="
+            background-image: url('{{FRONTASSETS}}/images/countries/footer-image.png');
+          "></div>
+    </section>
+     
     </main>
 @endsection

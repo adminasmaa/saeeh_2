@@ -156,7 +156,7 @@ class AuthController extends Controller
             'country_code' => 'required',
             'phone' => 'required',
             'password' => 'required|min:6',
-            'device_token' => 'required'
+            'device_token' => 'min:2'
         ]);
 
         if ($validator->fails()) {
@@ -222,7 +222,7 @@ class AuthController extends Controller
             'phone' => 'required_without:userId',
             'code' => 'required|min:3',
             'userId' => 'required_without:phone',
-            'device_token' => 'min:5',
+            'device_token' => 'min:2',
         ]);
 
         if ($validator->fails()) {
@@ -245,9 +245,9 @@ class AuthController extends Controller
         }
         if ($user) {
             if ($user->active) {
-
+               if($request->device_token){
                 $user->device_token= $request->device_token;
-                $user->save();
+                $user->save();}
                 $success['token'] = $user->createToken('MyApp')->accessToken;
                 $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code', 'code']);
                 return $this->respondSuccess($success, trans('message.User already active.'));

@@ -124,24 +124,27 @@
             </div>
         </section>
         <section class="d-lg-flex">
-            <div class="right-container bg-main d-flex align-items-center py-lg-0 py-4">
-                <div>
-                    <h2>@lang('site.freediscount') </h2>
-                    <p>@lang('site.loginSignup') <a href="{{route('sitelogin')}}">@lang('site.login')</a></p>
-                    <div class="d-flex justify-content-between py-3">
-                        <div class="btn-footer-auth d-flex align-items-center justify-content-center">
-                            <a href="{{route('registers')}}">  @lang('site.register') </a>
-                        </div>
-                        <div class="btn-out-footer-auth d-flex align-items-center justify-content-center">
-                            <a href="{{route('sitelogin')}}">@lang('site.login') </a>
-                        </div>
+        <div class="right-container bg-main d-flex align-items-center py-lg-0 py-4">
+            <div class="right-container-content">
+                <h2>@lang('site.freediscount') </h2>
+                <p>@lang('site.loginSignup') www.saeeh.com</p>
+                <div class="d-flex justify-content-between py-3">
+                    <div class="btn-footer-auth d-flex align-items-center justify-content-center">
+                        <a href="{{route('registers')}}" class="d-flex justify-content-center align-items-center w-100 h-100">
+                            @lang('site.register') </a>
+                    </div>
+                    <div class="btn-out-footer-auth d-flex align-items-center justify-content-center">
+                        <a href="{{route('sitelogin')}}"
+                            class="d-flex justify-content-center align-items-center w-100 h-100">@lang('site.login')
+                        </a>
                     </div>
                 </div>
             </div>
-            <div class="left-container" style="
+        </div>
+        <div class="left-container" style="
             background-image: url('{{FRONTASSETS}}/images/countries/footer-image.png');
           "></div>
-        </section>
+    </section>
     </main>
 
 @endsection

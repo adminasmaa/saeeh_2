@@ -33,7 +33,7 @@ class AqarDetailResource extends JsonResource
             "description" => $this->description ?? '',
             "distance" => $this->distance ?? 0,
             "time" => $this->time ?? '',
-            "banner" => asset('images/aqars') . "/" . $this->main_image_ads,
+            "image" => asset('images/aqars') . "/" . $this->main_image_ads,
             "videos" => asset('images/aqars') . "/" . $this->videos,
             'path' => asset('images/aqars') . "/",
             'images' =>explode(",",$this->images) ?? [],

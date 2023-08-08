@@ -36,7 +36,7 @@ class CityController extends Controller
 
         $user = $users->FavouriteCities()->toggle($request->aqar_id);
 
-        $status = ($user['attached'] !== []) ? 'added' : 'deleted';
+        $status = ($user['attached'] !== []) ? 'favourite' : 'unfavourite';
 
         return $this->respondSuccess($status, trans('message.data retrieved successfully.'));
 

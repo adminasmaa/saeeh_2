@@ -18,7 +18,7 @@ class CityController extends Controller
     public function index($id)
     {
         $country=Country::find($id);
-        $cities = City::where('country_id', $id)->paginate(10);
+        $cities = City::where('country_id', $id)->paginate(12);
         return view('frontend.cities', compact('country','cities'));
 
     }
