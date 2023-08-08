@@ -69,7 +69,7 @@ class AquarController extends Controller
         $minprice = Aqar::whereNotNull('fixed_price')->min("fixed_price");
         $maxprice = Aqar::whereNotNull('fixed_price')->max("fixed_price");
 
-        $countries = Country::where('display_data', '=', 1)->get();
+        $countries = Country::where('active', '=', 1)->get();
         $category = Category::first();
         $cities = City::where('active', '=', 1)->get();
         $CategoriesAquar = Category::where('parent_id', '=', 1)->where('type', '=', 1)->get();
@@ -107,7 +107,7 @@ class AquarController extends Controller
 //            }
 //        }
 
-        $countries = Country::where('display_data', '=', 1)->get();
+        $countries = Country::where('active', '=', 1)->get();
         $category = Category::find($id);
         $cities = City::where('active', '=', 1)->get();
         $CategoriesAquar = Category::where('parent_id', '=', 1)->where('type', '=', 1)->get();
