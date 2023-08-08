@@ -30,7 +30,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $countries = Country::where('display_data', '=', 1)->get();
+        $countries = Country::where('active', '=', 1)->get();
         $cities = City::where('active', '=', 1)->get();
 
         $places = Place::limit(10)->get();

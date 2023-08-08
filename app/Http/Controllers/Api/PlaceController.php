@@ -29,7 +29,7 @@ class PlaceController extends Controller
 
         $user = $users->favourite_place()->toggle($request->place_id);
 
-        $status = ($user['attached'] !== []) ? 'added' : 'deleted';
+        $status = ($user['attached'] !== []) ? 'favourite' : 'unfavourite';
 
         return $this->respondSuccess($status, trans('message.data retrieved successfully.'));
 
