@@ -294,7 +294,7 @@
 
                                         <input type="file" class="form-control" name="images[]"
                                             value="{{ old('images[]') }}" multiple id="upload-imgs" />
-
+ 
                                     <div class="img-thumbs img-thumbs-hidden" id="img-previews">
 
                                 </div> 

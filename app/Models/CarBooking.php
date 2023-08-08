@@ -33,7 +33,6 @@ class CarBooking extends Model
         'cancle_reason', // nullable
         'place_arrive', // nullable
         'place_leave', // nullable
-        '7agz_type', // required ,default(1)
         'type',// enum ,['website','application']
         'car_id', // unsigned
         'ads_id', // unsigned

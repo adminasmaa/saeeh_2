@@ -31,12 +31,12 @@ class AquarCategoryRepository implements AquarCategoryRepositoryInterface
         // TODO: Implement edit() method.
 
         $category = Category::find($Id);
-        $citiesrelated = json_decode($category->city_id) ?? [];
+        // $citiesrelated = json_decode($category->city_id) ?? [];
 
         $cities = City::all();
 
 
-        return view('dashboard.aqars.cat_aquar.edit', compact('category', 'citiesrelated', 'cities'));
+        return view('dashboard.aqars.cat_aquar.edit', compact('category', 'cities'));
     }
 
     public function show($Id)
@@ -47,10 +47,10 @@ class AquarCategoryRepository implements AquarCategoryRepositoryInterface
 
         $cities = City::all();
 
-        $citiesrelated = json_decode($category->city_id) ?? [];
+        // $citiesrelated = json_decode($category->city_id) ?? [];
 
 
-        return view('dashboard.aqars.cat_aquar.show', compact('category', 'cities', 'citiesrelated'));
+        return view('dashboard.aqars.cat_aquar.show', compact('category', 'cities'));
     }
 
 

@@ -110,7 +110,7 @@
                                     >
                                 </div>
                                 <div class="col-md-6 form-group col-12 p-2">
-                                    <label>@lang('site.name_en')<span class="text-danger">*</span></label>
+                                    <label>@lang('site.name_en')</label>
                                     <input type="text" name="name_en" class="form-control"
                                            value="{{ $AqarService->name_en }}" readonly disabled
                                     >
@@ -119,7 +119,7 @@
 
                             </div>
 
-                            <div class="row m-t-10">
+                            <!-- <div class="row m-t-10">
                                 <div class="m-checkbox-inline">
 
                                     <label for="edo-ani1">
@@ -127,21 +127,23 @@
                                                data-bs-original-title="" title="" value="2">@lang('site.subcategories')
                                     </label>
                                 </div>
-                            </div>
-                            <div class="row m-t-10">
-
+                            </div> -->
+                            <div class="row">
                                 @foreach($SubAqarService as $service)
                                     <div class="col-md-12 form-group col-12   desc">
+                                        
+                                    <label>@lang('site.subcategories')</label>
+
                                         <table class="price-list" id="tb_price">
                                             <tr>
                                                 <td>
                                                     <div class="row">
-                                                        <div class="col-md-5 form-group col-12">
+                                                        <div class="col-md-6 form-group col-12 p-2">
                                                             <label>@lang('site.name_ar')</label>
                                                             <input type="text" name="sub_name_ar[]"
                                                                    class="form-control" value="{{$service->name_ar}}" readonly disabled/>
                                                         </div>
-                                                        <div class="col-md-5 form-group col-12">
+                                                        <div class="col-md-6 form-group col-12 p-2">
                                                             <label>@lang('site.name_en')</label>
                                                             <input type="text" name="sub_name_en[]"
                                                                    class="form-control" value="{{$service->name_en}}" readonly disabled>

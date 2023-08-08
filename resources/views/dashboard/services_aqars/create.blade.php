@@ -96,7 +96,7 @@
                                 <div class="m-checkbox-inline">
 
                                     <label for="edo-ani1">
-                                        <input class="radio_animated" type="radio" name="price"
+                                        <input class="radio_animated" type="radio" name="price" id="tb_price"
                                                data-bs-original-title="" title="" value="2">@lang('site.subcategories')
                                     </label>
                                     
@@ -106,7 +106,7 @@
                                 <!--<div class="col-md-6">-->
 
 
-                                <div class="col-md-12 form-group col-12   desc" id="price2" >
+                                <div class="col-md-12 form-group col-12   desc" id="price2" style="display: none;" >
                                     <table class="price-list" id="tb_price">
                                         <tr>
                                             <td>

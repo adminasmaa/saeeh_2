@@ -125,5 +125,16 @@ class ServiceAqarController extends Controller
 
 
     }//end of destroy
+    public function destroy2($id)
+    {
+        $SubAqarService = AqarService::find($id);
+        $result = $SubAqarService->delete();
+        if ($result) {
+          Alert::toast('Deleted', __('site.deleted_successfully'));
+      } else {
+          Alert::toast('Deleted', __('site.delete_faild'));
+      }
+      return back();
+    }//end of destroy
 
 }

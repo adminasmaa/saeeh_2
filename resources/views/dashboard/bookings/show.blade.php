@@ -95,16 +95,20 @@
                                 >
                             </div>
 
+                            <div class="col-md-6 form-group col-12 p-2">
+                                <label>@lang('site.active')</label>
+                                <select class="form-control btn-square" name="active" readonly="" disabled>
+                                    <option selected>@lang('site.select')</option>
 
+                                    <option value="1"
+                                            @if($booking->active=='1') selected @endif>@lang('site.active')
+                                    </option>
+                                    <option value="0"
+                                            @if($booking->active=='0') selected @endif>@lang('site.in_active')
+                                    </option>
 
-{{--                            <div class="col-md-6 form-group col-12 p-2 ">--}}
-{{--                                <label>@lang('site.type')<span class="text-danger">*</span></label>--}}
-{{--                                <input type="text" name="7agz_type" class="form-control"--}}
-{{--                                       value="{{ $booking->type ?? '' }}" disabled readonly=""--}}
-{{--                                >--}}
-{{--                            </div>--}}
-
-
+                                </select>
+                            </div>
 
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.day_count')<span class="text-danger">*</span></label>
@@ -203,7 +207,7 @@
                                         </textarea>
                             </div>
                             <div class="col-md-6 form-group col-12 p-2 ">
-                                <label>@lang('site.reason')<span class="text-danger">*</span></label>
+                                <label>@lang('site.cancle_reason')<span class="text-danger">*</span></label>
                                 <textarea class="form-control" cols="5" rows="5" name="cancle_reason" disabled readonly="">
 {{ $booking->cancle_reason ?? '' }}
                                         </textarea>
