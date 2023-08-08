@@ -81,20 +81,20 @@
                                 </div>
                                 <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                     <label class="form-label">@lang('site.active')</label>
-                                    <select class="form-control btn-square" name="active">
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="active">
                                             <option selected>@lang('site.select')</option>
                                         <option value="1"
                                                 @if($area->active==1) selected @endif>@lang('site.active')
                                         </option>
                                         <option value="0"
-                                                @if($area->active==0) selected @endif>@lang('site.inactive')
+                                                @if($area->active==0) selected @endif>@lang('site.in_active')
                                         </option>
 
                                     </select>
                                 </div>
                                 <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                     <label class="form-label">@lang('site.cities')</label>
-                                    <select class="form-control btn-square" name="city_id">
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="city_id">
                                         <option selected>@lang('site.select')</option>
                                         @foreach($cities as $city)
 

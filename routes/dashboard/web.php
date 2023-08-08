@@ -110,6 +110,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         Route::resource('aqars', AqarController::class);
         Route::resource('aqar_comments', AqarCommentController::class);
         Route::resource('services_aqars', ServiceAqarController::class);
+        Route::get('DeleteServiceAqar/{id}', 'App\Http\Controllers\Dashboard\ServiceAqarController@destroy2')->name('DeleteServiceAqar');
 
         //aquarcategories
         Route::resource('aquarcategories', AquarCategoryController::class);

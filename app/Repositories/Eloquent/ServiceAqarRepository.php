@@ -165,4 +165,20 @@ class ServiceAqarRepository implements ServiceAqarRepositoryInterfaceAlias
         }
         return back();
     }
+    public function destroy2($SubAqarService)
+    {
+        // TODO: Implement destroy() method.
+        //DeletePlaceTable
+        $result = $SubAqarService->delete();
+
+        if ($result) {
+               Alert::toast('Success', __('site.deleted_successfully'));
+        } else {
+               Alert::toast('Error', __('site.delete_faild'));
+
+//                session()->flash('error', __('site.delete_faild'));
+        }
+
+        return back();
+    }
 }

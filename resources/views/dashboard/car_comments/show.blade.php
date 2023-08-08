@@ -65,7 +65,7 @@
                                                 @if($CarComment->status=='1') selected @endif>@lang('site.active')
                                         </option>
                                         <option value="0"
-                                                @if($CarComment->status=='0') selected @endif>@lang('site.inactive')
+                                                @if($CarComment->status=='0') selected @endif>@lang('site.in_active')
                                         </option>
                                         
                                     </select>
@@ -123,7 +123,23 @@
                                     @foreach($cars as $car)
 
                                         <option value="{{$car->id}}"
-                                                @if($CarComment->car_id==$car->id) selected @endif>{{$car->name ?? ''}}</option>
+                                                @if($CarComment->car_id==$car->id) selected @endif>{{$car->name_ar ?? ''}}</option>
+
+                                    @endforeach
+
+                                </select>
+                            </div>
+
+                            <div class="col-md-6 form-group">
+                                <label class="form-label">@lang('site.bookings')</label>
+                                <select class="form-control btn-square" name="car_booking_id " id="car_booking_id " disabled
+                                        readonly="">
+                                    <option selected>@lang('site.select')</option>
+                                    @foreach($carBooking as $carBooking)
+
+                                        <option value="{{$carBooking->id}}" @if($carBooking->
+                                                        id==$carBooking->id ) selected
+                                            @endif>{{$carBooking->type ?? ''}}</option>
 
                                     @endforeach
 

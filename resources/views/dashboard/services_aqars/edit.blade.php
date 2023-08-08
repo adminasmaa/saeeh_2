@@ -139,7 +139,7 @@
                             <div class="row m-t-10">
 
                                 @foreach($SubAqarService as $service)
-                                    <div class="col-md-12 form-group col-12   desc">
+                                    <div class="col-md-12 form-group col-12 ">
                                         <table>
                                             <tr>
                                                 <td>
@@ -153,6 +153,9 @@
                                                             <label>@lang('site.name_en')</label>
                                                             <input type="text"
                                                                    class="form-control" value="{{$service->name_en}}">
+                                                        </div>
+                                                        <div class="col-md-2 form-group col-12 ">
+                                                            <a  type="button" href="{{route('dashboard.DeleteServiceAqar',$service->id)}}" class="btn btn-air-primary btn-pill btn-danger"><i class="fa fa-trash"></i></a>
                                                         </div>
 <!-- {{--                                        <a type="button" href="{{route('dashboard.DeleteSubCategories',$service->id)}}"--}}
 {{--                                           class="btn-table  btn  btn-xs 88"--}}
@@ -173,7 +176,7 @@
                                         <!-- <a class="btn btn-air-primary btn-pill btn-success add-price w-100 m-t-30"><i
                                                 class="fa fa-plus" aria-hidden="true"></i></a> -->
                                     </div>
-                                <div class="col-md-12 form-group col-12   desc" id="price2" >
+                                <div class="col-md-12 form-group col-12   desc" id="price2" style="display: none;">
                                 <table class="price-list" id="tb_price">
                                         <tr>
                                             <td>

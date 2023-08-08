@@ -133,7 +133,8 @@ return [
     'advertising' => 'الاعلانات ',
     'operation' => 'عملية',
     'amount' => 'كميات',
-
+    'date' => 'تاريخ الحجز',
+    'cancle_reason'=>'سبب الغاء الحجز',
     'link' => 'الرابط الخاصة',
     'offertime' => 'بعض الوقت',
     'find_your_favorite_country' => 'ابحث عن دولتك المفضلة',
@@ -144,7 +145,6 @@ return [
     'car_comments' => 'تعليقات السيارات',
     'rating' => 'التقيم',
     'bookings' => 'الحجوزات',
-
     'place_arrive' => 'مكان الوصول',
     'place_leave' => 'اترك مكان',
     'day_count' => 'عدد اليوم',

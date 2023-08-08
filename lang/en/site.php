@@ -24,6 +24,8 @@ return [
 'Sign in and save money'=>'Sign in and save money',
     'You may be able to save'=>'You may be able to save',
        'haveprofile'=>'If you have an account',
+       'date' => 'Date',
+       'cancle_reason'=>'CancleReason',
 
     'or more at this property at check-in'=>'or more at this property at check-in',
     'all'=>'All',

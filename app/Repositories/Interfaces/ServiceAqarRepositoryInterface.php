@@ -21,4 +21,7 @@ interface ServiceAqarRepositoryInterface
     public function store($request);
 
     public function update($data, $request);
+
+    public function destroy2($SubAqarService);
+
 }
