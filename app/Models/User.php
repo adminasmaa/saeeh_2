@@ -53,7 +53,10 @@ class User extends Authenticatable
         'longitude',
         'account_type',
         'phone',
-        'country_code'
+        'country_code',
+        'device_token',
+        'token',
+        'isguest'
     ];
 
 

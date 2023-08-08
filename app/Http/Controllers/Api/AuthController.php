@@ -154,9 +154,9 @@ class AuthController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'country_code' => 'required',
-
             'phone' => 'required',
-            'password' => 'required|min:6'
+            'password' => 'required|min:6',
+            'device_token' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -165,6 +165,8 @@ class AuthController extends Controller
         if (auth()->attempt(['country_code' => $request->country_code, 'phone' => $request->phone, 'password' => $request->password])) {
             $user = Auth::user();
             if ($user->active) {
+                $user->device_token= $request->device_token;
+                $user->save();
                 $success['token'] = $user->createToken('MyApp')->accessToken;
                 $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code', 'code']);
 
@@ -220,6 +222,7 @@ class AuthController extends Controller
             'phone' => 'required_without:userId',
             'code' => 'required|min:3',
             'userId' => 'required_without:phone',
+            'device_token' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -242,12 +245,15 @@ class AuthController extends Controller
         }
         if ($user) {
             if ($user->active) {
-                ;
+
+                $user->device_token= $request->device_token;
+                $user->save();
                 $success['token'] = $user->createToken('MyApp')->accessToken;
                 $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code', 'code']);
                 return $this->respondSuccess($success, trans('message.User already active.'));
             } else {
                 $user->active = 1;
+                $user->device_token= $request->device_token;
                 $user->save();
                 $success['token'] = $user->createToken('MyApp')->accessToken;
                 $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code', 'code']);
