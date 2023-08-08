@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 
+use App\Http\Resources\AqarFavResource;
 use App\Http\Resources\CarDetailResource;
+use App\Http\Resources\CarFavResource;
 use App\Http\Resources\CommentResource;
+use App\Http\Resources\PlaceFavResource;
 use App\Models\Car;
 use App\Models\CarComment;
 use App\Models\User;
@@ -36,7 +39,7 @@ class CarController extends Controller
 
             $users = User::find($user_id);
 
-            $user = $users->FavouriteCar()->toggle($request->car_id);
+            $user = $users->favourite_car()->toggle($request->car_id);
 
             $status = ($user['attached'] !== []) ? 'favourite' : 'unfavourite';
 
@@ -45,7 +48,8 @@ class CarController extends Controller
 
     }
 
-    public function CarsReviews(Request $request){
+    public function CarsReviews(Request $request)
+    {
 
         $rule = [
             'car_id' => 'required',
@@ -79,7 +83,8 @@ class CarController extends Controller
     }
 
 
-    public function detailCar(Request $request){
+    public function detailCar(Request $request)
+    {
 
         $rule = [
             'car_id' => 'required',
@@ -114,7 +119,111 @@ class CarController extends Controller
         }
     }
 
+    public function listoffavourite(Request $request)
+    {
 
+        $rule = [
+            'type' => 'required',
+        ];
+        $customMessages = [
+            'required' => __('validation.attributes.required'),
+        ];
+
+        $validator = validator()->make($request->all(), $rule, $customMessages);
+
+        if ($validator->fails()) {
+
+            return $this->respondError('Validation Error.', $validator->errors(), 400);
+
+        } else {
+            $user = Auth::user();
+            if ($request->type == 'car') {
+
+
+                $user->setRelation('favourite_car', $user->favourite_car()->paginate(20));
+
+
+//                return  $user->favourite_car;
+
+
+                $cars= $user->favourite_car;
+
+
+                if (count($cars)) {
+
+                    $carss =  CarFavResource::collection($cars)->response()->getData();
+
+                    return $this->respondSuccessPaginate($carss, __('message.data retrieved successfully.'));
+
+
+
+                }
+                else {
+                    return $this->respondError(__('message.Data not found.'), ['error' => __('message.Data not found.')], 404);
+
+                }
+
+//
+            }
+
+            elseif ($request->type=='aqars'){
+
+                $user->setRelation('favourite_aqars', $user->favourite_aqars()->paginate(20));
+
+
+//                return  $user->favourite_car;
+
+
+                $quars= $user->favourite_aqars;
+
+
+                if (count($quars)) {
+
+                    $quarss =  AqarFavResource::collection($quars)->response()->getData();
+
+                    return $this->respondSuccessPaginate($quarss, __('message.data retrieved successfully.'));
+
+
+
+                }
+                else {
+                    return $this->respondError(__('message.Data not found.'), ['error' => __('message.Data not found.')], 404);
+
+                }
+
+
+            }
+
+            elseif ($request->type=='place'){
+
+                $user->setRelation('favourite_place', $user->favourite_place()->paginate(20));
+
+
+
+
+                $places= $user->favourite_place;
+
+
+                if (count($places)) {
+
+                    $placess =  PlaceFavResource::collection($places)->response()->getData();
+
+                    return $this->respondSuccessPaginate($placess, __('message.data retrieved successfully.'));
+
+
+
+                }
+                else {
+                    return $this->respondError(__('message.Data not found.'), ['error' => __('message.Data not found.')], 404);
+
+                }
+
+
+            }
+
+
+        }
+    }
 
 
 }
