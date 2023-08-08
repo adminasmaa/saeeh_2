@@ -186,6 +186,31 @@ class AuthController extends Controller
         }
     }
 
+
+
+    public function guest(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'device_token' => 'required'
+
+        ]);
+
+        if ($validator->fails()) {
+            return $this->respondError('Validation Error.', $validator->errors(), 400);
+        } else {
+            $input = $request->all();    
+            $input['isguest'] = 1;
+            $user = User::create($input);
+            $user->active = 1;
+            $user->token=$user->createToken('MyApp')->accessToken;
+            $user->save();
+            $success['token'] = $user->createToken('MyApp')->accessToken;
+
+            return $this->respondSuccess($success, trans('message.guest successfully.'));
+        }
+    }
+
+
     public function activateRegister(Request $request)
     {
 

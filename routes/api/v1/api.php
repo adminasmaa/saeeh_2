@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/register', 'App\Http\Controllers\Api\AuthController@register');
 Route::post('/login', 'App\Http\Controllers\Api\AuthController@login');
+Route::post('/guest', 'App\Http\Controllers\Api\AuthController@guest');
 Route::post('/activateRegister', 'App\Http\Controllers\Api\AuthController@activateRegister');
 Route::post('/resendCodeRegister', 'App\Http\Controllers\Api\AuthController@resendCode');
 Route::post('/forgetPassword', 'App\Http\Controllers\Api\AuthController@forgetPassword');
