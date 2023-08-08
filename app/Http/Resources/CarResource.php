@@ -19,6 +19,8 @@ class CarResource extends JsonResource
             "id" => $this->id,
             "name" => $this->name ?? '',
             "description" => $this->description ?? '',
+            "favorite" => (count($this->favoriteuser)>0 ? true : false),
+
             "comment_text" => $this->comment_text ?? '',
             "year" => $this->year ?? '',
             "image" => asset('images/cars') . "/" . $this->main_image_ads,
