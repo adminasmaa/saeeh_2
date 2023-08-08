@@ -222,7 +222,7 @@ class AuthController extends Controller
             'phone' => 'required_without:userId',
             'code' => 'required|min:3',
             'userId' => 'required_without:phone',
-            'device_token' => 'required',
+            'device_token' => 'min:5',
         ]);
 
         if ($validator->fails()) {
