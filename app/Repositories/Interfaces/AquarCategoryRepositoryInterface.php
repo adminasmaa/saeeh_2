@@ -20,10 +20,10 @@ interface AquarCategoryRepositoryInterface
 
     public function show($Id);
 
-    public function destroy($ad);
+    public function destroy($category);
 
     public function store($request);
 
-    public function update($ad, $request);
+    public function update($category, $request);
   
 }

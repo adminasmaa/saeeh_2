@@ -113,6 +113,7 @@ class RolesDataTable extends DataTable
     {
         return [
             Column::make('DT_RowIndex')->data('DT_RowIndex')->name('id')->title('#'),
+            Column::make('id')->title(trans('site.id')),
 
             Column::make('name')->title(trans('site.name')),
             Column::make('display_name')->title(trans('site.display_name')),

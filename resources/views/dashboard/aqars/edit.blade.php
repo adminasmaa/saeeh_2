@@ -112,7 +112,7 @@
 
                                             <div class="col-sm-12">
                                                 <label class="form-label">@lang('site.users')</label>
-                                                <select class="form-control form-select" name="user_id">
+                                                <select class="js-example-placeholder-multiple col-sm-12" name="user_id">
                                                     <option selected>@lang('site.select')</option>
                                                     @foreach($users as $user)
 
@@ -128,7 +128,7 @@
                                             <div class="row">
                                                 <div class="col-md-6 form-group">
                                                     <label class="form-label">@lang('site.country')</label>
-                                                    <select class="form-control btn-square" name="country_id" id="country_id">
+                                                    <select class="js-example-placeholder-multiple col-sm-12" name="country_id" id="country_id">
                                                         <option selected>@lang('site.select')</option>
                                                         @foreach($countries as $country)
 
@@ -142,7 +142,7 @@
                                                 </div>
                                                 <div class="col-md-6 form-group">
                                                     <label class="form-label">@lang('site.city')</label>
-                                                    <select class="form-control btn-square" name="city_id" id="city_id">
+                                                    <select class="js-example-placeholder-multiple col-sm-12" name="city_id" id="city_id">
                                                         <option selected>@lang('site.select')</option>
                                                         <!-- @foreach($cities as $city)
 
@@ -239,7 +239,7 @@
                                                 <div class="col-md-6 form-group col-12 p-2  desc" id="price1">
                                                     <label>@lang('site.fixed_price')<span
                                                             class="text-danger">*</span></label>
-                                                    <input type="text" name="fixed_price" class="form-control"
+                                                    <input type="number"  step=".1" name="fixed_price" class="form-control"
                                                         value="{{$aqar->fixed_price}}">
                                                 </div>
 
@@ -264,7 +264,7 @@
                                                                         </div>
                                                                         <div class="col-md-4 form-group col-12">
                                                                             <label>@lang('site.fixed_price')</label>
-                                                                            <input type="number" name="price[]"
+                                                                            <input type="number"  step=".1" name="price[]"
                                                                                 class="form-control"
                                                                                 value="{{$aqar->changed_price->price[$x]}}" />
                                                                         </div>

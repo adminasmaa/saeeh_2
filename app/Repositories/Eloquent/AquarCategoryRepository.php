@@ -117,6 +117,13 @@ class AquarCategoryRepository implements AquarCategoryRepositoryInterface
 
         $result = $category->delete();
 
+        if ($result) {
+                Alert::toast('Success', __('site.deleted_successfully'));
+        } else {
+                Alert::toast('Error', __('site.delete_faild'));
+
+        }
+
         return back();
     }
 }
