@@ -27,7 +27,7 @@ class PlaceFavResource extends JsonResource
             return [
                 "id" => $this->id,
                 "name" => $this->$name ?? '',
-
+                "favorite" =>true,
                 "description" =>$this->address ?? '',
                 "image" => asset('images/places') . "/" . $this->display_photo,
                 "phone_one" => $this->phone_one ?? 0,

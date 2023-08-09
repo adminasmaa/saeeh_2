@@ -133,7 +133,7 @@ class CarController extends Controller
 
         if ($validator->fails()) {
 
-            return $this->respondError('Validation Error.', $validator->errors(), 400);
+            return $this->respondErrorArray('Validation Error.', $validator->errors(), 400);
 
         } else {
             $user = Auth::user();
@@ -159,7 +159,7 @@ class CarController extends Controller
 
                 }
                 else {
-                    return $this->respondError(__('message.Data not found.'), ['error' => __('message.Data not found.')], 404);
+                    return $this->respondErrorArray(__('message.Data not found.'), ['error' => __('message.Data not found.')], 200);
 
                 }
 
@@ -187,7 +187,7 @@ class CarController extends Controller
 
                 }
                 else {
-                    return $this->respondError(__('message.Data not found.'), ['error' => __('message.Data not found.')], 404);
+                    return $this->respondErrorArray(__('message.Data not found.'), ['error' => __('message.Data not found.')], 200);
 
                 }
 
@@ -214,7 +214,7 @@ class CarController extends Controller
 
                 }
                 else {
-                    return $this->respondError(__('message.Data not found.'), ['error' => __('message.Data not found.')], 404);
+                    return $this->respondErrorArray(__('message.Data not found.'), ['error' => __('message.Data not found.')], 200);
 
                 }
 
