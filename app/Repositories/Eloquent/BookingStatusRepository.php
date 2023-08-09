@@ -85,7 +85,7 @@ class BookingStatusRepository implements IBookingStatusRepositoryAlias
         $bookingStatus->update($request_data);
 
 
-        if ($adsStatus) {
+        if ($bookingStatus) {
             Alert::success('Success', __('site.updated_successfully'));
         } else {
             Alert::error('Error', __('site.update_faild'));
