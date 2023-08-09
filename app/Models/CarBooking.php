@@ -22,7 +22,6 @@ class CarBooking extends Model
     protected $table = 'car_bookings';
 
     protected $fillable = [
-        'book_status', // default(2) ,integer
         'fixed_price', // nullable ,float
         'changed_price', // json ,nullable
         'note', // nullable

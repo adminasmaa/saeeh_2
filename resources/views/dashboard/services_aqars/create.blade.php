@@ -97,7 +97,7 @@
 
                                     <label for="edo-ani1">
                                         <input class="radio_animated" type="radio" name="price" id="tb_price"
-                                               data-bs-original-title="" title="" value="2">@lang('site.subcategories')
+                                        data-bs-original-title="tooltip" title="AddSubCategory" value="2">@lang('site.subcategories')
                                     </label>
                                     
                                 </div>

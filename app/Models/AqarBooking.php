@@ -23,7 +23,6 @@ class AqarBooking extends Model
     protected $table = 'aqar_bookings';
 
     protected $fillable = [
-        'book_status', // required ,default(2)
         'fixed_price', // nullable
         'changed_price', // nullable ,json
         'note', // nullable
@@ -35,7 +34,6 @@ class AqarBooking extends Model
         'cancle_reason', // nullable
         'place_arrive', // nullable
         'place_leave', // nullable
-        '7agz_type', // required ,default(1)
         'wasel_photo', // nullable
         'type',// enum ,['website','application']
         'aqar_id', //unsigned
