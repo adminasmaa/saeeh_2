@@ -20,7 +20,66 @@
                 </div>
             </div>
         </div>
+
         <!-- Container-fluid starts-->
+        <div class="card-body" >
+                        @include('partials._errors')
+
+
+                        <div class="row form-group" >
+
+                            <div class="col-sm-12"  >
+
+
+                                <label>@lang('site.image')</label>
+                                <img src="{{asset('images/aqars/'.$data->wasel_photo)}}"
+                                     data-bs-toggle="modal" 
+                                     data-bs-target="#exampleModalss" width="100px" height="100px" class="d-block"
+                                     onerror="this.src='{{asset('images/aqars/default.jpg')}}'"
+                                >
+
+
+                            </div>
+                        </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModalss" tabindex="-1"
+                             aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">@lang('site.image')</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <table class="border-5">
+                                            <tr>
+                                                <th>
+                                                    <img name="soso"
+                                                         src="{{asset('images/aqars/'.$data->wasel_photo)}}"
+                                                         alt=""
+                                                         width="400px" height="aut0"
+
+
+                                                         onerror="this.src='{{asset('images/aqars/default.jpg')}}'"
+                                                    >
+
+                                                </th>
+                                            </tr>
+
+
+                                        </table>
+
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">@lang('site.Cancel')</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
 
         <div class="container-fluid">
@@ -55,13 +114,6 @@
                                 <input type="text" class="form-control" value="{{ $data->type }}"
                                        readonly>
                             </div>
-
-                            <div class="col-md-6 form-group col-12 p-2">
-                                <label>@lang('site.status')<span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" value="{{ $data->book_status }}"
-                                       readonly>
-                            </div>
-
 
                             <div class="col-md-6 form-group col-12 p-2">
                                 <label>@lang('site.price')<span class="text-danger">*</span></label>
@@ -115,13 +167,52 @@
                                        readonly>
                             </div>
 
+                            <div class="col-md-6 form-group col-12 p-2">
+                                <label>@lang('site.active')</label>
+                                <select class="form-control btn-square" name="active" readonly="" disabled>
+                                    <option selected>@lang('site.select')</option>
+
+                                    <option value="1"
+                                            @if($data->active=='1') selected @endif>@lang('site.active')
+                                    </option>
+                                    <option value="0"
+                                            @if($data->active=='0') selected @endif>@lang('site.in_active')
+                                    </option>
+
+                                </select>
+                            </div>
 
                             <div class="col-md-6 form-group col-12 p-2">
                                 <label>@lang('site.cancle_reason')<span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" value="{{ $data->cancle_reason }}"
                                        readonly>
                             </div>
+                            <div class="col-md-6 form-group">
+                                <label class="form-label">@lang('site.users')</label>
+                                <select class="form-control btn-square" name="user_id" disabled readonly="">
+                                    <option selected>@lang('site.select')</option>
+                                    @foreach($users as $user)
 
+                                        <option value="{{$user->id}}"
+                                                @if($data->user_id==$user->id) selected @endif>{{$user->firstname . $user->lastname ?? ''}}</option>
+
+                                    @endforeach
+
+                                </select>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label class="form-label">@lang('site.aqars')</label>
+                                <select class="form-control btn-square" name="aqar_id" disabled readonly="">
+                                    <option selected>@lang('site.select')</option>
+                                    @foreach($aqars as $aqar)
+
+                                        <option value="{{$aqar->id}}"
+                                                @if($data->aqar_id==$aqar->id) selected @endif>{{$aqar->name_ar ?? ''}}</option>
+
+                                    @endforeach
+
+                                </select>
+                            </div>
                             <div class="col-md-6 form-group">
                                 <label class="form-label">@lang('site.booking_status')</label>
                                 <select class="form-control btn-square" name="booking_status_id" readonly=""disabled>
@@ -135,19 +226,29 @@
 
                                 </select>
                             </div>
-                        </div>
+                            <div class="col-md-6 form-group">
+                                    <label class="form-label">@lang('site.city')</label>
+                                    <select class="form-control btn-square" name="city_id" id="city_id" disabled
+                                            readonly="">
+                                        <option selected>@lang('site.select')</option>
+                                        @foreach($cities as $city)
+
+                                            <option value="{{$city->id}}" @if($city->id==$data->city_id)
+                                                selected
+                                            @endif>{{$city->name_ar ?? ''}}</option>
 
 
-                        <div class="row">
-                            <!--<div class="col-md-6">-->
+                                        @endforeach
 
-                            <div class="col-md-6 form-group col-12 p-2 ">
+                                    </select>
+                                </div>
+                            <div class="col-md-6 form-group ">
                                 <label>@lang('site.description')<span class="text-danger">*</span></label>
-                                <textarea class="form-control" cols="5" rows="5" disabled>
+                                <textarea class="form-control" cols="1" rows="2" disabled>
                      {{ $data->note }}
                                         </textarea>
                                 </div>
-                            </div>
+                        </div>
 
                 </div>
             </div>

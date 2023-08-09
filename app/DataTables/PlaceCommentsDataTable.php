@@ -112,6 +112,7 @@ class PlaceCommentsDataTable extends DataTable
     {
         return [
             Column::make('DT_RowIndex')->data('DT_RowIndex')->name('id')->title('#'),
+            Column::make('id')->title(trans('site.id')),
 
             Column::make('description')->title(trans('site.description')),
             Column::make('rating')->title(trans('site.rating')),

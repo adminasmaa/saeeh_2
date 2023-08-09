@@ -7,6 +7,9 @@ use App\Models\AqarBooking;
 use App\Repositories\Interfaces\AqarBookingRepositoryInterface as IAqarBookingRepositoryAlias;
 use Illuminate\Support\Facades\Auth;
 use App\Models\BookingStatus;   //belongsTo
+use App\Models\City;
+use App\Models\Aqar;
+use App\Models\User;
 
 use Alert;
 
@@ -36,7 +39,13 @@ class AqarBookingRepository implements IAqarBookingRepositoryAlias
         
         $bookingStatus = BookingStatus::all();
 
-        return view('dashboard.aquarbooking.show',compact('data', 'bookingStatus'));
+        $aqars = Aqar::all();
+
+        $users = User::all();
+
+        $cities = City::all();
+
+        return view('dashboard.aquarbooking.show',compact('data', 'bookingStatus', 'cities', 'users', 'aqars'));
     }
 
     public function destroy($data)

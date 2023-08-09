@@ -157,12 +157,6 @@
                                                         <div class="col-md-2 form-group col-12 ">
                                                             <a  type="button" href="{{route('dashboard.DeleteServiceAqar',$service->id)}}" class="btn btn-air-primary btn-pill btn-danger"><i class="fa fa-trash"></i></a>
                                                         </div>
-<!-- {{--                                        <a type="button" href="{{route('dashboard.DeleteSubCategories',$service->id)}}"--}}
-{{--                                           class="btn-table  btn  btn-xs 88"--}}
-{{--                                        >--}}
-{{--                                            <i class="fa fa-trash"></i>--}}
-{{--                                        </a>--}}
-                                        <a  href="{{route('dashboard.DeleteSubCategories',$service->id)}}" class="btn btn-air-primary btn-pill btn-danger"><i class="fa fa-trash"></i></a> -->
 
                                                     </div>
                                                 </td>

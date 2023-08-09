@@ -112,6 +112,7 @@ class PlaceReviewDataTable extends DataTable
     {
         return [
             Column::make('DT_RowIndex')->data('DT_RowIndex')->name('id')->title('#'),
+            Column::make('id')->title(trans('site.id')),
 
             Column::make('rate')->title(trans('site.rate')),
             Column::make('created_at')->title(trans('site.created_at')),

@@ -123,68 +123,46 @@
                                 </div>
                                 <br>
 
+                                <div class="row m-t-10">
+                                <div class="m-checkbox-inline">
 
-                                <div class="row m-0">
-                                    <h4 class="card-title">@lang('site.subcategories')</h4>
-                                    {{--                                    <div class="col-md-3 form-group col-12 p-2">--}}
-
-
-                                    {{--                                        <label>@lang('site.name')</label>--}}
-                                    {{--                                        <input type="text" name="name_category[]" class="form-control"--}}
-                                    {{--                                               value="{{ old('name') }}">--}}
-                                    {{--                                    </div>--}}
-
-                                    {{--                                    <div class="col-md-3 form-group col-12 p-2">--}}
-
-
-                                    {{--                                        <label>@lang('site.image')</label>--}}
-                                    {{--                                        <input type="file" name="image_category[]" class="form-control"--}}
-                                    {{--                                               value="{{ old('image') }}">--}}
-
-                                    {{--                                    </div>--}}
-
-
-                                    {{--                                    <div class="col-md-2 form-group col-12 p-2">--}}
-
-                                    {{--                                        <br>--}}
-                                    {{--                                        <a--}}
-                                    {{--                                            class="btn btn-air-primary btn-pill btn-primary add-category w-100">@lang('site.add')</a>--}}
-                                    {{--                                    </div>--}}
-
-
-                                    {{--                                </div>--}}
-
-
-                                    {{--                                <table class="categories-list" id="table5">--}}
-
-                                    {{--                                    --}}{{--                                <div class="row m-0 sub-categories">--}}
-
-
-                                    {{--                                    --}}{{--                                </div>--}}
-
-                                    {{--                                </table>--}}
-                                    <div class="col-md-12 form-group col-12 desc" id="price2" >
-                                        <table class="price-list" id="tb_price">
-                                            <tr><td>
-                                                    <div class="row">
-                                                        <div class="col-md-5 form-group col-12">
-                                                            <input type="text"  name="name_category[]" class="form-control"/>
-                                                        </div>
-                                                        <div class="col-md-5 form-group col-12">
-                                                            <input type="file" name="image_category[]" class="form-control" >
-                                                        </div>
-                                                        <div class="col-md-2 form-group col-12">
-                                                            <a class="btn btn-air-primary btn-pill btn-success add-price w-100"><i class="fa fa-plus" aria-hidden="true"></i></a>
-                                                        </div>
-                                                    </div>
-                                                </td></tr>
-                                        </table>
-
-                                    </div>
-
+                                    <label for="edo-ani1">
+                                        <input class="radio_animated" type="radio" name="price" id="tb_price"
+                                               data-bs-original-title="tooltip" title="AddSubCategory" value="2" >@lang('site.subcategories')
+                                    </label>
+                                   
 
                                 </div>
+                            </div>
+                            <div class="row m-t-10">
+                                <!--<div class="col-md-6">-->
 
+
+                                <div class="col-md-12 form-group col-12   desc" id="price2" style="display: none;" >
+                                    <table class="price-list" id="tb_price">
+                                        <tr>
+                                            <td>
+                                                <div class="row">
+                                                    <div class="col-md-5 form-group col-12">
+                                                        <label>@lang('site.ar.name')</label>
+                                                        <input type="text" name="name_category[]" class="form-control"/>
+                                                    </div>
+                                                    <div class="col-md-5 form-group col-12">
+                                                        <label>@lang('site.image')</label>
+                                                        <input type="file" name="image_category[]" class="form-control">
+                                                    </div>
+                                                    <div class="col-md-2 form-group col-12">
+                                                        <a class="btn btn-air-primary btn-pill btn-success add-price w-100 m-t-30"><i
+                                                                class="fa fa-plus" aria-hidden="true"></i></a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+                                <br>
+                            </div>
 
                             </div>
                     </div>
@@ -217,23 +195,16 @@
                 jQuery('.price-list').append(newRow);
             });
 
+            $("input[name='price']").click(function () {
+                var test = $(this).val();
 
+                $("div.desc").hide();
+                $("#price" + test).show();
+            });
         });
 
         function deletetr(r) {
             r.closest('tr').remove();
         }
-        // $(document).ready(function () {
-        //     jQuery('a.add-category').click(function (event) {
-        //         event.preventDefault();
-        //         var newRow = jQuery('<tr><td><div class="row"><div class="col-md-3 form-group col-12 p-2">' +
-        //             '<input type="text"     name="name_category[]" class="form-control"/></div><div class="col-md-3 form-group col-12 p-2">' +
-        //             '<input type="file" name="image_category[]" class="form-control" >' +
-        //             '  </div>  <div class="col-md-3 form-group col-12 p-2 "> <a  onclick="deleteRow(this)" ><i class="fa fa-trash"></i></a>' +
-        //
-        //             '</div></div> </td>  </tr>');
-        //         jQuery('.categories-list').append(newRow);
-        //     });
-        // });
     </script>
 @endsection

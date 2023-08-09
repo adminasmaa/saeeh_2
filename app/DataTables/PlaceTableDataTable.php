@@ -114,6 +114,7 @@ class PlaceTableDataTable extends DataTable
         $lan = app()->getLocale();
         return [
             Column::make('DT_RowIndex')->data('DT_RowIndex')->name('id')->title('#'),
+            Column::make('id')->title(trans('site.id')),
 
             Column::make('name_'.$lan)->title(trans('site.name')),
 

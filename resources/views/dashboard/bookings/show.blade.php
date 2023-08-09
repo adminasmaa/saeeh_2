@@ -56,15 +56,6 @@
                                 >
                             </div>
 
-
-                            <div class="col-md-6 form-group col-12 p-2 ">
-                                <label>@lang('site.status')<span class="text-danger">*</span></label>
-                                <input type="text" name="book_status" class="form-control"
-                                       value="{{ $booking->book_status }}" disabled readonly=""
-                                >
-                            </div>
-
-
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.price')<span class="text-danger">*</span></label>
                                 <input type="text" name="fixed_price" class="form-control"
