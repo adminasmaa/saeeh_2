@@ -113,7 +113,7 @@ class AqarSettingDataTable extends DataTable
     {
         return [
             Column::make('id')->data('DT_RowIndex')->name('id')->title('#'),
-            
+            Column::make('id')->title(trans('site.id')),
             Column::make('input_id')->title(trans('site.input_id')),
             Column::make('display')->title(trans('site.display')),
             // Column::make('category_id')->title(trans('site.category_id')),

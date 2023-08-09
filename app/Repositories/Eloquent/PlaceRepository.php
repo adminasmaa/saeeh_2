@@ -58,7 +58,7 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
         $subcategories = Category::get();
         $countries = Country::all();
         $cities = City::all();
-        $place_table = PlaceTable::all();
+        $place_table =PlaceTable::where('place_id', $place->id)->get();
         return view('dashboard.places.edit', compact('place', 'users', 'categories', 'place_comments','place_table', 'notifications','subcategories', 'countries', 'cities'));
     }
 
