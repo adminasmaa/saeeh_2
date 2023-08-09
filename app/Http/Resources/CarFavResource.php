@@ -27,6 +27,7 @@ class CarFavResource extends JsonResource
         return [
             "id" => $this->id,
             "name" => $this->$name ?? '',
+            "favorite" =>true,
             "description" => $this->description ?? '',
             "image" => asset('images/cars') . "/" . $this->main_image_ads,
             "fixed_price" => $this->fixed_price ?? 0,

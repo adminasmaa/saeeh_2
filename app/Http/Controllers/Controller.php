@@ -66,7 +66,31 @@ class Controller extends BaseController
             'code' => $code,
             'status' => false,
             'message' => $error,
-            'data' => null,
+            'data' =>null,
+        ];
+
+
+        if (!empty($errorMessages)) {
+            $response['errorData'] = $errorMessages;
+        }
+
+
+        return response()->json($response, $code1);
+    }
+    public function respondErrorArray($error, $errorMessages = [], $code)
+    {
+        if ($code == 404) {
+            $code1 = 404;
+        } elseif ($code == 500) {
+            $code1 = 500;
+        } else {
+            $code1 = 200;
+        }
+        $response = [
+            'code' => $code,
+            'status' => false,
+            'message' => $error,
+            'data' =>[],
         ];
 
 

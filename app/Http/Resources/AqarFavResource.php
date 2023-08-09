@@ -27,6 +27,7 @@ class AqarFavResource extends JsonResource
             return [
                 "id" => $this->id,
                 "name" => $this->$name ?? '',
+                "favorite" =>true,
 
                 "description" =>$this->description ?? '',
                 "image" => asset('images/aqars') . "/" . $this->main_image_ads,
