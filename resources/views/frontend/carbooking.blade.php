@@ -86,8 +86,9 @@
                             @lang('site.id number')({{$car->id}})
                         </div>
                     </div>
-                    <div class="col-12">
-                        <form class="form py-5">
+                    <form class="form py-5" method="post" id="add-form">
+                        <div class="col-12">
+
                             <div class="wizard-tabs d-flex justify-content-center py-3">
                                 <div class="wizard">
                                     <div
@@ -227,7 +228,7 @@
                                                             type="text"
                                                             name="reciept_date"
                                                             id="datepicker"
-
+                                                            required
                                                             class="calendar mb-4"
                                                         />
                                                         <span class="date-icon">
@@ -253,7 +254,7 @@
                                                             type="text"
                                                             name="delivery_date"
                                                             id="datepicker1"
-
+                                                            required
                                                             class="calendar mb-4"
                                                         />
                                                         <span class="date-icon">
@@ -276,7 +277,7 @@
                                                     <div class="position-relative">
                                                         <input
                                                             type="text"
-                                                            name="place_arrive"
+                                                            name="delivery_place"
                                                             placeholder="{{trans('site.delivery place')}}"
                                                             class="form-control mb-4 date-input"
                                                         />
@@ -301,9 +302,9 @@
                                                         <input
                                                             placeholder=" {{trans('site.Receipt hour')}}"
                                                             type="text"
-                                                            name="place_leave"
+                                                            name="receipt_hour"
                                                             id="timepicker"
-
+                                                            required
                                                             class="form-control mb-4 date-input"
                                                         />
                                                         <span class="date-icon">
@@ -331,9 +332,9 @@
                                                         <input
                                                             placeholder="{{trans('site.delivery hour')}}"
                                                             type="text"
-                                                            name="place_arrive"
+                                                            name="delivery_hour"
                                                             id="timepicker1"
-
+                                                            required
                                                             class="form-control mb-4 date-input"
                                                         />
                                                         <span class="date-icon">
@@ -385,21 +386,21 @@
                                     </div>
                                 </div>
                             </div>
-                    </div>
-                    <div class="form-content-wizard py-lg-5 pt-3" data-form-tab>
-                        <div class="row">
-                            <div class="col-12">
-                                <h2 class="mb-3 text-gray-2"> @lang('site.details')</h2>
-                            </div>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-5">
-                                <div class="card-booking mb-5">
-                                    <div
-                                        class="d-flex justify-content-between py-lg-4 px-lg-3 p-3"
-                                    >
-                                        <div>
-                                            <div class="d-flex align-items-center pb-3">
+                        <div class="form-content-wizard py-lg-5 pt-3" data-form-tab>
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2 class="mb-3 text-gray-2"> @lang('site.details')</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <div class="card-booking mb-5">
+                                        <div
+                                            class="d-flex justify-content-between py-lg-4 px-lg-3 p-3"
+                                        >
+                                            <div>
+                                                <div class="d-flex align-items-center pb-3">
                               <span>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -425,21 +426,21 @@
                                   </defs>
                                 </svg>
                               </span>
-                                                <span class="text-second dd-txt pe-2">
+                                                    <span class="text-second dd-txt pe-2">
                                 @lang('site.Arrival dates')
                               </span>
-                                            </div>
-                                            <div class="card-booking p-md-3 text-center">
-{{--                                                <h2 class="mb-0 lh-1">22</h2>--}}
-{{--                                                <div>مارس</div>--}}
-                                                <div class="text-gray-4 pt-1">
-{{--                                                    {{$aquar->time_from ?? ''}}--}}
-                                                    {{$car->car_delivery_date ?? ''}}
+                                                </div>
+                                                <div class="card-booking p-md-3 text-center">
+                                                    {{--                                                <h2 class="mb-0 lh-1">22</h2>--}}
+                                                    {{--                                                <div>مارس</div>--}}
+                                                    <div class="text-gray-4 pt-1">
+                                                        {{--                                                    {{$aquar->time_from ?? ''}}--}}
+                                                        {{$car->car_delivery_date ?? ''}}
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div>
-                                            <div class="d-flex align-items-center pb-3">
+                                            <div>
+                                                <div class="d-flex align-items-center pb-3">
                               <span>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -465,22 +466,22 @@
                                   </defs>
                                 </svg>
                               </span>
-                                                <span class="text-second dd-txt pe-2"
-                                                >@lang('site.Departure dates')</span
-                                                >
-                                            </div>
-                                            <div class="card-booking p-md-3 text-center">
-{{--                                                <h2 class="mb-0 lh-1">29</h2>--}}
-{{--                                                <div>مارس</div>--}}
-                                                <div class="text-gray-4 pt-1">
-                                                    @lang('site.Please follow the site policy')
+                                                    <span class="text-second dd-txt pe-2"
+                                                    >@lang('site.Departure dates')</span
+                                                    >
+                                                </div>
+                                                <div class="card-booking p-md-3 text-center">
+                                                    {{--                                                <h2 class="mb-0 lh-1">29</h2>--}}
+                                                    {{--                                                <div>مارس</div>--}}
+                                                    <div class="text-gray-4 pt-1">
+                                                        @lang('site.Please follow the site policy')
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <hr class="hr-saeeh my-0"/>
-                                    <div class="d-flex justify-content-between py-1 px-3">
-                                        <div class="d-flex align-items-center">
+                                        <hr class="hr-saeeh my-0"/>
+                                        <div class="d-flex justify-content-between py-1 px-3">
+                                            <div class="d-flex align-items-center">
                             <span>
                               <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -499,19 +500,19 @@
                                 />
                               </svg>
                             </span>
-                                            <span class="text-second dd-txt pe-2">
+                                                <span class="text-second dd-txt pe-2">
                               @lang('site.arrival hour')
                             </span>
+                                            </div>
+                                            <div
+                                                class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
+                                            >
+                                                03:13 مساء
+                                            </div>
                                         </div>
-                                        <div
-                                            class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
-                                        >
-                                            03:13 مساء
-                                        </div>
-                                    </div>
-                                    <hr class="hr-saeeh my-0"/>
-                                    <div class="d-flex justify-content-between py-1 px-3">
-                                        <div class="d-flex align-items-center">
+                                        <hr class="hr-saeeh my-0"/>
+                                        <div class="d-flex justify-content-between py-1 px-3">
+                                            <div class="d-flex align-items-center">
                             <span>
                               <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -530,19 +531,19 @@
                                 />
                               </svg>
                             </span>
-                                            <span class="text-second dd-txt pe-2">
+                                                <span class="text-second dd-txt pe-2">
                         @lang('site.Departure dates')
                             </span>
+                                            </div>
+                                            <div
+                                                class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
+                                            >
+                                                09:13 مساء
+                                            </div>
                                         </div>
-                                        <div
-                                            class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
-                                        >
-                                            09:13 مساء
-                                        </div>
-                                    </div>
-                                    <hr class="hr-saeeh my-0"/>
-                                    <div class="d-flex justify-content-between py-1 px-3">
-                                        <div class="d-flex align-items-center">
+                                        <hr class="hr-saeeh my-0"/>
+                                        <div class="d-flex justify-content-between py-1 px-3">
+                                            <div class="d-flex align-items-center">
                             <span>
                               <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -557,19 +558,19 @@
                                 />
                               </svg>
                             </span>
-                                            <span class="text-second dd-txt pe-2"
-                                            > @lang('site.car_numbers')
+                                                <span class="text-second dd-txt pe-2"
+                                                > @lang('site.car_numbers')
                             </span>
+                                            </div>
+                                            <div
+                                                class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
+                                            >
+                                                {{$car->car_numbers ?? 0 }}
+                                            </div>
                                         </div>
-                                        <div
-                                            class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
-                                        >
-                                         {{$car->car_numbers ?? 0 }}
-                                        </div>
-                                    </div>
-                                    <hr class="hr-saeeh my-0"/>
-                                    <div class="d-flex justify-content-between py-1 px-3">
-                                        <div class="d-flex align-items-center">
+                                        <hr class="hr-saeeh my-0"/>
+                                        <div class="d-flex justify-content-between py-1 px-3">
+                                            <div class="d-flex align-items-center">
                             <span>
                               <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -584,21 +585,21 @@
                                 />
                               </svg>
                             </span>
-                                            <span class="text-second dd-txt pe-2"
-                                            > @lang('site.car_numbers')</span
+                                                <span class="text-second dd-txt pe-2"
+                                                > @lang('site.car_numbers')</span
+                                                >
+                                            </div>
+                                            <div
+                                                class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
                                             >
-                                        </div>
-                                        <div
-                                            class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
-                                        >
-                                        {{$car->car_numbers ?? ''}}
+                                                {{$car->car_numbers ?? ''}}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="card-booking mb-4">
-                                    <div class="d-flex justify-content-between py-1 px-3">
-                                        <div class="d-flex align-items-center">
+                                    <div class="card-booking mb-4">
+                                        <div class="d-flex justify-content-between py-1 px-3">
+                                            <div class="d-flex align-items-center">
                             <span>
                               <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -630,17 +631,17 @@
                                 />
                               </svg>
                             </span>
-                                            <span class="text-second dd-txt pe-2">@lang('site.category')</span>
+                                                <span class="text-second dd-txt pe-2">@lang('site.category')</span>
+                                            </div>
+                                            <div
+                                                class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
+                                            >
+                                                {{$car->category->name ?? ''}}
+                                            </div>
                                         </div>
-                                        <div
-                                            class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
-                                        >
-                                            {{$car->category->name ?? ''}}
-                                        </div>
-                                    </div>
-                                    <hr class="hr-saeeh my-0"/>
-                                    <div class="d-flex justify-content-between py-1 px-3">
-                                        <div class="d-flex align-items-center">
+                                        <hr class="hr-saeeh my-0"/>
+                                        <div class="d-flex justify-content-between py-1 px-3">
+                                            <div class="d-flex align-items-center">
                             <span>
                               <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -672,17 +673,17 @@
                                 />
                               </svg>
                             </span>
-                                            <span class="text-second dd-txt pe-2"> @lang('site.year') </span>
+                                                <span class="text-second dd-txt pe-2"> @lang('site.year') </span>
+                                            </div>
+                                            <div
+                                                class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
+                                            >
+                                                {{$car->year ?? ''}}
+                                            </div>
                                         </div>
-                                        <div
-                                            class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
-                                        >
-                                            {{$car->year ?? ''}}
-                                        </div>
-                                    </div>
-                                    <hr class="hr-saeeh my-0"/>
-                                    <div class="d-flex justify-content-between py-1 px-3">
-                                        <div class="d-flex align-items-center">
+                                        <hr class="hr-saeeh my-0"/>
+                                        <div class="d-flex justify-content-between py-1 px-3">
+                                            <div class="d-flex align-items-center">
                             <span>
                               <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -713,17 +714,17 @@
                                 />
                               </svg>
                             </span>
-                                            <span class="text-second dd-txt pe-2"> @lang('site.color') </span>
+                                                <span class="text-second dd-txt pe-2"> @lang('site.color') </span>
+                                            </div>
+                                            <div
+                                                class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
+                                            >
+                                                {{$car->color ?? ''}}
+                                            </div>
                                         </div>
-                                        <div
-                                            class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
-                                        >
-                                            {{$car->color ?? ''}}
-                                        </div>
-                                    </div>
-                                    <hr class="hr-saeeh my-0"/>
-                                    <div class="d-flex justify-content-between py-1 px-3">
-                                        <div class="d-flex align-items-center">
+                                        <hr class="hr-saeeh my-0"/>
+                                        <div class="d-flex justify-content-between py-1 px-3">
+                                            <div class="d-flex align-items-center">
                             <span>
                               <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -740,17 +741,17 @@
                                 />
                               </svg>
                             </span>
-                                            <span class="text-second dd-txt pe-2">@lang('site.category') </span>
+                                                <span class="text-second dd-txt pe-2">@lang('site.category') </span>
+                                            </div>
+                                            <div
+                                                class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
+                                            >
+                                                {{$car->category->name ?? ''}}
+                                            </div>
                                         </div>
-                                        <div
-                                            class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
-                                        >
-                                           {{$car->category->name ?? ''}}
-                                        </div>
-                                    </div>
-                                    <hr class="hr-saeeh my-0"/>
-                                    <div class="d-flex justify-content-between py-1 px-3">
-                                        <div class="d-flex align-items-center">
+                                        <hr class="hr-saeeh my-0"/>
+                                        <div class="d-flex justify-content-between py-1 px-3">
+                                            <div class="d-flex align-items-center">
                             <span>
                               <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -765,19 +766,19 @@
                                 />
                               </svg>
                             </span>
-                                            <span class="text-second dd-txt pe-2">
+                                                <span class="text-second dd-txt pe-2">
                               شنطه كبيرة
                             </span>
+                                            </div>
+                                            <div
+                                                class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
+                                            >
+                                                1
+                                            </div>
                                         </div>
-                                        <div
-                                            class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
-                                        >
-                                            1
-                                        </div>
-                                    </div>
-                                    <hr class="hr-saeeh my-0"/>
-                                    <div class="d-flex justify-content-between py-1 px-3">
-                                        <div class="d-flex align-items-center">
+                                        <hr class="hr-saeeh my-0"/>
+                                        <div class="d-flex justify-content-between py-1 px-3">
+                                            <div class="d-flex align-items-center">
                             <span>
                               <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -809,19 +810,19 @@
                                 />
                               </svg>
                             </span>
-                                            <span class="text-second dd-txt pe-2">
+                                                <span class="text-second dd-txt pe-2">
                               @lang('site.car_numbers')
                             </span>
+                                            </div>
+                                            <div
+                                                class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
+                                            >
+                                                {{$car->car_numbers ?? 0}}
+                                            </div>
                                         </div>
-                                        <div
-                                            class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
-                                        >
-                                           {{$car->car_numbers ?? 0}}
-                                        </div>
-                                    </div>
-                                    <hr class="hr-saeeh my-0"/>
-                                    <div class="d-flex justify-content-between p-3">
-                                        <div class="d-flex align-items-center">
+                                        <hr class="hr-saeeh my-0"/>
+                                        <div class="d-flex justify-content-between p-3">
+                                            <div class="d-flex align-items-center">
                             <span>
                               <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -836,16 +837,16 @@
                                 />
                               </svg>
                             </span>
-                                            <a class="text-second dd-txt pe-2 booking-link"
-                                            >تعديل اختياراك
-                                            </a>
+                                                <a class="text-second dd-txt pe-2 booking-link"
+                                                >تعديل اختياراك
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <h2 class="mb-3 text-gray-2">@lang('site.Price summary')</h2>
-                                <div class="card-booking mb-4">
-                                    <div class="d-flex justify-content-between py-1 px-3">
-                                        <div class="d-flex align-items-center">
+                                    <h2 class="mb-3 text-gray-2">@lang('site.Price summary')</h2>
+                                    <div class="card-booking mb-4">
+                                        <div class="d-flex justify-content-between py-1 px-3">
+                                            <div class="d-flex align-items-center">
                             <span>
                               <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -872,20 +873,20 @@
                                 />
                               </svg>
                             </span>
-                                            <span class="text-second dd-txt pe-2"
-                                            > @lang('site.price')
+                                                <span class="text-second dd-txt pe-2"
+                                                > @lang('site.price')
                             </span>
-                                        </div>
-                                        <div
-                                            class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
-                                        >
-                                            {{$car->fixed_price ?? 0}}
+                                            </div>
+                                            <div
+                                                class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
+                                            >
+                                                {{$car->fixed_price ?? 0}}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="card-booking mb-4 bg-light-orange">
-                                    <div class="d-flex justify-content-between py-1 px-3">
-                                        <div class="d-flex align-items-center">
+                                    <div class="card-booking mb-4 bg-light-orange">
+                                        <div class="d-flex justify-content-between py-1 px-3">
+                                            <div class="d-flex align-items-center">
                             <span>
                               <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -912,22 +913,22 @@
                                 />
                               </svg>
                             </span>
-                                            <span class="text-gray-2 dd-txt pe-2"
-                                            >@lang('site.Reservation deposit')
+                                                <span class="text-gray-2 dd-txt pe-2"
+                                                >@lang('site.Reservation deposit')
                             </span>
-                                        </div>
-                                        <div
-                                            class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
-                                        >
-                                            {{$car->fixed_price ?? 0}}
+                                            </div>
+                                            <div
+                                                class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
+                                            >
+                                                {{$car->fixed_price ?? 0}}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="card-booking mb-4 bg-light-blue">
-                                    <div
-                                        class="d-flex justify-content-between py-md-4 px-md-3 p-3"
-                                    >
-                                        <div class="d-flex align-items-center">
+                                    <div class="card-booking mb-4 bg-light-blue">
+                                        <div
+                                            class="d-flex justify-content-between py-md-4 px-md-3 p-3"
+                                        >
+                                            <div class="d-flex align-items-center">
                             <span>
                               <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -954,88 +955,89 @@
                                 />
                               </svg>
                             </span>
-                                            <span class="text-gray-2 dd-txt pe-2"
-                                            > @lang('site.total')@lang('site.price')
+                                                <span class="text-gray-2 dd-txt pe-2"
+                                                > @lang('site.total')@lang('site.price')
                             </span>
-                                        </div>
-                                        <div
-                                            class="text-gray-2 d-flex align-items-center justify-content-center summary-price"
-                                        >
-                                            8000 درهم مغربي
+                                            </div>
+                                            <div
+                                                class="text-gray-2 d-flex align-items-center justify-content-center summary-price"
+                                            >
+                                                8000 درهم مغربي
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-7">
-                                <div class="col-12">
-                                    <div
-                                        class="card card-department round-border mb-3 p-md-3 p-2"
-                                    >
-                                        <div class="row g-0">
-                                            <div class="col-md-4 position-relative">
-                                                <div class="car-img">
-                                                    <div>
-                                                        <img
+                                <div class="col-lg-7">
+                                    <div class="col-12">
+                                        <div
+                                            class="card card-department round-border mb-3 p-md-3 p-2"
+                                        >
+                                            <div class="row g-0">
+                                                <div class="col-md-4 position-relative">
+                                                    <div class="car-img">
+                                                        <div>
+                                                            <img
 
 
-                                                            src="{{asset('images/cars/'.$car->main_image_ads)}}"
-                                                            onerror="this.src='{{FRONTASSETS}}/images/cars/car-card-1.png'"
+                                                                src="{{asset('images/cars/'.$car->main_image_ads)}}"
+                                                                onerror="this.src='{{FRONTASSETS}}/images/cars/car-card-1.png'"
 
-                                                            alt="image 1"
-                                                            loading="lazy"
-                                                        />
+                                                                alt="image 1"
+                                                                loading="lazy"
+                                                            />
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <div
-                                                    class="card-body card-car-body position-relative"
-                                                >
+                                                <div class="col-md-8">
                                                     <div
-                                                        class="row justify-content-between align-items-center mb-3 small"
+                                                        class="card-body card-car-body position-relative"
                                                     >
-                                                        <div class="col-auto mb-lg-0 mb-3">
+                                                        <div
+                                                            class="row justify-content-between align-items-center mb-3 small"
+                                                        >
+                                                            <div class="col-auto mb-lg-0 mb-3">
                                     <span class="text-main number-ads"
                                     > @lang('site.id number'){{$car->id}})</span
                                     >
-                                                        </div>
-                                                        <div class="col-auto">
-                                                            <div
-                                                                class="d-flex justify-content-center align-items-center"
-                                                            >
-                                                                <div class="department-badge bg-main text-white">
-                                                                    <div
-                                                                        class="pt-1">{{$car->CarReview->count() ?? 0 }}</div>
-                                                                    <div>
-                                                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                                                             width="25" height="25" viewBox="0 0 25 25"
-                                                                             fill="none">
-                                                                            <path
-                                                                                d="M12.7529 19.6185L20.1689 24.3301L18.2009 15.4501L24.7529 9.47534L16.1249 8.70481L12.7529 0.330078L9.38093 8.70481L0.75293 9.47534L7.30493 15.4501L5.33693 24.3301L12.7529 19.6185Z"
-                                                                                fill="white"/>
-                                                                        </svg>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <div
+                                                                    class="d-flex justify-content-center align-items-center"
+                                                                >
+                                                                    <div class="department-badge bg-main text-white">
+                                                                        <div
+                                                                            class="pt-1">{{$car->CarReview->count() ?? 0 }}</div>
+                                                                        <div>
+                                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                 width="25" height="25"
+                                                                                 viewBox="0 0 25 25"
+                                                                                 fill="none">
+                                                                                <path
+                                                                                    d="M12.7529 19.6185L20.1689 24.3301L18.2009 15.4501L24.7529 9.47534L16.1249 8.70481L12.7529 0.330078L9.38093 8.70481L0.75293 9.47534L7.30493 15.4501L5.33693 24.3301L12.7529 19.6185Z"
+                                                                                    fill="white"/>
+                                                                            </svg>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="number-ads gray-txt">
-                                                                    {{$car->carComment->count() ?? 0}} @lang('site.comments')
+                                                                    <div class="number-ads gray-txt">
+                                                                        {{$car->carComment->count() ?? 0}} @lang('site.comments')
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <h2 class="card-title mb-2">
-                                                        {{$car->name ?? ''}}
-                                                    </h2>
+                                                        <h2 class="card-title mb-2">
+                                                            {{$car->name ?? ''}}
+                                                        </h2>
 
-                                                    <div class="gray-txt number-ads pb-2">
+                                                        <div class="gray-txt number-ads pb-2">
                                   <span
                                   >                                            {!! html_entity_decode($car->description) !!}
 
                                   </span>
-                                                    </div>
-                                                    <div
-                                                        class="text-gray-2 number-ads d-flex align-items-center"
-                                                    >
-                                                        <div>
+                                                        </div>
+                                                        <div
+                                                            class="text-gray-2 number-ads d-flex align-items-center"
+                                                        >
+                                                            <div>
                                     <span class="ps-2">
                                       <svg
                                           xmlns="http://www.w3.org/2000/svg"
@@ -1052,9 +1054,9 @@
                                         />
                                       </svg>
                                     </span>
-                                                            {{--                                                                    <span>5 مقاعد</span>--}}
-                                                        </div>
-                                                        <div class="padding-35">
+                                                                {{--                                                                    <span>5 مقاعد</span>--}}
+                                                            </div>
+                                                            <div class="padding-35">
                                     <span class="ps-2">
                                       <svg
                                           xmlns="http://www.w3.org/2000/svg"
@@ -1069,27 +1071,27 @@
                                         />
                                       </svg>
                                     </span>
-                                                            <span> {{$car->name ?? ''}}</span>
-                                                                </div>
+                                                                <span> {{$car->name ?? ''}}</span>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="card card-department round-border mb-3 p-3">
-                                                <h2 class="mb-3">@lang('site.Information that may interest you')</h2>
-                                                <p class="mb-2 department-txt">
-                                                    @lang('site.It may take a few days for the request to be approved')
-                                                </p>
-                                                <p class="department-txt">
-                                                    @lang('site.A reservation deposit is required to confirm the reservation')
-                                                </p>
-                                            </div>
-                                            <div class="card-booking mb-4">
-                                                <div
-                                                    class="d-flex justify-content-between py-md-4 px-md-3 p-3"
-                                                >
-                                                    <div class="d-flex align-items-center">
+                                        </div>
+                                        <div class="card card-department round-border mb-3 p-3">
+                                            <h2 class="mb-3">@lang('site.Information that may interest you')</h2>
+                                            <p class="mb-2 department-txt">
+                                                @lang('site.It may take a few days for the request to be approved')
+                                            </p>
+                                            <p class="department-txt">
+                                                @lang('site.A reservation deposit is required to confirm the reservation')
+                                            </p>
+                                        </div>
+                                        <div class="card-booking mb-4">
+                                            <div
+                                                class="d-flex justify-content-between py-md-4 px-md-3 p-3"
+                                            >
+                                                <div class="d-flex align-items-center">
                               <span>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -1104,18 +1106,20 @@
                                   />
                                 </svg>
                               </span>
-                                                        <h2 class="text-gray-2 pe-2 mb-0">
-                                                            <a href="{{route('sitelogin')}}" class="text-second"> @lang('site.login') </a>
-                                                            للحجز بتفاصيل محفوظه او
-                                                            <a href="{{route('registers')}}" class="text-second">@lang('site.register')</a>
-                                                            جديد
-                                                        </h2>
-                                                    </div>
+                                                    <h2 class="text-gray-2 pe-2 mb-0">
+                                                        <a href="{{route('sitelogin')}}"
+                                                           class="text-second"> @lang('site.login') </a>
+                                                        للحجز بتفاصيل محفوظه او
+                                                        <a href="{{route('registers')}}"
+                                                           class="text-second">@lang('site.register')</a>
+                                                        جديد
+                                                    </h2>
                                                 </div>
                                             </div>
+                                        </div>
 
-                                            <h2 class="mb-2 text-gray-2">@lang('site.special requests')</h2>
-                                            <div class="d-flex align-items-center">
+                                        <h2 class="mb-2 text-gray-2">@lang('site.special requests')</h2>
+                                        <div class="d-flex align-items-center">
                           <span>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -1130,39 +1134,43 @@
                               />
                             </svg>
                           </span>
-                                                <h2 class="text-second pe-2 mb-0">
-                                                    @lang('site.If you have an inquiry')
-                                                </h2>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="form-group">
+                                            <h2 class="text-second pe-2 mb-0">
+                                                @lang('site.If you have an inquiry')
+                                            </h2>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
                             <textarea
                                 class="form-control txtarea-booking px-3 py-2 mt-2"
                                 placeholder="{{trans('site.If you have an inquiry')}}"
                                 rows="4"
-                                name="cancle_reason"
+                                name="note"
                             ></textarea>
-                                                </div>
+
+                                                <input type="hidden" name="car_id" value="{{$car->id}}">
+                                                <input type="hidden" name="fixed_price"
+                                                       value="{{$car->fixed_price ?? 0}}">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-content-wizard py-lg-5 pt-3" data-form-tab>
-                                <div class="row">
-{{--                                    <div class="col-12">--}}
-{{--                                        <div class="card-notification bg-light-blue p-3 mb-4">--}}
-{{--                                            <h2 class="text-center mb-0">--}}
-{{--                                                تم تسجيل طلب الحجز بنجاح بانتظار الموافقه من قبل--}}
-{{--                                                المالك--}}
-{{--                                            </h2>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-                                    <div class="col-12">
-                                        <div
-                                            class="booking-dd-btn d-flex align-items-center justify-content-center mb-1"
-                                        >
-                                            <a href="#">
+                        </div>
+                        <div class="form-content-wizard py-lg-5 pt-3" data-form-tab>
+                            <div class="row">
+                                {{--                                    <div class="col-12">--}}
+                                {{--                                        <div class="card-notification bg-light-blue p-3 mb-4">--}}
+                                {{--                                            <h2 class="text-center mb-0">--}}
+                                {{--                                                تم تسجيل طلب الحجز بنجاح بانتظار الموافقه من قبل--}}
+                                {{--                                                المالك--}}
+                                {{--                                            </h2>--}}
+                                {{--                                        </div>--}}
+                                {{--                                    </div>--}}
+                                <div class="col-12">
+                                    <div
+                                        class="booking-dd-btn d-flex align-items-center justify-content-center mb-1"
+                                    >
+                                        <a href="#">
                           <span>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -1177,8 +1185,8 @@
                               />
                             </svg>
                           </span>
-                                                <span class="pe-2">@lang('site.My bookings')</span>
-                                                <span class="pe-3">
+                                            <span class="pe-2">@lang('site.My bookings')</span>
+                                            <span class="pe-3">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="10"
@@ -1192,14 +1200,17 @@
                               />
                             </svg>
                           </span>
-                                            </a>
-                                        </div>
+                                        </a>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-12">
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+
+                                    @foreach($bookings->unique('car_id') as $book)
+                                        @if(!empty($book->car))
                                         <div
-                                            class="card card-department round-border mb-4 p-md-3 p-2"
+                                            class="card card-department round-border mb-4 p-md-3 p-2" id="mybookinghidden"
                                         >
                                             <div class="row g-0">
                                                 <div class="col-lg-3 position-relative">
@@ -1208,7 +1219,7 @@
                                                             <img
 
 
-                                                                src="{{asset('images/cars/'.$car->main_image_ads)}}"
+                                                                src="{{asset('images/cars/'.$book->car->main_image_ads)}}"
                                                                 onerror="this.src='{{FRONTASSETS}}/images/cars/car-card-1.png'"
 
                                                                 alt="image 1"
@@ -1226,7 +1237,7 @@
                                                         >
                                                             <div class="col-auto mb-lg-0 mb-2">
                                   <span class="text-main number-ads"
-                                  > @lang('site.id number')({{$car->id}})</span
+                                  > @lang('site.id number')({{$book->car->id}})</span
                                   >
                                                             </div>
                                                             <div class="col-auto">
@@ -1236,26 +1247,32 @@
                                                                     <div class="department-badge bg-main text-white">
                                                                         <div class="pt-1">5</div>
                                                                         <div>
-                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
-                                                                                <path d="M12.7529 19.6185L20.1689 24.3301L18.2009 15.4501L24.7529 9.47534L16.1249 8.70481L12.7529 0.330078L9.38093 8.70481L0.75293 9.47534L7.30493 15.4501L5.33693 24.3301L12.7529 19.6185Z" fill="white"/>
+                                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                 width="25" height="25"
+                                                                                 viewBox="0 0 25 25"
+                                                                                 fill="none">
+                                                                                <path
+                                                                                    d="M12.7529 19.6185L20.1689 24.3301L18.2009 15.4501L24.7529 9.47534L16.1249 8.70481L12.7529 0.330078L9.38093 8.70481L0.75293 9.47534L7.30493 15.4501L5.33693 24.3301L12.7529 19.6185Z"
+                                                                                    fill="white"/>
                                                                             </svg>
                                                                         </div>
                                                                     </div>
                                                                     <div class="number-ads gray-txt">
-                                                                        64 من التقييمات
+
+                                                                        {{$book->car->carComment->count() ?? 0}} @lang('site.comments')
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <h2 class="card-title mb-2">
 
-{{$car->name ?? ''}}
+                                                            {{$book->car->name ?? ''}}
 
                                                         </h2>
 
                                                         <div class="gray-txt number-ads pb-2">
                                 <span
-                                >{{$car->description ?? ''}}
+                                >{{$book->car->description ?? ''}}
                                 </span>
                                                         </div>
                                                         <div
@@ -1278,7 +1295,7 @@
                                       />
                                     </svg>
                                   </span>
-                                                                <span>{{$car->car_numbers}} @lang('site.car_numbers')</span>
+                                                                <span>{{$book->car->car_numbers}} @lang('site.car_numbers')</span>
                                                             </div>
                                                             <div class="padding-35">
                                   <span class="ps-2">
@@ -1305,7 +1322,7 @@
                                                             <div class="department-price">
                                                                 <span class="text-gray-2"> @lang('site.price'):</span>
                                                                 <span class="fw-bold text-main"
-                                                                >{{$car->fixed_price ?? 0 }}
+                                                                >{{$book->car->fixed_price ?? 0 }}
                                   </span>
                                                             </div>
                                                         </div>
@@ -1354,7 +1371,7 @@
                                                                         <div
                                                                             class="text-gray-2 d-flex align-items-center justify-content-center fw-bold span-14"
                                                                         >
-                                                                            {{$car->fixed_price ?? 0 }}
+                                                                            {{$book->car->fixed_price ?? 0 }}
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1402,49 +1419,126 @@
                                             </div>
                                         </div>
 
-                                    </div>
+
+                                        @endif
+                                    @endforeach
+
+                                        <div  id="mybooking1" >
+                                        </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="d-sm-flex align-items-center justify-content-between wizaredd">
-                                <button
-                                    class="booking-now-btn "
-                                    type="button"
-                                    data-btn-previous="true"
-                                >
-                                    @lang('site.previous')
-                                    <span class="pe-3"
-                                    > <i class="fas fa-chevron-left"></i></span>
-                                </button>
-                                <button
-                                    class="booking-now-btn "
-                                    type="button"
-                                    data-btn-next="true"
-                                >
-                                    @lang('site.next')
-                                    <span class="pe-3"
-                                    > <i class="fas fa-chevron-left"></i></span>
-                                </button>
-                                <button
-                                    class="booking-now-btn"
-                                    type="button"
-                                    data-btn-submit="true"
-                                >
-                                    @lang('site.save')
-                                    <span class="pe-3">
+                        <div class="d-sm-flex align-items-center justify-content-between wizaredd">
+                            <button
+                                class="booking-now-btn "
+                                type="button"
+                                data-btn-previous="true"
+                            >
+                                @lang('site.previous')
+                                <span class="pe-3"
+                                > <i class="fas fa-chevron-left"></i></span>
+                            </button>
+                            <button
+                                class="booking-now-btn "
+                                type="button"
+                                data-btn-next="true"
+                            >
+                                @lang('site.next')
+                                <span class="pe-3"
+                                > <i class="fas fa-chevron-left"></i></span>
+                            </button>
+                            <button
+                                class="booking-now-btn"
+                                type="button"
+                                data-btn-submit="true"
+
+                                type="submit" id="btn-submit"
+                            >
+                                @lang('site.save')
+                                <span class="pe-3">
                         <i class="fas fa-chevron-left"></i>
                         </span>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+                            </button>
+                        </div>
+                    </form>
                 </div>
+            </div>
             </div>
         </section>
         <!-- /section -->
     </main>
 
-<br><br>
+    <br><br>
 
 @endsection
 
+@section('scripts')
+    <script>
+
+
+        $(document).ready(function () {
+            $("#btn-submit").click(function (e) {
+                var formData = $("#add-form").serialize();
+                console.log('formData', formData);
+                var url = '{{route('addbookingcar')}}';
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    data: formData,
+                    dataType: "json",
+                    // encode: true,
+                }).done(function (data) {
+                    $("#mybookinghidden").hide();
+                    // ('.carhidden').html(data);
+                    $("#mybooking1").show();
+                    $("#mybooking1").html(data);
+                    console.log("response", data);
+                });
+
+                e.preventDefault();
+            });
+        });
+    </script>
+
+
+    {{--    <script type="text/javascript">--}}
+
+    {{--        $.ajaxSetup({--}}
+    {{--            headers: {--}}
+    {{--                'X-CSRF-TOKEN': "{{ csrf_token() }}"--}}
+    {{--            }--}}
+    {{--        });--}}
+
+    {{--        // $("#btn-submit").click(function(e){--}}
+
+    {{--        $("#btn-submit").click(function (e) {--}}
+
+
+    {{--            e.preventDefault();--}}
+    {{--            var data = $("#add-form").serialize();--}}
+
+
+    {{--            var url = '{{route('addbookingcar')}}';--}}
+
+    {{--            $.ajax({--}}
+    {{--                url: url,--}}
+    {{--                method: 'GET',--}}
+
+    {{--                data: data,--}}
+    {{--                success: function (response) {--}}
+
+    {{--                    if (response.success) {--}}
+    {{--                        console.log('success');--}}
+
+
+    {{--                    } else {--}}
+    {{--                        alert("Error")--}}
+    {{--                    }--}}
+
+    {{--                }--}}
+    {{--            });--}}
+
+    {{--        });--}}
+    {{--    </script>--}}
+@endsection

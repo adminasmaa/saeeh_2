@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Models\Car;
+use App\Models\CarBooking;
 use App\Models\CarReview;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\Country;
+use Illuminate\Support\Facades\Auth;
 use Response;
 
 
@@ -19,12 +21,31 @@ use Illuminate\Validation\Rule;
 class CarController extends Controller
 {
 
+    public function addbookingcar(Request $request)
+    {
+
+        $requestdata = $request->all();
+        $requestdata['reciept_date'] = date('Y-m-d H:i:s', strtotime($request->reciept_date));
+        $requestdata['delivery_date'] = date('Y-m-d H:i:s', strtotime($request->delivery_date));
+        $requestdata['user_id'] = Auth::id();
+
+        $cars = CarBooking::create($requestdata);
+        $car = Car::findorfail($request['car_id']);
+        $user = Auth::user();
+        $bookings=$user->carBooking;
+
+        return view('frontend.mybookingcar', compact('car','bookings'));
+
+
+    }
 
     public function bookingcar($id)
     {
         $car = Car::findorfail($id);
-
-        return view('frontend.carbooking', compact('car'));
+        $user = Auth::user();
+       $bookings=$user->carBooking;
+//       return $bookings;
+        return view('frontend.carbooking', compact('car','bookings'));
 
     }
 

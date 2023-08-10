@@ -10,6 +10,7 @@ use App\Http\Resources\CarFavResource;
 use App\Http\Resources\CommentResource;
 use App\Http\Resources\PlaceFavResource;
 use App\Models\Car;
+use App\Models\CarBooking;
 use App\Models\CarComment;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -18,6 +19,9 @@ use Illuminate\Support\Facades\Auth;
 
 class CarController extends Controller
 {
+
+
+
 
     public function CarFavourite(Request $request)
     {
@@ -146,27 +150,23 @@ class CarController extends Controller
 //                return  $user->favourite_car;
 
 
-                $cars= $user->favourite_car;
+                $cars = $user->favourite_car;
 
 
                 if (count($cars)) {
 
-                    $carss =  CarFavResource::collection($cars)->response()->getData();
+                    $carss = CarFavResource::collection($cars)->response()->getData();
 
                     return $this->respondSuccessPaginate($carss, __('message.data retrieved successfully.'));
 
 
-
-                }
-                else {
+                } else {
                     return $this->respondErrorArray(__('message.Data not found.'), ['error' => __('message.Data not found.')], 200);
 
                 }
 
 //
-            }
-
-            elseif ($request->type=='aqars'){
+            } elseif ($request->type == 'aqars') {
 
                 $user->setRelation('favourite_aqars', $user->favourite_aqars()->paginate(20));
 
@@ -174,46 +174,38 @@ class CarController extends Controller
 //                return  $user->favourite_car;
 
 
-                $quars= $user->favourite_aqars;
+                $quars = $user->favourite_aqars;
 
 
                 if (count($quars)) {
 
-                    $quarss =  AqarFavResource::collection($quars)->response()->getData();
+                    $quarss = AqarFavResource::collection($quars)->response()->getData();
 
                     return $this->respondSuccessPaginate($quarss, __('message.data retrieved successfully.'));
 
 
-
-                }
-                else {
+                } else {
                     return $this->respondErrorArray(__('message.Data not found.'), ['error' => __('message.Data not found.')], 200);
 
                 }
 
 
-            }
-
-            elseif ($request->type=='place'){
+            } elseif ($request->type == 'place') {
 
                 $user->setRelation('favourite_place', $user->favourite_place()->paginate(20));
 
 
-
-
-                $places= $user->favourite_place;
+                $places = $user->favourite_place;
 
 
                 if (count($places)) {
 
-                    $placess =  PlaceFavResource::collection($places)->response()->getData();
+                    $placess = PlaceFavResource::collection($places)->response()->getData();
 
                     return $this->respondSuccessPaginate($placess, __('message.data retrieved successfully.'));
 
 
-
-                }
-                else {
+                } else {
                     return $this->respondErrorArray(__('message.Data not found.'), ['error' => __('message.Data not found.')], 200);
 
                 }
