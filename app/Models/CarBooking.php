@@ -39,6 +39,9 @@ class CarBooking extends Model
         'commission_id', // unsigned
         'user_id', //unsigned
         'booking_status_id', // unsigned
+        'delivery_hour', // unsigned
+        'receipt_hour', // unsigned
+        'delivery_place', // unsigned
 
     ];
     // scope
