@@ -1357,7 +1357,7 @@
                                 >
 
 
-                                    {!! html_entity_decode($car->description) !!}
+                                {!! html_entity_decode(substr($car->description, 0, 125)) !!}
 
                                 </span>
                                                                 </div>
@@ -1432,7 +1432,7 @@
                         </div>
 
 
-                        @if(!empty($cars->appends(request()->query())->links()))
+                        @if($cars->hasPages())
                             <div class="card card-department round-border mb-3 p-3">
                                 <nav
                                     class="department-list-pagination d-md-flex justify-content-md-between align-items-center"
@@ -1441,7 +1441,8 @@
                                         class="pagination mb-0 justify-content-lg-start justify-content-center"
                                     >
                                         <li class="page-item">
-                                            <div>{{ $cars->appends(request()->query())->links()}} </div>
+                                            <!-- <div>{{ $cars->appends(request()->query())->links()}} </div> -->
+                                            {{ $cars->links() }}
                                         </li>
 
                                     </ul>

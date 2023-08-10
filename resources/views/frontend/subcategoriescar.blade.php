@@ -105,7 +105,7 @@
                     @endforeach
                 </div>
 
-                @if(!empty($subcategories->appends(request()->query())->links()))
+                @if($subcategories->hasPages())
                     <div class="card card-department round-border mb-3 p-3">
                         <nav
                             class="department-list-pagination d-md-flex justify-content-md-between align-items-center"
@@ -114,7 +114,8 @@
                                 class="pagination mb-0 justify-content-lg-start justify-content-center"
                             >
                                 <li class="page-item">
-                                    <div>{{ $subcategories->appends(request()->query())->links()}} </div>
+                                    <!-- <div>{{ $subcategories->appends(request()->query())->links()}} </div> -->
+                                    {{ $subcategories->links() }}
                                 </li>
 
                             </ul>

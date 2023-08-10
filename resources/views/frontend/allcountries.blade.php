@@ -93,6 +93,7 @@
             </div>
             @endforeach
           </div>
+          @if($countries->hasPages())
           <div class="row">
             <div class="col-12">
               <div class="card card-department round-border my-4 p-3">
@@ -106,6 +107,7 @@
               </div>
             </div>
           </div>
+          @endif
         </div>
       </section>
 @endsection

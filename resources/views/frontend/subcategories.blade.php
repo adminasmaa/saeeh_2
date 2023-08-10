@@ -100,7 +100,7 @@
                     <div class="col-12">
 
 
-                        @if(!empty($subcategories->appends(request()->query())->links()))
+                        @if($subcategories->hasPages())
                             <div class="card card-department round-border my-4 p-3">
                                 <nav
                                     class="department-list-pagination d-md-flex justify-content-md-between align-items-center"
@@ -110,7 +110,7 @@
                                     >
                                         <li class="page-item">
                                             <!-- <div>{{ $subcategories->appends(request()->query())->links()}} </div> -->
-                                            {{ $categories->links() }}
+                                            {{ $subcategories->links() }}
                                         </li>
 
                                     </ul>

@@ -2388,7 +2388,7 @@
                           <span
                           ></span>
                                                     <span class="text-main position-department">
-                                  {!! html_entity_decode($aquar->description) !!}
+                                  {!! html_entity_decode(substr($aquar->description, 0, 125)) !!}
                           </span>
                                                 </div>
 
@@ -2414,7 +2414,7 @@
                             @endforeach
 
                         </div>
-                        @if(!empty($aquars->appends(request()->query())->links()))
+                        @if($aquars->hasPages())
                             <div class="card card-department round-border mb-3 p-3">
                                 <nav
                                     class="department-list-pagination d-md-flex justify-content-md-between align-items-center"
@@ -2423,7 +2423,8 @@
                                         class="pagination mb-0 justify-content-lg-start justify-content-center"
                                     >
                                         <li class="page-item">
-                                            <div>{{ $aquars->appends(request()->query())->links()}} </div>
+                                            <!-- <div>{{ $aquars->appends(request()->query())->links()}} </div> -->
+                                            {{ $aquars->links() }}
                                         </li>
 
                                     </ul>
