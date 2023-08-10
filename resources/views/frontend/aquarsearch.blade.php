@@ -171,7 +171,7 @@
                             >
                             <span class="text-main position-department">
 
-                                {!! html_entity_decode($aquar->description) !!}
+                            {!! html_entity_decode(substr($aquar->description, 0, 125)) !!}
 
                           </span>
                         </div>

@@ -16,7 +16,7 @@ class CountryController extends Controller
 
     public function index()
     {
-        $countries = Country::where('active', '=', 1)->paginate(10);
+        $countries = Country::where('active', '=', 1)->paginate(12);
         return view('frontend.allcountries', compact('countries'));
 
     }

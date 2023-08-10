@@ -228,7 +228,7 @@
               </ul>
             </div>
           </div>
-
+          @if($cities->hasPages())
           <div class="row">
                 <div class="col-12">
                     <div class="card card-department round-border my-4 p-3">
@@ -245,6 +245,7 @@
                 </div>
             </div>
         </div>
+        @endif
       </section>
       <section class="d-lg-flex">
         <div class="right-container bg-main d-flex align-items-center py-lg-0 py-4">

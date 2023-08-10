@@ -28,29 +28,29 @@ class AquarController extends Controller
     {
         if (!empty($request->country_id) && !empty($request->city_id) && !empty($request->category_id)) {
 
-            $aquars = Aqar::where('country_id', '=', $request->country_id)->where('city_id', '=', $request->city_id)->where('category_id', '=', $request->category_id)->paginate(4);
+            $aquars = Aqar::where('country_id', '=', $request->country_id)->where('city_id', '=', $request->city_id)->where('category_id', '=', $request->category_id)->paginate(12);
         } elseif (!empty($request->country_id) && !empty($request->category_id)) {
 
-            $aquars = Aqar::where('country_id', '=', $request->country_id)->where('category_id', '=', $request->category_id)->paginate(4);
+            $aquars = Aqar::where('country_id', '=', $request->country_id)->where('category_id', '=', $request->category_id)->paginate(12);
 
         } elseif (!empty($request->country_id) && !empty($request->city_id)) {
 
-            $aquars = Aqar::where('country_id', '=', $request->country_id)->where('city_id', '=', $request->city_id)->paginate(4);
+            $aquars = Aqar::where('country_id', '=', $request->country_id)->where('city_id', '=', $request->city_id)->paginate(12);
 
         } elseif (!empty($request->category_id)) {
 
-            $aquars = Aqar::where('category_id', '=', $request->category_id)->paginate(4);
+            $aquars = Aqar::where('category_id', '=', $request->category_id)->paginate(12);
 
         } elseif (!empty($request->city_id)) {
 
-            $aquars = Aqar::where('city_id', '=', $request->city_id)->paginate(4);
+            $aquars = Aqar::where('city_id', '=', $request->city_id)->paginate(12);
 
         } elseif (!empty($request->country_id)) {
 
-            $aquars = Aqar::where('country_id', '=', $request->country_id)->paginate(4);
+            $aquars = Aqar::where('country_id', '=', $request->country_id)->paginate(12);
 
         } else {
-            $aquars = Aqar::paginate(4);
+            $aquars = Aqar::paginate(12);
         }
 
         $roomsnumbers = Aqar::with('aqarSection')->get();
@@ -85,7 +85,7 @@ class AquarController extends Controller
         session_start();
         Session::put('category_id', $id);
 
-        $aquars = Aqar::where('category_id', '=', $id)->with('aqarSection')->paginate(4);
+        $aquars = Aqar::where('category_id', '=', $id)->with('aqarSection')->paginate(12);
         $allaquars = Aqar::where('category_id', '=', $id)->with('aqarSection')->get();
         $roomsnumbers = Aqar::with('aqarSection')->get();
         $minprice = Aqar::whereNotNull('fixed_price')->min("fixed_price");
@@ -139,18 +139,18 @@ class AquarController extends Controller
         if (!empty($request['price'])) {
 
             $aquars = Aqar::Where('fixed_price',$request->price)
-                ->paginate(4);
+                ->paginate(12);
         } elseif (!empty($request['sections'])) {
 
             $aquar_id = AqarSections::WhereIn('section_id', $request->sections)->pluck('aqar_id');
-            $aquars = Aqar::WhereIn('id', $aquar_id)->paginate(4);
+            $aquars = Aqar::WhereIn('id', $aquar_id)->paginate(12);
         } elseif (!empty($request['rate'])) {
 
 
             $aqarid = AqarReview::WhereIn('rate', $request->rate)->pluck('aqar_id');
 
 
-            $aquars = Aqar::WhereIn('id', $aqarid)->paginate(4);
+            $aquars = Aqar::WhereIn('id', $aqarid)->paginate(12);
 
         }
 
