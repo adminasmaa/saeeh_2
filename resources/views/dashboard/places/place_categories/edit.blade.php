@@ -247,7 +247,7 @@
                                                         <div class="col-md-2 form-group col-12 ">
                                                                 <img src="{{asset('images/categories/'.$service->image)}}"
                                                                 width="100px" height="100px">
-                                                            <a  type="button" href="{{route('dashboard.DeleteSubCategories',$service->id)}}" class="btn btn-air-primary btn-pill btn-danger w-100 m-t-30"><i class="fa fa-trash"></i></a>
+                                                            <a  type="button" href="{{route('dashboard.DeleteSubPlaceCategories',$service->id)}}" class="btn btn-air-primary btn-pill btn-danger w-100 m-t-30"><i class="fa fa-trash"></i></a>
                                                         </div>
 
                                                     </div>
