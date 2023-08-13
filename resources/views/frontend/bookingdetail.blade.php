@@ -59,7 +59,7 @@
 
                                                 <img
                                                     loading="lazy"
-                                                    src="./assets/images/cars/car-card-1.png"
+                                                    src="{{FRONTASSETS}}/images/cars/car-card-1.png"
                                                     class="department-img-list of-cover car-image"
                                                     alt="image 1"
                                                 />
@@ -76,7 +76,7 @@
                                             >
                                                 <div class="col-auto mb-lg-0 mb-3">
                           <span class="text-main number-ads"
-                          >رقم الاعلان(12)</span
+                          > @lang('site.id number')({{$booking->car->id}})</span
                           >
                                                 </div>
                                                 <div class="col-auto">
@@ -84,7 +84,7 @@
                                                         class="d-flex justify-content-center align-items-center"
                                                     >
                                                         <div class="department-badge bg-main text-white">
-                                                            <div class="pt-1">5</div>
+                                                            <div class="pt-1">{{$booking->car->CarReview->count() ?? 0 }}</div>
                                                             <div>
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
                                                                     <path d="M12.7529 19.6185L20.1689 24.3301L18.2009 15.4501L24.7529 9.47534L16.1249 8.70481L12.7529 0.330078L9.38093 8.70481L0.75293 9.47534L7.30493 15.4501L5.33693 24.3301L12.7529 19.6185Z" fill="white"/>
@@ -92,7 +92,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="number-ads gray-txt">
-                                                            64 من التقييمات
+                                                            {{$booking->car->carComment->count() ?? 0}} @lang('site.comments')
                                                         </div>
                                                     </div>
                                                 </div>
@@ -103,7 +103,9 @@
 
                                             <div class="gray-txt number-ads pb-2">
                         <span
-                        >  {{$booking->car->description ?? ''}}
+                        >
+
+                            {!! html_entity_decode($booking->car->description) !!}
                         </span>
                                             </div>
                                             <div
@@ -126,7 +128,7 @@
                               />
                             </svg>
                           </span>
-{{--                                                    <span>5 مقاعد</span>--}}
+                                                    <span>{{$booking->car->car_numbers ?? 0}}</span>
                                                 </div>
                                                 <div class="padding-35">
                           <span class="ps-2">
@@ -143,7 +145,7 @@
                               />
                             </svg>
                           </span>
-                                                    <span>1شنطه كبيرة</span>
+                                                    <span>{{$booking->car->year ??''}}</span>
                                                 </div>
                                             </div>
 
@@ -154,9 +156,9 @@
                             </div>
 
                             <div class="card card-department round-border mb-4 p-3">
-                                <h2 class="mb-3">معلومات قد تهمك</h2>
+                                <h2 class="mb-3"> @lang('site.Information that may interest you') </h2>
                                 <div class="card card-department round-border p-3">
-                                    <h2 class="text-gray-2">معلومات المالك</h2>
+                                    <h2 class="text-gray-2"> @lang('site.basic information')</h2>
                                     <div class="d-flex">
                                         <div class="d-flex align-items-center">
                         <span>
@@ -209,7 +211,7 @@
                                             <a href="#"
                                                data-bs-toggle="modal"
                                                data-bs-target="#cancelBookingModal">
-                                                <span>الغاء الحجز</span>
+                                                <span> @lang('site.cancle_reason')</span>
                                             </a>
                                         </div>
                                     </div>
@@ -217,14 +219,16 @@
                             </div>
 
                             <div class="card card-department round-border mb-4 p-3">
-                                <h2 class="mb-3">معلومات اضافية</h2>
+                                <h2 class="mb-3"> @lang('site.Information that may interest you')</h2>
                                 <p class="mb-2 department-txt">
-                                    قد يستغرق الامر بضعه ايام للموافقه علي الطلب
+                                    @lang('site.It may take a few days for the request to be approved')
                                 </p>
-                                <p class="department-txt">يجب دفع عربوون حجز لتأكيد الحجز</p>
+                                <p class="department-txt">@lang('site.A reservation deposit is required to confirm the reservation')</p>
                             </div>
                             <div>
-                                <a class="text-second h2 booking-link"> ما هي شروط حجزي؟ </a>
+                                <a class="text-second h2 booking-link">
+                                    @lang('site,conditionBooking')
+                                    </a>
                             </div>
                         </div>
                     </div>
@@ -288,7 +292,7 @@
                         </svg>
                       </span>
                                         <span class="text-second dd-txt pe-2 "
-                                        >تسجيل المغادرة</span
+                                        > @lang('site.Departure dates')</span
                                         >
                                     </div>
                                     <div class="card-booking p-3 text-center">
@@ -420,12 +424,12 @@
                         <path d="M21.9998 25.3327C23.8408 25.3327 25.3332 23.8403 25.3332 21.9993C25.3332 20.1584 23.8408 18.666 21.9998 18.666C20.1589 18.666 18.6665 20.1584 18.6665 21.9993C18.6665 23.8403 20.1589 25.3327 21.9998 25.3327Z" stroke="#9C9C9C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </span>
-                                    <span class="text-second dd-txt pe-2">الفئة</span>
+                                    <span class="text-second dd-txt pe-2">@lang('site.category')</span>
                                 </div>
                                 <div
                                     class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
                                 >
-                                    بلعكيد
+                                    {{$booking->car->category->name ?? ''}}
                                 </div>
                             </div>
                             <hr class="hr-saeeh my-0" />
@@ -441,13 +445,13 @@
                         </svg>
                     </span>
                                     <span class="text-second dd-txt pe-2">
-                      السنة
+                      @lang('site.year')
                     </span>
                                 </div>
                                 <div
                                     class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
                                 >
-                                    2022
+                                    {{$booking->car->year ?? ''}}
                                 </div>
                             </div>
                             <hr class="hr-saeeh my-0" />
@@ -465,13 +469,13 @@
                         </svg>
                     </span>
                                     <span class="text-second dd-txt pe-2">
-                      اللون
+                      @lang('site.color')
                     </span>
                                 </div>
                                 <div
                                     class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
                                 >
-                                    الاسود
+                                    {{$booking->car->color ?? ''}}
                                 </div>
                             </div>
                             <hr class="hr-saeeh my-0" />
@@ -594,13 +598,13 @@
                       </svg>
                     </span>
                                     <span class="text-second dd-txt pe-2"
-                                    >السعر لليوم </span
+                                    > @lang('site.price') </span
                                     >
                                 </div>
                                 <div
                                     class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
                                 >
-                                    6000 درهم مغربي
+                                    {{$booking->car->fixed_price ?? 0}}
                                 </div>
                             </div>
 
