@@ -66,19 +66,19 @@
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                     <label class="form-label">@lang('site.inside')</label><span class="text-danger">*</span>
-                                    <select class="form-control btn-square" name="inside">
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="inside">
                                             <option selected>@lang('site.select')</option>
                                             <option value="1">@lang('site.active') </option>
-                                            <option value="0">@lang('site.inactive')</option>
+                                            <option value="0">@lang('site.not-active')</option>
                                     </select>
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                     <label class="form-label">@lang('site.outside')</label><span class="text-danger">*</span>
-                                    <select class="form-control btn-square" name="outside">
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="outside">
                                             <option selected>@lang('site.select')</option>
                                             <option value="1">@lang('site.active') </option>
-                                            <option value="0">@lang('site.inactive')</option>
+                                            <option value="0">@lang('site.not-active')</option>
                                     </select>
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
@@ -89,21 +89,16 @@
                                     </div>
                                     <div class="col-md-6 form-group">
                                     <label class="form-label">@lang('site.type')</label><span class="text-danger">*</span>
-                                    <select class="form-control btn-square" name="type">
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="type">
                                             <option selected>@lang('site.select')</option>
                                             <option value="aqar">@lang('site.aqar')</option>
                                             <option value="car">@lang('site.car') </option>
 
                                     </select>
                                     </div>
-                                
-                                </div>
-
-                                <div class="row">
-
-                                <div class="col-md-6 form-group"><span class="text-danger">*</span>
+                                    <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                     <label class="form-label">@lang('site.users')</label>
-                                    <select class="form-control btn-square" name="user_id">
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="user_id">
                                         <option selected>@lang('site.select')</option>
                                         @foreach($users as $user)
 
@@ -113,8 +108,8 @@
 
                                     </select>
                                 </div>
-
                                 </div>
+
                                 <br>
 
                             </div>

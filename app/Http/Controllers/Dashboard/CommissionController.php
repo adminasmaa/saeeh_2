@@ -53,9 +53,9 @@ class CommissionController extends Controller
     {
         $request->validate([
 
-                'price' => 'required',
-                'status' => 'required',
-                'user_id' => 'required',
+                // 'price' => 'required',
+                // 'status' => 'required',
+                // 'user_id' => 'required',
 
             ]
         );
@@ -90,9 +90,9 @@ class CommissionController extends Controller
     {
         $request->validate([
 
-            'price' => 'required',
-            'status' => 'required',
-            'user_id' => 'required',
+            // 'price' => 'required',
+            // 'status' => 'required',
+            // 'user_id' => 'required',
 
             ]
         );

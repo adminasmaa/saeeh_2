@@ -13,9 +13,7 @@ class CommissionRepository implements CommissionRepositoryInterfaceAlias
 {
     public function getAll($data)
     {
-
 //        return $data->query();
-
         return $data->render('dashboard.commissions.index', [
             'title' => trans('site.commissions'),
             'model' => 'commissions',
@@ -53,16 +51,15 @@ class CommissionRepository implements CommissionRepositoryInterfaceAlias
         return view('dashboard.commissions.show', compact('commission', 'users'));
     }
 
-
     public function store($request)
     {
-
+        // return $request;
         $request_data = $request->all();
 
         // To Make User Active
 
         $commission = Commission::create($request_data);
-
+        
         if ($commission) {
             Alert::success('Success', __('site.added_successfully'));
 
@@ -91,7 +88,6 @@ class CommissionRepository implements CommissionRepositoryInterfaceAlias
 
         }
     }
-
 
     public function destroy($commission)
     {

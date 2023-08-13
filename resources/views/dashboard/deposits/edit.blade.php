@@ -61,11 +61,11 @@
                                 
                                     <div class="col-md-6 form-group">
                                     <label class="form-label">@lang('site.aquarbooking')</label>
-                                    <select class="form-control btn-square" name="aquarbooking_id">
+                                    <select class="form-control btn-square" name="aqar_booking_id">
                                         <option selected>@lang('site.select')</option>
                                         @foreach($aqarbookings as $aquarbooking)
 
-                                            <option value="{{$aquarbooking->id}}"@if($aquarbooking->aquarbooking_id==$aquarbooking->id) selected @endif>{{$aquarbooking->id ?? ''}}</option>
+                                            <option value="{{$aquarbooking->id}}"@if($Deposit->aqar_booking_id==$aquarbooking->id) selected @endif>{{$aquarbooking->id ?? ''}}</option>
 
                                         @endforeach
 
@@ -73,20 +73,17 @@
                                 </div>
 
                                 <div class="col-md-6 form-group">
-                                    <label class="form-label">@lang('site.bookings')</label>
-                                    <select class="form-control btn-square" name="booking_id">
+                                    <label class="form-label">@lang('site.car_bookings')</label>
+                                    <select class="form-control btn-square" name="car_booking_id">
                                         <option selected>@lang('site.select')</option>
                                         @foreach($carbookings as $carbooking)
 
-                                            <option value="{{$carbooking->id}}"@if($carbooking->booking_id==$carbooking->id) selected @endif>{{$carbooking->id ?? ''}}</option>
+                                            <option value="{{$carbooking->id}}"@if($Deposit->car_booking_id==$carbooking->id) selected @endif>{{$carbooking->id ?? ''}}</option>
 
                                         @endforeach
 
                                     </select>
                                 </div>
-
-                                </div>
-                                <div class="row">
 
                                 <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                     <label class="form-label">@lang('site.users')</label>
@@ -94,13 +91,13 @@
                                         <option selected>@lang('site.select')</option>
                                         @foreach($users as $user)
 
-                                            <option value="{{$user->id}}"@if($user->user_id==$user->id) selected @endif>{{$user->firstname . $user->lastname ?? ''}}</option>
+                                            <option value="{{$user->id}}"@if($Deposit->user_id==$user->id) selected @endif>{{$user->firstname . $user->lastname ?? ''}}</option>
 
                                         @endforeach
 
                                     </select>
                                 </div>
-                             
+
                                 </div>
                             <br>
 

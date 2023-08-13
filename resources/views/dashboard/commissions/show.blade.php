@@ -60,14 +60,14 @@
                                 </div>
                                 <div class="col-md-6 form-group col-12 p-2">
                                 <label class="form-label">@lang('site.status')</label>
-                                    <select class="form-control btn-square" name="status" readonly="" disabled>
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="status" readonly="" disabled>
                                         <option selected>@lang('site.select')</option>
 
                                         <option value="1"
                                                 @if($commission->status=='1') selected @endif>@lang('site.active')
                                         </option>
                                         <option value="0"
-                                                @if($commission->status=='0') selected @endif>@lang('site.inactive')
+                                                @if($commission->status=='0') selected @endif>@lang('site.not-active')
                                         </option>
                                         
                                     </select>
@@ -79,7 +79,7 @@
                                 <!--<div class="col-md-6">-->
                                 <div class="col-md-6 form-group col-12 p-2">
                                 <label class="form-label">@lang('site.users')</label>
-                                <select class="form-control btn-square" name="user_id" readonly=""disabled>
+                                <select class="js-example-placeholder-multiple col-sm-12" name="user_id" readonly=""disabled>
                                     <option selected>@lang('site.select')</option>
                                     @foreach($users as $user)
 

@@ -67,11 +67,11 @@
 
                                     <div class="col-md-6 form-group">
                                     <label class="form-label">@lang('site.aquarbooking')</label>
-                                    <select class="form-control btn-square" name="aquarbooking_id">
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="aqar_booking_id">
                                         <option selected>@lang('site.select')</option>
-                                        @foreach($aqarbookings as $aquarbooking)
+                                        @foreach($aqarbookings as $aqarbookings)
 
-                                            <option value="{{$aquarbooking->id}}">{{$aquarbooking->id ?? ''}}</option>
+                                            <option value="{{$aqarbookings->id}}">{{$aqarbookings->id ?? ''}}</option>
 
                                         @endforeach
 
@@ -79,25 +79,21 @@
                                 </div>
 
                                 <div class="col-md-6 form-group">
-                                    <label class="form-label">@lang('site.bookings')</label>
-                                    <select class="form-control btn-square" name="booking_id">
+                                    <label class="form-label">@lang('site.car_bookings')</label>
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="car_booking_id">
                                         <option selected>@lang('site.select')</option>
-                                        @foreach($carbookings as $carbooking)
+                                        @foreach($carbookings as $carbookings)
 
-                                            <option value="{{$carbooking->id}}">{{$carbooking->id ?? ''}}</option>
+                                            <option value="{{$carbookings->id}}">{{$carbookings->id ?? ''}}</option>
 
                                         @endforeach
 
                                     </select>
                                 </div>
 
-                                </div>
-
-                                <div class="row">
-
                                 <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                     <label class="form-label">@lang('site.users')</label>
-                                    <select class="form-control btn-square" name="user_id">
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="user_id">
                                         <option selected>@lang('site.select')</option>
                                         @foreach($users as $user)
 
@@ -108,7 +104,8 @@
                                     </select>
                                 </div>
 
-                                </div>
+                            </div>
+                            
                                 <br>
 
                             </div>

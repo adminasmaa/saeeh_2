@@ -67,7 +67,7 @@
                                                 @if($balance->inside=='1') selected @endif>@lang('site.active')
                                         </option>
                                         <option value="0"
-                                                @if($balance->inside=='0') selected @endif>@lang('site.inactive')
+                                                @if($balance->inside=='0') selected @endif>@lang('site.not-active')
                                         </option>
                                         
                                     </select>
@@ -81,7 +81,7 @@
                                                 @if($balance->outside=='1') selected @endif>@lang('site.active')
                                         </option>
                                         <option value="0"
-                                                @if($balance->outside=='0') selected @endif>@lang('site.inactive')
+                                                @if($balance->outside=='0') selected @endif>@lang('site.not-active')
                                         </option>
                                         
                                     </select>
@@ -105,10 +105,6 @@
                                         
                                     </select>
                                 </div>
-                            </div>
-
-                            <div class="row">
-                                <!--<div class="col-md-6">-->
                                 <div class="col-md-6 form-group col-12 p-2">
                                 <label class="form-label">@lang('site.users')</label>
                                 <select class="form-control btn-square" name="user_id" readonly=""disabled>
@@ -122,7 +118,6 @@
 
                                 </select>
                             </div>
-                                
                             </div>
 
 
