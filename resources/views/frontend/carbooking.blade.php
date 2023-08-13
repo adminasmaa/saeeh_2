@@ -838,7 +838,7 @@
                               </svg>
                             </span>
                                                 <a class="text-second dd-txt pe-2 booking-link"
-                                                >تعديل اختياراك
+                                                >@lang('site.Modify your selection')
                                                 </a>
                                             </div>
                                         </div>
