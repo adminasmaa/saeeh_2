@@ -60,26 +60,26 @@
                                     </div>
                                     <div class="col-md-6 form-group">
                                     <label class="form-label">@lang('site.inside')</label><span class="text-danger">*</span>
-                                    <select class="form-control btn-square" name="inside">
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="inside">
                                             <option selected>@lang('site.select')</option>
                                         <option value="1"
-                                                @if($balance->inside=='active') selected @endif>@lang('site.active')
+                                                @if($balance->inside=='1') selected @endif>@lang('site.active')
                                         </option>
                                         <option value="0"
-                                                @if($balance->inside=='inactive') selected @endif>@lang('site.inactive')
+                                                @if($balance->inside=='0') selected @endif>@lang('site.not-active')
                                         </option>                                           
 
                                     </select>
                                 </div>
                                 <div class="col-md-6 form-group">
                                     <label class="form-label">@lang('site.outside')</label><span class="text-danger">*</span>
-                                    <select class="form-control btn-square" name="outside">
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="outside">
                                             <option selected>@lang('site.select')</option>
                                         <option value="1"
-                                                @if($balance->outside=='active') selected @endif>@lang('site.active')
+                                                @if($balance->outside=='1') selected @endif>@lang('site.active')
                                         </option>
                                         <option value="0"
-                                                @if($balance->outside=='inactive') selected @endif>@lang('site.inactive')
+                                                @if($balance->outside=='0') selected @endif>@lang('site.not-active')
                                         </option>                                           
 
                                     </select>
@@ -92,7 +92,7 @@
                                     </div>
                                 <div class="col-md-6 form-group">
                                     <label class="form-label">@lang('site.type')</label><span class="text-danger">*</span>
-                                    <select class="form-control btn-square" name="type">
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="type">
                                             <option selected>@lang('site.select')</option>
                                         <option value="aqar"
                                                 @if($balance->type=='aqar') selected @endif>@lang('site.aqar')
@@ -104,23 +104,24 @@
                                     </select>
                                 </div>
 
-                                </div>
-                                <div class="row">
-
                                 <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                     <label class="form-label">@lang('site.users')</label>
-                                    <select class="form-control btn-square" name="user_id">
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="user_id">
                                         <option selected>@lang('site.select')</option>
                                         @foreach($users as $user)
 
-                                            <option value="{{$user->id}}"@if($user->user_id==$user->id) selected @endif>{{$user->firstname . $user->lastname ?? ''}}</option>
+                                            <option value="{{$user->id}}"@if($balance->user_id==$user->id) selected @endif>{{$user->firstname . $user->lastname ?? ''}}</option>
 
                                         @endforeach
 
                                     </select>
                                 </div>
-                             
-                                </div>
+
+
+                               
+
+                            </div>
+                               
                             <br>
 
                         </div>

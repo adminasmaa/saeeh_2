@@ -80,7 +80,7 @@
 
                                     <div class="col-md-6 form-group">
                                     <label class="form-label">@lang('site.type')</label><span class="text-danger">*</span>
-                                    <select class="form-control btn-square" name="type">
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="type">
                                             <option selected>@lang('site.select')</option>
                                         <option value="place"
                                                 @if($notification->type=='place') selected @endif>@lang('site.place')
@@ -99,11 +99,11 @@
 
                                 <div class="col-md-6 form-group">
                                     <label class="form-label">@lang('site.users')</label><span class="text-danger">*</span>
-                                    <select class="form-control btn-square" name="user_id">
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="user_id">
                                         <option selected>@lang('site.select')</option>
                                         @foreach($users as $user)
 
-                                            <option value="{{$user->id}}"@if($notification->user_id==$user->id) selected @endif>{{$user->username ?? ''}}</option>
+                                            <option value="{{$user->id}}"@if($notification->user_id==$user->id) selected @endif>{{$user->firstname . $user->lastname ?? ''}}</option>
 
                                         @endforeach
 
@@ -112,13 +112,13 @@
                              
                                 <div class="col-md-6 form-group">
                                     <label class="form-label">@lang('site.status')</label><span class="text-danger">*</span>
-                                    <select class="form-control btn-square" name="status">
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="status">
                                             <option selected>@lang('site.select')</option>
                                         <option value="1"
                                                 @if($notification->status=='1') selected @endif>@lang('site.active')
                                         </option>
                                         <option value="0"
-                                                @if($notification->status=='0') selected @endif>@lang('site.inactive')
+                                                @if($notification->status=='0') selected @endif>@lang('site.not-active')
                                         </option>   
                                     </select>
                                 </div>

@@ -80,9 +80,9 @@
                                     </div>
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                     <label class="form-label">@lang('site.status')</label><span class="text-danger">*</span>
-                                    <select class="form-control btn-square" name="status">
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="status">
                                             <option selected>@lang('site.select')</option>
-                                            <option value="0">@lang('site.inactive')</option>
+                                            <option value="0">@lang('site.not-active')</option>
                                             <option value="1">@lang('site.active') </option>
                                     </select>
                                 </div>
@@ -91,7 +91,7 @@
 
                                 <div class="col-md-6 form-group">
                                     <label class="form-label">@lang('site.users')</label><span class="text-danger">*</span>
-                                    <select class="form-control btn-square" name="user_id">
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="user_id">
                                         <option selected>@lang('site.select')</option>
                                         @foreach($users as $user)
 
@@ -103,12 +103,11 @@
                                 </div>
                                 <div class="col-md-6 form-group">
                                     <label class="form-label">@lang('site.type')</label><span class="text-danger">*</span>
-                                    <select class="form-control btn-square" name="type">
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="type">
                                             <option selected>@lang('site.select')</option>
-
-                                            <option value="aqar">aqar</option>
-                                            <option value="place">place </option>
-                                            <option value="car">car </option>
+                                            <option value="aqar">@lang('site.aqar')</option>
+                                            <option value="place">@lang('site.place')</option>
+                                            <option value="car">@lang('site.car')</option>
                                     </select>
                                 </div>
                                 </div>

@@ -72,7 +72,7 @@
                                     </div>
                                 <div class="col-md-6 form-group">
                                     <label class="form-label">@lang('site.type')</label><span class="text-danger">*</span>
-                                    <select class="form-control btn-square" name="type">
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="type">
                                             <option selected>@lang('site.select')</option>
                                         <option value="income"
                                                 @if($invoice->type=='income') selected @endif>@lang('site.income')
@@ -94,11 +94,11 @@
 
                                 <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                     <label class="form-label">@lang('site.users')</label>
-                                    <select class="form-control btn-square" name="user_id">
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="user_id">
                                         <option selected>@lang('site.select')</option>
                                         @foreach($users as $user)
 
-                                            <option value="{{$user->id}}"@if($user->user_id==$user->id) selected @endif>{{$user->firstname . $user->lastname ?? ''}}</option>
+                                            <option value="{{$user->id}}"@if($invoice->user_id==$user->id) selected @endif>{{$user->firstname . $user->lastname ?? ''}}</option>
 
                                         @endforeach
 

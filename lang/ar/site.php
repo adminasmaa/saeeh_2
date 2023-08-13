@@ -122,6 +122,7 @@ return [
     'aqar_reviews' => ' تقييمات العقارات ',
     'car_reviews' => ' تقييمات السيارات ',
     'place_reviews' => ' تقييمات الاماكن ',
+    'car_bookings' => ' حجوزات السيارات ',
 
     'sections' => 'الأقسام',
 
