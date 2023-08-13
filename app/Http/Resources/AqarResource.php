@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Auth;
 
 class AqarResource extends JsonResource
 {
@@ -30,7 +31,7 @@ class AqarResource extends JsonResource
             "category" => $this->category ?? '',
             "status" => $this->status ?? '',
             "rate" => $this->aqarComment->avg('rating') ?? '',
-            "favorite" => (count($this->favoriteuser)>0 ? true : false),
+            "favorite" => (count(Auth::user()->favourite_aqars)>0 ? true : false),
 
 
             "distance" => $this->distance ?? '',

@@ -6,6 +6,7 @@ use App\Http\Resources\staticResource;
 use App\Http\Resources\CarReviewResource;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Auth;
 
 class CarDetailResource extends JsonResource
 {
@@ -31,7 +32,7 @@ class CarDetailResource extends JsonResource
             'path' => asset('images/cars') . "/",
             'images' =>explode(",",$this->images) ?? [],
             "CarReview" => CarReviewResource::collection($this->CarReview)->unique('name'),
-            "favorite" => (count($this->favoriteuser)>0 ? true : false),
+            "favorite" => (count(Auth::user()->favourite_car)>0 ? true : false),
 
             "rate" => $this->carComment->avg('rating') ?? 0,
             "fixed_price" => $this->fixed_price ?? 0,
