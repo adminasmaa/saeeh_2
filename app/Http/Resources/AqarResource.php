@@ -31,7 +31,7 @@ class AqarResource extends JsonResource
             "category" => $this->category ?? '',
             "status" => $this->status ?? '',
             "rate" => $this->aqarComment->avg('rating') ?? '',
-            "favorite" => (count(Auth::user()->favourite_aqars)>0 ? true : false),
+            "favorite" => (count(Auth::user()->favourite_aqars->where('aqar_id','=',$this->aqar_id))>0 ? true : false),
 
 
             "distance" => $this->distance ?? '',
