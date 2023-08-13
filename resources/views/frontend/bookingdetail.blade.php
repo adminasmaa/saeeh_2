@@ -202,7 +202,7 @@
                               />
                             </svg>
                           </span>
-                                                <span class="pe-1">اتصال</span>
+                                                <span class="pe-1">@lang('site.Modify your selection')</span>
                                             </a>
                                         </div>
                                         <div
