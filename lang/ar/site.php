@@ -30,6 +30,7 @@ return [
     'save' => 'حفظ',
     'previous' => 'السابق',
     'next' => 'التالي',
+    'receipt_hour'=>"ساعة المغادره",
     'A reservation deposit is required to confirm the reservation' => 'يجب دفع عربوون حجز لتأكيد الحجز',
     'arrival hour' => 'ساعة الوصول',
     'Go to the restaurant' => 'التوجه الي المطعم',

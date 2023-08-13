@@ -227,7 +227,7 @@
                             </div>
                             <div>
                                 <a class="text-second h2 booking-link">
-                                    @lang('site,conditionBooking')
+                                    @lang('site.conditionBooking')
                                     </a>
                             </div>
                         </div>
@@ -259,13 +259,13 @@
                         </svg>
                       </span>
                                         <span class="text-second dd-txt pe-2">
-                        تسجيل الوصول
+                        @lang('site.Arrival dates')
                       </span>
                                     </div>
                                     <div class="card-booking p-3 text-center">
-                                        <h2 class="mb-0 lh-1">22</h2>
-                                        <div>مارس</div>
-                                        <div class="text-gray-4 pt-1">الاربعاء 20/3/2023</div>
+{{--                                        <h2 class="mb-0 lh-1">22</h2>--}}
+{{--                                        <div>مارس</div>--}}
+                                        <div class="text-gray-4 pt-1"> {{$booking->car->car_delivery_date ?? ''}}</div>
                                     </div>
                                 </div>
                                 <div>
@@ -296,9 +296,9 @@
                                         >
                                     </div>
                                     <div class="card-booking p-3 text-center">
-                                        <h2 class="mb-0 lh-1">29</h2>
-                                        <div>مارس</div>
-                                        <div class="text-gray-4 pt-1">الاربعاء 20/3/2023</div>
+{{--                                        <h2 class="mb-0 lh-1">29</h2>--}}
+{{--                                        <div>مارس</div>--}}
+{{--                                        <div class="text-gray-4 pt-1">الاربعاء 20/3/2023</div>--}}
                                     </div>
                                 </div>
                             </div>
@@ -323,12 +323,13 @@
                         />
                       </svg>
                     </span>
-                                    <span class="text-second dd-txt pe-2"> ساعة الوصول </span>
+                                    <span class="text-second dd-txt pe-2">    @lang('site.arrival hour') </span>
                                 </div>
                                 <div
                                     class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
                                 >
-                                    03:13 مساء
+                                    {{$booking->delivery_hour ?? ''}}
+
                                 </div>
                             </div>
                             <hr class="hr-saeeh my-0" />
@@ -352,12 +353,12 @@
                         />
                       </svg>
                     </span>
-                                    <span class="text-second dd-txt pe-2"> ساعة المغادرة </span>
+                                    <span class="text-second dd-txt pe-2">@lang('site.receipt_hour') </span>
                                 </div>
                                 <div
                                     class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
                                 >
-                                    09:13 مساء
+                                   {{$booking->receipt_hour ?? ''}}
                                 </div>
                             </div>
                             <hr class="hr-saeeh my-0" />
@@ -377,12 +378,12 @@
                         />
                       </svg>
                     </span>
-                                    <span class="text-second dd-txt pe-2">عدد الأيام </span>
+                                    <span class="text-second dd-txt pe-2"> @lang('site.day_count') </span>
                                 </div>
                                 <div
                                     class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
                                 >
-                                    2 يوم
+                                 {{$booking->day_count ??  0}}
                                 </div>
                             </div>
                             <hr class="hr-saeeh my-0" />
@@ -489,13 +490,13 @@
                         </svg>
                     </span>
                                     <span class="text-second dd-txt pe-2"
-                                    >مقاعد
+                                    >@lang('site.color')
                     </span>
                                 </div>
                                 <div
                                     class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
                                 >
-                                    3
+                                    {{$booking->car->color ?? ''}}
                                 </div>
                             </div>
                             <hr class="hr-saeeh my-0" />
@@ -509,13 +510,14 @@
                         </svg>
                     </span>
                                     <span class="text-second dd-txt pe-2">
-                      شنطه كبيرة
+
+                                        @lang('site.year')
                     </span>
                                 </div>
                                 <div
                                     class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
                                 >
-                                    1
+                                   {{$booking->car->year ?? ''}}
                                 </div>
                             </div>
                             <hr class="hr-saeeh my-0" />
@@ -531,13 +533,13 @@
                         </svg>
                     </span>
                                     <span class="text-second dd-txt pe-2">
-                      عدد السيارة
+                       @lang('site.car_numbers')
                     </span>
                                 </div>
                                 <div
                                     class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
                                 >
-                                    1
+                                    {{$booking->car->car_numbers ?? 0}}
                                 </div>
                             </div>
                             <hr class="hr-saeeh my-0" />
@@ -560,7 +562,7 @@
                       </svg>
                     </span>
                                     <a class="text-second dd-txt pe-2 booking-link"
-                                    >تعديل اختياراك
+                                    > @lang('site.Modify your selection')
                                     </a>
                                 </div>
                             </div>
