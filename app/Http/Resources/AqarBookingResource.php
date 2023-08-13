@@ -62,7 +62,7 @@ class AqarBookingResource extends JsonResource
             'images' =>explode(",",$this->images) ?? [],
             "comision" => $this->comision ?? '',
             "area" => $this->area->name ?? '',
-            "favorite" => (count(Auth::user()->favourite_aqars)>0 ? true : false),
+            "favorite" => (count(Auth::user()->favourite_aqars->where('aqar_id','=',$this->aqar_id))>0 ? true : false),
             "rate" => $this->aqarComment->avg('rating') ?? 0,
             "aqarReview" => AqarReviewResource::collection($this->aqarReview)->unique('name'),
             "fixed_price" => $this->fixed_price ?? 0,
