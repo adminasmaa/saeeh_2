@@ -83,6 +83,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         Route::get('DeleteSubCategories/{id}', 'App\Http\Controllers\Dashboard\CategoryController@destroy')->name('DeleteSubCategories');
         Route::get('SubCategories/{id}', 'App\Http\Controllers\Dashboard\CategoryController@SubCategories')->name('SubCategories');
         Route::get('DeleteHomeServices/{id}', 'App\Http\Controllers\Dashboard\SettingController@destroy')->name('DeleteHomeServices');
+        Route::get('DeleteSubPlaceCategories/{id}', 'App\Http\Controllers\Dashboard\PlaceCategoryController@destroy')->name('DeleteSubPlaceCategories');
 
         //cars
         Route::resource('cars', CarController::class);

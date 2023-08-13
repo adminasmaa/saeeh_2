@@ -118,4 +118,15 @@ class PlaceCategoryController extends Controller
 
         return $this->PlaceCategoryRepository->destroy($category);
     }
+    public function destroy2($id)
+    {
+        $SubPlaceCategory = Category::find($id);
+        $result = $SubPlaceCategory->delete();
+        if ($result) {
+          Alert::toast('Deleted', __('site.deleted_successfully'));
+      } else {
+          Alert::toast('Deleted', __('site.delete_faild'));
+      }
+      return back();
+    }//end of destroy
 }

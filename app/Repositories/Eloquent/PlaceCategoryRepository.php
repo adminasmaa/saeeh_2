@@ -204,4 +204,20 @@ class PlaceCategoryRepository implements PlaceCategoryRepositoryInterfaceAlias
 
         return back();
     }
+    public function destroy2($SubPlaceCategory)
+    {
+        // TODO: Implement destroy() method.
+        //DeletePlaceTable
+        $result = $SubPlaceCategory->delete();
+
+        if ($result) {
+               Alert::toast('Success', __('site.deleted_successfully'));
+        } else {
+               Alert::toast('Error', __('site.delete_faild'));
+
+//                session()->flash('error', __('site.delete_faild'));
+        }
+
+        return back();
+    }
 }
