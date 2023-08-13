@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use App\Models\Aqar;
 use App\Models\AqarBooking;
+use App\Models\AquarUser;
 use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Auth;
@@ -62,7 +63,9 @@ class AqarBookingResource extends JsonResource
             'images' =>explode(",",$this->images) ?? [],
             "comision" => $this->comision ?? '',
             "area" => $this->area->name ?? '',
-            "favorite" => (count(Auth::user()->favourite_aqars->where('aqar_id','=',$this->aqar_id))>0 ? true : false),
+//            "favorite" => (count(Auth::user()->favourite_aqars->where('aqar_id','=',$this->aqar_id))>0 ? true : false),
+            "favorite" => (count(AquarUser::where('aqar_id','=',$this->aqar_id)->where('user_id','=',Auth::id())->get())>0 ? true : false),
+
             "rate" => $this->aqarComment->avg('rating') ?? 0,
             "aqarReview" => AqarReviewResource::collection($this->aqarReview)->unique('name'),
             "fixed_price" => $this->fixed_price ?? 0,
