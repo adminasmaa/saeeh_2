@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class AquarUser extends Model
 {
     use HasFactory;
+
     protected $table = 'aqar_user';
     protected $guarded = [];
 }
