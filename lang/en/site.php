@@ -14,6 +14,7 @@ return [
     'previous' => 'previous',
     'next' => 'Next',
     'save' => 'Save',
+    'receipt_hour'=>'Receipt Hour',
     'Modify your selection'=>'Modify your selection',
     'Go to the restaurant' => 'Go to the restaurant',
     'total' => 'Total',
