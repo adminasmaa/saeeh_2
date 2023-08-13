@@ -16,6 +16,8 @@ return [
     'save' => 'Save',
     'Go to the restaurant' => 'Go to the restaurant',
     'total' => 'Total',
+    'user_name'=>'User Name',
+    'conditionBooking'=>'ConditionBooking',
     'My bookings' => 'My bookings',
     'special requests' => 'special requests',
     'Information that may interest you' => 'Information that may interest you',
