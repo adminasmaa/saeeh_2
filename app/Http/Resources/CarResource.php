@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\CarUser;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,7 +21,7 @@ class CarResource extends JsonResource
             "id" => $this->id,
             "name" => $this->name ?? '',
             "description" => $this->description ?? '',
-            "favorite" => (count(Auth::user()->favourite_car)>0 ? true : false),
+            "favorite" => (count(CarUser::where('car_id','=',$this->id)->where('user_id','=',Auth::id())->get())>0 ? true : false),
 
             "comment_text" => $this->comment_text ?? '',
             "year" => $this->year ?? '',

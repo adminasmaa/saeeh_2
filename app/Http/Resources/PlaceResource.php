@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\PlaceUser;
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\CategoryOnlyResource;
 use App\Http\Resources\PlaceReviewResource;
@@ -42,7 +43,7 @@ class PlaceResource extends JsonResource
             "phone_two" => $this->phone_two ?? '',
             "longitude" => $this->longitude ?? '',
             "latitude" => $this->latitude ?? '',
-            "favorite" => (count(Auth::user()->favourite_place)>0 ? true : false),
+            "favorite" => (count(PlaceUser::where('place_id','=',$this->id)->where('user_id','=',Auth::id())->get())>0 ? true : false),
 
             "rate" => $this->placeComments->avg('rating') ?? 0,
             "PlaceReview" => PlaceReviewResource::collection($this->PlaceReview)->unique('name'),
