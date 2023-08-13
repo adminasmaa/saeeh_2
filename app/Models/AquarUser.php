@@ -9,6 +9,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class AquarUser extends Model
 {
     use HasFactory, SoftDeletes;
-
+    protected $table = 'aqar_user';
     protected $guarded = [];
 }
