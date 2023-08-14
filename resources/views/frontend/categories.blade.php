@@ -113,7 +113,7 @@
                 @foreach($categories as $category)
                 <div class="col-lg-3 col-sm-6 col-12">
                     <div class="card-tour mb-3">
-                        <a href="{{route('subcategories',$category->id)}}">
+                        <a href="{{route('subcategories',['id'=>$category->id, 'city_id'=>$city->id])}}">
                             <div class="card-image-box">
                                 <img class="card-img" src="{{asset('images/categories/'.$category->image)}}"
                                     alt="Card image cap"
