@@ -226,9 +226,9 @@
                                 <p class="department-txt">@lang('site.A reservation deposit is required to confirm the reservation')</p>
                             </div>
                             <div>
-                                <a class="text-second h2 booking-link">
-                                    @lang('site.conditionBooking')
-                                    </a>
+{{--                                <a class="text-second h2 booking-link">--}}
+{{--                                    @lang('site.conditionBooking')--}}
+{{--                                    </a>--}}
                             </div>
                         </div>
                     </div>
@@ -640,12 +640,12 @@
                         />
                       </svg>
                     </span>
-                                    <span class="text-gray-2 dd-txt pe-2">عربون حجز </span>
+                                    <span class="text-gray-2 dd-txt pe-2"> @lang('site.Reservation deposit') </span>
                                 </div>
                                 <div
                                     class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
                                 >
-                                    1000 درهم مغربي
+                                    {{$booking->car->fixed_price ?? 0}}
                                 </div>
                             </div>
                         </div>
@@ -678,12 +678,12 @@
                         />
                       </svg>
                     </span>
-                                    <span class="text-gray-2 dd-txt pe-2">السعر الكلى </span>
+                                    <span class="text-gray-2 dd-txt pe-2">@lang('site.total')@lang('site.price')  </span>
                                 </div>
                                 <div
                                     class="text-gray-2 d-md-flex align-items-center justify-content-md-center summary-price"
                                 >
-                                    8000 درهم مغربي
+                                    {{$booking->total ?? 0}}
                                 </div>
                             </div>
                         </div>

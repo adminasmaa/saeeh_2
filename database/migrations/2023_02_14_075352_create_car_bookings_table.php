@@ -22,8 +22,10 @@ return new class extends Migration
             $table->string('note')->nullable();
             $table->date('delivery_date')->nullable();
             $table->date('reciept_date')->nullable();
+            $table->date('date')->nullable();
             $table->integer('day_count')->nullable();
             $table->boolean('active')->nullable()->default(1);
+            $table->string('total')->nullable();
             $table->string('cancle_reason')->nullable();
             $table->string('delivery_place')->nullable();
             $table->string('receipt_hour')->nullable();
