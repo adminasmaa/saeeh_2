@@ -176,20 +176,20 @@ $(document).ready(function () {
     });
 
 
-    // $('#list2').on('change', function (e) {
-    //     var lis1 = e.target.value;
-    //     $.get("{{url('dashboard/roomnumbers')}}/" + lis1, function (data) {
-    //         $('#list4').empty();
-    //         console.log(data);
-    //         $('#list4').append('<option>@lang('site.select')</option>');
-    //         $.each(data, function (key, value) {
-    //             $('#list4').append('<option value="' + value.id + '">' + value + '</option>');
+    $('#list2').on('change', function (e) {
+        var lis1 = e.target.value;
+        $.get("{{url('roomnumbers')}}/" + lis1, function (data) {
+            $('#list4').empty();
+            console.log(data);
+            $('#list4').append('<option>@lang('site.select')</option>');
+            $.each(data, function (key, value) {
+                $('#list4').append('<option value="' + value.total + '">' + value.total + '</option>');
 
 
-    //         });
-    //         $("#list2").trigger('change');
-    //     })
-    // });
+            });
+            $("#list2").trigger('change');
+        })
+    });
 
 </script>
 

@@ -24,6 +24,7 @@ use Illuminate\Validation\Rule;
 //use Illuminate\Support\Facades\File;
 use Storage;
 use File;
+use DB;
 class HomeController extends Controller
 {
 
@@ -93,10 +94,15 @@ class HomeController extends Controller
     {
 
 
-        $roomnumbers = Aqar::distinct()->join('aqar_sections', 'aqars.id', '=', 'aqar_sections.aqar_id')->join('aqar_details', 'aqar_details.id', '=', 'aqar_sections.sub_section_id')->where('aqars.category_id', $id)->where('aqar_sections.section_id', '=', 6)->groupBy('aqars.id')->select(\DB::raw('SUM(aqar_details.name_ar) as total'))
-            ->get()
-            ->pluck('total', 'aqar_details.name_ar')
-            ->toArray();
+        // $roomnumbers = Aqar::distinct()->join('aqar_sections', 'aqars.id', '=', 'aqar_sections.aqar_id')->join('aqar_details', 'aqar_details.id', '=', 'aqar_sections.sub_section_id')->where('aqars.category_id', $id)->where('aqar_sections.section_id', '=', 6)->groupBy('aqars.id')->select(\DB::raw('SUM(aqar_details.name_ar) as total'))
+        //     ->get()
+        //     ->pluck('total', 'aqar_details.name_ar')
+        //     ->toArray();
+        $roomnumbers = DB::select("SELECT   DISTINCT sum(aqar_details.name_ar) as total
+        FROM `aqars`
+        INNER JOIN aqar_sections on aqars.id=aqar_sections.aqar_id
+        INNER JOIN aqar_details on aqar_details.id=aqar_sections.sub_section_id
+        WHERE aqars.category_id=$id and aqar_sections.section_id=6 or aqar_sections.section_id=18 group by aqars.id  ORDER BY sum(aqar_details.name_ar);");
         return Response::json($roomnumbers);
 
 

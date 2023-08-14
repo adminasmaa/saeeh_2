@@ -82,7 +82,7 @@
 
                     @foreach($subcategories as $subcat)
                         <div class="col-lg-3 col-sm-6 col-12">
-                            <a href="{{route('subcategories',$subcat->id)}}">
+                            <a href="{{route('subcategories',['id'=>$subcat->id, 'city_id'=>$city_id])}}">
                                 <div class="card-restaurant mb-4 position-relative">
                                     {{--                                <img src="{{FRONTASSETS}}/images/restaurants/restaurant-cat.png" alt="Card image cap"--}}
                                     {{--                                     class="restaurant-image">--}}

@@ -231,7 +231,7 @@
 
                                     @foreach($CategoriesPlaces as $categoryplace)
                                     <li class="sub-menu__sub-item pb-2">
-                                        <a href="{{route('subcategories',$categoryplace->id)}}" class="sub-menu-link">
+                                        <a href="{{route('subcategories',['id'=>$categoryplace->id, 'city_id'=>0])}}" class="sub-menu-link">
                                             <div class="d-flex align-items-center">
                                             <div class="arrow-lft">
                                                 <i class="fas fa-arrow-left"></i>

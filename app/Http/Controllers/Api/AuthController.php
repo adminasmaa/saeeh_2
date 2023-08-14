@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Validator;
+use DB;
 
 class AuthController extends Controller
 {
@@ -108,8 +109,6 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-
-
         $rule = [
             'email' => 'max:254|unique:users|email|required',
             'firstname' => 'required',
@@ -118,6 +117,7 @@ class AuthController extends Controller
             'phone' => 'required|min:9|unique:users',
             'password' => 'required|min:6',
             'c_password' => 'nullable|same:password',
+            'device_token' => 'min:2'
 
         ];
         $customMessages = [
@@ -139,9 +139,17 @@ class AuthController extends Controller
             $msg = trans('message.please verified your account') . "\n";
             $msg = $msg . trans('message.code activation') . "\n" . $code;
             send_sms_code($msg, $input['phone'], $input['country_code']);
-            $user = User::create($input);
+            if($request->device_token){
+                $guest=User::where('device_token', $request->device_token)->where('isguest',1)->first();
+                if($guest){
+                    $input['isguest'] = 0;
+                    $user1 = $guest->update($input);
+                    $user=User::find($guest->id);
 
-
+                }else{
+                $user = User::create($input);
+                }
+            }
 //            $success['token'] = $user->createToken('MyApp')->accessToken;
             $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code', 'code']);
 
@@ -167,6 +175,17 @@ class AuthController extends Controller
             if ($user->active) {
                 $user->device_token= $request->device_token;
                 $user->save();
+                if($request->device_token){
+                    $guests=User::where('device_token', $request->device_token)->where('isguest',1)->get();
+                    foreach($guests as $guest){
+                        DB::table('aqar_user')->where('user_id' , $guest->id)->update(['user_id' => $user->id]);
+                        DB::table('car_user')->where('user_id' , $guest->id)->update(['user_id' => $user->id]);
+                        DB::table('user_palace')->where('user_id' , $guest->id)->update(['user_id' => $user->id]);
+                        User::where('id' , $guest->id)->delete();
+
+                    }
+
+                }
                 $success['token'] = $user->createToken('MyApp')->accessToken;
                 $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code', 'code']);
 
