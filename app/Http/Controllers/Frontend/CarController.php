@@ -8,6 +8,7 @@ use App\Models\CarReview;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\Country;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Response;
 
@@ -21,20 +22,46 @@ use Illuminate\Validation\Rule;
 class CarController extends Controller
 {
 
+    public function diffInDays($date1, $date2)
+    {
+        $diff = strtotime($date2) - strtotime($date1);
+        return abs(round($diff / 86400));
+    }
+
     public function addbookingcar(Request $request)
     {
 
         $requestdata = $request->all();
+
+        $date = date('Y-m-d');
+//        $newDate = Carbon::createFromFormat('m/d/Y', $date);
+        $newDate = Carbon::parse($date)->format('Y-m-d');
+
+//        dd($newDate);
+
         $requestdata['reciept_date'] = date('Y-m-d H:i:s', strtotime($request->reciept_date));
         $requestdata['delivery_date'] = date('Y-m-d H:i:s', strtotime($request->delivery_date));
+        $requestdata['day_count'] = $this->diffInDays($requestdata['delivery_date'], $requestdata['reciept_date']);
+        $requestdata['date'] = $newDate;
         $requestdata['user_id'] = Auth::id();
+        $total = $requestdata['fixed_price'] * $requestdata['day_count'];
+        $cars = CarBooking::updateOrCreate(
+            ['car_id' => $request['car_id'], 'user_id' => Auth::id(), 'date' => $newDate],
+            [
+                'car_id' => $request['car_id'], 'user_id' => Auth::id(),
+                'reciept_date' => $requestdata['reciept_date'], 'delivery_date' => $requestdata['delivery_date'],
+                'delivery_hour' => $requestdata['delivery_hour'], 'delivery_place' => $requestdata['delivery_place'],
+                'fixed_price' => $requestdata['fixed_price'], 'note' => $requestdata['note'],
+                'receipt_hour' => $requestdata['receipt_hour'], 'date' => $newDate,
+                'day_count' => $requestdata['day_count'],'total'=>$total
 
-        $cars = CarBooking::create($requestdata);
+            ]);
+
         $car = Car::findorfail($request['car_id']);
         $user = Auth::user();
-        $bookings=$user->carBooking;
+        $bookings = $user->carBooking;
 
-        return view('frontend.mybookingcar', compact('car','bookings'));
+        return view('frontend.mybookingcar', compact('car', 'bookings'));
 
 
     }
@@ -43,17 +70,18 @@ class CarController extends Controller
     {
         $car = Car::findorfail($id);
         $user = Auth::user();
-       $bookings=$user->carBooking;
+        $bookings = $user->carBooking;
 //       return $bookings;
-        return view('frontend.carbooking', compact('car','bookings'));
+        return view('frontend.carbooking', compact('car', 'bookings'));
 
     }
+
     public function detailbooking($id)
     {
 
-       $booking=CarBooking::find($id);
+        $booking = CarBooking::find($id);
 
-       return view('frontend.bookingdetail', compact('booking'));
+        return view('frontend.bookingdetail', compact('booking'));
 
     }
 

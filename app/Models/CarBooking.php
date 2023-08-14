@@ -42,6 +42,8 @@ class CarBooking extends Model
         'delivery_hour', // unsigned
         'receipt_hour', // unsigned
         'delivery_place', // unsigned
+        'date', // unsigned
+        'total', // unsigned
 
     ];
     // scope

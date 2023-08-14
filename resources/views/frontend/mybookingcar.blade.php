@@ -12,7 +12,7 @@
 
                                 src="{{asset('images/cars/'.$book->car->main_image_ads)}}"
                                 onerror="this.src='{{FRONTASSETS}}/images/cars/car-card-1.png'"
-
+                                class="department-img-list of-cover"
                                 alt="image 1"
                                 loading="lazy"
                             />
