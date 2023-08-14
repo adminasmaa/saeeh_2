@@ -61,12 +61,12 @@
                                
                                 <div class="col-md-6 form-group col-12 p-2">
                                 <label class="form-label">@lang('site.aquarbooking')</label>
-                                <select class="form-control btn-square" name="aquarbooking_id" readonly=""disabled>
+                                <select class="form-control btn-square" name="aqar_booking_id" readonly=""disabled>
                                     <option selected>@lang('site.select')</option>
                                     @foreach($aqarbookings as $aquarbooking)
 
                                         <option value="{{$aquarbooking->id}}"
-                                                @if($Deposit->aquarbooking_id==$aquarbooking->id) selected @endif>{{$aquarbooking->id ?? ''}}</option>
+                                                @if($Deposit->aqar_booking_id==$aquarbooking->id) selected @endif>{{$aquarbooking->id ?? ''}}</option>
 
                                     @endforeach
 
@@ -74,23 +74,20 @@
                             </div>
 
                             <div class="col-md-6 form-group col-12 p-2">
-                                <label class="form-label">@lang('site.bookings')</label>
-                                <select class="form-control btn-square" name="booking_id" readonly=""disabled>
+                                <label class="form-label">@lang('site.car_bookings')</label>
+                                <select class="form-control btn-square" name="car_booking_id" readonly=""disabled>
                                     <option selected>@lang('site.select')</option>
                                     @foreach($carbookings as $carbooking)
 
-                                        <option value="{{$user->id}}"
-                                                @if($Deposit->booking_id==$carbooking->id) selected @endif>{{$carbooking->id ?? ''}}</option>
+                                        <option value="{{$carbooking->id}}"
+                                                @if($Deposit->car_booking_id==$carbooking->id) selected @endif>{{$carbooking->id ?? ''}}</option>
 
                                     @endforeach
 
                                 </select>
                             </div>
-                            </div>
 
-                            <div class="row">
-                                <!--<div class="col-md-6">-->
-                                <div class="col-md-6 form-group col-12 p-2">
+                            <div class="col-md-6 form-group col-12 p-2">
                                 <label class="form-label">@lang('site.users')</label>
                                 <select class="form-control btn-square" name="user_id" readonly=""disabled>
                                     <option selected>@lang('site.select')</option>
@@ -103,7 +100,7 @@
 
                                 </select>
                             </div>
-                                
+
                             </div>
 
 

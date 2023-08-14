@@ -48,6 +48,14 @@ class CarController extends Controller
         return view('frontend.carbooking', compact('car','bookings'));
 
     }
+    public function detailbooking($id)
+    {
+
+       $booking=CarBooking::find($id);
+
+       return view('frontend.bookingdetail', compact('booking'));
+
+    }
 
     public function allcarscategories($id)
     {

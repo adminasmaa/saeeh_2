@@ -838,7 +838,7 @@
                               </svg>
                             </span>
                                                 <a class="text-second dd-txt pe-2 booking-link"
-                                                >تعديل اختياراك
+                                                >@lang('site.Modify your selection')
                                                 </a>
                                             </div>
                                         </div>
@@ -1411,7 +1411,7 @@
                                                             <div
                                                                 class="details-btn d-flex align-items-center justify-content-center margin-top-12"
                                                             >
-                                                                <a href="#">@lang('site.Reservation information')</a>
+                                                                <a href="{{route('detailbooking',$book->id)}}">@lang('site.Reservation information')</a>
                                                             </div>
                                                         </div>
                                                     </div>

@@ -11,6 +11,7 @@ return [
     'register' => 'تسجيل جديد',
     'dealine' => 'مواعيد العمل',
     'Total' => 'الاجمالي',
+    'user_name' => 'اسم المستخدم',
     'reviews' => 'المراجعات',
     'comments' => 'التقيمات',
     'ads_status' => 'حالات الاعلان',
@@ -29,6 +30,7 @@ return [
     'save' => 'حفظ',
     'previous' => 'السابق',
     'next' => 'التالي',
+    'receipt_hour'=>"ساعة المغادره",
     'A reservation deposit is required to confirm the reservation' => 'يجب دفع عربوون حجز لتأكيد الحجز',
     'arrival hour' => 'ساعة الوصول',
     'Go to the restaurant' => 'التوجه الي المطعم',
@@ -38,6 +40,7 @@ return [
     'special requests' => 'طلبات خاصة',
     'It may take a few days for the request to be approved' => 'قد يستغرق الامر بضعه ايام للموافقه علي الطلب',
     'Information that may interest you' => 'معلومات قد تهمك',
+    'conditionBooking' => "ما هي شروط حجزي؟ ",
     'allownumber' => 'العدد المسموح بيه',
     'Arrival dates' => 'مواعيد الوصول',
     'id number' => 'رقم الاعلان',
@@ -46,10 +49,10 @@ return [
     'total' => 'الاجمالي ',
     'Price summary' => 'ملخص السعر',
     'Reservation deposit' => 'عربون حجز',
-
+    'communication' => "اتصال",
     'If you have an inquiry' => 'إذا كان لديك استفسار',
 
-
+    'Modify your selection' => 'تعديل اختياراك',
     'excellent' => 'ممتاز',
     'Rate now' => 'قيم الآن',
     'Superb and easy to access' => 'أكثر من رائع وسهل الوصول ليه',
@@ -122,6 +125,7 @@ return [
     'aqar_reviews' => ' تقييمات العقارات ',
     'car_reviews' => ' تقييمات السيارات ',
     'place_reviews' => ' تقييمات الاماكن ',
+    'car_bookings' => ' حجوزات السيارات ',
 
     'sections' => 'الأقسام',
 
@@ -160,7 +164,7 @@ return [
     'operation' => 'عملية',
     'amount' => 'كميات',
     'date' => 'تاريخ الحجز',
-    'cancle_reason' => 'سبب الغاء الحجز',
+    'cancle_reason' => ' الغاء الحجز',
     'link' => 'الرابط الخاصة',
     'offertime' => 'بعض الوقت',
     'find_your_favorite_country' => 'ابحث عن دولتك المفضلة',

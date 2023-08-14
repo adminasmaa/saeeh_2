@@ -49,6 +49,7 @@ Route::get('carscategories/{id}', 'App\Http\Controllers\Frontend\CarController@a
 Route::get('detailcar/{id}', 'App\Http\Controllers\Frontend\CarController@detailcar')->name('detailcar');
 Route::get('checkallcar', 'App\Http\Controllers\Frontend\CarController@CheckCar')->name('checkallcar');
 Route::get('bookingcar/{id}', 'App\Http\Controllers\Frontend\CarController@bookingcar')->name('bookingcar')->middleware('web');
+Route::get('detailbooking/{id}', 'App\Http\Controllers\Frontend\CarController@detailbooking')->name('detailbooking')->middleware('web');
 Route::get('addbookingcar', 'App\Http\Controllers\Frontend\CarController@Addbookingcar')->name('addbookingcar');
 //cars end
 
@@ -69,7 +70,7 @@ define('MAINASSETS', URL::asset('assets'));
 define('FRONTASSETS', URL::asset('frontend/assets'));
 define('MAINUPLOADS', URL::asset('uploads'));
 define('MAINDIST', URL::asset('dist/frontend/img'));
-define('MAINDASHBOARD', URL::asset('public/dashboard_files'));
+define('MAINDASHBOARD', URL::asset('dashboard_files'));
 
 
 

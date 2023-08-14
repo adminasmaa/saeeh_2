@@ -126,7 +126,21 @@
 
 
                             </div>
+                            <div class="row">
 
+                                <div class="col-md-6 form-group col-12 p-2">
+
+
+                                    <label>@lang('site.image')</label>
+                                    <input type="file" name="icon" class="form-control"
+                                        value="{{ old('icon') }}">
+
+
+                                </div>
+
+
+                            </div>
+                            <br>
                             <div class="row m-t-10">
                                 <div class="m-checkbox-inline">
 
@@ -197,23 +211,7 @@
                             </div>
 
 
-                            <div class="row">
-
-                                <div class="col-md-6 form-group col-12 p-2">
-
-
-                                    <label>@lang('site.image')</label>
-                                    <input type="file" name="icon" class="form-control"
-                                           value="{{ old('icon') }}">
-
-
-                                </div>
-
-
-                            </div>
-
-
-                            <br>
+                            
 
 
                         </div>

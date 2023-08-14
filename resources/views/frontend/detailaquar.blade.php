@@ -58,20 +58,32 @@
                 <div class="row" id="slideshow">
                     <div class="col-lg-10">
                         <div id="slides">
-                            <div class="slide show" data-slide="1">
-                                <img src="{{FRONTASSETS}}/images/main-image-slide.png" alt="department"/>
-                            </div>
+                            @if(!empty($aquar->images))
+                                @foreach(explode(',',$aquar->images) as $key=>$img)
+                                    <div class="slide @if($key==0)  show @endif" data-slide="{{$key}}">
+                                        <img src="{{asset('images/aqars/'.$img)}}"
+                                             onerror="this.src='{{FRONTASSETS}}/images/department-1.svg'"
+                                             alt="department"/>
+                                    </div>
+                                @endforeach
 
-                            <div class="slide" data-slide="2">
-                                <img src="{{FRONTASSETS}}/images/side-image-1.png" alt="department"/>
-                            </div>
+                            @else
+                                <div class="slide" data-slide="2">--}}
+                                    <img src="{{FRONTASSETS}}/images/side-image-1.png" alt="department"/>--}}
+                                </div>
 
-                            <div class="slide" data-slide="3">
-                                <img src="{{FRONTASSETS}}/images/side-image-2.png" alt="department"/>
-                            </div>
-                            <div class="slide" data-slide="4">
-                                <img src="{{FRONTASSETS}}/images/main-image-slide.png" alt="department"/>
-                            </div>
+                            @endif
+
+                            {{--                            <div class="slide" data-slide="2">--}}
+                            {{--                                <img src="{{FRONTASSETS}}/images/side-image-1.png" alt="department"/>--}}
+                            {{--                            </div>--}}
+
+                            {{--                            <div class="slide" data-slide="3">--}}
+                            {{--                                <img src="{{FRONTASSETS}}/images/side-image-2.png" alt="department"/>--}}
+                            {{--                            </div>--}}
+                            {{--                            <div class="slide" data-slide="4">--}}
+                            {{--                                <img src="{{FRONTASSETS}}/images/main-image-slide.png" alt="department"/>--}}
+                            {{--                            </div>--}}
                             <div class="slide-btn next-slide">
                   <span>
                     <svg
@@ -108,21 +120,29 @@
 
                     <div class="col-lg-2  gallery-list-mobile">
                         <div id="gallery">
-                            <div class="thumbnail" data-slide="1">
-                                <img src="{{FRONTASSETS}}/images/main-image-slide.png" alt="department"/>
-                            </div>
+                            @if(!empty($aquar->images))
+                                @foreach(explode(',',$aquar->images) as $key=>$img)
+                                    <div class="thumbnail" data-slide="{{$key}}">
+                                        <img src="{{asset('images/aqars/'.$img)}}"
+                                             onerror="this.src='{{FRONTASSETS}}/images/department-1.svg'" alt="department"/>
+                                    </div>
+                                @endforeach
 
-                            <div class="thumbnail" data-slide="2">
-                                <img src="{{FRONTASSETS}}/images/side-image-1.png" alt="department"/>
-                            </div>
+                            @else
+                                <div class="thumbnail" data-slide="2">
+                                    <img src="{{FRONTASSETS}}/images/side-image-1.png" alt="department"/>
+                                </div>
 
-                            <div class="thumbnail" data-slide="3">
-                                <img src="{{FRONTASSETS}}/images/side-image-2.png" alt="department"/>
-                            </div>
+                            @endif
 
-                            <div class="thumbnail" data-slide="4">
-                                <img src="{{FRONTASSETS}}/images/main-image-slide.png" alt="department"/>
-                            </div>
+
+                            {{--                            <div class="thumbnail" data-slide="3">--}}
+                            {{--                                <img src="{{FRONTASSETS}}/images/side-image-2.png" alt="department"/>--}}
+                            {{--                            </div>--}}
+
+                            {{--                            <div class="thumbnail" data-slide="4">--}}
+                            {{--                                <img src="{{FRONTASSETS}}/images/main-image-slide.png" alt="department"/>--}}
+                            {{--                            </div>--}}
                         </div>
                     </div>
                 </div>
@@ -292,7 +312,8 @@
                       </defs>
                       </svg>
                   </span>
-                                <span class="boxx-txt text-gray-2">   @lang('site.The deposit is paid at the time of booking')</span>
+                                <span
+                                    class="boxx-txt text-gray-2">   @lang('site.The deposit is paid at the time of booking')</span>
                             </div>
                         </div>
                         <div
@@ -330,90 +351,93 @@
                                         <div class="details-txt py-4">
                                             {{$aquar->details ?? ''}}
                                         </div>
-                                        <h3 class="details-head"><br> <br>     {!! html_entity_decode($aquar->description) !!}</h3>
+                                        <h3 class="details-head"><br>
+                                            <br> {!! html_entity_decode($aquar->description) !!}</h3>
                                     </div>
                                     <div class="col-12 my-lg-3">
                                         <div class="accordion" id="accordion_details">
                                             @foreach($aquar->aqarSection as $key=>$section)
-                                            <div class="accordion-item details-item mb-2">
-                                                <h2 class="accordion-header">
-                                                    <button
-                                                        class="accordion-button fw-bold"
-                                                        data-bs-toggle="collapse"
-                                                        data-bs-target="#accordion-details-{{$key}}"
-                                                        aria-expanded="true"
-                                                        aria-controls="accordion-details-{{$key}}"
-                                                    >
-                                                        <div>
+                                                <div class="accordion-item details-item mb-2">
+                                                    <h2 class="accordion-header">
+                                                        <button
+                                                            class="accordion-button fw-bold"
+                                                            data-bs-toggle="collapse"
+                                                            data-bs-target="#accordion-details-{{$key}}"
+                                                            aria-expanded="true"
+                                                            aria-controls="accordion-details-{{$key}}"
+                                                        >
+                                                            <div>
 
-                                                            <img src="{{asset('images/aqars/'.$section->icon)}}" width="50" height="50"
-                                                                 onerror="this.src='{{FRONTASSETS}}/images/side-image-2.png'" alt="car"/>
-{{--                                                            <svg--}}
-{{--                                                                xmlns="http://www.w3.org/2000/svg"--}}
-{{--                                                                width="32"--}}
-{{--                                                                height="33"--}}
-{{--                                                                viewBox="0 0 32 33"--}}
-{{--                                                                fill="none"--}}
-{{--                                                            >--}}
-{{--                                                                <path--}}
-{{--                                                                    d="M4 27.4933V16.8266C4 16.1194 4.28095 15.4411 4.78105 14.941C5.28115 14.4409 5.95942 14.16 6.66667 14.16H25.3333C26.0406 14.16 26.7189 14.4409 27.219 14.941C27.719 15.4411 28 16.1194 28 16.8266V27.4933"--}}
-{{--                                                                    stroke="#CACACA"--}}
-{{--                                                                    stroke-width="1.5"--}}
-{{--                                                                    stroke-linecap="round"--}}
-{{--                                                                    stroke-linejoin="round"--}}
-{{--                                                                />--}}
-{{--                                                                <path--}}
-{{--                                                                    d="M6.66699 14.16V8.82664C6.66699 8.1194 6.94794 7.44112 7.44804 6.94102C7.94814 6.44092 8.62641 6.15997 9.33366 6.15997H22.667C23.3742 6.15997 24.0525 6.44092 24.5526 6.94102C25.0527 7.44112 25.3337 8.1194 25.3337 8.82664V14.16"--}}
-{{--                                                                    stroke="#CACACA"--}}
-{{--                                                                    stroke-width="1.5"--}}
-{{--                                                                    stroke-linecap="round"--}}
-{{--                                                                    stroke-linejoin="round"--}}
-{{--                                                                />--}}
-{{--                                                                <path--}}
-{{--                                                                    d="M4 24.8267H28"--}}
-{{--                                                                    stroke="#CACACA"--}}
-{{--                                                                    stroke-width="1.5"--}}
-{{--                                                                    stroke-linecap="round"--}}
-{{--                                                                    stroke-linejoin="round"--}}
-{{--                                                                />--}}
-{{--                                                            </svg>--}}
+                                                                <img src="{{asset('images/aqars/'.$section->icon)}}"
+                                                                     width="50" height="50"
+                                                                     onerror="this.src='{{FRONTASSETS}}/images/side-image-2.png'"
+                                                                     alt="car"/>
+                                                                {{--                                                            <svg--}}
+                                                                {{--                                                                xmlns="http://www.w3.org/2000/svg"--}}
+                                                                {{--                                                                width="32"--}}
+                                                                {{--                                                                height="33"--}}
+                                                                {{--                                                                viewBox="0 0 32 33"--}}
+                                                                {{--                                                                fill="none"--}}
+                                                                {{--                                                            >--}}
+                                                                {{--                                                                <path--}}
+                                                                {{--                                                                    d="M4 27.4933V16.8266C4 16.1194 4.28095 15.4411 4.78105 14.941C5.28115 14.4409 5.95942 14.16 6.66667 14.16H25.3333C26.0406 14.16 26.7189 14.4409 27.219 14.941C27.719 15.4411 28 16.1194 28 16.8266V27.4933"--}}
+                                                                {{--                                                                    stroke="#CACACA"--}}
+                                                                {{--                                                                    stroke-width="1.5"--}}
+                                                                {{--                                                                    stroke-linecap="round"--}}
+                                                                {{--                                                                    stroke-linejoin="round"--}}
+                                                                {{--                                                                />--}}
+                                                                {{--                                                                <path--}}
+                                                                {{--                                                                    d="M6.66699 14.16V8.82664C6.66699 8.1194 6.94794 7.44112 7.44804 6.94102C7.94814 6.44092 8.62641 6.15997 9.33366 6.15997H22.667C23.3742 6.15997 24.0525 6.44092 24.5526 6.94102C25.0527 7.44112 25.3337 8.1194 25.3337 8.82664V14.16"--}}
+                                                                {{--                                                                    stroke="#CACACA"--}}
+                                                                {{--                                                                    stroke-width="1.5"--}}
+                                                                {{--                                                                    stroke-linecap="round"--}}
+                                                                {{--                                                                    stroke-linejoin="round"--}}
+                                                                {{--                                                                />--}}
+                                                                {{--                                                                <path--}}
+                                                                {{--                                                                    d="M4 24.8267H28"--}}
+                                                                {{--                                                                    stroke="#CACACA"--}}
+                                                                {{--                                                                    stroke-width="1.5"--}}
+                                                                {{--                                                                    stroke-linecap="round"--}}
+                                                                {{--                                                                    stroke-linejoin="round"--}}
+                                                                {{--                                                                />--}}
+                                                                {{--                                                            </svg>--}}
 
-                                                           {{$section->name ?? ''}}
-                                                        </div>
-
-                                                        <div>
-                                                            <svg
-                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                width="22"
-                                                                height="12"
-                                                                viewBox="0 0 22 12"
-                                                                fill="none"
-                                                            >
-                                                                <path
-                                                                    d="M20.6004 1.71957L11.0004 10.0933L1.40039 1.71957"
-                                                                    stroke="#005D9F"
-                                                                    stroke-width="2"
-                                                                    stroke-linecap="round"
-                                                                />
-                                                            </svg>
-                                                        </div>
-                                                    </button>
-                                                </h2>
-                                                <div
-                                                    id="accordion-details-{{$key}}"
-                                                    class="accordion-collapse collapse show"
-                                                >
-                                                    <div class="accordion-body">
-                                                        @foreach($section->subsection->unique('name') as $subsection)
-                                                        <div class="custom-ul-list">
-                                                            <div class="custom-ul-list-item">
-                                                                {{$subsection->name  ?? ''}}
+                                                                {{$section->name ?? ''}}
                                                             </div>
+
+                                                            <div>
+                                                                <svg
+                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                    width="22"
+                                                                    height="12"
+                                                                    viewBox="0 0 22 12"
+                                                                    fill="none"
+                                                                >
+                                                                    <path
+                                                                        d="M20.6004 1.71957L11.0004 10.0933L1.40039 1.71957"
+                                                                        stroke="#005D9F"
+                                                                        stroke-width="2"
+                                                                        stroke-linecap="round"
+                                                                    />
+                                                                </svg>
+                                                            </div>
+                                                        </button>
+                                                    </h2>
+                                                    <div
+                                                        id="accordion-details-{{$key}}"
+                                                        class="accordion-collapse collapse show"
+                                                    >
+                                                        <div class="accordion-body">
+                                                            @foreach($section->subsection->unique('name') as $subsection)
+                                                                <div class="custom-ul-list">
+                                                                    <div class="custom-ul-list-item">
+                                                                        {{$subsection->name  ?? ''}}
+                                                                    </div>
+                                                                </div>
+                                                            @endforeach
                                                         </div>
-                                                        @endforeach
                                                     </div>
                                                 </div>
-                                            </div>
                                             @endforeach
                                         </div>
                                     </div>
@@ -517,57 +541,59 @@
                                     <div class="col-12 pt-4 mb-5">
 
                                         @foreach($aquar->aqarComment as $comment)
-                                        <div class="condition-content">
-                                            <div class="d-flex justify-content-between reviews-contentt">
-                                                <div class="d-sm-flex w-100">
-                                                    <div class="reviews-image">
-                                                        @if(!empty($comment->user->image))
-                                                        <img
-                                                            alt=""
-                                                            onerror="this.src='{{FRONTASSETS}}/images/review-image.png'"
+                                            <div class="condition-content">
+                                                <div class="d-flex justify-content-between reviews-contentt">
+                                                    <div class="d-sm-flex w-100">
+                                                        <div class="reviews-image">
+                                                            @if(!empty($comment->user->image))
+                                                                <img
+                                                                    alt=""
+                                                                    onerror="this.src='{{FRONTASSETS}}/images/review-image.png'"
 
-                                                            src="{{asset('images/employee/'.$comment->user->image ?? '')}}"
-                                                        />
-                                                        @else
+                                                                    src="{{asset('images/employee/'.$comment->user->image ?? '')}}"
+                                                                />
+                                                            @else
 
-                                                            <img
-                                                                alt=""
-                                                                onerror="this.src='{{FRONTASSETS}}/images/review-image.png'"
+                                                                <img
+                                                                    alt=""
+                                                                    onerror="this.src='{{FRONTASSETS}}/images/review-image.png'"
 
-                                                                src="{{FRONTASSETS}}/images/review-image.png"
-                                                            />
-                                                        @endif
+                                                                    src="{{FRONTASSETS}}/images/review-image.png"
+                                                                />
+                                                            @endif
+                                                        </div>
+                                                        <div class="w-100 padding-right">
+                                                            <h2 class="reviews-title d-flex text-second">
+                                                                {{$comment->user->firstname ?? ''}}
+                                                                {{$comment->user->firstname ?? ''}}
+                                                                <div>
+                                                                    <img
+                                                                        src="{{FRONTASSETS}}/images/car-icons/turkey.png"
+                                                                        alt="flag-icon">
+                                                                </div>
+                                                            </h2>
+                                                            <p class="details-sm-txt mb-0">
+                                                                {{$comment->description ?? ''}}
+                                                            </p>
+                                                        </div>
                                                     </div>
-                                                    <div class="w-100 padding-right">
-                                                        <h2 class="reviews-title d-flex text-second">
-                                                            {{$comment->user->firstname ?? ''}}
-                                                            {{$comment->user->firstname ?? ''}}
-                                                            <div>
-                                                                <img src="{{FRONTASSETS}}/images/car-icons/turkey.png"
-                                                                     alt="flag-icon">
-                                                            </div>
-                                                        </h2>
-                                                        <p class="details-sm-txt mb-0">
-                                                            {{$comment->description ?? ''}}
-                                                        </p>
+
+                                                    <div class="department-badge bg-main text-white">
+                                                        <div class="pt-1">{{$comment->rating ?? 0}}</div>
+                                                        <div>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="25"
+                                                                 height="25"
+                                                                 viewBox="0 0 25 25" fill="none">
+                                                                <path
+                                                                    d="M12.7529 19.6185L20.1689 24.3301L18.2009 15.4501L24.7529 9.47534L16.1249 8.70481L12.7529 0.330078L9.38093 8.70481L0.75293 9.47534L7.30493 15.4501L5.33693 24.3301L12.7529 19.6185Z"
+                                                                    fill="white"/>
+                                                            </svg>
+                                                        </div>
                                                     </div>
                                                 </div>
 
-                                                <div class="department-badge bg-main text-white">
-                                                    <div class="pt-1">{{$comment->rating ?? 0}}</div>
-                                                    <div>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
-                                                             viewBox="0 0 25 25" fill="none">
-                                                            <path
-                                                                d="M12.7529 19.6185L20.1689 24.3301L18.2009 15.4501L24.7529 9.47534L16.1249 8.70481L12.7529 0.330078L9.38093 8.70481L0.75293 9.47534L7.30493 15.4501L5.33693 24.3301L12.7529 19.6185Z"
-                                                                fill="white"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
+                                                <hr class="hr-saeeh"/>
                                             </div>
-
-                                            <hr class="hr-saeeh"/>
-                                        </div>
                                         @endforeach
                                     </div>
                                 </div>
@@ -622,11 +648,11 @@
                                     <div class="col-12 pt-4">
                                         <div class="condition-content">
                                             <h2 class="condition-title">
-                                              @lang('site.allownumber')
+                                                @lang('site.allownumber')
                                                 <div
                                                     class="badge-condition round-border d-flex justify-content-center align-items-center"
                                                 >
-                                                   {{$aquar->personnumber ?? 0}}
+                                                    {{$aquar->personnumber ?? 0}}
                                                 </div>
                                             </h2>
                                             <p class="details-sm-txt padding-right">
@@ -656,7 +682,7 @@
 
                                                 {{$aquar->time_to ?? ''}}
                                             </p>
-                                            <hr class="hr-saeeh" />
+                                            <hr class="hr-saeeh"/>
                                         </div>
                                     </div>
                                 </div>
@@ -664,194 +690,194 @@
                         </ul>
                     </div>
                 </div>
-{{--                <div class="row pt-5">--}}
-{{--                    <div class="col-12">--}}
-{{--                        <div--}}
-{{--                            class="d-flex justify-content-between align-items-center border-bottom-header"--}}
-{{--                        >--}}
-{{--                            <div>--}}
-{{--                                <h2>ترشيحات شقق أخرى</h2>--}}
-{{--                            </div>--}}
-{{--                            <div class="see-all">--}}
-{{--                                <a href="#" class="h2"> الكل </a>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+                {{--                <div class="row pt-5">--}}
+                {{--                    <div class="col-12">--}}
+                {{--                        <div--}}
+                {{--                            class="d-flex justify-content-between align-items-center border-bottom-header"--}}
+                {{--                        >--}}
+                {{--                            <div>--}}
+                {{--                                <h2>ترشيحات شقق أخرى</h2>--}}
+                {{--                            </div>--}}
+                {{--                            <div class="see-all">--}}
+                {{--                                <a href="#" class="h2"> الكل </a>--}}
+                {{--                            </div>--}}
+                {{--                        </div>--}}
 
-{{--                    </div>--}}
+                {{--                    </div>--}}
 
-{{--                </div>--}}
+                {{--                </div>--}}
 
-{{--                <div class="row">--}}
-{{--                    <div class="col-12 my-4">--}}
-{{--                        <div class="card card-department round-border mb-3 p-lg-3 p-2">--}}
-{{--                            <div class="row g-0">--}}
-{{--                                <div class="col-lg-3 position-relative">--}}
-{{--                                    <div--}}
-{{--                                        class="owl-carousel owl-theme department-img-carousel"--}}
-{{--                                        dir="ltr"--}}
-{{--                                    >--}}
-{{--                                        <div>--}}
-{{--                                            <button class="add-to-wishlist">--}}
-{{--                                                <svg--}}
-{{--                                                    xmlns="http://www.w3.org/2000/svg"--}}
-{{--                                                    width="24"--}}
-{{--                                                    height="24"--}}
-{{--                                                    viewBox="0 0 24 24"--}}
-{{--                                                    fill="none"--}}
-{{--                                                >--}}
-{{--                                                    <path--}}
-{{--                                                        d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"--}}
-{{--                                                        fill="#FF8600"--}}
-{{--                                                    />--}}
-{{--                                                </svg>--}}
-{{--                                            </button>--}}
-{{--                                            <img--}}
-{{--                                                loading="lazy"--}}
-{{--                                                src="./assets/images/department-1.svg"--}}
-{{--                                                class="department-img-list of-cover"--}}
-{{--                                                alt="image 1"--}}
-{{--                                            />--}}
-{{--                                        </div>--}}
-{{--                                        <div>--}}
-{{--                                            <button class="add-to-wishlist">--}}
-{{--                                                <svg--}}
-{{--                                                    xmlns="http://www.w3.org/2000/svg"--}}
-{{--                                                    width="24"--}}
-{{--                                                    height="24"--}}
-{{--                                                    viewBox="0 0 24 24"--}}
-{{--                                                    fill="none"--}}
-{{--                                                >--}}
-{{--                                                    <path--}}
-{{--                                                        d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"--}}
-{{--                                                        fill="#FF8600"--}}
-{{--                                                    />--}}
-{{--                                                </svg>--}}
-{{--                                            </button>--}}
-{{--                                            <img--}}
-{{--                                                loading="lazy"--}}
-{{--                                                src="./assets/images/department-2.svg"--}}
-{{--                                                class="department-img-list of-cover"--}}
-{{--                                                alt="image 1"--}}
-{{--                                            />--}}
-{{--                                        </div>--}}
-{{--                                        <div>--}}
-{{--                                            <button class="add-to-wishlist">--}}
-{{--                                                <svg--}}
-{{--                                                    xmlns="http://www.w3.org/2000/svg"--}}
-{{--                                                    width="24"--}}
-{{--                                                    height="24"--}}
-{{--                                                    viewBox="0 0 24 24"--}}
-{{--                                                    fill="none"--}}
-{{--                                                >--}}
-{{--                                                    <path--}}
-{{--                                                        d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"--}}
-{{--                                                        fill="#FF8600"--}}
-{{--                                                    />--}}
-{{--                                                </svg>--}}
-{{--                                            </button>--}}
-{{--                                            <img--}}
-{{--                                                loading="lazy"--}}
-{{--                                                src="./assets/images/department-3.svg"--}}
-{{--                                                class="department-img-list of-cover"--}}
-{{--                                                alt="image 1"--}}
-{{--                                            />--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="col-lg-9">--}}
-{{--                                    <div class="card-body position-relative">--}}
-{{--                                        <div--}}
-{{--                                            class="row justify-content-lg-between align-items-center mb-3 small"--}}
-{{--                                        >--}}
-{{--                                            <div class="col-lg-4 mb-lg-0 mb-3">--}}
-{{--                                                <div class="text-main number-ads">--}}
-{{--                                                    رقم الاعلان(12)--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="col-lg-8">--}}
-{{--                                                <div--}}
-{{--                                                    class="d-flex justify-content-lg-end align-items-center"--}}
-{{--                                                >--}}
-{{--                                                    <div class="department-badge bg-main text-white">--}}
-{{--                                                        <div class="pt-1">5</div>--}}
-{{--                                                        <div>--}}
-{{--                                                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">--}}
-{{--                                                                <path d="M12.7529 19.6185L20.1689 24.3301L18.2009 15.4501L24.7529 9.47534L16.1249 8.70481L12.7529 0.330078L9.38093 8.70481L0.75293 9.47534L7.30493 15.4501L5.33693 24.3301L12.7529 19.6185Z" fill="white"/>--}}
-{{--                                                            </svg>--}}
-{{--                                                        </div>--}}
-{{--                                                    </div>--}}
-{{--                                                    <div class="number-ads gray-txt">--}}
-{{--                                                        64 من التقييمات--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                        <h2 class="card-title mb-2">--}}
-{{--                                            شقة مكونه من غرفتين تطل علي البحر--}}
-{{--                                        </h2>--}}
+                {{--                <div class="row">--}}
+                {{--                    <div class="col-12 my-4">--}}
+                {{--                        <div class="card card-department round-border mb-3 p-lg-3 p-2">--}}
+                {{--                            <div class="row g-0">--}}
+                {{--                                <div class="col-lg-3 position-relative">--}}
+                {{--                                    <div--}}
+                {{--                                        class="owl-carousel owl-theme department-img-carousel"--}}
+                {{--                                        dir="ltr"--}}
+                {{--                                    >--}}
+                {{--                                        <div>--}}
+                {{--                                            <button class="add-to-wishlist">--}}
+                {{--                                                <svg--}}
+                {{--                                                    xmlns="http://www.w3.org/2000/svg"--}}
+                {{--                                                    width="24"--}}
+                {{--                                                    height="24"--}}
+                {{--                                                    viewBox="0 0 24 24"--}}
+                {{--                                                    fill="none"--}}
+                {{--                                                >--}}
+                {{--                                                    <path--}}
+                {{--                                                        d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"--}}
+                {{--                                                        fill="#FF8600"--}}
+                {{--                                                    />--}}
+                {{--                                                </svg>--}}
+                {{--                                            </button>--}}
+                {{--                                            <img--}}
+                {{--                                                loading="lazy"--}}
+                {{--                                                src="./assets/images/department-1.svg"--}}
+                {{--                                                class="department-img-list of-cover"--}}
+                {{--                                                alt="image 1"--}}
+                {{--                                            />--}}
+                {{--                                        </div>--}}
+                {{--                                        <div>--}}
+                {{--                                            <button class="add-to-wishlist">--}}
+                {{--                                                <svg--}}
+                {{--                                                    xmlns="http://www.w3.org/2000/svg"--}}
+                {{--                                                    width="24"--}}
+                {{--                                                    height="24"--}}
+                {{--                                                    viewBox="0 0 24 24"--}}
+                {{--                                                    fill="none"--}}
+                {{--                                                >--}}
+                {{--                                                    <path--}}
+                {{--                                                        d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"--}}
+                {{--                                                        fill="#FF8600"--}}
+                {{--                                                    />--}}
+                {{--                                                </svg>--}}
+                {{--                                            </button>--}}
+                {{--                                            <img--}}
+                {{--                                                loading="lazy"--}}
+                {{--                                                src="./assets/images/department-2.svg"--}}
+                {{--                                                class="department-img-list of-cover"--}}
+                {{--                                                alt="image 1"--}}
+                {{--                                            />--}}
+                {{--                                        </div>--}}
+                {{--                                        <div>--}}
+                {{--                                            <button class="add-to-wishlist">--}}
+                {{--                                                <svg--}}
+                {{--                                                    xmlns="http://www.w3.org/2000/svg"--}}
+                {{--                                                    width="24"--}}
+                {{--                                                    height="24"--}}
+                {{--                                                    viewBox="0 0 24 24"--}}
+                {{--                                                    fill="none"--}}
+                {{--                                                >--}}
+                {{--                                                    <path--}}
+                {{--                                                        d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"--}}
+                {{--                                                        fill="#FF8600"--}}
+                {{--                                                    />--}}
+                {{--                                                </svg>--}}
+                {{--                                            </button>--}}
+                {{--                                            <img--}}
+                {{--                                                loading="lazy"--}}
+                {{--                                                src="./assets/images/department-3.svg"--}}
+                {{--                                                class="department-img-list of-cover"--}}
+                {{--                                                alt="image 1"--}}
+                {{--                                            />--}}
+                {{--                                        </div>--}}
+                {{--                                    </div>--}}
+                {{--                                </div>--}}
+                {{--                                <div class="col-lg-9">--}}
+                {{--                                    <div class="card-body position-relative">--}}
+                {{--                                        <div--}}
+                {{--                                            class="row justify-content-lg-between align-items-center mb-3 small"--}}
+                {{--                                        >--}}
+                {{--                                            <div class="col-lg-4 mb-lg-0 mb-3">--}}
+                {{--                                                <div class="text-main number-ads">--}}
+                {{--                                                    رقم الاعلان(12)--}}
+                {{--                                                </div>--}}
+                {{--                                            </div>--}}
+                {{--                                            <div class="col-lg-8">--}}
+                {{--                                                <div--}}
+                {{--                                                    class="d-flex justify-content-lg-end align-items-center"--}}
+                {{--                                                >--}}
+                {{--                                                    <div class="department-badge bg-main text-white">--}}
+                {{--                                                        <div class="pt-1">5</div>--}}
+                {{--                                                        <div>--}}
+                {{--                                                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">--}}
+                {{--                                                                <path d="M12.7529 19.6185L20.1689 24.3301L18.2009 15.4501L24.7529 9.47534L16.1249 8.70481L12.7529 0.330078L9.38093 8.70481L0.75293 9.47534L7.30493 15.4501L5.33693 24.3301L12.7529 19.6185Z" fill="white"/>--}}
+                {{--                                                            </svg>--}}
+                {{--                                                        </div>--}}
+                {{--                                                    </div>--}}
+                {{--                                                    <div class="number-ads gray-txt">--}}
+                {{--                                                        64 من التقييمات--}}
+                {{--                                                    </div>--}}
+                {{--                                                </div>--}}
+                {{--                                            </div>--}}
+                {{--                                        </div>--}}
+                {{--                                        <h2 class="card-title mb-2">--}}
+                {{--                                            شقة مكونه من غرفتين تطل علي البحر--}}
+                {{--                                        </h2>--}}
 
-{{--                                        <div class="gray-txt number-ads">--}}
-{{--                                            <svg--}}
-{{--                                                xmlns="http://www.w3.org/2000/svg"--}}
-{{--                                                width="16"--}}
-{{--                                                height="20"--}}
-{{--                                                viewBox="0 0 16 20"--}}
-{{--                                                fill="none"--}}
-{{--                                            >--}}
-{{--                                                <path--}}
-{{--                                                    d="M8.20799 9.99996C8.54986 9.99996 8.84262 9.83663 9.08628 9.50996C9.32994 9.18329 9.45156 8.79107 9.45115 8.33329C9.45115 7.87496 9.32932 7.48246 9.08566 7.15579C8.842 6.82913 8.54944 6.66607 8.20799 6.66663C7.86612 6.66663 7.57335 6.82996 7.3297 7.15663C7.08604 7.48329 6.96441 7.87551 6.96483 8.33329C6.96483 8.79163 7.08666 9.18413 7.33032 9.51079C7.57398 9.83746 7.86653 10.0005 8.20799 9.99996ZM8.20799 16.125C9.47187 14.5694 10.4094 13.1561 11.0206 11.885C11.6319 10.6138 11.9375 9.48551 11.9375 8.49996C11.9375 6.98607 11.5774 5.74663 10.8572 4.78163C10.137 3.81663 9.2539 3.33385 8.20799 3.33329C7.16166 3.33329 6.2784 3.81607 5.55819 4.78163C4.83799 5.74718 4.4781 6.98663 4.47851 8.49996C4.47851 9.48607 4.78412 10.6147 5.39534 11.8858C6.00656 13.1569 6.94411 14.57 8.20799 16.125ZM8.20799 18.3333C6.54008 16.4305 5.29444 14.6633 4.47105 13.0316C3.64767 11.4 3.23577 9.8894 3.23535 8.49996C3.23535 6.41663 3.73531 4.7569 4.73522 3.52079C5.73514 2.28468 6.89272 1.66663 8.20799 1.66663C9.52366 1.66663 10.6815 2.28468 11.6814 3.52079C12.6813 4.7569 13.181 6.41663 13.1806 8.49996C13.1806 9.88885 12.7687 11.3994 11.9449 13.0316C11.1211 14.6638 9.87548 16.4311 8.20799 18.3333Z"--}}
-{{--                                                    fill="#9C9C9C"--}}
-{{--                                                />--}}
-{{--                                            </svg>--}}
-{{--                                            <span>الرياض, حي العوالي</span>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="py-3">--}}
-{{--                          <span--}}
-{{--                          ><svg--}}
-{{--                                  xmlns="http://www.w3.org/2000/svg"--}}
-{{--                                  width="24"--}}
-{{--                                  height="24"--}}
-{{--                                  viewBox="0 0 24 24"--}}
-{{--                                  fill="none"--}}
-{{--                              >--}}
-{{--                              <g clip-path="url(#clip0_421_12633)">--}}
-{{--                                <path--}}
-{{--                                    d="M8.243 3.03004C8.50026 3.09449 8.72137 3.2585 8.85771 3.48598C8.99405 3.71346 9.03444 3.98578 8.97 4.24304L4.97 20.243C4.94001 20.3724 4.88457 20.4944 4.80691 20.6021C4.72925 20.7098 4.63092 20.8009 4.51767 20.8702C4.40441 20.9395 4.2785 20.9855 4.14726 21.0056C4.01603 21.0257 3.88211 21.0195 3.75331 20.9873C3.62451 20.9551 3.50341 20.8976 3.39707 20.8181C3.29074 20.7386 3.2013 20.6387 3.13397 20.5243C3.06664 20.4099 3.02277 20.2832 3.00492 20.1516C2.98707 20.0201 2.9956 19.8863 3.03 19.758L7.03 3.75804C7.0618 3.63057 7.11842 3.51061 7.1966 3.40503C7.27478 3.29945 7.373 3.2103 7.48565 3.1427C7.5983 3.07509 7.72317 3.03034 7.85312 3.01101C7.98307 2.99168 8.11555 2.99815 8.243 3.03004ZM16.97 3.75704L20.97 19.757C21.0044 19.8853 21.0129 20.0191 20.9951 20.1506C20.9772 20.2822 20.9334 20.4089 20.866 20.5233C20.7987 20.6377 20.7093 20.7376 20.6029 20.8171C20.4966 20.8966 20.3755 20.9541 20.2467 20.9863C20.1179 21.0185 19.984 21.0247 19.8527 21.0046C19.7215 20.9845 19.5956 20.9385 19.4823 20.8692C19.3691 20.7999 19.2708 20.7088 19.1931 20.6011C19.1154 20.4934 19.06 20.3714 19.03 20.242L15.03 4.24204C14.9956 4.11381 14.9871 3.98001 15.0049 3.84845C15.0228 3.71689 15.0666 3.59021 15.134 3.47578C15.2013 3.36136 15.2907 3.26148 15.3971 3.18199C15.5034 3.10249 15.6245 3.04497 15.7533 3.01277C15.8821 2.98057 16.016 2.97434 16.1473 2.99444C16.2785 3.01454 16.4044 3.06058 16.5177 3.12986C16.6309 3.19914 16.7292 3.29028 16.8069 3.39796C16.8846 3.50564 16.94 3.6277 16.97 3.75704ZM12 17C12.2449 17.0001 12.4813 17.09 12.6644 17.2528C12.8474 17.4155 12.9643 17.6398 12.993 17.883L13 18V20C12.9997 20.2549 12.9021 20.5001 12.7272 20.6854C12.5522 20.8707 12.313 20.9823 12.0586 20.9972C11.8042 21.0121 11.5536 20.9294 11.3582 20.7658C11.1627 20.6022 11.0371 20.3701 11.007 20.117L11 20V18C11 17.7348 11.1054 17.4805 11.2929 17.2929C11.4804 17.1054 11.7348 17 12 17ZM12 10C12.2652 10 12.5196 10.1054 12.7071 10.2929C12.8946 10.4805 13 10.7348 13 11V13C13 13.2653 12.8946 13.5196 12.7071 13.7071C12.5196 13.8947 12.2652 14 12 14C11.7348 14 11.4804 13.8947 11.2929 13.7071C11.1054 13.5196 11 13.2653 11 13V11C11 10.7348 11.1054 10.4805 11.2929 10.2929C11.4804 10.1054 11.7348 10 12 10ZM12 3.00004C12.2449 3.00007 12.4813 3.08999 12.6644 3.25275C12.8474 3.41551 12.9643 3.63979 12.993 3.88304L13 4.00004V6.00004C12.9997 6.25492 12.9021 6.50007 12.7272 6.68541C12.5522 6.87074 12.313 6.98227 12.0586 6.99721C11.8042 7.01215 11.5536 6.92936 11.3582 6.76577C11.1627 6.60218 11.0371 6.37013 11.007 6.11704L11 6.00004V4.00004C11 3.73482 11.1054 3.48047 11.2929 3.29293C11.4804 3.10539 11.7348 3.00004 12 3.00004Z"--}}
-{{--                                    fill="#FF8600"--}}
-{{--                                />--}}
-{{--                              </g>--}}
-{{--                              <defs>--}}
-{{--                                <clipPath id="clip0_421_12633">--}}
-{{--                                  <rect width="24" height="24" fill="white" />--}}
-{{--                                </clipPath>--}}
-{{--                              </defs></svg--}}
-{{--                              ></span>--}}
-{{--                                            <span class="text-main position-department">--}}
-{{--                            يطل علي شارع رئيسى--}}
-{{--                          </span>--}}
-{{--                                        </div>--}}
+                {{--                                        <div class="gray-txt number-ads">--}}
+                {{--                                            <svg--}}
+                {{--                                                xmlns="http://www.w3.org/2000/svg"--}}
+                {{--                                                width="16"--}}
+                {{--                                                height="20"--}}
+                {{--                                                viewBox="0 0 16 20"--}}
+                {{--                                                fill="none"--}}
+                {{--                                            >--}}
+                {{--                                                <path--}}
+                {{--                                                    d="M8.20799 9.99996C8.54986 9.99996 8.84262 9.83663 9.08628 9.50996C9.32994 9.18329 9.45156 8.79107 9.45115 8.33329C9.45115 7.87496 9.32932 7.48246 9.08566 7.15579C8.842 6.82913 8.54944 6.66607 8.20799 6.66663C7.86612 6.66663 7.57335 6.82996 7.3297 7.15663C7.08604 7.48329 6.96441 7.87551 6.96483 8.33329C6.96483 8.79163 7.08666 9.18413 7.33032 9.51079C7.57398 9.83746 7.86653 10.0005 8.20799 9.99996ZM8.20799 16.125C9.47187 14.5694 10.4094 13.1561 11.0206 11.885C11.6319 10.6138 11.9375 9.48551 11.9375 8.49996C11.9375 6.98607 11.5774 5.74663 10.8572 4.78163C10.137 3.81663 9.2539 3.33385 8.20799 3.33329C7.16166 3.33329 6.2784 3.81607 5.55819 4.78163C4.83799 5.74718 4.4781 6.98663 4.47851 8.49996C4.47851 9.48607 4.78412 10.6147 5.39534 11.8858C6.00656 13.1569 6.94411 14.57 8.20799 16.125ZM8.20799 18.3333C6.54008 16.4305 5.29444 14.6633 4.47105 13.0316C3.64767 11.4 3.23577 9.8894 3.23535 8.49996C3.23535 6.41663 3.73531 4.7569 4.73522 3.52079C5.73514 2.28468 6.89272 1.66663 8.20799 1.66663C9.52366 1.66663 10.6815 2.28468 11.6814 3.52079C12.6813 4.7569 13.181 6.41663 13.1806 8.49996C13.1806 9.88885 12.7687 11.3994 11.9449 13.0316C11.1211 14.6638 9.87548 16.4311 8.20799 18.3333Z"--}}
+                {{--                                                    fill="#9C9C9C"--}}
+                {{--                                                />--}}
+                {{--                                            </svg>--}}
+                {{--                                            <span>الرياض, حي العوالي</span>--}}
+                {{--                                        </div>--}}
+                {{--                                        <div class="py-3">--}}
+                {{--                          <span--}}
+                {{--                          ><svg--}}
+                {{--                                  xmlns="http://www.w3.org/2000/svg"--}}
+                {{--                                  width="24"--}}
+                {{--                                  height="24"--}}
+                {{--                                  viewBox="0 0 24 24"--}}
+                {{--                                  fill="none"--}}
+                {{--                              >--}}
+                {{--                              <g clip-path="url(#clip0_421_12633)">--}}
+                {{--                                <path--}}
+                {{--                                    d="M8.243 3.03004C8.50026 3.09449 8.72137 3.2585 8.85771 3.48598C8.99405 3.71346 9.03444 3.98578 8.97 4.24304L4.97 20.243C4.94001 20.3724 4.88457 20.4944 4.80691 20.6021C4.72925 20.7098 4.63092 20.8009 4.51767 20.8702C4.40441 20.9395 4.2785 20.9855 4.14726 21.0056C4.01603 21.0257 3.88211 21.0195 3.75331 20.9873C3.62451 20.9551 3.50341 20.8976 3.39707 20.8181C3.29074 20.7386 3.2013 20.6387 3.13397 20.5243C3.06664 20.4099 3.02277 20.2832 3.00492 20.1516C2.98707 20.0201 2.9956 19.8863 3.03 19.758L7.03 3.75804C7.0618 3.63057 7.11842 3.51061 7.1966 3.40503C7.27478 3.29945 7.373 3.2103 7.48565 3.1427C7.5983 3.07509 7.72317 3.03034 7.85312 3.01101C7.98307 2.99168 8.11555 2.99815 8.243 3.03004ZM16.97 3.75704L20.97 19.757C21.0044 19.8853 21.0129 20.0191 20.9951 20.1506C20.9772 20.2822 20.9334 20.4089 20.866 20.5233C20.7987 20.6377 20.7093 20.7376 20.6029 20.8171C20.4966 20.8966 20.3755 20.9541 20.2467 20.9863C20.1179 21.0185 19.984 21.0247 19.8527 21.0046C19.7215 20.9845 19.5956 20.9385 19.4823 20.8692C19.3691 20.7999 19.2708 20.7088 19.1931 20.6011C19.1154 20.4934 19.06 20.3714 19.03 20.242L15.03 4.24204C14.9956 4.11381 14.9871 3.98001 15.0049 3.84845C15.0228 3.71689 15.0666 3.59021 15.134 3.47578C15.2013 3.36136 15.2907 3.26148 15.3971 3.18199C15.5034 3.10249 15.6245 3.04497 15.7533 3.01277C15.8821 2.98057 16.016 2.97434 16.1473 2.99444C16.2785 3.01454 16.4044 3.06058 16.5177 3.12986C16.6309 3.19914 16.7292 3.29028 16.8069 3.39796C16.8846 3.50564 16.94 3.6277 16.97 3.75704ZM12 17C12.2449 17.0001 12.4813 17.09 12.6644 17.2528C12.8474 17.4155 12.9643 17.6398 12.993 17.883L13 18V20C12.9997 20.2549 12.9021 20.5001 12.7272 20.6854C12.5522 20.8707 12.313 20.9823 12.0586 20.9972C11.8042 21.0121 11.5536 20.9294 11.3582 20.7658C11.1627 20.6022 11.0371 20.3701 11.007 20.117L11 20V18C11 17.7348 11.1054 17.4805 11.2929 17.2929C11.4804 17.1054 11.7348 17 12 17ZM12 10C12.2652 10 12.5196 10.1054 12.7071 10.2929C12.8946 10.4805 13 10.7348 13 11V13C13 13.2653 12.8946 13.5196 12.7071 13.7071C12.5196 13.8947 12.2652 14 12 14C11.7348 14 11.4804 13.8947 11.2929 13.7071C11.1054 13.5196 11 13.2653 11 13V11C11 10.7348 11.1054 10.4805 11.2929 10.2929C11.4804 10.1054 11.7348 10 12 10ZM12 3.00004C12.2449 3.00007 12.4813 3.08999 12.6644 3.25275C12.8474 3.41551 12.9643 3.63979 12.993 3.88304L13 4.00004V6.00004C12.9997 6.25492 12.9021 6.50007 12.7272 6.68541C12.5522 6.87074 12.313 6.98227 12.0586 6.99721C11.8042 7.01215 11.5536 6.92936 11.3582 6.76577C11.1627 6.60218 11.0371 6.37013 11.007 6.11704L11 6.00004V4.00004C11 3.73482 11.1054 3.48047 11.2929 3.29293C11.4804 3.10539 11.7348 3.00004 12 3.00004Z"--}}
+                {{--                                    fill="#FF8600"--}}
+                {{--                                />--}}
+                {{--                              </g>--}}
+                {{--                              <defs>--}}
+                {{--                                <clipPath id="clip0_421_12633">--}}
+                {{--                                  <rect width="24" height="24" fill="white" />--}}
+                {{--                                </clipPath>--}}
+                {{--                              </defs></svg--}}
+                {{--                              ></span>--}}
+                {{--                                            <span class="text-main position-department">--}}
+                {{--                            يطل علي شارع رئيسى--}}
+                {{--                          </span>--}}
+                {{--                                        </div>--}}
 
-{{--                                        <div--}}
-{{--                                            class="d-lg-flex align-items-center justify-content-lg-between mt-2"--}}
-{{--                                        >--}}
-{{--                                            <div class="department-price">--}}
-{{--                                                <span class="text-gray-2">سعر اليوم:</span>--}}
-{{--                                                <span class="fw-bold text-main"--}}
-{{--                                                >2578 درهم مغربى--}}
-{{--                            </span>--}}
-{{--                                            </div>--}}
-{{--                                            <div--}}
-{{--                                                class="details-btn d-flex align-items-center justify-content-center mt-lg-0 mt-3"--}}
-{{--                                            >--}}
-{{--                                                <a href="#">عرض التفاصيل</a>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
+                {{--                                        <div--}}
+                {{--                                            class="d-lg-flex align-items-center justify-content-lg-between mt-2"--}}
+                {{--                                        >--}}
+                {{--                                            <div class="department-price">--}}
+                {{--                                                <span class="text-gray-2">سعر اليوم:</span>--}}
+                {{--                                                <span class="fw-bold text-main"--}}
+                {{--                                                >2578 درهم مغربى--}}
+                {{--                            </span>--}}
+                {{--                                            </div>--}}
+                {{--                                            <div--}}
+                {{--                                                class="details-btn d-flex align-items-center justify-content-center mt-lg-0 mt-3"--}}
+                {{--                                            >--}}
+                {{--                                                <a href="#">عرض التفاصيل</a>--}}
+                {{--                                            </div>--}}
+                {{--                                        </div>--}}
+                {{--                                    </div>--}}
+                {{--                                </div>--}}
+                {{--                            </div>--}}
+                {{--                        </div>--}}
+                {{--                    </div>--}}
+                {{--                </div>--}}
 
 
             </div>
@@ -859,8 +885,6 @@
             </div>
         </section>
     </main>
-
-
 
 @endsection
 
