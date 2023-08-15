@@ -37,7 +37,7 @@ class AqarResource extends JsonResource
 
             "distance" => $this->distance ?? '',
             "time" => $this->time ?? '',
-            "image" => asset('images/aqars')."/".$this->main_image_ads,
+            "image" => asset('images/aqars')."/".$this->main_image,
             "comment_text" => $this->comment_text ?? '',
             "comision" => $this->comision ?? '',
             "fixed_price" => $this->fixed_price ?? 0,

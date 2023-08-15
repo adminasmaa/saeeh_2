@@ -142,7 +142,7 @@ class CategoryController extends Controller
 
         } elseif (!empty($request->rate)) {
             $aqars_id = AqarReview::orderBy('rate', 'DESC')->pluck('aqar_id')->toArray();
-            $aquars = Aqar::where('category_id', '=', $request->category_id)->whereIn('id', $aqars_id)->orderBy('fixed_price', 'ASC')->paginate(20);
+            $aquars = Aqar::where('category_id', '=', $request->category_id)->whereIn('id', $aqars_id)->paginate(20);
 
 
         } else {
