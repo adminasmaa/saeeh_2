@@ -62,13 +62,15 @@ class CategoryController extends Controller
 
     public function listofBrands()
     {
-        $categories = Category::where('type', '=', 2)->get();
+        $categories = Category::where('type', '=', 2)->paginate(20);
+
+
 
         if (count($categories)) {
 
 
-            $categories = CategoryOnlyResource::collection($categories);
-            return $this->respondSuccess($categories, __('message.categories retrieved successfully.'));
+            $categories = CategoryOnlyResource::collection($categories->response()->getData());
+            return $this->respondSuccessPaginate($categories, __('message.categories retrieved successfully.'));
 
         } else {
             return $this->respondError(__('message.Category not found.'), ['error' => __('message.Category not found.')], 404);
