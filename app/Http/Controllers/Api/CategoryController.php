@@ -60,22 +60,29 @@ class CategoryController extends Controller
 
     }
 
-    public function listofBrands()
+    public function listofBrands(Request $request)
     {
-        $categories = Category::where('type', '=', 2)->paginate(20);
 
 
+        if (!empty($request->page)) {
 
-        if (count($categories)) {
-
-
+            $categories = Category::with('cars')->where('type', '=', 2)->where('parent_id', '=', 2)->whereHas('cars')->paginate('5');
             $categories = CategoryOnlyResource::collection($categories)->response()->getData();
             return $this->respondSuccessPaginate($categories, __('message.categories retrieved successfully.'));
 
+
         } else {
-            return $this->respondError(__('message.Category not found.'), ['error' => __('message.Category not found.')], 404);
+            $categories = Category::with('cars')->where('type', '=', 2)->where('parent_id', '=', 2)->whereHas('cars')->get();
+            $categories = CategoryOnlyResource::collection($categories);
+            return $this->respondSuccess($categories, __('message.categories retrieved successfully.'));
 
         }
+
+//
+//        else {
+//            return $this->respondError(__('message.Category not found.'), ['error' => __('message.Category not found.')], 404);
+//
+//        }
 
     }
 
@@ -120,26 +127,21 @@ class CategoryController extends Controller
     {
         if (!empty($request->rate) && !empty($request->low_price)) {
 
-            $aqars_id = AqarReview::orderBy('fixed_price', 'DESC')->pluck('aqar_id')->toArray();
+            $aqars_id = AqarReview::orderBy('rate', 'DESC')->pluck('aqar_id')->toArray();
             $aquars = Aqar::where('category_id', '=', $request->category_id)->whereIn('id', $aqars_id)->orderBy('fixed_price', 'ASC')->paginate(20);
 
 
         } elseif (!empty($request->rate) && !empty($request->hign_price)) {
 
-            $aqars_id = AqarReview::orderBy('fixed_price', 'DESC')->pluck('aqar_id')->toArray();
+            $aqars_id = AqarReview::orderBy('rate', 'DESC')->pluck('aqar_id')->toArray();
             $aquars = Aqar::where('category_id', '=', $request->category_id)->whereIn('id', $aqars_id)->orderBy('fixed_price', 'DESC')->paginate(20);
-
-
         } elseif (!empty($request->low_price)) {
-
             $aquars = Aqar::where('category_id', '=', $request->category_id)->orderBy('fixed_price', 'ASC')->paginate(20);
-
         } elseif (!empty($request->hign_price)) {
             $aquars = Aqar::where('category_id', '=', $request->category_id)->orderBy('fixed_price', 'DESC')->paginate(20);
 
-
         } elseif (!empty($request->rate)) {
-            $aqars_id = AqarReview::orderBy('fixed_price', 'DESC')->pluck('aqar_id')->toArray();
+            $aqars_id = AqarReview::orderBy('rate', 'DESC')->pluck('aqar_id')->toArray();
             $aquars = Aqar::where('category_id', '=', $request->category_id)->whereIn('id', $aqars_id)->orderBy('fixed_price', 'ASC')->paginate(20);
 
 
