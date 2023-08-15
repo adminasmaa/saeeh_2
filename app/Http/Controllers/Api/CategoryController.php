@@ -8,6 +8,7 @@ use App\Http\Resources\BransCarSubResource;
 use App\Http\Resources\CarResource;
 use App\Http\Resources\CityCategoryResource;
 use App\Models\Aqar;
+use App\Models\AqarReview;
 use App\Models\Car;
 use App\Models\City;
 use Illuminate\Http\Request;
@@ -115,12 +116,41 @@ class CategoryController extends Controller
 
     public function listofAquarWithCategory(Request $request)
     {
-        $aquars= Aqar::where('category_id', '=',$request->category_id)->paginate(20);
+        if (!empty($request->rate) && !empty($request->low_price)) {
+
+            $aqars_id = AqarReview::orderBy('fixed_price', 'DESC')->pluck('aqar_id');
+            $aquars = Aqar::where('category_id', '=', $request->category_id)->whereIn('id', $aqars_id)->orderBy('fixed_price', 'ASC')->paginate(20);
+
+
+        } elseif (!empty($request->rate) && !empty($request->hign_price)) {
+
+            $aqars_id = AqarReview::orderBy('fixed_price', 'DESC')->pluck('aqar_id');
+            $aquars = Aqar::where('category_id', '=', $request->category_id)->whereIn('id', $aqars_id)->orderBy('fixed_price', 'DESC')->paginate(20);
+
+
+        } elseif (!empty($request->low_price)) {
+
+            $aquars = Aqar::where('category_id', '=', $request->category_id)->orderBy('fixed_price', 'ASC')->paginate(20);
+
+        } elseif (!empty($request->hign_price)) {
+            $aquars = Aqar::where('category_id', '=', $request->category_id)->orderBy('fixed_price', 'DESC')->paginate(20);
+
+
+        } elseif (!empty($request->rate)) {
+            $aqars_id = AqarReview::orderBy('fixed_price', 'DESC')->pluck('aqar_id');
+            $aquars = Aqar::where('category_id', '=', $request->category_id)->whereIn('id', $aqars_id)->orderBy('fixed_price', 'ASC')->paginate(20);
+
+
+        } else {
+
+            $aquars = Aqar::where('category_id', '=', $request->category_id)->paginate(20);
+
+        }
 
 
         if (count($aquars)) {
 
-            $aquarss =  AqarDetailResource::collection($aquars)->response()->getData();
+            $aquarss = AqarDetailResource::collection($aquars)->response()->getData();
 
             return $this->respondSuccessPaginate($aquarss, __('message.data retrieved successfully.'));
 
@@ -133,12 +163,12 @@ class CategoryController extends Controller
 
     public function listofCarswithsubcategory(Request $request)
     {
-        $cars= Car::where('sub_category_id', '=',$request->sub_category_id)->paginate(20);
+        $cars = Car::where('sub_category_id', '=', $request->sub_category_id)->paginate(20);
 
 
         if (count($cars)) {
 
-            $carss =  CarResource::collection($cars)->response()->getData();
+            $carss = CarResource::collection($cars)->response()->getData();
 
             return $this->respondSuccessPaginate($carss, __('message.data retrieved successfully.'));
 
@@ -202,7 +232,9 @@ class CategoryController extends Controller
 
 
         if (count($subcategories) == 0) {
-            $places = PlaceResource::collection(Place::where(function ($query) use ($cat_id) {$query->where('category_id', $cat_id)->orwhere('sub_category_id',$cat_id);})->where('city_id','=', $city_id)->paginate(20))->response()->getData();
+            $places = PlaceResource::collection(Place::where(function ($query) use ($cat_id) {
+                $query->where('category_id', $cat_id)->orwhere('sub_category_id', $cat_id);
+            })->where('city_id', '=', $city_id)->paginate(20))->response()->getData();
 //            $places = Place::where('category_id','=', $cat_id)->orwhere('sub_category_id','=', $cat_id)->paginate(20);
 
             return $this->respondSuccessPaginate($places, __('message.subcategories retrieved successfully.'));
@@ -217,9 +249,10 @@ class CategoryController extends Controller
     {
         $category_id = $request->category_id;
         $city_id = $request->city_id;
-       
-        $category = Category::where('id', $category_id)->with('subcategories', function ($q) use ($city_id) { 
-            $q->select('categories.*')->join('cities-categories', 'categories.id', '=', 'cities-categories.category_id')->where('cities-categories.city_id','=',$city_id);})->first();
+
+        $category = Category::where('id', $category_id)->with('subcategories', function ($q) use ($city_id) {
+            $q->select('categories.*')->join('cities-categories', 'categories.id', '=', 'cities-categories.category_id')->where('cities-categories.city_id', '=', $city_id);
+        })->first();
         if (isset($category)) {
 
 
