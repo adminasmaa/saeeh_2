@@ -83,7 +83,7 @@ class ServiceAqarController extends Controller
      || Tested   : Done                                    |
        ||                                     |
         ||                                    |
-           -----------------------------------------------------*/
+    -----------------------------------------------------*/
 
     public function update(Request $request, $id)
     {
@@ -123,8 +123,8 @@ class ServiceAqarController extends Controller
         return back();
 //        return $this->serviceAqarRepository->destroy($AqarService);
 
-
     }//end of destroy
+
     public function destroy2($id)
     {
         $SubAqarService = AqarService::find($id);

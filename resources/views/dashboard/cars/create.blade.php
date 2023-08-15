@@ -109,23 +109,8 @@
                                         format="('Y-m-d\TH:i')" value="{{old('car_delivery_date')}}" 
                                         >
                                     </div>
-
-
-{{--                                    <div class="col-md-6 form-group col-12 p-2 ">--}}
-{{--                                        <label>@lang('site.price')<span class="text-danger">*</span></label>--}}
-{{--                                        <input type="number"  step=".1" name="fixed_price" class="form-control"--}}
-{{--                                               value="{{old('fixed_price')}}"--}}
-{{--                                        >--}}
-{{--                                    </div>--}}
-
-{{--                                    <div class="col-md-6 form-group col-12 p-2 ">--}}
-{{--                                        <label>@lang('site.changed_price')<span class="text-danger">*</span></label>--}}
-{{--                                        <input type="number"  step=".1" name="changed_price" class="form-control"--}}
-{{--                                               value="{{old('changed_price')}}"--}}
-{{--                                        >--}}
-{{--                                    </div>--}}
                                 </div>
-                                    <div class="row m-t-10">
+                                    <!-- <div class="row m-t-10">
                                         <div class="m-checkbox-inline">
                                             <label for="edo-ani">
                                                 <input class="radio_animated"  type="radio" name="price" checked="" data-bs-original-title="" title="" value="1" >@lang('site.fixed_price')
@@ -134,9 +119,63 @@
                                                 <input class="radio_animated" type="radio" name="price" data-bs-original-title="" title="" value="2">@lang('site.changed_price')
                                             </label>
                                         </div>
-                                    </div>
+                                    </div> -->
+                                        <!-- <br> -->
                                     <div class="row m-t-10">
-                                        <!--<div class="col-md-6">-->
+                                                <div class="m-checkbox-inline">
+                                                    <label for="edo-ani">
+                                                        <input class="radio_animated" type="radio" name="price"
+                                                            checked="" data-bs-original-title="" title=""
+                                                            value="1">@lang('site.fixed_price')
+                                                    </label>
+                                                    <label for="edo-ani1">
+                                                        <input class="radio_animated" type="radio" name="price"
+                                                            data-bs-original-title="" title=""
+                                                            value="2">@lang('site.changed_price')
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                        <!-- <br> -->
+                                        <div class="col-md-6 form-group col-12 p-2  desc" id="price1">
+                                                    <label>@lang('site.fixed_price')<span
+                                                            class="text-danger">*</span></label>
+                                                    <input type="number"  step=".1" name="fixed_price" class="form-control"
+                                                        value="{{old('fixed_price')}}">
+                                                </div>
+
+                                                <div class="col-md-12 form-group col-12   desc" id="price2"
+                                                    style="display: none;">
+                                                    <table class="price-list" id="tb_price">
+                                                        <tr>
+                                                            <td>
+                                                                <div class="row">
+                                                                    <div class="col-md-4 form-group col-12">
+                                                                        <label>@lang('site.daynumber')</label>
+                                                                        <input type="number" name="day_num[]"
+                                                                            class="form-control" />
+                                                                    </div>
+                                                                    <div class="col-md-4 form-group col-12">
+                                                                        <label>@lang('site.fixed_price')</label>
+                                                                        <input type="number"  step=".1" name="price[]"
+                                                                            class="form-control">       
+                                                                    </div>
+                                                                    <div class="col-md-4 form-group col-12">
+                                                                        <a
+                                                                            class="btn btn-air-primary btn-pill btn-success add-price w-100 m-t-30"><i
+                                                                                class="fa fa-plus"
+                                                                                aria-hidden="true"></i></a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+
+
+                                                </div>
+                                                <!-- <br> -->
+                                    <!-- <div class="row m-t-10">
+                                        <div class="col-md-6">
 
                                         <div class="col-md-6 form-group col-12 p-2  desc" id="price1">
                                             <label>@lang('site.fixed_price')<span class="text-danger">*</span></label>
@@ -166,7 +205,7 @@
 
                                         </div>
                                         <br>
-                                    </div>
+                                    </div> -->
 
 
 
@@ -376,17 +415,25 @@
 
 
         $(document).ready(function () {
+            // jQuery('a.add-price').click(function (event) {
+            //     event.preventDefault();
+            //     var newRow = jQuery('<tr><td><div class="row"><div class="col-md-5 form-group col-12 p-2">' +
+            //         ' <label>@lang('site.daynumber')</label><input type="number"  name="daynumber[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
+            //         '<label>@lang('site.fixed_price')</label><input type="number"  step=".1" name="price[]" class="form-control" >' +
+            //         '  </div>  <div class="col-md-2 form-group col-12 p-2 "> <a class="btn btn-air-primary btn-pill btn-danger add-price w-100 m-t-30" onclick="deletetr(this)" ><i class="fa fa-trash"></i></a>' +
+
+            //         '</div></div> </td>  </tr>');
+            //     jQuery('.price-list').append(newRow);
+            // });
             jQuery('a.add-price').click(function (event) {
                 event.preventDefault();
                 var newRow = jQuery('<tr><td><div class="row"><div class="col-md-5 form-group col-12 p-2">' +
-                    ' <label>@lang('site.daynumber')</label><input type="number"  name="daynumber[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
-                    '<label>@lang('site.fixed_price')</label><input type="number"  step=".1" name="price[]" class="form-control" >' +
+                    ' <label>@lang('site.daynumber')</label><input type="number"  name="day_num[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
+                    '<label>@lang('site.fixed_price')</label><input type="number" name="price[]" class="form-control" >' +
                     '  </div>  <div class="col-md-2 form-group col-12 p-2 "> <a class="btn btn-air-primary btn-pill btn-danger add-price w-100 m-t-30" onclick="deletetr(this)" ><i class="fa fa-trash"></i></a>' +
-
                     '</div></div> </td>  </tr>');
                 jQuery('.price-list').append(newRow);
             });
-
             $("input[name='price']").click(function() {
                 var test = $(this).val();
 
