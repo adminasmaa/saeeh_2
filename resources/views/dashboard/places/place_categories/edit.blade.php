@@ -282,13 +282,7 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                    </table>
-                                    <div class="col-md-2 form-group col-12 p-2">
-
-                                        <br>
-                                        <a class="btn btn-air-primary btn-pill btn-success add-price w-100"><i class="fa fa-plus" aria-hidden="true"></i></a>
-
-                                        </div>
+                                </table>
                                 </div>
                                 <br>
                             </div> 
