@@ -69,7 +69,7 @@ class CategoryController extends Controller
         if (count($categories)) {
 
 
-            $categories = CategoryOnlyResource::collection($categories->response()->getData());
+            $categories = CategoryOnlyResource::collection($categories)->response()->getData();
             return $this->respondSuccessPaginate($categories, __('message.categories retrieved successfully.'));
 
         } else {
