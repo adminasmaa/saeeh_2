@@ -52,15 +52,13 @@ class CarController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-
-                'name_ar' => 'required',
-
-            ]
-        );
-
-
+        $data['day_num'] = $request['day_num'];
+        $data['price'] = $request['price'];
+        $request['changed_price']=json_encode($data)!=null?json_encode($data):json_encode([]);
+       
         return $this->CarRepository->store($request);
+
+
 
     }//end of store
 
