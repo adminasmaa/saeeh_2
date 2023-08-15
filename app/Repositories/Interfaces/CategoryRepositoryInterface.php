@@ -21,4 +21,6 @@ interface CategoryRepositoryInterface
     public function store($request);
 
     public function update($category, $request);
+
+
 }

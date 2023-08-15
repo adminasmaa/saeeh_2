@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Repositories\Eloquent\PlaceCategoryRepository;
 use App\DataTables\PlaceCategoryDataTable;
+use Alert;
 
 
 class PlaceCategoryController extends Controller
@@ -118,15 +119,13 @@ class PlaceCategoryController extends Controller
 
         return $this->PlaceCategoryRepository->destroy($category);
     }
-    public function destroy2($id)
+    public function SubCategories($id)
     {
-        $SubPlaceCategory = Category::find($id);
-        $result = $SubPlaceCategory->delete();
-        if ($result) {
-          Alert::toast('Deleted', __('site.deleted_successfully'));
-      } else {
-          Alert::toast('Deleted', __('site.delete_faild'));
-      }
-      return back();
-    }//end of destroy
+
+        $subcategories = Category::where('parent_id', $id)->get();
+
+        return Response::json($subcategories);
+
+
+    }
 }

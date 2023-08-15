@@ -22,6 +22,4 @@ interface PlaceCategoryRepositoryInterface
 
     public function update($category, $request);
 
-    public function destroy2($SubPlaceCategory);
-
 }
