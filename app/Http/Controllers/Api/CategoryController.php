@@ -95,7 +95,7 @@ class CategoryController extends Controller
         if (count($category->subcategories)) {
 
 
-            $categories = BransCarSubResource::collection($category->subcategoriesWithCars);
+            $categories = BransCarSubResource::collection($category->subcategories);
             return $this->respondSuccess($categories, __('message.categories retrieved successfully.'));
 
         } else {
