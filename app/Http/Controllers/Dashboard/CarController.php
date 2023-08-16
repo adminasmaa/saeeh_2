@@ -85,14 +85,10 @@ class CarController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-
-                'name_ar' => 'required',
-
-            ]
-        );
         $car = Car::find($id);
-
+        $data['day_num'] = $request['day_num'];
+        $data['price'] = $request['price'];
+        $request['changed_price']=json_encode($data)!=null?json_encode($data):json_encode([]);
         return $this->CarRepository->update($car, $request);
 
 

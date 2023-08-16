@@ -224,10 +224,10 @@
                                             <div class="row m-t-10">
                                                 <div class="m-checkbox-inline">
                                                         <label for="edo-ani">
-                                                        <input class="radio_animated"  type="radio" name="price" {{$aqar->fixed_price ? 'checked':'' }} data-bs-original-title="" title="" value="1" readonly="" disabled>@lang('site.fixed_price')
+                                                        <input class="radio_animated"  type="radio" name="price" {{$aqar->fixed_price ? 'checked':'' }} data-bs-original-title="" title="" value="1" >@lang('site.fixed_price')
                                                         </label>
                                                         <label for="edo-ani1">
-                                                        <input class="radio_animated" type="radio" name="price" {{is_null($aqar->fixed_price) ? 'checked':'' }} data-bs-original-title="" title="" value="2" readonly="" disabled>@lang('site.changed_price')
+                                                        <input class="radio_animated" type="radio" name="price" {{is_null($aqar->fixed_price) ? 'checked':'' }} data-bs-original-title="" title="" value="2" >@lang('site.changed_price')
                                                         </label>
                                                 </div>
                                             </div>
@@ -273,7 +273,7 @@
                                                             @endfor
                                                     </table>
 
-                                                </div>
+                                            </div>
                                                 <br>
                                                 <div class="col-md-6 form-group">
                                                     <label class="form-label">@lang('site.ads_status')</label>
