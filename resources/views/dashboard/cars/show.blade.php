@@ -152,24 +152,56 @@
                                     format="('Y-m-d\TH:i')"value="{{ $car->car_delivery_date }}" disabled readonly=""
                                 >
                             </div>
-                            <div class="col-md-6 form-group col-12 p-2 ">
-                                <label>@lang('site.price')<span class="text-danger">*</span></label>
-                                <input type="number"  step=".1" name="fixed_price" class="form-control"
-                                       value="{{ $car->fixed_price ?? '' }}" readonly="" disabled
-                                >
-                            </div>
-
-                            <div class="col-md-6 form-group col-12 p-2 ">
-                                <label>@lang('site.changed_price')<span class="text-danger">*</span></label>
-                                <input type="number"  step=".1" name="changed_price" class="form-control"
-                                       value="{{ $car->changed_price ?? '' }}" readonly="" disabled
-                                >
-                            </div>
-
-
                         </div>
 
+                        <div class="row m-t-10">
+                                        <div class="m-checkbox-inline">
+                                                    <label for="edo-ani">
+                                                    <input class="radio_animated"  type="radio" name="price" {{$car->fixed_price ? 'checked':'' }} data-bs-original-title="" title="" value="1" >@lang('site.fixed_price')
+                                                    </label>
+                                                    <label for="edo-ani1">
+                                                    <input class="radio_animated" type="radio" name="price" {{is_null($car->fixed_price) ? 'checked':'' }} data-bs-original-title="" title="" value="2" >@lang('site.changed_price')
+                                                    </label>
+                                            </div>
+                                        </div>
+                                            <div class="row m-t-10">
+                                                <!--<div class="col-md-6">-->
 
+                                                <div class="col-md-6 form-group col-12 p-2  desc" id="price1">
+                                                    <label>@lang('site.fixed_price')<span
+                                                            class="text-danger">*</span></label>
+                                                    <input type="number"  step=".1" name="fixed_price" class="form-control"readonly="" disabled
+                                                        value="{{$car->fixed_price}}">
+                                                </div>
+
+                                                <div class="col-md-12 form-group col-12   desc" id="price2"
+                                                    style="display: none;">
+                                                    <table class="price-list" id="tb_price">
+                                                        @for ($x = 0; $x <= count($car->changed_price->price)-1; $x++)
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="row">
+                                                                        <div class="col-md-4 form-group col-12">
+                                                                            <label>@lang('site.daynumber')</label>
+                                                                            <input type="number" name="day_num[]"
+                                                                                class="form-control"
+                                                                                value="{{$car->changed_price->day_num[$x]}}"readonly="" disabled />
+                                                                        </div>
+                                                                        <div class="col-md-4 form-group col-12">
+                                                                            <label>@lang('site.fixed_price')</label>
+                                                                            <input type="number"  step=".1" name="price[]"
+                                                                                class="form-control"
+                                                                                value="{{$car->changed_price->price[$x]}}"readonly="" disabled />
+                                                                        </div>
+                                                                        
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            @endfor
+                                                    </table>
+
+                                            </div>
+                                                <br>
                         <div class="row">
 
 
@@ -357,7 +389,21 @@
 
             });
         });
+        jQuery('a.add-price').click(function(event) {
+        event.preventDefault();
+        var newRow = jQuery('<tr><td><div class="row"><div class="col-md-5 form-group col-12 p-2">' +
+            '<label>@lang('site.fixed_price')</label><input type="number" name="price[]" class="form-control" >' +
+            ' <label>@lang('site.daynumber')</label><input type="number"  name="day_num[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
+            '  </div>  <div class="col-md-2 form-group col-12 p-2 "> <a class="btn btn-air-primary btn-pill btn-danger add-price w-100 m-t-30" onclick="deletetr(this)" ><i class="fa fa-trash"></i></a>' +
+            '</div></div> </td>  </tr>');
+        jQuery('.price-list').append(newRow);
+        });
+        $("input[name='price']").click(function() {
+        var test = $(this).val();
 
+        $("div.desc").hide();
+        $("#price" + test).show();
+        });
         function deletetr(r) {
             r.closest('tr').remove();
         }

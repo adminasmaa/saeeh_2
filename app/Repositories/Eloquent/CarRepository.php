@@ -51,7 +51,7 @@ class CarRepository implements CarRepositoryInterfaceAlias
 
         $users = User::whereNotNull('account_type')->where('active',1)->get();
         $categories = Category::where('parent_id','=',2)->where('type','=',2)->get();
-
+        $car['changed_price']=json_decode($car['changed_price']);;
         $subcategories = Category::where('parent_id','!=',2)->where('type','=',2)->get();
         $countries = Country::all();
         $cities = City::all();
@@ -65,7 +65,7 @@ class CarRepository implements CarRepositoryInterfaceAlias
         // TODO: Implement show() method.
 
         $car = Car::find($Id);
-
+        $car['changed_price']=json_decode($car['changed_price']);
         $users = User::whereNotNull('account_type')->where('active',1)->get();
         $categories = Category::all();
         $subcategories = Category::get();
@@ -124,9 +124,7 @@ class CarRepository implements CarRepositoryInterfaceAlias
                 $car->save();
             }
         }
-
-
-
+        
         if ($car) {
             Alert::success('Success', __('site.added_successfully'));
 

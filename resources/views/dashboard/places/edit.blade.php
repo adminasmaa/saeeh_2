@@ -312,7 +312,7 @@
 
                                     <div class="col-md-6 form-group">
                                     <label class="form-label">@lang('site.social_media')</label><span class="text-danger">*</span>
-                                    <select class="form-control btn-square" name="social_media">
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="social_media">
                                             <option selected value="0">@lang('site.select')</option>
                                         <option value="facebook"
                                                 @if($place->social_media=='facebook') selected @endif>@lang('site.facebook')
@@ -352,7 +352,7 @@
 
                                     <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                     <label class="form-label">@lang('site.users')</label>
-                                    <select class="form-control btn-square" name="user_id">
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="user_id">
                                         <option selected disabled>@lang('site.select')</option>
                                         @foreach($users as $user)
 
@@ -367,7 +367,7 @@
                                 <div class="row">
                                 <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                     <label class="form-label">@lang('site.categories')</label>
-                                    <select class="form-control btn-square" name="category_id" id="category_id">
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="category_id" id="category_id">
                                         <option selected value="0" disabled>@lang('site.select')</option>
                                         @foreach($categories as $cat)
 
@@ -381,7 +381,7 @@
 
                                 <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                     <label class="form-label">@lang('site.subcategories')</label>
-                                    <select class="form-control btn-square" name="sub_category_id" id="sub_category_id">
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="sub_category_id" id="sub_category_id">
                                         <option value="0" disabled>@lang('site.select')</option>
                                         @foreach($subcategories as $cats)
 
@@ -395,7 +395,7 @@
                                 <div class="row">
                                                 <div class="col-md-6 form-group">
                                                     <label class="form-label">@lang('site.country')</label>
-                                                    <select class="form-control btn-square" name="country_id" id="country_id">
+                                                    <select class="js-example-placeholder-multiple col-sm-12" name="country_id" id="country_id">
                                                         <option selected disabled>@lang('site.select')</option>
                                                         @foreach($countries as $country)
 
@@ -409,7 +409,7 @@
                                                 </div>
                                                 <div class="col-md-6 form-group">
                                                     <label class="form-label">@lang('site.city')</label>
-                                                    <select class="form-control btn-square" name="city_id" id="city_id">
+                                                    <select class="js-example-placeholder-multiple col-sm-12" name="city_id" id="city_id">
                                                         <option selected disabled>@lang('site.select')</option>
                                                       
                                                     </select>
@@ -513,17 +513,17 @@
                                                     </div>
                                                     <div class="col-md-5 form-group col-12">
                                                         <label class="form-label">@lang('site.type')</label><span class="text-danger">*</span>
-                                                        <select class="form-control btn-square" name="sub_type[]"  >
+                                                        <select class="js-example-placeholder-multiple col-sm-12" name="sub_type[]"  >
                                                             <option selected>@lang('site.select')</option>
 
                                                             <option value="Meal"
-                                                                    @if($service->type=='meal') selected @endif>meal
+                                                                    @if($service->type=='meal') selected @endif>@lang('site.meal')
                                                             </option>
                                                             <option value="Break"
-                                                                    @if($service->type=='break') selected @endif>break
+                                                                    @if($service->type=='break') selected @endif>@lang('site.break')
                                                             </option>
                                                             <option value="Tawla"
-                                                                    @if($service->type=='tawla') selected @endif>tawla
+                                                                    @if($service->type=='tawla') selected @endif>@lang('site.tawla')
                                                             </option>
                                                         </select>
                                                     </div>

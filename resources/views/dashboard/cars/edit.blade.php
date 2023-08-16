@@ -163,69 +163,65 @@
                                        format="('Y-m-d\TH:i')"value="{{ $car->car_delivery_date }}">
                                 </div>
 
-
-                                {{--                                <div class="col-md-6 form-group col-12 p-2 ">--}}
-                                {{--                                    <label>@lang('site.price')<span class="text-danger">*</span></label>--}}
-                                {{--                                    <input type="number"  step=".1" name="fixed_price" class="form-control"--}}
-                                {{--                                           value="{{ $car->fixed_price ?? '' }}"--}}
-                                {{--                                    >--}}
-                                {{--                                </div>--}}
-
-                                {{--                                <div class="col-md-6 form-group col-12 p-2 ">--}}
-                                {{--                                    <label>@lang('site.changed_price')<span class="text-danger">*</span></label>--}}
-                                {{--                                    <input type="number"  step=".1" name="changed_price" class="form-control"--}}
-                                {{--                                           value="{{ $car->changed_price ?? '' }}"--}}
-                                {{--                                    >--}}
-                                {{--                                </div>--}}
-
-
-                            </div>
-
                             <div class="row m-t-10">
                                 <div class="m-checkbox-inline">
                                     <label for="edo-ani">
-                                        <input class="radio_animated" type="radio" name="price" checked=""
-                                               data-bs-original-title="" title="" value="1">@lang('site.fixed_price')
+                                    <input class="radio_animated"  type="radio" name="price" {{$car->fixed_price ? 'checked':'' }} data-bs-original-title="" title="" value="1" >@lang('site.fixed_price')
                                     </label>
                                     <label for="edo-ani1">
-                                        <input class="radio_animated" type="radio" name="price"
-                                               data-bs-original-title="" title="" value="2">@lang('site.changed_price')
+                                    <input class="radio_animated" type="radio" name="price" {{is_null($car->fixed_price) ? 'checked':'' }} data-bs-original-title="" title="" value="2">@lang('site.changed_price')
                                     </label>
                                 </div>
                             </div>
                             <div class="row m-t-10">
-                                <!--<div class="col-md-6">-->
-
-                                <div class="col-md-6 form-group col-12 p-2  desc" id="price1">
-                                    <label>@lang('site.fixed_price')<span class="text-danger">*</span></label>
-                                    <input type="number"  step=".1" name="fixed_price" class="form-control"
-                                           value="{{ $car->fixed_price ?? '' }}"
-                                    >
-                                </div>
-
-                                <div class="col-md-12 form-group col-12   desc" id="price2" style="display: none;">
-                                    <table class="price-list" id="tb_price">
-                                        <tr>
-                                            <td>
-                                                <div class="row">
-                                                    <div class="col-md-5 form-group col-12">
-                                                        <label>@lang('site.daynumber')</label>
-                                                        <input type="number" name="daynumber[]" class="form-control"/>
-                                                    </div>
-                                                    <div class="col-md-5 form-group col-12">
-                                                        <label>@lang('site.fixed_price')</label>
-                                                        <input type="number"  step=".1" name="price[]" class="form-control">
-                                                    </div>
-                                                    <div class="col-md-2 form-group col-12">
-                                                        <a class="btn btn-air-primary btn-pill btn-success add-price w-100 m-t-30"><i
-                                                                class="fa fa-plus" aria-hidden="true"></i></a>
-                                                    </div>
+                            <div class="col-md-6 form-group col-12 p-2  desc" id="price1">
+                                                    <label>@lang('site.fixed_price')<span
+                                                            class="text-danger">*</span></label>
+                                                    <input type="number"  step=".1" name="fixed_price" class="form-control"
+                                                        value="{{$car->fixed_price}}">
                                                 </div>
-                                            </td>
-                                        </tr>
-                                    </table>
 
-                                </div>
+                                                <div class="col-md-12 form-group col-12   desc" id="price2"
+                                                    style="display: none;">
+                                                    <table class="price-list" id="tb_price">
+                                                        @for ($x = 0; $x <= count($car->changed_price->price)-1; $x++)
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="row">
+                                                                        <div class="col-md-4 form-group col-12">
+                                                                            <label>@lang('site.daynumber')</label>
+                                                                            <input type="number" name="day_num[]"
+                                                                                class="form-control"
+                                                                                value="{{$car->changed_price->day_num[$x]}}" />
+                                                                        </div>
+                                                                        <div class="col-md-4 form-group col-12">
+                                                                            <label>@lang('site.fixed_price')</label>
+                                                                            <input type="number"  step=".1" name="price[]"
+                                                                                class="form-control"
+                                                                                value="{{$car->changed_price->price[$x]}}" />
+                                                                        </div>
+                                                                        @if($x==0)
+                                                                        <div class="col-md-4 form-group col-12">
+                                                                            <a
+                                                                                class="btn btn-air-primary btn-pill btn-success add-price w-100 m-t-30"><i
+                                                                                    class="fa fa-plus"
+                                                                                    aria-hidden="true"></i></a>
+                                                                        </div>
+                                                                        @endif
+                                                                        @if($x!=0)
+                                                                        <div class="col-md-2 form-group col-12">
+                                                                            <a class="btn btn-air-primary btn-pill btn-danger  w-100 m-t-30"
+                                                                                onclick="deletetr(this)"><i
+                                                                                    class="fa fa-trash"></i></a>
+                                                                        </div>
+                                                                        @endif
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            @endfor
+                                                    </table>
+
+                                                </div>
                                 <br>
                             </div>
 
@@ -481,27 +477,27 @@
 @endsection
 @section('scripts')
 
-    <script>
+<script>
 
 
         $(document).ready(function () {
-            jQuery('a.add-price').click(function (event) {
+            jQuery('a.add-price').click(function(event) {
                 event.preventDefault();
                 var newRow = jQuery('<tr><td><div class="row"><div class="col-md-5 form-group col-12 p-2">' +
-                    ' <label>@lang('site.daynumber')</label><input type="number"  name="daynumber[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
-                    '<label>@lang('site.fixed_price')</label><input type="number"  step=".1" name="price[]" class="form-control" >' +
+                    ' <label>@lang('site.daynumber')</label><input type="number"  name="day_num[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
+                    '<label>@lang('site.fixed_price')</label><input type="number" name="price[]" class="form-control" >' +
                     '  </div>  <div class="col-md-2 form-group col-12 p-2 "> <a class="btn btn-air-primary btn-pill btn-danger add-price w-100 m-t-30" onclick="deletetr(this)" ><i class="fa fa-trash"></i></a>' +
-
                     '</div></div> </td>  </tr>');
                 jQuery('.price-list').append(newRow);
             });
 
-            $("input[name='price']").click(function () {
-                var test = $(this).val();
+        $("input[name='price']").click(function() {
+            var test = $(this).val();
 
-                $("div.desc").hide();
-                $("#price" + test).show();
-            });
+            $("div.desc").hide();
+            $("#price" + test).show();
+        });
+       
             var country_id =  $('#country_id').val();
                 $.get("{{url('dashboard/countrycities')}}/"+country_id, function(data){
                     $('#city_id').empty();
@@ -514,6 +510,9 @@
 
         });
     });
+    function deletetr(r) {
+            r.closest('tr').remove();
+        }
         $('#country_id').on('change',function(e){
             var country_id = e.target.value;
 
@@ -544,7 +543,7 @@
             })
         })
 
-    </script>
+</script>
 <script>
     var imgUploads = document.getElementById("upload-imgs"),
         imgPreviews = document.getElementById("img-previews"),
@@ -582,14 +581,10 @@
             });
         }
     }
-    $(".remove-btn").click(function() {
-        $(this).parent(".wrapper-thumb").remove();
-    });
     document.getElementById("imgInp").onchange = function() {
         let imgURL = (frame.src = URL.createObjectURL(event.target.files[0]));
         document.querySelector("img").src = imgURL;
     };
-
     /*video */
     document.getElementById("videoUpload").onchange = function(event) {
         let file = event.target.files[0];
