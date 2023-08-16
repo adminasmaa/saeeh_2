@@ -11,6 +11,7 @@ use App\Models\Aqar;
 use App\Models\AqarReview;
 use App\Models\Car;
 use App\Models\City;
+use App\Models\PlaceReview;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 
@@ -235,11 +236,26 @@ class CategoryController extends Controller
         $subcategories = SubCategoryResource::collection(Category::where('parent_id', $cat_id)->get());
 
 
+
+
+    if(!empty($request->rate)) {
+    $places_id = PlaceReview::orderBy('rate', 'DESC')->pluck('place_id')->toArray();
+
+
+        $placess = Place::where(function ($query) use ($cat_id) {
+            $query->where('category_id', $cat_id)->orwhere('sub_category_id', $cat_id);
+        })->where('city_id', '=', $city_id)->whereIn('id',$places_id)->paginate(20);
+
+    }else{
+
+        $placess = Place::where(function ($query) use ($cat_id) {
+            $query->where('category_id', $cat_id)->orwhere('sub_category_id', $cat_id);
+        })->where('city_id', '=', $city_id)->paginate(20);
+    }
+
+
         if (count($subcategories) == 0) {
-            $places = PlaceResource::collection(Place::where(function ($query) use ($cat_id) {
-                $query->where('category_id', $cat_id)->orwhere('sub_category_id', $cat_id);
-            })->where('city_id', '=', $city_id)->paginate(20))->response()->getData();
-//            $places = Place::where('category_id','=', $cat_id)->orwhere('sub_category_id','=', $cat_id)->paginate(20);
+            $places = PlaceResource::collection($placess)->response()->getData();
 
             return $this->respondSuccessPaginate($places, __('message.subcategories retrieved successfully.'));
         } else {
