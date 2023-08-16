@@ -40,6 +40,8 @@ class Category extends Model
     }
     public function subcategories(){
         return $this->HasMany(Category::class,'parent_id');
+    }  public function subcategoriesWithCars(){
+        return $this->HasMany(Category::class,'parent_id')->whereHas('cars');
     }
     // relations
     public function aqar(){
