@@ -34,7 +34,7 @@ class AqarDetailResource extends JsonResource
             "name" => $this->$name ?? '',
             "description" => $this->description ?? '',
             "distance" => $this->distance ?? 0,
-            "address" => $this->details ?? 0,
+            "address" => $this->details ?? '',
             "time" => $this->time ?? '',
             "time_from" => $this->time_from ?? '',
             "time_to" => $this->time_to ?? '',
