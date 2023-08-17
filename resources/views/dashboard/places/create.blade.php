@@ -192,15 +192,15 @@
                                     <!--<div class="col-md-6">-->
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.latitude')</label>
-                                        <input type="text" name="latitude" class="form-control"
+                                        <label>@lang('site.latitude')</label><span class="text-danger">*</span>
+                                        <input type="text" name="latitude" class="form-control" required
                                                value="{{old('latitude')}}"
                                                >
                                     </div>
 
                                     <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.longitude')</label>
-                                        <input type="text" name="longitude" class="form-control"
+                                        <label>@lang('site.longitude')</label><span class="text-danger">*</span>
+                                        <input type="text" name="longitude" class="form-control" required
                                                value="{{old('longitude')}}"
                                                >
                                     </div>
