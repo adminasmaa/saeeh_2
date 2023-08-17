@@ -166,7 +166,7 @@
                 <li id="tab-detail-1">
                   <div class="row">
                   @foreach($cities as $city)
-                    <div class="col-lg-3 col-sm-6 col-12" onclick="window.location='{{route('categories',$city->id)}}'">
+                    <div class="col-lg-3 col-sm-6 col-12" >
                       <div class="card-city position-relative mb-3">
                         <button class="add-to-wishlist">
                           <svg
@@ -186,7 +186,7 @@
                             />
                           </svg>
                         </button>
-                        <a href="#">
+                        <a href="{{route('categories',$city->id)}}">
                         <div class="card-image-box">
                         <img class="card-img" src="{{asset('images/cities/'.$city->image)}}"
                           onerror="this.src='{{FRONTASSETS}}/images/tours/tour-1.jpg'" alt="Card image cap"></div>
