@@ -295,7 +295,7 @@
                      <h2>@lang('site.discover_the_most_famous_tourist_destinations')</h2>
                   </div>
                   <div class="see-all">
-                     <a href="#" class="h2">
+                     <a href="{{route('countries')}}" class="h2">
                      <span
                         ><img src="{{FRONTASSETS}}/images/arrow-circle.svg" alt=""
                         /></span>
@@ -307,26 +307,20 @@
          <div class="row">
             @foreach($countries as $country)
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-               <div class="card-tour mb-3"  onclick="window.location='{{route('cities',$country->id)}}'">
-                  <img
-                     class="card-img-top"
-                     src="{{asset('images/countries/'.$country->image)}}"
-                     onerror="this.src='{{FRONTASSETS}}/images/tours/tour-1.jpg'"
-                     alt="Card image cap"
-                     />
-                  <div
-                     class="card-tour-body d-flex justify-content-between align-items-center"
-                     >
-                     <h2 class="card-title">{{$country->name ?? ''}}</h2>
-                     <div>
-                        <img
-                           src="{{asset('images/countries/'.$country->flag_image)}}"
-                           onerror="this.src='{{FRONTASSETS}}/images/turkey.png'"
-                           alt="turkey"
-                           class="icon-flag"
-                           />
-                     </div>
+               <div class="card-tour mb-3"  >
+               <a href="{{route('cities',$country->id)}}">
+                <div class="card-image-box">
+                <img class="card-img" src="{{asset('images/countries/'.$country->image)}}"
+                onerror="this.src='{{FRONTASSETS}}/images/tours/tour-1.jpg'" alt="Card image cap"></div>
+                <div class="card-tour-body d-flex justify-content-between align-items-center">
+                  <h2 class=" card-title">{{$country->name ?? ''}}</h2>
+                  <div>
+                    <img src="{{asset('images/countries/'.$country->flag_image)}}"
+                           onerror="this.src='{{FRONTASSETS}}/images/turkey.png'" alt="turkey" class="icon-flag">
                   </div>
+                </div>
+              </a>
+               
                </div>
             </div>
             @endforeach
@@ -410,11 +404,14 @@
                <div class="owl-carousel owl-theme restaurant-owl">
                   @foreach($CategoriesPlaces as $place)
                   <div class="card-tour mb-3">
+                     <a href="#">
+                     <div class="card-image-box">
                      <img src="{{asset('images/categories/'.$place->image)}}"
-                        class="card-img-top"
+                        class="card-img"
                         alt="Card image cap"
                         onerror="this.src='{{FRONTASSETS}}/images/restaurants/restaurant-1.jpg'"
-                        >
+                        ></div>
+                        </a>
                      <div
                         class="card-tour-body d-flex justify-content-center align-items-center"
                         >

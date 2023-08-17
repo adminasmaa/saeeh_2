@@ -76,7 +76,7 @@
           @foreach($countries as $country)
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
               <div class="card-tour mb-3">
-                <a href="#">
+                <a href="{{route('cities',$country->id)}}">
                 <div class="card-image-box">
                 <img class="card-img" src="{{asset('images/countries/'.$country->image)}}"
                 onerror="this.src='{{FRONTASSETS}}/images/tours/tour-1.jpg'" alt="Card image cap">
