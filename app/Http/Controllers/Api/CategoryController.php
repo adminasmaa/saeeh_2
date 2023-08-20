@@ -94,11 +94,11 @@ class CategoryController extends Controller
 
         if (count($category->subcategories)) {
 
-                $categoriess = Category::with('cars')->where('parent_id','=',$request->brand_id)->whereHas('cars')->get();
-                $categories = BransCarSubResource::collection($categoriess);
-                return $this->respondSuccess($categories, __('message.categories retrieved successfully.'));
+            $categoriess = Category::with('carscategories')->where('parent_id', '=', $request->brand_id)->whereHas('carscategories')->get();
 
 
+            $categories = BransCarSubResource::collection($categoriess);
+            return $this->respondSuccess($categories, __('message.categories retrieved successfully.'));
 
 
         } else {
