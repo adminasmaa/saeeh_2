@@ -36,7 +36,7 @@ class Category extends Model
     }
     // relations
     public function cars(){
-        return $this->HasMany(Car::class);
+        return $this->HasMany(Car::class,'category_id');
     }
     public function subcategories(){
         return $this->HasMany(Category::class,'parent_id');
