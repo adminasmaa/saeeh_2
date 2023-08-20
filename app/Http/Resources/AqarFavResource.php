@@ -29,7 +29,7 @@ class AqarFavResource extends JsonResource
                 "name" => $this->$name ?? '',
                 "favorite" =>true,
 
-                "description" => html_entity_decode(substr($this->description, 0, 125)) ?? '',
+                "description" =>strip_tags($this->description) ?? '',
 
                 "image" => asset('images/aqars') . "/" . $this->main_image,
                 "fixed_price" => $this->fixed_price ?? 0,

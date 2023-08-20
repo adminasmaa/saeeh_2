@@ -18,7 +18,7 @@ class SubCategoryCarResource extends JsonResource
         return [
             "id" => $this->id ?? '',
             "name" => $this->name ?? '',
-            "description" => $this->description ?? '',
+            "description" => strip_tags($this->description) ?? '',
             "comment_text" => $this->comment_text ?? '',
             "year" => $this->year ?? '',
             "image" => asset('images/cars')."/".$this->main_image_ads,

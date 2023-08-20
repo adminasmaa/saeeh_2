@@ -27,7 +27,7 @@ class CategoryOnlyResource extends JsonResource
         return [
             "id" => $this->id,
             "name" => $this->$name,
-            'description' => $this->description ?? '',
+            'description' => strip_tags($this->description) ?? '',
             "icon" => asset('images/categories')."/".$this->icon,
             "image" => asset('images/categories')."/".$this->image,
             "subcategories"=> (count($this->subcategories)>0 ? true : false),
