@@ -42,6 +42,8 @@ class AqarResource extends JsonResource
             "comment_text" => $this->comment_text ?? '',
             "comision" => $this->comision ?? '',
             "fixed_price" => $this->fixed_price ?? 0,
+            "Reservation_deposit" => $this->fixed_price ?? 0,
+
             "changed_price" => $this->changed_price ?? '',
 
         ];

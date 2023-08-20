@@ -15,7 +15,7 @@ class AqarService extends Model
     public $guarded = ['id'];
 
     protected $table = 'aqar_details';
-    protected $appends = ['image_path','name'];
+    protected $appends = ['icon_path','name'];
 
     protected $fillable = [
         'name_ar', // required
@@ -31,7 +31,7 @@ class AqarService extends Model
     {
         return (app()->getLocale() === 'ar') ? $this->name_ar : $this->name_en;
     }
-    public function getImagePathAttribute()
+    public function getIconPathAttribute()
     {
         return asset('images/services_aqars/' . $this->icon);
 
