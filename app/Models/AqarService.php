@@ -15,7 +15,7 @@ class AqarService extends Model
     public $guarded = ['id'];
 
     protected $table = 'aqar_details';
-    protected $appends = ['image_path'];
+    protected $appends = ['image_path','name'];
 
     protected $fillable = [
         'name_ar', // required
@@ -25,7 +25,7 @@ class AqarService extends Model
 
     ];
 
-    protected $hidden = ['deleted_at', 'updated_at'];
+    protected $hidden = ['deleted_at', 'updated_at','icon'];
 
     public function getNameAttribute()
     {
