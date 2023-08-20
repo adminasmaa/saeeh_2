@@ -94,17 +94,11 @@ class CategoryController extends Controller
 
         if (count($category->subcategories)) {
 
-
-            if (!empty($request->page)) {
-                $categories = Category::with('cars')->where('parent_id', '=', $request->brand_id)->whereHas('cars')->paginate('20');
-                $categories = BransCarSubResource::collection($categories)->response()->getData();
-                return $this->respondSuccessPaginate($categories, __('message.categories retrieved successfully.'));
-            } else {
                 $categories = Category::with('cars')->where('parent_id', '=', $request->brand_id)->whereHas('cars')->get();
                 $categories = BransCarSubResource::collection($categories);
                 return $this->respondSuccess($categories, __('message.categories retrieved successfully.'));
 
-            }
+
 
 
         } else {
@@ -186,7 +180,7 @@ class CategoryController extends Controller
             return $this->respondSuccessPaginate($carss, __('message.data retrieved successfully.'));
 
         } else {
-            return $this->respondError(__('message.Data not found.'), ['error' => __('message.Data not found.')], 404);
+            return $this->respondErrorArray(__('message.Data not found.'), ['error' => __('message.Data not found.')], 200);
 
         }
 
