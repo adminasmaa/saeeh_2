@@ -35,7 +35,7 @@ class AqarDetailResource extends JsonResource
             "description" => html_entity_decode(substr($this->description, 0, 125)) ?? '',
             "distance" => $this->distance ?? 0,
             "address" => $this->details ?? '',
-            "time" => $this->time ?? '',
+//            "time" => $this->time ?? '',
             "time_from" => $this->time_from ?? '',
             "time_to" => $this->time_to ?? '',
             "image" => asset('images/aqars') . "/" . $this->main_image,
@@ -51,6 +51,7 @@ class AqarDetailResource extends JsonResource
             "comments" => CommentResource::collection($this->aqarComment),
             "aqarReview" => AqarReviewResource::collection($this->aqarReview)->unique('name'),
             "fixed_price" => $this->fixed_price ?? 0,
+            "Reservation_deposit" => $this->fixed_price ?? 0,
             "changed_price" => json_decode($this->changed_price) ?? [],
             "category" => new staticResource($this->category),
             'aqarSection' => $this->aqarSection

@@ -95,11 +95,20 @@ class CategoryController extends Controller
         if (count($category->subcategories)) {
 
 
-            $categories = BransCarSubResource::collection($category->subcategories);
-            return $this->respondSuccess($categories, __('message.categories retrieved successfully.'));
+            if (!empty($request->page)) {
+                $categories = Category::with('cars')->where('parent_id', '=', $request->brand_id)->whereHas('cars')->paginate('20');
+                $categories = BransCarSubResource::collection($categories)->response()->getData();
+                return $this->respondSuccessPaginate($categories, __('message.categories retrieved successfully.'));
+            } else {
+                $categories = Category::with('cars')->where('parent_id', '=', $request->brand_id)->whereHas('cars')->get();
+                $categories = BransCarSubResource::collection($categories);
+                return $this->respondSuccess($categories, __('message.categories retrieved successfully.'));
+
+            }
+
 
         } else {
-            return $this->respondError(__('message.Category not found.'), ['error' => __('message.Category not found.')], 404);
+            return $this->respondErrorArray(__('message.Category not found.'), ['error' => __('message.Category not found.')], 200);
 
         }
 
@@ -235,22 +244,20 @@ class CategoryController extends Controller
         $subcategories = SubCategoryResource::collection(Category::where('parent_id', $cat_id)->get());
 
 
+        if (!empty($request->rate)) {
+            $places_id = PlaceReview::orderBy('rate', 'DESC')->pluck('place_id')->toArray();
 
 
-    if(!empty($request->rate)) {
-    $places_id = PlaceReview::orderBy('rate', 'DESC')->pluck('place_id')->toArray();
+            $placess = Place::where(function ($query) use ($cat_id) {
+                $query->where('category_id', $cat_id)->orwhere('sub_category_id', $cat_id);
+            })->where('city_id', '=', $city_id)->whereIn('id', $places_id)->paginate(20);
 
+        } else {
 
-        $placess = Place::where(function ($query) use ($cat_id) {
-            $query->where('category_id', $cat_id)->orwhere('sub_category_id', $cat_id);
-        })->where('city_id', '=', $city_id)->whereIn('id',$places_id)->paginate(20);
-
-    }else{
-
-        $placess = Place::where(function ($query) use ($cat_id) {
-            $query->where('category_id', $cat_id)->orwhere('sub_category_id', $cat_id);
-        })->where('city_id', '=', $city_id)->paginate(20);
-    }
+            $placess = Place::where(function ($query) use ($cat_id) {
+                $query->where('category_id', $cat_id)->orwhere('sub_category_id', $cat_id);
+            })->where('city_id', '=', $city_id)->paginate(20);
+        }
 
 
         if (count($subcategories) == 0) {
