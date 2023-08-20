@@ -29,7 +29,7 @@ class AqarCatageriesResource extends JsonResource
         return [
             "id" => $this->id,
             "name" => $this->$name,
-            "description" => html_entity_decode(substr($this->description, 0, 125)) ?? '',
+            "description" =>strip_tags($this->$description) ?? '',
 
             "image" => asset('images/categories') . "/" . $this->image,
             "active" => $this->active ?? '',
