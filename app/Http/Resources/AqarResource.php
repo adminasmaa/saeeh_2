@@ -28,7 +28,8 @@ class AqarResource extends JsonResource
         return [
             "id" => $this->id,
             "name" => $this->$name,
-            "description" => $this->description ?? '',
+            "description" => html_entity_decode(substr($this->description, 0, 125)) ?? '',
+
             "category" => $this->category ?? '',
             "status" => $this->status ?? '',
             "rate" => $this->aqarComment->avg('rating') ?? '',
