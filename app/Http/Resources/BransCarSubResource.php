@@ -29,7 +29,9 @@ class BransCarSubResource extends JsonResource
         return [
             "id" => $this->id,
             "name" => $this->$name,
-            "description" => $this->$description,
+            "description" =>preg_replace( "/\r|\n/", "", strip_tags($this->$description) ) ?? '',
+
+
             "image" => asset('images/categories') . "/" . $this->image,
             "active" => $this->active ?? '',
 

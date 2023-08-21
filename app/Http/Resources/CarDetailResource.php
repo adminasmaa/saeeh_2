@@ -25,8 +25,10 @@ class CarDetailResource extends JsonResource
         return [
             "id" => $this->id ?? '',
             "name" => $this->name ?? '',
-            "description" => strip_tags($this->description) ?? '',
-           "color" => $this->color ?? '',
+
+            "description" =>preg_replace( "/\r|\n/", "", strip_tags($this->description) ) ?? '',
+
+            "color" => $this->color ?? '',
             "car_numbers" => $this->car_numbers ?? '',
             "image" => asset('images/cars') . "/" . $this->main_image_ads,
             "videos" => asset('images/cars') . "/" . $this->videos,

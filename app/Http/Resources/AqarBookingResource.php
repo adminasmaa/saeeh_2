@@ -54,7 +54,7 @@ class AqarBookingResource extends JsonResource
             'day_count' => $diff,
             'total' => $diff * $this->fixed_price,
             "name" => $this->$name ?? '',
-            "description" =>strip_tags($this->description) ?? '',
+            "description" =>preg_replace( "/\r|\n/", "", strip_tags($this->description) ) ?? '',
 
             "distance" => $this->distance ?? 0,
             "time" => $this->time ?? '',

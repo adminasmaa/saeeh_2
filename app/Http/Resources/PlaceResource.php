@@ -34,7 +34,9 @@ class PlaceResource extends JsonResource
         return [
             "id" => $this->id ?? '',
             'name' => $this->$name ?? '',
-            'description' => strip_tags($this->$description) ?? '',
+
+            "description" =>preg_replace( "/\r|\n/", "", strip_tags($this->$description) ) ?? '',
+
             "address " => $this->address ?? '',
             "facebook" => $this->facebook ?? '',
             "instagram" => $this->instagram ?? '',
