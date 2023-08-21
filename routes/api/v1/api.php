@@ -44,6 +44,7 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('/changepassword', 'App\Http\Controllers\Api\AuthController@changepassword');
     Route::post('/logout', 'App\Http\Controllers\Api\AuthController@logout');
     Route::post('/contactus', 'App\Http\Controllers\Api\ContactUsController@contactus');
+    Route::get('freq_question', 'App\Http\Controllers\Api\AuthController@freqquestion');
 
 
     Route::get('/cities', 'App\Http\Controllers\Api\CityController@cities');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\Freq_question;
 use Illuminate\Support\Facades\Hash;
 
 use App\Http\Controllers\Controller;
@@ -14,14 +15,38 @@ use DB;
 class AuthController extends Controller
 {
 
+    public function freqquestion(Request $request)
+    {
+
+
+        $questions = Freq_question::get()->map(function($question){
+            $question->answer = preg_replace( "/\r|\n/", "", strip_tags($question->answer) ) ?? '';
+            return $question;
+        });
+
+        if (count($questions)) {
+
+            return $this->respondSuccess($questions, trans('message.data retrieved successfully.'));
+
+
+
+        } else {
+            return $this->respondErrorArray(__('message.Data not found.'), ['error' => __('message.Data not found.')], 200);
+
+        }
+
+    }
+
     public function updateProfile(Request $request)
     {
         $rule = [
-            'email' => 'max:254|email|required',
-            'firstname' => 'required',
-            'lastname' => 'required',
-//            'country_code' => 'required',
-//            'phone' => 'required|min:9',
+            'email' => 'max:254|email|nullable',
+            'firstname' => 'nullable',
+            'lastname' => 'nullable',
+            'password' => 'nullable',
+            'c_password' => 'nullable|same:password',
+            'country_code' => 'nullable',
+            'phone' => 'nullable|min:9',
 
         ];
         $customMessages = [
@@ -41,8 +66,9 @@ class AuthController extends Controller
             $user->firstname = isset($request->firstname) ? $request->firstname : $user->firstname;
             $user->lastname = isset($request->lastname) ? $request->lastname : $user->lastname;
             $user->email = isset($request->email) ? $request->email : $user->email;
-//            $user->phone = isset($request->phone) ? $request->phone : $user->phone;
-//            $user->country_code = isset($request->country_code) ? $request->country_code : $user->country_code;
+            $user->phone = isset($request->phone) ? $request->phone : $user->phone;
+            $user->country_code = isset($request->country_code) ? $request->country_code : $user->country_code;
+            $user->password = bcrypt($request['password']) ?? '';
 
             $user->save();
             $success['token'] = $user->createToken('MyApp')->accessToken;
@@ -139,15 +165,15 @@ class AuthController extends Controller
             $msg = trans('message.please verified your account') . "\n";
             $msg = $msg . trans('message.code activation') . "\n" . $code;
             send_sms_code($msg, $input['phone'], $input['country_code']);
-            if($request->device_token){
-                $guest=User::where('device_token', $request->device_token)->where('isguest',1)->first();
-                if($guest){
+            if ($request->device_token) {
+                $guest = User::where('device_token', $request->device_token)->where('isguest', 1)->first();
+                if ($guest) {
                     $input['isguest'] = 0;
                     $user1 = $guest->update($input);
-                    $user=User::find($guest->id);
+                    $user = User::find($guest->id);
 
-                }else{
-                $user = User::create($input);
+                } else {
+                    $user = User::create($input);
                 }
             }
 //            $success['token'] = $user->createToken('MyApp')->accessToken;
@@ -173,15 +199,15 @@ class AuthController extends Controller
         if (auth()->attempt(['country_code' => $request->country_code, 'phone' => $request->phone, 'password' => $request->password])) {
             $user = Auth::user();
             if ($user->active) {
-                $user->device_token= $request->device_token;
+                $user->device_token = $request->device_token;
                 $user->save();
-                if($request->device_token){
-                    $guests=User::where('device_token', $request->device_token)->where('isguest',1)->get();
-                    foreach($guests as $guest){
-                        DB::table('aqar_user')->where('user_id' , $guest->id)->update(['user_id' => $user->id]);
-                        DB::table('car_user')->where('user_id' , $guest->id)->update(['user_id' => $user->id]);
-                        DB::table('user_palace')->where('user_id' , $guest->id)->update(['user_id' => $user->id]);
-                        User::where('id' , $guest->id)->delete();
+                if ($request->device_token) {
+                    $guests = User::where('device_token', $request->device_token)->where('isguest', 1)->get();
+                    foreach ($guests as $guest) {
+                        DB::table('aqar_user')->where('user_id', $guest->id)->update(['user_id' => $user->id]);
+                        DB::table('car_user')->where('user_id', $guest->id)->update(['user_id' => $user->id]);
+                        DB::table('user_palace')->where('user_id', $guest->id)->update(['user_id' => $user->id]);
+                        User::where('id', $guest->id)->delete();
 
                     }
 
@@ -208,7 +234,6 @@ class AuthController extends Controller
     }
 
 
-
     public function guest(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -219,11 +244,11 @@ class AuthController extends Controller
         if ($validator->fails()) {
             return $this->respondError('Validation Error.', $validator->errors(), 400);
         } else {
-            $input = $request->all();    
+            $input = $request->all();
             $input['isguest'] = 1;
             $user = User::create($input);
             $user->active = 1;
-            $user->token=$user->createToken('MyApp')->accessToken;
+            $user->token = $user->createToken('MyApp')->accessToken;
             $user->save();
             $success['token'] = $user->createToken('MyApp')->accessToken;
 
@@ -256,7 +281,7 @@ class AuthController extends Controller
                 $query->where('country_code', $country_code)->where('phone', $phone);
             })->first();
 
-        } elseif($request->userId) {
+        } elseif ($request->userId) {
 
 
             $user = User::Where('id', $request->userId)->first();
@@ -264,15 +289,16 @@ class AuthController extends Controller
         }
         if ($user) {
             if ($user->active) {
-               if($request->device_token){
-                $user->device_token= $request->device_token;
-                $user->save();}
+                if ($request->device_token) {
+                    $user->device_token = $request->device_token;
+                    $user->save();
+                }
                 $success['token'] = $user->createToken('MyApp')->accessToken;
                 $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code', 'code']);
                 return $this->respondSuccess($success, trans('message.User already active.'));
             } else {
                 $user->active = 1;
-                $user->device_token= $request->device_token;
+                $user->device_token = $request->device_token;
                 $user->save();
                 $success['token'] = $user->createToken('MyApp')->accessToken;
                 $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code', 'code']);
