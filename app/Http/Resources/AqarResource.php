@@ -28,11 +28,11 @@ class AqarResource extends JsonResource
         return [
             "id" => $this->id,
             "name" => $this->$name,
-            "description" =>strip_tags($this->description) ?? '',
+            "description" =>preg_replace( "/\r|\n/", "", strip_tags($this->description) ) ?? '',
 
             "category" => $this->category ?? '',
             "status" => $this->status ?? '',
-            "rate" => $this->aqarComment->avg('rating') ?? '',
+//            "rate" => $this->aqarComment->avg('rating') ?? '',
             "favorite" => (count(AquarUser::where('aqar_id','=',$this->id)->where('user_id','=',Auth::id())->get())>0 ? true : false),
 
 

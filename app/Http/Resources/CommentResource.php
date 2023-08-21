@@ -19,7 +19,9 @@ class CommentResource extends JsonResource
 
         return [
             "id" => $this->id,
-            'description' => strip_tags($this->description) ?? '',
+
+            "description" =>preg_replace( "/\r|\n/", "", strip_tags($this->description) ) ?? '',
+
             "rating " => $this->rating ?? 0,
             "status" => $this->status ?? '',
             'user' => new UserResource($this->user),

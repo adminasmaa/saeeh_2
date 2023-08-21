@@ -20,7 +20,9 @@ class CarResource extends JsonResource
         return [
             "id" => $this->id,
             "name" => $this->name ?? '',
-            "description" =>strip_tags($this->description) ?? '',
+
+            "description" =>preg_replace( "/\r|\n/", "", strip_tags($this->description) ) ?? '',
+
             "favorite" => (count(CarUser::where('car_id','=',$this->id)->where('user_id','=',Auth::id())->get())>0 ? true : false),
 
             "comment_text" => $this->comment_text ?? '',
