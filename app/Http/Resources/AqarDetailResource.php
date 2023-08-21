@@ -50,7 +50,7 @@ class AqarDetailResource extends JsonResource
             "rate" => $this->aqarComment->avg('rating') ?? 0,
             "comment_count" => $this->aqarComment->count() ?? 0,
             "comments" => CommentResource::collection($this->aqarComment),
-            "aqarReview" => AqarReviewResource::collection($this->aqarReview)->unique('name'),
+            "aqarReview" => AqarReviewResource::collection($this->aqarReview),
             "fixed_price" => $this->fixed_price ?? 0,
             "Reservation_deposit" => $this->fixed_price ?? 0,
             "changed_price" => json_decode($this->changed_price) ?? [],

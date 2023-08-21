@@ -505,7 +505,7 @@
                                     </div>
                                 </div>
                                 <div class="row pt-4">
-                                    @foreach($aquar->aqarReview->unique('name') as $review)
+                                    @foreach($aquar->aqarReview as $review)
 
                                         <div class="col-lg-6 pb-4">
                                             <div
