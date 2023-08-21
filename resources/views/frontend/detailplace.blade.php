@@ -224,7 +224,8 @@
                                     <div class="col-12 pt-4">
                                         <h2>@lang('site.descrption')</h2>
                                         <p class="restaurant-details-txt">
-                                            {{$place->descrption ?? ''}}
+                                            {!! html_entity_decode(substr($place->description, 0, 125)) !!}
+
                                         </p>
 {{--                                        <p class="restaurant-details-txt">--}}
 {{--                                            كومتوار دارنا هو المكان الذي نعيش فيه لحظات لا تنسي حيث--}}

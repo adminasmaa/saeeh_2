@@ -776,7 +776,8 @@
                                                                 </div>
                                                             </h2>
                                                             <p class="details-sm-txt mb-0">
-                                                                {{$comment->description ?? ''}}                                                        </p>
+                                                            {!! html_entity_decode(substr($comment->description, 0, 125)) !!}
+                                                              </p>
                                                         </div>
                                                     </div>
 

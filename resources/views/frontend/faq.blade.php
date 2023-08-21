@@ -56,7 +56,7 @@
               <div class="accordion-item faq-item mb-4">
                 <h2 class="accordion-header">
                   <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-faq-<?=$k?>" aria-expanded="true" aria-controls="accordion-faq-1">
-                    <div class="faq-title">{{$freq_question->question ?? ''}}
+                    <div class="faq-title">{!! html_entity_decode(substr($freq_question->question, 0, 125)) !!}
                     </div>
 
                     <div>
@@ -68,11 +68,11 @@
                 </h2>
                   <div id="accordion-faq-<?=$k?>" class="accordion-collapse collapse" style="">
                   <div class="accordion-body pb-3 pt-0">
-                  <p class="faq-text">{{$freq_question->answer ?? ''}}</p>
+                  <p class="faq-text">{!! html_entity_decode(substr($freq_question->answer, 0, 125)) !!}
+                    </p>
                   </div>
                     </div>
               </div>
-
             </div>
             @endforeach
           </div>
