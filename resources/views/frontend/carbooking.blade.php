@@ -544,7 +544,7 @@
                                         <hr class="hr-saeeh my-0"/>
                                         <div class="d-flex justify-content-between py-1 px-3">
                                             <div class="d-flex align-items-center">
-                            <span>
+                            <!-- <span>
                               <svg
                                   xmlns="http://www.w3.org/2000/svg"
                                   width="24"
@@ -570,8 +570,8 @@
                                         </div>
                                         <hr class="hr-saeeh my-0"/>
                                         <div class="d-flex justify-content-between py-1 px-3">
-                                            <div class="d-flex align-items-center">
-                            <span>
+                                            <div class="d-flex align-items-center"> -->
+                            <!-- <span>
                               <svg
                                   xmlns="http://www.w3.org/2000/svg"
                                   width="24"
@@ -584,16 +584,16 @@
                                     fill="#9C9C9C"
                                 />
                               </svg>
-                            </span>
-                                                <span class="text-second dd-txt pe-2"
+                            </span> -->
+                                                <!-- <span class="text-second dd-txt pe-2"
                                                 > @lang('site.car_numbers')</span
-                                                >
+                                                > -->
                                             </div>
-                                            <div
+                                            <!-- <div
                                                 class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
                                             >
                                                 {{$car->car_numbers ?? ''}}
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
 
@@ -636,7 +636,7 @@
                                             <div
                                                 class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
                                             >
-                                                {{$car->category->name ?? ''}}
+                                                {{$car->car_brand ?? ''}}
                                             </div>
                                         </div>
                                         <hr class="hr-saeeh my-0"/>
@@ -726,7 +726,7 @@
                                         <div class="d-flex justify-content-between py-1 px-3">
                                             <div class="d-flex align-items-center">
                             <span>
-                              <svg
+                              <!-- <svg
                                   xmlns="http://www.w3.org/2000/svg"
                                   width="24"
                                   height="24"
@@ -741,12 +741,56 @@
                                 />
                               </svg>
                             </span>
-                                                <span class="text-second dd-txt pe-2">@lang('site.category') </span>
+                            <span class="text-second dd-txt pe-2">@lang('site.sites') </span>
                                             </div>
                                             <div
                                                 class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
                                             >
-                                                {{$car->category->name ?? ''}}
+                                                {{$car->site ?? ''}}
+                                            </div>
+                                        </div>
+                                        <hr class="hr-saeeh my-0"/>
+                                        <div class="d-flex justify-content-between py-1 px-3">
+                                            <div class="d-flex align-items-center">
+                            <span> -->
+
+                            <span>
+                              <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="32"
+                                  height="32"
+                                  viewBox="0 0 32 32"
+                                  fill="none"
+                              >
+                                <path
+                                    d="M18.6665 21.334H11.9998M25.3332 21.334H29.3332V17.134C29.3341 16.8167 29.2218 16.5095 29.0165 16.2676C28.8112 16.0256 28.5264 15.8648 28.2132 15.814L21.3332 14.6674L17.7332 9.86738C17.609 9.70179 17.4479 9.56738 17.2628 9.47481C17.0776 9.38224 16.8735 9.33405 16.6665 9.33405H6.9865C6.48953 9.33059 6.00148 9.46608 5.57741 9.72523C5.15334 9.98439 4.81014 10.3569 4.5865 10.8007L3.51984 12.974C2.96003 14.0869 2.66783 15.315 2.6665 16.5607V21.334H5.33317"
+                                    stroke="#9C9C9C"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                                <path
+                                    d="M8.66683 25.3327C10.5078 25.3327 12.0002 23.8403 12.0002 21.9993C12.0002 20.1584 10.5078 18.666 8.66683 18.666C6.82588 18.666 5.3335 20.1584 5.3335 21.9993C5.3335 23.8403 6.82588 25.3327 8.66683 25.3327Z"
+                                    stroke="#9C9C9C"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                                <path
+                                    d="M21.9998 25.3327C23.8408 25.3327 25.3332 23.8403 25.3332 21.9993C25.3332 20.1584 23.8408 18.666 21.9998 18.666C20.1589 18.666 18.6665 20.1584 18.6665 21.9993C18.6665 23.8403 20.1589 25.3327 21.9998 25.3327Z"
+                                    stroke="#9C9C9C"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                              </svg>
+                            </span>
+                                                <span class="text-second dd-txt pe-2">@lang('site.categories') </span>
+                                            </div>
+                                            <div
+                                                class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
+                                            >
+                                                {{$car->category ?? ''}}
                                             </div>
                                         </div>
                                         <hr class="hr-saeeh my-0"/>
@@ -817,7 +861,9 @@
                                             <div
                                                 class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
                                             >
-                                                {{$car->car_numbers ?? 0}}
+                                                <!-- {{$car->car_numbers ?? '0'}} -->
+                                                {{$car->car_numbers ?? ''}}
+
                                             </div>
                                         </div>
                                         <hr class="hr-saeeh my-0"/>

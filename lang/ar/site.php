@@ -128,7 +128,7 @@ return [
     'car_bookings' => ' حجوزات السيارات ',
 
     'sections' => 'الأقسام',
-
+    // 'sites' => 'مقاعد',
     'input_id' => 'القسم',
     'display' => 'الظهور',
     'view' => 'مشاهدة',
