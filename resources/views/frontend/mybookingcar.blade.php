@@ -63,7 +63,7 @@
 
                         <div class="gray-txt number-ads pb-2">
                                 <span
-                                >{{$book->car->description ?? ''}}
+                                > {!! html_entity_decode(substr($book->car->description, 0, 125)) !!}
                                 </span>
                         </div>
                         <div

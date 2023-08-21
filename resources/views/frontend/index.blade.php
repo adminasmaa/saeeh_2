@@ -343,7 +343,7 @@
                   <img src="{{asset('images/home_serviecs/'.$service->image)}}" alt="image"/>
                   <div class="pt-3">
                      <h4 class="text-main">{{ $service->title_ar}}</h4>
-                     <p class="mb-0 text-light-gray">{{$service->description_ar}}</p>
+                     <p class="mb-0 text-light-gray">{!! html_entity_decode(substr($service->description_ar, 0, 125)) !!}</p>
                   </div>
                </div>
             </div>
@@ -439,7 +439,7 @@
                      <div class="card-block">
                         <div class="card-yazı">
                            <p class="text-center">
-                              {{$comment->description ?? ''}}
+                           {!! html_entity_decode(substr($comment->description, 0, 125)) !!}
                            </p>
                            <div class="card-sahip">
                               <div class="favicon">
