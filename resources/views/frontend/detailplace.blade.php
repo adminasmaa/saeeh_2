@@ -43,7 +43,7 @@
                             @if(!empty($place->images))
 
                   {{--    //      @foreach(explode(',',$place->images) as $key=>$img) --}}
-                           @foreach(json_decode($place->images) as $key=>$img)
+                           @foreach(explode(',',$place->images) as $key=>$img)
 
                                 <div class="slide show" data-slide="{{$key+1}}">
                                     <img src="{{asset('images/places/'.$img)}}" alt=""      onerror="this.src='{{FRONTASSETS}}/images/restaurants/rest-1.png'">
@@ -80,21 +80,13 @@
 
                     <div class="col-lg-2 gallery-list-mobile">
                         <div id="gallery">
-                            <div class="thumbnail" data-slide="1">
-                                <img src="{{FRONTASSETS}}/images/restaurants/restaurant-details-m.png" alt="">
+                        @if(!empty($place->images))
+                        @foreach(explode(',',$place->images) as $key=>$img)
+                            <div class="thumbnail" data-slide="{{$key+1}}">
+                                <img src="{{asset('images/places/'.$img)}}" alt=""   onerror="this.src='{{FRONTASSETS}}/images/restaurants/restaurant-details-m.png'" >
                             </div>
-
-                            <div class="thumbnail" data-slide="2">
-                                <img src="{{FRONTASSETS}}/images/restaurants/rest-1.png" alt="">
-                            </div>
-
-                            <div class="thumbnail" data-slide="3">
-                                <img src="{{FRONTASSETS}}/images/restaurants/rest-2.png" alt="">
-                            </div>
-
-                            <div class="thumbnail" data-slide="4">
-                                <img src="{{FRONTASSETS}}/images/restaurants/rest-3.png" alt="">
-                            </div>
+                        @endforeach
+                        @endif 
                         </div>
                     </div>
                 </div>
