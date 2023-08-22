@@ -43,7 +43,7 @@ class CarDetailResource extends JsonResource
             'total' => $this->carComment->count() + $this->CarReview->count(),
 
             "comments" => CommentResource::collection($this->carComment),
-            "rate" => number_format($this->carComment->avg('rating')) ?? 0,
+            "rate" => round($this->carComment->avg('rating')) ?? 0,
             "fixed_price" => $this->fixed_price ?? 0,
             "Reservation_deposit" => $this->fixed_price ?? 0,
 
