@@ -37,7 +37,7 @@ class CarDetailResource extends JsonResource
             "CarReview" => CarReviewResource::collection($this->CarReview)->unique('name'),
             "favorite" => (count(CarUser::where('car_id','=',$this->id)->where('user_id','=',Auth::id())->get())>0 ? true : false),
 
-            "rate" => $this->carComment->avg('rating') ?? 0,
+            "rate" => number_format($this->carComment->avg('rating')) ?? 0,
             "fixed_price" => $this->fixed_price ?? 0,
             "changed_price" => json_decode($this->changed_price) ?? [],
             "category" => new staticResource($this->category),
