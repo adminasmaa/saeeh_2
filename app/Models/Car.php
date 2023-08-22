@@ -83,6 +83,10 @@ Car extends Model
     {
         return $this->belongsTo(Category::class, 'category_id');
     }
+    public function categories()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
 
     // relations
     public function carComment()

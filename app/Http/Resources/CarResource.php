@@ -29,11 +29,12 @@ class CarResource extends JsonResource
             "year" => $this->year ?? '',
             "image" => asset('images/cars') . "/" . $this->main_image_ads,
             "color" => $this->color ?? '',
-            "category" => $this->category ?? '',
+//            "category" => $this->category ?? '',
             "car_numbers" => $this->car_numbers ?? '',
             "car_delivery_date" => $this->car_delivery_date ?? '',
             "fixed_price" => $this->fixed_price ?? 0,
             "changed_price" => $this->changed_price ?? '',
+            "category" => new staticResource($this->categories),
 
         ];
     }
