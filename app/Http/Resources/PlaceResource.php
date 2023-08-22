@@ -53,7 +53,7 @@ class PlaceResource extends JsonResource
             "PlaceReview" => PlaceReviewResource::collection($this->PlaceReview),
 
             "path"=>asset('images/places/'),
-            "images" => $this->images,
+            "images" => explode(",",$this->images) ?? [],
             "display_photo" => asset('images/places') . "/" . $this->display_photo,
             "notify_photo " => asset('images/places') . "/" . $this->notify_photo,
             "created_at" => $this->created_at ?? '',
