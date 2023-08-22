@@ -40,7 +40,7 @@ class CarDetailResource extends JsonResource
             "rate" => number_format($this->carComment->avg('rating')) ?? 0,
             "fixed_price" => $this->fixed_price ?? 0,
             "changed_price" => json_decode($this->changed_price) ?? [],
-            "category" => new staticResource($this->category),
+            "category" => new staticResource($this->categories),
 
 
 
