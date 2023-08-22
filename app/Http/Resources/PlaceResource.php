@@ -37,7 +37,7 @@ class PlaceResource extends JsonResource
 
             "description" =>preg_replace( "/\r|\n/", "", strip_tags($this->$description) ) ?? '',
 
-            "address " => $this->address ?? '',
+            "address" => $this->address ?? '',
             "facebook" => $this->facebook ?? '',
             "instagram" => $this->instagram ?? '',
             "twitter" => $this->twitter ?? '',
@@ -47,8 +47,10 @@ class PlaceResource extends JsonResource
             "latitude" => $this->latitude ?? '',
             "favorite" => (count(PlaceUser::where('place_id','=',$this->id)->where('user_id','=',Auth::id())->get())>0 ? true : false),
 
-            "rate" => $this->placeComments->avg('rating') ?? 0,
-            "PlaceReview" => PlaceReviewResource::collection($this->PlaceReview)->unique('name'),
+            "rate" =>number_format($this->placeComments->avg('rating')) ?? 0,
+            "reviewer_count" => $this->PlaceReview->count() ?? 0,
+            "comment_count" => $this->placeComments->count() ?? 0,
+            "PlaceReview" => PlaceReviewResource::collection($this->PlaceReview),
 
             "path"=>asset('images/places/'),
             "images" => $this->images,
