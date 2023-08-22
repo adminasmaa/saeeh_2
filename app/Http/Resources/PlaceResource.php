@@ -48,8 +48,10 @@ class PlaceResource extends JsonResource
             "favorite" => (count(PlaceUser::where('place_id','=',$this->id)->where('user_id','=',Auth::id())->get())>0 ? true : false),
 
             "rate" =>number_format($this->placeComments->avg('rating')) ?? 0,
-            "reviewer_count" => $this->PlaceReview->count() ?? 0,
+            "review_count" => $this->PlaceReview->count() ?? 0,
             "comment_count" => $this->placeComments->count() ?? 0,
+            'total' => $this->PlaceReview->count() + $this->placeComments->count(),
+
             "PlaceReview" => PlaceReviewResource::collection($this->PlaceReview),
 
             "path"=>asset('images/places/'),
@@ -57,7 +59,7 @@ class PlaceResource extends JsonResource
             "display_photo" => asset('images/places') . "/" . $this->display_photo,
             "notify_photo " => asset('images/places') . "/" . $this->notify_photo,
             "created_at" => $this->created_at ?? '',
-            'comments' => $this->placeComments ?? '',
+            'comments' => CommentResource::collection($this->placeComments) ?? '',
             'placetables' => $this->placetables ?? '',
             'category' => new CategoryOnlyResource($this->category),
         ];

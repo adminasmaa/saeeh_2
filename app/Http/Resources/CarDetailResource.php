@@ -29,16 +29,24 @@ class CarDetailResource extends JsonResource
             "description" =>preg_replace( "/\r|\n/", "", strip_tags($this->description) ) ?? '',
 
             "color" => $this->color ?? '',
+            "car_delivery_date" => $this->car_delivery_date ?? '',
+            "year" => $this->year ?? '',
             "car_numbers" => $this->car_numbers ?? '',
             "image" => asset('images/cars') . "/" . $this->main_image_ads,
             "videos" => asset('images/cars') . "/" . $this->videos,
             'path' => asset('images/cars') . "/",
             'images' =>explode(",",$this->images) ?? [],
-            "CarReview" => CarReviewResource::collection($this->CarReview)->unique('name'),
+            "CarReview" => CarReviewResource::collection($this->CarReview),
             "favorite" => (count(CarUser::where('car_id','=',$this->id)->where('user_id','=',Auth::id())->get())>0 ? true : false),
+            "count_comment"=>$this->carComment->count() ?? 0,
+            "count_review"=>$this->CarReview->count() ?? 0,
+            'total' => $this->carComment->count() + $this->CarReview->count(),
 
+            "comments" => CommentResource::collection($this->carComment),
             "rate" => number_format($this->carComment->avg('rating')) ?? 0,
             "fixed_price" => $this->fixed_price ?? 0,
+            "Reservation_deposit" => $this->fixed_price ?? 0,
+
             "changed_price" => json_decode($this->changed_price) ?? [],
             "category" => new staticResource($this->categories),
 
