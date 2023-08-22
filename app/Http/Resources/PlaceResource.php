@@ -47,7 +47,7 @@ class PlaceResource extends JsonResource
             "latitude" => $this->latitude ?? '',
             "favorite" => (count(PlaceUser::where('place_id','=',$this->id)->where('user_id','=',Auth::id())->get())>0 ? true : false),
 
-            "rate" =>number_format($this->placeComments->avg('rating')) ?? 0,
+            "rate" =>round($this->placeComments->avg('rating')) ?? 0,
             "review_count" => $this->PlaceReview->count() ?? 0,
             "comment_count" => $this->placeComments->count() ?? 0,
             'total' => $this->PlaceReview->count() + $this->placeComments->count(),

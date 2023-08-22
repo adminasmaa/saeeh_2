@@ -36,6 +36,8 @@ class CarResource extends JsonResource
 //            "car_delivery_date" => $this->car_delivery_date ?? '',
             "fixed_price" => $this->fixed_price ?? 0,
             "changed_price" => $this->changed_price ?? '',
+            "rate" => round($this->carComment->avg('rating')) ?? 0,
+
             "category" => new staticResource($this->categories),
 
         ];

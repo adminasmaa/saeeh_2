@@ -31,7 +31,7 @@ class CarFavResource extends JsonResource
             "description" => $this->description ?? '',
             "image" => asset('images/cars') . "/" . $this->main_image_ads,
             "fixed_price" => $this->fixed_price ?? 0,
-            "rate" =>number_format($this->carComment->avg('rating')) ?? 0,
+            "rate" =>round($this->carComment->avg('rating')) ?? 0,
         ];
     }
 }
