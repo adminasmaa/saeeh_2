@@ -21,6 +21,9 @@ class PlaceTable extends Model
         'type',// nullable
 
     ];
+
+    protected $hidden = ['deleted_at', 'updated_at'];
+
     // relations
     public function place(){
         return $this->belongsTo(Place::class,'place_id');

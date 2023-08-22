@@ -20,6 +20,8 @@ class PlacesResource extends JsonResource
             "name" => $this->name ?? '',
             "phone" => $this->phone ?? '',
             "phone2" => $this->phone2 ?? '',
+            'placetables' => $this->placetables ?? '',
+
             "display_photo" => asset('images/places')."/".$this->display_photo,
         ];
     }

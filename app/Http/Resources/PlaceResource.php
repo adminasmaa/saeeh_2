@@ -58,6 +58,7 @@ class PlaceResource extends JsonResource
             "notify_photo " => asset('images/places') . "/" . $this->notify_photo,
             "created_at" => $this->created_at ?? '',
             'comments' => $this->placeComments ?? '',
+            'placetables' => $this->placetables ?? '',
             'category' => new CategoryOnlyResource($this->category),
         ];
     }
