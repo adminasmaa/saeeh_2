@@ -29,8 +29,8 @@ function UploadImage($path, $image, $model, $request)
     // $thumbnail->resize(1080, 1080);
     // $thumbnail = Image::make(public_path() . '/'.$path.'/' . $filename);
     // $thumbnail->resize(1080,1080);
-    $thumbnail = Image::make(public_path() . '/'.$path.'/' . $filename);
-    $thumbnail->insert(public_path('/images/logo.png'), 'bottom-left', -10, -5)->save(public_path($path.'/' . $filename));
+    $thumbnail = Image::make(base_path() . '/'.$path.'/' . $filename);
+    $thumbnail->insert(base_path('/images/logo.png'), 'bottom-left', -10, -5)->save(base_path($path.'/' . $filename));
     $model->$image = $filename;
     $model->save();
 }
