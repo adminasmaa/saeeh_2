@@ -4,12 +4,35 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 
 class ContactUsController extends Controller
 {
+
+
+    public function contacts()
+    {
+
+        $settings = Setting::first()->only(['id', 'email', 'website_address', 'phone_one','phone_two','website_link']);
+
+        return $this->respondSuccess($settings, __('message.data retrieved successfully.'));
+
+    }
+
+
+    public function termandcondition()
+    {
+
+        $settings = Setting::first()->only(['id', 'terms_conditions']);
+
+        return $this->respondSuccess($settings, __('message.data retrieved successfully.'));
+
+    }
+
+
 
     public function contactus(Request $request)
     {
