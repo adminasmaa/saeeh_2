@@ -181,7 +181,7 @@
 
                                                                     <div class="col-md-9">
                                                                         <label>@lang('site.terms_conditions')</label>
-                                                                        <textarea class="form-control" id="editor2"  cols="15" rows="5"
+                                                                        <textarea class="form-control" id="editor1"  cols="15" rows="5"
                                                                                   name="terms_conditions">
 
                                                                     {{$setting->terms_conditions ?? ''}}
