@@ -96,6 +96,8 @@
                         </li>
                      </ul>
                      <ul class="tabs-stage list-unstyled">
+                     <form action="{{route('filteraquars')}}" method="POST">
+                     @csrf
                         <li id="tab-1">
                            <div class="row">
                               <div class="col-lg-10">
@@ -135,12 +137,12 @@
                                           <select
                                              class="select2"
                                              id="list2"
-                                             name="list2"
+                                             name="category_id"
                                              >
                                              <option>@lang('site.category')</option>
-                                             <!-- <option value="1">الفئة 2</option>
-                                             <option value="2">الفئة 3</option>
-                                             <option value="3">الفئة 4</option> -->
+                                             @foreach($CategoriesAquar as $cat)
+                                             <option value="{{$cat->id ?? ''}}">{{$cat->name ?? ''}}</option>
+                                             @endforeach
                                           </select>
                                        </div>
                                     </div>
@@ -149,7 +151,7 @@
                                           <select
                                              class="select2"
                                              id="list4"
-                                             name="list4"
+                                             name="number_rooms"
                                              >
                                              <option>@lang('site.room number')</option>
 
@@ -162,11 +164,12 @@
                                  <div
                                     class="search-btn d-flex align-items-center justify-content-center mt-lg-0 mt-3"
                                     >
-                                    <a href="#">@lang('site.search')</a>
+                                    <button type="submit">@lang('site.search')</button>
                                  </div>
                               </div>
                            </div>
                         </li>
+                        </form>
                         <li id="tab-2">
                            <div class="row">
                               <div class="col-lg-10">
