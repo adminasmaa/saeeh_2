@@ -48,7 +48,7 @@
                             <div class="p-3">
                                 <h2 class="terms-title">@lang('site.terms_conditions')</h2>
                                 <p class="terms-txt text-gray-4 mb-0">
-                                    {!! html_entity_decode(substr($setting->terms_conditions, 0, 125)) !!}
+                                    {{$setting->terms_conditions}}
                                 </p>
                             </div>
 
