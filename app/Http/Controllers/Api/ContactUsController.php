@@ -16,7 +16,7 @@ class ContactUsController extends Controller
     public function contacts()
     {
 
-        $settings = Setting::first()->only(['id', 'email', 'website_address', 'phone_one','phone_two','website_link']);
+        $settings = Setting::first()->only(['id', 'email', 'website_address', 'phone_one','phone_two','website_link','twitter','facebook','instagram','youtube','snapchat']);
 
         return $this->respondSuccess($settings, __('message.data retrieved successfully.'));
 
