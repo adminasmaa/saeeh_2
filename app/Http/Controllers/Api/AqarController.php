@@ -66,8 +66,6 @@ class AqarController extends Controller
             'aqar_id' => 'required',
 
 
-
-
         ];
         $customMessages = [
             'required' => __('validation.attributes.required'),
@@ -103,8 +101,6 @@ class AqarController extends Controller
         $rule = [
 
             'aqar_id' => 'required',
-
-
 
 
         ];
@@ -183,7 +179,7 @@ class AqarController extends Controller
     {
         $rule = [
 
-            'description' => 'required',
+            'description' => 'nullable',
 
             'id' => 'required',
             'type' => 'required',
@@ -211,7 +207,7 @@ class AqarController extends Controller
 
                     foreach ($request->comments as $comment) {
 
-                        AqarReview::create([
+                        AqarReview::updateOrCreate(['review_element_id' => $comment['id'], 'aqar_id' => $request->id, 'user_id' => Auth::id()], [
 
                             'review_element_id' => $comment['id'],
 
@@ -227,7 +223,7 @@ class AqarController extends Controller
 
                 $data = AqarComment::create([
 
-                    'description' => $request->description,
+                    'description' => $request->description ?? '',
 
                     'aqar_id' => $request->id,
 
@@ -243,7 +239,7 @@ class AqarController extends Controller
 
                     foreach ($request->comments as $comment) {
 
-                        CarReview::create([
+                        CarReview::updateOrCreate(['car_id' => $comment['id'], 'user_id' => Auth::id()], [
 
                             'car_id' => $comment['id'],
 
@@ -258,7 +254,7 @@ class AqarController extends Controller
 
                 $data = CarComment::create([
 
-                    'description' => $request->description,
+                    'description' => $request->description ?? '',
 
                     'car_id' => $request->id,
 
@@ -274,7 +270,7 @@ class AqarController extends Controller
 
                     foreach ($request->comments as $comment) {
 
-                        PlaceReview::create([
+                        PlaceReview::updateOrCreate(['place_id' => $comment['id'], 'user_id' => Auth::id()], [
 
                             'place_id' => $comment['id'],
 
