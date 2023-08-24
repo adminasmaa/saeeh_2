@@ -19,15 +19,14 @@ class AuthController extends Controller
     {
 
 
-        $questions = Freq_question::get()->map(function($question){
-            $question->answer = preg_replace( "/\r|\n/", "", strip_tags($question->answer) ) ?? '';
+        $questions = Freq_question::get()->map(function ($question) {
+            $question->answer = preg_replace("/\r|\n/", "", strip_tags($question->answer)) ?? '';
             return $question;
         });
 
         if (count($questions)) {
 
             return $this->respondSuccess($questions, trans('message.data retrieved successfully.'));
-
 
 
         } else {
@@ -172,10 +171,11 @@ class AuthController extends Controller
                     $user1 = $guest->update($input);
                     $user = User::find($guest->id);
 
-                } else {
-                    $user = User::create($input);
                 }
+            } else {
+                $user = User::create($input);
             }
+
 //            $success['token'] = $user->createToken('MyApp')->accessToken;
             $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code', 'code']);
 
