@@ -375,9 +375,9 @@ class AqarController extends Controller
         $rule = [
             'delivery_date' => 'date|required',
             'reciept_date' => 'date|after_or_equal:delivery_date',
-            'note' => 'required',
-            'place_arrive' => 'required',
-            'place_leave' => 'required',
+            'note' => 'nullable',
+            'place_arrive' => 'nullable',
+            'place_leave' => 'nullable',
 
 
         ];

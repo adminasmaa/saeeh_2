@@ -16,6 +16,7 @@ class CarResource extends JsonResource
      */
     public function toArray($request)
     {
+        $lang = $request->header('localization');
 
         return [
             "id" => $this->id,
