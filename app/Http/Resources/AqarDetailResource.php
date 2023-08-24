@@ -35,6 +35,8 @@ class AqarDetailResource extends JsonResource
 //            "description" => html_entity_decode(substr($this->description, 0, 125)) ?? '',
             "description" => preg_replace("/\r|\n/", "", strip_tags($this->description)) ?? '',
             "distance" => $this->distance ?? 0,
+            "latitude" => $this->latitude ?? 0,
+            "longitude" => $this->longitude ?? 0,
             "address" => $this->details ?? '',
 //            "time" => $this->time ?? '',
             "time_from" => $this->time_from ?? '',

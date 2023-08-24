@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('main_image')->nullable();
             $table->json('images')->nullable();
             $table->string('videos')->nullable();
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
             $table->integer('space')->nullable();
             $table->time('time_to')->nullable();
             $table->time('time_from')->nullable();
@@ -44,14 +46,14 @@ return new class extends Migration
 
             $table->integer('property_id')->nullable( )->unsigned();
             $table->foreign('property_id')->references('id')->on('properties');
-           
+
             $table->integer('ads_id')->nullable( )->unsigned();
             $table->foreign('ads_id')->references('id')->on('ads');
-           
+
             $table->foreignId('category_id')->required()->unsigned()->references('id')->on('categories')->onDelete('cascade');
 
             $table->foreignId('user_id')->required( )->references('id')->on('users')->onDelete('cascade');
-            
+
             $table->timestamps();
             $table->softDeletes();
         });
