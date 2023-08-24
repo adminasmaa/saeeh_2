@@ -304,6 +304,17 @@
 
                                                     </select>
                                                 </div>
+
+                                                <div class="col-md-6 form-group">
+                                                    <label>@lang('site.latitude')</label>
+                                                    <input type="text" name="latitude" class="form-control"
+                                                           value="{{$aqar->latitude ?? ''}}" required>
+                                                </div>
+                                                <div class="col-md-6 form-group">
+                                                    <label>@lang('site.longitude')</label>
+                                                    <input type="text" name="longitude" class="form-control"
+                                                           value="{{$aqar->longitude ?? ''}}" required>
+                                                </div>
                                                 <div class="row">
                                                     <div class="form-group col-12 p-2">
                                                         <label>@lang('site.display_photo')</label>
@@ -354,11 +365,11 @@
                                                         </video>
                                                     </div>
                                                 </div>
-                                               
+
 
                                                 <br>
                                                 <div id="result_data1" class="p-2  m-t-15">
-                                                </div>   
+                                                </div>
 
                                                 <div class="row">
                                                     <!--<div class="col-md-6">-->
@@ -404,7 +415,7 @@ $(document).ready(function() {
     $.ajax({
         url: '{{ url('dashboard/aqars/getsetting1') }}' + '/' +category_id + '/' +aqar_id ,
         success : function(html)
-		{   
+		{
             $("#result_data1").show();
             var element = $('#result_data1');
             element.empty();
@@ -437,21 +448,21 @@ $.get("{{url('dashboard/countrycities')}}/"+country_id, function(data){
         $('#city_id').append('<option value="'+value.id+'">'+value.name_ar+'</option>')
 
     });
-    
+
 
 
 $('#city_id').val({{$aqar->city_id}});
 
     var city_id =$('#city_id').val();
      var aqarrea={{$aqar->area_id}};
-            $("#cityarea").show(); 
+            $("#cityarea").show();
             $.get("{{url('dashboard/cityareas')}}/"+city_id, function(data){
                 $('#area_id').empty();
                 $.each(data, function(key, value){
                     $('#area_id').append('<li class="form-check radio radio-primary" ><input class="form-check-input" id="area_'+value.id+'" type="radio" name="area_id" value="'+value.id+'" ' + (value.id == aqarrea ? 'checked' : '') +' ><label class="form-check-label mb-0" for="area_'+value.id+'">'+value.name_ar+'</label></li>')
 
                 });
-               
+
             });
 
 });
@@ -480,7 +491,7 @@ $('#country_id').on('change',function(e){
 
         $('#city_id').on('change',function(e){
             var city_id = e.target.value;
-            $("#cityarea").show(); 
+            $("#cityarea").show();
             $.get("{{url('dashboard/cityareas')}}/"+city_id, function(data){
                 console.log(data);
                 $('#area_id').empty();
@@ -493,11 +504,11 @@ $('#country_id').on('change',function(e){
 
 $('input[type=radio][name=category_id]').change(function() {
     var category_id =$('input[name="category_id"]:checked').val();
-    var aqar_id='<?php echo $aqar->id?>';  
+    var aqar_id='<?php echo $aqar->id?>';
        $.ajax({
            url: '{{ url('dashboard/aqars/getsetting1') }}' + '/' +category_id  + '/' +aqar_id ,
            success : function(html)
-           {   
+           {
                $("#result_data1").show();
                var element = $('#result_data');
                element.empty();

@@ -37,6 +37,8 @@ class Aqar extends Model
         'time_to', // nullable
         'time_from', // nullable
         'description', // nullable
+        'latitude', // nullable
+        'longitude', // nullable
         'comment_text', // nullable
         'comision', // required
         'ads_id', //unsigned
