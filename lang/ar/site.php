@@ -476,7 +476,7 @@ return [
     'short_name' => 'الاسم المختصر',
     'display_name' => 'الاسم المعروض',
     'description' => 'الوصف',
-    'category' => 'الماركة',
+    'category' => 'الفئه',
     'created_at' => 'تم اضافتة',
 
 
