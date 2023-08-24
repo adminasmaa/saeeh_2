@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Place;    // HasMany
 use App\Models\Car;    // HasMany
 use App\Models\Aqar;   //belongsTo
+use DB;
 class Category extends Model
 {
     use HasFactory,SoftDeletes;
@@ -55,6 +56,36 @@ class Category extends Model
     public function carscategories(){
 
         return $this->HasMany(Car::class,'sub_category_id');
+    }
+
+    public function roomnumbers($id)
+    {
+
+        $roomnumbers = DB::select("SELECT   DISTINCT sum(aqar_details.name_ar) as total
+        FROM `aqars`
+        INNER JOIN aqar_sections on aqars.id=aqar_sections.aqar_id
+        INNER JOIN aqar_details on aqar_details.id=aqar_sections.sub_section_id
+        WHERE aqars.category_id=$id and aqar_sections.section_id=6 or aqar_sections.section_id=18 group by aqars.id  ORDER BY sum(aqar_details.name_ar);");
+
+        return $roomnumbers;
+
+
+
+    }
+
+    public function floornumbers($id)
+    {
+
+        $floornumbers = DB::select("SELECT   DISTINCT aqar_details.name_ar as floornumber
+        FROM `aqars`
+        INNER JOIN aqar_sections on aqars.id=aqar_sections.aqar_id
+        INNER JOIN aqar_details on aqar_details.id=aqar_sections.sub_section_id
+        WHERE aqars.category_id=$id and aqar_sections.section_id=1  group by aqars.id  ORDER BY aqar_details.id;");
+
+        return $floornumbers;
+
+
+
     }
 
 

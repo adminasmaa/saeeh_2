@@ -94,7 +94,7 @@ class AqarController extends Controller
         $data['person_num'] = $request['person_num'];
         $data['day_num'] = $request['day_num'];
         $data['price'] = $request['price'];
-        $request['changed_price']=json_encode($data)!=null?json_encode($data):json_encode([]);
+        $request['changed_price']=json_encode($data)!=null?json_encode($data, JSON_NUMERIC_CHECK):json_encode([]);
         return $this->AqarRepository->update($Aqar, $request);
 
 

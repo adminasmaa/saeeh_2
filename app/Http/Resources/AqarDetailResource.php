@@ -31,11 +31,15 @@ class AqarDetailResource extends JsonResource
         }
         return [
             "id" => $this->id ?? '',
-            "name" => $this->$name ?? '',
+            "name" => $this->$name ?? '',            
 //            "description" => html_entity_decode(substr($this->description, 0, 125)) ?? '',
             "description" => preg_replace("/\r|\n/", "", strip_tags($this->description)) ?? '',
             "distance" => $this->distance ?? 0,
             "address" => $this->details ?? '',
+            "unitnumber"=>$this->unitnumber?? 0,
+            "hallnumber"=>$this->hallnumber?? 0,
+            "bathroomnumber"=>$this->bathroomnumber?? 0,
+            "personnumber"=>$this->personnumber?? 0,
 //            "time" => $this->time ?? '',
             "time_from" => $this->time_from ?? '',
             "time_to" => $this->time_to ?? '',
