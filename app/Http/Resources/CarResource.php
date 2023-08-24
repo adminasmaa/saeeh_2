@@ -17,28 +17,38 @@ class CarResource extends JsonResource
     public function toArray($request)
     {
 
+        $lang = $request->header('localization');
+
+
         return [
-            "id" => $this->id,
+            "id" => $this->id ?? '',
             "name" => $this->name ?? '',
 
-            "description" => preg_replace("/\r|\n/", "", strip_tags($this->description)) ?? '',
+            "description" =>preg_replace( "/\r|\n/", "", strip_tags($this->description) ) ?? '',
+
+            "color" => $this->color ?? '',
             "car_delivery_date" => $this->car_delivery_date ?? '',
-            "favorite" => (count(CarUser::where('car_id', '=', $this->id)->where('user_id', '=', Auth::id())->get()) > 0 ? true : false),
+            "year" => $this->year ?? '',
+            "car_numbers" => $this->car_numbers ?? '',
+            "image" => asset('images/cars') . "/" . $this->main_image_ads,
+            "videos" => asset('images/cars') . "/" . $this->videos,
+            'path' => asset('images/cars') . "/",
+            'images' =>explode(",",$this->images) ?? [],
+            "CarReview" => CarReviewResource::collection($this->CarReview)->unique('name'),
+            "favorite" => (count(CarUser::where('car_id','=',$this->id)->where('user_id','=',Auth::id())->get())>0 ? true : false),
             "count_comment"=>$this->carComment->count() ?? 0,
             "count_review"=>$this->CarReview->count() ?? 0,
-            "comments" => CommentResource::collection($this->carComment),
-           "comment_text" => $this->comment_text ?? '',
-            "year" => $this->year ?? '',
-            "image" => asset('images/cars') . "/" . $this->main_image_ads,
-            "color" => $this->color ?? '',
-//            "category" => $this->category ?? '',
-            "car_numbers" => $this->car_numbers ?? '',
-//            "car_delivery_date" => $this->car_delivery_date ?? '',
-            "fixed_price" => $this->fixed_price ?? 0,
-            "changed_price" => $this->changed_price ?? '',
-            "rate" => round($this->carComment->avg('rating')) ?? 0,
+            'total' => $this->carComment->count() + $this->CarReview->count(),
 
+            "comments" => CommentResource::collection($this->carComment),
+            "rate" => round($this->carComment->avg('rating')) ?? 0,
+            "fixed_price" => $this->fixed_price ?? 0,
+            "Reservation_deposit" => $this->fixed_price ?? 0,
+
+            "changed_price" => json_decode($this->changed_price) ?? [],
             "category" => new staticResource($this->categories),
+
+
 
         ];
     }

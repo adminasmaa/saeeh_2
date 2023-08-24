@@ -121,7 +121,7 @@ class Aqar extends Model
 
     public function aqarReview()
     {
-        return $this->HasMany(AqarReview::class)->distinct();
+        return $this->HasMany(AqarReview::class);
 
 
     }
