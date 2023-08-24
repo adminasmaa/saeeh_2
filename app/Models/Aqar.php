@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\User;
-
+use DB;
 //belongsTo
 use App\Models\Ads;
 
@@ -148,5 +148,8 @@ class Aqar extends Model
 
         return $this->belongsToMany(User::class, 'aqar_user', 'aqar_id', 'user_id');
     }
+
+
+   
 
 }
