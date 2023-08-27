@@ -7,7 +7,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Contact;
 use App\Models\Setting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
+use Validator;
 
 class ContactController extends Controller
 {
@@ -24,16 +26,31 @@ class ContactController extends Controller
     public function addContacts(Request $request)
     {
 
+//return $request;
+//        $request->validate([
+//            'name' => 'required',
+//            'message' => 'message',
+//            'phone' => 'required|unique:contacts',
+//        ]);
 
-        $request->validate([
-            'name' => 'required',
+        $validation = Validator::make($request->all(), [
+            'name' => 'required|string',
+            'message' => 'required|string',
             'phone' => 'required|unique:contacts',
         ]);
 
-        Contact::create($request->all());
+        if ($validation->fails()) {
+            return response()->json(['errors' => $validation->errors()], 422);
+        }
+
+        $request_data = $request->except('_token');
+        $request_data['user_id'] = Auth::id() ?? '';
+
+      $data=Contact::create($request_data);
+
+        return response()->json(['status' => true, 'content' => 'success', 'data' => $data]);
 
 
-        return back();
 
 
     }
