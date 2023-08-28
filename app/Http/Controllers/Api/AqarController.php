@@ -378,6 +378,7 @@ class AqarController extends Controller
             'note' => 'nullable',
             'place_arrive' => 'nullable',
             'place_leave' => 'nullable',
+            'aqar_id' => 'nullable',
 
 
         ];
@@ -405,7 +406,7 @@ class AqarController extends Controller
     }
 
 
-   
+
 
 
 }
