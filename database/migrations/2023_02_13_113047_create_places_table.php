@@ -36,8 +36,8 @@ return new class extends Migration
             $table->integer('delivery')->nullable();
             $table->time('diff_time')->nullable();
             $table->time('const_time')->nullable();
-            $table->string('latitude')->nullable();
-            $table->string('longitude')->nullable();
+            $table->double('latitude')->nullable();
+            $table->double('longitude')->nullable();
             $table->json('rest_one')->nullable(); //eat_types
             $table->json('rest_two')->nullable(); //break_type
             $table->json('rest_three')->nullable(); //place_table(tawla)

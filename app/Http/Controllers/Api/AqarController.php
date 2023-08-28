@@ -371,14 +371,13 @@ class AqarController extends Controller
 
     public function AddAqar(Request $request)
     {
-
         $rule = [
             'delivery_date' => 'date|required',
             'reciept_date' => 'date|after_or_equal:delivery_date',
             'note' => 'nullable',
             'place_arrive' => 'nullable',
             'place_leave' => 'nullable',
-            'aqar_id' => 'nullable',
+            'id' => 'required',
 
 
         ];
@@ -396,6 +395,7 @@ class AqarController extends Controller
 
             $input = $request->all();
             $input['user_id'] = Auth::id();
+            $input['aqar_id'] =$request->id;
             $success = AqarBooking::create($input);
 
             return $this->respondSuccess($success, trans('site.added_successfully'));
