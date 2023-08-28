@@ -91,7 +91,7 @@ class CarController extends Controller
     {
 
         $rule = [
-            'car_id' => 'required',
+            'id' => 'required',
         ];
         $customMessages = [
             'required' => __('validation.attributes.required'),
@@ -104,7 +104,7 @@ class CarController extends Controller
             return $this->respondError('Validation Error.', $validator->errors(), 400);
 
         } else {
-            $car_id = $request->car_id;
+            $car_id = $request->id;
 
             $car = Car::where('id', $car_id)->first();
 
