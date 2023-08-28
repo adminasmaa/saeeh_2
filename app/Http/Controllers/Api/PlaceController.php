@@ -121,7 +121,7 @@ class PlaceController extends Controller
 
     public function placedetail(Request $request)
     {
-        $id = $request->place_id;
+        $id = $request->id;
 
         $place = Place::where('id', $id)->first();
         if (isset($place)) {
