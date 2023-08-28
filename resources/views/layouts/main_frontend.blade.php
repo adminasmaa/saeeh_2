@@ -147,12 +147,12 @@
 
                     $('#formregister').hide()
                 swal({
-                    title: "Added!",
+                    title: "Success!",
                 text: "The message has been successfully sent!",
                     type: "success",
                     confirmButtonText: "OK"
             });
-                {{--window.location.href = '{{route('Home')}}';--}}
+                window.location.href = '{{route('Home')}}';
 
 
             },
