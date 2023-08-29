@@ -84,18 +84,17 @@
                         <div class="col-lg-3 col-sm-6 col-12">
                             <a href="{{route('subcategorycars',$subcat->id)}}">
                                 <div class="card-restaurant mb-4 position-relative">
-                                    {{--                                <img src="{{FRONTASSETS}}/images/restaurants/restaurant-cat.png" alt="Card image cap"--}}
-                                    {{--                                     class="restaurant-image">--}}
+                                 
                                     <img class="restaurant-image" src="{{asset('images/categories/'.$subcat->image)}}"
                                          alt="Card image cap"
                                          onerror="this.src='{{asset('images/categories/default.jpg')}}'"
                                     >
                                     <div class="card-restaurant-body d-flex justify-content-center align-items-center">
                                         <div>
-                                            <div class="restaurant-icon">
+                                            <!-- <div class="restaurant-icon">
                                                 <img src="{{FRONTASSETS}}/images/restaurants/rest-icon-1.svg"
                                                      alt="restaurant icon">
-                                            </div>
+                                            </div> -->
                                             <h2 class="card-title "> {{$subcat->name ?? ''}}</h2>
                                         </div>
                                     </div>

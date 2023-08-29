@@ -129,7 +129,7 @@ return [
     'car_bookings' => ' حجوزات السيارات ',
 
     'sections' => 'الأقسام',
-    // 'sites' => 'مقاعد',
+    'day_numbers' => 'عدد الايام',
     'input_id' => 'القسم',
     'display' => 'الظهور',
     'view' => 'مشاهدة',
