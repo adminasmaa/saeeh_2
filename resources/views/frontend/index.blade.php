@@ -136,7 +136,7 @@
                                        <div class="box-search mb-sm-0 mb-3">
                                           <select
                                              class="select2"
-                                             id="list11"
+                                             id="list2"
                                              name="category_id"
                                              >
                                              <option>@lang('site.category')</option>
