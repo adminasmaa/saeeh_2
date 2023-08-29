@@ -565,7 +565,7 @@
                                             <div
                                                 class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
                                             >
-                                                {{$car->changed_price-> ?? 0 }}
+                                                {{$car->changed_price ?? 0 }}
                                             </div>
                                         </div>
                                         <hr class="hr-saeeh my-0"/>
