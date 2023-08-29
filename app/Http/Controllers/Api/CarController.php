@@ -166,7 +166,7 @@ class CarController extends Controller
                 }
 
 //
-            } elseif ($request->type == 'aqars') {
+            } elseif ($request->type == 'aqar') {
 
                 $user->setRelation('favourite_aqars', $user->favourite_aqars()->paginate(20));
 
