@@ -200,7 +200,7 @@ class AqarController extends Controller
         } else {
 
 
-            if ($request->type == 'Aqar') {
+            if ($request->type == 'aqar') {
 
                 if (!empty($request->comments)) {
 
@@ -231,7 +231,7 @@ class AqarController extends Controller
                 ]);
 
 
-            } elseif ($request->type == 'Car') {
+            } elseif ($request->type == 'car') {
 
 
                 if (!empty($request->comments)) {
