@@ -50,7 +50,7 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
         // TODO: Implement edit() method.
 
         $aqar = Aqar::with('aqarSection')->find($Id);   
-        $aqar['changed_price']=json_decode($aqar['changed_price']);;
+        $aqar['changed_price']=json_decode($aqar['changed_price']);
         $users = User::whereNotNull('account_type')->where('active',1)->get();
         $categories = Category::where('type',1)->where('parent_id',1)->where('active',1)->get();
         $Area = Area::where('active',1)->get();
@@ -79,7 +79,7 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
     {
         // TODO: Implement store() method.
 
-      //  return $request;
+        //  return $request;
 
         $request_data = $request->except(['main_image','images','videos','subservice']);
 
@@ -192,7 +192,7 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
     public function destroy($aqar)
     {
         // TODO: Implement destroy() method.
-//        $result=DB::table('categories')->where('id',$category->id)->delete();
+        // $result=DB::table('categories')->where('id',$category->id)->delete();
         $result = $aqar->delete();
         if ($result) {
                 Alert::toast('Success', __('site.deleted_successfully'));
@@ -201,7 +201,6 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
 
           //      session()->flash('error', __('site.delete_faild'));
         }
-
         return back();
     }
 }
