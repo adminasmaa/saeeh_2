@@ -544,7 +544,7 @@
                                         <hr class="hr-saeeh my-0"/>
                                         <div class="d-flex justify-content-between py-1 px-3">
                                             <div class="d-flex align-items-center">
-                            <!-- <span>
+                             <span>
                               <svg
                                   xmlns="http://www.w3.org/2000/svg"
                                   width="24"
@@ -559,18 +559,18 @@
                               </svg>
                             </span>
                                                 <span class="text-second dd-txt pe-2"
-                                                > @lang('site.car_numbers')
+                                                > @lang('site.day_numbers')
                             </span>
                                             </div>
                                             <div
                                                 class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
                                             >
-                                                {{$car->car_numbers ?? 0 }}
+                                                {{$car->changed_price-> ?? 0 }}
                                             </div>
                                         </div>
                                         <hr class="hr-saeeh my-0"/>
                                         <div class="d-flex justify-content-between py-1 px-3">
-                                            <div class="d-flex align-items-center"> -->
+                                            <div class="d-flex align-items-center"> 
                             <!-- <span>
                               <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -754,7 +754,7 @@
                                             <div class="d-flex align-items-center">
                             <span> -->
 
-                            <span>
+                            <!-- <span>
                               <svg
                                   xmlns="http://www.w3.org/2000/svg"
                                   width="32"
@@ -784,8 +784,8 @@
                                     stroke-linejoin="round"
                                 />
                               </svg>
-                            </span>
-                                                <span class="text-second dd-txt pe-2">@lang('site.categories') </span>
+                            </span> -->
+                                                <!-- <span class="text-second dd-txt pe-2">@lang('site.categories') </span>
                                             </div>
                                             <div
                                                 class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
@@ -796,8 +796,8 @@
                                         <hr class="hr-saeeh my-0"/>
                                         <div class="d-flex justify-content-between py-1 px-3">
                                             <div class="d-flex align-items-center">
-                            <span>
-                              <svg
+                            <span> -->
+                              <!-- <svg
                                   xmlns="http://www.w3.org/2000/svg"
                                   width="24"
                                   height="24"
@@ -822,7 +822,7 @@
                                         </div>
                                         <hr class="hr-saeeh my-0"/>
                                         <div class="d-flex justify-content-between py-1 px-3">
-                                            <div class="d-flex align-items-center">
+                                            <div class="d-flex align-items-center"> -->
                             <span>
                               <svg
                                   xmlns="http://www.w3.org/2000/svg"
