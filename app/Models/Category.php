@@ -61,13 +61,17 @@ class Category extends Model
     public function roomnumbers($id)
     {
 
-        $roomnumbers = DB::select("SELECT   DISTINCT sum(aqar_details.name_ar) as total
+        $roomnumbers = DB::select("SELECT   DISTINCT sum(aqar_details.name_ar) as roomnumbers
         FROM `aqars`
         INNER JOIN aqar_sections on aqars.id=aqar_sections.aqar_id
         INNER JOIN aqar_details on aqar_details.id=aqar_sections.sub_section_id
         WHERE aqars.category_id=$id and aqar_sections.section_id=6 or aqar_sections.section_id=18 group by aqars.id  ORDER BY sum(aqar_details.name_ar);");
+        $arr=[];
+        foreach($roomnumbers as $number){
 
-        return $roomnumbers;
+            array_push($arr, $number->roomnumbers);
+        }
+        return $arr;
 
 
 
@@ -82,7 +86,14 @@ class Category extends Model
         INNER JOIN aqar_details on aqar_details.id=aqar_sections.sub_section_id
         WHERE aqars.category_id=$id and aqar_sections.section_id=1  group by aqars.id  ORDER BY aqar_details.id;");
 
-        return $floornumbers;
+        $arr=[];
+        foreach($floornumbers as $number){
+
+            array_push($arr, $number->floornumber);
+        }
+        return $arr;
+
+        return $arr;
 
 
 

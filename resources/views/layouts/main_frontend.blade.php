@@ -145,19 +145,19 @@ $(document).ready(function () {
     });
 
 
-    $('#list7').on('change', function (e) {
-        var lis1 = e.target.value;
-        $.get("{{url('categorycities')}}/" + lis1, function (data) {
-            $('#list2').empty();
-            $('#list2').append('<option>@lang('site.select')</option>');
-            $.each(data, function (key, value) {
-                $('#list2').append('<option value="' + value.category_id + '">' + value.name_ar + '</option>');
+    // $('#list7').on('change', function (e) {
+    //     var lis1 = e.target.value;
+    //     $.get("{{url('categorycities')}}/" + lis1, function (data) {
+    //         $('#list2').empty();
+    //         $('#list2').append('<option>@lang('site.select')</option>');
+    //         $.each(data, function (key, value) {
+    //             $('#list2').append('<option value="' + value.category_id + '">' + value.name_ar + '</option>');
 
 
-            });
-            $("#list2").trigger('change');
-        })
-    });
+    //         });
+    //         $("#list2").trigger('change');
+    //     })
+    // });
 
 
 
