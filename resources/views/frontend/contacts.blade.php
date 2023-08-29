@@ -31,7 +31,7 @@
                         <li class="breadcrumb-item text-gray-4" aria-current="page">
 
 
-                     @lang('site.contacts')
+                            @lang('site.contacts')
                         </li>
                     </ol>
                 </nav>
@@ -130,44 +130,52 @@
                     </div>
                     <div class="col-lg-8">
                         <div class="card-contact mb-3 p-3">
-                            <div class="h2 text-second">ارسل بياناتك</div>
-                            <p class="w-contact-45">يمكنك ارسال رسالتك من خلال ادخال كافه بيانات فى حقول الادخال</p>
+                            <div class="h2 text-second">@lang('site.Submit your data')</div>
+                            <p class="w-contact-45">@lang('site.You can send your message by entering all data in the input fields')</p>
 
-                            <form action="{{url('addContacts')}}" method="post" >
-                                @csrf
-                                @include('partials._errors')
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="name" class="contact-lbl mb-2">@lang('site.name')</label>
-                                        <input type="text" name="name" class="form-control contact-input"
-                                               placeholder="{{trans('site.name')}}" required>
+                            <form class="formregister" id="formregister">
 
+
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+
+                                            <ul class="register_errorsS"></ul>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="mb-3">
-                                        <label for="phone" class="contact-lbl mb-2"> @lang('site.phone')</label>
-                                        <input type="number" name="phone" class="form-control contact-input "
-                                               placeholder="{{trans('site.phone')}}" required>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="name" class="contact-lbl mb-2">@lang('site.name')</label>
+                                            <input type="text" name="name" class="form-control contact-input name2"
+                                                   placeholder="{{trans('site.name')}}">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="phone" class="contact-lbl mb-2"> @lang('site.phone')</label>
+                                            <input type="number" name="phone" class="form-control contact-input phone2"
+                                                   placeholder="{{trans('site.phone')}}">
 
 
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="mb-3">
+                                            <label for="name" class="contact-lbl mb-2">@lang('site.message')</label>
+                                            <textarea class="form-control txtarea-contact p-3 message2" name="message"
+                                                      placeholder="{{trans('site.message')}}" rows="4"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button
+                                            class="contact-btn d-flex justify-content-center align-items-center mt-3 formregisters">
+                                            @lang('site.send')
+                                        </button>
                                     </div>
                                 </div>
-                                <div class="col-12">
-                                    <div class="mb-3">
-                                        <label for="name" class="contact-lbl mb-2">@lang('site.message')</label>
-                                        <textarea class="form-control txtarea-contact p-3" name="message"
-                                                  placeholder="{{trans('site.message')}}" rows="4" required></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit"
-                                            class="contact-btn d-flex justify-content-center align-items-center mt-3">
-                                        @lang('site.send')
-                                    </button>
-                                </div>
-                            </div>
                             </form>
                         </div>
                     </div>
@@ -193,3 +201,69 @@
         </section>
     </main>
 @endsection
+
+@section('scripts')
+
+    <script>
+
+
+        jQuery('.formregisters').click(function (e) {
+            // console.log("daaaa");
+            e.preventDefault();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+
+            jQuery.ajax({
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')},
+
+                url: "{{ route('addContacts') }}",
+                method: 'post',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    name: jQuery('.name2').val(),
+                    message: jQuery('.message2').val(),
+                    phone: jQuery('.phone2').val(),
+
+
+                },
+                success: function (result) {
+                    console.log(result);
+
+                    if (result.content == 'success')
+
+
+                    swal({
+                        title: "Success!",
+                        text: "The message has been successfully sent!",
+                        type: "success",
+                        confirmButtonText: "OK"
+                    });
+
+                    window.location.href = '{{route('Home')}}';
+
+                },
+                error: function (result) {
+                    // console.log(result.responseJSON);
+                    var errors = result.responseJSON;
+                    var errorsList = "";
+                    $.each(errors, function (_, value) {
+                        $.each(value, function (_, fieldErrors) {
+                            fieldErrors.forEach(function (error) {
+                                errorsList += "<li style='color:#e81f1f'>" + error + "</li>";
+                            })
+                        });
+                    });
+                    $('.register_errorsS').html(errorsList);
+
+
+                }
+            });
+        });
+
+    </script>
+@endsection
+

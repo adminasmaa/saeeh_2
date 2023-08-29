@@ -68,7 +68,7 @@ class AqarBookingResource extends JsonResource
             "favorite" => (count(AquarUser::where('aqar_id','=',$this->aqar_id)->where('user_id','=',Auth::id())->get())>0 ? true : false),
 
             "rate" => round($this->aqarComment->avg('rating')) ?? 0,
-            "aqarReview" => AqarReviewResource::collection($this->aqarReview),
+            "reviews" => AqarReviewResource::collection($this->aqarReview),
             "fixed_price" => $this->fixed_price ?? 0,
             "changed_price" => json_decode($this->changed_price) ?? [],
             "created_at" => $this->created_at ?? '',

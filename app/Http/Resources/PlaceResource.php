@@ -52,7 +52,7 @@ class PlaceResource extends JsonResource
             "comment_count" => $this->placeComments->count() ?? 0,
             'total' => $this->PlaceReview->count() + $this->placeComments->count(),
 
-            "PlaceReview" => PlaceReviewResource::collection($this->PlaceReview),
+            "reviews" => PlaceReviewResource::collection($this->PlaceReview),
 
             "path"=>asset('images/places/'),
             "images" => explode(",",$this->images) ?? [],

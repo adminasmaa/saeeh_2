@@ -36,7 +36,7 @@ class CarDetailResource extends JsonResource
             "videos" => asset('images/cars') . "/" . $this->videos,
             'path' => asset('images/cars') . "/",
             'images' =>explode(",",$this->images) ?? [],
-            "CarReview" => CarReviewResource::collection($this->CarReview)->unique('name'),
+            "reviews" => CarReviewResource::collection($this->CarReview)->unique('name'),
             "favorite" => (count(CarUser::where('car_id','=',$this->id)->where('user_id','=',Auth::id())->get())>0 ? true : false),
             "count_comment"=>$this->carComment->count() ?? 0,
             "count_review"=>$this->CarReview->count() ?? 0,

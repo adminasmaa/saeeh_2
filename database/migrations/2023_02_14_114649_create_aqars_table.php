@@ -23,8 +23,8 @@ return new class extends Migration
             $table->string('main_image')->nullable();
             $table->json('images')->nullable();
             $table->string('videos')->nullable();
-            $table->string('latitude')->nullable();
-            $table->string('longitude')->nullable();
+            $table->double('latitude')->nullable();
+            $table->double('longitude')->nullable();
             $table->integer('space')->nullable();
             $table->time('time_to')->nullable();
             $table->time('time_from')->nullable();

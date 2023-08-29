@@ -26,7 +26,7 @@ class AqarController extends Controller
     public function detailAqar(Request $request)
     {
         $rule = [
-            'aqar_id' => 'required',
+            'id' => 'required',
         ];
         $customMessages = [
             'required' => __('validation.attributes.required'),
@@ -39,7 +39,7 @@ class AqarController extends Controller
             return $this->respondError('Validation Error.', $validator->errors(), 400);
 
         } else {
-            $aqar_id = $request->aqar_id;
+            $aqar_id = $request->id;
 
             $aqar = Aqar::where('id', $aqar_id)->first();
 
@@ -371,13 +371,13 @@ class AqarController extends Controller
 
     public function AddAqar(Request $request)
     {
-
         $rule = [
             'delivery_date' => 'date|required',
             'reciept_date' => 'date|after_or_equal:delivery_date',
             'note' => 'nullable',
             'place_arrive' => 'nullable',
             'place_leave' => 'nullable',
+            'id' => 'required',
 
 
         ];
@@ -395,6 +395,7 @@ class AqarController extends Controller
 
             $input = $request->all();
             $input['user_id'] = Auth::id();
+            $input['aqar_id'] =$request->id;
             $success = AqarBooking::create($input);
 
             return $this->respondSuccess($success, trans('site.added_successfully'));
@@ -405,7 +406,7 @@ class AqarController extends Controller
     }
 
 
-   
+
 
 
 }
