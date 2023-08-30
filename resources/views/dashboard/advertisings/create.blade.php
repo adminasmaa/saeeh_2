@@ -84,10 +84,10 @@
                                         <select class="js-example-placeholder-multiple col-sm-12" name="country_id">
                                             <option selected>@lang('site.select')</option>
 
-                                            <option value="upper_middle">Upper Middle</option>
-                                            <option value="lower_middle">Lower Middle</option>
-                                            <option value="banner">Banner</option>
-                                            <option value="slider">Slider</option>
+                                            <option value="upper_middle">@lang('site.upper_middle')</option>
+                                            <option value="lower_middle">@lang('site.lower_middle')</option>
+                                            <option value="banner">@lang('site.banner')</option>
+                                            <option value="slider">@lang('site.slider')</option>
 
 
                                         </select>

@@ -118,7 +118,6 @@ class ServicesDataTable extends DataTable
 
         return [
             Column::make('DT_RowIndex')->data('DT_RowIndex')->name('id')->title('#'),
-            Column::make('id')->title(trans('site.id')),
 
             Column::make('name_'.$lan)->title(trans('site.name')),
             Column::make('created_at')->title(trans('site.created_at')),

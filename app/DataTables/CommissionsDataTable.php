@@ -114,7 +114,6 @@ class CommissionsDataTable extends DataTable
     {
         return [
             Column::make('DT_RowIndex')->data('DT_RowIndex')->name('id')->title('#'),
-            Column::make('id')->title(trans('site.id')),
             Column::make('user_id')->title(trans('site.users')),
             Column::make('price')->title(trans('site.price')),
             Column::make('status')->title(trans('site.status')),

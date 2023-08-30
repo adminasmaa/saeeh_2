@@ -47,7 +47,7 @@ return [
     'id number' => 'رقم الاعلان',
     'Reservation deposit' => 'عربون حجز',
     'Departure dates' => 'مواعيد المغادرة',
-    'total' => 'الاجمالي ',
+    'total' => 'الكلي ',
     'Price summary' => 'ملخص السعر',
     'Reservation deposit' => 'عربون حجز',
     'communication' => "اتصال",
@@ -105,6 +105,9 @@ return [
     'demo_work' => 'اجراءات النظافة',
     'demo_loc' => 'اجراءات العقارات ',
 
+    'banner' => 'شعار',
+    'upper_middle' => 'فى الوسط الاعلى',
+    'lower_middle' => 'فى الوسط الاسفل',
 
     'delivery place' => 'مكان التسليم',
     'Receipt hour' => 'ساعة الاستلام',

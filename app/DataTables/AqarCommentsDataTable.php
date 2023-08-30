@@ -112,8 +112,6 @@ class AqarCommentsDataTable extends DataTable
     {
         return [
             Column::make('id')->data('DT_RowIndex')->name('id')->title('#'),
-            Column::make('id')->title(trans('site.id')),
-
             Column::make('description')->title(trans('site.description')),
             Column::make('rating')->title(trans('site.rating')),
             Column::make('status')->title(trans('site.status')),
