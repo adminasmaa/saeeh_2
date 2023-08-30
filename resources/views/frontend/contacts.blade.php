@@ -243,6 +243,10 @@
                         confirmButtonText: "OK"
                     });
 
+                    setTimeout(function () {
+                        Swal.close()
+                    }, 2000)
+
                     window.location.href = '{{route('Home')}}';
 
                 },

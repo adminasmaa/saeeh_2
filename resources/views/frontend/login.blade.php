@@ -11,8 +11,8 @@
             >
               <div class="text-center my-lg-5 my-3 login-content">
 
-                  <form action="{{route('logins')}}" method="post" >
-            @csrf
+                  <form  >
+
                 <div
                   class="row d-flex justify-content-center align-items-center h-100"
                 >
@@ -20,34 +20,29 @@
 
                   <div class="col-md-10 col-10 my-lg-5 my-2">
                     <h2 class="fw-bold login-title mb-5"> @lang('site.login')</h2>
+                      <div class="row">
+                          <div class="col-lg-6">
+                              <div class="mb-3">
+                                  <ul  id="register_errorslogin"></ul>
 
+
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
                     <div class="">
                       <input
                         type="tel"
-                        class="form-control frm-input mb-3"
+                        class="form-control frm-input mb-3 phone3"
                         name="phone"
                         placeholder=" {{trans('site.phone')}}"
                       />
-                      <span class="icon-placeholder">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          viewBox="0 0 16 16"
-                          fill="none"
-                        >
-                          <path
-                            d="M1.375 15.5C1.23611 15.5 1.09028 15.4964 0.9375 15.4892C0.784722 15.4819 0.638889 15.4717 0.5 15.4583V10.5833L4.66667 9.75L7.08333 12.1667C8.13889 11.5278 9.10778 10.7708 9.99 9.89583C10.8722 9.02083 11.6047 8.08333 12.1875 7.08333L9.8125 4.6875L10.5833 0.5H15.4583C15.4861 0.638889 15.5 0.784722 15.5 0.9375V1.375C15.5 3.16667 15.1008 4.91333 14.3025 6.615C13.5042 8.31667 12.4486 9.82694 11.1358 11.1458C9.82306 12.4653 8.31611 13.5208 6.615 14.3125C4.91389 15.1042 3.16722 15.5 1.375 15.5ZM12.9792 5.5C13.2153 4.95833 13.3958 4.40972 13.5208 3.85417C13.6458 3.29861 13.7431 2.73611 13.8125 2.16667H11.9583L11.6042 4.125L12.9792 5.5ZM5.52083 12.9583L4.125 11.5625L2.16667 11.9583V13.7917C2.73611 13.75 3.30222 13.6597 3.865 13.5208C4.42778 13.3819 4.97972 13.1944 5.52083 12.9583Z"
-                            fill="#9C9C9C"
-                          />
-                        </svg>
-                      </span>
                     </div>
                     <div class="emailcont">
                       <input
                         id="password-fieldd"
                         type="password"
-                        class="form-control input-user my-3"
+                        class="form-control input-user my-3 password3"
                         name="password"
                         placeholder=" {{trans('site.password')}}"
                       />
@@ -70,11 +65,11 @@
                         class="fa fa-fw fa-eye field-icon toggle-password"
                       ></div>
                     </div>
-                    <button type="submit" class="mt-4 btn-login">
+                    <button type="submit" class="mt-4 btn-login formregisterslogin">
                     @lang('site.login')
                     </button>
                     <div class="forgit-password pt-2">
-                      <a href="#"> @lang('site.forget_password') ؟ </a>
+{{--                      <a href="#"> @lang('site.forget_password') ؟ </a>--}}
                     </div>
                     <div class="pt-3 user-links">
                       <p class="text-bold">
@@ -82,11 +77,14 @@
                         <a href="{{route('registers')}}" class="user-link"> @lang('site.register')</a>
                       </p>
                     </div>
+                  </div>
+                </div>
                     </form>
                     </div>
+                <div class="side-login-image"></div>
                 </div>
               </div>
-              <div class="side-login-image"></div>
+
             </div>
           </div>
         </div>
@@ -95,4 +93,79 @@
 
 
 
+@endsection
+@section('scripts')
+
+    <script>
+
+
+        jQuery('.formregisterslogin').click(function (e) {
+            // console.log("daaaa");
+            e.preventDefault();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+
+            jQuery.ajax({
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')},
+
+                url: "{{ route('logins') }}",
+                method: 'post',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    phone: jQuery('.phone3').val(),
+                    password: jQuery('.password3').val(),
+
+
+                },
+                success: function (result) {
+                    console.log(result);
+
+                    if (result.content == 'success') {
+
+                        swal({
+                            title: "Success!",
+                            text: "The Login  successfully !",
+                            type: "success",
+                            confirmButtonText: "OK"
+                        });
+
+                        setTimeout(function () {
+                            Swal.close()
+                        }, 50000)
+
+                        window.location.href = '{{route('Home')}}';
+
+                    }
+                    else if (result.content == 'error') {
+                        swal({
+                            title: "Error!",
+                            text: "Data The entry was approved by an error. Please enter the data correctly !",
+                            type: "warning",
+                            confirmButtonText: "OK"
+                        });
+                    }
+                },
+                error: function (result) {
+                    console.log(result.responseJSON);
+                    var errors = result.responseJSON;
+                    var errorsList = "";
+                    $.each(errors, function (_, value) {
+                        $.each(value, function (_, fieldErrors) {
+                            fieldErrors.forEach(function (error) {
+                                errorsList += "<li style='color:#e81f1f'>" + error + "</li>";
+                            })
+                        });
+                    });
+                    $('#register_errorslogin').html(errorsList);
+
+
+                }
+            });
+        });
+
+    </script>
 @endsection

@@ -9,21 +9,33 @@
             <div
               class="col-12 login-body d-lg-flex justify-content-lg-between px-0"
             >
-           
+
               <div class="text-center my-lg-5 my-3 login-content">
-               <form action="{{route('createaccount')}}" method="post" >
-            @csrf
+               <form  >
+
                 <div
                   class="row d-flex justify-content-center align-items-center h-100"
                 >
                   <div class="col-md-10 col-10 my-lg-5 my-2">
                     <h2 class="fw-bold login-title mb-5"> {{trans('site.register')}} </h2>
+                      <div class="row">
+                          <div class="col-lg-6">
+                              <div class="mb-3">
+                                  <ul  id="register_errorsUsers"></ul>
+
+
+                              </ul>
+                          </div>
+                      </div>
+                      </div>
+
+
                     <div class="row">
                       <div class="col-lg-6">
                         <div class="emailcont">
                           <input
                             type="text"
-                            class="form-control frm-input mb-3"
+                            class="form-control frm-input mb-3 name2"
                             name="name"
                             placeholder=" {{trans('site.name')}}"
                           />
@@ -47,7 +59,7 @@
                         <div class="emailcont">
                           <input
                             type="email"
-                            class="form-control frm-input mb-3"
+                            class="form-control frm-input mb-3 email2"
                             placeholder=" {{trans('site.email')}}"
                             name="email"
                           />
@@ -74,7 +86,7 @@
                           <input
                             id="password-field"
                             type="password"
-                            class="form-control input-user mb-3"
+                            class="form-control input-user mb-3 password2"
                             name="password"
                             placeholder=" {{trans('site.password')}}"
                           />
@@ -103,7 +115,7 @@
                           <input
                             id="password-field-confirm"
                             type="password"
-                            class="form-control input-user mb-3"
+                            class="form-control input-user mb-3 password_confirmation2"
                             name="password_confirmation"
                             placeholder="{{trans('site.password_confirmation')}}"
                           />
@@ -132,7 +144,7 @@
                       <input
                         type="tel"
                         name="phone"
-                        class="form-control frm-input mb-3"
+                        class="form-control frm-input mb-3 phone2"
                         placeholder="{{trans('site.phone')}}"
                       />
                       <span class="icon-placeholder">
@@ -150,13 +162,13 @@
                         </svg>
                       </span>
                     </div>
-                    <button type="submit" class="mt-4 btn-login">
+                    <button type="submit" class="mt-4 btn-login formregistersUser">
                        {{trans('site.sing_up')}}
                     </button>
 
                     <div class="pt-3 user-links">
                       <p class="text-bold">
-                        
+
 
 
                         @lang('site.haveprofile')
@@ -165,9 +177,9 @@
                     </div>
                   </div>
                 </div>
-
+               </form>
                 </div>
-                
+
                 </form>
               <div class="side-login-image"></div>
             </div>
@@ -176,4 +188,74 @@
       </section>
     </main>
 
+@endsection
+@section('scripts')
+
+    <script>
+
+
+        jQuery('.formregistersUser').click(function (e) {
+            // console.log("daaaa");
+            e.preventDefault();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+
+            jQuery.ajax({
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')},
+
+                url: "{{ route('createaccount') }}",
+                method: 'post',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    name: jQuery('.name2').val(),
+                    phone: jQuery('.phone2').val(),
+                    email: jQuery('.email2').val(),
+                    password: jQuery('.password2').val(),
+                    password_confirmation: jQuery('.password_confirmation2').val(),
+
+
+                },
+                success: function (result) {
+                    console.log(result);
+
+                    if (result.content == 'success')
+
+
+                        swal({
+                            title: "Success!",
+                            text: "The Data has been successfully Added!",
+                            type: "success",
+                            confirmButtonText: "OK"
+                        });
+
+                    setTimeout(function () {
+                        Swal.close()
+                    }, 10000)
+
+                    window.location.href = '{{route('Home')}}';
+
+                },
+                error: function (result) {
+                    console.log(result.responseJSON);
+                    var errors = result.responseJSON;
+                    var errorsList = "";
+                    $.each(errors, function (_, value) {
+                        $.each(value, function (_, fieldErrors) {
+                            fieldErrors.forEach(function (error) {
+                                errorsList += "<li style='color:#e81f1f'>" + error + "</li>";
+                            })
+                        });
+                    });
+                    $('#register_errorsUsers').html(errorsList);
+
+
+                }
+            });
+        });
+
+    </script>
 @endsection
