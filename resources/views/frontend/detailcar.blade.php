@@ -817,7 +817,7 @@
                             <li id="tab-3">
                                 <div class="row">
                                     <div class="col-12 pt-4">
-                                        <div class="condition-content">
+                                        <!-- <div class="condition-content">
                                             <h2 class="condition-title">
 
                                                 @lang('site.allownumber')
@@ -831,7 +831,7 @@
                                                 @lang('site.Please follow the site policy')
                                             </p>
                                             <hr class="hr-saeeh"/>
-                                        </div>
+                                        </div> -->
                                         <div class="condition-content">
                                             <h2 class="condition-title">@lang('site.Arrival dates')</h2>
                                             <p class="details-sm-txt padding-right">

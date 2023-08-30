@@ -113,8 +113,6 @@ class AqarBookingDataTable extends DataTable
     {
         return [
             Column::make('id')->data('DT_RowIndex')->name('id')->title('#'),
-            Column::make('id')->title(trans('site.id')),
-
             Column::make('type')->title(trans('site.type')),
             Column::make('fixed_price')->title(trans('site.price')),
             Column::make('created_at')->title(trans('site.created_at')),

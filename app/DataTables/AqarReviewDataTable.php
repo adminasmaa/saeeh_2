@@ -112,8 +112,6 @@ class AqarReviewDataTable extends DataTable
     {
         return [
             Column::make('id')->data('DT_RowIndex')->name('id')->title('#'),
-            Column::make('id')->title(trans('site.id')),
-
             Column::make('rate')->title(trans('site.rate')),
             Column::make('created_at')->title(trans('site.created_at')),
             Column::computed('action')

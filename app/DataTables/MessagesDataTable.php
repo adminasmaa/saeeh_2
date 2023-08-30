@@ -113,7 +113,6 @@ class MessagesDataTable extends DataTable
     {
         return [
             Column::make('DT_RowIndex')->data('DT_RowIndex')->name('id')->title('#'),
-            Column::make('id')->title(trans('site.id')),
 
             Column::make('messages')->title(trans('site.contacts')),
             Column::make('to')->title(trans('site.to')),

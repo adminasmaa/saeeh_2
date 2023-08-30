@@ -580,6 +580,7 @@
 
                                                     <div class="department-badge bg-main text-white">
                                                         <div class="pt-1">{{$comment->rating ?? 0}}</div>
+                                                       
                                                         <div>
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="25"
                                                                  height="25"
@@ -588,6 +589,10 @@
                                                                     d="M12.7529 19.6185L20.1689 24.3301L18.2009 15.4501L24.7529 9.47534L16.1249 8.70481L12.7529 0.330078L9.38093 8.70481L0.75293 9.47534L7.30493 15.4501L5.33693 24.3301L12.7529 19.6185Z"
                                                                     fill="white"/>
                                                             </svg>
+                                                        {{--<p class="details-sm-txt">
+                                                            {{$allaquars->$aqarSection->icon ?? ''}}
+                                                        </p> --}}
+                                                        
                                                         </div>
                                                     </div>
                                                 </div>

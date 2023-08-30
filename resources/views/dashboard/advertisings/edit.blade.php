@@ -135,16 +135,16 @@
                                         <option selected>@lang('site.select')</option>
 
                                         <option value="upper_middle"
-                                                @if($advertising->position=='upper_middle') selected @endif>Upper Middle
+                                                @if($advertising->position=='upper_middle') selected @endif>@lang('site.upper_middle')
                                         </option>
                                         <option value="lower_middle"
-                                                @if($advertising->position=='lower_middle') selected @endif>Lower Middle
+                                                @if($advertising->position=='lower_middle') selected @endif>@lang('site.lower_middle')
                                         </option>
                                         <option value="banner" @if($advertising->position=='banner') selected @endif>
-                                            Banner
+                                        @lang('site.banner')
                                         </option>
                                         <option value="slider" @if($advertising->position=='slider') selected @endif>
-                                            Slider
+                                        @lang('site.slider')
                                         </option>
 
 
