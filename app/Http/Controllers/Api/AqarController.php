@@ -396,6 +396,8 @@ class AqarController extends Controller
             $input = $request->all();
             $input['user_id'] = Auth::id();
             $input['aqar_id'] =$request->id;
+            $input['fixed_price'] =$request->total_price;
+
             $success = AqarBooking::create($input);
 
             return $this->respondSuccess($success, trans('site.added_successfully'));
