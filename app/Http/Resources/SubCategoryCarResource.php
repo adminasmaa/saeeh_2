@@ -29,7 +29,7 @@ class SubCategoryCarResource extends JsonResource
             "car_numbers" => $this->car_numbers ?? '',
             "car_delivery_date" => $this->car_delivery_date ?? '',
             "fixed_price" => $this->fixed_price ?? 0,
-            "changed_price" => $this->changed_price ?? '',
+            "changed_price" => json_decode($this->changed_price) ?? NULL,
 
         ];
     }
