@@ -19,7 +19,7 @@ class PlaceReviewResource extends JsonResource
             "id" => $this->id,
 
             "name" => "Total",
-            "value" => $this->RateTotal($this->place_id) / $this->CountUser($this->place_id) ?? 0,
+            "value" => round($this->RateTotal($this->place_id) / $this->CountUser($this->place_id)) ?? 0,
 
         ];
     }

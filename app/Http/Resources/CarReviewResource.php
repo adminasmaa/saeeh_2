@@ -19,7 +19,7 @@ class CarReviewResource extends JsonResource
             "id" => $this->id,
 
             "name" => "Total",
-            "value" => $this->RateTotal($this->car_id) / $this->CountUser($this->car_id) ?? 0,
+            "value" => round($this->RateTotal($this->car_id) / $this->CountUser($this->car_id)) ?? 0,
 
         ];
     }
