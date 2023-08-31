@@ -21,6 +21,43 @@ class CarController extends Controller
 {
 
 
+    public function AddCarBooking(Request $request)
+    {
+        $rule = [
+            'delivery_date' => 'date|required',
+            'reciept_date' => 'date|after_or_equal:delivery_date',
+            'note' => 'nullable',
+            'place_arrive' => 'nullable',
+            'place_leave' => 'nullable',
+            'id' => 'required',
+            'total_price' => 'nullable',
+
+
+        ];
+        $customMessages = [
+            'required' => __('validation.attributes.required'),
+        ];
+
+        $validator = validator()->make($request->all(), $rule, $customMessages);
+
+        if ($validator->fails()) {
+
+            return $this->respondError('Validation Error.', $validator->errors(), 400);
+
+        } else {
+
+            $input = $request->all();
+            $input['user_id'] = Auth::id();
+            $input['fixed_price'] =$request->total_price;
+            $input['car_id'] =$request->id;
+            $success = CarBooking::create($input);
+
+            return $this->respondSuccess($success, trans('site.added_successfully'));
+
+
+        }
+
+    }
 
 
     public function CarFavourite(Request $request)
