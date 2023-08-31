@@ -157,8 +157,9 @@ class Aqar extends Model
         INNER JOIN aqar_sections on aqars.id=aqar_sections.aqar_id
         INNER JOIN aqar_details on aqar_details.id=aqar_sections.sub_section_id
         WHERE aqars.category_id=$cat_id and aqar_sections.section_id=6 or aqar_sections.section_id=18  and aqars.id=$aqar_id;");
-
+        if(!empty($floornumbers)){
         return $roomnumbers[0]->total;
+        }
 
 
 
@@ -173,7 +174,7 @@ class Aqar extends Model
         INNER JOIN aqar_sections on aqars.id=aqar_sections.aqar_id
         INNER JOIN aqar_details on aqar_details.id=aqar_sections.sub_section_id
         WHERE aqars.category_id=$cat_id and aqar_sections.section_id=1    and aqars.id=$aqar_id;");
-        
+
        if(!empty($floornumbers)){
         return $floornumbers[0]->floornumber;}
 
