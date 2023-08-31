@@ -375,9 +375,11 @@ class AqarController extends Controller
             'delivery_date' => 'date|required',
             'reciept_date' => 'date|after_or_equal:delivery_date',
             'note' => 'nullable',
+            'day_count' => 'required',
             'place_arrive' => 'nullable',
             'place_leave' => 'nullable',
             'id' => 'required',
+            'total_price' => 'required',
 
 
         ];

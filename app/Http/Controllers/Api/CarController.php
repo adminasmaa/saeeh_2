@@ -30,7 +30,10 @@ class CarController extends Controller
             'place_arrive' => 'nullable',
             'place_leave' => 'nullable',
             'id' => 'required',
-            'total_price' => 'nullable',
+            'day_count' => 'required',
+            'total_price' => 'required',
+            'receipt_hour' => 'required',
+            'delivery_hour' => 'required',
 
 
         ];
