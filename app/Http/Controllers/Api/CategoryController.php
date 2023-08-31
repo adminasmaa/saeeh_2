@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Resources\AqarCatageriesResource;
 use App\Http\Resources\AqarDetailResource;
 use App\Http\Resources\BransCarSubResource;
+use App\Http\Resources\CarDetailResource;
 use App\Http\Resources\CarResource;
 use App\Http\Resources\CityCategoryResource;
 use App\Models\Aqar;
@@ -175,7 +176,7 @@ class CategoryController extends Controller
 
         if (count($cars)) {
 
-            $carss = CarResource::collection($cars)->response()->getData();
+            $carss = CarDetailResource::collection($cars)->response()->getData();
 
             return $this->respondSuccessPaginate($carss, __('message.data retrieved successfully.'));
 
