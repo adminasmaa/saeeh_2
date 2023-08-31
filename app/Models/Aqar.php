@@ -165,6 +165,22 @@ class Aqar extends Model
     }
 
 
+    public function floornumbers($cat_id,$aqar_id)
+    {
+
+        $roomnumbers = DB::select("SELECT   DISTINCT aqar_details.name_ar as floornumber
+        FROM `aqars`
+        INNER JOIN aqar_sections on aqars.id=aqar_sections.aqar_id
+        INNER JOIN aqar_details on aqar_details.id=aqar_sections.sub_section_id
+        WHERE aqars.category_id=$id and aqar_sections.section_id=1    and aqars.id=$aqar_id;");
+
+        return $roomnumbers[0]->floornumber;
+
+
+
+    }
+
+
    
 
 }
