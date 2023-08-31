@@ -68,8 +68,8 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('/CarFavourite', 'App\Http\Controllers\Api\CarController@CarFavourite');
     Route::get('/CarsReviews', 'App\Http\Controllers\Api\CarController@CarsReviews');
     Route::get('/detailCar', 'App\Http\Controllers\Api\CarController@detailCar');
+    Route::post('/AddCarBooking', 'App\Http\Controllers\Api\CarController@AddCarBooking');
 
-    Route::post('/
 
 
 
