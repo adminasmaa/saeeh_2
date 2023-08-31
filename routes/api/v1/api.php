@@ -69,7 +69,81 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::get('/CarsReviews', 'App\Http\Controllers\Api\CarController@CarsReviews');
     Route::get('/detailCar', 'App\Http\Controllers\Api\CarController@detailCar');
 
-    Route::post('/AddCarBooking', 'App\Http\Controllers\Api\CarController@AddCarBooking');
+    Route::post('/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    '
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        ft
+
+    gh
+
+
+
+
+
+
+
+
+
+
+
+
+    , 'App\Http\Controllers\Api\CarController@AddCarBooking');
 
 
 });

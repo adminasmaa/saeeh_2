@@ -375,9 +375,11 @@ class AqarController extends Controller
             'delivery_date' => 'date|required',
             'reciept_date' => 'date|after_or_equal:delivery_date',
             'note' => 'nullable',
+            'day_count' => 'required',
             'place_arrive' => 'nullable',
             'place_leave' => 'nullable',
             'id' => 'required',
+            'total_price' => 'required',
 
 
         ];
@@ -396,6 +398,8 @@ class AqarController extends Controller
             $input = $request->all();
             $input['user_id'] = Auth::id();
             $input['aqar_id'] =$request->id;
+            $input['fixed_price'] =$request->total_price;
+
             $success = AqarBooking::create($input);
 
             return $this->respondSuccess($success, trans('site.added_successfully'));
