@@ -2,11 +2,11 @@
 
 namespace App\Http\Resources;
 
-use App\Models\AqarComment;
-use App\Models\AqarReview;
+use App\Models\CarReview;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Auth;
 
-class CommentResource extends JsonResource
+class CommentCarResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -23,7 +23,9 @@ class CommentResource extends JsonResource
             "id" => $this->id,
 
             "description" =>preg_replace( "/\r|\n/", "", strip_tags($this->description) ) ?? '',
-            "rate" => round(AqarReview::where('user_id', '=', $this->user->id)->where('aqar_id', '=',$this->aqar_id)->avg('rate')) ?? 0,
+
+            "rate" => round(CarReview::where('user_id', '=', $this->user->id)->where('car_id', '=',$this->car_id)->avg('rate')) ?? 0,
+
 
 //            "rating " => $this->rating ?? 0,
 //            "status" => $this->status ?? '',

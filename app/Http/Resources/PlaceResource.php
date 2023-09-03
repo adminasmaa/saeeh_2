@@ -38,15 +38,15 @@ class PlaceResource extends JsonResource
             'name' => $this->$name ?? '',
 
             "description" => preg_replace("/\r|\n/", "", strip_tags($this->$description)) ?? '',
-
+            "longitude" => isset($this->longitude) ? $this->longitude : 0,
+            "latitude" => isset($this->latitude) ? $this->latitude : 0,
             "address" => $this->address ?? '',
             "facebook" => $this->facebook ?? '',
             "instagram" => $this->instagram ?? '',
             "twitter" => $this->twitter ?? '',
             "phone_one" => $this->phone_one ?? '',
             "phone_two" => $this->phone_two ?? '',
-            "longitude" => isset($this->longitude) ? $this->longitude : 0,
-            "latitude" => isset($this->latitude) ? $this->latitude : 0,
+
             "place_link" => $this->place_link ?? '',
             "favorite" => (count(PlaceUser::where('place_id', '=', $this->id)->where('user_id', '=', Auth::id())->get()) > 0 ? true : false),
             "rate" => round(PlaceReview::where('user_id', '=', Auth::id())->where('place_id', '=',$this->id)->avg('rate')) ?? 0,
@@ -63,7 +63,7 @@ class PlaceResource extends JsonResource
             "notify_photo" => asset('images/places') . "/" . $this->notify_photo,
             "video" => asset('images/places') . "/" . $this->videos,
             "created_at" => $this->created_at ?? '',
-            'comments' => CommentResource::collection($this->placeComments) ?? '',
+            'comments' => CommentPlaceResource::collection($this->placeComments) ?? '',
             'placetables' => $this->placetables ?? '',
             'category' => new CategoryOnlyResource($this->category),
         ];

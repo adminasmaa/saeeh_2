@@ -34,6 +34,9 @@ class PlaceFavResource extends JsonResource
                 "description" =>$this->address ?? '',
                 "image" => asset('images/places') . "/" . $this->display_photo,
                 "phone_one" => $this->phone_one ?? 0,
+                "longitude" => isset($this->longitude) ? $this->longitude : 0,
+                "latitude" => isset($this->latitude) ? $this->latitude : 0,
+                "address" => $this->address ?? '',
                 "rate" => round(PlaceReview::where('user_id', '=', Auth::id())->where('place_id', '=',$this->id)->avg('rate')) ?? 0,
 
             ];

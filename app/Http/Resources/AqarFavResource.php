@@ -32,7 +32,9 @@ class AqarFavResource extends JsonResource
                 "favorite" =>true,
 
                 "description" =>strip_tags($this->description) ?? '',
-
+                "latitude" => $this->latitude ?? 0,
+                "longitude" => $this->longitude ?? 0,
+                "address" => $this->details ?? '',
                 "image" => asset('images/aqars') . "/" . $this->main_image,
                 "fixed_price" => $this->fixed_price ?? 0,
                 "rate" => round(AqarReview::where('user_id', '=', Auth::id())->where('aqar_id', '=',$this->id)->avg('rate')) ?? 0,
