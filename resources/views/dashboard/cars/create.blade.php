@@ -109,6 +109,14 @@
                                         format="('Y-m-d\TH:i')" value="{{old('car_delivery_date')}}" 
                                         >
                                     </div>
+                                    <div class="col-md-6 form-group">
+                                            <label class="form-label">@lang('site.active')</label>
+                                            <select class="js-example-placeholder-multiple col-sm-12" name="active">
+                                                <option>@lang('site.select')</option>
+                                                <option value="1">@lang('site.active')</option>
+                                                <option value="0">@lang('site.not-active') </option>
+                                            </select>
+                                    </div>
                                 </div>
                                     <div class="row m-t-10">
                                                 <div class="m-checkbox-inline">

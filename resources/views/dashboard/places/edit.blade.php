@@ -323,7 +323,19 @@
 
                                     </select>
                                 </div>
+                                <div class="col-md-6 form-group"><span class="text-danger">*</span>
+                                    <label class="form-label">@lang('site.active')</label>
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="active">
+                                            <option selected>@lang('site.select')</option>
+                                        <option value="1"
+                                                @if($place->active==1) selected @endif>@lang('site.active')
+                                        </option>
+                                        <option value="0"
+                                                @if($place->active==0) selected @endif>@lang('site.not-active')
+                                        </option>
 
+                                    </select>
+                                </div>
                                 </div>
 
                                     <div class="row">

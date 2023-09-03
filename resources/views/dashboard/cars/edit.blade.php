@@ -163,6 +163,19 @@
                                        format="('Y-m-d\TH:i')"value="{{ $car->car_delivery_date }}">
                                 </div>
 
+                                <div class="col-md-6 form-group"><span class="text-danger">*</span>
+                                    <label class="form-label">@lang('site.active')</label>
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="active">
+                                            <option selected>@lang('site.select')</option>
+                                        <option value="1"
+                                                @if($car->active==1) selected @endif>@lang('site.active')
+                                        </option>
+                                        <option value="0"
+                                                @if($car->active==0) selected @endif>@lang('site.not-active')
+                                        </option>
+
+                                    </select>
+                                </div>
                             <div class="row m-t-10">
                                 <div class="m-checkbox-inline">
                                     <label for="edo-ani">

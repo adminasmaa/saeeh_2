@@ -48,6 +48,7 @@ Car extends Model
         'images', // required
         'videos', // nullable
         'comment_text', // nullable
+        'active', // default (0)
         'user_id', //unsigned
         'category_id', //unsigned
         'sub_category_id',

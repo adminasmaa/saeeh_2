@@ -204,7 +204,7 @@
                                                value="{{old('longitude')}}"
                                                >
                                     </div>
-                                    <div class="col-md-6 form-group">
+                                <div class="col-md-6 form-group">
                                     <label class="form-label">@lang('site.social_media')</label><span class="text-danger">*</span>
                                     <select class="js-example-placeholder-multiple col-sm-12" name="social_media">
                                             <option selected>@lang('site.select')</option>
@@ -214,6 +214,14 @@
 
                                     </select>
                                 </div>
+                                <div class="col-md-6 form-group">
+                                            <label class="form-label">@lang('site.active')</label>
+                                            <select class="js-example-placeholder-multiple col-sm-12" name="active">
+                                                <option>@lang('site.select')</option>
+                                                <option value="1">@lang('site.active')</option>
+                                                <option value="0">@lang('site.not-active') </option>
+                                            </select>
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <!--<div class="col-md-6">-->

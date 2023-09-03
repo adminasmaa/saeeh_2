@@ -257,6 +257,14 @@
                                                         <input type="text" name="longitude" class="form-control"
                                                                value="{{old('longitude')}}" required>
                                                     </div>
+                                                    <div class="col-md-6 form-group">
+                                                        <label class="form-label">@lang('site.active')</label>
+                                                        <select class="js-example-placeholder-multiple col-sm-12" name="active">
+                                                            <option>@lang('site.select')</option>
+                                                            <option value="1">@lang('site.active')</option>
+                                                            <option value="0">@lang('site.not-active') </option>
+                                                        </select>
+                                                    </div>
                                                     <div class="row">
                                                         <div class="form-group col-12 p-2">
                                                             <label>@lang('site.display_photo')</label>
