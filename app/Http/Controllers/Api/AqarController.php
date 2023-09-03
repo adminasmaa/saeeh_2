@@ -243,7 +243,7 @@ class AqarController extends Controller
 
                         CarReview::updateOrCreate(['car_id' => $comment['id'], 'user_id' => Auth::id()], [
 
-                            'car_id' => $comment['id'],
+                            'car_id' => $request->id,
 
                             'rate' => $comment['value'],
 
