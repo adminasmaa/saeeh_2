@@ -182,6 +182,7 @@ class AqarController extends Controller
             'description' => 'nullable',
 
             'id' => 'required',
+            'rate' => 'required',
             'type' => 'required',
 //            'comments' => 'required|array',
 
