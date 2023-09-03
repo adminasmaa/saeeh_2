@@ -225,6 +225,7 @@ class AqarController extends Controller
 
                     'description' => $request->description ?? '',
 
+                    'rating' => $request->rate,
                     'aqar_id' => $request->id,
 
                     'user_id' => Auth::id(),
@@ -257,6 +258,7 @@ class AqarController extends Controller
                     'description' => $request->description ?? '',
 
                     'car_id' => $request->id,
+                    'rating' => $request->rate,
 
 
                     'user_id' => Auth::id(),
@@ -289,6 +291,7 @@ class AqarController extends Controller
                     'description' => $request->description,
 
                     'place_id' => $request->id,
+                    'rating' => $request->rate,
 
                     'user_id' => Auth::id(),
                 ]);

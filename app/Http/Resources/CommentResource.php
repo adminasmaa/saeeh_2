@@ -22,7 +22,7 @@ class CommentResource extends JsonResource
 
             "description" =>preg_replace( "/\r|\n/", "", strip_tags($this->description) ) ?? '',
 
-//            "rating " => $this->rating ?? 0,
+            "rating " => $this->rating ?? 0,
 //            "status" => $this->status ?? '',
             'user' => new UserResource($this->user),
             "created_at" => $this->created_at ?? '',
