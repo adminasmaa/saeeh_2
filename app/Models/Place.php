@@ -53,6 +53,7 @@ class Place extends Model
         'images', // nullable
         'videos', // nullable
         'social_media',// enum ,['facebook','instagram']
+        'active', // default (0)
         'category_id', //unsigned
         'sub_category_id', //unsigned
         'user_id', //unsigned

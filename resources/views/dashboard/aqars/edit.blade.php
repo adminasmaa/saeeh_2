@@ -309,6 +309,19 @@
                                                     <input type="text" name="longitude" class="form-control"
                                                            value="{{$aqar->longitude ?? ''}}" required>
                                                 </div>
+                                                <div class="col-md-6 form-group"><span class="text-danger">*</span>
+                                                    <label class="form-label">@lang('site.active')</label>
+                                                    <select class="js-example-placeholder-multiple col-sm-12" name="active">
+                                                            <option selected>@lang('site.select')</option>
+                                                        <option value="1"
+                                                                @if($aqar->active==1) selected @endif>@lang('site.active')
+                                                        </option>
+                                                        <option value="0"
+                                                                @if($aqar->active==0) selected @endif>@lang('site.not-active')
+                                                        </option>
+
+                                                    </select>
+                                                </div>
                                                 <div class="row">
                                                     <div class="form-group col-12 p-2">
                                                         <label>@lang('site.display_photo')</label>

@@ -65,6 +65,7 @@ class Aqar extends Model
         'swimmingpool',//nullable
         'details',//nullable
         'map_link',//nullable
+        'active', // default (0)
         'country_id',
         'ads_status_id',
         'city_id',
