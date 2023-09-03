@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use App\Http\Resources\staticResource;
 
+use App\Models\AqarComment;
 use App\Models\AquarUser;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Auth;
@@ -58,7 +59,9 @@ class AqarDetailResource extends JsonResource
             "count_review" => $this->aqarReview->count() ?? 0,
             "count_comment" => $this->aqarComment->count() ?? 0,
             'total' => $this->aqarReview->count() + $this->aqarComment->count(),
-            "rate" => round($this->aqarComment->avg('rating')) ?? 0,
+//            "rate" => round($this->aqarComment->avg('rating')) ?? 0,
+            "rate" => round(AqarComment::where('user_id', '=', Auth::id())->where('aqar_id', '=',$this->id)->avg('rating')) ?? 0,
+
             "comments" => CommentResource::collection($this->aqarComment),
             "reviews" => AqarReviewResource::collection($this->aqarReview),
             "fixed_price" => $this->fixed_price ?? 0,

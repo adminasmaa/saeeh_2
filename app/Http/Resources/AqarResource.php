@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\AqarComment;
 use App\Models\AquarUser;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Auth;
@@ -34,7 +35,8 @@ class AqarResource extends JsonResource
             "status" => $this->status ?? '',
 //            "rate" => $this->aqarComment->avg('rating') ?? '',
             "favorite" => (count(AquarUser::where('aqar_id','=',$this->id)->where('user_id','=',Auth::id())->get())>0 ? true : false),
-            "rate" => round($this->aqarComment->avg('rating')) ?? 0,
+//            "rate" => round($this->aqarComment->avg('rating')) ?? 0,
+            "rate" => round(AqarComment::where('user_id', '=', Auth::id())->where('aqar_id', '=',$this->id)->avg('rating')) ?? 0,
 
 
             "distance" => $this->distance ?? '',

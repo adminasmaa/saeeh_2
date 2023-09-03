@@ -5,6 +5,7 @@ namespace App\Http\Resources;
 use App\Http\Resources\staticResource;
 use App\Http\Resources\CarReviewResource;
 
+use App\Models\CarComment;
 use App\Models\CarUser;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Auth;
@@ -43,7 +44,11 @@ class CarDetailResource extends JsonResource
             'total' => $this->carComment->count() + $this->CarReview->count(),
 
             "comments" => CommentResource::collection($this->carComment),
-            "rate" => round($this->carComment->avg('rating')) ?? 0,
+//            "rate" => round($this->carComment->avg('rating')) ?? 0,
+
+            "rate" => round(CarComment::where('user_id', '=', Auth::id())->where('car_id', '=',$this->id)->avg('rating')) ?? 0,
+
+
             "fixed_price" => $this->fixed_price ?? 0,
             "Reservation_deposit" => $this->fixed_price ?? 0,
 
