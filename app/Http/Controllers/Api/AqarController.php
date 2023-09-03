@@ -182,6 +182,7 @@ class AqarController extends Controller
             'description' => 'nullable',
 
             'id' => 'required',
+            'rate' => 'required',
             'type' => 'required',
 //            'comments' => 'required|array',
 
@@ -225,6 +226,7 @@ class AqarController extends Controller
 
                     'description' => $request->description ?? '',
 
+                    'rating' => $request->rate,
                     'aqar_id' => $request->id,
 
                     'user_id' => Auth::id(),
@@ -257,6 +259,7 @@ class AqarController extends Controller
                     'description' => $request->description ?? '',
 
                     'car_id' => $request->id,
+                    'rating' => $request->rate,
 
 
                     'user_id' => Auth::id(),
@@ -289,6 +292,7 @@ class AqarController extends Controller
                     'description' => $request->description,
 
                     'place_id' => $request->id,
+                    'rating' => $request->rate,
 
                     'user_id' => Auth::id(),
                 ]);
