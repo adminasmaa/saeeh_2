@@ -2,7 +2,9 @@
 
 namespace App\Http\Resources;
 
+use App\Models\CarComment;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Auth;
 
 class CarFavResource extends JsonResource
 {
@@ -31,7 +33,9 @@ class CarFavResource extends JsonResource
             "description" => $this->description ?? '',
             "image" => asset('images/cars') . "/" . $this->main_image_ads,
             "fixed_price" => $this->fixed_price ?? 0,
-            "rate" =>round($this->carComment->avg('rating')) ?? 0,
+//            "rate" =>round($this->carComment->avg('rating')) ?? 0,
+            "rate" => round(CarComment::where('user_id', '=', Auth::id())->where('car_id', '=',$this->id)->avg('rating')) ?? 0,
+
         ];
     }
 }

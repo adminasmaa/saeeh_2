@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\PlaceComment;
 use App\Models\PlaceUser;
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\CategoryOnlyResource;
@@ -24,10 +25,10 @@ class PlaceResource extends JsonResource
 
         if ($lang == 'ar') {
             $name = 'name_ar';
-            $description='descrption_ar';
+            $description = 'descrption_ar';
         } else {
             $name = 'name_en';
-            $description='descrption_en';
+            $description = 'descrption_en';
 
         }
 
@@ -35,7 +36,7 @@ class PlaceResource extends JsonResource
             "id" => $this->id ?? '',
             'name' => $this->$name ?? '',
 
-            "description" =>preg_replace( "/\r|\n/", "", strip_tags($this->$description) ) ?? '',
+            "description" => preg_replace("/\r|\n/", "", strip_tags($this->$description)) ?? '',
 
             "address" => $this->address ?? '',
             "facebook" => $this->facebook ?? '',
@@ -43,21 +44,23 @@ class PlaceResource extends JsonResource
             "twitter" => $this->twitter ?? '',
             "phone_one" => $this->phone_one ?? '',
             "phone_two" => $this->phone_two ?? '',
-            "longitude" => $this->longitude ?? '',
-            "latitude" => $this->latitude ?? '',
-            "favorite" => (count(PlaceUser::where('place_id','=',$this->id)->where('user_id','=',Auth::id())->get())>0 ? true : false),
+            "longitude" => isset($this->longitude) ? $this->longitude : 0,
+            "latitude" => isset($this->latitude) ? $this->latitude : 0,
+            "place_link" => $this->place_link ?? '',
+            "favorite" => (count(PlaceUser::where('place_id', '=', $this->id)->where('user_id', '=', Auth::id())->get()) > 0 ? true : false),
 
-            "rate" =>round($this->placeComments->avg('rating')) ?? 0,
+            "rate" => round(PlaceComment::where('user_id', '=', Auth::id())->where('place_id', '=',$this->id)->avg('rating')) ?? 0,
             "review_count" => $this->PlaceReview->count() ?? 0,
             "comment_count" => $this->placeComments->count() ?? 0,
             'total' => $this->PlaceReview->count() + $this->placeComments->count(),
 
             "reviews" => PlaceReviewResource::collection($this->PlaceReview),
 
-            "path"=>asset('images/places/'),
-            "images" => explode(",",$this->images) ?? [],
+            "path" => asset('images/places/'),
+            "images" => explode(",", $this->images) ?? [],
             "display_photo" => asset('images/places') . "/" . $this->display_photo,
-            "notify_photo " => asset('images/places') . "/" . $this->notify_photo,
+            "notify_photo" => asset('images/places') . "/" . $this->notify_photo,
+            "video" => asset('images/places') . "/" . $this->videos,
             "created_at" => $this->created_at ?? '',
             'comments' => CommentResource::collection($this->placeComments) ?? '',
             'placetables' => $this->placetables ?? '',

@@ -2,7 +2,9 @@
 
 namespace App\Http\Resources;
 
+use App\Models\PlaceComment;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Auth;
 
 class PlaceFavResource extends JsonResource
 {
@@ -31,7 +33,7 @@ class PlaceFavResource extends JsonResource
                 "description" =>$this->address ?? '',
                 "image" => asset('images/places') . "/" . $this->display_photo,
                 "phone_one" => $this->phone_one ?? 0,
-                "rate" => round($this->placeComments->avg('rating')) ?? 0,
+                "rate" => round(PlaceComment::where('user_id', '=', Auth::id())->where('place_id', '=',$this->id)->avg('rating')) ?? 0,
 
             ];
         }
