@@ -2,7 +2,9 @@
 
 namespace App\Http\Resources;
 
+use App\Models\AqarReview;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Auth;
 
 class AqarFavResource extends JsonResource
 {
@@ -33,7 +35,7 @@ class AqarFavResource extends JsonResource
 
                 "image" => asset('images/aqars') . "/" . $this->main_image,
                 "fixed_price" => $this->fixed_price ?? 0,
-                "rate" => $this->aqarComment->avg('rating') ?? 0,
+                "rate" => round(AqarReview::where('user_id', '=', Auth::id())->where('aqar_id', '=',$this->id)->avg('rate')) ?? 0,
 
             ];
         }

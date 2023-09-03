@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use App\Models\CarComment;
+use App\Models\CarReview;
 use App\Models\CarUser;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Auth;
@@ -40,7 +41,7 @@ class CarResource extends JsonResource
             "changed_price" => json_decode($this->changed_price) ?? NULL,
 
 //            "rate" => round($this->carComment->avg('rating')) ?? 0,
-            "rate" => round(CarComment::where('user_id', '=', Auth::id())->where('car_id', '=',$this->id)->avg('rating')) ?? 0,
+            "rate" => round(CarReview::where('user_id', '=', Auth::id())->where('car_id', '=',$this->id)->avg('rate')) ?? 0,
 
             "category" => new staticResource($this->categories),
 

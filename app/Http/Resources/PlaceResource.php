@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use App\Models\PlaceComment;
+use App\Models\PlaceReview;
 use App\Models\PlaceUser;
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\CategoryOnlyResource;
@@ -48,8 +49,8 @@ class PlaceResource extends JsonResource
             "latitude" => isset($this->latitude) ? $this->latitude : 0,
             "place_link" => $this->place_link ?? '',
             "favorite" => (count(PlaceUser::where('place_id', '=', $this->id)->where('user_id', '=', Auth::id())->get()) > 0 ? true : false),
+            "rate" => round(PlaceReview::where('user_id', '=', Auth::id())->where('place_id', '=',$this->id)->avg('rate')) ?? 0,
 
-            "rate" => round(PlaceComment::where('user_id', '=', Auth::id())->where('place_id', '=',$this->id)->avg('rating')) ?? 0,
             "review_count" => $this->PlaceReview->count() ?? 0,
             "comment_count" => $this->placeComments->count() ?? 0,
             'total' => $this->PlaceReview->count() + $this->placeComments->count(),
