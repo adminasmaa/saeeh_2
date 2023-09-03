@@ -29,7 +29,7 @@ class CarResource extends JsonResource
             "favorite" => (count(CarUser::where('car_id', '=', $this->id)->where('user_id', '=', Auth::id())->get()) > 0 ? true : false),
             "count_comment"=>$this->carComment->count() ?? 0,
             "count_review"=>$this->CarReview->count() ?? 0,
-            "comments" => CommentResource::collection($this->carComment),
+            "comments" => CommentCarResource::collection($this->carComment),
            "comment_text" => $this->comment_text ?? '',
             "year" => $this->year ?? '',
             "image" => asset('images/cars') . "/" . $this->main_image_ads,

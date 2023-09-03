@@ -44,7 +44,7 @@ class CarDetailResource extends JsonResource
             "count_review"=>$this->CarReview->count() ?? 0,
             'total' => $this->carComment->count() + $this->CarReview->count(),
 
-            "comments" => CommentResource::collection($this->carComment),
+            "comments" => CommentCarResource::collection($this->carComment),
 //            "rate" => round($this->carComment->avg('rating')) ?? 0,
 
             "rate" => round(CarReview::where('user_id', '=', Auth::id())->where('car_id', '=',$this->id)->avg('rate')) ?? 0,
