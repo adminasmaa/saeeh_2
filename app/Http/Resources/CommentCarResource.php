@@ -17,14 +17,14 @@ class CommentCarResource extends JsonResource
     public function toArray($request)
     {
 
-
+        $user_id = $this->user->id ?? 0;
 
         return [
             "id" => $this->id,
 
             "description" =>preg_replace( "/\r|\n/", "", strip_tags($this->description) ) ?? '',
 
-            "rate" => round(CarReview::where('user_id', '=', $this->user->id)->where('car_id', '=',$this->car_id)->avg('rate')) ?? 0,
+            "rate" => round(CarReview::where('user_id', '=', $user_id)->where('car_id', '=',$this->car_id)->avg('rate')) ?? 0,
 
 
 //            "rating " => $this->rating ?? 0,
