@@ -258,6 +258,7 @@ class AqarController extends Controller
 
                     'car_id' => $request->id,
 
+
                     'user_id' => Auth::id(),
                 ]);
 
