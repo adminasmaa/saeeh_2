@@ -66,6 +66,7 @@ class Aqar extends Model
         'details',//nullable
         'map_link',//nullable
         'active', // default (0)
+        'policy_place',
         'country_id',
         'ads_status_id',
         'city_id',

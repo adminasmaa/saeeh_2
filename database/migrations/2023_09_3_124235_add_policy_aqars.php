@@ -14,8 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('aqars', function (Blueprint $table) {
-            $table->boolean('active')->default(0);
-
+            $table->string('policy_place'); 
             
         });
     }

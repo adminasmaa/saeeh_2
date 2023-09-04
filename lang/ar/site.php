@@ -104,7 +104,7 @@ return [
     'demo_status' => 'اجراءات الاسعار',
     'demo_work' => 'اجراءات النظافة',
     'demo_loc' => 'اجراءات العقارات ',
-
+    'policy_place' => 'سياسة المكان',
     'banner' => 'شعار',
     'upper_middle' => 'فى الوسط الاعلى',
     'lower_middle' => 'فى الوسط الاسفل',

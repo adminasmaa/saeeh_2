@@ -309,14 +309,17 @@
                                                                     <label>@lang('site.descrption')<span
                                                                             class="text-danger">*</span></label>
                                                                     <textarea class="form-control" cols="5" rows="5"
-                                                                              name="description"
-                                                                              id="editor1" required>
-                                                </textarea>
+                                                                              name="description" required>
+                                                                    </textarea>
+                                                                </div>
+                                                                <div class="col-md-12 form-group col-12 p-2  m-t-15">
+                                                                    <label>@lang('site.policy_place')</label>
+                                                                    <textarea class="form-control" cols="5" rows="5"
+                                                                              name="policy_place"
+                                                                              id="editor1" >
+                                                                    </textarea>
                                                                 </div>
                                                             </div>
-
-
-                                                        </div>
                                                     </div>
                                 </center>
                             </div>

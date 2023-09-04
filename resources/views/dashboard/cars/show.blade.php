@@ -334,6 +334,7 @@
 {{$car->comment_text ?? ''}}
                                         </textarea>
                             </div>
+                            
                         </div>
 
 
@@ -369,6 +370,15 @@
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-md-6 form-group col-12 p-2">
+                                    <label>@lang('site.policy_place')</label>
+                                    <textarea class="form-control" cols="5" rows="5" name="policy_place"
+                                        id="editor1" readonly="" disabled>
+                                        {{$car->policy_place}}
+                                        </textarea>
+                                </div>
                         </div>
                     </div>
                 </div>

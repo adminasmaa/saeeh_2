@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('aqars', function (Blueprint $table) {
-            $table->boolean('active')->default(0);
+        Schema::table('cars', function (Blueprint $table) {
+            $table->string('policy_place'); 
 
             
         });
@@ -27,7 +27,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('aqars', function (Blueprint $table) {
+        Schema::table('cars', function (Blueprint $table) {
             //
         });
     }
