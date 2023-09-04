@@ -25,8 +25,8 @@ class CarResource extends JsonResource
             "name" => $this->name ?? '',
 
             "description" => preg_replace("/\r|\n/", "", strip_tags($this->description)) ?? '',
-            
-            "policy_place" =>strip_tags($this->policy_place) ?? '',
+
+            "policy_place" =>  html_entity_decode($this->policy_place) ?? '',
 
             "car_delivery_date" => $this->car_delivery_date ?? '',
             "favorite" => (count(CarUser::where('car_id', '=', $this->id)->where('user_id', '=', Auth::id())->get()) > 0 ? true : false),
