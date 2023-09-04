@@ -61,7 +61,7 @@ class PlaceResource extends JsonResource
             "images" => explode(",", $this->images) ?? [],
             "display_photo" => asset('images/places') . "/" . $this->display_photo,
             "notify_photo" => asset('images/places') . "/" . $this->notify_photo,
-            "video" => asset('images/places') . "/" . $this->videos,
+            "videos" => explode(",", $this->videos) ?? [],
             "created_at" => $this->created_at ?? '',
             'comments' => CommentPlaceResource::collection($this->placeComments) ?? '',
             'placetables' => $this->placetables ?? '',
