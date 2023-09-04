@@ -62,6 +62,7 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::get('/listofCategories', 'App\Http\Controllers\Api\CategoryController@listofCategories');
     Route::get('/listofAquarWithCategory', 'App\Http\Controllers\Api\CategoryController@listofAquarWithCategory');
     Route::get('/listoffavourite', 'App\Http\Controllers\Api\CarController@listoffavourite');
+    Route::get('/listofbookings', 'App\Http\Controllers\Api\AqarController@listofbookings');
 
 
     //cars models
