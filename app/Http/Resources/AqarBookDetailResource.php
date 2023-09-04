@@ -22,23 +22,25 @@ class AqarBookDetailResource extends JsonResource
     {
         $lang = $request->header('localization');
 
-        if ($lang == 'ar') {
-            $name = 'name_ar';
+        if ($lang == 'en') {
+            $name = 'name_en';
+            $status ='status_en';
 
 
         } else {
-            $name = 'name_en';
+            $name = 'name_ar';
+            $status ='status_ar';
 
 
         }
 
         return [
             "id" => $this->id,
-            "name" => $this->aqar()->select('name_ar')->get()[0]->name_ar ?? '',
+            "name" => $this->aqar()->select($name)->get()[0]->$name ?? '',
             'day_count' => $this->day_count,
             "fixed_price" => $this->fixed_price ?? 0,
             'total' => $this->day_count * $this->fixed_price,
-            "status" => $this->bookingStatus()->select('status_ar')->get()[0]->status_ar ?? '',   
+            "status" => $this->bookingStatus()->select($status)->get()[0]->$status ?? '',   
             "image" => asset('images/aqars') . "/" . $this->aqar()->select('main_image')->get()[0]->main_image,
             'path' => asset('images/aqars') . "/",
             "changed_price" => json_decode($this->changed_price) ?? [],
