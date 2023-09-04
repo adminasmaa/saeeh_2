@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\CountryResource;
 
 class UserResource extends JsonResource
 {
@@ -19,7 +20,8 @@ class UserResource extends JsonResource
             "id" => $this->id ?? '',
             "name" => $this->firstname.''.$this->lastname,
             "image" => asset('images/users')."/".$this->image,
-
+            // "country" => $this->country()->pluck('flag_image'),
+            "country" => $this->country()->select('flag_image')->get(),
 
         ];
     }
