@@ -51,6 +51,7 @@ Car extends Model
         'active', // default (0)
         'user_id', //unsigned
         'category_id', //unsigned
+        'policy_place',
         'sub_category_id',
         'country_id',
         'ads_status_id',

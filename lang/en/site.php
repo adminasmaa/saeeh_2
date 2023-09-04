@@ -37,6 +37,7 @@ return [
     'delivery hour' => 'delivery hour',
     'arrival hour' => 'arrival hour',
     'Reservation and cancellation conditions' => 'Reservation and cancellation conditions',
+    'policy_place' => 'PolicyPlace',
 
     'another_rooms' => 'AnotherRooms',
     'conditioning_types' => 'Conditioning Types',

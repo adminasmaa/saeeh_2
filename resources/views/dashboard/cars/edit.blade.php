@@ -343,6 +343,7 @@
 {{$car->comment_text ?? ''}}
                                         </textarea>
                                 </div>
+                                
                             </div>
 
                             <br>
@@ -395,75 +396,16 @@
                                             Your browser does not support the video tag.
                                         </video>
                                     </div>
+
+                            <div class="row">
+                            <div class="col-md-6 form-group col-12 p-2">
+                                    <label>@lang('site.policy_place')</label>
+                                    <textarea class="form-control" cols="5" rows="5" name="policy_place"
+                                        id="editor1">
+                                        {{$car->policy_place}}
+                                        </textarea>
                                 </div>
-                            <!-- <div class="row">
-
-                                <div class="col-md-6 form-group col-12 p-2">
-
-
-                                    <label>@lang('site.image')</label>
-                                    <input type="file" name="main_image_ads" class="form-control"
-                                           value="{{ old('main_image_ads') }}">
-
-
-                                </div>
-
-
-                            </div> -->
-
-                            <!-- <div class="row">
-                                <div class="col-md-6 form-group col-12 p-2">
-
-
-                                    <label>@lang('site.videos')</label>
-                                    <input type="file" name="videos" class="form-control"
-                                           value="{{ old('videos') }}">
-
-
-                                </div>
-
-                                <div class="col-md-6 form-group col-12 p-2">
-
-
-                                    <video width="300" height="150" controls>
-                                        <source src="{{URL::asset("/images/cars/$car->videos")}}" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video>
-                                </div>
-                            </div> -->
-                            <!-- <div class="row">
-
-
-                                <div class="col-md-6 form-group col-12 p-2">
-
-
-                                    <label>@lang('site.images')</label>
-                                    <input type="file" name="images[]" class="form-control"
-                                           value="{{ old('images[]') }}" multiple>
-
-
-                                </div>
-                            </div> -->
-
-
-                            <!-- <div class="row">
-                                @isset($place['images'])
-                                    @foreach(json_decode($place->images) as $key=>$image)
-                                        <div class="col-md-2 form-group col-2 p-1">
-
-                                            <img src="{{asset('images/places/'.$image)}}"
-
-                                                 width="100px" height="100px"
-                                                 class="d-block"
-                                                 onerror="this.src='{{asset('images/places/default.jpg')}}'"
-                                            >
-
-                                        </div>
-                                    @endforeach
-                                @endisset
-
-                        </div> -->
-
+                            </div>
 
                             <br>
 

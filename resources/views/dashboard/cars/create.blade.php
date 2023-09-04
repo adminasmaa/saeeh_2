@@ -193,8 +193,6 @@
                                         </textarea>
                                     </div>
                                 </div>
-
-
                                 <div class="row">
 
 
@@ -312,44 +310,17 @@
                                     </div>
                                 
                             <br> 
-                                <!-- <div class="row">
-
-
-                                    <div class="col-md-6 form-group col-12 p-2">
-
-
-                                        <label>@lang('site.image')</label>
-                                        <input type="file" name="main_image_ads" class="form-control"
-                                               value="{{ old('main_image_ads') }}">
-
-
-                                    </div>
-
-                                    <div class="col-md-6 form-group col-12 p-2">
-
-
-                                        <label>@lang('site.videos')</label>
-                                        <input type="file" name="videos" class="form-control"
-                                               value="{{ old('videos') }}">
-
-
-                                    </div>
-
-                                    <div class="col-md-6 form-group col-12 p-2">
-
-
-                                        <label>@lang('site.images')</label>
-                                        <input type="file" name="images[]" class="form-control"
-                                               value="{{ old('images[]') }}" multiple>
-
-
-                                    </div>
-
-
-                                </div> -->
                                 <br>
 
-
+                                <div class="row">
+                                <div class="col-md-6 form-group col-12 p-2">
+                                        <label>@lang('site.policy_place')</label>
+                                        <textarea class="form-control" cols="5" rows="5"
+                                                    name="policy_place"
+                                                    id="editor1" >
+                                        </textarea>
+                                    </div>
+                                </div>
                             </div>
 
 
