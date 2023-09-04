@@ -39,6 +39,7 @@ class AqarResource extends JsonResource
 //            "rate" => round($this->aqarComment->avg('rating')) ?? 0,
             "rate" => round(AqarReview::where('user_id', '=', Auth::id())->where('aqar_id', '=',$this->id)->avg('rate')) ?? 0,
 
+            "policy_place" =>strip_tags($this->policy_place) ?? '',
 
             "distance" => $this->distance ?? '',
             "time" => $this->time ?? '',
