@@ -40,6 +40,7 @@ class AqarDetailResource extends JsonResource
             "latitude" => $this->latitude ?? 0,
             "longitude" => $this->longitude ?? 0,
             "address" => $this->details ?? '',
+            "policy_place" =>strip_tags($this->policy_place) ?? '',
             "roomnumbers"=>$this->roomnumbers($this->category_id,$this->id)?? NULL,
             "floornumbers"=>$this->floornumbers($this->category_id,$this->id)?? NULL,
             "unitnumber"=>$this->unitnumber?? NULL,

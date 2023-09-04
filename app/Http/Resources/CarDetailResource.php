@@ -30,6 +30,8 @@ class CarDetailResource extends JsonResource
 
             "description" =>preg_replace( "/\r|\n/", "", strip_tags($this->description) ) ?? '',
 
+            "policy_place" =>strip_tags($this->policy_place) ?? '',
+            
             "color" => $this->color ?? '',
             "car_delivery_date" => $this->car_delivery_date ?? '',
             "year" => $this->year ?? '',

@@ -32,6 +32,7 @@ class AqarFavResource extends JsonResource
                 "favorite" =>true,
 
                 "description" =>strip_tags($this->description) ?? '',
+                "policy_place" =>strip_tags($this->policy_place) ?? '',
                 "latitude" => $this->latitude ?? 0,
                 "longitude" => $this->longitude ?? 0,
                 "address" => $this->details ?? '',
