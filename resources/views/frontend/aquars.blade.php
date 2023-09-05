@@ -1095,12 +1095,6 @@
                                                 <option
                                                    value="{{$city->id}}">{{$city->name ?? ''}}</option>
 
-
-
-
-
-
-
                                             @endforeach -->
                                         </select>
                                     </div>
@@ -2382,7 +2376,7 @@
                                                         />
                                                     </svg>
                                                     <span> {{$aquar->country->name ?? ''}} , {{$aquar->city->name ?? ''}}</span>
-                                                    <span> {{$aquar->address?? ''}} </span>
+                                                    <!-- <span> {{$aquar->address?? ''}} </span> -->
                                                 </div>
                                                 <div class="py-3">
                           <span
@@ -2396,11 +2390,12 @@
                                                     class="d-lg-flex align-items-center justify-content-lg-between mt-2"
                                                 >
                                                     <div class="department-price">
-                                                        <span class="text-gray-2">@lang('site.price'):</span>
+                                                        <span class="text-gray-2">@lang('site.price_day'):</span>
                                                         <span class="fw-bold text-main"
-                                                        > {{$aquar->fixed_price ?? ''}}
-                            </span>
+                                                        > {{$aquar->fixed_price ?? ''}} درهم مغربي
+                                                            </span>
                                                     </div>
+                           
                                                     <div
                                                         class="details-btn d-flex align-items-center justify-content-center mt-lg-0 mt-3"
                                                     >

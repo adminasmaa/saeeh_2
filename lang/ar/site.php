@@ -130,6 +130,7 @@ return [
     'car_reviews' => ' تقييمات السيارات ',
     'place_reviews' => ' تقييمات الاماكن ',
     'car_bookings' => ' حجوزات السيارات ',
+    'price_day' => 'سعر اليوم',
 
     'sections' => 'الأقسام',
     'day_numbers' => 'عدد الايام',
