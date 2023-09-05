@@ -73,7 +73,7 @@ class AqarBookingResource extends JsonResource
 //            "rate" => round($this->aqarComment->avg('rating')) ?? 0,
             "reviews" => AqarReviewResource::collection($this->aqarReview),
             "fixed_price" => $this->fixed_price ?? 0,
-            "changed_price" => json_decode($this->changed_price) ?? [],
+            "changed_price" => $this->changed_price?(json_decode($this->changed_price)->person_num[0]?json_decode($this->changed_price) : NULL):NULL,
             "created_at" => $this->created_at ?? '',
             "category" => new staticResource($this->category),
             'aqarSection' => $this->aqarSection
