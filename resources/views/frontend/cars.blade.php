@@ -173,7 +173,12 @@
 {{--                    </div>--}}
                     <div class="col-lg-9 col-md-8">
                         <h2 class="pb-3 search-result">
-                            {{--                            المغرب :وجدنا 44 سيارة مناسبة لطلبك--}}
+                                                        <!-- المغرب :وجدنا سيارة مناسبة لطلبك -->
+                                                        <label>المغرب :وجدنا
+                                                            <!-- <span>{{$cat->car->car_numbers ?? ''}}</span> -->
+                                                            سيارة مناسبة لطلبك
+                                                        </label>
+
                         </h2>
                         <div class="form-group mb-4 position-relative">
                             <input
