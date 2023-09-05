@@ -58,7 +58,7 @@ class CarDetailResource extends JsonResource
             "fixed_price" => $this->fixed_price ?? 0,
             "Reservation_deposit" => $this->fixed_price ?? 0,
 
-            "changed_price" => json_decode($this->changed_price) ?? NULL,
+            "changed_price" => $this->changed_price?(json_decode($this->changed_price)->person_num[0]?json_decode($this->changed_price) : NULL):NULL,
             "category" => new staticResource($this->categories),
 
 

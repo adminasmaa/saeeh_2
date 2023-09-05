@@ -43,7 +43,7 @@ class CarBookingDetailResource extends JsonResource
             "status" => $this->bookingStatus()->select($status)->get()[0]->$status ?? '',   
             "image" => asset('images/cars') . "/" . $this->car()->select('main_image_ads')->get()[0]->main_image_ads,
             'path' => asset('images/cars') . "/",
-            "changed_price" => json_decode($this->changed_price) ?? [],
+            "changed_price" => $this->changed_price?(json_decode($this->changed_price)->person_num[0]?json_decode($this->changed_price) : NULL):NULL,
             "created_at" => $this->created_at ?? ''
 
         ];
