@@ -1202,51 +1202,51 @@
                     <div class="col-lg-9">
                         <div class="row">
                             <div class="tabs-detaills mt-3" id="tabs-detaills">
-                                {{--                                <div class="d-flex justify-content-lg-between flex-wrap">--}}
-                                {{--                                    <div class="car-sort-by">--}}
-                                {{--                                        الترتيب حسب--}}
-                                {{--                                    </div>--}}
-                                {{--                                    <ul class="tabs-nav-detaills list-unstyled d-flex mb-0 car-tabs flex-wrap">--}}
+                                                                <div class="d-flex justify-content-lg-between flex-wrap">
+                                                                   <div class="car-sort-by">
+                                                                        الترتيب حسب
+                                                                   </div>
+                                                                   <ul class="tabs-nav-detaills list-unstyled d-flex mb-0 car-tabs flex-wrap">
 
-                                {{--                                        <li>--}}
-                                {{--                                            <a--}}
-                                {{--                                                href="#tab-car-1"--}}
-                                {{--                                                class="tab-link d-flex align-items-center justify-content-center "--}}
-                                {{--                                            >--}}
-                                {{--                                                الافضل--}}
-                                {{--                                            </a>--}}
-                                {{--                                        </li>--}}
-                                {{--                                        <li>--}}
-                                {{--                                            <a--}}
-                                {{--                                                href="#tab-car-2"--}}
-                                {{--                                                class="tab-link d-flex align-items-center justify-content-center"--}}
-                                {{--                                            >--}}
-                                {{--                                                السعر من اعلي الي الاقل--}}
-                                {{--                                            </a>--}}
-                                {{--                                        </li>--}}
-                                {{--                                        <li>--}}
-                                {{--                                            <a--}}
-                                {{--                                                href="#tab-car-3"--}}
-                                {{--                                                class="tab-link d-flex align-items-center justify-content-center"--}}
-                                {{--                                            >--}}
-                                {{--                                                السعر من اقل الي الاعلي--}}
-                                {{--                                            </a>--}}
-                                {{--                                        </li>--}}
-                                {{--                                        <li>--}}
-                                {{--                                            <a--}}
-                                {{--                                                href="#tab-car-4"--}}
-                                {{--                                                class="tab-link d-flex align-items-center justify-content-center"--}}
-                                {{--                                            >--}}
-                                {{--                                                الاعلى تقيما--}}
-                                {{--                                            </a>--}}
-                                {{--                                        </li>--}}
-                                {{--                                    </ul>--}}
+                                                                        <li>
+                                                                           <a
+                                                                               href="#tab-car-1"
+                                                                                class="tab-link d-flex align-items-center justify-content-center "
+                                                                           >
+                                                                                الافضل
+                                                                            </a>
+                                                                        </li>
+                                                                        <li>
+                                                                            <a
+                                                                                href="#tab-car-2"
+                                                                                class="tab-link d-flex align-items-center justify-content-center"
+                                                                            >
+                                                                                السعر من اعلي الي الاقل
+                                                                            </a>
+                                                                        </li>
+                                                                        <li>
+                                                                            <a
+                                                                                href="#tab-car-3"
+                                                                                class="tab-link d-flex align-items-center justify-content-center"
+                                                                            >
+                                                                                السعر من اقل الي الاعلي
+                                                                            </a>
+                                                                       </li>
+                                                                        <li>
+                                                                            <a
+                                                                                href="#tab-car-4"
+                                                                                class="tab-link d-flex align-items-center justify-content-center"
+                                                                            >
+                                                                                الاعلى تقيما
+                                                                            </a>
+                                                                        </li>
+                                                                    </ul>
 
-                                {{--                                </div>--}}
+                                                                </div>
 
                                 <ul class="tabs-contentt list-unstyled my-4">
 
-                                    <li id="tab-car-2" class="carhidden">
+                                    <li id="tab-car-1" class="carhidden">
                                         @if(!empty($cars))
                                             @foreach($cars as $car )
 
@@ -1371,20 +1371,11 @@
                                                                 >
                                                                     <div>
                                   <span class="ps-2">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="15"
-                                        height="18"
-                                        viewBox="0 0 15 18"
-                                        fill="none"
-                                    >
-                                      <path
-                                          fill-rule="evenodd"
-                                          clip-rule="evenodd"
-                                          d="M7.3 4.28999e-06C6.13434 -0.00154801 5.00739 0.418215 4.12678 1.18195C3.24617 1.94569 2.67124 3.00195 2.50791 4.15611C2.34458 5.31028 2.60387 6.48458 3.23799 7.46267C3.87211 8.44076 4.83834 9.15673 5.95867 9.47867C4.36667 9.672 3.00133 10.2347 1.972 11.2493C0.662666 12.5387 0 14.46 0 16.9667C0 17.1346 0.0667258 17.2957 0.185499 17.4145C0.304272 17.5333 0.465363 17.6 0.633333 17.6C0.801304 17.6 0.962395 17.5333 1.08117 17.4145C1.19994 17.2957 1.26667 17.1346 1.26667 16.9667C1.26667 14.6733 1.87067 13.1267 2.86133 12.1507C3.85333 11.1733 5.336 10.6667 7.3 10.6667C9.264 10.6667 10.7467 11.1733 11.74 12.1507C12.7293 13.128 13.3333 14.6733 13.3333 16.9667C13.3333 17.1346 13.4001 17.2957 13.5188 17.4145C13.6376 17.5333 13.7987 17.6 13.9667 17.6C14.1346 17.6 14.2957 17.5333 14.4145 17.4145C14.5333 17.2957 14.6 17.1346 14.6 16.9667C14.6 14.46 13.9373 12.54 12.6267 11.2493C11.6 10.236 10.2333 9.672 8.64133 9.47867C9.75791 9.15311 10.7198 8.43604 11.3506 7.4589C11.9814 6.48175 12.2389 5.31 12.076 4.15839C11.913 3.00679 11.3405 1.9525 10.4633 1.18875C9.58612 0.425002 8.46307 0.00296898 7.3 4.28999e-06ZM3.73333 4.83334C3.73333 3.8874 4.10911 2.9802 4.77799 2.31132C5.44687 1.64244 6.35406 1.26667 7.3 1.26667C8.24594 1.26667 9.15314 1.64244 9.82201 2.31132C10.4909 2.9802 10.8667 3.8874 10.8667 4.83334C10.8667 5.77928 10.4909 6.68647 9.82201 7.35535C9.15314 8.02423 8.24594 8.40001 7.3 8.40001C6.35406 8.40001 5.44687 8.02423 4.77799 7.35535C4.10911 6.68647 3.73333 5.77928 3.73333 4.83334Z"
-                                          fill="#FF8600"
-                                      />
-                                    </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                            <path d="M18.6665 21.334H11.9998M25.3332 21.334H29.3332V17.134C29.3341 16.8167 29.2218 16.5095 29.0165 16.2676C28.8112 16.0256 28.5264 15.8648 28.2132 15.814L21.3332 14.6674L17.7332 9.86738C17.609 9.70179 17.4479 9.56738 17.2628 9.47481C17.0776 9.38224 16.8735 9.33405 16.6665 9.33405H6.9865C6.48953 9.33059 6.00148 9.46608 5.57741 9.72523C5.15334 9.98439 4.81014 10.3569 4.5865 10.8007L3.51984 12.974C2.96003 14.0869 2.66783 15.315 2.6665 16.5607V21.334H5.33317" stroke="#FF8600" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            <path d="M8.66683 25.3327C10.5078 25.3327 12.0002 23.8403 12.0002 21.9993C12.0002 20.1584 10.5078 18.666 8.66683 18.666C6.82588 18.666 5.3335 20.1584 5.3335 21.9993C5.3335 23.8403 6.82588 25.3327 8.66683 25.3327Z" stroke="#FF8600" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            <path d="M21.9998 25.3327C23.8408 25.3327 25.3332 23.8403 25.3332 21.9993C25.3332 20.1584 23.8408 18.666 21.9998 18.666C20.1589 18.666 18.6665 20.1584 18.6665 21.9993C18.6665 23.8403 20.1589 25.3327 21.9998 25.3327Z" stroke="#FF8600" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        </svg>
                                   </span>
                                                                         <span> @lang('site.car_numbers') {{$car->car_numbers ?? 0}}</span>
 
@@ -1395,25 +1386,20 @@
                                                                 </div>
 
                                                                 <div
-                                                                    class="d-flex align-items-center justify-content-between mt-3 display-block-mobile"
-                                                                >
+                                                                    class="d-flex align-items-center justify-content-between mt-3 display-block-mobile">
                                                                     <div class="department-price">
-                                                                    <span
-                                                                        class="text-gray-2"> @lang('site.price'):</span>
-                                                                        <span class="fw-bold text-main"
-                                                                        >
-
-                                                                     {{$car->fixed_price ?? ''}}
-                                  </span>
-                                                                    </div>                             <div class="department-price">
-                                                                    <span
-                                                                        class="text-gray-2"> @lang('site.year'):</span>
-                                                                        <span class="fw-bold text-main"
-                                                                        >
+                                                                    <span class="text-gray-2"> @lang('site.price_day'):</span>
+                                                                        <span class="fw-bold text-main">
+                                                                        {{$car->fixed_price ?? ''}} درهم مغربي
+                                                                    </span>
+                                                                    </div>  
+                                                                    <!-- <div class="department-price">
+                                                                    <span class="text-gray-2"> @lang('site.year'):</span>
+                                                                        <span class="fw-bold text-main">
 
                                                                      {{$car->year ?? ''}}
-                                  </span>
-                                                                    </div>
+                                                                    </span>
+                                                                    </div> -->
                                                                     <div
                                                                         class="details-btn d-flex align-items-center justify-content-center"
                                                                     >
