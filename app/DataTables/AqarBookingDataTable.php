@@ -4,6 +4,7 @@ namespace App\DataTables;
 
 use App\Helpers\DTHelper;
 use App\Models\AqarBooking;
+use App\Models\BookingStatus;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -24,6 +25,7 @@ class AqarBookingDataTable extends DataTable
             'show' => "dashboard.$this->crudName.show",
             'delete' => "dashboard.$this->crudName.destroy",
             'block' => "dashboard.$this->crudName.block",
+           
         ];
     }
 
@@ -34,6 +36,12 @@ class AqarBookingDataTable extends DataTable
             'delete' => 'delete_' . $this->crudName,
             'create' => 'create_' . $this->crudName,
         ];
+    }
+
+    public function StatusList()
+    {
+        return BookingStatus::select('id','status_ar')->get();
+
     }
 
     /**
@@ -51,9 +59,19 @@ class AqarBookingDataTable extends DataTable
             })
             ->addIndexColumn()
             ->addColumn('status', function ($model) {
-                $actions = '';
-                $actions .= DTHelper::dtStatusButton();
+                $actions = ' <div class="dropdown">
+                <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                    عمليات
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">';
+            
+                $actions .= ' <li><a class="dropdown-item" href="">'.trans('site.accepted').'</a></li>';
+                $actions .= ' <li><a class="dropdown-item" href="">'.trans('site.reject').'</a></li>';
+
+                $actions .= '</ul>
+               </div>';
                 return $actions;
+
             })
             ->addColumn('action', function ($model) {
                 $actions = '';
@@ -82,6 +100,7 @@ class AqarBookingDataTable extends DataTable
         return AqarBooking::count();
 
     }
+
 
     /**
      * Optional method if you want to use html builder.

@@ -577,6 +577,8 @@ return [
     'text' => 'نص',
     // notifications
     ///////////////Aquar
+    'accepted' => 'قبول',
+    'reject' => 'رفض',
     'booking_id' => 'رقم الحجز',
     'type' => 'النوع',
     'aquars' => 'العقارات',

@@ -91,4 +91,14 @@ class AqarBookingController extends Controller
 
     }//end of destroy
 
+
+    
+
+    public function changeStatus($aqar_id,$status_id)
+    {
+
+      return $this->aqarBookingRepository->changeStatus($aqar_id,$status_id);
+
+    }
+
 }

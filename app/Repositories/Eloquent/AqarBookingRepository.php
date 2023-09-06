@@ -79,4 +79,23 @@ class AqarBookingRepository implements IAqarBookingRepositoryAlias
     {
         // TODO: Implement update() method.
     }
+
+    public function changeStatus($book_id,$status_id)
+    {
+
+        $request_data = $request->all();
+
+        $data->update($request_data);
+
+
+        if ($data) {
+            Alert::success('Success', __('site.updated_successfully'));
+        } else {
+            Alert::error('Error', __('site.update_faild'));
+
+        }
+
+
+
+    }
 }
