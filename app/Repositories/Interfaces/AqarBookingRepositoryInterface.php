@@ -21,4 +21,6 @@ interface AqarBookingRepositoryInterface
     public function store($request);
 
     public function update($data,$request);
+
+    public function changeStatus($aqar_id,$status_id);
 }

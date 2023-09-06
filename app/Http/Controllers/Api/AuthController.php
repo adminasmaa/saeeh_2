@@ -274,17 +274,18 @@ class AuthController extends Controller
         }
         $country_code = $request->country_code;
         $phone = $request->phone;
+        $code= $request->code;
 
 
         if ($request->country_code) {
-            $user = User::where(function ($query) use ($country_code, $phone) {
-                $query->where('country_code', $country_code)->where('phone', $phone);
+            $user = User::where(function ($query) use ($country_code, $phone,$code) {
+                $query->where('country_code', $country_code)->where('phone', $phone)->where('code',$code);
             })->first();
 
         } elseif ($request->userId) {
 
 
-            $user = User::Where('id', $request->userId)->first();
+            $user = User::Where('id', $request->userId)->where('code',$code)->first();
 
         }
         if ($user) {

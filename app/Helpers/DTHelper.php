@@ -67,49 +67,4 @@ HTML;
 
         return $html;
     }
-
-
-    public static function dtStatusButton()
-    {
-
-        $html = <<< HTML
-                        <!-- <div class="position-relative">
-                            <div class=" mb-3 dropdown-btns">
-                                <div class="current-status dropdown-btn">
-                                <div class="status">
-                                    <span class="status-txt">
-                                            mimz
-                                    </span>
-                                 </div>
-                                            
-                                </div>
-                                <div class="status-dropdown">
-                                    <div class="status" data-value="value1">
-                                    <span class="status-txt"> <a  href="#">ggg</a></span>
-                                    
-                                    </div>
-                                    <div class="status" data-value="value2">
-                                        <span class="status-txt"><a href="#">bbb</a></span>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-
-                        <div class="dropdown">
-                            <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                عمليات
-                            </a>
-
-                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </div>
-HTML;
-        return $html;
-
-        
-    }
 }
