@@ -362,7 +362,8 @@ class AuthController extends Controller
             send_sms_code($msg, $request->phone, $request->country_code);
             $user->code = $code;
             $user->save();
-            return $this->respondSuccess(json_decode('{}'), trans('message.message sent successfully.'));
+            $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code', 'code']);
+            return $this->respondSuccess($success, trans('message.message sent successfully.'));
 
         } else {
             return $this->respondError(trans('message.user not found'), ['error' => trans('message.user not found')], 404);
