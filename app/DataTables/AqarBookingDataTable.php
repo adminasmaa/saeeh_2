@@ -50,6 +50,11 @@ class AqarBookingDataTable extends DataTable
                 return (!empty($model->created_at)) ? $model->created_at->diffForHumans() : '';
             })
             ->addIndexColumn()
+            ->addColumn('status', function ($model) {
+                $actions = '';
+                $actions .= DTHelper::dtStatusButton();
+                return $actions;
+            })
             ->addColumn('action', function ($model) {
                 $actions = '';
 
@@ -57,7 +62,7 @@ class AqarBookingDataTable extends DataTable
                 $actions .= DTHelper::dtShowButton(route($this->getRoutes()['show'], $model->id), trans('site.show'), $this->getPermissions()['delete']);
 
                 return $actions;
-            });
+            })->rawColumns(['action', 'status']);
     }
 
     /**
@@ -117,6 +122,11 @@ class AqarBookingDataTable extends DataTable
             Column::make('fixed_price')->title(trans('site.price')),
             Column::make('created_at')->title(trans('site.created_at')),
             Column::computed('action')
+                ->exportable(false)
+                ->printable(false)
+                ->width(60)
+                ->addClass('text-center')->title(trans('site.action')),
+                Column::computed('status')
                 ->exportable(false)
                 ->printable(false)
                 ->width(60)

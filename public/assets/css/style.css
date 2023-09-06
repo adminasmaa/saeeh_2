@@ -18674,12 +18674,12 @@ footer.blockquote-footer {
 }
 
 .dropdown .dropdown-toggle {
-    background-color: rgba(115, 102, 255, 0.08);
-    color: #7366ff;
+    background-color:#7366ff;
+    /* color: #7366ff; */
     border-radius: 10px;
     padding: 5px 10px;
     width: 100px;
-    text-align: left;
+    text-align: center;
 }
 .dropdown .dropdown-toggle:after {
     position: absolute;
@@ -18687,7 +18687,7 @@ footer.blockquote-footer {
     right: 10px;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
-    content: "\f107";
+    /* content: "\f107"; */
     border: none;
     font-family: "FontAwesome";
     font-size: 18px;
@@ -22128,16 +22128,16 @@ ul.dot-group li {
 /**=====================
      76. Language CSS start
 ==========================**/
-.current_lang {
+.current_lang , .current-status{
     cursor: pointer;
     text-transform: uppercase;
     overflow: hidden;
 }
 
-.lang.selected {
+.lang.selected , .status.selectedd{
     display: none;
 }
-.lang span.lang-txt {
+.lang span.lang-txt , .status span.status-txt{
     display: inline-flex;
     margin-left: 8px;
     font-weight: 500;
@@ -22149,7 +22149,7 @@ ul.dot-group li {
 }
 
 /*more lang*/
-.more_lang {
+.more_lang , .status-dropdown {
     transform: translateY(-20px);
     opacity: 0;
     cursor: pointer;
@@ -22157,15 +22157,16 @@ ul.dot-group li {
     transition: all 0.3s cubic-bezier(0.25, 1.15, 0.35, 1.15);
 }
 
-.translate_wrapper.active .more_lang {
+.translate_wrapper.active .more_lang , .dropdown-btns.active .status-dropdown {
     display: block;
     position: absolute;
     background-color: #fff;
     top: 47px;
     right: 0;
     box-shadow: 0 0 20px rgba(89, 102, 122, 0.1);
+    z-index: 1;
 }
-.translate_wrapper.active .more_lang:before {
+.translate_wrapper.active .more_lang:before , .dropdown-btns.active .status-dropdown:before{
     width: 0;
     height: 0;
     border-left: 7px solid transparent;
@@ -22177,7 +22178,7 @@ ul.dot-group li {
     right: 20px;
     z-index: 2;
 }
-.translate_wrapper.active .more_lang:after {
+.translate_wrapper.active .more_lang:after , .dropdown-btns.active .status-dropdown:after {
     width: 0;
     height: 0;
     border-left: 7px solid transparent;
@@ -22190,7 +22191,7 @@ ul.dot-group li {
     z-index: 1;
 }
 
-.more_lang.active {
+.more_lang.active , .status-dropdown.active{
     opacity: 1;
     transform: translateY(0px);
 }
@@ -22209,10 +22210,35 @@ ul.dot-group li {
     color: #fff;
   }
 
-.translate_wrapper.active .more_lang .lang {
+.translate_wrapper.active .more_lang .lang , .dropdown-btns.active .status-dropdown .status {
     border-bottom: 1px solid #eaeaea;
 }
+.dropdown-btn{
+    background-color: var(--theme-secondary) !important;
+    border-color: var(--theme-secondary) !important;
+    width: 150px;
+    color: #fff;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+.dropdown-btns.active  .status-dropdown {
+    min-width: 150px !important;
+    background-color:#7366ff;
 
+}
+.dropdown-btns.active  .status-dropdown a{
+    color: #fff;
+
+}
+.dropdown-btns .status-dropdown .status:hover {
+    background: #fff;
+}
+.dropdown-btns .status-dropdown .status:hover a{
+    color: #000;
+}
 /**=====================
      76. Language CSS end
 ==========================**/

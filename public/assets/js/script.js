@@ -267,6 +267,7 @@ $(document).ready(function () {
             $(".more_lang").toggleClass("active");
         }, 5);
     });
+    
 
     /*TRANSLATE*/
     translate(tnum);
@@ -296,6 +297,10 @@ function translate(tnum) {
     $(".lan-8").text(trans[7][tnum]);
     $(".lan-9").text(trans[8][tnum]);
 }
+
+
+
+
 
 var trans = [
     {
@@ -420,3 +425,29 @@ $("#flip-back").click(function () {
 
 
 
+
+
+
+$(document).click(function (e) {
+    $(".dropdown-btns, .status-dropdown").toggleClass("active");
+});
+$(".dropdown-btns .current-status").click(function (e) {
+    e.stopPropagation();
+    $(this).parent().toggleClass("active");
+
+    setTimeout(function () {
+        $(".status-dropdown").toggleClass("active");
+    }, 5);
+});
+
+
+
+$(".status-dropdown .status").click(function () {
+    $(this).addClass("selectedd").siblings().removeClass("selectedd");
+    $(".status-dropdown").removeClass("active");
+
+    var st = $(this).attr("data-value");
+   
+
+    $(".current-status .status-txt").text(st);
+});
