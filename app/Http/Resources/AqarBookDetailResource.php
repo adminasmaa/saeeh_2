@@ -35,15 +35,14 @@ class AqarBookDetailResource extends JsonResource
         }
 
         return [
-            "id" => $this->id,
+            "id" => $this->aqar()->select('id')->get()[0]->id ?? 0,
             "name" => $this->aqar()->select($name)->get()[0]->$name ?? '',
             'day_count' => $this->day_count,
             "fixed_price" => $this->fixed_price ?? 0,
             "Reservation_deposit" => $this->fixed_price ?? 0,
             'total' => $this->day_count * $this->fixed_price,
             "status" => $this->bookingStatus()->select($status)->get()[0]->$status ?? '',   
-            "image" => asset('images/aqars') . "/" . $this->aqar()->select('main_image')->get()[0]->main_image,
-            'path' => asset('images/aqars') . "/",
+            "image" => asset('images/aqars') . "/" . $this->aqar()->select('main_image')->get()[0]->main_image ??'',
             "changed_price" => $this->changed_price?(json_decode($this->changed_price)->person_num[0]?json_decode($this->changed_price) : NULL):NULL,
             "created_at" => $this->created_at ?? ''
 

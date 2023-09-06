@@ -406,7 +406,8 @@ class AqarController extends Controller
             $input = $request->all();
             $input['user_id'] = Auth::id();
             $input['aqar_id'] =$request->id;
-            $input['fixed_price'] =$request->total_price;
+            $input['fixed_price'] =$request->total_price/$request->day_count;
+            $input['booking_status_id'] =1;
 
             $success = AqarBooking::create($input);
 
@@ -439,7 +440,7 @@ class AqarController extends Controller
             $user = Auth::user();
             if ($request->type == 'car') {
 
-                $cars = CarBooking::where('booking_status_id', '=', $request->status_id)->where('user_id','=',$user->id)->orderBy('created_at', 'ASC')->paginate(20);
+                $cars = CarBooking::where('booking_status_id', '=', $request->status_id)->where('user_id','=',$user->id)->orderBy('created_at', 'desc')->paginate(20);
 
                 if (count($cars)) {
 
@@ -456,7 +457,7 @@ class AqarController extends Controller
 //
             } elseif ($request->type == 'aqar') {
 
-                $aquars = AqarBooking::where('booking_status_id', '=', $request->status_id)->where('user_id','=',$user->id)->orderBy('created_at', 'ASC')->paginate(20);
+                $aquars = AqarBooking::where('booking_status_id', '=', $request->status_id)->where('user_id','=',$user->id)->orderBy('created_at', 'desc')->paginate(20);
 
                 if (count($aquars)) {
 

@@ -51,8 +51,9 @@ class CarController extends Controller
 
             $input = $request->all();
             $input['user_id'] = Auth::id();
-            $input['fixed_price'] =$request->total_price;
+            $input['fixed_price'] =$request->total_price/$request->day_count;
             $input['car_id'] =$request->id;
+            $input['booking_status_id'] =1;
             $success = CarBooking::create($input);
 
             return $this->respondSuccess($success, trans('site.added_successfully'));
