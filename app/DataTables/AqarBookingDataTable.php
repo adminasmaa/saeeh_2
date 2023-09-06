@@ -25,6 +25,7 @@ class AqarBookingDataTable extends DataTable
             'show' => "dashboard.$this->crudName.show",
             'delete' => "dashboard.$this->crudName.destroy",
             'block' => "dashboard.$this->crudName.block",
+            'changeStatus' => "dashboard.$this->crudName.changeStatus"
            
         ];
     }

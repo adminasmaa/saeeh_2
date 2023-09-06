@@ -117,7 +117,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         //aquarcategories
         Route::resource('aquarcategories', AquarCategoryController::class);
         Route::resource('aquarbooking', AqarBookingController::class);
-        Route::get('changeStatus/{aqarid}/{statusid}', 'App\Http\Controllers\Dashboard\AqarBookingController@changeStatus')->name('changeBookStatus');
+        Route::get('aquarbooking/changeStatus/{aqarid}/{statusid}', 'App\Http\Controllers\Dashboard\AqarBookingController@changeStatus')->name('changeBookStatus');
 
         //services
         Route::resource('services', ServiceController::class);
