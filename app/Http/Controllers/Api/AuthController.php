@@ -67,7 +67,7 @@ class AuthController extends Controller
             $user->email = isset($request->email) ? $request->email : $user->email;
             $user->phone = isset($request->phone) ? $request->phone : $user->phone;
             $user->country_code = isset($request->country_code) ? $request->country_code : $user->country_code;
-            $user->password = bcrypt($request['password']) ?? '';
+            $user->password = Hash::make($request['password']) ?? '';
 
             $user->save();
             $success['token'] = $user->createToken('MyApp')->accessToken;
@@ -157,7 +157,7 @@ class AuthController extends Controller
 
         } else {
             $input = $request->all();
-            $input['password'] = bcrypt($input['password']);
+            $input['password'] = Hash::make($input['password']);
             $set = '123456789';
             $code = substr(str_shuffle($set), 0, 4);
             $input['code'] = $code;
@@ -421,7 +421,7 @@ class AuthController extends Controller
             $query->where('country_code', $country_code)->where('phone', $phone);
         })->orWhere('id', $request->userId)->first();
         if ($user) {
-            $user->password = bcrypt($request->password);
+            $user->password = Hash::make($request->password);
             $user->active = 1;
             $user->save();
             return $this->respondSuccess(json_decode('{}'), trans('message.password reset successfully.'));
