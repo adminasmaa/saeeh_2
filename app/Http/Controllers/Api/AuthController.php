@@ -224,6 +224,8 @@ class AuthController extends Controller
                 $msg = trans('message.please verified your account') . "\n";
                 $msg = $msg . trans('message.code activation') . "\n" . $code;
                 send_sms_code($msg, $request->phone, $request->country_code);
+                $user->code = $code;
+                $user->save();
 //                $success['token'] = $user->createToken('MyApp')->accessToken;
                 $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code', 'code']);
                 return $this->respondwarning($success, trans('message.account not verified'), ['error' => trans('message.account not verified')], 402);
