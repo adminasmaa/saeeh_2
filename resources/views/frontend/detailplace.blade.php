@@ -226,13 +226,9 @@
                                     <div class="col-12 pt-4">
                                         <h2>@lang('site.descrption')</h2>
                                         <p class="restaurant-details-txt">
-                                            {!! html_entity_decode(substr($place->description, 0, 125)) !!}
+                                            {!! html_entity_decode(substr($place->descrption_ar, 0, 125)) !!}
 
                                         </p>
-{{--                                        <p class="restaurant-details-txt">--}}
-{{--                                            كومتوار دارنا هو المكان الذي نعيش فيه لحظات لا تنسي حيث--}}
-{{--                                            نلتقي حيث نتيادل الخبرات هذه هي مرحلة القافلة منزل--}}
-{{--                                        </p>--}}
                                     </div>
                                     <div class="col-12 py-lg-5">
                                         <div class="condition-content">
@@ -245,10 +241,10 @@
                                   fill="#CACACA"></path>
                             </svg>@lang('site.address')
                           </span>
-                                                {{$place->address ?? ''}}
+                                                <!-- {{$place->address ?? ''}} -->
                                             </h2>
                                             <p class="restaurant-details-txt">
-                                                {{$place->country->name ?? ''}}  {{$place->city->name ?? ''}}
+                                                {{$place->address ?? ''}} {{$place->city->name ?? ''}} {{$place->country->name ?? ''}}  
                                             </p>
                                             <hr class="hr-saeeh">
                                         </div>
@@ -282,8 +278,6 @@
                                                 @lang('site.dealine')
                                             </h2>
                                             <p class="restaurant-details-txt">
-                                                {{--                                                8 مساء إلى 2 صباحا يوميا--}}
-
                                                 {{$place->const_from  ?? ''}} @lang('site.const_to')
                                                 {{$place->const_to  ?? ''}}
                                             </p>
