@@ -83,12 +83,13 @@ class AqarBookingRepository implements IAqarBookingRepositoryAlias
     public function changeStatus($book_id,$status_id)
     {
 
-        $request_data = $request->all();
+        $request_data = AqarBooking::find($book_id);
 
-        $data->update($request_data);
+        $request_data->booking_status_id =$status_id;
 
+        $request_data->save();
 
-        if ($data) {
+        if ($request_data) {
             Alert::success('Success', __('site.updated_successfully'));
         } else {
             Alert::error('Error', __('site.update_faild'));
