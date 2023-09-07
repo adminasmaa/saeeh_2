@@ -417,9 +417,13 @@ class AuthController extends Controller
         }
         $country_code = $request->country_code;
         $phone = $request->phone;
+        if($request->userId){
+            $user = User::where('id',$request->userId)->first();
+        }
+        else{
         $user = User::where(function ($query) use ($country_code, $phone) {
             $query->where('country_code', $country_code)->where('phone', $phone);
-        })->orWhere('id', $request->userId)->first();
+        })->first();}
         if ($user) {
             $user->password = Hash::make($request->password);
             $user->active = 1;
