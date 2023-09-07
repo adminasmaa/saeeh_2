@@ -385,9 +385,13 @@ class AuthController extends Controller
         }
         $country_code = $request->country_code;
         $phone = $request->phone;
-        $user = User::where(function ($query) use ($country_code, $phone) {
-            $query->where('country_code', $country_code)->where('phone', $phone);
-        })->orWhere('id', $request->userId)->first();
+        $code = $request->code;
+
+        $user = User::where(function ($query) use ($country_code, $phone,$code) {
+            $query->where('country_code', $country_code)->where('phone', $phone)->where('code',$code);
+        })->orWhere([
+            ['id', $request->userId],
+            ['code',$code]])->first();
         if ($user) {
             return $this->respondSuccess(json_decode('{}'), trans('message.code correct.'));
         } else {
