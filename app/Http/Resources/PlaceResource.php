@@ -51,13 +51,14 @@ class PlaceResource extends JsonResource
             "favorite" => (count(PlaceUser::where('place_id', '=', $this->id)->where('user_id', '=', Auth::id())->get()) > 0 ? true : false),
             "rate" => round(PlaceReview::where('user_id', '=', Auth::id())->where('place_id', '=',$this->id)->avg('rate')) ?? 0,
 
-            "review_count" => $this->PlaceReview->count() ?? 0,
-            "comment_count" => $this->placeComments->count() ?? 0,
+            "count_review" => $this->PlaceReview->count() ?? 0,
+            "count_comment" => $this->placeComments->count() ?? 0,
             'total' => $this->PlaceReview->count() + $this->placeComments->count(),
 
             "reviews" => PlaceReviewResource::collection($this->PlaceReview),
 
-            "path" => asset('images/places/'),
+            'path' => asset('images/places') . "/",
+
             // "images" => explode(",", $this->images) ?? [],
             "images" => $this->images?(explode(",", $this->images)?explode(",",$this->images) : NULL):NULL,
 
