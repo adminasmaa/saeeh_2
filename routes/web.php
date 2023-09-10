@@ -58,10 +58,16 @@ Route::get('aquars/{id}', 'App\Http\Controllers\Frontend\AquarController@allaqua
 Route::post('filteraquars', 'App\Http\Controllers\Frontend\AquarController@filteraquars')->name('filteraquars');
 Route::get('detailaquar/{id}', 'App\Http\Controllers\Frontend\AquarController@detailaquar')->name('detailaquar');
 Route::get('checkallaquar', 'App\Http\Controllers\Frontend\AquarController@checkallaquar')->name('checkallaquar');
+
+//booking
+    Route::get('bookingaquars/{id}', 'App\Http\Controllers\Frontend\AquarController@bookingaquars')->name('bookingaquars')->middleware('web');
+    Route::get('detailbookingaquars/{id}', 'App\Http\Controllers\Frontend\AquarController@detailbookingaquars')->name('detailbookingaquars')->middleware('web');
+    Route::get('addbookingaquars', 'App\Http\Controllers\Frontend\AquarController@addbookingaquars')->name('addbookingaquars');
+
 //aquar end
 
 
-Route::get('amira1', 'App\Http\Controllers\Frontend\HomeController@amira1')->name('amira1');
+//Route::get('amira1', 'App\Http\Controllers\Frontend\HomeController@amira1')->name('amira1');
 
 
 });
