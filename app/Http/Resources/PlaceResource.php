@@ -8,6 +8,7 @@ use App\Models\PlaceUser;
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\CategoryOnlyResource;
 use App\Http\Resources\PlaceReviewResource;
+use App\Http\Resources\PlaceTableResource;
 use Illuminate\Support\Facades\Auth;
 
 class PlaceResource extends JsonResource
@@ -27,14 +28,9 @@ class PlaceResource extends JsonResource
         if ($lang == 'ar') {
             $name = 'name_ar';
             $description = 'descrption_ar';
-            $name_placetables = 'name_ar';
-
         } else {
             $name = 'name_en';
             $description = 'descrption_en';
-            $name_placetables = 'name_en';
-
-
         }
 
         return [
@@ -72,7 +68,7 @@ class PlaceResource extends JsonResource
             "created_at" => $this->created_at ?? '',
             'comments' => CommentPlaceResource::collection($this->placeComments) ?? '',
             // 'placetables' => $this->placetables ?? '',
-            'placetables' => $this->$name_placetables ?? '',
+            'placetables' => PlaceTableResource::collection($this->placetables) ?? '',
             'category' => new CategoryOnlyResource($this->category),
         ]; 
     }
