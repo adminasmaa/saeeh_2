@@ -27,9 +27,13 @@ class PlaceResource extends JsonResource
         if ($lang == 'ar') {
             $name = 'name_ar';
             $description = 'descrption_ar';
+            $name_placetables = 'name_ar';
+
         } else {
             $name = 'name_en';
             $description = 'descrption_en';
+            $name_placetables = 'name_en';
+
 
         }
 
@@ -58,14 +62,18 @@ class PlaceResource extends JsonResource
             "reviews" => PlaceReviewResource::collection($this->PlaceReview),
 
             "path" => asset('images/places/'),
-            "images" => explode(",", $this->images) ?? [],
-            "display_photo" => asset('images/places') . "/" . $this->display_photo,
+            // "images" => explode(",", $this->images) ?? [],
+            "images" => $this->images?(explode(",", $this->images)?explode(",",$this->images) : NULL):NULL,
+
+            "image" => asset('images/places') . "/" . $this->display_photo,
             "notify_photo" => asset('images/places') . "/" . $this->notify_photo,
-            "videos" => explode(",", $this->videos) ?? [],
+            "videos" => $this->videos?(explode(",", $this->videos)?explode(",",$this->videos) : NULL):NULL,
+
             "created_at" => $this->created_at ?? '',
             'comments' => CommentPlaceResource::collection($this->placeComments) ?? '',
-            'placetables' => $this->placetables ?? '',
+            // 'placetables' => $this->placetables ?? '',
+            'placetables' => $this->$name_placetables ?? '',
             'category' => new CategoryOnlyResource($this->category),
-        ];
+        ]; 
     }
 }
