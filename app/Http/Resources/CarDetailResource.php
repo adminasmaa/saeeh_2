@@ -41,7 +41,7 @@ class CarDetailResource extends JsonResource
             "year" => $this->year ?? '',
             "car_numbers" => $this->car_numbers ?? '',
             "image" => asset('images/cars') . "/" . $this->main_image_ads,
-            "videos" => asset('images/cars') . "/" . $this->videos,
+            "video" => asset('images/cars') . "/" . $this->videos,
             'path' => asset('images/cars') . "/",
             'images' =>explode(",",$this->images) ?? [],
             "reviews" => CarReviewResource::collection($this->CarReview)->unique('name'),
