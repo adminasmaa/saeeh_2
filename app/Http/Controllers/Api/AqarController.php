@@ -244,7 +244,7 @@ class AqarController extends Controller
 
                     foreach ($request->comments as $comment) {
 
-                        CarReview::updateOrCreate(['car_id' => $comment['id'], 'user_id' => Auth::id()], [
+                        CarReview::updateOrCreate(['car_id' =>$request->id, 'user_id' => Auth::id()], [
 
                             'car_id' => $request->id,
 
@@ -277,9 +277,9 @@ class AqarController extends Controller
 
                     foreach ($request->comments as $comment) {
 
-                        PlaceReview::updateOrCreate(['place_id' => $comment['id'], 'user_id' => Auth::id()], [
+                        PlaceReview::updateOrCreate(['place_id' => $request->id, 'user_id' => Auth::id()], [
 
-                            'place_id' => $comment['id'],
+                            'place_id' => $request->id,
 
                             'rate' => $comment['value'],
 
