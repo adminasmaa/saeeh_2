@@ -27,7 +27,7 @@ class PlaceFavResource extends JsonResource
             $name = 'name_en';
 
         }
-        if ($this->category->name = 'مطاعم') {
+        if ($this->category->name == 'مطاعم') {
             return [
                 "id" => $this->id,
                 "name" => $this->$name ?? '',
