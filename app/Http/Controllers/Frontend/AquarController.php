@@ -57,7 +57,7 @@ class AquarController extends Controller
                 'aqar_id' => $request['aqar_id'], 'user_id' => Auth::id(),
                 'reciept_date' => $requestdata['reciept_date'], 'delivery_date' => $requestdata['delivery_date'],
                 'note' => $requestdata['note'],
-                'date' => $newDate,   'fixed_price' => $aqar->fixed_price,
+                'date' => $newDate, 'fixed_price' => $aqar->fixed_price,
                 'day_count' => $requestdata['day_count'], 'total' => $total
 
             ]);
@@ -70,6 +70,13 @@ class AquarController extends Controller
 
     }
 
+    public function detailbookingaquars($id)
+    {
+        $booking = AqarBooking::find($id);
+
+        return view('frontend.bookingdetailaqar', compact('booking'));
+
+    }
 
     public function bookingaquars($id)
     {
@@ -79,9 +86,7 @@ class AquarController extends Controller
         $user = Auth::user();
         $bookings = $user->aqarBooking;
 
-
-
-        return view('frontend.aqarbooking', compact('aqar','bookings'));
+        return view('frontend.aqarbooking', compact('aqar', 'bookings'));
 
     }
 
