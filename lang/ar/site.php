@@ -545,7 +545,7 @@ return [
     'username' => 'اسم المستخدم',
 
     'details' => 'التفاصيل',
-    'payment_status' => 'حالة الدفع',
+    'payment_status' => 'حالة الحجز',
     'paid' => 'مدفوع',
     'not_paid' => 'غير مدفوع',
     'payment_type' => 'طريقة الدفع',

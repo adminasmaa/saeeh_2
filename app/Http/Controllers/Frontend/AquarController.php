@@ -28,6 +28,24 @@ use Illuminate\Validation\Rule;
 
 class AquarController extends Controller
 {
+
+
+    public function mybookingAll()
+    {
+        $user = Auth::user();
+
+       $aqarbooking= $user->aqarBooking;
+
+       $carBooking= $user->carBooking;
+
+
+
+        return view('frontend.mybookingAll', compact('aqarbooking', 'carBooking'));
+
+
+    }
+
+
     public function diffInDays($date1, $date2)
     {
         $diff = strtotime($date2) - strtotime($date1);
