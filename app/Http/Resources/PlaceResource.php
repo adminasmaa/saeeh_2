@@ -40,7 +40,7 @@ class PlaceResource extends JsonResource
             "description" => preg_replace("/\r|\n/", "", strip_tags($this->$description)) ?? '',
             "longitude" => isset($this->longitude) ? $this->longitude : 0,
             "latitude" => isset($this->latitude) ? $this->latitude : 0,
-            // "address" => $this->address ?? '',
+            "address" => $this->address ?? '',
             // "facebook" => $this->facebook ?? '',
             // "instagram" => $this->instagram ?? '',
             // "twitter" => $this->twitter ?? '',
