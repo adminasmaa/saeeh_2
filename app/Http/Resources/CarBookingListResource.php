@@ -2,14 +2,13 @@
 
 namespace App\Http\Resources;
 
-use App\Models\Aqar;
-use App\Models\AqarBooking;
+use App\Models\Car;
+use App\Models\CarBooking;
 use Carbon\Carbon;
-use App\Http\Resources\AqarDetailResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Auth;
 
-class AqarBookDetailResource extends JsonResource
+class CarBookingListResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -35,21 +34,19 @@ class AqarBookDetailResource extends JsonResource
 
         }
 
-
         return [
-            "id" => $this->id,
+            "id" => $this->car()->select('id')->get()[0]->id ?? 0,
+            "book_id"=>$this->id,
+            "name" => $this->car()->select($name)->get()[0]->$name ?? '',
             'day_count' => $this->day_count,
-            "is_fixed"  =>$this->aqar['fixed_price']?true:false,
             "fixed_price" => $this->fixed_price ?? 0,
-            "delivery_date" =>$this->delivery_date??'',
-            "reciept_date"  =>$this->reciept_date??'',
             "Reservation_deposit" => $this->fixed_price ?? 0,
-            "changed_price" => $this->aqar['changed_price']?(json_decode($this->aqar['changed_price'])->person_num[0]?json_decode($this->aqar['changed_price']) : NULL):NULL,
             'total' => $this->day_count * $this->fixed_price,
-            "status" => $this->bookingStatus()->select($status)->get()[0]->$status ?? '', 
-            "created_at" => $this->created_at ?? '',
-            "aqar"   =>new AqarDetailResource($this->aqar),
-            
+            "status" => $this->bookingStatus()->select($status)->get()[0]->$status ?? '',   
+            "image" => asset('images/cars') . "/" . $this->car()->select('main_image_ads')->get()[0]->main_image_ads ?? '',
+            "changed_price" => $this->car['changed_price']?(json_decode($this->car['changed_price'])->day_num[0]?json_decode($this->car['changed_price']) : NULL):NULL,
+            "created_at" => $this->created_at ?? ''
+
         ];
 
 

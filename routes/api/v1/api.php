@@ -35,7 +35,9 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('/AddNote', 'App\Http\Controllers\Api\AqarController@AddNote');
     Route::post('/AddComment', 'App\Http\Controllers\Api\AqarController@AddComment');
     Route::post('/AqarFavourite', 'App\Http\Controllers\Api\AqarController@AqarFavourite');
-    Route::get('/AqarBookingDetail', 'App\Http\Controllers\Api\AqarController@AqarBookingDetail');
+    Route::get('/AqarBookingDetail', 'App\Http\Controllers\Api\AqarController@listofbookings');
+    Route::get('/BookingDetail', 'App\Http\Controllers\Api\AqarController@Detailofbookings');
+
 
     //end aquars
 

@@ -18,6 +18,7 @@ use Illuminate\Support\Collection;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CategoryOnlyResource;
+use App\Http\Resources\CategoryYearsResource;
 use App\Http\Resources\CategoryResource;
 use App\Http\Resources\PlaceResource;
 use App\Http\Resources\SubCategoryResource;
@@ -69,13 +70,13 @@ class CategoryController extends Controller
         if (!empty($request->page)) {
 
             $categories = Category::with('cars')->where('type', '=', 2)->where('parent_id', '=', 2)->whereHas('cars')->paginate('5');
-            $categories = CategoryOnlyResource::collection($categories)->response()->getData();
+            $categories = CategoryYearsResource::collection($categories)->response()->getData();
             return $this->respondSuccessPaginate($categories, __('message.categories retrieved successfully.'));
 
 
         } else {
             $categories = Category::with('cars')->where('type', '=', 2)->where('parent_id', '=', 2)->whereHas('cars')->get();
-            $categories = CategoryOnlyResource::collection($categories);
+            $categories = CategoryYearsResource::collection($categories);
             return $this->respondSuccess($categories, __('message.categories retrieved successfully.'));
 
         }
