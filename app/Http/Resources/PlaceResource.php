@@ -56,7 +56,7 @@ class PlaceResource extends JsonResource
             "count_comment" => $this->placeComments->count() ?? 0,
             'total' => $this->PlaceReview->count() + $this->placeComments->count(),
 
-            "reviews" => PlaceReviewResource::collection($this->PlaceReview),
+            "reviews" =>  new PlaceReviewResource($this->PlaceReview()->first()),
 
             'path' => asset('images/places') . "/",
 
@@ -72,6 +72,6 @@ class PlaceResource extends JsonResource
             // 'placetables' => $this->placetables ?? '',
             'placetables' => PlaceTableResource::collection($this->placetables) ?? '',
             'category' => new CategoryOnlyResource($this->category),
-        ]; 
+        ];
     }
 }
