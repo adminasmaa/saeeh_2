@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CommentResource;
 use App\Http\Resources\PlaceResource;
-use App\Http\Resources\PlacesResource;
+use App\Http\Resources\PlaceDetailResource;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\Country;
@@ -127,7 +127,7 @@ class PlaceController extends Controller
         if (isset($place)) {
 
 
-            $placeDetail = new PlaceResource($place);
+            $placeDetail = new PlaceDetailResource($place);
 
 
             return $this->respondSuccess($placeDetail, __('message.Place retrieved successfully.'));
