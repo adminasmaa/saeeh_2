@@ -31,6 +31,7 @@ class AqarResource extends JsonResource
             "id" => $this->id,
             "name" => $this->$name,
             "description" =>preg_replace( "/\r|\n/", "", strip_tags($this->description) ) ?? '',
+            "address" => $this->details ?? '',
 
             "category" => new staticResource($this->category),
             // "status" => $this->status ?? '',
