@@ -176,7 +176,7 @@ class CategoryController extends Controller
 
         if (count($cars)) {
 
-            $carss = CarDetailResource::collection($cars)->response()->getData();
+            $carss = CarResource::collection($cars)->response()->getData();
 
             return $this->respondSuccessPaginate($carss, __('message.data retrieved successfully.'));
 
