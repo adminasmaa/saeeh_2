@@ -78,7 +78,7 @@
                                                     <div class="d-flex justify-content-lg-end align-items-center">
                                                         <div class="department-badge bg-main text-white">
                                                             <div
-                                                                class="pt-1">{{$booking->aqar->aqarReview->count() ?? 0 }}</div>
+                                                                class="pt-1">{{ round($booking->aqar->aqarReview->avg('rate')) ?? 0 }}</div>
                                                             <div>
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="25"
                                                                      height="25" viewBox="0 0 25 25" fill="none">

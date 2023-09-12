@@ -41,7 +41,12 @@
                                         </a>
                                         </a>
                                     </li>
+
+
+
                                 </ul>
+
+
                                 <div class="box-notifications  bg-white" id="box-notifications">
                                     <div class="d-flex justify-content-start align-items-center close-notify">
                                         <i class="fas fa-times close-btn-notify cursor "></i>
