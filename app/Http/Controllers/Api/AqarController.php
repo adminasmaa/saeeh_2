@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\AqarBookingResource;
 use App\Http\Resources\AqarDetailResource;
 use App\Http\Resources\CommentResource;
+use App\Http\Resources\AqarBookListResource;
+use App\Http\Resources\CarBookingListResource;
 use App\Http\Resources\AqarBookDetailResource;
 use App\Http\Resources\CarBookingDetailResource;
 use App\Models\Aqar;
@@ -444,7 +446,7 @@ class AqarController extends Controller
 
                 if (count($cars)) {
 
-                    $carss = CarBookingDetailResource::collection($cars)->response()->getData();
+                    $carss = CarBookingListResource::collection($cars)->response()->getData();
 
                     return $this->respondSuccessPaginate($carss, __('message.data retrieved successfully.'));
 
@@ -461,7 +463,7 @@ class AqarController extends Controller
 
                 if (count($aquars)) {
 
-                    $quarss = AqarBookDetailResource::collection($aquars)->response()->getData();
+                    $quarss = AqarBookListResource::collection($aquars)->response()->getData();
 
                     return $this->respondSuccessPaginate($quarss, __('message.data retrieved successfully.'));
 
@@ -474,6 +476,65 @@ class AqarController extends Controller
 
         }
     }
+
+
+    public function Detailofbookings(Request $request)
+    {
+
+        $rule = [
+            'type' => 'required',
+            'id'=>'required'
+        ];
+        $customMessages = [
+            'required' => __('validation.attributes.required'),
+        ];
+
+        $validator = validator()->make($request->all(), $rule, $customMessages);
+
+        if ($validator->fails()) {
+
+            return $this->respondErrorArray('Validation Error.', $validator->errors(), 400);
+
+        } else {
+            $user = Auth::user();
+            if ($request->type == 'car') {
+
+                $carbook = CarBooking::where('id', '=', $request->id)->first();
+
+                if ($carbook) {
+
+                    $carss = new CarBookingDetailResource($carbook);
+
+                    return $this->respondSuccess($carss, __('message.data retrieved successfully.'));
+
+
+                } else {
+                    return $this->respondErrorArray(__('message.Data not found.'), ['error' => __('message.Data not found.')], 200);
+
+                }
+
+//
+            } elseif ($request->type == 'aqar') {
+
+                $aqar = AqarBooking::where('id', '=', $request->id)->first();
+
+                if ($aqar) {
+
+                    $aquar = new AqarBookDetailResource($aqar);
+
+
+                    return $this->respondSuccess($aquar, trans('message.data retrieved successfully.'));
+
+
+                } else {
+                    return $this->respondErrorArray(__('message.Data not found.'), ['error' => __('message.Data not found.')], 200);
+
+                }
+            }
+
+        }
+    }
+
 
 
 

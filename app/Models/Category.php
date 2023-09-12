@@ -93,6 +93,36 @@ class Category extends Model
         }
         return $arr;
 
+
+
+    }
+
+    public function years($cat_id)
+    {
+
+        $cars=Car::select('year')->where('category_id', '=', $this->id)->orderby('year')->distinct()->get();
+
+        $arr=[];
+        foreach($cars as $car){
+
+            array_push($arr, $car->year);
+        }
+        return $arr;
+
+
+
+    }
+
+    public function placetable($cat_id)
+    {
+
+        $places=Place::select('place_tables.name_ar')->join('place_tables', 'places.id', '=', 'place_tables.place_id')->where('places.category_id', '=', $this->id)->distinct()->get();
+
+        $arr=[];
+        foreach($places as $place){
+
+            array_push($arr, $place->name_ar);
+        }
         return $arr;
 
 

@@ -5,6 +5,7 @@ namespace App\Http\Resources;
 use App\Models\Car;
 use App\Models\CarBooking;
 use Carbon\Carbon;
+use App\Http\Resources\CarDetailResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Auth;
 
@@ -33,18 +34,24 @@ class CarBookingDetailResource extends JsonResource
 
 
         }
-
         return [
-            "id" => $this->car()->select('id')->get()[0]->id ?? 0,
-            "name" => $this->car()->select($name)->get()[0]->$name ?? '',
+            "id" => $this->id,
             'day_count' => $this->day_count,
+            "is_fixed"  =>$this->car['fixed_price']?true:false,
             "fixed_price" => $this->fixed_price ?? 0,
             "Reservation_deposit" => $this->fixed_price ?? 0,
             'total' => $this->day_count * $this->fixed_price,
+            "delivery_date" =>$this->delivery_date??'',
+            "reciept_date"  =>$this->reciept_date??'',
+            "delivery_hour" =>$this->delivery_hour??'',
+            "receipt_hour"  =>$this->receipt_hour??'',
+            "place_arrive" =>$this->place_arrive??'',
+            "place_leave"  =>$this->place_leave??'',
             "status" => $this->bookingStatus()->select($status)->get()[0]->$status ?? '',   
-            "image" => asset('images/cars') . "/" . $this->car()->select('main_image_ads')->get()[0]->main_image_ads ?? '',
-            "changed_price" => $this->changed_price?(json_decode($this->changed_price)->day_num[0]?json_decode($this->changed_price) : NULL):NULL,
-            "created_at" => $this->created_at ?? ''
+            "changed_price" => $this->car['changed_price']?(json_decode($this->car['changed_price'])->day_num[0]?json_decode($this->car['changed_price']) : NULL):NULL,
+            "created_at" => $this->created_at ?? '',
+            "car"=>new CarDetailResource($this->car),
+           
 
         ];
 
