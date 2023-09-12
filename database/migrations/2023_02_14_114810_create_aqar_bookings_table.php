@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string('place_leave')->nullable();
             $table->integer('7agz_type')->nullable()->default(1);
             $table->string('wasel_photo')->nullable();
+            $table->string('date')->nullable();
 
             $table->integer('aqar_id')->nullable( )->unsigned();
             $table->foreign('aqar_id')->references('id')->on('aqars');

@@ -27,18 +27,39 @@ class PlaceFavResource extends JsonResource
             $name = 'name_en';
 
         }
+        if ($this->category->name == 'مطاعم') {
             return [
                 "id" => $this->id,
                 "name" => $this->$name ?? '',
-                "favorite" =>true,
-                "description" =>$this->address ?? '',
+                "favorite" => true,
+                "description" => $this->address ?? '',
                 "image" => asset('images/places') . "/" . $this->display_photo,
                 "phone_one" => $this->phone_one ?? 0,
                 "longitude" => isset($this->longitude) ? $this->longitude : 0,
                 "latitude" => isset($this->latitude) ? $this->latitude : 0,
+                "restaurant" => true,
                 "address" => $this->address ?? '',
-                "rate" => round(PlaceReview::where('user_id', '=', Auth::id())->where('place_id', '=',$this->id)->avg('rate')) ?? 0,
+                "rate" => round(PlaceReview::where('user_id', '=', Auth::id())->where('place_id', '=', $this->id)->avg('rate')) ?? 0,
+
+            ];
+
+        }else{
+
+            return [
+                "id" => $this->id,
+                "name" => $this->$name ?? '',
+                "favorite" => true,
+                "description" => $this->address ?? '',
+                "image" => asset('images/places') . "/" . $this->display_photo,
+                "phone_one" => $this->phone_one ?? 0,
+                "longitude" => isset($this->longitude) ? $this->longitude : 0,
+                "latitude" => isset($this->latitude) ? $this->latitude : 0,
+                "restaurant" => false,
+                "address" => $this->address ?? '',
+                "rate" => round(PlaceReview::where('user_id', '=', Auth::id())->where('place_id', '=', $this->id)->avg('rate')) ?? 0,
 
             ];
         }
+
     }
+}

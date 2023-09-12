@@ -41,7 +41,7 @@ class CarDetailResource extends JsonResource
             "year" => $this->year ?? '',
             "car_numbers" => $this->car_numbers ?? '',
             "image" => asset('images/cars') . "/" . $this->main_image_ads,
-            "videos" => asset('images/cars') . "/" . $this->videos,
+            "video" => asset('images/cars') . "/" . $this->videos,
             'path' => asset('images/cars') . "/",
             'images' =>explode(",",$this->images) ?? [],
             "reviews" => CarReviewResource::collection($this->CarReview)->unique('name'),
@@ -52,8 +52,9 @@ class CarDetailResource extends JsonResource
 
             "comments" => CommentCarResource::collection($this->carComment),
 //            "rate" => round($this->carComment->avg('rating')) ?? 0,
+           "rate" => round($this->carReview->avg('rate')) ?? 0,
 
-            "rate" => round(CarReview::where('user_id', '=', Auth::id())->where('car_id', '=',$this->id)->avg('rate')) ?? 0,
+            // "rate" => round(CarReview::where('user_id', '=', Auth::id())->where('car_id', '=',$this->id)->avg('rate')) ?? 0,
 
             "fixed_price" => $this->fixed_price ?? 0,
             "Reservation_deposit" => $this->fixed_price ?? 0,

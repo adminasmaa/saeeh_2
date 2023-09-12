@@ -21,7 +21,10 @@ class PlaceTable extends Model
         'type',// nullable
 
     ];
-
+    public function getNameAttribute()
+    {
+        return (app()->getLocale() === 'ar') ? $this->name_ar : $this->name_en;
+    }
     protected $hidden = ['deleted_at', 'updated_at'];
 
     // relations

@@ -319,7 +319,7 @@
                         <div
                             class="booking-now-btn py-4 w-100 d-flex justify-content-center align-items-center"
                         >
-                            <a href="#"> @lang('site.book')</a>
+                            <a href="{{route('bookingaquars',$aquar->id)}}"> @lang('site.book')</a>
                         </div>
                     </div>
 
@@ -445,7 +445,7 @@
                                         <div
                                             class="booking-now-btn py-4 d-flex justify-content-center align-items-center"
                                         >
-                                            <a href="#">@lang('site.book')</a>
+                                            <a href="{{route('bookingaquars',$aquar->id)}}">@lang('site.book')</a>
                                         </div>
                                     </div>
                                 </div>
@@ -580,7 +580,7 @@
 
                                                     <div class="department-badge bg-main text-white">
                                                         <div class="pt-1">{{$comment->rating ?? 0}}</div>
-                                                       
+
                                                         <div>
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="25"
                                                                  height="25"
@@ -592,7 +592,7 @@
                                                         {{--<p class="details-sm-txt">
                                                             {{$allaquars->$aqarSection->icon ?? ''}}
                                                         </p> --}}
-                                                        
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -643,7 +643,7 @@
                                         <div
                                             class="booking-now-btn py-4 d-flex justify-content-center align-items-center"
                                         >
-                                            <a href="#">@lang('site.book')</a>
+                                            <a href="{{route('bookingaquars',$aquar->id)}}">@lang('site.book')</a>
                                         </div>
                                     </div>
                                 </div>

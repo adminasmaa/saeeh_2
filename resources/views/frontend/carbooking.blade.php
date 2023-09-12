@@ -437,6 +437,7 @@
                                                         {{--                                                    {{$aquar->time_from ?? ''}}--}}
                                                         {{$car->car_delivery_date ?? ''}}
                                                     </div>
+                                                    
                                                 </div>
                                             </div>
                                             <div>
@@ -565,12 +566,12 @@
                                             <div
                                                 class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
                                             >
-                                                {{$car->changed_price->day_num ?? 0 }}
+                                                {{$car->day_count ?? 0 }}
                                             </div>
                                         </div>
                                         <hr class="hr-saeeh my-0"/>
                                         <div class="d-flex justify-content-between py-1 px-3">
-                                            <div class="d-flex align-items-center"> 
+                                            <div class="d-flex align-items-center">
                             <!-- <span>
                               <svg {"day_num":[9,4],"price":[20000.9,1500]}
                                   xmlns="http://www.w3.org/2000/svg"
