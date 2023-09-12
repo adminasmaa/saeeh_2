@@ -7,6 +7,7 @@ use App\Http\Resources\AqarDetailResource;
 use App\Http\Resources\BransCarSubResource;
 use App\Http\Resources\CarDetailResource;
 use App\Http\Resources\CarResource;
+use App\Http\Resources\AqarResource;
 use App\Http\Resources\CityCategoryResource;
 use App\Models\Aqar;
 use App\Models\AqarReview;
@@ -158,7 +159,7 @@ class CategoryController extends Controller
 
         if (count($aquars)) {
 
-            $aquarss = AqarDetailResource::collection($aquars)->response()->getData();
+            $aquarss = AqarResource::collection($aquars)->response()->getData();
 
             return $this->respondSuccessPaginate($aquarss, __('message.data retrieved successfully.'));
 
