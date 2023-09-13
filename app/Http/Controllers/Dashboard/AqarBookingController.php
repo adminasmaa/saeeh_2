@@ -94,10 +94,10 @@ class AqarBookingController extends Controller
 
     
 
-    public function changeStatus($aqar_id,$status_id)
+    public function acceptbooking($aqar_id)
     {
 
-      return $this->aqarBookingRepository->changeStatus($aqar_id,$status_id);
+      return $this->aqarBookingRepository->acceptbooking($aqar_id);
 
     }
 

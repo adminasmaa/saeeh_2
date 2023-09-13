@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use App\Models\Car;
 use App\Models\CarBooking;
 use Carbon\Carbon;
-use App\Http\Resources\CarDetailResource;
+use App\Http\Resources\CarDetailOnlyResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Auth;
 
@@ -50,7 +50,7 @@ class CarBookingDetailResource extends JsonResource
             "status" => $this->bookingStatus()->select($status)->get()[0]->$status ?? '',   
             "changed_price" => $this->car['changed_price']?(json_decode($this->car['changed_price'])->day_num[0]?json_decode($this->car['changed_price']) : NULL):NULL,
             "created_at" => $this->created_at ?? '',
-            "car"=>new CarDetailResource($this->car),
+            "data"=>new CarDetailOnlyResource($this->car),
            
 
         ];
