@@ -21,7 +21,9 @@ return [
     'You may be able to save' => 'قد تتمكن من توفير ',
     'Sign in and save money' => 'سجل الدخول ووفّر المال',
     'or more at this property at check-in' => 'أو أكثر في مكان الإقامة هذا عند تسجيل الدخول',
-
+    'admin_message' => 'رسالة الادراة',
+    'investor_message' => 'رسالة المستثمر',
+    'video_photo' => 'صورة الفيديو',
     'We offer you the most popular restaurants at discounts' => 'نقدم لك أشهر المطاعم بخصومات تصل الي 10% ',
     'all' => 'الكل',
     'My bookings' => 'حجوزاتي',

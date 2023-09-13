@@ -38,6 +38,10 @@ return [
     'arrival hour' => 'arrival hour',
     'Reservation and cancellation conditions' => 'Reservation and cancellation conditions',
     'policy_place' => 'PolicyPlace',
+    'video_photo' => 'VideoPhoto',
+
+    'admin_message' => 'AdminMessage',
+    'investor_message' => 'InvestorMessage',
 
     'another_rooms' => 'AnotherRooms',
     'conditioning_types' => 'Conditioning Types',

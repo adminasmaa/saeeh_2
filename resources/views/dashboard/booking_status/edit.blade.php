@@ -64,7 +64,18 @@
                                                value="{{$bookingStatus->status_en}}"
                                             >
                                     </div>
-
+                                    <div class="col-md-6 form-group col-12 p-2 ">
+                                        <label>@lang('site.admin_message')</label>
+                                        <input type="text" name="admin_message" class="form-control"
+                                               value="{{$bookingStatus->admin_message}}"
+                                            >
+                                    </div>
+                                    <div class="col-md-6 form-group col-12 p-2 ">
+                                        <label>@lang('site.investor_message')</label>
+                                        <input type="text" name="investor_message" class="form-control"
+                                               value="{{$bookingStatus->investor_message}}"
+                                            >
+                                    </div>
                         </div>
                     </form>
                 </div>

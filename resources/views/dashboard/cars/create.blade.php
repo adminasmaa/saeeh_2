@@ -105,8 +105,8 @@
                                     <!-- VALUES(STR_TO_DATE('07-25-2012','%m-%d-%Y') -->
                                     <div class="col-md-6 form-group col-12 p-2 ">
                                         <label>@lang('site.car_delivery_date')<span class="text-danger">*</span></label>
-                                        <input type="datetime-local" name="car_delivery_date" class="form-control"
-                                        format="('Y-m-d\TH:i')" value="{{old('car_delivery_date')}}" 
+                                        <input type="time" name="car_delivery_date" class="form-control"
+                                        format="('TH:i')" value="{{old('car_delivery_date')}}" 
                                         >
                                     </div>
                                     <div class="col-md-6 form-group">

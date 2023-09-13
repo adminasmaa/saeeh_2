@@ -52,6 +52,7 @@ class Place extends Model
         'longitude',// nullable
         'images', // nullable
         'videos', // nullable
+        'video_photo', // nullable
         'social_media',// enum ,['facebook','instagram']
         'active', // default (0)
         'category_id', //unsigned
