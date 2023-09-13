@@ -19,7 +19,19 @@ class AqarBookingObserver
      */
     public function created(AqarBooking $aqarBooking)
     {
-        //
+        // $status=BookingStatus::find($aqarBooking->booking_status_id) ;
+        $user = Auth::user();
+        $title="الحجز رقم ".$aqarBooking->id;
+        $desription="حجز جديد";
+        $not=Notification::create([
+            'title'=>$title,
+            'booking_id'=>$aqarBooking->id,
+            'description'=>$desription,
+            'type'=>'aqar',
+            'user_id'=>$user->id,
+
+        ]);
+        send_push_notification($aqarBooking->id,$user->token,$title,$desription);
     }
 
     /**

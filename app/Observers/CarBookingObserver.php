@@ -17,7 +17,19 @@ class CarBookingObserver
      */
     public function created(CarBooking $carBooking)
     {
-        //
+        $status=BookingStatus::find($carBooking->booking_status_id) ;
+        $user = Auth::user();
+        $title="الحجز رقم ".$carBooking->id;
+        $desription="حجز جديد";
+        $not=Notification::create([
+            'title'=>$title,
+            'booking_id'=>$carBooking->id,
+            'description'=>$desription,
+            'type'=>'car',
+            'user_id'=>$user->id,
+
+        ]);
+        send_push_notification($carBooking->id,$user->token,$title,$desription);
     }
 
     /**
