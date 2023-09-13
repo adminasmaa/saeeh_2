@@ -25,7 +25,7 @@ class AqarBookingDataTable extends DataTable
             'show' => "dashboard.$this->crudName.show",
             'delete' => "dashboard.$this->crudName.destroy",
             'block' => "dashboard.$this->crudName.block",
-            'changeStatus' => "dashboard.$this->crudName.changeStatus"
+            'acceptbooking' => "dashboard.$this->crudName.acceptbooking"
            
         ];
     }
@@ -60,18 +60,23 @@ class AqarBookingDataTable extends DataTable
             })
             ->addIndexColumn()
             ->addColumn('status', function ($model) {
-                $actions = ' <div class="dropdown">
+
+
+                return '           
+       
+                <div class="dropdown">
                 <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                     عمليات
                 </a>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">';
-            
-                $actions .= ' <li><a class="dropdown-item" href="">'.trans('site.accepted').'</a></li>';
-                $actions .= ' <li><a class="dropdown-item" href="">'.trans('site.reject').'</a></li>';
-
-                $actions .= '</ul>
-               </div>';
-                return $actions;
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
+                    <li class="acceptbooking"><a class="dropdown-item" id="" v="'.$model->id.'">'.trans('site.accepted').'</a></li>
+                    <li><a class="dropdown-item" href="">'.trans('site.reject').'</a></li>
+                </ul>
+               </div>
+                
+                
+                ';
+              
 
             })
             ->addColumn('action', function ($model) {
@@ -164,3 +169,4 @@ class AqarBookingDataTable extends DataTable
         return 'AqarBooking_' . date('YmdHis');
     }
 }
+

@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use App\Models\Aqar;
 use App\Models\AqarBooking;
 use Carbon\Carbon;
-use App\Http\Resources\AqarDetailResource;
+use App\Http\Resources\AqarDetailOnlyResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Auth;
 
@@ -48,7 +48,7 @@ class AqarBookDetailResource extends JsonResource
             'total' => $this->day_count * $this->fixed_price,
             "status" => $this->bookingStatus()->select($status)->get()[0]->$status ?? '', 
             "created_at" => $this->created_at ?? '',
-            "aqar"   =>new AqarDetailResource($this->aqar),
+            "data"   =>new AqarDetailOnlyResource($this->aqar),
             
         ];
 
