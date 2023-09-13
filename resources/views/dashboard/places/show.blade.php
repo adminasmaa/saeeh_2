@@ -442,24 +442,24 @@
                                     @endif
                                 </div>
                             </div>
-                        <div class="form-group col-12 p-2 mb-2">
+                            <div class="form-group col-12 p-2">
+                                <label>@lang('site.video')</label>
 
-                            <label>@lang('site.videos')</label>
-
-                            <div class="video-thumbs " id="video-previews">
-                                @if($place->videos)
-                                @foreach ((explode(',',$place->videos)) as $video)
-                                <div class="wrapper-thumb">
-                                    <img id="frame" src="{{asset('videos/places/'.$video)}}"
-                                        alt=""
-                                        onerror="this.src='{{asset('videos/places/default.jpg')}}'"
-                                        width="200px" class="video-preview-thumb" />
-                                </div>
-                                @endforeach
-                                @endif
+                                <video width="250" height="200"
+                                    src="{{asset('images/places/videos/'.$place->videos)}}"
+                                    controls class="video-upload" autoplay>
+                                    Your browser does not support the video tag.
+                                </video>
                             </div>
-                        </div>
+                            <div class="form-group col-12 p-2">
+                                <label>@lang('site.video_photo')</label>
+                                <br>
+                                <img id="frame"
+                                    src="{{asset('images/places/'.$place->video_photo)}}" alt=""
+                                    onerror="this.src='{{asset('images/places/default.jpg')}}'"
+                                    width="200px" class="img-upload" />
 
+                            </div>
                         <div class="row m-t-10">
                         <h4>@lang('site.place_tables')</h4>
                             @foreach($place_table as $service)
