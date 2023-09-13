@@ -87,15 +87,36 @@ class AqarBookingRepository implements IAqarBookingRepositoryAlias
 
         $request_data->booking_status_id =2;
 
+        
         $request_data->save();
 
         if ($request_data) {
-            Alert::success('Success', __('site.updated_successfully'));
+            Alert::success('Success', __('site.book_accepted_successfully'));
         } else {
             Alert::error('Error', __('site.update_faild'));
 
         }
+        return back();
 
+
+    }
+
+    public function rejectbooking($book_id)
+    {
+
+        $request_data = AqarBooking::find($book_id);
+
+        $request_data->booking_status_id =4;
+
+        $request_data->save();
+
+        if ($request_data) {
+            Alert::success('Success', __('site.book_rejected_successfully'));
+        } else {
+            Alert::error('Error', __('site.update_faild'));
+
+        }
+        return back();
 
 
     }

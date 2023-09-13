@@ -99,6 +99,9 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
         //bookings
         Route::resource('bookings', BookingController::class);
+        Route::get('acceptcarbooking/{car_id}', 'App\Http\Controllers\Dashboard\BookingController@acceptbooking')->name('acceptcarbooking');
+        Route::get('rejectcarbooking/{car_id}', 'App\Http\Controllers\Dashboard\BookingController@rejectbooking')->name('rejectcarbooking');
+
 
         //places
         Route::resource('places', PlaceController::class);
@@ -118,6 +121,9 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         Route::resource('aquarcategories', AquarCategoryController::class);
         Route::resource('aquarbooking', AqarBookingController::class);
         Route::get('acceptbooking/{aqarid}', 'App\Http\Controllers\Dashboard\AqarBookingController@acceptbooking')->name('acceptbooking');
+        Route::get('rejectbooking/{aqarid}', 'App\Http\Controllers\Dashboard\AqarBookingController@rejectbooking')->name('rejectbooking');
+
+
 
         //services
         Route::resource('services', ServiceController::class);

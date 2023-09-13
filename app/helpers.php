@@ -115,4 +115,30 @@ if (!function_exists('send_sms_code')) {
     }
 }
 
+if (!function_exists('send_push_notification')) {
+    function send_push_notification($book_id,$token,$title,$description){
+        $serverkey = 'AAAAFN778j8:APA91bFt1GglZf07Po-5ccwa8tYHuaIz0ymvDZCeDKJ2bxpaNrj2eM1TbON3_EdkhjkcH9IhKsaTOUv0mHSXHWQ-O2t61J6OwgoBmzoftKS-1uKBzTmwlGs0kkGClVYcP0TTXtFArxIT';// this is a Firebase server key 
+        $data = array(
+                    'to' => $token,
+                    'notification' => 
+                            array(
+                            'body' => $description,
+                            'title' => $title),
+                            "data"=> array(
+                                    "book_id"=> $book_id
+                                
+                                    ));
+                            
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL,"https://fcm.googleapis.com/fcm/send");
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($data));  //Post Fields
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Authorization: key='.$serverkey));
+        $output = curl_exec ($ch);
+        $result=json_decode($output);
+        curl_close ($ch);
+    }
+} 
+
 ?>

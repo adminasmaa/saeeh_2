@@ -413,6 +413,8 @@ return [
     'added_successfully' => 'تم اضافة البيانات بنجاح',
     'updated_successfully' => 'تم تعديل البيانات بنجاح',
     'deleted_successfully' => 'تم حذف البيانات بنجاح',
+    'book_accepted_successfully' => 'تم قبول الحجز بنجاح',
+    'book_rejected_successfully' => 'تم رفض الحجز بنجاح',
 
     'add_faild' => 'حدث خطأ .. لم تتم عملية الاضافة !',
     'update_faild' => 'حدث خطأ .. لم تتم عملية التعديل !',

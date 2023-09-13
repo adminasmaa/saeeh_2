@@ -69,8 +69,8 @@ class AqarBookingDataTable extends DataTable
                     عمليات
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
-                    <li class="acceptbooking"><a class="dropdown-item" id="" v="'.$model->id.'">'.trans('site.accepted').'</a></li>
-                    <li><a class="dropdown-item" href="">'.trans('site.reject').'</a></li>
+                    <li><a class="dropdown-item" href="'.route('dashboard.acceptbooking' , $model->id).'">'.trans('site.accepted').'</a></li>
+                    <li><a class="dropdown-item" href="'.route('dashboard.rejectbooking' , $model->id).'">'.trans('site.reject').'</a></li>
                 </ul>
                </div>
                 

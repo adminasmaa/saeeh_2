@@ -101,4 +101,12 @@ class AqarBookingController extends Controller
 
     }
 
+
+    public function rejectbooking($aqar_id)
+    {
+
+      return $this->aqarBookingRepository->rejectbooking($aqar_id);
+
+    }
+
 }

@@ -141,38 +141,8 @@
             });
 
 
-            
-            $('.acceptbooking').on('click',function() {
-                var element = $(this);
-                var book_id = element.attr("v");
-            
-                $.ajax({
-                    url: '{{ url('dashboard/acceptbooking') }}' + '/' +book_id ,
-                    success: function (data) {
-                    var n = new Noty({
-                    text: "{{__('site.updated_successfully')}}",
-                    type: "information",
-                    killer: true,
-                    buttons: [
-                        Noty.button("اغلاق", 'btn btn-primary mr-2', function () {
-                            n.close();
-                        })
-                    ]
-                });
-                n.show();
-                    
-                    }
-                
-                })
-                
-            });
-
-                    
-
         });
     </script>
 
 
 @endsection
-
-
