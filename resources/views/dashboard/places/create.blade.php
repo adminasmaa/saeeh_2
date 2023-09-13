@@ -480,7 +480,6 @@
             previewTitleText,
             img,
             img2,
-            img3,
             // /*video */
             videoUpload = document.getElementById("upload-videos"),
             videoPreviews = document.getElementById("video-previews"),

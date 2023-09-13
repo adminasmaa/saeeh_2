@@ -456,6 +456,18 @@
 
                                 </div>
                                
+                                <div class="form-group col-12 p-2">
+                                    <label>@lang('site.video_photo')</label>
+
+                                    <input type="file" class="form-control" name="video_photo"
+                                        value="{{$place->video_photo}}" id="imgInp3"  />
+                                    <img id="frame3"
+                                        src="{{asset('images/places/'.$place->video_photo)}}" alt=""
+                                        onerror="this.src='{{asset('images/places/default.jpg')}}'"
+                                        width="200px" class="img-upload3" />
+
+                                </div>
+
                                 </div>
                         <div class="row">
                              <div class="form-group col-12 p-2 mb-2">
@@ -482,27 +494,17 @@
                         </div>
                         <br>
                         <div class="row">
-                            <div class="form-group col-12 p-2 mb-2">
+                            <div class="form-group col-12 p-2">
+                            <label>@lang('site.video')</label>
 
-                                <label>@lang('site.videos')</label>
-
-                                <input type="file" class="form-control" name="videos[]"
-                                    value="{{$place->videos}}" multiple id="upload-videos" />
-
-                                <div class="video-thumbs " id="video-previews">
-                                    @if($place->videos)
-                                    @foreach ((explode(',',$place->videos)) as $video)
-                                    <div class="wrapper-thumb">
-                                        <video id="frame" src="{{asset('videos/places/'.$video)}}"
-                                            alt=""
-                                            onerror="this.src='{{asset('videos/places/default.jpg')}}'"
-                                            width="200px" class="video-preview-thumb" /><span
-                                            class="remove-btn">x</span>
-                                    </div>
-                                    @endforeach
-                                    @endif
-                                </div>
-                        </div>
+                            <input type='file' id='videoUpload' class="form-control"
+                                name="videos" value="{{$place->videos}}?>" />
+                            <video width="250" height="200"
+                                src="{{asset('images/places/videos/'.$place->videos)}}"
+                                controls class="video-upload" autoplay>
+                                Your browser does not support the video tag.
+                            </video>
+                            </div>
 
                         <div class="row m-t-10">
                             <h4>@lang('site.place_tables')</h4>
@@ -647,13 +649,8 @@
         previewTitle,
         previewTitleText,
         img,
-        videoUpload = document.getElementById("upload-videos"),
-        videoPreviews = document.getElementById("video-previews"),
-        videoUploadForms = document.getElementById("form-upload"),
-        totalFiles2,
-        previewTitle2,
-        previewTitleText2,
-        video;
+        img2,
+        img3;
     imgUploads.addEventListener("change", previewImgss, true);
 
     function previewImgss(event) {
@@ -679,31 +676,13 @@
 
         }
     }  
-    /*video */
-    videoUpload.addEventListener("change", previewVideoss, true);
-    function previewVideoss(event) {
-        totalFiles2 = videoUploads.files.length;
-
-        if (!!totalFiles2) {
-            videoPreviews.classList.remove("video-thumbs-hidden");
-        }
-
-        for (var i = 0; i < totalFiles2; i++) {
-            wrapper = document.createElement("div");
-            wrapper.classList.add("wrapper-thumb");
-            removeBtn = document.createElement("span");
-            nodeRemove = document.createTextNode("x");
-            removeBtn.classList.add("remove-btn");
-            removeBtn.appendChild(nodeRemove);
-            video = document.createElement("video");
-            video.src = URL.createObjectURL(event.target.files[i]);
-            video.classList.add("video-preview-thumb");
-            wrapper.appendChild(video);
-            wrapper.appendChild(removeBtn);
-            videoPreviews.appendChild(wrapper);
-
-        }
-    }
+   /*video */
+document.getElementById("videoUpload").onchange = function(event) {
+    let file = event.target.files[0];
+    let blobURL = URL.createObjectURL(file);
+    document.querySelector("video").style.display = "block";
+    document.querySelector("video").src = blobURL;
+};
     $(".remove-btn").click(function() {
         $(this).parent(".wrapper-thumb").remove();
     });
@@ -713,9 +692,12 @@
     };
     document.getElementById("imgInp2").onchange = function() {
         let imgURL2 = (frame2.src = URL.createObjectURL(event.target.files[0]));
-        document.querySelector("img").src = imgURL2;
+        document.querySelector("img2").src = imgURL2;
     };
-
+    document.getElementById("imgInp3").onchange = function() {
+        let imgURL3 = (frame3.src = URL.createObjectURL(event.target.files[0]));
+        document.querySelector("img3").src = imgURL2;
+    };
 </script>
 <script>
 
