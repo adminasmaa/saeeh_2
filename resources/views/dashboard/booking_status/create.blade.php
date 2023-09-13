@@ -70,7 +70,18 @@
                                                value="{{old('status_en')}}"
                                                >
                                     </div>
-                                
+                                    <div class="col-md-6 form-group col-12 p-2 ">
+                                        <label>@lang('site.admin_message')</label>
+                                        <input type="text"  name="admin_message" class="form-control"
+                                               value="{{old('admin_message')}}"
+                                               >
+                                    </div>
+                                    <div class="col-md-6 form-group col-12 p-2 ">
+                                        <label>@lang('site.investor_message')</label>
+                                        <input type="text"  name="investor_message" class="form-control"
+                                               value="{{old('investor_message')}}"
+                                               >
+                                    </div>
                                 </div>
 
                             </div>

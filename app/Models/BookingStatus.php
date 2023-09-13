@@ -18,6 +18,8 @@ class BookingStatus extends Model
     protected $fillable = [
         'status_ar', // required
         'status_en', // nullable
+        'admin_message', // nullable
+        'investor_message', // nullable
 
     ];
     // relations

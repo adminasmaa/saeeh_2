@@ -84,7 +84,7 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
     // return $request;
         // TODO: Implement store() method.
 
-        $request_data = $request->except(['_method','_token','display_photo','notify_photo','images','videos','sub_name_ar','sub_name_en','sub_type']);
+        $request_data = $request->except(['_method','_token','display_photo','notify_photo','video_photo','images','videos','sub_name_ar','sub_name_en','sub_type']);
         // To Make  Active
         $place = Place::create($request_data);
         
@@ -109,6 +109,10 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
 
                 UploadImage('images/places/','notify_photo', $place, $request->file('notify_photo'));
         }
+        if ($request->hasFile('video_photo')) {
+
+            UploadImage('images/places/','video_photo', $place, $request->file('video_photo'));
+    }
         if ($request->hasFile('images')) {
             $images = $request->file('images');
             foreach ($images as $key => $files) {
@@ -122,15 +126,13 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
             }
         }
         if ($request->hasFile('videos')) {
-            $videos = $request->file('videos');
-            foreach ($videos as $key => $files) {
-                $destinationPath = 'videos/places/';
-                $file_name = $_FILES['videos']['name'][$key];
-                $files->move($destinationPath, $file_name);
-                $data[]= $_FILES['videos']['name'][$key];
-                $place->videos = json_encode($data);
-                $place->save();
-            }
+            $thumbnail = $request->file('videos');
+            $destinationPath = 'images/places/videos/';
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move($destinationPath, $filename);
+            $place->videos = $filename;
+            $place->save();
+        
         }
         if ($place) {
            Alert::success('Success', __('site.added_successfully'));
@@ -142,7 +144,7 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
     public function update($place, $request)
     {
         // return $request;
-        $request_data = $request->except(['_method','_token','display_photo','notify_photo','images','videos','sub_name_ar','sub_name_en','sub_type']);
+        $request_data = $request->except(['_method','_token','display_photo','notify_photo','video_photo','images','videos','sub_name_ar','sub_name_en','sub_type']);
         $place->update($request_data);
        // $place2 = $place->update($request_data);
        $place_table =PlaceTable::where('place_id', $place->id)->get();
@@ -153,6 +155,10 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
             }
             if ($request->hasFile('notify_photo')) {
                 UploadImage('images/places/','notify_photo', $place, $request->file('notify_photo'));
+
+            }
+            if ($request->hasFile('video_photo')) {
+                UploadImage('images/places/','video_photo', $place, $request->file('video_photo'));
 
             }
             if ($request->hasFile('images')) {
@@ -167,15 +173,13 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
                 }
             }
             if ($request->hasFile('videos')) {
-                $videos = $request->file('videos');
-                foreach ($videos as $key => $files) {
-                    $destinationPath = 'videos/places/';
-                    $file_name = $_FILES['videos']['name'][$key];
-                    $files->move($destinationPath, $file_name);
-                    $data = $_FILES['videos']['name'][$key];
-                    $place->videos = json_encode($data);
-                    $place->save();
-                }
+                $thumbnail = $request->file('videos');
+                $destinationPath = 'images/places/videos/';
+                $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+                $thumbnail->move($destinationPath, $filename);
+                $place->videos = $filename;
+                $place->save();
+            
             }
 
         $arr = $request->sub_name_ar;
