@@ -51,6 +51,26 @@ class BookingsDataTable extends DataTable
                 return (!empty($model->created_at)) ? $model->created_at->diffForHumans() : '';
             })
             ->addIndexColumn()
+            ->addColumn('status', function ($model) {
+
+
+                return '           
+       
+                <div class="dropdown">
+                <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                    عمليات
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="'.route('dashboard.acceptcarbooking' , $model->id).'">'.trans('site.accepted').'</a></li>
+                    <li><a class="dropdown-item" href="'.route('dashboard.rejectcarbooking' , $model->id).'">'.trans('site.reject').'</a></li>
+                </ul>
+               </div>
+                
+                
+                ';
+              
+
+            })
             ->addColumn('action', function ($model) {
                 $actions = '';
 
@@ -58,7 +78,7 @@ class BookingsDataTable extends DataTable
                 $actions .= DTHelper::dtShowButton(route($this->getRoutes()['show'], $model->id), trans('site.show'), $this->getPermissions()['delete']);
 
                 return $actions;
-            });
+             })->rawColumns(['action', 'status']);
     }
 
     /**
@@ -119,6 +139,11 @@ class BookingsDataTable extends DataTable
             Column::make('delivery_date')->title(trans('site.date')),
             Column::make('created_at')->title(trans('site.created_at')),
             Column::computed('action')
+                ->exportable(false)
+                ->printable(false)
+                ->width(60)
+                ->addClass('text-center')->title(trans('site.action')),
+                Column::computed('status')
                 ->exportable(false)
                 ->printable(false)
                 ->width(60)
