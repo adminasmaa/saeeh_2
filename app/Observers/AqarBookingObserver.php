@@ -20,7 +20,7 @@ class AqarBookingObserver
     public function created(AqarBooking $aqarBooking)
     {
          $status=BookingStatus::find($aqarBooking->booking_status_id) ;
-        $user = User::find($carBooking->user_id);
+        $user = User::find($aqarBooking->user_id);
         $title="الحجز رقم ".$aqarBooking->id;
         $desription="حجز جديد";
         $not=Notification::create([
@@ -29,7 +29,7 @@ class AqarBookingObserver
             'description'=>$desription,
             'type'=>'aqar',
             'status'=>$aqarBooking->booking_status_id,
-            'user_id'=>$carBooking->user_id,
+            'user_id'=>$aqarBooking->user_id,
 
         ]);
         send_push_notification($aqarBooking->id,$user->device_token,$title,$desription);
@@ -44,7 +44,7 @@ class AqarBookingObserver
     public function updated(AqarBooking $aqarBooking)
     {
         $status=BookingStatus::find($aqarBooking->booking_status_id) ;
-        $user = User::find($carBooking->user_id);
+        $user = User::find($aqarBooking->user_id);
         $title="الحجز رقم ".$aqarBooking->id;
         $desription=$status->status_ar;
         $not=Notification::create([
@@ -53,7 +53,7 @@ class AqarBookingObserver
             'description'=>$desription,
             'type'=>'aqar',
             'status'=>$aqarBooking->booking_status_id,
-            'user_id'=>$carBooking->user_id,
+            'user_id'=>$aqarBooking->user_id,
 
         ]);
         send_push_notification($aqarBooking->id,$user->device_token,$title,$desription);
