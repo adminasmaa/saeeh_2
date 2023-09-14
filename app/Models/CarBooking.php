@@ -44,6 +44,7 @@ class CarBooking extends Model
         'delivery_place', // unsigned
         'date', // unsigned
         'total', // unsigned
+        'book_status'
 
     ];
     // scope

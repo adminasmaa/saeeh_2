@@ -42,6 +42,7 @@ class AqarBooking extends Model
         'commission_id', //unsigned
         'user_id', //unsigned
         'booking_status_id', // unsigned
+        'book_status'
     ];
     protected $hidden=['deleted_at','updated_at'];
 
