@@ -4,6 +4,7 @@ namespace App\Observers;
 
 use App\Models\CarBooking;
 use App\Models\User;
+use App\Models\Car;
 use App\Models\BookingStatus;
 use App\Models\Notification;
 use Illuminate\Support\Facades\Auth;
@@ -20,9 +21,10 @@ class CarBookingObserver
     {
         $status=BookingStatus::find($carBooking->booking_status_id) ;
         $user = User::find($carBooking->user_id);
-        $title="الحجز رقم ".$carBooking->id;
-        $desription="حجز جديد";
-        $not=Notification::create([
+        $car=Car::find($carBooking->car_id);
+        $title=trans('message.adv number').$carBooking->car_id."  (".$car->name_ar." )";
+        $desription=trans('message.new booking');
+        $not=Notification::updateOrCreate(['booking_id'=>$carBooking->id, 'status'=>$carBooking->booking_status_id],[
             'title'=>$title,
             'booking_id'=>$carBooking->id,
             'description'=>$desription,
@@ -44,9 +46,10 @@ class CarBookingObserver
     {
         $status=BookingStatus::find($carBooking->booking_status_id) ;
         $user =User::find($carBooking->user_id);
-        $title="الحجز رقم ".$carBooking->id;
+        $car=Car::find($carBooking->car_id);
+        $title=trans('message.adv number').$carBooking->car_id."  (".$car->name_ar." )";
         $desription=$status->status_ar;
-        $not=Notification::create([
+        $not=Notification::updateOrCreate(['booking_id'=>$carBooking->id, 'status'=>$carBooking->booking_status_id],[
             'title'=>$title,
             'booking_id'=>$carBooking->id,
             'description'=>$desription,
