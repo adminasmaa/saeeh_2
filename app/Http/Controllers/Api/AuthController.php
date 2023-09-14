@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\Freq_question;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Crypt;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -11,7 +12,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 use DB;
-
 class AuthController extends Controller
 {
 
@@ -401,14 +401,13 @@ class AuthController extends Controller
         }
     }
 
-
     public function resetpassword(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'country_code' => 'required_without:userId',
             'phone' => 'required_without:userId',
             'userId' => 'required_without:phone',
-            'password' => 'required|min:6',
+            'password' => 'required|min:6|unique:users',
             'c_password' => 'same:password|min:6',
         ]);
 
@@ -426,6 +425,8 @@ class AuthController extends Controller
         })->first();}
         if ($user) {
             $user->password = Hash::make($request->password);
+            // $user-> password = Crypt::decrypt($request->password);  
+            // $user->password = Hash::check('password', $request->password);
             $user->active = 1;
             $user->save();
             return $this->respondSuccess(json_decode('{}'), trans('message.password reset successfully.'));
