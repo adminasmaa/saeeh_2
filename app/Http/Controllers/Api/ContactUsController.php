@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
+use App\Models\Notification;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -66,6 +67,17 @@ class ContactUsController extends Controller
 
         }
 
+
+    }
+
+
+    public function notification()
+    {
+       
+
+        $notification = Notification::where('user_id',Auth::id())->select(['id','title','description' ,'status','booking_id','type','created_at'])->get();
+
+        return $this->respondSuccess($notification, __('message.data retrieved successfully.'));
 
     }
 

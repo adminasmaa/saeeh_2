@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\CarBooking;
+use App\Models\User;
 use App\Models\BookingStatus;
 use App\Models\Notification;
 use Illuminate\Support\Facades\Auth;
@@ -18,7 +19,7 @@ class CarBookingObserver
     public function created(CarBooking $carBooking)
     {
         $status=BookingStatus::find($carBooking->booking_status_id) ;
-        $user = Auth::user();
+        $user = User::find($carBooking->user_id);
         $title="الحجز رقم ".$carBooking->id;
         $desription="حجز جديد";
         $not=Notification::create([
@@ -26,10 +27,11 @@ class CarBookingObserver
             'booking_id'=>$carBooking->id,
             'description'=>$desription,
             'type'=>'car',
-            'user_id'=>$user->id,
+            'status'=>$carBooking->booking_status_id,
+            'user_id'=>$carBooking->user_id,
 
         ]);
-        send_push_notification($carBooking->id,$user->token,$title,$desription);
+        send_push_notification($carBooking->id,$user->device_token,$title,$desription);
     }
 
     /**
@@ -41,7 +43,7 @@ class CarBookingObserver
     public function updated(CarBooking $carBooking)
     {
         $status=BookingStatus::find($carBooking->booking_status_id) ;
-        $user = Auth::user();
+        $user =User::find($carBooking->user_id);
         $title="الحجز رقم ".$carBooking->id;
         $desription=$status->status_ar;
         $not=Notification::create([
@@ -49,10 +51,11 @@ class CarBookingObserver
             'booking_id'=>$carBooking->id,
             'description'=>$desription,
             'type'=>'car',
-            'user_id'=>$user->id,
+            'status'=>$carBooking->booking_status_id,
+            'user_id'=>$carBooking->user_id,
 
         ]);
-        send_push_notification($carBooking->id,$user->token,$title,$desription);
+        send_push_notification($carBooking->id,$user->device_token,$title,$desription);
     }
 
     /**
