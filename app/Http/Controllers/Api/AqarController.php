@@ -49,13 +49,13 @@ class AqarController extends Controller
 
                 $book=AqarBooking::find($request->book_id);
 
-                $book->update(['book_status'=>4,'cancle_reason'=>$request->cancle_reason]);
+                $book->update(['booking_status_id'=>4,'cancle_reason'=>$request->cancle_reason]);
 
             }else{
 
                 $book=CarBooking::find($request->book_id);
 
-                $book->update(['book_status'=>4,'cancle_reason'=>$request->cancle_reason]);
+                $book->update(['booking_status_id'=>4,'cancle_reason'=>$request->cancle_reason]);
             }
                 return $this->respondSuccess($book, trans('message.message sent successfully.'));
 
