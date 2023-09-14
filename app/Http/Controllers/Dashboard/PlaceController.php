@@ -11,6 +11,7 @@ use App\Models\Category;
 use App\Models\PlaceComment;
 use App\Models\Notification;
 use App\Repositories\Interfaces\PlaceRepositoryInterface;
+use App\Repositories\Eloquent\PlaceRepository;
 use App\Services\TwoFactorService;
 use DB;
 use Alert;
@@ -21,23 +22,15 @@ use Illuminate\Validation\Rule;
 class PlaceController extends Controller
 {
 
-
-    private PlaceRepositoryInterface $PlaceRepository;
-
-    public function __construct(PlaceRepositoryInterface $PlaceRepository)
+    protected $PlaceRepository;
+ 
+    public function __construct()
     {
-        $this->PlaceRepository = $PlaceRepository;
+        $this->PlaceRepository=new PlaceRepository();
     }
 
     public function index(PlacesDataTable $placesDataTable)
     {
-       
-
-      //  $place_table = PlaceTable::all();
-        $place = Place::all();
-
-       // return view('dashboard.places.index', compact('place','place_table'));
-
         return $this->PlaceRepository->getAll($placesDataTable);
 
     }

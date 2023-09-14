@@ -30,7 +30,6 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
 
         ]);
     }
-
     public function create()
     {
         // TODO: Implement create() method.
