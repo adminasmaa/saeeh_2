@@ -49,6 +49,7 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('/logout', 'App\Http\Controllers\Api\AuthController@logout');
     Route::post('/contactus', 'App\Http\Controllers\Api\ContactUsController@contactus');
     Route::get('/contacts', 'App\Http\Controllers\Api\ContactUsController@contacts');
+    Route::get('/notification', 'App\Http\Controllers\Api\ContactUsController@notification');
     Route::get('/termandcondition', 'App\Http\Controllers\Api\ContactUsController@termandcondition');
     Route::get('freq_question', 'App\Http\Controllers\Api\AuthController@freqquestion');
 
