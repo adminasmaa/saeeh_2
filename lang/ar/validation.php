@@ -147,7 +147,7 @@ return [
     */
 
     'attributes' => [
-        'rate' => 'تقيم',
+        'rate' => 'تقييم',
         'comment' => 'تعليق',
         'cart_id' => 'عربة',
         'quantity' => 'كمية',
@@ -160,7 +160,7 @@ return [
         'id' => 'الرقم',
         'product_id' => 'رقم المنتج',
         'contact_type' => 'نوع الرساله ',
-        'c_password' => 'تاكيد كلمه المرو ',
+        'c_password' => 'تاكيد كلمه المرور ',
         'field' => 'الحقل',
         'required' => 'مطلوب',
         'unique' => 'مميز',
