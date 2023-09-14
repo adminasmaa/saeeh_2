@@ -2,6 +2,7 @@
 
 namespace App\Observers;
 use App\Models\User;
+use App\Models\Aqar;
 use App\Models\AqarBooking;
 use App\Models\BookingStatus;
 use App\Models\Notification;
@@ -19,11 +20,12 @@ class AqarBookingObserver
      */
     public function created(AqarBooking $aqarBooking)
     {
-         $status=BookingStatus::find($aqarBooking->booking_status_id) ;
+        $status=BookingStatus::find($aqarBooking->booking_status_id) ;
         $user = User::find($aqarBooking->user_id);
-        $title="الحجز رقم ".$aqarBooking->id;
-        $desription="حجز جديد";
-        $not=Notification::create([
+        $aqar=Aqar::find($aqarBooking->aqar_id);
+        $title=trans('message.adv number').$aqarBooking->aqar_id."  (".$aqar->name_ar." )";
+        $desription=trans('message.new booking');
+        $not=Notification::updateOrCreate(['booking_id'=>$aqarBooking->id, 'status'=>$aqarBooking->booking_status_id],[
             'title'=>$title,
             'booking_id'=>$aqarBooking->id,
             'description'=>$desription,
@@ -45,9 +47,10 @@ class AqarBookingObserver
     {
         $status=BookingStatus::find($aqarBooking->booking_status_id) ;
         $user = User::find($aqarBooking->user_id);
-        $title="الحجز رقم ".$aqarBooking->id;
+        $aqar=Aqar::find($aqarBooking->aqar_id);
+        $title=trans('message.adv number').$aqarBooking->aqar_id."  (".$aqar->name_ar." )";
         $desription=$status->status_ar;
-        $not=Notification::create([
+        $not=Notification::updateOrCreate(['booking_id'=>$aqarBooking->id, 'status'=>$aqarBooking->booking_status_id],[
             'title'=>$title,
             'booking_id'=>$aqarBooking->id,
             'description'=>$desription,

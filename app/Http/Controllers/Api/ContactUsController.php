@@ -8,6 +8,7 @@ use App\Models\Notification;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Resources\NotificationResource;
 use Validator;
 
 class ContactUsController extends Controller
@@ -75,9 +76,10 @@ class ContactUsController extends Controller
     {
        
 
-        $notification = Notification::where('user_id',Auth::id())->select(['id','title','description' ,'status','booking_id','type','created_at'])->get();
-
-        return $this->respondSuccess($notification, __('message.data retrieved successfully.'));
+        $notifications = Notification::where('user_id',Auth::id())->paginate(20);
+        $notifications = NotificationResource::collection($notifications)->response()->getData();
+        return $this->respondSuccessPaginate($notifications, __('message.data retrieved successfully.'));
+        
 
     }
 

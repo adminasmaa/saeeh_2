@@ -27,4 +27,6 @@ return [
     'Place not found.'=>'المكان غير موجود',
     'Place retrieved successfully.'=>'تم استرداد المكان بنجاح',
     'guest successfully.'=>'مرحبا بك ف سايح',
+    'adv number'=>'الاعلان رقم',
+    'new booking'=>'حجز جديد',
 ];

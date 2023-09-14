@@ -49,8 +49,8 @@ class AqarBookDetailResource extends JsonResource
             "status_id" => $this->booking_status_id,
             "status" => $this->bookingStatus()->select($status)->get()[0]->$status ?? '', 
             "created_at" => $this->created_at ?? '',
-            "investor_name"=> $this->user->firstname ." ".$this->user->lastname,
-            "investor_phone"=>$this->user->phone,
+            "investor_name"=> $this->aqar->user->firstname ." ".$this->aqar->user->lastname,
+            "investor_phone"=>$this->aqar->user->country_code.$this->aqar->user->phone,
             "data"   =>new AqarDetailOnlyResource($this->aqar),
             
         ];
