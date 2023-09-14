@@ -26,6 +26,41 @@ use Illuminate\Support\Facades\Auth;
 class AqarController extends Controller
 {
 
+    public function cancelbooking(Request $request)
+    {
+        $rule = [
+            'book_id' => 'required',
+            'type' => 'required',
+            'cancle_reason' => 'required',
+        ];
+        $customMessages = [
+            'required' => __('validation.attributes.required'),
+        ];
+
+        $validator = validator()->make($request->all(), $rule, $customMessages);
+
+        if ($validator->fails()) {
+
+            return $this->respondError('Validation Error.', $validator->errors(), 400);
+
+        } else {
+            if ($request->type == 'aqar') {
+
+
+                $book=AqarBooking::find($request->book_id);
+
+                $book->update(['book_status'=>4,'cancle_reason'=>$request->cancle_reason]);
+
+            }else{
+
+                $book=CarBooking::find($request->book_id);
+
+                $book->update(['book_status'=>4,'cancle_reason'=>$request->cancle_reason]);
+            }
+                return $this->respondSuccess($book, trans('message.message sent successfully.'));
+
+        }
+    }
     public function detailAqar(Request $request)
     {
         $rule = [
