@@ -71,7 +71,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 //aquar end
 
 
-//Route::get('amira1', 'App\Http\Controllers\Frontend\HomeController@amira1')->name('amira1');
+Route::get('amira1', 'App\Http\Controllers\Frontend\HomeController@amira1')->name('amira1');
 
 
 });
