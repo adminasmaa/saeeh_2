@@ -47,6 +47,7 @@ class AqarBookDetailResource extends JsonResource
             "changed_price" => $this->aqar['changed_price']?(json_decode($this->aqar['changed_price'])->person_num[0]?json_decode($this->aqar['changed_price']) : NULL):NULL,
             'total' => $this->day_count * $this->fixed_price,
             "status_id" => $this->booking_status_id,
+            'cancel_reason' => $this->cancle_reason,
             "status" => $this->bookingStatus()->select($status)->get()[0]->$status ?? '', 
             "created_at" => $this->created_at ?? '',
             "investor_name"=> $this->aqar->user->firstname ." ".$this->aqar->user->lastname,

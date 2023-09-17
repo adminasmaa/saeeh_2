@@ -80,12 +80,27 @@ class BookingRepository implements BookingRepositoryInterfaceAlias
 
     }
 
+ 
+
     public function rejectbooking($book_id)
     {
+
+        $data = CarBooking::find($book_id);
+
+        return view('dashboard.bookings.cancelbook',compact('data'));
+
+
+
+    }
+    public function confirmRejectbooking($book_id,$request)
+    {
+
 
         $request_data = CarBooking::find($book_id);
 
         $request_data->booking_status_id =4;
+
+        $request_data->cancle_reason=$request->cancel_reason;
 
         $request_data->save();
 
@@ -95,8 +110,7 @@ class BookingRepository implements BookingRepositoryInterfaceAlias
             Alert::error('Error', __('site.update_faild'));
 
         }
-        return back();
-
+        return redirect()->route('dashboard.bookings.index');
 
     }
 }

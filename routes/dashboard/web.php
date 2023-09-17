@@ -101,6 +101,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         Route::resource('bookings', BookingController::class);
         Route::get('acceptcarbooking/{car_id}', 'App\Http\Controllers\Dashboard\BookingController@acceptbooking')->name('acceptcarbooking');
         Route::get('rejectcarbooking/{car_id}', 'App\Http\Controllers\Dashboard\BookingController@rejectbooking')->name('rejectcarbooking');
+        Route::put('confirmcarRejectbooking/{bookid}', 'App\Http\Controllers\Dashboard\BookingController@confirmRejectbooking')->name('confirmcarRejectbooking');
 
 
         //places
@@ -120,8 +121,9 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         //aquarcategories
         Route::resource('aquarcategories', AquarCategoryController::class);
         Route::resource('aquarbooking', AqarBookingController::class);
-        Route::get('acceptbooking/{aqarid}', 'App\Http\Controllers\Dashboard\AqarBookingController@acceptbooking')->name('acceptbooking');
-        Route::get('rejectbooking/{aqarid}', 'App\Http\Controllers\Dashboard\AqarBookingController@rejectbooking')->name('rejectbooking');
+        Route::get('acceptbooking/{bookid}', 'App\Http\Controllers\Dashboard\AqarBookingController@acceptbooking')->name('acceptbooking');
+        Route::get('rejectbooking/{bookid}', 'App\Http\Controllers\Dashboard\AqarBookingController@rejectbooking')->name('rejectbooking');
+        Route::put('confirmRejectbooking/{bookid}', 'App\Http\Controllers\Dashboard\AqarBookingController@confirmRejectbooking')->name('confirmRejectbooking');
 
 
 

@@ -555,20 +555,13 @@
                                             <h2>فيديوهات المطعم</h2>
                                         </div>
                                     </div>
-                                    <div class="col-12 mt-4">
-                                        <div class="owl-carousel owl-theme restaurant-owl owl-rtl owl-loaded owl-drag">
-
-
-                                            <div class="owl-stage-outer">
-                                                <div class="owl-stage"
-                                                     style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s;">
-                                                    <div class="owl-item">
-                                                        <div class="card-tour mb-3">
+                                    <div class="col-lg-6 mt-4">
+                                                        <div class="card-tour mb-3 position-relative">
                                                             <a href="#" data-bs-toggle="modal"
                                                                data-bs-target="#videoModal">
                                                                 <div class="card-vid-box">
                                                                     <img class="card-vid"
-                                                                         src="{{FRONTASSETS}}/images/restaurants/vid-image-1.png"
+                                                                         src="{{asset('images/places/video_img/'.$place->video_photo)}}"
                                                                          alt="Card image cap">
                                                                 </div>
                                                                 <div class="play-icon-vid">
@@ -579,67 +572,7 @@
                                                             </a>
 
                                                         </div>
-                                                    </div>
-                                                    <div class="owl-item">
-                                                        <div class="card-tour mb-3">
-                                                            <a href="#" data-bs-toggle="modal"
-                                                               data-bs-target="#videoModal">
-                                                                <div class="play-icon-vid">
-                                                                    <img
-                                                                        src="{{FRONTASSETS}}/images/restaurants/video-play-icon.png"
-                                                                        alt="play icon">
-                                                                </div>
-                                                                <div class="card-vid-box">
-                                                                    <img class="card-vid"
-                                                                         src="{{FRONTASSETS}}/images/restaurants/vid-image-2.png"
-                                                                         alt="Card image cap"></div>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="owl-item">
-                                                        <div class="card-tour mb-3">
-                                                            <a href="#" data-bs-toggle="modal"
-                                                               data-bs-target="#videoModal">
-                                                                <div class="play-icon-vid">
-                                                                    <img
-                                                                        src="{{FRONTASSETS}}/images/restaurants/video-play-icon.png"
-                                                                        alt="play icon">
-                                                                </div>
-                                                                <div class="card-vid-box">
-                                                                    <img class="card-vid"
-                                                                         src="{{FRONTASSETS}}/images/restaurants/vid-image-3.png"
-                                                                         alt="Card image cap"></div>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="owl-item">
-                                                        <div class="card-tour mb-3">
-                                                            <a href="#" data-bs-toggle="modal"
-                                                               data-bs-target="#videoModal">
-                                                                <div class="play-icon-vid">
-                                                                    <img
-                                                                        src="{{FRONTASSETS}}/images/restaurants/video-play-icon.png"
-                                                                        alt="play icon">
-                                                                </div>
-                                                                <div class="card-vid-box">
-                                                                    <img class="card-vid"
-                                                                         src="{{FRONTASSETS}}/images/restaurants/vid-image-4.png"
-                                                                         alt="Card image cap"></div>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="owl-nav disabled">
-                                                <button type="button" role="presentation" class="owl-prev"><i
-                                                        class="fas fa-chevron-left" aria-hidden="true"></i></button>
-                                                <button type="button" role="presentation" class="owl-next"><i
-                                                        class="fas fa-chevron-right" aria-hidden="true"></i></button>
-                                            </div>
-                                            <div class="owl-dots disabled">
-                                                <button role="button" class="owl-dot active"><span></span></button>
-                                            </div>
-                                        </div>
+                                                    
                                     </div>
                                     <div class="col-12 d-flex justify-content-center my-lg-5">
                                         <div

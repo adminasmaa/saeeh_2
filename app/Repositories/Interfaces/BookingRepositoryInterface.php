@@ -20,5 +20,7 @@ interface BookingRepositoryInterface
 
     public function rejectbooking($car_id);
 
+    public function confirmRejectbooking($book_id,$request);
+
 
 }

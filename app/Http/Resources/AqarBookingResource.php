@@ -61,7 +61,7 @@ class AqarBookingResource extends JsonResource
             "distance" => $this->distance ?? 0,
             "time" => $this->time ?? '',
             "image" => asset('images/aqars') . "/" . $this->main_image,
-            "video" => asset('images/aqars') . "/" . $this->videos,
+            "video" => asset('images/aqars/videos') . "/" . $this->videos,
             'path' => asset('images/aqars') . "/",
             'images' =>explode(",",$this->images) ?? [],
             "comision" => $this->comision ?? '',
