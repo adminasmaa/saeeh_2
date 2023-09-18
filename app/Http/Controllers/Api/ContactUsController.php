@@ -76,7 +76,7 @@ class ContactUsController extends Controller
     {
        
 
-        $notifications = Notification::where('user_id',Auth::id())->order_by('created_at','desc')->paginate(20);
+        $notifications = Notification::where('user_id',Auth::id())->orderBy('created_at','desc')->paginate(20);
         $notifications = NotificationResource::collection($notifications)->response()->getData();
         return $this->respondSuccessPaginate($notifications, __('message.data retrieved successfully.'));
         
