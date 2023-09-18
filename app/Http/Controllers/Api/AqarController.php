@@ -441,10 +441,24 @@ class AqarController extends Controller
 
         } else {
 
+            $aqar=Aqar::find($request->id);
+
+            if($aqar->fixed_price){
+                $fixed_price=$aqar['fixed_price'];
+            }else{
+                $price=json_decode($aqar['changed_price'])->person_num;
+                $key=array_search ($request->person_num, $price);
+                $changedprice=json_decode($aqar['changed_price'])->price[$key];
+                $data['person_num'] = $request->person_num;
+                $data['price'] = $changedprice;
+                $changed_price=json_encode($data)!=null?json_encode($data, JSON_NUMERIC_CHECK):null;
+               
+            }
             $input = $request->all();
             $input['user_id'] = Auth::id();
             $input['aqar_id'] =$request->id;
-            $input['fixed_price'] =$request->total_price/$request->day_count;
+            $input['fixed_price'] = $fixed_price ?? null;
+            $input['changed_price'] = $changed_price ?? null;
             $input['booking_status_id'] =1;
 
             $success = AqarBooking::create($input);

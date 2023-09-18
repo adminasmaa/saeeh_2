@@ -51,9 +51,9 @@ class CarBookingDetailResource extends JsonResource
             "status_id" => $this->booking_status_id,  
             "changed_price" => $this->car['changed_price']?(json_decode($this->car['changed_price'])->day_num[0]?json_decode($this->car['changed_price']) : NULL):NULL,
             "created_at" => $this->created_at ?? '',
-            'cancel_reason' => $this->cancle_reason,
-            "investor_name"=> $this->aqar->user->firstname ." ".$this->aqar->user->lastname,
-            "investor_phone"=>$this->aqar->user->country_code.$this->aqar->user->phone,
+            'cancel_reason' => $this->cancle_reason ?? '',
+            "investor_name"=> $this->car->user->firstname ." ".$this->car->user->lastname,
+            "investor_phone"=>$this->car->user->country_code.$this->car->user->phone,
             "data"=>new CarDetailOnlyResource($this->car),
            
 
