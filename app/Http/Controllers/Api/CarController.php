@@ -34,7 +34,7 @@ class CarController extends Controller
             'total_price' => 'required',
             'receipt_hour' => 'required',
             'delivery_hour' => 'required',
-            'day_num'=>'nullable',
+
 
 
 
@@ -55,9 +55,9 @@ class CarController extends Controller
                 $fixed_price=$car['fixed_price'];
             }else{
                 $price=json_decode($car['changed_price'])->day_num;
-                $key=array_search ($request->day_num, $price);
+                $key=array_search ($request->day_count, $price);
                 $changedprice=json_decode($car['changed_price'])->price[$key];
-                $data['day_num'] = array($request->day_num);
+                $data['day_num'] = array($request->day_count);
                 $data['price'] = array($changedprice);
                 $changed_price=json_encode($data)!=null?json_encode($data, JSON_NUMERIC_CHECK):null;
                
