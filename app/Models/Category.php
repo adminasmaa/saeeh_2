@@ -113,10 +113,10 @@ class Category extends Model
 
     }
 
-    public function placetable($cat_id)
+    public function placetable($subcat_id)
     {
 
-        $places=Place::select('place_tables.name_ar')->join('place_tables', 'places.id', '=', 'place_tables.place_id')->where('places.category_id', '=', $this->id)->distinct()->get();
+        $places=Place::select('place_tables.name_ar')->join('place_tables', 'places.id', '=', 'place_tables.place_id')->where('places.sub_category_id ', '=',$subcat_id)->distinct()->get();
 
         $arr=[];
         foreach($places as $place){

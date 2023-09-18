@@ -33,6 +33,7 @@ class SubCategoryResource extends JsonResource
 //            "car" => CarResource::collection($this->carscategories),
             "subcategories"=>$this->when(!$this->subcategories->isEmpty(), SubCategoryResource::collection($this->subcategories)),
 //            "aqar" =>AqarResource::collection($this->aqars)
+            'placetables' => $this->placetable($this->id) ?? '',
         ];
     }
 }

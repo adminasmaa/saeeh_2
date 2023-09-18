@@ -32,7 +32,7 @@ class CategoryResource extends JsonResource
             "active" => $this->active,
             "subcategories"=> SubCategoryResource::collection($this->whenLoaded('subcategories')),
 //            "places"=> $this->when($this->subcategories->isEmpty(),PlaceResource::collection($this->places)),
-            'placetables' => $this->placetable($this->id) ?? '',
+            
         ];
     }
 }
