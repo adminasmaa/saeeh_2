@@ -449,8 +449,8 @@ class AqarController extends Controller
                 $price=json_decode($aqar['changed_price'])->person_num;
                 $key=array_search ($request->person_num, $price);
                 $changedprice=json_decode($aqar['changed_price'])->price[$key];
-                $data['person_num'] = $request->person_num;
-                $data['price'] = $changedprice;
+                $data['person_num'] = array($request->person_num);
+                $data['price'] = array($changedprice);
                 $changed_price=json_encode($data)!=null?json_encode($data, JSON_NUMERIC_CHECK):null;
                
             }
