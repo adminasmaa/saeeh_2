@@ -22,7 +22,9 @@ interface AqarBookingRepositoryInterface
 
     public function update($data,$request);
 
-    public function acceptbooking($aqar_id);
+    public function acceptbooking($book_id);
 
-    public function rejectbooking($aqar_id);
+    public function rejectbooking($book_id);
+
+    public function confirmRejectbooking($book_id,$request);
 }

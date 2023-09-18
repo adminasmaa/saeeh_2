@@ -29,7 +29,6 @@ class CarDetailOnlyResource extends JsonResource
             "name" => $this->name ?? '',
 
             "description" =>preg_replace( "/\r|\n/", "", strip_tags($this->description) ) ?? '',
-            "policy_place" =>  html_entity_decode($this->policy_place) ?? '',
             "color" => $this->color ?? '',
             "car_delivery_date" => $this->car_delivery_date ?? '',
             "year" => $this->year ?? '',
@@ -37,7 +36,6 @@ class CarDetailOnlyResource extends JsonResource
             "image" => asset('images/cars') . "/" . $this->main_image_ads,
             "video" => asset('images/cars') . "/" . $this->videos,
             'path' => asset('images/cars') . "/",
-            'images' =>explode(",",$this->images) ?? [],
             "favorite" => (count(CarUser::where('car_id','=',$this->id)->where('user_id','=',Auth::id())->get())>0 ? true : false),
             "count_comment"=>$this->carComment->count() ?? 0,
             "count_review"=>$this->CarReview->count() ?? 0,
@@ -46,7 +44,6 @@ class CarDetailOnlyResource extends JsonResource
             "fixed_price" => $this->fixed_price ?? 0,
             "Reservation_deposit" => $this->fixed_price ?? 0,
             "changed_price" => $this->changed_price?(json_decode($this->changed_price)->day_num[0]?json_decode($this->changed_price) : NULL):NULL,
-            "category" => new staticResource($this->categories),
 
 
 

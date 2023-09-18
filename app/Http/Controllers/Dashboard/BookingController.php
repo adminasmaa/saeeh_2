@@ -73,4 +73,11 @@ class BookingController extends Controller
 
     }
 
+    public function confirmRejectbooking(Request $request,$book_id)
+    {
+
+      return $this->bookingRepository->confirmRejectbooking($book_id ,$request);
+
+    }
+
 }
