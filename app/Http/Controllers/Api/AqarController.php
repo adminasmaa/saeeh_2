@@ -425,6 +425,7 @@ class AqarController extends Controller
             'place_leave' => 'nullable',
             'id' => 'required',
             'total_price' => 'required',
+            'person_num'=>'nullable',
 
 
         ];
