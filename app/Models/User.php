@@ -159,7 +159,12 @@ class User extends Authenticatable
         return $this->belongsToMany(Car::class,'car_user');
     }
 
+//    public function favourite_place(){
+//        return $this->belongsToMany(Place::class,'user_palace','user_id', 'palace_id');
+//    }
+
     public function favourite_place(){
-        return $this->belongsToMany(Place::class,'user_palace');
+
+        return $this->belongsToMany(Place::class, 'user_palace', 'user_id', 'palace_id');
     }
 }

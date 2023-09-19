@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use App\Models\PlaceComment;
 use App\Models\PlaceReview;
-use App\Models\PlaceUser;
+use App\Models\UserPalace;
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\CategoryOnlyResource;
 use App\Http\Resources\PlaceReviewResource;
@@ -48,7 +48,7 @@ class PlaceResource extends JsonResource
             // "phone_two" => $this->phone_two ?? '',
 
             "place_link" => $this->place_link ?? '',
-            "favorite" => (count(PlaceUser::where('place_id', '=', $this->id)->where('user_id', '=', Auth::id())->get()) > 0 ? true : false),
+            "favorite" => (count(UserPalace::where('place_id', '=', $this->id)->where('user_id', '=', Auth::id())->get()) > 0 ? true : false),
             // "rate" => round(PlaceReview::where('user_id', '=', Auth::id())->where('place_id', '=',$this->id)->avg('rate')) ?? 0,
             "rate" => round($this->placeReview->avg('rate')) ?? 0,
 

@@ -8,6 +8,8 @@ use App\Models\CarReview;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\Country;
+use App\Models\Place;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Response;
@@ -21,6 +23,34 @@ use Illuminate\Validation\Rule;
 
 class CarController extends Controller
 {
+
+
+    public function favouritCar(Request $request, $id)
+    {
+
+
+        $user_id = Auth::id();
+
+        $users = User::find($user_id);
+
+
+        $user = $users->favourite_car()->toggle($id);
+
+        $status = ($user['attached'] !== []) ? 'added' : 'deleted';
+
+        return response()->json(['status' => $status, 'content' => 'success']);
+
+
+    }
+    public function favouritPlace(Request $request, $id)
+    {
+        $user_id = Auth::id();
+        $users = User::find($user_id);
+        $user = $users->favourite_place()->toggle($id);
+        $status = ($user['attached'] !== []) ? 'added' : 'deleted';
+        return response()->json(['status' => $status, 'content' => 'success']);
+
+    }
 
     public function diffInDays($date1, $date2)
     {
@@ -133,6 +163,42 @@ class CarController extends Controller
 
         } else {
             $cars = Car::where('sub_category_id', '=', $id)->paginate(12);
+        }
+
+        $countries = Country::where('active', '=', 1)->get();
+        $cities = City::where('active', '=', 1)->get();
+        $CategoriesCar = Category::where('parent_id', '=', 2)->where('type', '=', 2)->get();
+        $carsfilters = Car::get();
+        return view('frontend.cars', compact('cars', 'carsfilters', 'countries', 'cities', 'CategoriesCar'));
+
+    }
+    public function allcarsFillter(Request $request)
+    {
+        if (!empty($request->country_id) && !empty($request->city_id) && !empty($request->brand_id) && !empty($request->category_id) && !empty($request->year)) {
+
+            $cars = Car::where('country_id', '=', $request->country_id)->where('city_id', '=', $request->city_id)->where('year', '=', $request->year)->where('category_id', '=', $request->brand_id)->paginate(12);
+        } elseif (!empty($request->country_id) && !empty($request->city_id) && !empty($request->brand_id)) {
+            $cars = Car::where('country_id', '=', $request->country_id)->where('city_id', '=', $request->city_id)->where('category_id', '=', $request->brand_id)->paginate(12);
+
+
+        } elseif (!empty($request->country_id) && !empty($request->city_id) && !empty($request->year)) {
+
+            $cars = Car::where('country_id', '=', $request->country_id)->where('city_id', '=', $request->city_id)->where('year', '=', $request->year)->paginate(12);
+
+        } elseif (!empty($request->country_id) && !empty($request->year)) {
+
+            $cars = Car::where('country_id', '=', $request->country_id)->where('year', '=', $request->year)->paginate(12);
+
+        } elseif (!empty($request->country_id) && !empty($request->city_id)) {
+
+            $cars = Car::where('country_id', '=', $request->country_id)->where('city_id', '=', $request->city_id)->paginate(12);
+
+        } elseif (!empty($request->country_id)) {
+
+            $cars = Car::where('country_id', '=', $request->country_id)->paginate(12);
+
+        } else {
+            $cars = Car::paginate(12);
         }
 
         $countries = Country::where('active', '=', 1)->get();

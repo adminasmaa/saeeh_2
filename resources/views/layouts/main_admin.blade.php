@@ -437,50 +437,6 @@
                                     </li>
                                         @endif
 
-{{--                                    <li>--}}
-{{--                                        <a href="{{route('dashboard.place_tables.index')}}" >{{__('site.place_tables')}}</a>--}}
-{{--                                    </li>--}}
-
-{{--                                    <li>--}}
-{{--                                        <a href="{{route('dashboard.services.index')}}">{{__('site.services')}}</a>--}}
-{{--                                    </li>--}}
-
-{{--                                    <li>--}}
-{{--                                        <a href="{{route('dashboard.free_services.index')}}">{{__('site.free_services')}}</a>--}}
-{{--                                    </li>--}}
-{{--                                    <li>--}}
-{{--                                        <a href="{{route('dashboard.kitchens.index')}}">{{__('site.kitchens')}}</a>--}}
-{{--                                    </li>--}}
-{{--                                    <li>--}}
-{{--                                        <a href="{{route('dashboard.laundries.index')}}">{{__('site.laundries')}}</a>--}}
-{{--                                    </li>--}}
-
-{{--                                    <li>--}}
-{{--                                        <a href="{{route('dashboard.crews.index')}}">{{__('site.crews')}}</a>--}}
-{{--                                    </li>--}}
-
-{{--                                    <li>--}}
-{{--                                        <a href="{{route('dashboard.bathrooms.index')}}">{{__('site.bathrooms')}}</a>--}}
-{{--                                    </li>--}}
-
-{{--                                    <li>--}}
-{{--                                        <a href="{{route('dashboard.conditioning_types.index')}}">{{__('site.conditioning_types')}}</a>--}}
-{{--                                    </li>--}}
-
-{{--                                    <li>--}}
-{{--                                        <a href="{{route('dashboard.another_rooms.index')}}">{{__('site.another_rooms')}}</a>--}}
-{{--                                    </li>--}}
-
-
-{{--                                    <li>--}}
-{{--                                        <a href="{{route('dashboard.floors.index')}}">{{__('site.floors')}}</a>--}}
-{{--                                    </li>--}}
-{{--                                    <li>--}}
-{{--                                        <a href="{{route('dashboard.floor_numbers.index')}}">{{__('site.floor_numbers')}}</a>--}}
-{{--                                    </li>--}}
-{{--                                    <li>--}}
-{{--                                        <a href="{{route('dashboard.pools.index')}}">{{__('site.pools')}}</a>--}}
-{{--                                    </li>--}}
                                         @if (auth()->user()->hasPermission('read_aqars'))
                                     <li>
                                         <a href="{{route('dashboard.aqars.index')}}" class="{{($current_route=='dashboard.aqars.index')?'activee':'' }}">{{__('site.aqars')}}</a>

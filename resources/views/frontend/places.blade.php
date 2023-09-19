@@ -78,49 +78,53 @@
                                             class="owl-carousel owl-theme department-img-carousel"
                                             dir="ltr"
                                         >
-                                        <div class="resro-image">
-                                                        <button class="add-to-wishlist">
-                                                            <svg
-                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                width="24"
-                                                                height="24"
-                                                                viewBox="0 0 24 24"
-                                                                fill="none"
-                                                            >
-                                                                <path
-                                                                    d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"
-                                                                    fill="#FF8600"
-                                                                />
-                                                            </svg>
-                                                        </button>
-                                                        <img
-                                                            loading="lazy"
+                                            <div class="resro-image">
+                                                                                                      <span
+                                                                                                          class="department-like">
+
+<a class="favouritess" id="favouritess{{$place->id}}" data-id="{{$place->id}}"><i
+        class=" @if($place->favoriteuser->count()>0) fas @else far @endif  fa-heart "></i></a>
 
 
-                                                            src="{{asset('images/places/'.$place->display_photo)}}"
-                                                            onerror="this.src='{{FRONTASSETS}}/images/restaurants/resto-card-1.png'"
-                                                            class="of-cover"
-                                                            alt="image 1"
-                                                        />
-                                                    </div>
+
+                                                                </span>
+
+                                                {{--                                                        <button class="add-to-wishlist">--}}
+                                                {{--                                                            <svg--}}
+                                                {{--                                                                xmlns="http://www.w3.org/2000/svg"--}}
+                                                {{--                                                                width="24"--}}
+                                                {{--                                                                height="24"--}}
+                                                {{--                                                                viewBox="0 0 24 24"--}}
+                                                {{--                                                                fill="none"--}}
+                                                {{--                                                            >--}}
+                                                {{--                                                                <path--}}
+                                                {{--                                                                    d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"--}}
+                                                {{--                                                                    fill="#FF8600"--}}
+                                                {{--                                                                />--}}
+                                                {{--                                                            </svg>--}}
+                                                {{--                                                        </button>--}}
+                                                <img
+                                                    loading="lazy"
+
+
+                                                    src="{{asset('images/places/'.$place->display_photo)}}"
+                                                    onerror="this.src='{{FRONTASSETS}}/images/restaurants/resto-card-1.png'"
+                                                    class="of-cover"
+                                                    alt="image 1"
+                                                />
+                                            </div>
                                             @if(!empty($place->images))
                                                 @foreach(explode(',',$place->images) as $image)
 
                                                     <div class="resro-image">
-                                                        <button class="add-to-wishlist">
-                                                            <svg
-                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                width="24"
-                                                                height="24"
-                                                                viewBox="0 0 24 24"
-                                                                fill="none"
-                                                            >
-                                                                <path
-                                                                    d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"
-                                                                    fill="#FF8600"
-                                                                />
-                                                            </svg>
-                                                        </button>
+                                                                                                <span
+                                                                                                    class="department-like">
+
+<a class="favouritess" id="favouritess{{$place->id}}" data-id="{{$place->id}}"><i
+        class=" @if($place->favoriteuser->count()>0) fas @else far @endif  fa-heart "></i></a>
+
+                                                                </span>
+
                                                         <img
                                                             loading="lazy"
 
@@ -135,20 +139,13 @@
                                             @else
 
                                                 <div class="resro-image">
-                                                    <button class="add-to-wishlist">
-                                                        <svg
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                            width="24"
-                                                            height="24"
-                                                            viewBox="0 0 24 24"
-                                                            fill="none"
-                                                        >
-                                                            <path
-                                                                d="M22.1494 2.12177C21.563 1.44911 20.8667 0.915505 20.1003 0.551444C19.334 0.187383 18.5126 0 17.6831 0C16.8535 0 16.0321 0.187383 15.2658 0.551444C14.4994 0.915505 13.8032 1.44911 13.2167 2.12177L11.9997 3.51714L10.7826 2.12177C9.59811 0.763676 7.99153 0.00070395 6.31633 0.000703964C4.64114 0.000703978 3.03455 0.763676 1.85001 2.12177C0.665469 3.47987 1.24812e-08 5.32185 0 7.24249C-1.24812e-08 9.16313 0.665469 11.0051 1.85001 12.3632L3.06705 13.7586L11.9997 24L20.9323 13.7586L22.1494 12.3632C22.7361 11.6909 23.2015 10.8926 23.519 10.0139C23.8366 9.13531 24 8.19356 24 7.24249C24 6.29142 23.8366 5.34967 23.519 4.47104C23.2015 3.59241 22.7361 2.79412 22.1494 2.12177Z"
-                                                                fill="#FF8600"
-                                                            />
-                                                        </svg>
-                                                    </button>
+                                                                         <span class="department-like">
+
+<a class="favouritess" id="favouritess{{$place->id}}" data-id="{{$place->id}}"><i
+        class=" @if($place->favoriteuser->count()>0) fas @else far @endif  fa-heart "></i></a>
+
+                                                                </span>
+
                                                     <img
                                                         loading="lazy"
 
@@ -262,8 +259,8 @@
                             </span>
 
 
-                                              @lang('site.Go to the restaurant')
-                                                          </a
+                                                        @lang('site.Go to the restaurant')
+                                                    </a
                                                     >
                                                 </div>
                                             </div>
@@ -276,32 +273,28 @@
 
 
                     </div>
-               <div  class="col-12">
-                   @if(!empty($places->appends(request()->query())->links()))
-                       <div class="card card-department round-border mb-3 p-3">
-                           <nav
-                               class="department-list-pagination d-md-flex justify-content-md-between align-items-center"
-                           >
-                               <ul
-                                   class="pagination mb-0 justify-content-lg-start justify-content-center"
-                               >
-                                   <li class="page-item">
-                                       <div>{{ $places->appends(request()->query())->links()}} </div>
-                                   </li>
+                    <div class="col-12">
+                        @if(!empty($places->appends(request()->query())->links()))
+                            <div class="card card-department round-border mb-3 p-3">
+                                <nav
+                                    class="department-list-pagination d-md-flex justify-content-md-between align-items-center"
+                                >
+                                    <ul
+                                        class="pagination mb-0 justify-content-lg-start justify-content-center"
+                                    >
+                                        <li class="page-item">
+                                            <div>{{ $places->appends(request()->query())->links()}} </div>
+                                        </li>
 
-                               </ul>
-                           </nav>
-                       </div>
-                   @endif
-               </div>
+                                    </ul>
+                                </nav>
+                            </div>
+                        @endif
+                    </div>
 
 
-
+                </div>
             </div>
-            </div>
-
-
-
 
 
         </section>
@@ -325,4 +318,35 @@
          "></div>
         </section>
     </main>
+@endsection
+@section('scripts')
+    <script>
+
+
+        jQuery(document).ready(function () {
+            jQuery('.favouritess').click(function (e) {
+                e.preventDefault();
+
+                var id = $(this).data('id');
+                jQuery.ajax({
+                    url: 'favouritPlace/' + id,
+                    method: 'GET',
+                    data: {
+                        '_token': '{{ csrf_token() }}',
+                    },
+                    success: function (result) {
+                        console.log(result.status);
+                        if (result.status == 'deleted')
+                            $(`#favouritess${id} i`).addClass('far').removeClass('fas');
+                        else if (result.status == 'added')
+                            $(`#favouritess${id} i`).addClass('fas').removeClass('far');
+                        console.log(result);
+                    },
+                    error: function (err) {
+                        console.log(err)
+                    }
+                });
+            });
+        });
+    </script>
 @endsection

@@ -45,6 +45,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 //cars start
     Route::get('subcategorycars/{id}', 'App\Http\Controllers\Frontend\CarController@allcars')->name('subcategorycars');
     Route::get('cars', 'App\Http\Controllers\Frontend\CarController@allcars')->name('cars');
+    Route::get('allcarsFillter', 'App\Http\Controllers\Frontend\CarController@allcarsFillter')->name('allcarsFillter');
     Route::get('carscategories/{id}', 'App\Http\Controllers\Frontend\CarController@allcarscategories')->name('carscategories');
     Route::get('detailcar/{id}', 'App\Http\Controllers\Frontend\CarController@detailcar')->name('detailcar');
     Route::get('checkallcar', 'App\Http\Controllers\Frontend\CarController@CheckCar')->name('checkallcar');
@@ -57,6 +58,13 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
     Route::get('aquars/{id}', 'App\Http\Controllers\Frontend\AquarController@allaquars')->name('aquars');
     Route::post('filteraquars', 'App\Http\Controllers\Frontend\AquarController@filteraquars')->name('filteraquars');
     Route::get('detailaquar/{id}', 'App\Http\Controllers\Frontend\AquarController@detailaquar')->name('detailaquar');
+    //list of add favourite
+    Route::get('aquars/favouritAqar/{id}', 'App\Http\Controllers\Frontend\AquarController@favouritAqar')->name('aquars.favouritAqar')->middleware('web');
+    Route::get('subcategorycars/favouritCar/{id}', 'App\Http\Controllers\Frontend\CarController@favouritCar')->name('subcategorycars.favouritCar')->middleware('web');
+    Route::get('subcategories/{ids}/favouritPlace/{id}', 'App\Http\Controllers\Frontend\CarController@favouritPlace')->name('subcategories.favouritPlace')->middleware('web');
+
+
+
     Route::get('checkallaquar', 'App\Http\Controllers\Frontend\AquarController@checkallaquar')->name('checkallaquar');
 
 //booking
