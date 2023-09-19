@@ -457,6 +457,8 @@ class AqarController extends Controller
             $input = $request->all();
             $input['user_id'] = Auth::id();
             $input['aqar_id'] =$request->id;
+            $input['person_num'] =$request->person_num;
+            $input['total_price'] =$request->total_price;
             $input['fixed_price'] = $fixed_price ?? null;
             $input['changed_price'] = $changed_price ?? null;
             $input['booking_status_id'] =1;
