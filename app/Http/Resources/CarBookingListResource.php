@@ -40,11 +40,11 @@ class CarBookingListResource extends JsonResource
             "name" => $this->car()->select($name)->get()[0]->$name ?? '',
             'day_count' => $this->day_count,
             "fixed_price" => $this->fixed_price ?? 0,
-            "Reservation_deposit" => $this->fixed_price ?? 0,
-            'total' => $this->day_count * $this->fixed_price,
+            "Reservation_deposit" => $this->fixed_price ?? $this->total_price/$this->day_count,
+            'total' => $this->total_price ?? 0,
             "status" => $this->bookingStatus()->select($status)->get()[0]->$status ?? '',   
             "image" => asset('images/cars') . "/" . $this->car()->select('main_image_ads')->get()[0]->main_image_ads ?? '',
-            "changed_price" => $this->car['changed_price']?(json_decode($this->car['changed_price'])->day_num[0]?json_decode($this->car['changed_price']) : NULL):NULL,
+            "changed_price" => json_decode($this->changed_price) ?? NULL,
             "created_at" => $this->created_at ?? ''
 
         ];
