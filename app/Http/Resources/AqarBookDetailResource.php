@@ -43,7 +43,7 @@ class AqarBookDetailResource extends JsonResource
             "fixed_price" => $this->fixed_price ?? 0,
             "delivery_date" =>$this->delivery_date??'',
             "reciept_date"  =>$this->reciept_date??'',
-            "Reservation_deposit" => $this->fixed_price ?? 0,
+            "Reservation_deposit" => $this->fixed_price ?? $this->total_price/$this->day_count,
             "changed_price" =>json_decode($this->changed_price) ?? NULL,
             'total' => $this->total_price,
             'person_num'=>$this->person_num,
