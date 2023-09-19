@@ -170,6 +170,10 @@
                            </div>
                         </li>
                         </form>
+
+                         <form action="{{route('allcarsFillter')}}" method="get">
+                             @csrf
+
                         <li id="tab-2">
                            <div class="row">
                               <div class="col-lg-10">
@@ -180,6 +184,7 @@
                                              class="select2"
                                              id="country_id"
                                              name="country_id"
+                                             required
                                              >
                                              <option>@lang('site.country')</option>
                                              @foreach($countries as $country)
@@ -195,6 +200,7 @@
                                              class="select2"
                                              id="city_id"
                                              name="city_id"
+                                             required
                                              >
                                              <option>@lang('site.city')</option>
                                              <!-- @foreach($cities as $city)
@@ -209,7 +215,7 @@
                                           <select
                                              class="select2"
                                              id="list6"
-                                             name="list6"
+                                             name="brand_id"
                                              >
                                              <option>@lang('site.brands')</option>
                                              @foreach($CategoriesCar as $cat)
@@ -223,7 +229,7 @@
                                           <select
                                              class="select2"
                                              id="list9"
-                                             name="list9"
+                                             name="category_id"
                                              >
                                              <option>@lang('site.category')</option>
                                              <!-- @foreach($CategoriesCar as $cat)
@@ -237,7 +243,7 @@
                                           <select
                                              class="select2"
                                              id="list8"
-                                             name="list8"
+                                             name="year"
                                              >
                                              @for ($year = (int)date('Y')+1; 1900 <= $year; $year--):
                                              <option value="{{$year}}">{{$year}}</option>
@@ -251,11 +257,12 @@
                                  <div
                                     class="search-btn d-flex align-items-center justify-content-center"
                                     >
-                                    <a href="#">@lang('site.search')</a>
+                                    <button type="submit">@lang('site.search')</button>
                                  </div>
                               </div>
                            </div>
                         </li>
+                         </form>
                      </ul>
                   </div>
                </div>
@@ -323,7 +330,7 @@
                   </div>
                 </div>
               </a>
-               
+
                </div>
             </div>
             @endforeach

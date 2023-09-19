@@ -342,7 +342,7 @@ return [
     'customer reviews' => ' آراء العملاء',
     'Why trust a Saeeh' => ' لماذا تثق فى سائح',
     'Hotels and Aqars in the best cities' => 'فنادق وعقارات فى افضل المدن',
-    'The most famous restaurants and various services' => 'اشهر المطاعم والخدمات المختلفه',
+    'The most famous restaurants and various services' => 'اشهر الخدمات المختلفه',
     //settings
     'theme' => 'الثيم',
     'setting' => 'الاعدادات العامه',

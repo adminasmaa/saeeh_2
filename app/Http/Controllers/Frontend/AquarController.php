@@ -14,6 +14,7 @@ use App\Models\Category;
 
 use App\Models\City;
 use App\Models\Country;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -30,14 +31,31 @@ class AquarController extends Controller
 {
 
 
+    public function favouritAqar(Request $request, $id)
+    {
+
+
+        $user_id = Auth::id();
+
+        $users = User::find($user_id);
+
+
+        $user = $users->favourite_aqars()->toggle($id);
+
+        $status = ($user['attached'] !== []) ? 'added' : 'deleted';
+
+        return response()->json(['status' => $status, 'content' => 'success']);
+
+
+    }
+
     public function mybookingAll()
     {
         $user = Auth::user();
 
-       $aqarbooking= $user->aqarBooking;
+        $aqarbooking = $user->aqarBooking;
 
-       $carBooking= $user->carBooking;
-
+        $carBooking = $user->carBooking;
 
 
         return view('frontend.mybookingAll', compact('aqarbooking', 'carBooking'));
