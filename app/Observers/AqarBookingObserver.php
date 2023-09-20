@@ -46,7 +46,11 @@ class AqarBookingObserver
      */
     public function updated(AqarBooking $aqarBooking)
     {
+        if(Auth::user()->roles->first()){
         $role =Auth::user()->roles->first()->display_name;
+        }else{
+            $role ='client';
+        }
         $status=BookingStatus::find($aqarBooking->booking_status_id) ;
         $user = User::find($aqarBooking->user_id);
         $aqar=Aqar::find($aqarBooking->aqar_id);
