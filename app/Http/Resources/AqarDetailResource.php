@@ -68,7 +68,7 @@ class AqarDetailResource extends JsonResource
             "comments" => CommentResource::collection($this->aqarComments),
             "reviews" => AqarReviewResource::collection($this->aqarReview),
             "fixed_price" => $this->fixed_price ?? 0,
-            "Reservation_deposit" => $this->fixed_price ?? $this->total_price/$this->day_count,
+            "Reservation_deposit" => $this->fixed_price ?? $this->total_price/$this->day_count ?? 0,
             "changed_price" =>$this->changed_price?(json_decode($this->changed_price)->person_num[0]?json_decode($this->changed_price) : NULL):NULL,
             "category" => new staticResource($this->category),
             'aqarSection' => $this->aqarSection
