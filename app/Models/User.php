@@ -26,6 +26,8 @@ use App\Models\Notification;    // HasMany
 use App\Models\Balance;    // HasMany
 use App\Models\Invoice;    // HasMany
 use App\Models\Deposit;    // HasMany
+use App\Models\AccountType;    // HasMany
+
 class User extends Authenticatable
 {
     use LaratrustUserTrait;
@@ -51,7 +53,7 @@ class User extends Authenticatable
         'city_id',
         'address',
         'longitude',
-        'account_type',
+        'account_type_id',
         'phone',
         'country_code',
         'device_token',
@@ -67,7 +69,7 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token','account_type','comision','address',
+        'remember_token','account_type_id','comision','address',
         'email_verified_at','country_id','city_id','deleted_at','created_at','updated_at','isguest','token','active','image'
     ];
 
@@ -99,7 +101,9 @@ class User extends Authenticatable
     public function carComment(){
         return $this->HasMany(CarComment::class);
     }
-
+    public function accountType(){
+        return $this->belongsTo(AccountType::class,'account_type_id');
+    }
     public function country(){
         return $this->belongsTo(Country::class,'country_id');
     }
