@@ -44,7 +44,11 @@ class CarBookingObserver
      */
     public function updated(CarBooking $carBooking)
     {
-        $role =Auth::user()->roles->first()->display_name;
+        if(Auth::user()->roles->first()){
+            $role =Auth::user()->roles->first()->display_name;
+            }else{
+                $role ='client';
+            }
         $status=BookingStatus::find($carBooking->booking_status_id) ;
         $user =User::find($carBooking->user_id);
         $car=Car::find($carBooking->car_id);
