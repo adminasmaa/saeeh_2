@@ -33,7 +33,7 @@ class CarBookingObserver
             'user_id'=>$carBooking->user_id,
 
         ]);
-        send_push_notification($carBooking->id,$user->device_token,$title,$desription);
+        send_push_notification('car',$carBooking->id,$user->device_token,$title,$desription);
     }
 
     /**
@@ -58,7 +58,7 @@ class CarBookingObserver
             'user_id'=>$carBooking->user_id,
 
         ]);
-        send_push_notification($carBooking->id,$user->device_token,$title,$desription);
+        send_push_notification('car',$carBooking->id,$user->device_token,$title,$desription);
     }
 
     /**

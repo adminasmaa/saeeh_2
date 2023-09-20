@@ -34,7 +34,7 @@ class AqarBookingObserver
             'user_id'=>$aqarBooking->user_id,
 
         ]);
-        send_push_notification($aqarBooking->id,$user->device_token,$title,$desription);
+        send_push_notification('aqar',$aqarBooking->id,$user->device_token,$title,$desription);
     }
 
     /**
@@ -59,7 +59,7 @@ class AqarBookingObserver
             'user_id'=>$aqarBooking->user_id,
 
         ]);
-        send_push_notification($aqarBooking->id,$user->device_token,$title,$desription);
+        send_push_notification('aqar',$aqarBooking->id,$user->device_token,$title,$desription);
 
     }
 

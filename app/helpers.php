@@ -116,7 +116,7 @@ if (!function_exists('send_sms_code')) {
 }
 
 if (!function_exists('send_push_notification')) {
-    function send_push_notification($book_id,$token,$title,$description){
+    function send_push_notification($type ,$book_id,$token,$title,$description){
         $serverkey = 'AAAAFN778j8:APA91bFt1GglZf07Po-5ccwa8tYHuaIz0ymvDZCeDKJ2bxpaNrj2eM1TbON3_EdkhjkcH9IhKsaTOUv0mHSXHWQ-O2t61J6OwgoBmzoftKS-1uKBzTmwlGs0kkGClVYcP0TTXtFArxIT';// this is a Firebase server key 
         $data = array(
                     'to' => $token,
@@ -125,7 +125,8 @@ if (!function_exists('send_push_notification')) {
                             'body' => $description,
                             'title' => $title),
                             "data"=> array(
-                                    "book_id"=> $book_id
+                                    "book_id"=> $book_id,
+                                    "type" => $type
                                 
                                     ));
                             
