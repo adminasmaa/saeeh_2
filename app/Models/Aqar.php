@@ -117,6 +117,11 @@ class Aqar extends Model
         return $this->HasMany(AqarComment::class);
     }
 
+    public function aqarComments()
+    {
+        return $this->HasMany(AqarComment::class)->latest()->limit(3);
+    }
+
     // relations
     public function aqarBooking()
     {
