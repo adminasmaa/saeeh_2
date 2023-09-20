@@ -120,7 +120,12 @@ protected $appends=['descrption','name'];
     // relations
     public function placeComments()
     {
-        return $this->HasMany(PlaceComment::class);
+        return $this->HasMany(PlaceComment::class)->orderBy('rating','desc')->limit(3);
+    }
+
+    public function placeComment()
+    {
+        return $this->HasMany(PlaceComment::class)->orderBy('rating','desc')->limit(3);
     }
 
     // relations
