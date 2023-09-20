@@ -29,4 +29,5 @@ return [
     'guest successfully.'=>'مرحبا بك ف سايح',
     'adv number'=>'الاعلان رقم',
     'new booking'=>'حجز جديد',
+    'cancel your request'=>'لقد قمت بالغاء طلبك'
 ];

@@ -24,7 +24,8 @@ class AqarBookingObserver
         $user = User::find($aqarBooking->user_id);
         $aqar=Aqar::find($aqarBooking->aqar_id);
         $title=trans('message.adv number').$aqarBooking->aqar_id."  (".$aqar->name_ar." )";
-        $desription=trans('message.new booking');
+        $desription=trans('message.new booking')." (".$status->status_ar .")";
+       
         $not=Notification::updateOrCreate(['booking_id'=>$aqarBooking->id, 'status'=>$aqarBooking->booking_status_id],[
             'title'=>$title,
             'booking_id'=>$aqarBooking->id,
@@ -45,11 +46,20 @@ class AqarBookingObserver
      */
     public function updated(AqarBooking $aqarBooking)
     {
+        $role =Auth::user()->roles->first()->display_name;
         $status=BookingStatus::find($aqarBooking->booking_status_id) ;
         $user = User::find($aqarBooking->user_id);
         $aqar=Aqar::find($aqarBooking->aqar_id);
         $title=trans('message.adv number').$aqarBooking->aqar_id."  (".$aqar->name_ar." )";
-        $desription=$status->status_ar;
+        if($role=='admin'){
+        $desription=$status->admin_message;} else if( $role=='invest'){
+            $desription=$status->investor_message;
+        }else if($role=='client' && $aqarBooking->booking_status_id==4){
+            $desription=trans('message.cancel your request');
+        }
+        else{
+            $desription=$status->status_ar ;
+        }
         $not=Notification::updateOrCreate(['booking_id'=>$aqarBooking->id, 'status'=>$aqarBooking->booking_status_id],[
             'title'=>$title,
             'booking_id'=>$aqarBooking->id,

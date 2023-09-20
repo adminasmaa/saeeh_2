@@ -14,8 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('account_types', function (Blueprint $table) {
-            $table->enum('type',['user','admin','invest'])->default('user');
-
+           
             
         });
     }
