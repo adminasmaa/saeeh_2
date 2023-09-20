@@ -39,15 +39,16 @@ class AuthController extends Controller
     public function updateProfile(Request $request)
     {
         $rule = [
-            'email' => 'max:254|email|nullable',
+            'email' => 'max:254|unique:users|email|nullable',
             'firstname' => 'nullable',
             'lastname' => 'nullable',
-            'password' => 'nullable',
+            'password' => 'nullable|min:6',
             'c_password' => 'nullable|same:password',
             'country_code' => 'nullable',
-            'phone' => 'nullable|min:9',
+            'phone' => 'nullable|min:9|unique:users',
 
         ];
+
         $customMessages = [
             'required' => __('validation.attributes.required'),
         ];
@@ -69,9 +70,17 @@ class AuthController extends Controller
             $user->country_code = isset($request->country_code) ? $request->country_code : $user->country_code;
             $user->password = Hash::make($request['password']) ?? '';
 
+        if(!empty($request->phone)){
+            $set = '123456789';
+            $code = substr(str_shuffle($set), 0, 4);
+            $request['code'] = $code;
+            $msg = trans('message.please verified your account') . "\n";
+            $msg = $msg . trans('message.code activation') . "\n" . $code;
+            send_sms_code($msg, $request['phone'], $request['country_code']);
+        }
             $user->save();
             $success['token'] = $user->createToken('MyApp')->accessToken;
-            $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname']);
+            $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname','code']);
 
 
             return $this->respondSuccess($success, trans('message.User updated successfully'));
