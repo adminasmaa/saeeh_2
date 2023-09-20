@@ -41,7 +41,7 @@ class ContactUsController extends Controller
 
         $rule = [
             'name' => 'required',
-            'phone' => 'required|min:9|unique:contacts',
+            'phone' => 'required|min:9',
             'message' => 'required',
 
 
