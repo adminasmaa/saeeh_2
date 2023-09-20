@@ -156,8 +156,8 @@ class AqarController extends Controller
 
         } else {
 
-
-            $comments = AqarComment::where('aqar_id', $request->aqar_id)->paginate(10);
+            // paginate(20)
+            $comments = AqarComment::where('aqar_id', $request->aqar_id)->get();
 
 
             if (isset($comments)) {
