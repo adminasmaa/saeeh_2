@@ -27,6 +27,7 @@ return [
     'We offer you the most popular restaurants at discounts' => 'نقدم لك أشهر المطاعم بخصومات تصل الي 10% ',
     'all' => 'الكل',
     'My bookings' => 'حجوزاتي',
+    'Restaurant videos'=>'فيديوهات المطعم',
     'valuesearch' => 'نتايج البحث',
     'namecar' => 'ابحث عن اسم السيارة',
     'comments' => 'التقيمات',
@@ -52,6 +53,8 @@ return [
     'total' => 'الكلي ',
     'Price summary' => 'ملخص السعر',
     'Reservation deposit' => 'عربون حجز',
+
+    'Restaurant menu link'=>'رابط منيو المطعم',
     'communication' => "اتصال",
     'If you have an inquiry' => 'إذا كان لديك استفسار',
 
@@ -524,6 +527,7 @@ return [
     'news_list' => 'قائمة الاخبار',
     'field_name' => 'اسم الساحة',
     'field_size' => 'حجم الساحة',
+    'food menu'=>' قائمة الطعام',
     'length' => 'طول',
     'width' => 'عرض',
     'minute' => 'دقيقة',

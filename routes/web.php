@@ -61,7 +61,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
     //list of add favourite
     Route::get('aquars/favouritAqar/{id}', 'App\Http\Controllers\Frontend\AquarController@favouritAqar')->name('aquars.favouritAqar')->middleware('web');
     Route::get('subcategorycars/favouritCar/{id}', 'App\Http\Controllers\Frontend\CarController@favouritCar')->name('subcategorycars.favouritCar')->middleware('web');
-    Route::get('subcategories/{ids}/favouritPlace/{id}', 'App\Http\Controllers\Frontend\CarController@favouritPlace')->name('subcategories.favouritPlace')->middleware('web');
+    Route::get('/favouritPlace/{id}', 'App\Http\Controllers\Frontend\CarController@favouritPlace')->name('favouritPlace')->middleware('web');
 
 
 

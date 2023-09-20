@@ -44,6 +44,7 @@ class CarController extends Controller
     }
     public function favouritPlace(Request $request, $id)
     {
+
         $user_id = Auth::id();
         $users = User::find($user_id);
         $user = $users->favourite_place()->toggle($id);
