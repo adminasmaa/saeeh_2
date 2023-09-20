@@ -79,11 +79,11 @@
                                             dir="ltr"
                                         >
                                             <div class="resro-image">
-                                                                                                      <span
-                                                                                                          class="department-like">
+                                                              <span
+                                                                  class="department-like">
 
 <a class="favouritess" id="favouritess{{$place->id}}" data-id="{{$place->id}}"><i
-        class=" @if($place->favoriteuser->count()>0) fas @else far @endif  fa-heart "></i></a>
+        class=" @if(count(\App\Models\UserPalace::where('palace_id', '=',$place->id)->where('user_id', '=', auth()->user()->id)->get()) > 0) fas @else far @endif  fa-heart "></i></a>
 
 
 
@@ -117,11 +117,13 @@
                                                 @foreach(explode(',',$place->images) as $image)
 
                                                     <div class="resro-image">
-                                                                                                <span
-                                                                                                    class="department-like">
+                                                             <span
+                                                                 class="department-like">
 
 <a class="favouritess" id="favouritess{{$place->id}}" data-id="{{$place->id}}"><i
-        class=" @if($place->favoriteuser->count()>0) fas @else far @endif  fa-heart "></i></a>
+        class=" @if(count(\App\Models\UserPalace::where('palace_id', '=',$place->id)->where('user_id', '=', auth()->user()->id)->get()) > 0) fas @else far @endif  fa-heart "></i></a>
+
+
 
                                                                 </span>
 
@@ -139,10 +141,13 @@
                                             @else
 
                                                 <div class="resro-image">
-                                                                         <span class="department-like">
+                                                               <span
+                                                                   class="department-like">
 
 <a class="favouritess" id="favouritess{{$place->id}}" data-id="{{$place->id}}"><i
-        class=" @if($place->favoriteuser->count()>0) fas @else far @endif  fa-heart "></i></a>
+        class=" @if(count(\App\Models\UserPalace::where('palace_id', '=',$place->id)->where('user_id', '=', auth()->user()->id)->get()) > 0) fas @else far @endif  fa-heart "></i></a>
+
+
 
                                                                 </span>
 
@@ -166,6 +171,8 @@
                                                 class="d-md-flex justify-content-md-between align-items-end mb-3 "
                                             >
                                                 <h2 class="card-title mb-0">{{$place->name ?? ''}} </h2>
+{{--                                                {{$place->id}}--}}
+{{--                                                {{count(\App\Models\UserPalace::where('palace_id', '=',$place->id)->where('user_id', '=', auth()->user()->id)->get())}}--}}
                                                 <div
                                                     class="d-flex justify-content-md-center align-items-center"
                                                 >
@@ -328,8 +335,12 @@
                 e.preventDefault();
 
                 var id = $(this).data('id');
+                console.log("iddd",id);
+
+
                 jQuery.ajax({
-                    url: 'favouritPlace/' + id,
+
+                    url :"{{ url('favouritPlace')}}"+ '/' +id,
                     method: 'GET',
                     data: {
                         '_token': '{{ csrf_token() }}',

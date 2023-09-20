@@ -3,6 +3,8 @@
 return [
     'settingss' => ' Settings',
     'services' => 'Services',
+    'Restaurant menu link'=>'Restaurant menu link',
+    'Restaurant videos'=>'Restaurant videos',
     'link' => 'Link',
     'floor_numbers' => 'Floor Numbers',
     'floor_number' => 'Floor Numbers',
@@ -15,6 +17,7 @@ return [
     'We offer you the most popular restaurants at discounts' => 'We offer you the most popular restaurants at discounts up to 10%',
     'previous' => 'previous',
     'next' => 'Next',
+    'food menu'=>'food menu',
     'save' => 'Save',
     'Report any problem'=>'Report any problem',
     'Enter the full name'=>'Enter the full name',

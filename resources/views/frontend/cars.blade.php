@@ -1267,9 +1267,11 @@
 
                                                                                              <span class="department-like">
 
-<a class="favouritess" id="favouritess{{$car->id}}" data-id="{{$car->id}}"><i class=" @if($car->favoriteuser->count()>0) fas @else far @endif far fa-heart "></i></a>
+<a class="favouritess" id="favouritess{{$car->id}}" data-id="{{$car->id}}"><i class=" @if(count(\App\Models\CarUser::where('car_id', '=',$car->id)->where('user_id', '=', auth()->user()->id)->get()) > 0) fas @else far @endif far fa-heart "></i></a>
 
                                                                 </span>
+
+
 
 
 
@@ -1287,11 +1289,12 @@
                                                                 @else
 
                                                                     <div class="city-item">
-                                                                                                                   <span class="department-like">
+                                                                                                    <span class="department-like">
 
-<a class="favouritess" id="favouritess{{$car->id}}" data-id="{{$car->id}}"><i class=" @if($car->favoriteuser->count()>0) fas @else far @endif far fa-heart "></i></a>
+<a class="favouritess" id="favouritess{{$car->id}}" data-id="{{$car->id}}"><i class=" @if(count(\App\Models\CarUser::where('car_id', '=',$car->id)->where('user_id', '=', auth()->user()->id)->get()) > 0) fas @else far @endif far fa-heart "></i></a>
 
                                                                 </span>
+
                                                                         <img
                                                                             loading="lazy"
                                                                             src="{{FRONTASSETS}}/images/cars/car-card-1.png"
