@@ -23,7 +23,7 @@ class CarBookingObserver
         $user = User::find($carBooking->user_id);
         $car=Car::find($carBooking->car_id);
         $title=trans('message.adv number').$carBooking->car_id."  (".$car->name_ar." )";
-        $desription=trans('message.new booking');
+        $desription=trans('message.new booking')." ".$status->status_ar ;
         $not=Notification::updateOrCreate(['booking_id'=>$carBooking->id, 'status'=>$carBooking->booking_status_id],[
             'title'=>$title,
             'booking_id'=>$carBooking->id,
@@ -44,11 +44,20 @@ class CarBookingObserver
      */
     public function updated(CarBooking $carBooking)
     {
+        $role =Auth::user()->roles->first()->display_name;
         $status=BookingStatus::find($carBooking->booking_status_id) ;
         $user =User::find($carBooking->user_id);
         $car=Car::find($carBooking->car_id);
         $title=trans('message.adv number').$carBooking->car_id."  (".$car->name_ar." )";
-        $desription=$status->status_ar;
+        if($role=='admin'){
+            $desription=$status->admin_message;} else if( $role=='invest'){
+                $desription=$status->investor_message;
+            }else if($role=='client' && $aqarBooking->booking_status_id==4){
+                $desription=trans('message.cancel your request');
+            }
+            else{
+                $desription=$status->status_ar ;
+            }
         $not=Notification::updateOrCreate(['booking_id'=>$carBooking->id, 'status'=>$carBooking->booking_status_id],[
             'title'=>$title,
             'booking_id'=>$carBooking->id,

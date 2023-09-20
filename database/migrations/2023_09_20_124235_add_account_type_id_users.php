@@ -17,6 +17,8 @@ return new class extends Migration
             // $table->foreignId('account_type_id')->nullable( )->references('id')->on('account_types');
             $table->integer('account_type_id')->nullable( )->unsigned();
             $table->foreign('account_type_id')->references('id')->on('account_types');
+            $table->enum('type',['user','admin','invest'])->default('user');
+
             
         });
     }

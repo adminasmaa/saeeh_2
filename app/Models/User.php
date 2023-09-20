@@ -58,7 +58,9 @@ class User extends Authenticatable
         'country_code',
         'device_token',
         'token',
-        'isguest'
+        'isguest',
+        'type',
+        'account_type_id '
     ];
 
 
