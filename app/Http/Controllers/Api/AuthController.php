@@ -44,9 +44,8 @@ class AuthController extends Controller
             'lastname' => 'nullable',
             'password' => 'nullable|min:6',
             'c_password' => 'nullable|same:password',
-            'country_code' => 'nullable',
-            'phone' => 'nullable|min:9|unique:users',
-
+            'country_code' => 'required_with:phone',
+            'phone' => 'required_with:country_code|min:9|unique:users',
         ];
 
         $customMessages = [
@@ -71,12 +70,13 @@ class AuthController extends Controller
             $user->password = Hash::make($request['password']) ?? '';
 
         if(!empty($request->phone)){
+            $input = $request->all();
             $set = '123456789';
             $code = substr(str_shuffle($set), 0, 4);
-            $request['code'] = $code;
+            $input['code'] = $code;
             $msg = trans('message.please verified your account') . "\n";
             $msg = $msg . trans('message.code activation') . "\n" . $code;
-            send_sms_code($msg, $request['phone'], $request['country_code']);
+            send_sms_code($msg, $input['phone'], $input['country_code']);
         }
             $user->save();
             $success['token'] = $user->createToken('MyApp')->accessToken;
