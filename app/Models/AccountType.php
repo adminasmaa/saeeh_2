@@ -16,6 +16,7 @@ class AccountType extends Model
     protected $fillable = [
         'name_ar',// required
         'name_en',// nullable
+        'type',// enum
 
     ];
 }

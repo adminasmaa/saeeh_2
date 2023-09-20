@@ -111,7 +111,7 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
         }
         if ($request->hasFile('video_photo')) {
 
-            UploadImage('images/places/','video_photo', $place, $request->file('video_photo'));
+            UploadImage('images/places/video_img','video_photo', $place, $request->file('video_photo'));
     }
         if ($request->hasFile('images')) {
             $images = $request->file('images');
@@ -158,7 +158,7 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
 
             }
             if ($request->hasFile('video_photo')) {
-                UploadImage('images/places/','video_photo', $place, $request->file('video_photo'));
+                UploadImage('images/places/video_img','video_photo', $place, $request->file('video_photo'));
 
             }
             if ($request->hasFile('images')) {

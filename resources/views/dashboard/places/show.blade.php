@@ -455,7 +455,7 @@
                                 <label>@lang('site.video_photo')</label>
                                 <br>
                                 <img id="frame"
-                                    src="{{asset('images/places/'.$place->video_photo)}}" alt=""
+                                    src="{{asset('images/places/video_img'.$place->video_photo)}}" alt=""
                                     onerror="this.src='{{asset('images/places/default.jpg')}}'"
                                     width="200px" class="img-upload" />
 
