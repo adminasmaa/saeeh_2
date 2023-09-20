@@ -65,11 +65,11 @@ class PlaceDetailResource extends JsonResource
             // "images" => explode(",", $this->images) ?? [],
             "images" => $this->images?(explode(",", $this->images)?explode(",",$this->images) : NULL):NULL,
 
-            "image" => asset('images/places/videos') . "/" . $this->display_photo,
+            "image" => asset('images/places') . "/" . $this->display_photo,
             "notify_photo" => asset('images/places') . "/" . $this->notify_photo,
             // "videos" => $this->videos?(explode(",", $this->videos)?explode(",",$this->videos) : NULL):NULL,
-            "video" => asset('images/places') . "/" . $this->videos,
-            "video_photo" => asset('images/places') . "/" . $this->video_photo,
+            "video" => asset('images/places/videos') . "/" . $this->videos,
+            "video_photo" => asset('images/places/video_img') . "/" . $this->video_photo,
 
             "created_at" => $this->created_at ?? '',
             // 'placetables' => $this->placetables ?? '',
