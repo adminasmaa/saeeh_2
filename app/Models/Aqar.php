@@ -119,7 +119,7 @@ class Aqar extends Model
 
     public function aqarComments()
     {
-        return $this->HasMany(AqarComment::class)->latest()->limit(3);
+        return $this->HasMany(AqarComment::class)->orderBy('rating','desc')->limit(3);
     }
 
     // relations

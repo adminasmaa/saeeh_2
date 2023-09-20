@@ -58,7 +58,7 @@ class PlaceDetailResource extends JsonResource
 
             "reviews" => PlaceReviewResource::collection($this->PlaceReview()->limit(1)->get()) ?? NULL,
 
-            'comments' => CommentPlaceResource::collection($this->placeComments) ?? '',
+            'comments' => CommentPlaceResource::collection($this->placeComment) ?? '',
 
             'path' => asset('images/places') . "/",
 

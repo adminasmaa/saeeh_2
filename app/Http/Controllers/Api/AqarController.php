@@ -244,8 +244,8 @@ class AqarController extends Controller
             if ($request->type == 'aqar') {
 
                 if (!empty($request->comments)) {
-
-
+                    
+                    $rate=0;
                     foreach ($request->comments as $comment) {
 
                         AqarReview::updateOrCreate(['review_element_id' => $comment['id'], 'aqar_id' => $request->id, 'user_id' => Auth::id()], [
@@ -258,6 +258,7 @@ class AqarController extends Controller
 
                             'user_id' => Auth::id(),
                         ]);
+                        $rate+=$comment['value'];
 
                     }
                 }
@@ -266,7 +267,7 @@ class AqarController extends Controller
 
                     'description' => $request->description ?? '',
 
-//                    'rating' => $request->rate,
+                    'rating' => round($rate/count($request->comments),2),
                     'aqar_id' => $request->id,
 
                     'user_id' => Auth::id(),
@@ -278,7 +279,7 @@ class AqarController extends Controller
 
                 if (!empty($request->comments)) {
 
-
+                    $rate=0;
                     foreach ($request->comments as $comment) {
 
                         CarReview::updateOrCreate(['car_id' =>$request->id, 'user_id' => Auth::id()], [
@@ -290,6 +291,7 @@ class AqarController extends Controller
 
                             'user_id' => Auth::id(),
                         ]);
+                        $rate+=$comment['value'];
 
                     }
                 }
@@ -299,7 +301,7 @@ class AqarController extends Controller
                     'description' => $request->description ?? '',
 
                     'car_id' => $request->id,
-//                    'rating' => $request->rate,
+                   'rating' => round($rate/count($request->comments),2),
 
 
                     'user_id' => Auth::id(),
@@ -313,7 +315,7 @@ class AqarController extends Controller
 
 
                     foreach ($request->comments as $comment) {
-
+                        $rate=0;
                         PlaceReview::updateOrCreate(['place_id' => $request->id, 'user_id' => Auth::id()], [
 
                             'place_id' => $request->id,
@@ -323,6 +325,7 @@ class AqarController extends Controller
 
                             'user_id' => Auth::id(),
                         ]);
+                        $rate+=$comment['value'];
 
                     }
                 }
@@ -332,7 +335,7 @@ class AqarController extends Controller
                     'description' => $request->description,
 
                     'place_id' => $request->id,
-//                    'rating' => $request->rate,
+                    'rating' =>  round($rate/count($request->comments),2),
 
                     'user_id' => Auth::id(),
                 ]);

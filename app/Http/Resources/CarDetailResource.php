@@ -50,7 +50,7 @@ class CarDetailResource extends JsonResource
             "count_review"=>$this->CarReview->count() ?? 0,
             'total' => $this->carComment->count() + $this->CarReview->count(),
 
-            "comments" => CommentCarResource::collection($this->carComment),
+            "comments" => CommentCarResource::collection($this->carComments),
 //            "rate" => round($this->carComment->avg('rating')) ?? 0,
            "rate" => round($this->carReview->avg('rate')) ?? 0,
 
