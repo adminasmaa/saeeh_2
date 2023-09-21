@@ -31,8 +31,8 @@ class AqarDetailResource extends JsonResource
 
 
         }
-      //  print_r( json_decode($this->changed_price)->person_num[0]);die;
-        return [
+
+       return [
             "id" => $this->id ?? '',
             "name" => $this->$name ?? '',
 //            "description" => html_entity_decode(substr($this->description, 0, 125)) ?? '',
@@ -69,6 +69,9 @@ class AqarDetailResource extends JsonResource
             "reviews" => AqarReviewResource::collection($this->aqarReview),
             "fixed_price" => $this->fixed_price ?? 0,
             "Reservation_deposit" => $this->fixed_price ?? 0,
+
+            // "Reservation_deposit" => $this->fixed_price ?? $this->day_count/$this->total_price ,
+
             "changed_price" =>$this->changed_price?(json_decode($this->changed_price)->person_num[0]?json_decode($this->changed_price) : NULL):NULL,
             "category" => new staticResource($this->category),
             'aqarSection' => $this->aqarSection

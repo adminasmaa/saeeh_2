@@ -34,7 +34,7 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
     {
         // TODO: Implement create() method.
 
-        $users = User::whereNotNull('account_type')->where('active',1)->get();
+        $users = User::whereNotNull('type')->where('active',1)->get();
         $categories = Category::where('type',1)->where('parent_id',1)->where('active',1)->get();
         $Area = Area::where('active',1)->get();
         $countries = Country::all();
@@ -50,7 +50,7 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
 
         $aqar = Aqar::with('aqarSection')->find($Id);   
         $aqar['changed_price']=json_decode($aqar['changed_price']);
-        $users = User::whereNotNull('account_type')->where('active',1)->get();
+        $users = User::whereNotNull('type')->where('active',1)->get();
         $categories = Category::where('type',1)->where('parent_id',1)->where('active',1)->get();
         $Area = Area::where('active',1)->get();
         $countries = Country::all();
@@ -65,7 +65,7 @@ class AqarRepository implements AqarRepositoryInterfaceAlias
 
         $aqar = Aqar::find($Id);
         $aqar['changed_price']=json_decode($aqar['changed_price']);
-        $users = User::whereNotNull('account_type')->where('active',1)->get();
+        $users = User::whereNotNull('type')->where('active',1)->get();
         $categories = Category::where('type',1)->where('parent_id',1)->where('active',1)->get();
         $Area = Area::where('active',1)->get();
         $countries = Country::all();
