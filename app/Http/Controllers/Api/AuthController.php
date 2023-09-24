@@ -423,9 +423,6 @@ class AuthController extends Controller
         if ($validator->fails()) {
             return $this->respondError('Validation Error.', $validator->errors(), 400);
         }
-        if (!(Hash::check($request->password, Auth::user()->password))) {
-            return redirect()->back()->with("error","your current password does not match with the password you provided. please try again.");
-        }
         $country_code = $request->country_code;
         $phone = $request->phone;
         if($request->userId){
