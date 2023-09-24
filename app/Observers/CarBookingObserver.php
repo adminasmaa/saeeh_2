@@ -31,6 +31,7 @@ class CarBookingObserver
             'type'=>'car',
             'status'=>$carBooking->booking_status_id,
             'user_id'=>$carBooking->user_id,
+            'created_by'=>Auth::id(),
 
         ]);
         send_push_notification('car',$carBooking->id,$user->device_token,$title,$desription);
@@ -69,6 +70,7 @@ class CarBookingObserver
             'type'=>'car',
             'status'=>$carBooking->booking_status_id,
             'user_id'=>$carBooking->user_id,
+            'created_by'=>Auth::id(),
 
         ]);
         send_push_notification('car',$carBooking->id,$user->device_token,$title,$desription);
