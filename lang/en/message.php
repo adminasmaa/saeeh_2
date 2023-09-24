@@ -27,4 +27,9 @@ return [
     'logout'=>'Logout',
     'Place retrieved successfully.'=>'Place retrieved successfully.',
     'guest successfully.'=>'Welcome to saeeh',
+    'adv number'=>'adv number',
+    'new booking'=>'new booking',
+    'cancel your request'=>'cancel your request',
+    'password should not be the same with old password'=>'password should not be the same with old password',
+    'price changed'=>'price changed'
 ];
