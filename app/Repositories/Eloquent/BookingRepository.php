@@ -102,6 +102,8 @@ class BookingRepository implements BookingRepositoryInterfaceAlias
 
         $request_data->cancle_reason=$request->cancel_reason;
 
+        $request_data->cancel_user_id=Auth::id();
+
         $request_data->save();
 
         if ($request_data) {
