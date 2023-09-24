@@ -19,12 +19,6 @@ class AqarComment extends Model
     protected $fillable = [
         'description', // nullable 
         'rating', // required
-        'status', // required ,default (0)
-        'check_view', // default (0)
-        'demo_clean', // default (0)
-        'demo_status', // default (0)
-        'demo_work', // default (0)
-        'demo_loc', // default (0)
         'aqar_id', //unsigned 
         'aqar_booking_id', //unsigned 
         'user_id', //unsigned 

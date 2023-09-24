@@ -55,47 +55,7 @@
                                        value="{{ $CarComment->rating }}" readonly=""disabled
                                 >
                             </div>
-
-                            <div class="col-md-6 form-group col-12 p-2 ">
-                                <label class="form-label">@lang('site.status')<span class="text-danger">*</span></label>
-                                    <select class="form-control btn-square" name="status" readonly="" disabled>
-                                        <option selected>@lang('site.select')</option>
-
-                                        <option value="1"
-                                                @if($CarComment->status=='1') selected @endif>@lang('site.active')
-                                        </option>
-                                        <option value="0"
-                                                @if($CarComment->status=='0') selected @endif>@lang('site.in_active')
-                                        </option>
-                                        
-                                    </select>
-                            </div>
                         </div>
-                        <div class="row">
-
-                        <div class="col-md-6 form-group col-12 p-2">
-                                <label>@lang('site.demo_clean')<span class="text-danger">*</span></label>
-                                <input type="numder" name="demo_clean" class="form-control"
-                                       value="{{ $CarComment->demo_clean }}" readonly=""disabled
-                                >
-                            </div>
-
-                            <div class="col-md-6 form-group col-12 p-2">
-                                <label>@lang('site.demo_status')<span class="text-danger">*</span></label>
-                                <input type="numder" name="demo_status" class="form-control"
-                                       value="{{ $CarComment->demo_status }}" readonly=""disabled
-                                >
-                            </div>
-
-                            <div class="col-md-6 form-group col-12 p-2">
-                                <label>@lang('site.demo_work')<span class="text-danger">*</span></label>
-                                <input type="numder" name="demo_work" class="form-control"
-                                       value="{{ $CarComment->demo_work }}" readonly=""disabled
-                                >
-                            </div>
-
-                        </div>
-
 
                         </div>
 
