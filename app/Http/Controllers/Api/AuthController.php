@@ -433,12 +433,16 @@ class AuthController extends Controller
             $query->where('country_code', $country_code)->where('phone', $phone);
         })->first();}
         if ($user) {
+            if ((Hash::check($request->password, $user->password))) {
+                return $this->respondError('Validation Error.', trans('message.password should not be the same with old password'), 400);
+            }else{
             $user->password = Hash::make($request->password);
             // $user-> password = Crypt::decrypt($request->password);  
             // $user->password = Hash::check('password', $request->password);
             $user->active = 1;
             $user->save();
             return $this->respondSuccess(json_decode('{}'), trans('message.password reset successfully.'));
+            }
         } else {
 
             return $this->respondError(trans('message.user not found'), ['error' => trans('message.user not found')], 404);

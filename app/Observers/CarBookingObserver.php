@@ -31,6 +31,7 @@ class CarBookingObserver
             'type'=>'car',
             'status'=>$carBooking->booking_status_id,
             'user_id'=>$carBooking->user_id,
+            'created_by'=>Auth::id(),
 
         ]);
         send_push_notification('car',$carBooking->id,$user->device_token,$title,$desription);
@@ -56,7 +57,7 @@ class CarBookingObserver
         if($role=='admin'){
             $desription=$status->admin_message;} else if( $role=='invest'){
                 $desription=$status->investor_message;
-            }else if($role=='client' && $aqarBooking->booking_status_id==4){
+            }else if($role=='client' && $carBooking->booking_status_id==4){
                 $desription=trans('message.cancel your request');
             }
             else{
@@ -69,6 +70,7 @@ class CarBookingObserver
             'type'=>'car',
             'status'=>$carBooking->booking_status_id,
             'user_id'=>$carBooking->user_id,
+            'created_by'=>Auth::id(),
 
         ]);
         send_push_notification('car',$carBooking->id,$user->device_token,$title,$desription);

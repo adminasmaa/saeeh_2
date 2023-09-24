@@ -34,7 +34,7 @@ class CarRepository implements CarRepositoryInterfaceAlias
     {
         // TODO: Implement create() method.
 
-        $users = User::whereNotNull('account_type')->where('active',1)->get();
+        $users = User::whereNotNull('type')->where('active',1)->get();
         $categories = Category::where('parent_id','=',2)->where('type','=',2)->get();
         $countries = Country::all();
         $cities = City::all();
@@ -49,7 +49,7 @@ class CarRepository implements CarRepositoryInterfaceAlias
 
         $car = Car::find($Id);
 
-        $users = User::whereNotNull('account_type')->where('active',1)->get();
+        $users = User::whereNotNull('type')->where('active',1)->get();
         $categories = Category::where('parent_id','=',2)->where('type','=',2)->get();
         $car['changed_price']=json_decode($car['changed_price']);;
         $subcategories = Category::where('parent_id','!=',2)->where('type','=',2)->get();
@@ -66,7 +66,7 @@ class CarRepository implements CarRepositoryInterfaceAlias
 
         $car = Car::find($Id);
         $car['changed_price']=json_decode($car['changed_price']);
-        $users = User::whereNotNull('account_type')->where('active',1)->get();
+        $users = User::whereNotNull('type')->where('active',1)->get();
         $categories = Category::all();
         $subcategories = Category::get();
         $countries = Country::all();

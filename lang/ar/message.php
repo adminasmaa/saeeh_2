@@ -29,5 +29,7 @@ return [
     'guest successfully.'=>'مرحبا بك ف سايح',
     'adv number'=>'الاعلان رقم',
     'new booking'=>'حجز جديد',
-    'cancel your request'=>'لقد قمت بالغاء طلبك'
+    'cancel your request'=>'لقد قمت بالغاء طلبك',
+    'password should not be the same with old password'=>'كلمه المرور لا يجب ان تكون القديمه',
+    'price changed'=>'لقد تم تغيير السعر'
 ];

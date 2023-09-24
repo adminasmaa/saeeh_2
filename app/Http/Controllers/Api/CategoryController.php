@@ -131,16 +131,18 @@ class CategoryController extends Controller
 
     public function listofAquarWithCategory(Request $request)
     {
+        $city_id = $request->city_id;
+
         if (!empty($request->rate) && !empty($request->low_price)) {
 
             $aqars_id = AqarReview::orderBy('rate', 'DESC')->pluck('aqar_id')->toArray();
-            $aquars = Aqar::where('category_id', '=', $request->category_id)->whereIn('id', $aqars_id)->orderBy('fixed_price', 'ASC')->paginate(20);
+            $aquars = Aqar::where('category_id', '=', $request->category_id)->where('city_id', '=', $city_id)->whereIn('id', $aqars_id)->orderBy('fixed_price', 'ASC')->paginate(20);
 
 
         } elseif (!empty($request->rate) && !empty($request->hign_price)) {
 
             $aqars_id = AqarReview::orderBy('rate', 'DESC')->pluck('aqar_id')->toArray();
-            $aquars = Aqar::where('category_id', '=', $request->category_id)->whereIn('id', $aqars_id)->orderBy('fixed_price', 'DESC')->paginate(20);
+            $aquars = Aqar::where('category_id', '=', $request->category_id)->where('city_id', '=', $city_id)->whereIn('id', $aqars_id)->orderBy('fixed_price', 'DESC')->paginate(20);
         } elseif (!empty($request->low_price)) {
             $aquars = Aqar::where('category_id', '=', $request->category_id)->orderBy('fixed_price', 'ASC')->paginate(20);
         } elseif (!empty($request->hign_price)) {
@@ -148,12 +150,12 @@ class CategoryController extends Controller
 
         } elseif (!empty($request->rate)) {
             $aqars_id = AqarReview::orderBy('rate', 'DESC')->pluck('aqar_id')->toArray();
-            $aquars = Aqar::where('category_id', '=', $request->category_id)->whereIn('id', $aqars_id)->paginate(20);
+            $aquars = Aqar::where('category_id', '=', $request->category_id)->where('city_id', '=', $city_id)->whereIn('id', $aqars_id)->paginate(20);
 
 
         } else {
 
-            $aquars = Aqar::where('category_id', '=', $request->category_id)->paginate(20);
+            $aquars = Aqar::where('category_id', '=', $request->category_id)->where('city_id', '=', $city_id)->paginate(20);
 
         }
 
@@ -173,7 +175,9 @@ class CategoryController extends Controller
 
     public function listofCarswithsubcategory(Request $request)
     {
-        $cars = Car::where('sub_category_id', '=', $request->sub_category_id)->paginate(20);
+        $city_id = $request->city_id;
+
+        $cars = Car::where('sub_category_id', '=', $request->sub_category_id)->where('city_id', '=', $city_id)->paginate(20);
 
 
         if (count($cars)) {

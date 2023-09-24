@@ -33,6 +33,7 @@ class AqarBookingObserver
             'type'=>'aqar',
             'status'=>$aqarBooking->booking_status_id,
             'user_id'=>$aqarBooking->user_id,
+            'created_by'=>Auth::id(),
 
         ]);
         send_push_notification('aqar',$aqarBooking->id,$user->device_token,$title,$desription);
@@ -71,6 +72,7 @@ class AqarBookingObserver
             'type'=>'aqar',
             'status'=>$aqarBooking->booking_status_id,
             'user_id'=>$aqarBooking->user_id,
+            'created_by'=>Auth::id(),
 
         ]);
         send_push_notification('aqar',$aqarBooking->id,$user->device_token,$title,$desription);

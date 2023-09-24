@@ -13,9 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('account_types', function (Blueprint $table) {
-           
-            
+        Schema::table('car_comments', function (Blueprint $table) {
+
+            $table->dropColumn (['status']);
+            $table->dropColumn (['demo_clean']);
+            $table->dropColumn (['demo_status']);
+            $table->dropColumn (['demo_work']);
         });
     }
 
@@ -26,7 +29,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('account_types', function (Blueprint $table) {
+        Schema::table('car_comments', function (Blueprint $table) {
             //
         });
     }

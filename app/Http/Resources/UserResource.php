@@ -21,7 +21,9 @@ class UserResource extends JsonResource
             "name" => $this->firstname.''.$this->lastname,
             "image" => asset('images/users')."/".$this->image,
             // "country" => $this->country()->pluck('flag_image'),
-            "country" => $this->country()->select('flag_image')->get(),
+            "flag_image" => asset('images/countries')."/".$this->country()->pluck('flag_image')[0]?? '',
+            // "flag_image" => asset('images/countries')."/".$this->country()->select('flag_image')->get()[0],
+            // 'image'     => asset('images/products/' . $this->country()->$flag_image),
 
         ];
     }
