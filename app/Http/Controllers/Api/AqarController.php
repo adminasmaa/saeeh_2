@@ -448,6 +448,9 @@ class AqarController extends Controller
 
             if($aqar->fixed_price){
                 $fixed_price=$aqar['fixed_price'];
+                if($request->total_price != round($request->day_count * $fixed_price ,2)){
+                    return $this->respondwarning(json_decode('{}'), trans('message.price changed'), ['error' => trans('message.price changed')], 402);
+                }
             }else{
                 $price=json_decode($aqar['changed_price'])->person_num;
                 $key=array_search ($request->person_num, $price);
@@ -455,6 +458,10 @@ class AqarController extends Controller
                 $data['person_num'] = array($request->person_num);
                 $data['price'] = array($changedprice);
                 $changed_price=json_encode($data)!=null?json_encode($data, JSON_NUMERIC_CHECK):null;
+
+                if($request->total_price != round($request->day_count * $changedprice ,2)){
+                    return $this->respondwarning(json_decode('{}'), trans('message.price changed'), ['error' => trans('message.price changed')], 402);
+                }
                
             }
             $input = $request->all();
