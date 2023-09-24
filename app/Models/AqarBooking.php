@@ -44,7 +44,8 @@ class AqarBooking extends Model
         'booking_status_id', // unsigned
         'book_status',
         'total_price',
-        'person_num'
+        'person_num',
+        'cancel_user_id'
     ];
     protected $hidden=['deleted_at','updated_at'];
 
