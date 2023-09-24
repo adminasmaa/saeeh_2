@@ -27,6 +27,7 @@ class AqarReviewResource extends JsonResource
 
             "name" => $this->reviewElement->$name ?? '',
             "value" => round($this->RateTotal($this->reviewElement->id) / $this->CountUser($this->reviewElement->id)) ?? 0,
+            "icon" => asset('images/reviewElements') . "/" . $this->reviewElement->icon ,
 
         ];
     }
