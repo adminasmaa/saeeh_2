@@ -5,6 +5,7 @@ return [
     'services' => 'Services',
     'Restaurant menu link'=>'Restaurant menu link',
     'Restaurant videos'=>'Restaurant videos',
+    'Add a comment about the place'=>'Add a comment about the place',
     'link' => 'Link',
     'floor_numbers' => 'Floor Numbers',
     'floor_number' => 'Floor Numbers',

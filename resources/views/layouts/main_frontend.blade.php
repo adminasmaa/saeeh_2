@@ -75,6 +75,64 @@
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
         crossorigin="anonymous"
     />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous">
+    </script>
+    {{--    <script src="{{asset('product-ratings-jstars/product-ratings-jstars/jstars.min.js')}}"></script>--}}
+
+    <!-- jQuery is required -->
+    {{--    <script src="/path/to/cdn/jquery.slim.min.js"></script>--}}
+    {{--    <!-- Themes -->--}}
+    {{--    <link rel="stylesheet" href="{{asset('rating-system-custom-images/rating-system-custom-images/css/rates.css')}}" />--}}
+    {{--    <!-- Rates plugin -->--}}
+    {{--    <script src="{{asset('rating-system-custom-images/rating-system-custom-images/js/jquery-rates.js')}}"></script>--}}
+    {{--    <script src="{{asset('star-rating-system-hillrate\star-rating-system-hillrate\plugin/js/hillRate-jquery.js')}}"></script>--}}
+
+{{--    <link rel="stylesheet" href="{{asset('star-rating-radio-button/jquery.rating.css')}}"/>--}}
+{{--    <script src="{{asset('star-rating-radio-button/jquery.min.js')}}"></script>--}}
+{{--    <script src="{{asset('star-rating-radio-button/jquery.rating.js')}}"></script>--}}
+
+    <style>
+
+        .rate {
+            border: 1px solid #cccccc;
+            float: left;
+            height: 46px;
+            padding: 0 10px;
+        }
+
+        .rate:not(:checked) > input {
+            position: absolute;
+            top: -9999px;
+        }
+
+        .rate:not(:checked) > label {
+            float: right;
+            width: 1em;
+            overflow: hidden;
+            white-space: nowrap;
+            cursor: pointer;
+            font-size: 30px;
+            color: #ccc;
+        }
+
+        .rate:not(:checked) > label:before {
+            content: '★ ';
+        }
+
+        .rate > input:checked ~ label {
+            color: #ffc700;
+        }
+
+        .rate:not(:checked) > label:hover, .rate:not(:checked) > label:hover ~ label {
+            color: #deb217;
+        }
+
+        .rate > input:checked + label:hover, .rate > input:checked + label:hover ~ label, .rate > input:checked ~ label:hover, .rate > input:checked ~ label:hover ~ label, .rate > label:hover ~ input:checked ~ label {
+            color: #c59b08;
+        }
+    </style>
 </head>
 
 <body>
@@ -123,7 +181,6 @@
 
 <script>
 
-
     jQuery('.formregisters').click(function (e) {
         // console.log("daaaa");
         e.preventDefault();
@@ -155,10 +212,10 @@
                     $('#formregister').hide()
                 swal({
                     title: "Success!",
-                text: "The message has been successfully sent!",
+                    text: "The message has been successfully sent!",
                     type: "success",
                     confirmButtonText: "OK"
-            });
+                });
                 window.location.href = '{{route('Home')}}';
 
 
