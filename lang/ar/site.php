@@ -5,6 +5,8 @@ return [
     'Car Booking' => 'حجز سيارة',
     'contactmessage' => 'يمكنك التواصل معنا من خلال الارقام الاتيه',
     'home' => 'الرئيسية',
+    'Add a comment about the place'=>'أضف تعليقا عن المكان',
+
     'inquires' => 'للحجز والاستفسار',
     'send' => 'ارسال',
     'locations' => 'موقعنا',
@@ -50,7 +52,7 @@ return [
     'id number' => 'رقم الاعلان',
     'Reservation deposit' => 'عربون حجز',
     'Departure dates' => 'مواعيد المغادرة',
-    'total' => 'الكلي ',
+    'total' => 'الاجمالي   ',
     'Price summary' => 'ملخص السعر',
     'Reservation deposit' => 'عربون حجز',
 

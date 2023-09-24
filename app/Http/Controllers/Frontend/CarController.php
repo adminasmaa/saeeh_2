@@ -4,16 +4,19 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Models\Car;
 use App\Models\CarBooking;
+use App\Models\CarComment;
 use App\Models\CarReview;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\Place;
+use App\Models\PlaceComment;
+use App\Models\PlaceReview;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Response;
-
+use Validator;
 
 use App\Http\Controllers\Controller;
 
@@ -24,6 +27,79 @@ use Illuminate\Validation\Rule;
 class CarController extends Controller
 {
 
+
+    public function addRateCar(Request $request){
+
+
+
+        $validation = Validator::make($request->all(), [
+//            'rate' => 'required',
+            'description' => 'required|string',
+        ]);
+
+        if ($validation->fails()) {
+            return response()->json(['errors' => $validation->errors()], 422);
+        }
+
+        $request_data = $request->except('_token');
+        $request_data['user_id'] = Auth::id() ?? '';
+        $request_data['rate'] =$request['rate'] ?? 0;
+
+
+        $comments=CarComment::create([
+
+            'description'=>$request['description'],
+            'car_id'=>$request['car_id'],
+            'user_id'=>$request_data['user_id'],
+        ]);
+        $data=CarReview::create([
+
+            'rate'=>$request_data['rate'],
+            'car_id'=>$request['car_id'],
+            'user_id'=>$request_data['user_id'],
+
+        ]);
+
+        return response()->json(['status' => true, 'content' => 'success', 'data' => $data]);
+
+
+    }
+   public function addRate(Request $request){
+
+
+
+        $validation = Validator::make($request->all(), [
+//            'rate' => 'required',
+            'description' => 'required|string',
+        ]);
+
+        if ($validation->fails()) {
+            return response()->json(['errors' => $validation->errors()], 422);
+        }
+
+        $request_data = $request->except('_token');
+        $request_data['user_id'] = Auth::id() ?? '';
+        $request_data['rate'] =$request['rate'] ?? 0;
+
+
+        $comments=PlaceComment::create([
+
+            'description'=>$request['description'],
+            'place_id'=>$request['place_id'],
+            'user_id'=>$request_data['user_id'],
+        ]);
+        $data=PlaceReview::create([
+
+            'rate'=>$request_data['rate'],
+            'place_id'=>$request['place_id'],
+            'user_id'=>$request_data['user_id'],
+
+        ]);
+
+        return response()->json(['status' => true, 'content' => 'success', 'data' => $data]);
+
+
+    }
 
     public function favouritCar(Request $request, $id)
     {

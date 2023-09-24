@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Models\Aqar;
 use App\Models\AqarBooking;
+use App\Models\AqarComment;
 use App\Models\AqarReview;
 use App\Models\AqarSections;
 use App\Models\AqarService;
@@ -19,7 +20,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Response;
-
+use Validator;
 
 use App\Http\Controllers\Controller;
 
@@ -30,6 +31,41 @@ use Illuminate\Validation\Rule;
 class AquarController extends Controller
 {
 
+
+
+    public function addRateAqar(Request $request){
+        $validation = Validator::make($request->all(), [
+//            'rate' => 'required',
+            'description' => 'required|string',
+        ]);
+
+        if ($validation->fails()) {
+            return response()->json(['errors' => $validation->errors()], 422);
+        }
+
+        $request_data = $request->except('_token');
+        $request_data['user_id'] = Auth::id() ?? '';
+        $request_data['rate'] =$request['rate'] ?? 0;
+
+
+        $comments=AqarComment::create([
+
+            'description'=>$request['description'],
+            'aqar_id'=>$request['aqar_id'],
+            'user_id'=>$request_data['user_id'],
+        ]);
+        $data=AqarReview::create([
+
+            'rate'=>$request_data['rate'],
+            'aqar_id'=>$request['aqar_id'],
+            'review_element_id'=>$request['review_element_id'],
+            'user_id'=>$request_data['user_id'],
+
+        ]);
+
+        return response()->json(['status' => true, 'content' => 'success', 'data' => $data]);
+
+    }
 
     public function favouritAqar(Request $request, $id)
     {
