@@ -27,6 +27,7 @@ return [
     'Modify your selection'=>'Modify your selection',
     'Go to the restaurant' => 'Go to the restaurant',
     'total' => 'Total',
+    "cancel reseon" => 'Cancel Reseon',
     'user_name'=>'User Name',
     'communication'=>'Communication',
     'conditionBooking'=>'ConditionBooking',

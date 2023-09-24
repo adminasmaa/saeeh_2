@@ -34,6 +34,7 @@ return [
     'save' => 'حفظ',
     'previous' => 'السابق',
     'next' => 'التالي',
+    "cancel reseon" => 'سبب الغاء الحجز',
     'receipt_hour'=>"ساعة المغادره",
     'A reservation deposit is required to confirm the reservation' => 'يجب دفع عربوون حجز لتأكيد الحجز',
     'arrival hour' => 'ساعة الوصول',
