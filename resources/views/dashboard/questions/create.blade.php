@@ -69,7 +69,7 @@
                                         </textarea>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <!-- <div class="row">
                                   <div id="kt_docs_repeater_nested">
                                     <div class="form-group mt-5">
                                         <div data-repeater-list="kt_docs_repeater_nested_outer">
@@ -119,7 +119,7 @@
                                         <i class="fas fa-plus"></i> اضافة صف
                                         </a>
                                     </div>
-                                </div>
+                                </div> -->
                                 </div>
                                 </div>
                             </div>
