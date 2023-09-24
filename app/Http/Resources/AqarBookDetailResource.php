@@ -53,6 +53,7 @@ class AqarBookDetailResource extends JsonResource
             "created_at" => $this->created_at ?? '',
             "investor_name"=> $this->aqar->user->firstname ." ".$this->aqar->user->lastname,
             "investor_phone"=>$this->aqar->user->country_code.$this->aqar->user->phone,
+            "cancel_byme" => $this->cancel_user_id ==Auth::id()?true:false,
             "data"   =>new AqarDetailOnlyResource($this->aqar),
             
         ];

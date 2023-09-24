@@ -45,6 +45,7 @@ class AqarBookListResource extends JsonResource
             "status" => $this->bookingStatus()->select($status)->get()[0]->$status ?? '',   
             "image" => asset('images/aqars') . "/" . $this->aqar()->select('main_image')->get()[0]->main_image ??'',
             "changed_price" => json_decode($this->changed_price) ?? NULL,
+            "cancel_byme" => $this->cancel_user_id ==Auth::id()?true:false,
             "created_at" => $this->created_at ?? ''
 
         ];
