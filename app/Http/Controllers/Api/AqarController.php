@@ -57,7 +57,7 @@ class AqarController extends Controller
 
                 $book=CarBooking::find($request->book_id);
 
-                $book->update(['booking_status_id'=>4,'cancle_reason'=>$request->cancle_reason]);
+                $book->update(['booking_status_id'=>4,'cancle_reason'=>$request->cancle_reason,'cancel_user_id'=>Auth::id()]);
             }
                 return $this->respondSuccess($book, trans('message.message sent successfully.'));
 

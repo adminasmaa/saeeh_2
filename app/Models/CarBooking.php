@@ -45,7 +45,8 @@ class CarBooking extends Model
         'date', // unsigned
         'total', // unsigned
         'book_status',
-        'total_price'
+        'total_price',
+        'cancel_user_id'
 
     ];
     // scope

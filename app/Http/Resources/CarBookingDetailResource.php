@@ -54,6 +54,7 @@ class CarBookingDetailResource extends JsonResource
             'cancel_reason' => $this->cancle_reason ?? '',
             "investor_name"=> $this->car->user->firstname ." ".$this->car->user->lastname,
             "investor_phone"=>$this->car->user->country_code.$this->car->user->phone,
+            "cancel_byme" => $this->cancel_user_id ==Auth::id()?true:false,
             "data"=>new CarDetailOnlyResource($this->car),
            
 
