@@ -597,6 +597,36 @@ class AqarController extends Controller
         }
     }
 
+    public function aqar_filter(Request $request)
+    {
+        $rule = [
+            
+        ];
+        $customMessages = [
+            'required' => __('validation.attributes.required'),
+        ];
+
+        $validator = validator()->make($request->all(), $rule, $customMessages);
+
+        if ($validator->fails()) {
+
+            return $this->respondErrorArray('Validation Error.', $validator->errors(), 400);
+
+        } else {
+
+        $aqar = Aqar::query()->with('aqarComment');
+     
+        if ( isset($request->name) && trim($request->name !== '') ) {
+            $aqar->where('name_ar', 'LIKE', trim($request->name) . '%');
+        }
+        
+
+        
+        return $aqar->paginate(10);
+        }
+    }
+    
+
 
 
 
