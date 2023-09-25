@@ -19,7 +19,8 @@
                                             <div
                                                 class="notification d-flex justify-content-center align-items-center position-relative">
                                                 <span class="notification-icon">
-                                                    <i class="far fa-bell"></i>
+                                                          <i class="far fa-bell"></i>
+
                                                 </span>
                                                 <div
                                                     class="cart-count d-flex justify-content-center align-items-center">
@@ -28,6 +29,20 @@
                                             </div>
                                         </a>
                                     </li>
+
+                                    @if(!empty(auth()->user()))
+                                    <li class="ms-5">
+                                        <a class="nav-link" href="javascript:void(0)">
+                                            <div
+                                                class="notification-profile d-flex justify-content-center align-items-center position-relative">
+                                                <span class="notification-icon">
+                                                <i class="far fa-user"></i>
+                                                </span>
+
+                                            </div>
+                                        </a>
+                                    </li>
+                                    @endif
                                     <li class="btn-saeeh btn-space">
                                         <a href="{{route('registers')}}"
                                            class="d-flex justify-content-center align-items-center w-100 h-100">
@@ -41,7 +56,6 @@
                                         </a>
                                         </a>
                                     </li>
-
 
 
                                 </ul>
@@ -88,6 +102,52 @@
                                     </ul>
 
                                 </div>
+
+                                @if(!empty(auth()->user()))
+
+                                    <div class="box-notifications box-notifications-profile  bg-white"
+                                         id="box-notifications-profile">
+                                        <div class="d-flex justify-content-start align-items-center close-notify">
+                                            <i class="fas fa-times close-btn-notify-profile cursor "></i>
+                                        </div>
+
+                                        <ul class="notifications-list px-0">
+
+                                            <li class="p-3">
+                                                <a href="{{route('updateprofile',auth()->user()->id)}}">
+
+
+                                                    @lang('site.profiles')
+
+
+                                                </a>
+                                            </li>
+
+                                            <li class="p-3">
+                                                <a href="{{route('myfavouriteAll')}}">
+
+
+                                                    @lang('site.favourite')
+
+
+                                                </a>
+                                            </li>
+                                            <li class="p-3">
+                                                <a href="{{route('mybookingAll')}}">
+                                                    @lang('site.My bookings')
+                                                </a>
+                                            </li>
+                                            <li class="p-3 ">
+                                                <a href="{{route('logout')}}">
+                                                    @lang('site.logout')
+                                                </a>
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+                                @endif
+
                             </div>
                         </nav>
                     </div>
@@ -380,7 +440,7 @@
                                 <h2 class="fw-bold login-title mb-5"> @lang('site.Report any problem')</h2>
 
                                 <div class="emailcont">
-                                <ul class="register_errors"></ul>
+                                    <ul class="register_errors"></ul>
                                 </div>
                                 <div class="emailcont">
                                     <label for="frm-input1" class="pb-2">@lang('site.name')</label>
@@ -413,7 +473,7 @@
                                 </div>
 
                                 <button type="submit" class="mt-4 btn-login formregisters"
-                                      > @lang('site.send')</button>
+                                > @lang('site.send')</button>
 
                             </div>
                         </div>

@@ -171,6 +171,6 @@ class User extends Authenticatable
 
     public function favourite_place(){
 
-        return $this->belongsToMany(Place::class, 'user_palace', 'user_id', 'place_id');
+        return $this->belongsToMany(Place::class, 'user_palace', 'user_id', 'palace_id');
     }
 }
