@@ -43,17 +43,6 @@ class Aqar extends Model
         'comision', // required
         'ads_id', //unsigned
         'area_id',//nullable
-        'floor_id',//nullable
-        'car_position_id',//nullable
-        'service_id',//nullable
-        'bathroom_id',//nullable
-        'free_service_id',//nullable
-        'laundry_id',//nullable
-        'kitchen_id',//nullable
-        'crew_id',//nullable
-        'conditioning_type_id',//nullable
-        'another_room_id',//nullable
-        'floor_number_id',//nullable
         'category_id', //unsigned
         'user_id', //unsigned
         'masterroom',//nullable
@@ -66,6 +55,7 @@ class Aqar extends Model
         'details',//nullable
         'map_link',//nullable
         'active', // default (0)
+        'total_rooms', // default (0)
         'policy_place',
         'country_id',
         'ads_status_id',
