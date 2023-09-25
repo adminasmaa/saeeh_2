@@ -209,7 +209,9 @@
                                                     >
 
                                                         {!! html_entity_decode($place->descrption) !!}
-                                                    </span> <span
+                                                    </span>
+
+                                                    <span
                                                     >{{$place->country->name ?? ''}}</span> <span
                                                     >{{$place->city->name ?? ''}}</span>
                                                 </div>

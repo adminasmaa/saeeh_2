@@ -17,6 +17,62 @@ use Validator;
 class AuthController extends Controller
 {
 
+
+    public function logout()
+    {
+
+
+        Auth::logout();
+
+        return redirect(route('Home'));
+    }
+
+    public function updateprofile(Request $request, $id)
+    {
+
+        $user = User::find($id);
+
+        return view('frontend.profile', compact('user'));
+
+    }
+
+    public function updateprofileData(Request $request, $id)
+    {
+
+        $validation = Validator::make($request->all(), [
+            'email' => ['required', Rule::unique('users')->ignore($id),],
+            'phone' => ['required', Rule::unique('users')->ignore($id),],
+            'password' => 'nullable|confirmed',
+            'name' => 'required',
+        ]);
+
+        if ($validation->fails()) {
+            return response()->json(['errors' => $validation->errors()], 422);
+        }
+
+        $request_data = $request->except(['password', 'password_confirmation', '_token']);
+
+        $request_data['active'] = 1;
+        $request_data['account_type'] = 'User';
+        if (!empty($request->password)) {
+
+            $request_data['password'] = bcrypt($request->password);
+
+        }
+        $request_data['username'] = $request->name;
+        $request_data['firstname'] = $request->name;
+
+        $user = User::find($id);
+        $user->update($request_data);
+
+
+        return response()->json(['status' => true, 'content' => 'success', 'data' => $user]);
+
+        return view('frontend.profile');
+
+    }
+
+
     public function login()
     {
 

@@ -3,6 +3,8 @@
 return [
     'Aqar Booking' => 'حجز عقار',
     'Car Booking' => 'حجز سيارة',
+    'profiles'=>'حسابي',
+    'favourite'=>'مفضلتي',
     'contactmessage' => 'يمكنك التواصل معنا من خلال الارقام الاتيه',
     'home' => 'الرئيسية',
     'Tell us your evaluation of the Aquar'=>'اخبرنا بتقيمك عن العقار',

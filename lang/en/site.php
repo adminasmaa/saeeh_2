@@ -3,6 +3,8 @@
 return [
     'settingss' => ' Settings',
     'services' => 'Services',
+    'profiles'=>'Profile',
+    'favourite'=>'my favourite',
     ';Tell us your evaluation of the Aquar'=>'Tell us your evaluation of the Aquar',
     'Write your entire experience'=>'Write your entire experience',
     'Restaurant menu link'=>'Restaurant menu link',
