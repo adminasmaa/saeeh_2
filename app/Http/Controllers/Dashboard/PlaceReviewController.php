@@ -14,8 +14,7 @@ use Illuminate\Validation\Rule;
 class PlaceReviewController extends Controller
 {
 
-
-    private PlaceReviewRepositoryInterface $placeReviewRepository;
+    protected $placeReviewRepository;
 
     public function __construct(PlaceReviewRepositoryInterface $placeReviewRepository)
     {
