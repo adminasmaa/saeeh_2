@@ -23,7 +23,7 @@ use Response;
 use Validator;
 
 use App\Http\Controllers\Controller;
-
+use DB;
 
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -193,15 +193,6 @@ class AquarController extends Controller
 
         $roomsnumbers = Aqar::with('aqarSection')->get();
 
-//        foreach ($roomsnumbers as $rooms) {
-//
-//            foreach ($rooms->aqarSection as $section) {
-//
-//                return $section->subsection->sum('name_ar');
-////                $section->subsection->sum('name_ar')
-//
-//            }
-//        }
 
         $allaquars = Aqar::where('category_id', '=', Session::get('category_id'))->with('aqarSection')->get();
         $minprice = Aqar::whereNotNull('fixed_price')->min("fixed_price");
@@ -230,27 +221,22 @@ class AquarController extends Controller
         $maxprice = Aqar::whereNotNull('fixed_price')->max("fixed_price");
 
 
-//        $roomss = [];
-//        foreach ($roomsnumbers as $rooms) {
-//
-//            foreach ($rooms->aqarSection as $section) {
-//                $integerIDs = array_map('intval', $section->subsection->toarray());
-//
-//
-//                array_push($integerIDs,$roomss);
-////                array_push($rooms,$integerIDs);
-//
-////                $section->subsection->sum('name_ar')
-//
-//            }
-//        }
+        $roomnumbers = DB::select("SELECT   DISTINCT sum(aqar_details.name_ar) as total
+        FROM `aqars`
+        INNER JOIN aqar_sections on aqars.id=aqar_sections.aqar_id
+        INNER JOIN aqar_details on aqar_details.id=aqar_sections.sub_section_id
+        WHERE aqars.category_id=$id and aqar_sections.section_id=6 or aqar_sections.section_id=18 group by aqars.id  ORDER BY sum(aqar_details.name_ar);");
+
+    
+
+
 
         $countries = Country::where('active', '=', 1)->get();
         $category = Category::find($id);
         $cities = City::where('active', '=', 1)->get();
         $CategoriesAquar = Category::where('parent_id', '=', 1)->where('type', '=', 1)->get();
 //        $carsfilters = Car::get();
-        return view('frontend.aquars', compact('roomsnumbers', 'minprice', 'maxprice', 'allaquars', 'countries', 'cities', 'aquars', 'CategoriesAquar', 'category'));
+        return view('frontend.aquars', compact('roomnumbers', 'minprice', 'maxprice', 'allaquars', 'countries', 'cities', 'aquars', 'CategoriesAquar', 'category'));
 
     }
 

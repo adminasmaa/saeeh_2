@@ -89,6 +89,8 @@ Route::get('amira1', 'App\Http\Controllers\Frontend\HomeController@amira1')->nam
 
 
 });
+
+
 Route::post('addContacts', 'App\Http\Controllers\Frontend\ContactController@addContacts')->name('addContacts');
 define('MAINASSETS', URL::asset('public/assets'));
 define('FRONTASSETS', URL::asset('public/frontend/assets'));

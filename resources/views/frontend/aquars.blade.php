@@ -1104,7 +1104,7 @@
                                     <div class="box-search mb-lg-0 mb-md-0 mb-3">
                                         <select
                                             class="select2"
-                                            id="list6"
+                                            id="list2"
                                             name="category_id"
                                         >
                                             <option value="">@lang('site.categories')</option>
@@ -1116,14 +1116,15 @@
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="box-search mb-lg-0 mb-md-0 mb-3">
-                                        <select class="ddl-select" id="list4" name="number_rooms">
+
+
+                                        <select
+                                            class="select2"
+                                            id="list4"
+                                            name="number_rooms"
+                                        >
                                             <option>@lang('site.room number')</option>
-                                            {{--                                            @foreach($roomsnumbers as $rooms)--}}
-                                            {{--                                                @foreach($rooms->aqarSection as $section)--}}
-                                            {{--                                                <option value="1">{{$section->subsection->sum('name_ar')}}</option>--}}
-                                            <option value="1">1</option>
-                                            {{--                                                @endforeach--}}
-                                            {{--                                            @endforeach--}}
+
                                         </select>
                                     </div>
                                 </div>
@@ -1279,12 +1280,14 @@
                                         <div class="row align-items-center">
                                             <div class="custom-checkbox">
                                                 <form>
+                                                    @foreach($roomnumbers as $key=>$room)
                                                     <div class="form-group">
-                                                        <input type="checkbox" id="two"
-                                                               name="room_number"
+                                                        <input type="checkbox" id="{{$key}}"
+                                                               name="room_number[]"
                                                                onclick="GetAtrribute(this.id,this.name)"/>
-                                                        <label for="two">2</label>
+                                                        <label for="{{$key}}">{{$room->total}}</label>
                                                     </div>
+                                                    @endforeach
                                                     {{--                                                    <div class="form-group">--}}
                                                     {{--                                                        <input type="checkbox" id="three"/>--}}
                                                     {{--                                                        <label for="three">3</label>--}}
