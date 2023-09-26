@@ -48,6 +48,22 @@ class Controller extends BaseController
         return response()->json($response, $code);
     }
 
+    public function respondSuccessPaginate1($result, $message, $code = 200)
+    {
+        $result=$result->toArray();
+        $response = [
+            'code' => $code,
+            'status' => true,
+            'message' => $message,
+            'data' =>$result['data'],
+            'pagination'=>$result['pagination'],
+            'errorData' => null,
+        ];
+
+
+        return response()->json($response, $code);
+    }
+
 
     /**
      * @param $message

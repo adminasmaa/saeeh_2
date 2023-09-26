@@ -61,6 +61,8 @@ class Aqar extends Model
         'ads_status_id',
         'city_id',
     ];
+   
+    protected $appends = ["avgRating"];  
 
     // relations
     public function user()
@@ -106,6 +108,27 @@ class Aqar extends Model
     {
         return $this->HasMany(AqarComment::class);
     }
+
+
+    public function averageRating(){
+        $results= $this->aqarComment()
+        ->selectRaw('round(avg(rating)) as avgRating, aqar_id')
+        ->groupBy('aqar_id');
+
+        return $results;
+    }
+
+    public function getAvgRatingAttribute()
+    {
+        if ( ! array_key_exists('averageRating', $this->relations)) {
+        $this->load('averageRating');
+        }
+
+        $relation = $this->getRelation('averageRating')->first();
+
+        return ($relation) ? round($relation->avgRating ) : null;
+    }
+
 
     public function aqarComments()
     {

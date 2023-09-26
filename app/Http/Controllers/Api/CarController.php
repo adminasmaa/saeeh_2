@@ -64,7 +64,7 @@ class CarController extends Controller
                 $data['price'] = array($changedprice);
                 $changed_price=json_encode($data)!=null?json_encode($data, JSON_NUMERIC_CHECK):null;
 
-                if($request->total_price != round($request->day_count * $changedprice ,2)){
+                if($request->total_price != round($changedprice ,2)){
                     return $this->respondwarning(json_decode('{}'), trans('message.price changed'), ['error' => trans('message.price changed')], 402);
                 }
                

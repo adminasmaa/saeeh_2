@@ -23,6 +23,12 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
+
+
+
 
 
 class AqarController extends Controller
@@ -596,6 +602,79 @@ class AqarController extends Controller
 
         }
     }
+
+    public function aqar_filter(Request $request)
+    {
+        $rule = [
+            'name' => 'nullable',
+            'roomnubers'=>'nullable',
+            'rate' => 'nullable',
+            'price_asc'=>'nullable',
+            'price_desc' => 'nullable',
+            'rate_asc'=>'nullable',
+            'rate_desc'=>'nullable',
+
+        ];
+        $customMessages = [
+            'required' => __('validation.attributes.required'),
+        ];
+
+        $validator = validator()->make($request->all(), $rule, $customMessages);
+
+        if ($validator->fails()) {
+
+            return $this->respondErrorArray('Validation Error.', $validator->errors(), 400);
+
+        } else {
+
+        $aqar = Aqar::query();
+        $rate=$request->rate;
+        if ( isset($request->name) && trim($request->name !== '') ) {
+            $aqar->where('name_ar', 'LIKE', '%'.trim($request->name) . '%');
+        } 
+        if ( isset($request->roomnubers) && trim($request->roomnubers !== '') ) {
+            $aqar->where('total_rooms', '=', trim($request->roomnubers));
+        }
+        if ( isset($request->price_asc) && trim($request->price_asc !== '') ) {
+            $aqar->orderBy('fixed_price', 'asc');
+        }
+        if ( isset($request->price_desc) && trim($request->price_desc !== '') ) {
+            $aqar->orderBy('fixed_price', 'desc');
+        }
+        if ( isset($request->rate) && trim($request->rate !== '') ) {
+            $filtered= $aqar->get()->filter(function($item) use ($rate) {
+                return ($item->avgRating == $rate); 
+            })->values()->all();
+            
+            //arsort($filtered);
+        }else{
+            $filtered= $aqar->get(); 
+        }
+
+        if ($filtered) {
+
+            $aquar = $this->paginate($filtered);
+
+
+            return $this->respondSuccessPaginate1($aquar, trans('message.data retrieved successfully.'));
+
+
+        } else {
+            return $this->respondErrorArray(__('message.Data not found.'), ['error' => __('message.Data not found.')], 200);
+
+        }
+       
+        
+        }
+    }
+
+    public function paginate($items, $perPage = 10, $page = null, $options = [])
+    {
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $items = $items instanceof Collection ? $items : Collection::make($items);
+        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
+    }
+    
 
 
 
