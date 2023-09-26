@@ -13,7 +13,6 @@ Route::post('/resetpassword', 'App\Http\Controllers\Api\AuthController@resetpass
 Route::get('/countries', 'App\Http\Controllers\Api\CountryController@countries');
 
 
-
 Route::group(['middleware' => 'auth:api'], function () {
 
 
