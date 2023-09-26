@@ -79,6 +79,8 @@
                                             dir="ltr"
                                         >
                                             <div class="resro-image">
+
+                                                @if(!empty(auth()->user()))
                                                               <span
                                                                   class="department-like">
 
@@ -88,6 +90,14 @@
 
 
                                                                 </span>
+                                                @else
+
+                                                    <span
+                                                        class="department-like">
+
+<a class="favouritess" id="favouritess{{$place->id}}" data-id="{{$place->id}}"><i
+        class="far fa-heart "></i></a>
+                                                @endif
 
                                                 {{--                                                        <button class="add-to-wishlist">--}}
                                                 {{--                                                            <svg--}}
@@ -117,6 +127,7 @@
                                                 @foreach(explode(',',$place->images) as $image)
 
                                                     <div class="resro-image">
+                                                        @if(!empty(auth()->user()))
                                                              <span
                                                                  class="department-like">
 
@@ -126,7 +137,7 @@
 
 
                                                                 </span>
-
+                                                        @endif
                                                         <img
                                                             loading="lazy"
 
@@ -141,6 +152,7 @@
                                             @else
 
                                                 <div class="resro-image">
+                                                    @if(!empty(auth()->user()))
                                                                <span
                                                                    class="department-like">
 
@@ -150,6 +162,7 @@
 
 
                                                                 </span>
+                                                    @endif
 
                                                     <img
                                                         loading="lazy"

@@ -2230,12 +2230,28 @@
                                                 @if(!empty($aquar->images))
                                                     @foreach(explode(',',$aquar->images) as $img)
                                                         <div>
-                                                            <span class="department-like">
-{{--                                                       <i class="far fa-heart"></i>--}}
+
+
+                                                            @if(!empty(auth()->user()))
+                                                                <span class="department-like">
+
 <a class="favouritess" id="favouritess{{$aquar->id}}" data-id="{{$aquar->id}}"><i
         class=" @if(count(\App\Models\AquarUser::where('aqar_id', '=',$aquar->id)->where('user_id', '=', auth()->user()->id)->get()) > 0) fas @else far @endif far fa-heart "></i></a>
 
                                                                 </span>
+
+                                                            @else
+
+
+                                                                <span class="department-like">
+
+<a class="favouritess" id="favouritess{{$aquar->id}}" data-id="{{$aquar->id}}"><i
+        class="far far fa-heart "></i></a>
+
+                                                                </span>
+
+                                                            @endif
+
                                                             {{--                                                            <i class="fa-regular fa-heart"></i>--}}
                                                             {{--                                                            <i class="fa-light fa-heart"></i>--}}
                                                             {{--                                                            <button type="button" class="department-like">--}}
@@ -2267,12 +2283,15 @@
                                                 @else
 
                                                     <div>
+                                                        @if(!empty(auth()->user()))
                                                                 <span class="department-like">
-{{--                                                       <i class="far fa-heart"></i>--}}
-<a class="favouritess" id="favouritess{{$aquar->id}}" data-id="{{$aquar->id}}"><i
+
+
+                                                                    <a class="favouritess" id="favouritess{{$aquar->id}}" data-id="{{$aquar->id}}"><i
         class=" @if(count(\App\Models\AquarUser::where('aqar_id', '=',$aquar->id)->where('user_id', '=', auth()->user()->id)->get()) > 0) fas @else far @endif far fa-heart "></i></a>
 
                                                                 </span>
+                                                        @endif
                                                         {{--                                                        <button type="button" class="department-like">--}}
                                                         {{--                                                            <svg--}}
                                                         {{--                                                                xmlns="http://www.w3.org/2000/svg"--}}
@@ -2296,11 +2315,13 @@
                                                     </div>
                                                     <div>
                                                           <span class="department-like">
-{{--                                                       <i class="far fa-heart"></i>--}}
+   @if(!empty(auth()->user()))
 <a class="favouritess" id="favouritess{{$aquar->id}}" data-id="{{$aquar->id}}"><i
         class=" @if(count(\App\Models\AquarUser::where('aqar_id', '=',$aquar->id)->where('user_id', '=', auth()->user()->id)->get()) > 0) fas @else far @endif far fa-heart "></i></a>
 
                                                                 </span>
+
+                                                        @endif
                                                         {{--                                                        <button type="button" class="department-like">--}}
                                                         {{--                                                            <svg--}}
                                                         {{--                                                                xmlns="http://www.w3.org/2000/svg"--}}

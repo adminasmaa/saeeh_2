@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('user_palace', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->nullable( )->references('id')->on('users')->onDelete('cascade');
-            $table->integer('place_id')->nullable( )->references('id')->on('places')->onDelete('cascade');
+            $table->integer('palace_id')->nullable( )->references('id')->on('places')->onDelete('cascade');
             $table->timestamps();
         });
 

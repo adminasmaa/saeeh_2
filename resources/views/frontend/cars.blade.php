@@ -1264,12 +1264,23 @@
                                                                 @if(!empty($car->images))
                                                                 @foreach(explode(',',$car->images)  as $img)
                                                                     <div class="city-item">
+                                                                        @if(!empty(auth()->user()))
 
                                                                                              <span class="department-like">
 
 <a class="favouritess" id="favouritess{{$car->id}}" data-id="{{$car->id}}"><i class=" @if(count(\App\Models\CarUser::where('car_id', '=',$car->id)->where('user_id', '=', auth()->user()->id)->get()) > 0) fas @else far @endif far fa-heart "></i></a>
 
                                                                 </span>
+                                                                        @else
+
+
+                                                                            <span class="department-like">
+
+<a class="favouritess" id="favouritess{{$car->id}}" data-id="{{$car->id}}"><i class="far far fa-heart "></i></a>
+
+                                                                </span>
+
+                                                                        @endif
 
 
 
