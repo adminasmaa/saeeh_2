@@ -80,6 +80,13 @@
                                         >
                                     </div>
 
+                                    <div class="col-md-6 form-group">
+                                        <label>@lang('site.currency_ar')</label>
+                                        <input type="text" name="currency_ar" class="form-control"
+                                               value="{{old('currency_ar')}}"
+                                        >
+                                    </div>
+
                                         <div class="row">
 
                                             <div class="col-md-6 form-group">
