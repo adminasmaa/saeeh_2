@@ -64,14 +64,14 @@ return [
     'Restaurant menu link'=>'رابط منيو المطعم',
     'communication' => "اتصال",
     'If you have an inquiry' => 'إذا كان لديك استفسار',
-
+    'currency_ar' => 'العملة باللغة العربية',
     'Modify your selection' => 'تعديل اختياراك',
     'excellent' => 'ممتاز',
     'Rate now' => 'قيم الآن',
     'Superb and easy to access' => 'أكثر من رائع وسهل الوصول ليه',
     'Receipt and delivery procedures' => 'اجراءات الاستلام والتسليم',
     'Based on reviews from all kinds of travelers' => 'بناء على تقييمات من ‪كل أنواع المسافرين‬',
-
+    'delivery_hour' => 'ساعة الوصول',
     'conditions' => 'الشروط والاحكام',
     'book' => 'احجز الان',
     'You may be able to save' => 'قد تتمكن من توفير ',

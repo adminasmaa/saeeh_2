@@ -74,6 +74,11 @@
                                            required>
                                 </div>
 
+                                <div class="col-md-6 form-group col-12 p-2">
+                                    <label>@lang('site.country_code')</label>
+                                    <input type="text" name="country_code" class="form-control" value="{{ $problem->country_code }}"
+                                           required>
+                                </div>
 
                             </div>
                             <div class="row">

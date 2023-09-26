@@ -43,7 +43,7 @@ class ContactUsController extends Controller
             'name' => 'required',
             'phone' => 'required|min:9',
             'message' => 'required',
-
+            'country_code' => 'required',
 
         ];
         $customMessages = [

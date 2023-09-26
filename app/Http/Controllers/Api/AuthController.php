@@ -180,6 +180,8 @@ class AuthController extends Controller
                     $user1 = $guest->update($input);
                     $user = User::find($guest->id);
 
+                }else{
+                    $user = User::create($input);
                 }
             } else {
                 $user = User::create($input);
