@@ -51,6 +51,8 @@ return [
 
     'admin_message' => 'AdminMessage',
     'investor_message' => 'InvestorMessage',
+    'currency_ar' => 'CurrencyAr',
+    'delivery_hour' => 'Delivery Hour',
 
     'another_rooms' => 'AnotherRooms',
     'conditioning_types' => 'Conditioning Types',
