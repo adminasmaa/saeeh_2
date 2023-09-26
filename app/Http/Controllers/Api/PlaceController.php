@@ -26,12 +26,12 @@ class PlaceController extends Controller
 
 
         $request_data=$request->all();
-        $request_data['palace_id']=$request->place_id;
+
 
         $users = User::find($user_id);
 
 
-        $user = $users->favourite_place()->toggle($request_data->palace_id);
+        $user = $users->favourite_place()->toggle($request_data->place_id);
 
         $status = ($user['attached'] !== []) ? 'favourite' : 'unfavourite';
 

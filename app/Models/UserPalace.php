@@ -9,6 +9,6 @@ class UserPalace extends Model
 {
     use HasFactory;
 
-    protected $table = 'user_palace';
+    protected $table = 'user_place';
     protected $guarded = [];
 }
