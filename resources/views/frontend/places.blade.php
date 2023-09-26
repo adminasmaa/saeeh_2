@@ -85,7 +85,7 @@
                                                         class="department-like">
 
 <a class="favouritess" id="favouritess{{$place->id}}" data-id="{{$place->id}}"><i
-        class=" @if(count(\App\Models\UserPlace::where('palace_id', '=',$place->id)->where('user_id', '=', auth()->user()->id)->get()) > 0) fas @else far @endif  fa-heart "></i></a>
+        class=" @if(count(\App\Models\UserPlace::where('place_id', '=',$place->id)->where('user_id', '=', auth()->user()->id)->get()) > 0) fas @else far @endif  fa-heart "></i></a>
 
 
 
@@ -132,7 +132,7 @@
                                                                 class="department-like">
 
 <a class="favouritess" id="favouritess{{$place->id}}" data-id="{{$place->id}}"><i
-        class=" @if(count(\App\Models\UserPlace::where('palace_id', '=',$place->id)->where('user_id', '=', auth()->user()->id)->get()) > 0) fas @else far @endif  fa-heart "></i></a>
+        class=" @if(count(\App\Models\UserPlace::where('place_id', '=',$place->id)->where('user_id', '=', auth()->user()->id)->get()) > 0) fas @else far @endif  fa-heart "></i></a>
 
 
 
@@ -157,7 +157,7 @@
                                                             class="department-like">
 
 <a class="favouritess" id="favouritess{{$place->id}}" data-id="{{$place->id}}"><i
-        class=" @if(count(\App\Models\UserPlace::where('palace_id', '=',$place->id)->where('user_id', '=', auth()->user()->id)->get()) > 0) fas @else far @endif  fa-heart "></i></a>
+        class=" @if(count(\App\Models\UserPlace::where('place_id', '=',$place->id)->where('user_id', '=', auth()->user()->id)->get()) > 0) fas @else far @endif  fa-heart "></i></a>
 
 
 
