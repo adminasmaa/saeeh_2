@@ -54,7 +54,7 @@ class PlaceDetailResource extends JsonResource
 
             "count_review" => $this->PlaceReview->count() ?? 0,
             "count_comment" => $this->placeComments->count() ?? 0,
-            'total' => $this->PlaceReview->count() + $this->placeComments->count(),
+            'total' => $this->PlaceReview->count()?? 0 ,
 
             "reviews" => PlaceReviewResource::collection($this->PlaceReview()->limit(1)->get()) ?? NULL,
 
