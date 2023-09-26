@@ -48,7 +48,8 @@ class CarDetailResource extends JsonResource
             "favorite" => (count(CarUser::where('car_id','=',$this->id)->where('user_id','=',Auth::id())->get())>0 ? true : false),
             "count_comment"=>$this->carComment->count() ?? 0,
             "count_review"=>$this->CarReview->count() ?? 0,
-            'total' => $this->carComment->count() + $this->CarReview->count(),
+            // 'total' => $this->carComment->count() + $this->CarReview->count(),
+            'total' => $this->CarReview->count()?? 0,
 
             "comments" => CommentCarResource::collection($this->carComments),
 //            "rate" => round($this->carComment->avg('rating')) ?? 0,
