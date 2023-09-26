@@ -25,13 +25,13 @@ class PlaceController extends Controller
         $user_id = Auth::id();
 
 
-        $request_data=$request->all();
+
 
 
         $users = User::find($user_id);
 
 
-        $user = $users->favourite_place()->toggle($request_data->place_id);
+        $user = $users->favourite_place()->toggle($request->place_id);
 
         $status = ($user['attached'] !== []) ? 'favourite' : 'unfavourite';
 
