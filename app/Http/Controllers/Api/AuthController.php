@@ -228,7 +228,7 @@ class AuthController extends Controller
                     foreach ($guests as $guest) {
                         DB::table('aqar_user')->where('user_id', $guest->id)->update(['user_id' => $user->id]);
                         DB::table('car_user')->where('user_id', $guest->id)->update(['user_id' => $user->id]);
-                        DB::table('user_palace')->where('user_id', $guest->id)->update(['user_id' => $user->id]);
+                        DB::table('user_place')->where('user_id', $guest->id)->update(['user_id' => $user->id]);
                         User::where('id', $guest->id)->delete();
 
                     }
