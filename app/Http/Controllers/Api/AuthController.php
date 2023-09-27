@@ -11,6 +11,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Validator;
+use Illuminate\Validation\Rule; //import Rule class 
 use DB;
 class AuthController extends Controller
 {
@@ -38,8 +39,11 @@ class AuthController extends Controller
 
     public function updateProfile(Request $request)
     {
+        $user = Auth::user();
+
         $rule = [
-            'email' => 'max:254|unique:users|email|nullable',
+            // 'email' => 'max:254|unique:email|nullable',
+            'email' => ['max:254|nullable',Rule::unique('users')->ignore($user->id)],
             'firstname' => 'nullable',
             'lastname' => 'nullable',
             'password' => 'nullable|min:6',
@@ -53,6 +57,12 @@ class AuthController extends Controller
         ];
 
         $validator = validator()->make($request->all(), $rule, $customMessages);
+
+        if(empty($request->all())){
+
+        return $this->respondError(trans('message.Data not changed'), ['error' => trans('message.Data not changed')], 403);
+
+        }
 
         if ($validator->fails()) {
 

@@ -7,6 +7,7 @@ use App\Models\AqarBooking;
 use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Resources\CountryResource;
 
 class AqarBookListResource extends JsonResource
 {
@@ -25,11 +26,12 @@ class AqarBookListResource extends JsonResource
         if ($lang == 'en') {
             $name = 'name_en';
             $status ='status_en';
-
+            $currency ='currency';
 
         } else {
             $name = 'name_ar';
             $status ='status_ar';
+            $currency ='currency_ar';
 
 
         }
@@ -42,6 +44,7 @@ class AqarBookListResource extends JsonResource
             "fixed_price" => $this->fixed_price ?? 0,
             "Reservation_deposit" => $this->fixed_price ?? $this->total_price/$this->day_count,
             'total' => $this->total_price,
+            // "currency" => $this->country()->select($currency)->get()[0]->$currency ?? '',
             "status" => $this->bookingStatus()->select($status)->get()[0]->$status ?? '',   
             "image" => asset('images/aqars') . "/" . $this->aqar()->select('main_image')->get()[0]->main_image ??'',
             "changed_price" => json_decode($this->changed_price) ?? NULL,
