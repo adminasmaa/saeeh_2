@@ -43,7 +43,8 @@ class AuthController extends Controller
 
         $rule = [
             // 'email' => 'max:254|unique:email|nullable',
-            'email' => ['max:254|nullable',Rule::unique('users')->ignore($user->id)],
+            // 'email' => ['max:254|nullable',Rule::unique('users')->ignore($user->id)],
+            'email' => "nullable|email|max:254|unique:users,email,".$user->id.",id",  
             'firstname' => 'nullable',
             'lastname' => 'nullable',
             'password' => 'nullable|min:6',
