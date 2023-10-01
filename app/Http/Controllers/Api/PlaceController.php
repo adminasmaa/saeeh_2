@@ -43,7 +43,7 @@ class PlaceController extends Controller
     public function CustomerReviews(Request $request)
     {
 
-        $comments=PlaceComment::where('place_id',$request->place_id)->get();
+        $comments=PlaceComment::where('place_id',$request->place_id)->orderBy('rating', 'ASC')->get();
 
 
 
