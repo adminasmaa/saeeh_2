@@ -35,6 +35,8 @@ class Setting extends Model
         'availability_time_to',
         'phone_one',
         'phone_two',
+        'ios_version',
+        'android_version',
         'activate'
 
     ];
