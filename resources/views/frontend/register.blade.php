@@ -227,7 +227,7 @@
 
                         swal({
                             title: "Success!",
-                            text: "The Data has been successfully Added!",
+                            text: "The user has been successfully Added!",
                             type: "success",
                             confirmButtonText: "OK"
                         });

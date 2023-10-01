@@ -143,7 +143,7 @@
                     else if (result.content == 'error') {
                         swal({
                             title: "Error!",
-                            text: "Data The entry was approved by an error. Please enter the data correctly !",
+                            text: "password or phone incorrect!",
                             type: "warning",
                             confirmButtonText: "OK"
                         });
