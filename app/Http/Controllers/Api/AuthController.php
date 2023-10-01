@@ -79,8 +79,10 @@ class AuthController extends Controller
             $user->phone = isset($request->phone) ? $request->phone : $user->phone;
             $user->country_code = isset($request->country_code) ? $request->country_code : $user->country_code;
             $user->password = Hash::make($request['password']) ?? '';
+            $user->active = 0;
 
         if(!empty($request->phone)){
+
             $input = $request->all();
             $set = '123456789';
             $code = substr(str_shuffle($set), 0, 4);
@@ -88,6 +90,7 @@ class AuthController extends Controller
             $msg = trans('message.please verified your account') . "\n";
             $msg = $msg . trans('message.code activation') . "\n" . $code;
             send_sms_code($msg, $input['phone'], $input['country_code']);
+            $user->code = $code;
         }
             $user->save();
             $success['token'] = $user->createToken('MyApp')->accessToken;
