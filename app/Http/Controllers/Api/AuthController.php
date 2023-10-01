@@ -49,8 +49,8 @@ class AuthController extends Controller
             'lastname' => 'nullable',
             'password' => 'nullable|min:6',
             'c_password' => 'nullable|same:password',
-            'country_code' => 'required_with:phone',
-            'phone' => 'required_with:country_code|min:9|unique:users',
+            // 'country_code' => 'required_with:phone',
+            // 'phone' => 'required_with:country_code|min:9|unique:users',
         ];
 
         $customMessages = [
@@ -77,21 +77,8 @@ class AuthController extends Controller
             $user->lastname = isset($request->lastname) ? $request->lastname : $user->lastname;
             $user->email = isset($request->email) ? $request->email : $user->email;
             // $user->phone = isset($request->phone) ? $request->phone : $user->phone;
-            $user->country_code = isset($request->country_code) ? $request->country_code : $user->country_code;
             $user->password = Hash::make($request['password']) ?? '';
             // $user->active = 0;
-
-        if(!empty($request->phone)){
-
-            $input = $request->all();
-            $set = '123456789';
-            $code = substr(str_shuffle($set), 0, 4);
-            $input['code'] = $code;
-            $msg = trans('message.please verified your account') . "\n";
-            $msg = $msg . trans('message.code activation') . "\n" . $code;
-            send_sms_code($msg, $input['phone'], $input['country_code']);
-            $user->code = $code;
-        }
             $user->save();
             $success['token'] = $user->createToken('MyApp')->accessToken;
             $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname','code']);
@@ -104,6 +91,42 @@ class AuthController extends Controller
 
     }
     public function changephone(Request $request)
+    {
+        $rule = [
+            'country_code' => 'required_with:phone',
+            'phone' => 'required_with:country_code|min:9|unique:users',
+
+        ];
+        $customMessages = [
+            'required' => __('validation.attributes.required'),
+        ];
+
+        $validator = validator()->make($request->all(), $rule, $customMessages);
+
+        if ($validator->fails()) {
+
+            return $this->respondError('Validation Error.', $validator->errors(), 400);
+
+        } else {
+           
+            $user = User::findorfail(Auth::id());
+
+            // $code = $request->code;
+            $set = '123456789';
+            $code = substr(str_shuffle($set), 0, 4);
+            $msg = trans('message.please verified your account') . "\n";
+            $msg = $msg . trans('message.code activation') . "\n" . $code;
+            send_sms_code($msg, $request->phone, $request->country_code);
+            $user->code = $code;
+            $user->save();
+            return $this->respondSuccess(json_decode('{}'), trans('message.message sent successfully.'));
+
+        }
+                return $this->respondError(trans('message.code not correct'), ['error' => trans('message.code not correct')], 401);
+    }
+          
+
+    public function confirmupdatephone(Request $request)
     {
         $rule = [
             'country_code' => 'required_with:phone',
@@ -129,7 +152,6 @@ class AuthController extends Controller
             if ($user->code==$code) {
             $user->phone = isset($request->phone) ? $request->phone : $user->phone;
             $user->country_code = isset($request->country_code) ? $request->country_code : $user->country_code;
-            // $user->code = $request->code;  
             $user->save();
         
             $success['token'] = $user->createToken('MyApp')->accessToken;
@@ -144,7 +166,6 @@ class AuthController extends Controller
             
         }
     }
-
     public function logout()
     {
 
