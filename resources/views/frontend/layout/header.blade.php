@@ -42,7 +42,7 @@
                                             </div>
                                         </a>
                                     </li>
-                                    @endif
+                               @else
                                     <li class="btn-saeeh btn-space">
                                         <a href="{{route('registers')}}"
                                            class="d-flex justify-content-center align-items-center w-100 h-100">
@@ -56,7 +56,7 @@
                                         </a>
                                         </a>
                                     </li>
-
+                                    @endif
 
                                 </ul>
 
