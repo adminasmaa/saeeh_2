@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Crypt;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Country;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Validator;
@@ -249,6 +251,9 @@ class AuthController extends Controller
             $msg = trans('message.please verified your account') . "\n";
             $msg = $msg . trans('message.code activation') . "\n" . $code;
             send_sms_code($msg, $input['phone'], $input['country_code']);
+
+            $input['country_id']=Country::select('id')->where('code',$request->country_code)->first()->id;
+
             if ($request->device_token) {
                 $guest = User::where('device_token', $request->device_token)->where('isguest', 1)->first();
                 if ($guest) {
@@ -264,7 +269,7 @@ class AuthController extends Controller
             }
 
 //            $success['token'] = $user->createToken('MyApp')->accessToken;
-            $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code', 'code']);
+            $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code','country_id', 'code']);
 
 
             return $this->respondSuccess($success, trans('message.User register successfully.'));
