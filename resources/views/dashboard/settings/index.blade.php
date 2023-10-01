@@ -280,6 +280,24 @@
                                                                     </div>
 
                                                                     <div class="col-md-9">
+                                                                        <label>@lang('site.ios_version')</label>
+
+                                                                        <input type="text" name="ios_version"
+                                                                               class="form-control"
+                                                                               value="{{$setting->ios_version ?? ''}}">
+
+                                                                    </div>
+
+                                                                    <div class="col-md-9">
+                                                                        <label>@lang('site.android_version')</label>
+
+                                                                        <input type="text" name="android_version"
+                                                                               class="form-control"
+                                                                               value="{{$setting->android_version ?? ''}}">
+
+                                                                    </div>
+
+                                                                    <div class="col-md-9">
                                                                         <label>@lang('site.logo')</label>
 
                                                                         <input type="file" name="logo"

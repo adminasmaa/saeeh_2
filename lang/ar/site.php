@@ -74,6 +74,8 @@ return [
     'delivery_hour' => 'ساعة الوصول',
     'conditions' => 'الشروط والاحكام',
     'book' => 'احجز الان',
+    'ios_version' => 'تحديث الايفون',
+    'android_version' => 'تحديث الاندرويد',
     'You may be able to save' => 'قد تتمكن من توفير ',
     'Sign in and save money' => 'سجل الدخول ووفّر المال',
     'or more at this property at check-in' => 'أو أكثر في مكان الإقامة هذا عند تسجيل الدخول',

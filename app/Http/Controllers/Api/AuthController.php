@@ -76,10 +76,10 @@ class AuthController extends Controller
             $user->firstname = isset($request->firstname) ? $request->firstname : $user->firstname;
             $user->lastname = isset($request->lastname) ? $request->lastname : $user->lastname;
             $user->email = isset($request->email) ? $request->email : $user->email;
-            $user->phone = isset($request->phone) ? $request->phone : $user->phone;
+            // $user->phone = isset($request->phone) ? $request->phone : $user->phone;
             $user->country_code = isset($request->country_code) ? $request->country_code : $user->country_code;
             $user->password = Hash::make($request['password']) ?? '';
-            $user->active = 0;
+            // $user->active = 0;
 
         if(!empty($request->phone)){
 
@@ -102,6 +102,47 @@ class AuthController extends Controller
 
         }
 
+    }
+    public function changephone(Request $request)
+    {
+        $rule = [
+            'country_code' => 'required_with:phone',
+            'phone' => 'required_with:country_code|min:9|unique:users',
+            'code' => 'required|min:3',
+
+        ];
+        $customMessages = [
+            'required' => __('validation.attributes.required'),
+        ];
+
+        $validator = validator()->make($request->all(), $rule, $customMessages);
+
+        if ($validator->fails()) {
+
+            return $this->respondError('Validation Error.', $validator->errors(), 400);
+
+        } else {
+           
+            $user = User::findorfail(Auth::id());
+            $code = $request->code;
+
+            if ($user->code==$code) {
+            $user->phone = isset($request->phone) ? $request->phone : $user->phone;
+            $user->country_code = isset($request->country_code) ? $request->country_code : $user->country_code;
+            // $user->code = $request->code;  
+            $user->save();
+        
+            $success['token'] = $user->createToken('MyApp')->accessToken;
+            $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname','code']);
+
+            return $this->respondSuccess($success, trans('message.User updated successfully'));
+                
+
+            }else{
+                return $this->respondError(trans('message.code not correct'), ['error' => trans('message.code not correct')], 401);
+            }
+            
+        }
     }
 
     public function logout()
