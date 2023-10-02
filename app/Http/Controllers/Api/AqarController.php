@@ -642,18 +642,30 @@ class AqarController extends Controller
             $aqar->orderBy('fixed_price', 'desc');
         }
         if ( isset($request->rate) && trim($request->rate !== '') ) {
-            $filtered= $aqar->get()->filter(function($item) use ($rate) {
+            $aqar= $aqar->get()->filter(function($item) use ($rate) {
                 return ($item->avgRating == $rate); 
             })->values()->all();
-            
-            //arsort($filtered);
-        }else{
-            $filtered= $aqar->get(); 
+           
+        }
+        if ( isset($request->rate_asc) && trim($request->rate_asc !== '') ) {
+            $aqar= $aqar->get()->sortBy(function($item){
+                return $item->avgRating;
+            })->values()->all();
+        }
+        if ( isset($request->rate_desc) && trim($request->rate_desc !== '') ) {
+            $aqar= $aqar->get()->sortByDesc(function($item){
+                return $item->avgRating;
+            })->values()->all();
+        }
+        if ( !isset($request->rate) && !isset($request->rate_asc)&& !isset($request->rate_desc) ) {
+        
+            $aqar= $aqar->get();
+          
         }
 
-        if ($filtered) {
+        if ($aqar) {
 
-            $aquar = $this->paginate($filtered);
+            $aquar = $this->paginate($aqar);
 
 
             return $this->respondSuccessPaginate1($aquar, trans('message.data retrieved successfully.'));

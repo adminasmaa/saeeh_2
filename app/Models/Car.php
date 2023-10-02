@@ -58,6 +58,9 @@ Car extends Model
         'city_id',
     ];
 
+    protected $appends = ["avgRating"];  
+    protected $hidden = ['averageRating'];
+
 
     public function getNameAttribute()
     {
@@ -116,5 +119,25 @@ Car extends Model
     public function favoriteuser(){
 
         return $this->belongsToMany(User::class,'car_user','car_id','user_id');
+    }
+
+
+    public function averageRating(){
+        $results= $this->carComment()
+        ->selectRaw('round(avg(rating)) as avgRating, car_id')
+        ->groupBy('car_id');
+
+        return $results;
+    }
+
+    public function getAvgRatingAttribute()
+    {
+        if ( ! array_key_exists('averageRating', $this->relations)) {
+        $this->load('averageRating');
+        }
+
+        $relation = $this->getRelation('averageRating')->first();
+
+        return ($relation) ? round($relation->avgRating ) : 0;
     }
 }

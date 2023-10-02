@@ -63,6 +63,8 @@ class Aqar extends Model
     ];
    
     protected $appends = ["avgRating"];  
+    protected $hidden = ['averageRating'];
+
 
     // relations
     public function user()
@@ -126,7 +128,7 @@ class Aqar extends Model
 
         $relation = $this->getRelation('averageRating')->first();
 
-        return ($relation) ? round($relation->avgRating ) : null;
+        return ($relation) ? round($relation->avgRating ) : 0;
     }
 
 
