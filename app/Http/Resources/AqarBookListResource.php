@@ -33,7 +33,6 @@ class AqarBookListResource extends JsonResource
             $status ='status_ar';
             $currency ='currency_ar';
 
-
         }
 
         return [
@@ -44,7 +43,9 @@ class AqarBookListResource extends JsonResource
             "fixed_price" => $this->fixed_price ?? 0,
             "Reservation_deposit" => $this->fixed_price ?? $this->total_price/$this->day_count,
             'total' => $this->total_price,
-            // "currency" => $this->country()->select($currency)->get()[0]->$currency ?? '',
+            "currency" => $this->city()->pluck('country_id')[0] ?? '',
+              // "currency" => $this->city()->select($country_id)->country()->select($currency)->get()[0]->$currency ?? '',
+            // "currency" => $this->$currency ?? '',
             "status" => $this->bookingStatus()->select($status)->get()[0]->$status ?? '',   
             "image" => asset('images/aqars') . "/" . $this->aqar()->select('main_image')->get()[0]->main_image ??'',
             "changed_price" => json_decode($this->changed_price) ?? NULL,

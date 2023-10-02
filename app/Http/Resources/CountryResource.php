@@ -18,14 +18,16 @@ class CountryResource extends JsonResource
 
         if ($lang == 'ar') {
             $name = 'name_ar';
+            $currency ='currency_ar';
         } else {
             $name = 'name_en';
-
+            $currency ='currency';
         }
         return [
             "id" => $this->id ?? '',
             "name" => $this->$name ?? '',
             "code" => $this->code ?? '',
+            "currency" => $this->$currency ?? '',
             "image" => asset('images/countries')."/".$this->image,
             "flag_image" => asset('images/countries')."/".$this->flag_image,
 //            "active" => $this->active,
