@@ -214,7 +214,8 @@ class CategoryController extends Controller
             return $this->respondSuccess($categories, __('message.categories retrieved successfully.'));
 
         } else {
-            return $this->respondError(__('message.Category not found.'), ['error' => __('message.Category not found.')], 404);
+            
+            return $this->respondErrorArray(__('message.Category not found.'), ['error' => __('message.Category not found.')], 200);
 
         }
 

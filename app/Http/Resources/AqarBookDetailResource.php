@@ -49,6 +49,7 @@ class AqarBookDetailResource extends JsonResource
             "changed_price" =>json_decode($this->changed_price) ?? NULL,
             'total' => $this->total_price,
             // "currency" => $this->country()->select($currency)->get()[0]->$currency ?? '',
+            // "currency" => $this->$currency ?? '',
             'person_num'=>$this->person_num,
             "status_id" => $this->booking_status_id,
             'cancel_reason' => $this->cancle_reason ?? '',
