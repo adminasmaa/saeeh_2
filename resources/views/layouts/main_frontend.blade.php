@@ -79,19 +79,14 @@
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous">
     </script>
-    {{--    <script src="{{asset('product-ratings-jstars/product-ratings-jstars/jstars.min.js')}}"></script>--}}
 
-    <!-- jQuery is required -->
-    {{--    <script src="/path/to/cdn/jquery.slim.min.js"></script>--}}
-    {{--    <!-- Themes -->--}}
-    {{--    <link rel="stylesheet" href="{{asset('rating-system-custom-images/rating-system-custom-images/css/rates.css')}}" />--}}
-    {{--    <!-- Rates plugin -->--}}
-    {{--    <script src="{{asset('rating-system-custom-images/rating-system-custom-images/js/jquery-rates.js')}}"></script>--}}
-    {{--    <script src="{{asset('star-rating-system-hillrate\star-rating-system-hillrate\plugin/js/hillRate-jquery.js')}}"></script>--}}
-
-{{--    <link rel="stylesheet" href="{{asset('star-rating-radio-button/jquery.rating.css')}}"/>--}}
-{{--    <script src="{{asset('star-rating-radio-button/jquery.min.js')}}"></script>--}}
-{{--    <script src="{{asset('star-rating-radio-button/jquery.rating.js')}}"></script>--}}
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/css/intlTelInput.css"
+        integrity="sha512-gxWow8Mo6q6pLa1XH/CcH8JyiSDEtiwJV78E+D+QP0EVasFs8wKXq16G8CLD4CJ2SnonHr4Lm/yY2fSI2+cbmw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    />
 
     <style>
 
