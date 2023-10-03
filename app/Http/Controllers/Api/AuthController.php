@@ -323,8 +323,8 @@ class AuthController extends Controller
                 return $this->respondwarning($success, trans('message.account not verified'), ['error' => trans('message.account not verified')], 402);
             }
         } else {
-            // return $this->respondError(trans('message.wrong credientials'), ['error' => trans('message.wrong credientials')], 403);
-            return $this->respondError(trans('message.user not found'), ['error' => trans('message.user not found')], 404);
+            return $this->respondError(trans('message.wrong credientials'), ['error' => trans('message.wrong credientials')], 403);
+            // return $this->respondError(trans('message.user not found'), ['error' => trans('message.user not found')], 404);
         }
     }
 
