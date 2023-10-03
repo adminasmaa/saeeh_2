@@ -35,8 +35,8 @@ class AquarController extends Controller
     public function addRateAqar(Request $request)
     {
         $validation = Validator::make($request->all(), [
-//            'rate' => 'required',
-            'description' => 'required|string',
+            'rate' => 'required',
+            'description' => 'nullable|string',
         ]);
 
         if ($validation->fails()) {

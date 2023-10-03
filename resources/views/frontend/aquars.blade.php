@@ -1280,6 +1280,7 @@
                                         <div class="row align-items-center">
                                             <div class="custom-checkbox">
                                                 <form>
+                                                    @if(!empty($roomnumbers))
                                                     @foreach($roomnumbers as $key=>$room)
                                                     <div class="form-group">
                                                         <input type="checkbox" id="{{$key}}"
@@ -1288,6 +1289,7 @@
                                                         <label for="{{$key}}">{{$room->total}}</label>
                                                     </div>
                                                     @endforeach
+                                                    @endif
                                                     {{--                                                    <div class="form-group">--}}
                                                     {{--                                                        <input type="checkbox" id="three"/>--}}
                                                     {{--                                                        <label for="three">3</label>--}}

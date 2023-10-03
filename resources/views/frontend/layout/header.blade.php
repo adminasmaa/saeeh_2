@@ -4,7 +4,7 @@
         <div class="container w-100">
             <div class="row justify-content-between align-items-center my-2">
                 <div class="col-4">
-                    <a href="#">
+                    <a href="{{route('Home')}}">
                         <img class="logo" src="{{FRONTASSETS}}/images/logo.svg" alt="logo"/>
                     </a>
                 </div>

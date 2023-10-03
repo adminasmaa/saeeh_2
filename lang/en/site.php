@@ -8,9 +8,13 @@ return [
     ';Tell us your evaluation of the Aquar'=>'Tell us your evaluation of the Aquar',
     'Write your entire experience'=>'Write your entire experience',
     'Restaurant menu link'=>'Restaurant menu link',
-    'Restaurant videos'=>'Restaurant videos',
+    'Restaurant videos'=>' videos',
     'Add a comment about the place'=>'Add a comment about the place',
     'link' => 'Link',
+    'Tell us your rating about the place'=>'Tell us your rating about the place',
+
+    'Share via social media'=>'Share via social media',
+
     'floor_numbers' => 'Floor Numbers',
     'floor_number' => 'Floor Numbers',
     'free_services' => 'Free Services',

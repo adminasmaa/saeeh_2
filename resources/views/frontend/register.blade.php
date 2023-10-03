@@ -141,12 +141,16 @@
                       </div>
                     </div>
                     <div class="emailcont">
-                      <input
-                        type="tel"
-                        name="phone"
-                        class="form-control frm-input mb-3 phone2"
-                        placeholder="{{trans('site.phone')}}"
-                      />
+{{--                      <input--}}
+{{--                        type="tel"--}}
+{{--                        name="phone"--}}
+{{--                        class="form-control frm-input mb-3 phone2"--}}
+{{--                        placeholder="{{trans('site.phone')}}"--}}
+{{--                      />--}}
+
+                        <input id="phoneData" type="tel"  class="form-control frm-input mb-3 phone2"    name="phone">
+                        <span id="valid-msg" class="hide">✓ Valid</span>
+                        <span id="error-msg" class="hide"></span>
                       <span class="icon-placeholder">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -190,6 +194,49 @@
 
 @endsection
 @section('scripts')
+
+    <script>
+
+
+        const phonedata = document.querySelector("#phoneData");
+        const errorMsg = document.querySelector("#error-msg");
+        const validMsg = document.querySelector("#valid-msg");
+
+        // here, the index maps to the error code returned from getValidationError - see readme
+        const errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
+
+        // initialise plugin
+        const iti = window.intlTelInput(phonedata, {
+            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js"
+        });
+
+        const reset = () => {
+            phonedata.classList.remove("error");
+            errorMsg.innerHTML = "";
+            errorMsg.classList.add("hide");
+            validMsg.classList.add("hide");
+        };
+
+        // on blur: validate
+        phonedata.addEventListener('blur', () => {
+            reset();
+            if (phonedata.value.trim()) {
+                if (iti.isValidNumber()) {
+                    validMsg.classList.remove("hide");
+                } else {
+                    phonedata.classList.add("error");
+                    const errorCode = iti.getValidationError();
+                    errorMsg.innerHTML = errorMap[errorCode];
+                    errorMsg.classList.remove("hide");
+                }
+            }
+        });
+
+        // on keyup / change flag: reset
+        phonedata.addEventListener('change', reset);
+        phonedata.addEventListener('keyup', reset);
+
+    </script>
 
     <script>
 
