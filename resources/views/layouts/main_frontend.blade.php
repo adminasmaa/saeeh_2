@@ -48,10 +48,13 @@
         href="{{FRONTASSETS}}/vendor/bootstrap/css/bootstrap.rtl.min.css"
         type="text/css"
     />
-    <!-- intl-tel-input -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/css/intlTelInput.css"
-          integrity="sha512-gxWow8Mo6q6pLa1XH/CcH8JyiSDEtiwJV78E+D+QP0EVasFs8wKXq16G8CLD4CJ2SnonHr4Lm/yY2fSI2+cbmw=="
-          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/css/intlTelInput.css">
+
+        <!-- intl-tel-input -->
+{{--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/css/intlTelInput.css"--}}
+{{--          integrity="sha512-gxWow8Mo6q6pLa1XH/CcH8JyiSDEtiwJV78E+D+QP0EVasFs8wKXq16G8CLD4CJ2SnonHr4Lm/yY2fSI2+cbmw=="--}}
+{{--          crossorigin="anonymous" referrerpolicy="no-referrer"/>--}}
     <!--select 2-->
     <link rel="stylesheet" href="{{FRONTASSETS}}/js/select2/css/select2.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.css"
@@ -80,16 +83,16 @@
             crossorigin="anonymous">
     </script>
 
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/css/intlTelInput.css"
-        integrity="sha512-gxWow8Mo6q6pLa1XH/CcH8JyiSDEtiwJV78E+D+QP0EVasFs8wKXq16G8CLD4CJ2SnonHr4Lm/yY2fSI2+cbmw=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
-    />
+
 
     <style>
 
+        .hide {
+            display: none;
+        }
+        #valid-msg {
+            color: #00c900;
+        }
         .rate {
             border: 1px solid #cccccc;
             float: left;
@@ -127,6 +130,11 @@
         .rate > input:checked + label:hover, .rate > input:checked + label:hover ~ label, .rate > input:checked ~ label:hover, .rate > input:checked ~ label:hover ~ label, .rate > label:hover ~ input:checked ~ label {
             color: #c59b08;
         }
+        [dir=rtl] .iti--allow-dropdown .iti__flag-container, [dir=rtl] .iti--separate-dial-code .iti__flag-container{
+            right: auto;
+            left: 0;
+            direction: ltr;
+        }
     </style>
 </head>
 
@@ -157,9 +165,11 @@
 <script src="{{FRONTASSETS}}/js/dist/jquery.star-rating-svg.js"></script>
 <!-- Owl Carousel -->
 <script src="{{FRONTASSETS}}/js/OwlCarousel/js/owl.carousel.min.js"></script>
-<!-- intl-tel-input -->
-<script src="{{FRONTASSETS}}/js/intl-tel-input/js/intlTelInput.min.js"></script>
+{{--<!-- intl-tel-input -->--}}
+{{--<script src="{{FRONTASSETS}}/js/intl-tel-input/js/intlTelInput.min.js"></script>--}}
 <!--select 2-->
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/intlTelInput.min.js"></script>
+
 <script src="{{FRONTASSETS}}/js/select2/js/select2.min.js"></script>
 <script src="{{FRONTASSETS}}/js/dist/jquery-ui.js"></script>
 <!--nouislider-->

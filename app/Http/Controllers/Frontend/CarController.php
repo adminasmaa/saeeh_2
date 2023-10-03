@@ -33,8 +33,8 @@ class CarController extends Controller
 
 
         $validation = Validator::make($request->all(), [
-//            'rate' => 'required',
-            'description' => 'required|string',
+            'rate' => 'required',
+            'description' => 'nullable|string',
         ]);
 
         if ($validation->fails()) {
@@ -69,8 +69,8 @@ class CarController extends Controller
 
 
         $validation = Validator::make($request->all(), [
-//            'rate' => 'required',
-            'description' => 'required|string',
+            'rate' => 'required',
+            'description' => 'nullable|string',
         ]);
 
         if ($validation->fails()) {

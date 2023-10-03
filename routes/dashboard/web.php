@@ -128,24 +128,24 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
 
         //services
-        Route::resource('services', ServiceController::class);
-        Route::resource('free_services', FreeServiceController::class);
-        Route::resource('kitchens', KitchenController::class);
-        Route::resource('laundries', LaundryController::class);
-        Route::resource('crews', CrewController::class);
-        Route::resource('bathrooms', BathRoomController::class);
-        Route::resource('another_rooms', AnotherRoomController::class);
-        Route::resource('conditioning_types', ConditionTypeController::class);
-
-        //car_positions
-        Route::resource('car_positions', CarPositionController::class);
+//        Route::resource('services', ServiceController::class);
+//        Route::resource('free_services', FreeServiceController::class);
+//        Route::resource('kitchens', KitchenController::class);
+//        Route::resource('laundries', LaundryController::class);
+//        Route::resource('crews', CrewController::class);
+//        Route::resource('bathrooms', BathRoomController::class);
+//        Route::resource('another_rooms', AnotherRoomController::class);
+//        Route::resource('conditioning_types', ConditionTypeController::class);
+//
+//        //car_positions
+//        Route::resource('car_positions', CarPositionController::class);
 
         //place_tables
         Route::resource('place_tables', PlaceTableController::class);
 
-        //floors
-        Route::resource('floors', FloorController::class);
-        Route::resource('floor_numbers', FloorNumberController::class);
+//        //floors
+//        Route::resource('floors', FloorController::class);
+//        Route::resource('floor_numbers', FloorNumberController::class);
 
         //areas
         Route::resource('areas', AreaController::class);

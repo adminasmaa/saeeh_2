@@ -1,16 +1,5 @@
 @extends('layouts.main_frontend')
-@section('css')
 
-    <style>
-        .hide {
-            display: none;
-        }
-
-        #valid-msg {
-            color: #00c900;
-        }
-    </style>
-@endsection
 @section('content')
 
   <div class="overlay-mobile"></div>
@@ -45,28 +34,24 @@
 
 
                       <div class="emailcont">
-                          <input
-                              type="tel"
-                              class="form-control frm-input mb-3 phone3"
-                              placeholder="  {{trans('site.phone')}}"
-                              name="phone"
-                              id="phone"
-                              onkeyup="Checkedkeyed(this)"
-                          />
-                          <span class="icon-placeholder">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            viewBox="0 0 16 16"
-                            fill="none"
-                        >
-                          <path
-                              d="M1.375 15.5C1.23611 15.5 1.09028 15.4964 0.9375 15.4892C0.784722 15.4819 0.638889 15.4717 0.5 15.4583V10.5833L4.66667 9.75L7.08333 12.1667C8.13889 11.5278 9.10778 10.7708 9.99 9.89583C10.8722 9.02083 11.6047 8.08333 12.1875 7.08333L9.8125 4.6875L10.5833 0.5H15.4583C15.4861 0.638889 15.5 0.784722 15.5 0.9375V1.375C15.5 3.16667 15.1008 4.91333 14.3025 6.615C13.5042 8.31667 12.4486 9.82694 11.1358 11.1458C9.82306 12.4653 8.31611 13.5208 6.615 14.3125C4.91389 15.1042 3.16722 15.5 1.375 15.5ZM12.9792 5.5C13.2153 4.95833 13.3958 4.40972 13.5208 3.85417C13.6458 3.29861 13.7431 2.73611 13.8125 2.16667H11.9583L11.6042 4.125L12.9792 5.5ZM5.52083 12.9583L4.125 11.5625L2.16667 11.9583V13.7917C2.73611 13.75 3.30222 13.6597 3.865 13.5208C4.42778 13.3819 4.97972 13.1944 5.52083 12.9583Z"
-                              fill="#9C9C9C"
-                          />
-                        </svg>
-                      </span>
+                          <input id="phoneee" type="tel" class="form-control frm-input phone3">
+                          <span id="valid-msg" class="hide">✓ Valid</span>
+                          <span id="error-msg" class="hide"></span>
+                        <span class="icon-placeholder">
+                      <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                      >
+                        <path
+                            d="M1.375 15.5C1.23611 15.5 1.09028 15.4964 0.9375 15.4892C0.784722 15.4819 0.638889 15.4717 0.5 15.4583V10.5833L4.66667 9.75L7.08333 12.1667C8.13889 11.5278 9.10778 10.7708 9.99 9.89583C10.8722 9.02083 11.6047 8.08333 12.1875 7.08333L9.8125 4.6875L10.5833 0.5H15.4583C15.4861 0.638889 15.5 0.784722 15.5 0.9375V1.375C15.5 3.16667 15.1008 4.91333 14.3025 6.615C13.5042 8.31667 12.4486 9.82694 11.1358 11.1458C9.82306 12.4653 8.31611 13.5208 6.615 14.3125C4.91389 15.1042 3.16722 15.5 1.375 15.5ZM12.9792 5.5C13.2153 4.95833 13.3958 4.40972 13.5208 3.85417C13.6458 3.29861 13.7431 2.73611 13.8125 2.16667H11.9583L11.6042 4.125L12.9792 5.5ZM5.52083 12.9583L4.125 11.5625L2.16667 11.9583V13.7917C2.73611 13.75 3.30222 13.6597 3.865 13.5208C4.42778 13.3819 4.97972 13.1944 5.52083 12.9583Z"
+                            fill="#9C9C9C"
+                        />
+                      </svg>
+                    </span>
+
                       </div>
                     <div class="emailcont">
                       <input
@@ -125,57 +110,53 @@
 
 @endsection
 @section('scripts')
-    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
 
     <script>
-        const input = document.querySelector("#phone");
-        window.intlTelInput(input, {
-            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
+
+
+        const phonedata = document.querySelector("#phoneee");
+        const errorMsg = document.querySelector("#error-msg");
+        const validMsg = document.querySelector("#valid-msg");
+
+        // here, the index maps to the error code returned from getValidationError - see readme
+        const errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
+
+        // initialise plugin
+        const iti = window.intlTelInput(phonedata, {
+            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js"
         });
+
+        const reset = () => {
+            phonedata.classList.remove("error");
+            errorMsg.innerHTML = "";
+            errorMsg.classList.add("hide");
+            validMsg.classList.add("hide");
+        };
+
+        // on blur: validate
+        phonedata.addEventListener('blur', () => {
+            reset();
+            if (phonedata.value.trim()) {
+                if (iti.isValidNumber()) {
+                    validMsg.classList.remove("hide");
+                } else {
+                    phonedata.classList.add("error");
+                    const errorCode = iti.getValidationError();
+                    errorMsg.innerHTML = errorMap[errorCode];
+                    errorMsg.classList.remove("hide");
+                }
+            }
+        });
+
+        // on keyup / change flag: reset
+        phonedata.addEventListener('change', reset);
+        phonedata.addEventListener('keyup', reset);
+
     </script>
+
     <script>
 
-        function Checkedkeyed(data) {
-            console.log("data",data);
-            const input = document.querySelector("#phone");
-            console.log("input",input);
-            const errorMsg = document.querySelector("#error-msg");
-            const validMsg = document.querySelector("#valid-msg");
 
-            // here, the index maps to the error code returned from getValidationError - see readme
-            const errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
-
-            // initialise plugin
-            const iti = window.intlTelInput(input, {
-                utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js"
-            });
-
-            const reset = () => {
-                input.classList.remove("error");
-                errorMsg.innerHTML = "";
-                errorMsg.classList.add("hide");
-                validMsg.classList.add("hide");
-            };
-
-            // on blur: validate
-            input.addEventListener('blur', () => {
-                reset();
-                if (input.value.trim()) {
-                    if (iti.isValidNumber()) {
-                        validMsg.classList.remove("hide");
-                    } else {
-                        input.classList.add("error");
-                        const errorCode = iti.getValidationError();
-                        errorMsg.innerHTML = errorMap[errorCode];
-                        errorMsg.classList.remove("hide");
-                    }
-                }
-            });
-
-            // on keyup / change flag: reset
-            input.addEventListener('change', reset);
-            input.addEventListener('keyup', reset);
-        }
 
         jQuery('.formregisterslogin').click(function (e) {
             // console.log("daaaa");
@@ -221,7 +202,7 @@
                     else if (result.content == 'error') {
                         swal({
                             title: "Error!",
-                            text: "password or phone incorrect!",
+                            text: "password or phone number is  incorrect!",
                             type: "warning",
                             confirmButtonText: "OK"
                         });
