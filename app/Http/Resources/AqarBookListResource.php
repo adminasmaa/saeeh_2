@@ -5,6 +5,7 @@ namespace App\Http\Resources;
 use App\Models\Aqar;
 use App\Models\AqarBooking;
 use Carbon\Carbon;
+use App\Models\City;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\CountryResource;
@@ -44,7 +45,10 @@ class AqarBookListResource extends JsonResource
             "Reservation_deposit" => $this->fixed_price ?? $this->total_price/$this->day_count,
             'total' => $this->total_price,
             "currency" => $this->city()->pluck('country_id')[0] ?? '',
-              // "currency" => $this->city()->select($country_id)->country()->select($currency)->get()[0]->$currency ?? '',
+            // "currency" => City::with('country')->get()->pluck('country.currancy','id'),
+            // "currency" => $this->city()->select('country_id')->get()[0]->$currency ?? '',
+            // "currency" => $this->city()->country()->select('currancy')->get()[0]->$currency ?? '',
+            // "currency" => $this->Currency($this->$currency) ?? '',
             // "currency" => $this->$currency ?? '',
             "status" => $this->bookingStatus()->select($status)->get()[0]->$status ?? '',   
             "image" => asset('images/aqars') . "/" . $this->aqar()->select('main_image')->get()[0]->main_image ??'',
