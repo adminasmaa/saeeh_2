@@ -35,7 +35,7 @@ class AquarController extends Controller
     public function addRateAqar(Request $request)
     {
         $validation = Validator::make($request->all(), [
-            'rate' => 'required',
+            'rate' => 'nullable',
             'description' => 'nullable|string',
         ]);
 
@@ -52,14 +52,14 @@ class AquarController extends Controller
 
             'description' => $request['description'],
             'aqar_id' => $request['aqar_id'],
-            'user_id' => $request_data['user_id'],
+            'user_id' => $request_data['user_id'] ?? '',
         ]);
         $data = AqarReview::create([
 
             'rate' => $request_data['rate'],
             'aqar_id' => $request['aqar_id'],
             'review_element_id' => $request['review_element_id'],
-            'user_id' => $request_data['user_id'],
+            'user_id' => $request_data['user_id'] ?? '',
 
         ]);
 

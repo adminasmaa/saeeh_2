@@ -764,7 +764,7 @@
                                         <div class="col-lg-6">
                                             <div class="mb-3">
 
-                                                <ul class="register_errorsS"></ul>
+                                                <ul class="register_errorsSsRate"></ul>
                                             </div>
                                         </div>
                                     </div>
@@ -829,7 +829,7 @@
                                         <div
                                             class="add-rate-btn d-flex align-items-center justify-content-center"
                                         >
-                                            <button  type="submit" class="formregisters">@lang('site.add')</button>
+                                            <button  type="submit" class="formregistersssRate">@lang('site.add')</button>
                                         </div>
                                     </div>
                                 </div>
@@ -897,7 +897,7 @@
     <script>
 
 
-        jQuery('.formregisters').click(function (e) {
+        jQuery('.formregistersssRate').click(function (e) {
             // console.log("daaaa");
             e.preventDefault();
             $.ajaxSetup({
@@ -955,7 +955,7 @@
                             })
                         });
                     });
-                    $('.register_errorsS').html(errorsList);
+                    $('.register_errorsSsRate').html(errorsList);
 
 
                 }

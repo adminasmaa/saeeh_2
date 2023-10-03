@@ -68,9 +68,9 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
     //ratings
 
-    Route::post('/addRate', 'App\Http\Controllers\Frontend\CarController@addRate')->name('addRate');
-    Route::post('/addRateCar', 'App\Http\Controllers\Frontend\CarController@addRateCar')->name('addRateCar');
-    Route::post('/addRateAqar', 'App\Http\Controllers\Frontend\AquarController@addRateAqar')->name('addRateAqar');
+    Route::post('/addRate', 'App\Http\Controllers\Frontend\CarController@addRate')->name('addRate')->middleware('web');
+    Route::post('/addRateCar', 'App\Http\Controllers\Frontend\CarController@addRateCar')->name('addRateCar')->middleware('web');
+    Route::post('/addRateAqar', 'App\Http\Controllers\Frontend\AquarController@addRateAqar')->name('addRateAqar')->middleware('web');
 
 
 
