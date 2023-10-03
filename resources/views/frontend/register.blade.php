@@ -195,6 +195,8 @@
 @endsection
 @section('scripts')
 
+
+
     <script>
 
 
@@ -207,8 +209,13 @@
 
         // initialise plugin
         const iti = window.intlTelInput(phonedata, {
-            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js"
+            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js",
+            initialCountry: "sa",
+            preferredCountries: ["sa"],
+            separateDialCode: true,
         });
+
+
 
         const reset = () => {
             phonedata.classList.remove("error");
@@ -304,5 +311,11 @@
             });
         });
 
+
+;
+
+
     </script>
+
+
 @endsection

@@ -87,6 +87,7 @@
 
     <style>
 
+
         .hide {
             display: none;
         }
