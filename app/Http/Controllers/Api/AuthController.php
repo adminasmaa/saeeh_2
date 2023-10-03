@@ -280,7 +280,7 @@ class AuthController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'country_code' => 'required',
-            'phone' => 'required|min:9|unique:users',
+            'phone' => 'required|min:9',
             'password' => 'required|min:6',
             'device_token' => 'min:2'
         ]);
