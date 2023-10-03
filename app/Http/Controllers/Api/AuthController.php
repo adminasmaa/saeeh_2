@@ -280,7 +280,7 @@ class AuthController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'country_code' => 'required',
-            'phone' => 'required',
+            'phone' => 'required|min:9|unique:users',
             'password' => 'required|min:6',
             'device_token' => 'min:2'
         ]);
@@ -323,7 +323,8 @@ class AuthController extends Controller
                 return $this->respondwarning($success, trans('message.account not verified'), ['error' => trans('message.account not verified')], 402);
             }
         } else {
-            return $this->respondError(trans('message.wrong credientials'), ['error' => trans('message.wrong credientials')], 403);
+            // return $this->respondError(trans('message.wrong credientials'), ['error' => trans('message.wrong credientials')], 403);
+            return $this->respondError(trans('message.user not found'), ['error' => trans('message.user not found')], 404);
         }
     }
 
@@ -421,7 +422,6 @@ class AuthController extends Controller
             $query->where('country_code', $country_code)->where('phone', $phone);
         })->orWhere('id', $request->userId)->first();
         if ($user) {
-
             $set = '123456789';
             $code = substr(str_shuffle($set), 0, 4);
             $msg = trans('message.please verified your account') . "\n";
@@ -431,7 +431,8 @@ class AuthController extends Controller
             $user->save();
             return $this->respondSuccess(json_decode('{}'), trans('message.message sent successfully.'));
 
-        } else {
+        } 
+        else {
             return $this->respondError(trans('message.user not found'), ['error' => trans('message.user not found')], 404);
         }
     }
