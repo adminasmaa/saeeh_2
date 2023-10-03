@@ -323,8 +323,8 @@ class AuthController extends Controller
                 return $this->respondwarning($success, trans('message.account not verified'), ['error' => trans('message.account not verified')], 402);
             }
         } else {
-            // return $this->respondError(trans('message.wrong credientials'), ['error' => trans('message.wrong credientials')], 403);
-            return $this->respondError(trans('message.user not found'), ['error' => trans('message.user not found')], 404);
+            return $this->respondError(trans('message.wrong credientials'), ['error' => trans('message.wrong credientials')], 403);
+            // return $this->respondError(trans('message.user not found'), ['error' => trans('message.user not found')], 404);
         }
     }
 
@@ -518,11 +518,10 @@ class AuthController extends Controller
         })->first();}
         if ($user) {
             if ((Hash::check($request->password, $user->password))) {
-                return $this->respondError('Validation Error.', trans('message.password should not be the same with old password'), 400);
+                return $this->respondError('Validation Error.', ['password' => [ trans('message.password should not be the same with old password')]], 400);
+                // return $this->respondError('Validation Error.', trans('message.password should not be the same with old password'), 400);
             }else{
             $user->password = Hash::make($request->password);
-            // $user-> password = Crypt::decrypt($request->password);  
-            // $user->password = Hash::check('password', $request->password);
             $user->active = 1;
             $user->save();
             return $this->respondSuccess(json_decode('{}'), trans('message.password reset successfully.'));
