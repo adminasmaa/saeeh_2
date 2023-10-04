@@ -67,6 +67,35 @@ class AquarController extends Controller
 
     }
 
+    public function addcancelbooking(Request $request)
+    {
+        $validation = Validator::make($request->all(), [
+            'canclereason' => 'required',
+        ]);
+
+        if ($validation->fails()) {
+            return response()->json(['errors' => $validation->errors()], 422);
+        }
+
+        $request_data = $request->except('_token');
+        $request_data['user_id'] = Auth::id() ?? '';
+
+
+        $data = AqarBooking::updateOrCreate(['id' => $request_data['booking']], [
+
+            'id' => $request_data['booking'],
+            'cancle_reason' => $request['canclereason'],
+            'booking_status_id' => 4,
+
+            'user_id' => $request_data['user_id'] ?? '',
+            'cancel_user_id ' => $request_data['user_id'] ?? '',
+
+        ]);
+
+        return response()->json(['status' => true, 'content' => 'success', 'data' => $data]);
+
+    }
+
     public function favouritAqar(Request $request, $id)
     {
 
@@ -93,6 +122,8 @@ class AquarController extends Controller
 
         $carBooking = $user->setRelation('carBooking', $user->carBooking()->paginate(20));
 
+//        return $aqarbooking->aqarBooking->first()->bookingStatus->status;
+
 //
 
         return view('frontend.mybookingAll', compact('aqarbooking', 'carBooking'));
@@ -107,17 +138,13 @@ class AquarController extends Controller
         $favouriteaqar = $user->setRelation('favourite_aqars', $user->favourite_aqars()->paginate(20));;
 
 
-
         $favouritecar = $user->setRelation('favourite_car', $user->favourite_car()->paginate(20));
-
 
 
         $favouriteplace = $user->setRelation('favourite_place', $user->favourite_place()->paginate(20));
 
 
-
-
-        return view('frontend.myfavouriteAll', compact('favouriteaqar', 'favouritecar','favouriteplace'));
+        return view('frontend.myfavouriteAll', compact('favouriteaqar', 'favouritecar', 'favouriteplace'));
 
 
     }
@@ -179,7 +206,8 @@ class AquarController extends Controller
 
         $aqar = Aqar::find($id);
         $user = Auth::user();
-        $bookings = $user->aqarBooking;
+        $bookings = $user->aqarBooking ?? [];
+
 
         return view('frontend.aqarbooking', compact('aqar', 'bookings'));
 
@@ -187,6 +215,8 @@ class AquarController extends Controller
 
     public function filteraquars(Request $request)
     {
+
+
         if (!empty($request->country_id) && !empty($request->city_id) && !empty($request->category_id)) {
 
             $aquars = Aqar::where('country_id', '=', $request->country_id)->where('city_id', '=', $request->city_id)->where('category_id', '=', $request->category_id)->paginate(12);

@@ -22,6 +22,13 @@ class BookingStatus extends Model
         'investor_message', // nullable
 
     ];
+protected $appends=['status'];
+
+    public function getStatusAttribute()
+    {
+        return (app()->getLocale() === 'ar') ? $this->status_ar : $this->status_en;
+    }
+
     // relations
     public function carBooking()
     {

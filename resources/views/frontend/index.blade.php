@@ -109,7 +109,7 @@
                                              id="list"
                                              name="country_id"
                                              >
-                                             <option>@lang('site.country')</option>
+                                             <option disabled selected>@lang('site.country')</option>
                                              @foreach($countries as $country)
                                              <option
                                                 value="{{$country->id}}"> {{$country->name ?? ''}} </option>
@@ -124,7 +124,7 @@
                                              id="list7"
                                              name="city_id"
                                              >
-                                             <option>@lang('site.city')</option>
+                                             <option disabled selected>@lang('site.city')</option>
                                              <!-- @foreach($cities as $city)
                                                 <option
                                                     value="{{$city->id}}">{{$city->name ?? ''}}</option>
@@ -139,7 +139,7 @@
                                              id="list2"
                                              name="category_id"
                                              >
-                                             <option>@lang('site.category')</option>
+                                             <option disabled selected>@lang('site.category')</option>
                                              @foreach($CategoriesAquar as $cat)
                                              <option value="{{$cat->id ?? ''}}">{{$cat->name ?? ''}}</option>
                                              @endforeach
@@ -153,7 +153,7 @@
                                              id="list4"
                                              name="number_rooms"
                                              >
-                                             <option>@lang('site.room number')</option>
+                                             <option disabled selected>@lang('site.room number')</option>
 
                                           </select>
                                        </div>
@@ -186,7 +186,7 @@
                                              name="country_id"
                                              required
                                              >
-                                             <option>@lang('site.country')</option>
+                                             <option disabled selected>@lang('site.country')</option>
                                              @foreach($countries as $country)
                                              <option
                                                 value="{{$country->id}}">{{$country->name ?? ''}}</option>
@@ -202,7 +202,7 @@
                                              name="city_id"
                                              required
                                              >
-                                             <option>@lang('site.city')</option>
+                                             <option disabled selected>@lang('site.city')</option>
                                              <!-- @foreach($cities as $city)
                                              <option
                                                 value="{{$city->id}}">{{$city->name ?? ''}}</option>
@@ -217,7 +217,7 @@
                                              id="list6"
                                              name="brand_id"
                                              >
-                                             <option>@lang('site.brands')</option>
+                                             <option disabled selected>@lang('site.brands')</option>
                                              @foreach($CategoriesCar as $cat)
                                              <option value="{{$cat->id ?? ''}}">{{$cat->name ?? ''}}</option>
                                              @endforeach
@@ -231,7 +231,7 @@
                                              id="list9"
                                              name="category_id"
                                              >
-                                             <option>@lang('site.category')</option>
+                                             <option disabled selected>@lang('site.category')</option>
                                              <!-- @foreach($CategoriesCar as $cat)
                                              <option value="{{$cat->id ?? ''}}">{{$cat->name ?? ''}}</option>
                                              @endforeach -->

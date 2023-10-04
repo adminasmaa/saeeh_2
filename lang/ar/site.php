@@ -6,6 +6,7 @@ return [
     'profiles' => 'حسابي',
     'favourite' => 'مفضلتي',
     'contactmessage' => 'يمكنك التواصل معنا من خلال الارقام الاتيه',
+    'Do you want to cancel your reservation?'=>'هل تريد الغاء حجزك؟',
     'home' => 'الرئيسية',
     'Tell us your evaluation of the Aquar' => 'اخبرنا بتقيمك عن العقار',
     'Write your entire experience' => 'اكتب تجربتك كاملة',
@@ -530,6 +531,8 @@ return [
     'time' => 'الوقت',
     'areas' => 'المناطق',
     'searchmap' => 'ابحث علي الخريطة',
+    'map' => '  الخريطة',
+'filtering'=>'تصفية',
 
     'pleaseChoose' => 'من فضلك اختر',
 

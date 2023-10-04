@@ -321,7 +321,7 @@
                                                                                 </div>
                                                                                 <div
                                                                                     class="text-gray-2 fw-bold span-14">
-                                                                                    @lang('site.Awaiting approval by the owner')
+                                                                                    {{$booking->bookingStatus->status ?? ''}}
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -538,7 +538,7 @@
                                                                                 </div>
                                                                                 <div
                                                                                     class="text-gray-2 fw-bold span-14">
-                                                                                    @lang('site.Awaiting approval by the owner')
+                                                                                    {{$book->bookingStatus->status ?? ''}}
                                                                                 </div>
                                                                             </div>
                                                                         </div>

@@ -171,7 +171,7 @@
                                         >
                                             <div class="d-flex align-items-center">
                                       <span class="text-gray-2">
-                                        حالة الحجز:
+                                      @lang('site.payment_status'):
                                       </span>
                                                 <span class="px-1">
                                         <svg
@@ -189,7 +189,7 @@
                                       </span>
                                             </div>
                                             <div class="text-gray-2 fw-bold span-14">
-                                                @lang('site.Awaiting approval by the owner')
+                                                {{$book->bookingStatus->staus?? ''}}
                                             </div>
                                         </div>
                                     </div>
