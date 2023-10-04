@@ -27,6 +27,8 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('/searchPlace', 'App\Http\Controllers\Api\PlaceController@searchPlace');
     Route::get('/CustomerReviews', 'App\Http\Controllers\Api\PlaceController@CustomerReviews');
     Route::post('/PlaceFavourite', 'App\Http\Controllers\Api\PlaceController@PlaceFavourite');
+    Route::get('/place_filter', 'App\Http\Controllers\Api\PlaceController@place_filter');
+
 
     // start aquars
     Route::get('/Availabledays', 'App\Http\Controllers\Api\AqarController@Availabledays');
