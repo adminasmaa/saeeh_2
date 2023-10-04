@@ -174,19 +174,19 @@ class PlaceController extends Controller
             $place->where('name_ar', 'LIKE', '%'.trim($request->name) . '%');
         } 
         if ( isset($request->rate) && trim($request->rate !== '') ) {
-            $place= $place->get()->filter(function($item) use ($rate) {
+            $place= $place->paginate(10)->filter(function($item) use ($rate) {
                 return ($item->avgRating == $rate); 
             })->values()->all();
            
         }
          if(!isset($request->rate)){
         if ( isset($request->rate_asc) && trim($request->rate_asc !== '') ) {
-            $place= $place->get()->sortBy(function($item){
+            $place= $place->paginate(10)->sortBy(function($item){
                 return $item->avgRating;
             })->values()->all();
         }
         if ( isset($request->rate_desc) && trim($request->rate_desc !== '') ) {
-            $place= $place->get()->sortByDesc(function($item){
+            $place= $place->paginate(10)->sortByDesc(function($item){
                 return $item->avgRating;
             })->values()->all();
         }}else{
