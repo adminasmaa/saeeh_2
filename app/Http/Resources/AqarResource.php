@@ -20,10 +20,10 @@ class AqarResource extends JsonResource
     {
         $lang = $request->header('localization');
 
-        if ($lang == 'ar') {
-            $name = 'name_ar';
-        } else {
+        if ($lang == 'en') {
             $name = 'name_en';
+        } else {
+            $name = 'name_ar';
 
         }
 
@@ -39,8 +39,8 @@ class AqarResource extends JsonResource
             "favorite" => (count(AquarUser::where('aqar_id','=',$this->id)->where('user_id','=',Auth::id())->get())>0 ? true : false),
 //            "rate" => round($this->aqarComment->avg('rating')) ?? 0,
             // "rate" => round(AqarReview::where('user_id', '=', Auth::id())->where('aqar_id', '=',$this->id)->avg('rate')) ?? 0,
-            "rate" => round($this->aqarReview->avg('rate')) ?? 0,
-
+        //    "rate" => round($this->aqarReview->avg('rate')) ?? 0,
+              "rate" =>$this->avgRating,
             // "policy_place" =>  html_entity_decode($this->policy_place) ?? '',
 
             // "distance" => $this->distance ?? '',

@@ -133,32 +133,57 @@ class CategoryController extends Controller
     {
         $city_id = $request->city_id;
 
-        if (!empty($request->rate) && !empty($request->low_price)) {
+        // if (!empty($request->rate) && !empty($request->low_price)) {
 
-            $aqars_id = AqarReview::orderBy('rate', 'DESC')->pluck('aqar_id')->toArray();
-            $aquars = Aqar::where('category_id', '=', $request->category_id)->where('city_id', '=', $city_id)->whereIn('id', $aqars_id)->orderBy('fixed_price', 'ASC')->paginate(20);
-
-
-        } elseif (!empty($request->rate) && !empty($request->hign_price)) {
-
-            $aqars_id = AqarReview::orderBy('rate', 'DESC')->pluck('aqar_id')->toArray();
-            $aquars = Aqar::where('category_id', '=', $request->category_id)->where('city_id', '=', $city_id)->whereIn('id', $aqars_id)->orderBy('fixed_price', 'DESC')->paginate(20);
-        } elseif (!empty($request->low_price)) {
-            $aquars = Aqar::where('category_id', '=', $request->category_id)->orderBy('fixed_price', 'ASC')->paginate(20);
-        } elseif (!empty($request->hign_price)) {
-            $aquars = Aqar::where('category_id', '=', $request->category_id)->orderBy('fixed_price', 'DESC')->paginate(20);
-
-        } elseif (!empty($request->rate)) {
-            $aqars_id = AqarReview::orderBy('rate', 'DESC')->pluck('aqar_id')->toArray();
-            $aquars = Aqar::where('category_id', '=', $request->category_id)->where('city_id', '=', $city_id)->whereIn('id', $aqars_id)->paginate(20);
+        //     $aqars_id = AqarReview::orderBy('rate', 'DESC')->pluck('aqar_id')->toArray();
+        //     $aquars = Aqar::where('category_id', '=', $request->category_id)->where('city_id', '=', $city_id)->whereIn('id', $aqars_id)->orderBy('fixed_price', 'ASC')->paginate(20);
 
 
-        } else {
+        // } elseif (!empty($request->rate) && !empty($request->high_price)) {
 
-            $aquars = Aqar::where('category_id', '=', $request->category_id)->where('city_id', '=', $city_id)->paginate(20);
+        //     $aqars_id = AqarReview::orderBy('rate', 'DESC')->pluck('aqar_id')->toArray();
+        //     $aquars = Aqar::where('category_id', '=', $request->category_id)->where('city_id', '=', $city_id)->whereIn('id', $aqars_id)->orderBy('fixed_price', 'DESC')->paginate(20);
+        // } elseif (!empty($request->low_price)) {
+        //     $aquars = Aqar::where('category_id', '=', $request->category_id)->orderBy('fixed_price', 'ASC')->paginate(20);
+        // } elseif (!empty($request->high_price)) {
+        //     $aquars = Aqar::where('category_id', '=', $request->category_id)->orderBy('fixed_price', 'DESC')->paginate(20);
 
+        // } elseif (!empty($request->rate)) {
+        //     $aqars_id = AqarReview::orderBy('rate', 'DESC')->pluck('aqar_id')->toArray();
+        //     $aquars = Aqar::where('category_id', '=', $request->category_id)->where('city_id', '=', $city_id)->whereIn('id', $aqars_id)->paginate(20);
+
+
+        // } else {
+
+        //     $aquars = Aqar::where('category_id', '=', $request->category_id)->where('city_id', '=', $city_id)->paginate(20);
+
+        // }
+        $aqar = Aqar::selectRaw('aqars.*, round(avg(aqar_comments.rating)) as avgRating')->leftjoin('aqar_comments','aqar_comments.aqar_id','=','aqars.id')->where('category_id', '=', $request->category_id)->where('city_id', '=', $city_id)->groupBy('aqars.id');
+        if ( isset($request->rate) && trim($request->rate !== '') ) {
+            $aqar->having('avgRating',$request->rate);
+           
         }
-
+        
+        if ( isset($request->name) && trim($request->name !== '') ) {
+            $aqar->where('name_ar', 'LIKE', '%'.trim($request->name) . '%');
+        } 
+        if ( isset($request->roomnubers) && trim($request->roomnubers !== '') ) {
+            $aqar->where('total_rooms', '=', trim($request->roomnubers));
+        }
+        if ( isset($request->price_asc) && trim($request->price_asc !== '') ) {
+            $aqar->orderBy('fixed_price', 'asc');
+        }
+        if ( isset($request->price_desc) && trim($request->price_desc !== '') ) {
+            $aqar->orderBy('fixed_price', 'desc');
+        }
+        if ( isset($request->rate_asc) && trim($request->rate_asc !== '') ) {
+            $aqar->orderBy('avgRating', 'asc');
+        }
+        if ( isset($request->rate_desc) && trim($request->rate_desc !== '') ) {
+            $aqar->orderBy('avgRating', 'desc');
+        }
+       
+        $aquars=$aqar->paginate(20);
 
         if (count($aquars)) {
 
@@ -177,7 +202,35 @@ class CategoryController extends Controller
     {
         $city_id = $request->city_id;
 
-        $cars = Car::where('sub_category_id', '=', $request->sub_category_id)->where('city_id', '=', $city_id)->paginate(20);
+       // $cars = Car::where('sub_category_id', '=', $request->sub_category_id)->where('city_id', '=', $city_id)->paginate(20);
+
+
+        $car = Car::selectRaw('cars.*, round(avg(car_comments.rating)) as avgRating')->leftjoin('car_comments','car_comments.car_id','=','cars.id')->where('sub_category_id', '=', $request->sub_category_id)->where('city_id', '=', $city_id)->groupBy('cars.id');
+        if ( isset($request->rate) && trim($request->rate !== '') ) {
+            $car->having('avgRating',$request->rate);
+           
+        }
+        
+        if ( isset($request->name) && trim($request->name !== '') ) {
+            $car->where('name_ar', 'LIKE', '%'.trim($request->name) . '%');
+        } 
+        if ( isset($request->year ) && trim($request->year  !== '') ) {
+            $car->where('year', '=', trim($request->year ));
+        }
+        if ( isset($request->price_asc) && trim($request->price_asc !== '') ) {
+            $car->orderBy('fixed_price', 'asc');
+        }
+        if ( isset($request->price_desc) && trim($request->price_desc !== '') ) {
+            $car->orderBy('fixed_price', 'desc');
+        }
+        if ( isset($request->rate_asc) && trim($request->rate_asc !== '') ) {
+            $car->orderBy('avgRating', 'asc');
+        }
+        if ( isset($request->rate_desc) && trim($request->rate_desc !== '') ) {
+            $car->orderBy('avgRating', 'desc');
+        }
+       
+        $cars=$car->paginate(20);
 
 
         if (count($cars)) {
