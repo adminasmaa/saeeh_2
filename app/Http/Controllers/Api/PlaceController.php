@@ -14,6 +14,10 @@ use App\Models\PlaceComment;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
+
 
 
 class PlaceController extends Controller
@@ -170,19 +174,19 @@ class PlaceController extends Controller
             $place->where('name_ar', 'LIKE', '%'.trim($request->name) . '%');
         } 
         if ( isset($request->rate) && trim($request->rate !== '') ) {
-            $place= $place->get()->filter(function($item) use ($rate) {
+            $place= $place->paginate(10)->filter(function($item) use ($rate) {
                 return ($item->avgRating == $rate); 
             })->values()->all();
            
         }
          if(!isset($request->rate)){
         if ( isset($request->rate_asc) && trim($request->rate_asc !== '') ) {
-            $place= $place->get()->sortBy(function($item){
+            $place= $place->paginate(10)->sortBy(function($item){
                 return $item->avgRating;
             })->values()->all();
         }
         if ( isset($request->rate_desc) && trim($request->rate_desc !== '') ) {
-            $place= $place->get()->sortByDesc(function($item){
+            $place= $place->paginate(10)->sortByDesc(function($item){
                 return $item->avgRating;
             })->values()->all();
         }}else{
@@ -199,7 +203,7 @@ class PlaceController extends Controller
         }
         if ( !isset($request->rate) && !isset($request->rate_asc)&& !isset($request->rate_desc) ) {
         
-            $place= $place->get();
+            $place= $place->paginate(10);
           
         }
         if ($place) {

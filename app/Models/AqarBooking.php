@@ -86,10 +86,6 @@ class AqarBooking extends Model
         return $this->HasMany(Deposit::class);
     }
     // relations
-    public function aqarComment(){
-        return $this->HasMany(AqarComment::class);
-    }
-    // relations
     public function bookingStatus(){
         return $this->belongsTo(BookingStatus::class,'booking_status_id');
     }
