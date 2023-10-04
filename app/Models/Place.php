@@ -65,7 +65,7 @@ class Place extends Model
         'work_day',
 
     ];
-protected $appends=['descrption','name'];
+protected $appends=['descrption','name','avgRating'];
 
 
     public function getNameAttribute()
@@ -78,7 +78,7 @@ protected $appends=['descrption','name'];
         return (app()->getLocale() === 'ar') ? $this->descrption_ar : $this->descrption_en;
     }
 
-    protected $hidden = ['deleted_at', 'updated_at'];
+    protected $hidden = ['deleted_at', 'updated_at','averageRating'];
 
     // scope
     public function scopeMediaType($query, $mediaType)
@@ -137,5 +137,30 @@ protected $appends=['descrption','name'];
 
         return $this->belongsToMany(User::class, 'user_place', 'user_id', 'place_id');
     }
+
+    public function place_Comment()
+    {
+        return $this->HasMany(PlaceComment::class);
+    }
+
+    public function averageRating(){
+        $results= $this->place_Comment()
+        ->selectRaw('round(avg(rating)) as avgRating, place_id ')
+        ->groupBy('place_id ');
+
+        return $results;
+    }
+
+    public function getAvgRatingAttribute()
+    {
+        if ( ! array_key_exists('averageRating', $this->relations)) {
+        $this->load('averageRating');
+        }
+
+        $relation = $this->getRelation('averageRating')->first();
+
+        return ($relation) ? round($relation->avgRating ) : 0;
+    }
+
 
 }
