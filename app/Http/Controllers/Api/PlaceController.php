@@ -203,7 +203,7 @@ class PlaceController extends Controller
         }
         if ( !isset($request->rate) && !isset($request->rate_asc)&& !isset($request->rate_desc) ) {
         
-            $place= $place->get();
+            $place= $place->paginate(10);
           
         }
         if ($place) {
