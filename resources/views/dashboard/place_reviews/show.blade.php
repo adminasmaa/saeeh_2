@@ -45,7 +45,7 @@
                     </div>
                     <div class="card-body">
                         @include('partials._errors')
-       
+
                         <div class="row">
                         <!-- type="number" -->
                             <div class="col-md-6 form-group col-12 p-2">
@@ -59,31 +59,38 @@
 
                             <div class="col-md-6 form-group">
                                 <label class="form-label">@lang('site.users')<span class="text-danger">*</span></label>
-                                <select class="form-control btn-square" name="user_id" readonly=""disabled>
-                                    <option selected>@lang('site.select')</option>
-                                    @foreach($users as $user)
 
-                                    <option value="{{$user->id}}"
-                                                        {{$user->id==$PlaceReview->user_id? 'selected':'' }}>
-                                                        {{$user->firstname . $user->lastname ?? ''}}</option>
+                                <input type="text" name="place_id" class="form-control"
+                                       value="{{ $PlaceReview->user->firstname ?? '' }}" readonly=""disabled
+                                >
+{{--                                <select class="form-control btn-square" name="user_id" readonly=""disabled>--}}
+{{--                                    <option selected>@lang('site.select')</option>--}}
+{{--                                    @foreach($users as $user)--}}
 
-                                    @endforeach
+{{--                                    <option value="{{$user->id}}"--}}
+{{--                                                        {{$user->id==$PlaceReview->user_id? 'selected':'' }}>--}}
+{{--                                                        {{$user->firstname . $user->lastname ?? ''}}</option>--}}
 
-                                </select>
+{{--                                    @endforeach--}}
+
+{{--                                </select>--}}
                             </div>
 
                             <div class="col-md-6 form-group">
                                 <label class="form-label">@lang('site.places')</label>
-                                <select class="form-control btn-square" name="place_id" readonly=""disabled>
-                                    <option selected>@lang('site.select')</option>
-                                    @foreach($places as $place)
+                                <input type="text" name="place_id" class="form-control"
+                                       value="{{ $PlaceReview->place->name ?? '' }}" readonly=""disabled
+                                >
+{{--                                <select class="form-control btn-square" name="place_id" readonly=""disabled>--}}
+{{--                                    <option selected>@lang('site.select')</option>--}}
+{{--                                    @foreach($places as $place)--}}
 
-                                        <option value="{{$place->id}}"
-                                                @if($PlaceReview->place_id==$place->id) selected @endif>{{$place->name_ar ?? ''}}</option>
+{{--                                        <option value="{{$place->id}}"--}}
+{{--                                                @if($PlaceReview->place_id==$place->id) selected @endif>{{$place->name_ar ?? ''}}</option>--}}
 
-                                    @endforeach
+{{--                                    @endforeach--}}
 
-                                </select>
+{{--                                </select>--}}
                             </div>
                         </div>
 

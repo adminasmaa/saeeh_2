@@ -256,7 +256,7 @@
                                 </div>
                                 <div class="d-flex justify-content-between w-80">
                                     <div class="h2 text-gray-2 mb-0">@lang('site.Reservation deposit') :</div>
-                                    <div class="h2 text-gray-2 mb-0">1000 درهم</div>
+                                    <div class="h2 text-gray-2 mb-0">{{$car->fixed_price ?? 0}}</div>
                                 </div>
                             </div>
                             <div class="pt-2 p-3">
@@ -748,12 +748,14 @@
                                     <div class="col-12 pt-4 mb-lg-5">
 
                                         @foreach($car->carComment as $comment)
+
                                             <div class="condition-content">
                                                 <div
                                                     class="d-flex justify-content-between reviews-contentt"
                                                 >
                                                     <div class="d-sm-flex w-100">
                                                         <div class="reviews-image">
+                                                            @if(!empty($comment->user))
                                                             <img
                                                                 onerror="this.src={{FRONTASSETS}}/images/review-image.png"
 
@@ -762,6 +764,17 @@
 
 
                                                             />
+
+                                                            @else
+                                                                <img
+                                                                    src="{{FRONTASSETS}}/images/review-image.png"
+
+
+                                                                    alt="UserName"
+
+
+                                                                />
+                                                            @endif
                                                         </div>
                                                         <div class="w-100 padding-right">
                                                             <h2 class="reviews-title d-flex text-second">

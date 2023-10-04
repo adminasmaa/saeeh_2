@@ -295,7 +295,7 @@
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <div class="h2 text-gray-2 mb-0">@lang('site.Reservation deposit'):</div>
-                                    <div class="h2 text-gray-2 mb-0  padding-details"> 1000 درهم</div>
+                                    <div class="h2 text-gray-2 mb-0  padding-details"> {{$aquar->fixed_price ?? 0}}</div>
                                 </div>
 
                             </div>

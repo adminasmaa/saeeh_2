@@ -52,7 +52,7 @@ class CategoryController extends Controller
             if($city_id){
             $subcategories = Category::join('cities-categories', 'categories.id', '=', 'cities-categories.category_id')->where('cities-categories.city_id','=',$city_id)->where('categories.parent_id', '=', $id)->select('categories.*')->paginate(12);
             }else{
-            $subcategories = Category::where('categories.parent_id', '=', $id)->paginate(12);   
+            $subcategories = Category::where('categories.parent_id', '=', $id)->paginate(12);
             }
             return view('frontend.subcategories', compact('category', 'subcategories','city_id'));
 

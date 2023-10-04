@@ -48,6 +48,8 @@ Route::group(['middleware' => 'auth:api'], function () {
 
     Route::post('/updateProfile', 'App\Http\Controllers\Api\AuthController@updateProfile');
     Route::post('/changepassword', 'App\Http\Controllers\Api\AuthController@changepassword');
+    Route::post('/changephone', 'App\Http\Controllers\Api\AuthController@changephone');
+    Route::post('/confirmupdatephone', 'App\Http\Controllers\Api\AuthController@confirmupdatephone');
     Route::post('/logout', 'App\Http\Controllers\Api\AuthController@logout');
     Route::post('/contactus', 'App\Http\Controllers\Api\ContactUsController@contactus');
     Route::get('/contacts', 'App\Http\Controllers\Api\ContactUsController@contacts');

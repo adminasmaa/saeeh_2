@@ -135,7 +135,7 @@ protected $appends=['descrption','name'];
     }
     public function favoriteuser(){
 
-        return $this->belongsToMany(User::class, 'user_palace', 'user_id', 'place_id');
+        return $this->belongsToMany(User::class, 'user_place', 'user_id', 'place_id');
     }
 
 }

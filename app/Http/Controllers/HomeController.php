@@ -40,4 +40,7 @@ class HomeController extends Controller
 
         return view('home', compact('cars', 'places', 'aqars','users','notifications'));
     }
+
+
+
 }

@@ -8,9 +8,12 @@ use Illuminate\Support\Facades\Crypt;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Country;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Validator;
+use Illuminate\Validation\Rule; //import Rule class 
 use DB;
 class AuthController extends Controller
 {
@@ -38,14 +41,18 @@ class AuthController extends Controller
 
     public function updateProfile(Request $request)
     {
+        $user = Auth::user();
+
         $rule = [
-            'email' => 'max:254|unique:users|email|nullable',
+            // 'email' => 'max:254|unique:email|nullable',
+            // 'email' => ['max:254|nullable',Rule::unique('users')->ignore($user->id)],
+            'email' => "nullable|email|max:254|unique:users,email,".$user->id.",id",  
             'firstname' => 'nullable',
             'lastname' => 'nullable',
             'password' => 'nullable|min:6',
             'c_password' => 'nullable|same:password',
-            'country_code' => 'required_with:phone',
-            'phone' => 'required_with:country_code|min:9|unique:users',
+            // 'country_code' => 'required_with:phone',
+            // 'phone' => 'required_with:country_code|min:9|unique:users',
         ];
 
         $customMessages = [
@@ -53,6 +60,12 @@ class AuthController extends Controller
         ];
 
         $validator = validator()->make($request->all(), $rule, $customMessages);
+
+        if(empty($request->all())){
+
+        return $this->respondError(trans('message.Data not changed'), ['error' => trans('message.Data not changed')], 403);
+
+        }
 
         if ($validator->fails()) {
 
@@ -65,19 +78,9 @@ class AuthController extends Controller
             $user->firstname = isset($request->firstname) ? $request->firstname : $user->firstname;
             $user->lastname = isset($request->lastname) ? $request->lastname : $user->lastname;
             $user->email = isset($request->email) ? $request->email : $user->email;
-            $user->phone = isset($request->phone) ? $request->phone : $user->phone;
-            $user->country_code = isset($request->country_code) ? $request->country_code : $user->country_code;
+            // $user->phone = isset($request->phone) ? $request->phone : $user->phone;
             $user->password = Hash::make($request['password']) ?? '';
-
-        if(!empty($request->phone)){
-            $input = $request->all();
-            $set = '123456789';
-            $code = substr(str_shuffle($set), 0, 4);
-            $input['code'] = $code;
-            $msg = trans('message.please verified your account') . "\n";
-            $msg = $msg . trans('message.code activation') . "\n" . $code;
-            send_sms_code($msg, $input['phone'], $input['country_code']);
-        }
+            // $user->active = 0;
             $user->save();
             $success['token'] = $user->createToken('MyApp')->accessToken;
             $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname','code']);
@@ -89,7 +92,82 @@ class AuthController extends Controller
         }
 
     }
+    public function changephone(Request $request)
+    {
+        $rule = [
+            'country_code' => 'required_with:phone',
+            'phone' => 'required_with:country_code|min:9|unique:users',
 
+        ];
+        $customMessages = [
+            'required' => __('validation.attributes.required'),
+        ];
+
+        $validator = validator()->make($request->all(), $rule, $customMessages);
+
+        if ($validator->fails()) {
+
+            return $this->respondError('Validation Error.', $validator->errors(), 400);
+
+        } else {
+           
+            $user = User::findorfail(Auth::id());
+
+            // $code = $request->code;
+            $set = '123456789';
+            $code = substr(str_shuffle($set), 0, 4);
+            $msg = trans('message.please verified your account') . "\n";
+            $msg = $msg . trans('message.code activation') . "\n" . $code;
+            send_sms_code($msg, $request->phone, $request->country_code);
+            $user->code = $code;
+            $user->save();
+            return $this->respondSuccess(json_decode('{}'), trans('message.message sent successfully.'));
+
+        }
+                return $this->respondError(trans('message.code not correct'), ['error' => trans('message.code not correct')], 401);
+    }
+          
+
+    public function confirmupdatephone(Request $request)
+    {
+        $rule = [
+            'country_code' => 'required_with:phone',
+            'phone' => 'required_with:country_code|min:9|unique:users',
+            'code' => 'required|min:3',
+
+        ];
+        $customMessages = [
+            'required' => __('validation.attributes.required'),
+        ];
+
+        $validator = validator()->make($request->all(), $rule, $customMessages);
+
+        if ($validator->fails()) {
+
+            return $this->respondError('Validation Error.', $validator->errors(), 400);
+
+        } else {
+           
+            $user = User::findorfail(Auth::id());
+            $code = $request->code;
+
+            if ($user->code==$code) {
+            $user->phone = isset($request->phone) ? $request->phone : $user->phone;
+            $user->country_code = isset($request->country_code) ? $request->country_code : $user->country_code;
+            $user->save();
+        
+            $success['token'] = $user->createToken('MyApp')->accessToken;
+            $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname','code']);
+
+            return $this->respondSuccess($success, trans('message.User updated successfully'));
+                
+
+            }else{
+                return $this->respondError(trans('message.code not correct'), ['error' => trans('message.code not correct')], 401);
+            }
+            
+        }
+    }
     public function logout()
     {
 
@@ -173,6 +251,9 @@ class AuthController extends Controller
             $msg = trans('message.please verified your account') . "\n";
             $msg = $msg . trans('message.code activation') . "\n" . $code;
             send_sms_code($msg, $input['phone'], $input['country_code']);
+
+            $input['country_id']=Country::select('id')->where('code',$request->country_code)->first()->id;
+
             if ($request->device_token) {
                 $guest = User::where('device_token', $request->device_token)->where('isguest', 1)->first();
                 if ($guest) {
@@ -180,13 +261,15 @@ class AuthController extends Controller
                     $user1 = $guest->update($input);
                     $user = User::find($guest->id);
 
+                }else{
+                    $user = User::create($input);
                 }
             } else {
                 $user = User::create($input);
             }
 
 //            $success['token'] = $user->createToken('MyApp')->accessToken;
-            $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code', 'code']);
+            $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code','country_id', 'code']);
 
 
             return $this->respondSuccess($success, trans('message.User register successfully.'));
@@ -197,7 +280,7 @@ class AuthController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'country_code' => 'required',
-            'phone' => 'required',
+            'phone' => 'required|min:9',
             'password' => 'required|min:6',
             'device_token' => 'min:2'
         ]);
@@ -215,7 +298,7 @@ class AuthController extends Controller
                     foreach ($guests as $guest) {
                         DB::table('aqar_user')->where('user_id', $guest->id)->update(['user_id' => $user->id]);
                         DB::table('car_user')->where('user_id', $guest->id)->update(['user_id' => $user->id]);
-                        DB::table('user_palace')->where('user_id', $guest->id)->update(['user_id' => $user->id]);
+                        DB::table('user_place')->where('user_id', $guest->id)->update(['user_id' => $user->id]);
                         User::where('id', $guest->id)->delete();
 
                     }
@@ -241,6 +324,7 @@ class AuthController extends Controller
             }
         } else {
             return $this->respondError(trans('message.wrong credientials'), ['error' => trans('message.wrong credientials')], 403);
+            // return $this->respondError(trans('message.user not found'), ['error' => trans('message.user not found')], 404);
         }
     }
 
@@ -338,7 +422,6 @@ class AuthController extends Controller
             $query->where('country_code', $country_code)->where('phone', $phone);
         })->orWhere('id', $request->userId)->first();
         if ($user) {
-
             $set = '123456789';
             $code = substr(str_shuffle($set), 0, 4);
             $msg = trans('message.please verified your account') . "\n";
@@ -348,7 +431,8 @@ class AuthController extends Controller
             $user->save();
             return $this->respondSuccess(json_decode('{}'), trans('message.message sent successfully.'));
 
-        } else {
+        } 
+        else {
             return $this->respondError(trans('message.user not found'), ['error' => trans('message.user not found')], 404);
         }
     }
@@ -434,11 +518,10 @@ class AuthController extends Controller
         })->first();}
         if ($user) {
             if ((Hash::check($request->password, $user->password))) {
-                return $this->respondError('Validation Error.', trans('message.password should not be the same with old password'), 400);
+                return $this->respondError('Validation Error.', ['password' => [ trans('message.password should not be the same with old password')]], 400);
+                // return $this->respondError('Validation Error.', trans('message.password should not be the same with old password'), 400);
             }else{
             $user->password = Hash::make($request->password);
-            // $user-> password = Crypt::decrypt($request->password);  
-            // $user->password = Hash::check('password', $request->password);
             $user->active = 1;
             $user->save();
             return $this->respondSuccess(json_decode('{}'), trans('message.password reset successfully.'));
