@@ -337,6 +337,7 @@ class CarController extends Controller
             })->values()->all();
            
         }
+         if(!isset($request->rate)){
         if ( isset($request->rate_asc) && trim($request->rate_asc !== '') ) {
             $car= $car->get()->sortBy(function($item){
                 return $item->avgRating;
@@ -346,6 +347,17 @@ class CarController extends Controller
             $car= $car->get()->sortByDesc(function($item){
                 return $item->avgRating;
             })->values()->all();
+        }}else{
+           if ( isset($request->rate_asc) && trim($request->rate_asc !== '') ) {
+            $car= collect($car)->sortBy(function($item){
+                return $item->avgRating;
+            })->values()->all();
+        }
+        if ( isset($request->rate_desc) && trim($request->rate_desc !== '') ) {
+            $car= collect($car)->sortByDesc(function($item){
+                return $item->avgRating;
+            })->values()->all();
+        } 
         }
         if ( !isset($request->rate) && !isset($request->rate_asc)&& !isset($request->rate_desc) ) {
         

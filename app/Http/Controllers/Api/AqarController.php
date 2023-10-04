@@ -647,6 +647,7 @@ class AqarController extends Controller
             })->values()->all();
            
         }
+        if(!isset($request->rate)){
         if ( isset($request->rate_asc) && trim($request->rate_asc !== '') ) {
             $aqar= $aqar->get()->sortBy(function($item){
                 return $item->avgRating;
@@ -656,6 +657,18 @@ class AqarController extends Controller
             $aqar= $aqar->get()->sortByDesc(function($item){
                 return $item->avgRating;
             })->values()->all();
+        }
+        }else{
+           if ( isset($request->rate_asc) && trim($request->rate_asc !== '') ) {
+            $aqar= collect($aqar)->sortBy(function($item){
+                return $item->avgRating;
+            })->values()->all();
+        }
+        if ( isset($request->rate_desc) && trim($request->rate_desc !== '') ) {
+            $aqar= collect($aqar)->sortByDesc(function($item){
+                return $item->avgRating;
+            })->values()->all();
+        }  
         }
         if ( !isset($request->rate) && !isset($request->rate_asc)&& !isset($request->rate_desc) ) {
         
@@ -686,6 +699,7 @@ class AqarController extends Controller
         $items = $items instanceof Collection ? $items : Collection::make($items);
         return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
     }
+    
     
 
 
