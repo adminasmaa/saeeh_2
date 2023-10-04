@@ -58,7 +58,7 @@
                                             name="country_id"
                                             required
                                         >
-                                            <option value="">@lang('site.country')</option>
+                                            <option  disabled selected>@lang('site.country')</option>
                                             @foreach($countries as $country)
                                                 <option
                                                     value="{{$country->id}}">{{$country->name ?? ''}}</option>
@@ -76,7 +76,7 @@
                                             name="city_id"
                                             required
                                         >
-                                            <option value="">@lang('site.city')</option>
+                                            <option  disabled selected>@lang('site.city')</option>
                                             <!-- @foreach($cities as $city)
                                                 <option
                                                    value="{{$city->id}}">{{$city->name ?? ''}}</option>
@@ -93,7 +93,7 @@
                                             id="list6"
                                             name="brand_id"
                                         >
-                                            <option value="">@lang('site.brands')</option>
+                                            <option disabled selected>@lang('site.brands')</option>
                                             @foreach($CategoriesCar as $cat)
                                                 <option value="{{$cat->id ?? ''}}">{{$cat->name ?? ''}}</option>
                                             @endforeach
@@ -107,7 +107,7 @@
                                             id="list9"
                                             name="category_id"
                                         >
-                                            <option value="">@lang('site.category')</option>
+                                            <option disabled selected>@lang('site.category')</option>
                                             <!-- @foreach($CategoriesCar as $cat)
                                                 <option value="{{$cat->id ?? ''}}">{{$cat->name ?? ''}}</option>
 
@@ -126,7 +126,7 @@
                                             class="ddl-select" id="list5"
                                             name="year"
                                         >
-                                            <option value="">@lang('site.year')</option>
+                                            <option disabled selected>@lang('site.year')</option>
 
                                             @for ($year = (int)date('Y')+1; 1900 <= $year; $year--)
                                                 :
@@ -173,11 +173,11 @@
 {{--                    </div>--}}
                     <div class="col-lg-9 col-md-8">
                         <h2 class="pb-3 search-result">
-                                                        <!-- المغرب :وجدنا سيارة مناسبة لطلبك -->
-                                                        <label>المغرب :وجدنا
-                                                            <!-- <span>{{$cat->car->car_numbers ?? ''}}</span> -->
-                                                            سيارة مناسبة لطلبك
-                                                        </label>
+{{--                                                        <!-- المغرب :وجدنا سيارة مناسبة لطلبك -->--}}
+{{--                                                        <label>المغرب :وجدنا--}}
+{{--                                                            <!-- <span>{{$cat->car->car_numbers ?? ''}}</span> -->--}}
+{{--                                                            سيارة مناسبة لطلبك--}}
+{{--                                                        </label>--}}
 
                         </h2>
                         <div class="form-group mb-4 position-relative">
@@ -689,7 +689,7 @@
                         <div class="filter_icon mobile-view">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="filter-btn js-toggle-filter fw-bold">
-                                    <i class="fas fa-filter"></i> تصفية
+                                    <i class="fas fa-filter"></i> @lang('site.filtering')
                                 </div>
 
                                 <div class="">
@@ -698,7 +698,7 @@
                                         href="#"
                                         data-bs-toggle="modal"
                                         data-bs-target="#mapModal"
-                                    ><i class="far fa-map"></i> الخريطة</a
+                                    ><i class="far fa-map"></i> @lang('site.map')</a
                                     >
                                 </div>
                             </div>
@@ -712,15 +712,8 @@
                                     <i class="fas fa-times close-side-filter"></i>
                                 </div>
                                 <div class="filter-title">
-                                    <div class="d-flex justify-content-between">
-                                        <h3 class="filter-count text-second fw-bold">
-                                            366 من 2666 نتيجة
-                                        </h3>
-                                        <a href="#" class="delete-result text-main fw-bold"
-                                        >ازالة</a
-                                        >
-                                    </div>
-                                    <h2 class="text-second mb-0">تصفيه حسب:</h2>
+
+                                    <h2 class="text-second mb-0"> @lang('site.filter by'):</h2>
                                 </div>
                                 <div class="accordion-item">
                                     <h2 class="accordion-header">
@@ -818,7 +811,7 @@
                                             aria-expanded="true"
                                             aria-controls="accordion-filter-2"
                                         >
-                                            <h5 class="accordion-title mb-0">الفئة</h5>
+                                            <h5 class="accordion-title mb-0">@lang('site.category')</h5>
                                             <div>
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -842,24 +835,24 @@
                                         <div class="accordion-body">
                                             <div class="row align-items-center">
                                                 <div class="custom-checkbox">
-                                                    <form>
-                                                        <div class="form-group">
-                                                            <input type="checkbox" id="two" checked/>
-                                                            <label for="two">touareg</label>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="checkbox" id="three"/>
-                                                            <label for="three">3008</label>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="checkbox" id="four"/>
-                                                            <label for="four">GIS</label>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="checkbox" id="fou"/>
-                                                            <label for="fou">208</label>
-                                                        </div>
-                                                    </form>
+{{--                                                    <form>--}}
+{{--                                                        <div class="form-group">--}}
+{{--                                                            <input type="checkbox" id="two" checked/>--}}
+{{--                                                            <label for="two">touareg</label>--}}
+{{--                                                        </div>--}}
+{{--                                                        <div class="form-group">--}}
+{{--                                                            <input type="checkbox" id="three"/>--}}
+{{--                                                            <label for="three">3008</label>--}}
+{{--                                                        </div>--}}
+{{--                                                        <div class="form-group">--}}
+{{--                                                            <input type="checkbox" id="four"/>--}}
+{{--                                                            <label for="four">GIS</label>--}}
+{{--                                                        </div>--}}
+{{--                                                        <div class="form-group">--}}
+{{--                                                            <input type="checkbox" id="fou"/>--}}
+{{--                                                            <label for="fou">208</label>--}}
+{{--                                                        </div>--}}
+{{--                                                    </form>--}}
                                                 </div>
                                             </div>
                                         </div>
@@ -876,7 +869,7 @@
                                             aria-expanded="true"
                                             aria-controls="accordion-filter-5"
                                         >
-                                            <h5 class="accordion-title mb-0">السنة</h5>
+                                            <h5 class="accordion-title mb-0">@lang('site.year')</h5>
                                             <div>
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -925,7 +918,7 @@
                                             aria-expanded="true"
                                             aria-controls="accordion-filter-6"
                                         >
-                                            <h5 class="accordion-title mb-0">اللون</h5>
+                                            <h5 class="accordion-title mb-0">@lang('site.color')</h5>
                                             <div>
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -949,16 +942,16 @@
                                         <div class="accordion-body">
                                             <div class="row align-items-center">
                                                 <div class="custom-checkbox">
-                                                    <form>
-                                                        <div class="form-group">
-                                                            <input type="checkbox" id="two" checked/>
-                                                            <label for="two">احمر </label>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="checkbox" id="three"/>
-                                                            <label for="three">اسود</label>
-                                                        </div>
-                                                    </form>
+{{--                                                    <form>--}}
+{{--                                                        <div class="form-group">--}}
+{{--                                                            <input type="checkbox" id="two" checked/>--}}
+{{--                                                            <label for="two">احمر </label>--}}
+{{--                                                        </div>--}}
+{{--                                                        <div class="form-group">--}}
+{{--                                                            <input type="checkbox" id="three"/>--}}
+{{--                                                            <label for="three">اسود</label>--}}
+{{--                                                        </div>--}}
+{{--                                                    </form>--}}
                                                 </div>
                                             </div>
                                         </div>
@@ -974,7 +967,7 @@
                                             aria-expanded="true"
                                             aria-controls="accordion-filter-7"
                                         >
-                                            <h5 class="accordion-title mb-0">السعر باليوم</h5>
+                                            <h5 class="accordion-title mb-0"> @lang('site.price')</h5>
                                             <div>
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -998,20 +991,20 @@
                                         <div class="accordion-body">
                                             <div class="row align-items-center">
                                                 <div class="custom-checkbox">
-                                                    <form>
-                                                        <div class="form-group">
-                                                            <input type="checkbox" id="two" checked/>
-                                                            <label for="two"> 1000-0 دينار كويتى </label>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="checkbox" id="three"/>
-                                                            <label for="three"> 2000-1000 دينار كويتى </label>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="checkbox" id="four"/>
-                                                            <label for="four"> 3000-2000 دينار كويتى </label>
-                                                        </div>
-                                                    </form>
+{{--                                                    <form>--}}
+{{--                                                        <div class="form-group">--}}
+{{--                                                            <input type="checkbox" id="two" checked/>--}}
+{{--                                                            <label for="two"> 1000-0 دينار كويتى </label>--}}
+{{--                                                        </div>--}}
+{{--                                                        <div class="form-group">--}}
+{{--                                                            <input type="checkbox" id="three"/>--}}
+{{--                                                            <label for="three"> 2000-1000 دينار كويتى </label>--}}
+{{--                                                        </div>--}}
+{{--                                                        <div class="form-group">--}}
+{{--                                                            <input type="checkbox" id="four"/>--}}
+{{--                                                            <label for="four"> 3000-2000 دينار كويتى </label>--}}
+{{--                                                        </div>--}}
+{{--                                                    </form>--}}
                                                 </div>
                                             </div>
                                         </div>
@@ -1204,43 +1197,43 @@
                             <div class="tabs-detaills mt-3" id="tabs-detaills">
                                                                 <div class="d-flex justify-content-lg-between flex-wrap">
                                                                    <div class="car-sort-by">
-                                                                        الترتيب حسب
+                                                                         @lang('site.order')
                                                                    </div>
-                                                                   <ul class="tabs-nav-detaills list-unstyled d-flex mb-0 car-tabs flex-wrap">
+{{--                                                                   <ul class="tabs-nav-detaills list-unstyled d-flex mb-0 car-tabs flex-wrap">--}}
 
-                                                                        <li>
-                                                                           <a
-                                                                               href="#tab-car-1"
-                                                                                class="tab-link d-flex align-items-center justify-content-center "
-                                                                           >
-                                                                                الافضل
-                                                                            </a>
-                                                                        </li>
-                                                                        <li>
-                                                                            <a
-                                                                                href="#tab-car-2"
-                                                                                class="tab-link d-flex align-items-center justify-content-center"
-                                                                            >
-                                                                                السعر من اعلي الي الاقل
-                                                                            </a>
-                                                                        </li>
-                                                                        <li>
-                                                                            <a
-                                                                                href="#tab-car-3"
-                                                                                class="tab-link d-flex align-items-center justify-content-center"
-                                                                            >
-                                                                                السعر من اقل الي الاعلي
-                                                                            </a>
-                                                                       </li>
-                                                                        <li>
-                                                                            <a
-                                                                                href="#tab-car-4"
-                                                                                class="tab-link d-flex align-items-center justify-content-center"
-                                                                            >
-                                                                                الاعلى تقيما
-                                                                            </a>
-                                                                        </li>
-                                                                    </ul>
+{{--                                                                        <li>--}}
+{{--                                                                           <a--}}
+{{--                                                                               href="#tab-car-1"--}}
+{{--                                                                                class="tab-link d-flex align-items-center justify-content-center "--}}
+{{--                                                                           >--}}
+{{--                                                                                الافضل--}}
+{{--                                                                            </a>--}}
+{{--                                                                        </li>--}}
+{{--                                                                        <li>--}}
+{{--                                                                            <a--}}
+{{--                                                                                href="#tab-car-2"--}}
+{{--                                                                                class="tab-link d-flex align-items-center justify-content-center"--}}
+{{--                                                                            >--}}
+{{--                                                                                السعر من اعلي الي الاقل--}}
+{{--                                                                            </a>--}}
+{{--                                                                        </li>--}}
+{{--                                                                        <li>--}}
+{{--                                                                            <a--}}
+{{--                                                                                href="#tab-car-3"--}}
+{{--                                                                                class="tab-link d-flex align-items-center justify-content-center"--}}
+{{--                                                                            >--}}
+{{--                                                                                السعر من اقل الي الاعلي--}}
+{{--                                                                            </a>--}}
+{{--                                                                       </li>--}}
+{{--                                                                        <li>--}}
+{{--                                                                            <a--}}
+{{--                                                                                href="#tab-car-4"--}}
+{{--                                                                                class="tab-link d-flex align-items-center justify-content-center"--}}
+{{--                                                                            >--}}
+{{--                                                                                الاعلى تقيما--}}
+{{--                                                                            </a>--}}
+{{--                                                                        </li>--}}
+{{--                                                                    </ul>--}}
 
                                                                 </div>
 
@@ -1398,7 +1391,7 @@
                                                                     <div class="department-price">
                                                                     <span class="text-gray-2"> @lang('site.price_day'):</span>
                                                                         <span class="fw-bold text-main">
-                                                                        {{$car->fixed_price ?? ''}} درهم مغربي
+                                                                        {{$car->fixed_price ?? ''}}
                                                                     </span>
                                                                     </div>
                                                                     <!-- <div class="department-price">

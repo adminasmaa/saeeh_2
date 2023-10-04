@@ -22,6 +22,8 @@ class AqarBooking extends Model
 
     protected $table = 'aqar_bookings';
 
+    protected $with=['bookingStatus'];
+
     protected $fillable = [
         'fixed_price', // nullable
         'changed_price', // nullable ,json
@@ -91,6 +93,6 @@ class AqarBooking extends Model
     // public function Currancy($country_id)
     // {
     //     $currancy=City::select('currancy')->where('country_id', '=', $this->currancy)->distinct()->get();
-  
+
     // }
 }

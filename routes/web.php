@@ -72,6 +72,9 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
     Route::post('/addRateCar', 'App\Http\Controllers\Frontend\CarController@addRateCar')->name('addRateCar')->middleware('web');
     Route::post('/addRateAqar', 'App\Http\Controllers\Frontend\AquarController@addRateAqar')->name('addRateAqar')->middleware('web');
 
+//cancel reason in cars and aquars
+    Route::post('/addcancelbooking', 'App\Http\Controllers\Frontend\AquarController@addcancelbooking')->name('addcancelbooking')->middleware('web');
+    Route::post('addcancelbookingCar', 'App\Http\Controllers\Frontend\CarController@addcancelbookingCar')->name('addcancelbookingCar')->middleware('web');
 
 
     Route::get('checkallaquar', 'App\Http\Controllers\Frontend\AquarController@checkallaquar')->name('checkallaquar');
@@ -89,18 +92,18 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 //aquar end
 
 
-Route::get('amira1', 'App\Http\Controllers\Frontend\HomeController@amira1')->name('amira1');
+    Route::get('amira1', 'App\Http\Controllers\Frontend\HomeController@amira1')->name('amira1');
 
 
 });
 
 
 Route::post('addContacts', 'App\Http\Controllers\Frontend\ContactController@addContacts')->name('addContacts');
-define('MAINASSETS', URL::asset('public/assets'));
-define('FRONTASSETS', URL::asset('public/frontend/assets'));
-define('MAINUPLOADS', URL::asset('public/uploads'));
-define('MAINDIST', URL::asset('public/dist/frontend/img'));
-define('MAINDASHBOARD', URL::asset('public/dashboard_files'));
+define('MAINASSETS', URL::asset('assets'));
+define('FRONTASSETS', URL::asset('frontend/assets'));
+define('MAINUPLOADS', URL::asset('uploads'));
+define('MAINDIST', URL::asset('dist/frontend/img'));
+define('MAINDASHBOARD', URL::asset('dashboard_files'));
 
 if (!defined('constant')) define('constant', 'value');
 

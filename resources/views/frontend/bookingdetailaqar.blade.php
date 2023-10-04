@@ -131,7 +131,7 @@
                                 </g>
                                 <defs>
                                   <clipPath id="clip0_421_12633">
-                                    <rect width="24" height="24" fill="white" />
+                                    <rect width="24" height="24" fill="white"/>
                                   </clipPath>
                                 </defs></svg></span>
                                                 <span class="text-main position-department">
@@ -168,7 +168,7 @@
                         </span>
                                         </div>
                                         <div class="text-gray-2 d-flex align-items-center booking-info-txt">
-                                           {{$booking->user->firstname ?? ''}}
+                                            {{$booking->user->firstname ?? ''}}
                                         </div>
                                     </div>
                                     <div class="d-flex pt-3">
@@ -239,7 +239,7 @@
                           </g>
                           <defs>
                             <clipPath id="clip0_424_33708">
-                              <rect width="20" height="20" fill="white" />
+                              <rect width="20" height="20" fill="white"/>
                             </clipPath>
                           </defs>
                         </svg>
@@ -249,8 +249,8 @@
                       </span>
                                     </div>
                                     <div class="card-booking p-3 text-center">
-{{--                                        <h2 class="mb-0 lh-1">22</h2>--}}
-{{--                                        <div>مارس</div>--}}
+                                        {{--                                        <h2 class="mb-0 lh-1">22</h2>--}}
+                                        {{--                                        <div>مارس</div>--}}
                                         <div class="text-gray-4 pt-1"> {{$booking->aqar->time_from ??''}}</div>
                                     </div>
                                 </div>
@@ -272,7 +272,7 @@
                           </g>
                           <defs>
                             <clipPath id="clip0_424_33708">
-                              <rect width="20" height="20" fill="white" />
+                              <rect width="20" height="20" fill="white"/>
                             </clipPath>
                           </defs>
                         </svg>
@@ -287,7 +287,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <hr class="hr-saeeh my-0" />
+                            <hr class="hr-saeeh my-0"/>
                             <div class="d-flex justify-content-between py-1 px-3">
                                 <div class="d-flex align-items-center">
                     <span>
@@ -313,10 +313,10 @@
                                 <div
                                     class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
                                 >
-                                         {{$booking->aqar->hallnumber ?? 0}}
+                                    {{$booking->aqar->hallnumber ?? 0}}
                                 </div>
                             </div>
-                            <hr class="hr-saeeh my-0" />
+                            <hr class="hr-saeeh my-0"/>
                             <div class="d-flex justify-content-between py-1 px-3">
                                 <div class="d-flex align-items-center">
                     <span>
@@ -342,10 +342,10 @@
                                 <div
                                     class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
                                 >
-                                       {{$booking->aqar->personnumber ?? 0}}
+                                    {{$booking->aqar->personnumber ?? 0}}
                                 </div>
                             </div>
-                            <hr class="hr-saeeh my-0" />
+                            <hr class="hr-saeeh my-0"/>
                             <div class="d-flex justify-content-between py-1 px-3">
                                 <div class="d-flex align-items-center">
                     <span>
@@ -367,10 +367,10 @@
                                 <div
                                     class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
                                 >
-                                {{$booking->day_count ?? 0}}
+                                    {{$booking->day_count ?? 0}}
                                 </div>
                             </div>
-                            <hr class="hr-saeeh my-0" />
+                            <hr class="hr-saeeh my-0"/>
                             <div class="d-flex justify-content-between py-1 px-3">
                                 <div class="d-flex align-items-center">
                     <span>
@@ -392,7 +392,7 @@
                                 <div
                                     class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
                                 >
-                                {{$booking->visit_count ?? 0}}
+                                    {{$booking->visit_count ?? 0}}
                                 </div>
                             </div>
                         </div>
@@ -439,10 +439,10 @@
                                 <div
                                     class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
                                 >
-                                 {{$booking->aqar->country->name ?? ''}}
+                                    {{$booking->aqar->country->name ?? ''}}
                                 </div>
                             </div>
-                            <hr class="hr-saeeh my-0" />
+                            <hr class="hr-saeeh my-0"/>
                             <div class="d-flex justify-content-between py-1 px-3">
                                 <div class="d-flex align-items-center">
                     <span>
@@ -484,7 +484,7 @@
                                     {{$booking->aqar->normalroom ?? ''}}
                                 </div>
                             </div>
-                            <hr class="hr-saeeh my-0" />
+                            <hr class="hr-saeeh my-0"/>
                             <div class="d-flex justify-content-between py-1 px-3">
                                 <div class="d-flex align-items-center">
                     <span>
@@ -537,7 +537,7 @@
                                     {{$booking->aqar->masterroom  ?? 0}}
                                 </div>
                             </div>
-                            <hr class="hr-saeeh my-0" />
+                            <hr class="hr-saeeh my-0"/>
                             <div class="d-flex justify-content-between py-1 px-3">
                                 <div class="d-flex align-items-center">
                     <span>
@@ -596,7 +596,7 @@
 
                                 </div>
                             </div>
-                            <hr class="hr-saeeh my-0" />
+                            <hr class="hr-saeeh my-0"/>
                             <div class="d-flex justify-content-between py-1 px-3">
                                 <div class="d-flex align-items-center">
                     <span>
@@ -637,7 +637,7 @@
                                     {{$booking->aqar->unitnumber  ?? 0}}
                                 </div>
                             </div>
-                            <hr class="hr-saeeh my-0" />
+                            <hr class="hr-saeeh my-0"/>
                             <div class="d-flex justify-content-between py-3 px-3">
                                 <div class="d-flex align-items-center">
                     <span>
@@ -698,7 +698,7 @@
                                     {{$booking->aqar->fixed_price  ?? 0}}
                                 </div>
                             </div>
-                            <hr class="hr-saeeh my-0" />
+                            <hr class="hr-saeeh my-0"/>
                             <div class="d-flex justify-content-between py-1 px-3">
                                 <div class="d-flex align-items-center">
                     <span>
@@ -816,8 +816,183 @@
             </div>
         </section>
         <!-- /section -->
-    </main>
 
+
+        <!-- Modal Register -->
+        <!-- Modal cancel booking -->
+        <div
+            class="modal fade modal-custom modal-height-mobile"
+            id="cancelBookingModal"
+            tabindex="-1"
+            aria-labelledby="cancelBookingModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content cancel-booking-content">
+                    <button
+                        type="button"
+                        class="close-modal d-flex justify-content-center align-items-center"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            viewBox="0 0 32 32"
+                            fill="none"
+                        >
+                            <path
+                                d="M24.3998 7.61339C24.2765 7.48978 24.1299 7.39172 23.9686 7.32481C23.8073 7.2579 23.6344 7.22346 23.4598 7.22346C23.2852 7.22346 23.1123 7.2579 22.951 7.32481C22.7897 7.39172 22.6432 7.48978 22.5198 7.61339L15.9998 14.1201L9.47981 7.60005C9.35637 7.47661 9.20982 7.37869 9.04853 7.31188C8.88725 7.24508 8.71438 7.21069 8.53981 7.21069C8.36524 7.21069 8.19237 7.24508 8.03109 7.31188C7.8698 7.37869 7.72325 7.47661 7.59981 7.60005C7.47637 7.7235 7.37845 7.87004 7.31164 8.03133C7.24483 8.19261 7.21045 8.36548 7.21045 8.54005C7.21045 8.71463 7.24483 8.88749 7.31164 9.04878C7.37845 9.21006 7.47637 9.35661 7.59981 9.48005L14.1198 16.0001L7.59981 22.5201C7.47637 22.6435 7.37845 22.79 7.31164 22.9513C7.24483 23.1126 7.21045 23.2855 7.21045 23.4601C7.21045 23.6346 7.24483 23.8075 7.31164 23.9688C7.37845 24.1301 7.47637 24.2766 7.59981 24.4001C7.72325 24.5235 7.8698 24.6214 8.03109 24.6882C8.19237 24.755 8.36524 24.7894 8.53981 24.7894C8.71438 24.7894 8.88725 24.755 9.04853 24.6882C9.20982 24.6214 9.35637 24.5235 9.47981 24.4001L15.9998 17.8801L22.5198 24.4001C22.6433 24.5235 22.7898 24.6214 22.9511 24.6882C23.1124 24.755 23.2852 24.7894 23.4598 24.7894C23.6344 24.7894 23.8072 24.755 23.9685 24.6882C24.1298 24.6214 24.2764 24.5235 24.3998 24.4001C24.5233 24.2766 24.6212 24.1301 24.688 23.9688C24.7548 23.8075 24.7892 23.6346 24.7892 23.4601C24.7892 23.2855 24.7548 23.1126 24.688 22.9513C24.6212 22.79 24.5233 22.6435 24.3998 22.5201L17.8798 16.0001L24.3998 9.48005C24.9065 8.97339 24.9065 8.12005 24.3998 7.61339Z"
+                                fill="white"
+                            />
+                        </svg>
+                    </button>
+
+                    <div
+                        class="modal-body cancel-booking-body "
+                    >
+                        <div class="text-center my-3 ">
+                            <div
+                                class="row d-flex justify-content-center align-items-center h-100"
+                            >
+                                <div class="col-md-10 col-10 my-lg-5 my-2">
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="171" height="171"
+                                             viewBox="0 0 171 171" fill="none">
+                                            <path
+                                                d="M85.5 0C68.5897 0 52.0592 5.01449 37.9988 14.4093C23.9384 23.8042 12.9796 37.1575 6.50834 52.7806C0.0370458 68.4036 -1.65614 85.5948 1.6429 102.18C4.94193 118.766 13.085 134 25.0424 145.958C36.9998 157.915 52.2344 166.058 68.8198 169.357C85.4052 172.656 102.596 170.963 118.219 164.492C133.843 158.02 147.196 147.062 156.591 133.001C165.986 118.941 171 102.41 171 85.5C171 62.824 161.992 41.0767 145.958 25.0424C129.923 9.00801 108.176 0 85.5 0ZM94.05 136.8H76.95V119.7H94.05V136.8ZM94.05 102.6H76.95V34.2H94.05V102.6Z"
+                                                fill="#E75119"/>
+                                        </svg>
+                                    </div>
+
+
+
+
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="mb-3">
+
+                                                <ul class="booking_errorsS"></ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h2 class="fw-bold cancel-booking-title my-3">@lang('site.Do you want to cancel your reservation?') </h2>
+
+                                    <div class="form-group">
+                                        <textarea class="form-control txtarea-booking px-3 py-2 mt-2 round-border canclereason"
+                                                  placeholder="{{trans('site.Do you want to cancel your reservation?')}}"
+                                                  rows="4" name="cancle_reason" id="cancle_reason"></textarea>
+
+                                        <input type="hidden" name="booking_id" value="{{$booking->id}}" class="booking" id="booking_id">
+                                    </div>
+
+                                    <div class="d-flex pt-3 justify-content-end">
+                                        <div class="call-btn d-flex align-items-center justify-content-center bg-main">
+                                            <a data-bs-dismiss="modal"
+                                               aria-label="Close">
+                                                @lang('site.back')
+                                            </a>
+                                        </div>
+                                        <div class="cancle-btn d-flex align-items-center justify-content-center">
+                                            <button   class="cancelreasonAqars">
+                                                <span> @lang('site.cancle_reason')</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Login -->
+
+
+    </main>
 
 @endsection
 
+@section('scripts')
+
+
+
+
+
+
+
+    <script>
+
+
+        jQuery('.cancelreasonAqars').click(function (e) {
+            // console.log("daaaa");
+            e.preventDefault();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+
+            jQuery.ajax({
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')},
+
+                url: "{{ route('addcancelbooking') }}",
+                method: 'post',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    booking: jQuery('.booking').val(),
+                    canclereason: jQuery('.canclereason').val(),
+
+
+
+                },
+                success: function (result) {
+                    console.log(result);
+
+                    if (result.content == 'success')
+
+
+
+                        swal({
+                            title: "Success!",
+                            text: "The booking aquar  has been  cancel successfully !",
+                            type: "success",
+                            confirmButtonText: "OK"
+                        });
+
+                    setTimeout(function () {
+                        Swal.close()
+                    }, 2000)
+
+                    // var booking = jQuery('.booking').val();
+                    window.location.href = '{{route('mybookingAll')}}';
+
+                },
+                error: function (result) {
+                    // console.log(result.responseJSON);
+                    var errors = result.responseJSON;
+                    var errorsList = "";
+                    $.each(errors, function (_, value) {
+                        $.each(value, function (_, fieldErrors) {
+                            fieldErrors.forEach(function (error) {
+                                errorsList += "<li style='color:#e81f1f'>" + error + "</li>";
+                            })
+                        });
+                    });
+                    $('.booking_errorsS').html(errorsList);
+
+
+                }
+            });
+        });
+
+    </script>
+
+
+
+
+@endsection

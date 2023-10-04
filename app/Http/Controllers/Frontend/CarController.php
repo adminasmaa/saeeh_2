@@ -28,6 +28,37 @@ class CarController extends Controller
 {
 
 
+    public function addcancelbookingCar(Request $request){
+
+        $validation = Validator::make($request->all(), [
+            'canclereason' => 'required',
+        ]);
+
+        if ($validation->fails()) {
+            return response()->json(['errors' => $validation->errors()], 422);
+        }
+
+        $request_data = $request->except('_token');
+        $request_data['user_id'] = Auth::id() ?? '';
+
+
+        $data = CarBooking::updateOrCreate(['id' => $request_data['booking']], [
+
+            'id' => $request_data['booking'],
+            'cancle_reason' => $request['canclereason'],
+            'booking_status_id' => 4,
+
+            'user_id' => $request_data['user_id'] ?? '',
+            'cancel_user_id ' => $request_data['user_id'] ?? '',
+
+        ]);
+
+        return response()->json(['status' => true, 'content' => 'success', 'data' => $data]);
+
+
+    }
+
+
     public function addRateCar(Request $request){
 
 
@@ -215,6 +246,7 @@ class CarController extends Controller
 
     public function allcars(Request $request, $id)
     {
+
         if (!empty($request->country_id) && !empty($request->city_id) && !empty($request->brand_id) && !empty($request->category_id) && !empty($request->year)) {
 
             $cars = Car::where('country_id', '=', $request->country_id)->where('city_id', '=', $request->city_id)->where('year', '=', $request->year)->where('category_id', '=', $request->brand_id)->paginate(12);
@@ -243,10 +275,11 @@ class CarController extends Controller
         }
 
         $countries = Country::where('active', '=', 1)->get();
+        $category=Category::find($id);
         $cities = City::where('active', '=', 1)->get();
         $CategoriesCar = Category::where('parent_id', '=', 2)->where('type', '=', 2)->get();
         $carsfilters = Car::get();
-        return view('frontend.cars', compact('cars', 'carsfilters', 'countries', 'cities', 'CategoriesCar'));
+        return view('frontend.cars', compact('cars', 'carsfilters', 'countries', 'cities', 'CategoriesCar','category'));
 
     }
     public function allcarsFillter(Request $request)

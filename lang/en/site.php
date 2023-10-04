@@ -12,7 +12,9 @@ return [
     'Add a comment about the place'=>'Add a comment about the place',
     'link' => 'Link',
     'Tell us your rating about the place'=>'Tell us your rating about the place',
-
+'map'=>'Map',
+    'filtering'=>'Filtering',
+    'Do you want to cancel your reservation?'=>'Do you want to cancel your reservation?',
     'Share via social media'=>'Share via social media',
 
     'floor_numbers' => 'Floor Numbers',
