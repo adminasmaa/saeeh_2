@@ -145,8 +145,8 @@ protected $appends=['descrption','name','avgRating'];
 
     public function averageRating(){
         $results= $this->place_Comment()
-        ->selectRaw('round(avg(rating)) as avgRating, place_id ')
-        ->groupBy('place_id ');
+        ->selectRaw('round(avg(rating)) as avgRating, place_id')
+        ->groupBy('place_id');
 
         return $results;
     }
