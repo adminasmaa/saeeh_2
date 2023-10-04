@@ -17,11 +17,11 @@
                   class="row d-flex justify-content-center align-items-center h-100"
                 >
                   <div class="col-md-10 col-10 my-lg-5 my-2">
-                    <h2 class="fw-bold login-title mb-5"> {{trans('site.register')}} </h2>
+                    <h2 class="fw-bold login-title mb-5"> {{trans('site.profile')}} </h2>
                       <div class="row">
                           <div class="col-lg-6">
                               <div class="mb-3">
-                                  <ul  id="register_errorsUsers"></ul>
+                                  <ul  id="register_errorsUsersUpdate"></ul>
 
 
                               </ul>
@@ -35,8 +35,9 @@
                         <div class="emailcont">
                           <input
                             type="text"
-                            class="form-control frm-input mb-3 name2"
+                            class="form-control frm-input mb-3 name22"
                             name="name"
+                            value="{{$user->firstname}}"
                             placeholder=" {{trans('site.name')}}"
                           />
                           <span class="icon-placeholder">
@@ -59,8 +60,9 @@
                         <div class="emailcont">
                           <input
                             type="email"
-                            class="form-control frm-input mb-3 email2"
+                            class="form-control frm-input mb-3 email22"
                             placeholder=" {{trans('site.email')}}"
+                            value="{{$user->email}}"
                             name="email"
                           />
                           <span class="icon-placeholder">
@@ -86,7 +88,7 @@
                           <input
                             id="password-field"
                             type="password"
-                            class="form-control input-user mb-3 password2"
+                            class="form-control input-user mb-3 password22"
                             name="password"
                             placeholder=" {{trans('site.password')}}"
                           />
@@ -115,7 +117,7 @@
                           <input
                             id="password-field-confirm"
                             type="password"
-                            class="form-control input-user mb-3 password_confirmation2"
+                            class="form-control input-user mb-3 password_confirmation22"
                             name="password_confirmation"
                             placeholder="{{trans('site.password_confirmation')}}"
                           />
@@ -141,16 +143,13 @@
                       </div>
                     </div>
                     <div class="emailcont">
-{{--                      <input--}}
-{{--                        type="tel"--}}
-{{--                        name="phone"--}}
-{{--                        class="form-control frm-input mb-3 phone2"--}}
-{{--                        placeholder="{{trans('site.phone')}}"--}}
-{{--                      />--}}
-
-                        <input id="phoneData" type="tel"  class="form-control frm-input mb-3 phone2"    name="phone">
-                        <span id="valid-msg" class="hide">✓ Valid</span>
-                        <span id="error-msg" class="hide"></span>
+                      <input
+                        type="tel"
+                        name="phone"
+                        value="{{$user->phone}}"
+                        class="form-control frm-input mb-3 phone22"
+                        placeholder="{{trans('site.phone')}}"
+                      />
                       <span class="icon-placeholder">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -166,19 +165,10 @@
                         </svg>
                       </span>
                     </div>
-                    <button type="submit" class="mt-4 btn-login formregistersUser">
-                       {{trans('site.sing_up')}}
+                    <button type="submit" class="mt-4 btn-login formregistersUserUpdate" data-id="{{$user->id}}">
+                       {{trans('site.update')}}
                     </button>
 
-                    <div class="pt-3 user-links">
-                      <p class="text-bold">
-
-
-
-                        @lang('site.haveprofile')
-                        <a href="{{route('sitelogin')}}" class="user-link"> {{trans('site.login')}} </a>
-                      </p>
-                    </div>
                   </div>
                 </div>
                </form>
@@ -195,60 +185,10 @@
 @endsection
 @section('scripts')
 
-
-
     <script>
 
 
-        const phonedata = document.querySelector("#phoneData");
-        const errorMsg = document.querySelector("#error-msg");
-        const validMsg = document.querySelector("#valid-msg");
-
-        // here, the index maps to the error code returned from getValidationError - see readme
-        const errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
-
-        // initialise plugin
-        const iti = window.intlTelInput(phonedata, {
-            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js",
-            initialCountry: "sa",
-            preferredCountries: ["sa"],
-            separateDialCode: true,
-        });
-
-
-
-        const reset = () => {
-            phonedata.classList.remove("error");
-            errorMsg.innerHTML = "";
-            errorMsg.classList.add("hide");
-            validMsg.classList.add("hide");
-        };
-
-        // on blur: validate
-        phonedata.addEventListener('blur', () => {
-            reset();
-            if (phonedata.value.trim()) {
-                if (iti.isValidNumber()) {
-                    validMsg.classList.remove("hide");
-                } else {
-                    phonedata.classList.add("error");
-                    const errorCode = iti.getValidationError();
-                    errorMsg.innerHTML = errorMap[errorCode];
-                    errorMsg.classList.remove("hide");
-                }
-            }
-        });
-
-        // on keyup / change flag: reset
-        phonedata.addEventListener('change', reset);
-        phonedata.addEventListener('keyup', reset);
-
-    </script>
-
-    <script>
-
-
-        jQuery('.formregistersUser').click(function (e) {
+        jQuery('.formregistersUserUpdate').click(function (e) {
             // console.log("daaaa");
             e.preventDefault();
             $.ajaxSetup({
@@ -257,19 +197,20 @@
                 }
             });
 
-
+            var id = $(this).data('id');
             jQuery.ajax({
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')},
 
-                url: "{{ route('createaccount') }}",
+                url: 'updateprofileData/' + id,
+
                 method: 'post',
                 data: {
                     _token: '{{ csrf_token() }}',
-                    name: jQuery('.name2').val(),
-                    phone: jQuery('.phone2').val(),
-                    email: jQuery('.email2').val(),
-                    password: jQuery('.password2').val(),
-                    password_confirmation: jQuery('.password_confirmation2').val(),
+                    name: jQuery('.name22').val(),
+                    phone: jQuery('.phone22').val(),
+                    email: jQuery('.email22').val(),
+                    password: jQuery('.password22').val(),
+                    password_confirmation: jQuery('.password_confirmation22').val(),
 
 
                 },
@@ -281,7 +222,7 @@
 
                         swal({
                             title: "Success!",
-                            text: "The user has been successfully Added!",
+                            text: "The Data has been successfully updated!",
                             type: "success",
                             confirmButtonText: "OK"
                         });
@@ -304,18 +245,12 @@
                             })
                         });
                     });
-                    $('#register_errorsUsers').html(errorsList);
+                    $('#register_errorsUsersUpdate').html(errorsList);
 
 
                 }
             });
         });
 
-
-;
-
-
     </script>
-
-
 @endsection

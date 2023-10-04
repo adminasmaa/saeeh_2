@@ -26,11 +26,13 @@ class AqarBookDetailResource extends JsonResource
         if ($lang == 'en') {
             $name = 'name_en';
             $status ='status_en';
+            $currency ='currency';
 
 
         } else {
             $name = 'name_ar';
             $status ='status_ar';
+            $currency ='currency_ar';
 
 
         }
@@ -46,6 +48,8 @@ class AqarBookDetailResource extends JsonResource
             "Reservation_deposit" => $this->fixed_price ?? $this->total_price/$this->day_count,
             "changed_price" =>json_decode($this->changed_price) ?? NULL,
             'total' => $this->total_price,
+            // "currency" => $this->country()->select($currency)->get()[0]->$currency ?? '',
+            // "currency" => $this->$currency ?? '',
             'person_num'=>$this->person_num,
             "status_id" => $this->booking_status_id,
             'cancel_reason' => $this->cancle_reason ?? '',

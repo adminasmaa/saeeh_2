@@ -19,15 +19,18 @@ class CountryOnlyResource extends JsonResource
 
         if ($lang == 'ar') {
             $name = 'name_ar';
+            $currency ='currency_ar';
+
         } else {
             $name = 'name_en';
+            $currency ='currency';
 
         }
         return [
             "id" => $this->id ?? '',
             "name" => $this->$name ?? '',
             "code" => $this->code ?? '',
-            "currency" => $this->currency ?? '',
+            "currency" => $this->$currency ?? '',
             "flag_image" => asset('images/countries')."/".$this->flag_image,
             "image" => asset('images/countries')."/".$this->image,
             "cities"=>CityOnlyResource::collection($this->cities)

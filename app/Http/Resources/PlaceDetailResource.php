@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use App\Models\PlaceComment;
 use App\Models\PlaceReview;
-use App\Models\UserPalace;
+use App\Models\UserPlace;
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\CategoryOnlyResource;
 use App\Http\Resources\PlaceReviewResource;
@@ -48,13 +48,13 @@ class PlaceDetailResource extends JsonResource
             "phone_two" => $this->phone_two ?? '',
 
             "place_link" => $this->place_link ?? '',
-            "favorite" => (count(UserPalace::where('place_id', '=', $this->id)->where('user_id', '=', Auth::id())->get()) > 0 ? true : false),
+            "favorite" => (count(UserPlace::where('place_id', '=', $this->id)->where('user_id', '=', Auth::id())->get()) > 0 ? true : false),
             // "rate" => round(PlaceReview::where('user_id', '=', Auth::id())->where('place_id', '=',$this->id)->avg('rate')) ?? 0,
             "rate" => round($this->placeReview->avg('rate')) ?? 0,
 
             "count_review" => $this->PlaceReview->count() ?? 0,
             "count_comment" => $this->placeComments->count() ?? 0,
-            'total' => $this->PlaceReview->count() + $this->placeComments->count(),
+            'total' => $this->PlaceReview->count()?? 0 ,
 
             "reviews" => PlaceReviewResource::collection($this->PlaceReview()->limit(1)->get()) ?? NULL,
 

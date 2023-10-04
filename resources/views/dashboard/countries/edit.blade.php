@@ -172,6 +172,11 @@
                                     >
                                 </div>
 
+                                <div class="col-md-6 form-group col-12 p-2 ">
+                                    <label>@lang('site.currency_ar')</label>
+                                    <input type="text" name="currency_ar" class="form-control" value="{{ $country->currency_ar }}"
+                                    >
+                                </div>
 
                                 <div class="col-md-6 form-group col-12 p-2 ">
                                     <label>@lang('site.code')<span class="text-danger">*</span></label>

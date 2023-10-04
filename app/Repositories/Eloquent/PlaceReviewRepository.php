@@ -26,10 +26,9 @@ class PlaceReviewRepository implements PlaceReviewRepositoryInterfaceAlias
     {
         // TODO: Implement show() method.
         $PlaceReview=PlaceReview::find($Id);
-        $places = Place::all();
-        $users = User::all();
 
-        return view('dashboard.place_reviews.show', compact('places', 'users', 'PlaceReview'));
+
+        return view('dashboard.place_reviews.show', compact( 'PlaceReview'));
     }
 
     public function destroy($PlaceReview)

@@ -5,8 +5,10 @@ namespace App\Http\Resources;
 use App\Models\Aqar;
 use App\Models\AqarBooking;
 use Carbon\Carbon;
+use App\Models\City;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Resources\CountryResource;
 
 class AqarBookListResource extends JsonResource
 {
@@ -25,12 +27,12 @@ class AqarBookListResource extends JsonResource
         if ($lang == 'en') {
             $name = 'name_en';
             $status ='status_en';
-
+            $currency ='currency';
 
         } else {
             $name = 'name_ar';
             $status ='status_ar';
-
+            $currency ='currency_ar';
 
         }
 
@@ -42,6 +44,12 @@ class AqarBookListResource extends JsonResource
             "fixed_price" => $this->fixed_price ?? 0,
             "Reservation_deposit" => $this->fixed_price ?? $this->total_price/$this->day_count,
             'total' => $this->total_price,
+            // "currency" => $this->city()->pluck('country_id')[0] ?? '',
+            // "currency" => City::with('country')->get()->pluck('country.currancy','id'),
+            "currency" => $this->city()->select('country_id')->get()[0]->$currency ?? '',
+            // "currency" => $this->city()->country()->select('currancy')->get()[0]->$currency ?? '',
+            // "currency" => $this->Currency($this->$currency) ?? '',
+            // "currency" => $this->$currency ?? '',
             "status" => $this->bookingStatus()->select($status)->get()[0]->$status ?? '',   
             "image" => asset('images/aqars') . "/" . $this->aqar()->select('main_image')->get()[0]->main_image ??'',
             "changed_price" => json_decode($this->changed_price) ?? NULL,

@@ -123,6 +123,19 @@
                                 >
                             </div>
 
+                            <div class="col-md-6 form-group col-12 p-2 ">
+                                <label>@lang('site.receipt_hour')<span class="text-danger">*</span></label>
+                                <input type="time" name="receipt_hour" class="form-control"
+                                       value="{{ $booking->receipt_hour }}" disabled readonly=""
+                                >
+                            </div>
+
+                            <div class="col-md-6 form-group col-12 p-2 ">
+                                <label>@lang('site.delivery_hour')<span class="text-danger">*</span></label>
+                                <input type="time" name="delivery_hour" class="form-control"
+                                       value="{{ $booking->delivery_hour }}" disabled readonly=""
+                                >
+                            </div>
 
                         </div>
 

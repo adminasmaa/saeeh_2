@@ -48,8 +48,11 @@ $(".my-rating").starRating({
   $(".notification").click(function () {
     $(".box-notifications").toggle();
   });
-  $(".close-btn-notify").click(function () {
-    $(".box-notifications").hide();
+$(".notification-profile").click(function () {
+    $(".box-notifications-profile").toggle();
+});
+  $(".close-btn-notify-profile").click(function () {
+    $(".box-notifications-profile").hide();
   });
   //close notification box
 //   window.addEventListener('mouseup',function(event){
@@ -57,9 +60,8 @@ $(".my-rating").starRating({
 //     if(!(event.target.closest("#closeBox"))){
 //       closeBox.style.display = 'none';
 //     }
-// });  
+// });
 
   $('body').on('hidden.bs.modal', '.modal-video', function () {
     $('video').trigger('pause');
     });
-    

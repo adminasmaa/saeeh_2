@@ -33,8 +33,8 @@ class CarController extends Controller
 
 
         $validation = Validator::make($request->all(), [
-//            'rate' => 'required',
-            'description' => 'required|string',
+            'rate' => 'nullable',
+            'description' => 'nullable|string',
         ]);
 
         if ($validation->fails()) {
@@ -50,13 +50,13 @@ class CarController extends Controller
 
             'description'=>$request['description'],
             'car_id'=>$request['car_id'],
-            'user_id'=>$request_data['user_id'],
+            'user_id'=>$request_data['user_id'] ?? '',
         ]);
         $data=CarReview::create([
 
             'rate'=>$request_data['rate'],
             'car_id'=>$request['car_id'],
-            'user_id'=>$request_data['user_id'],
+            'user_id'=>$request_data['user_id'] ?? '',
 
         ]);
 
@@ -69,8 +69,8 @@ class CarController extends Controller
 
 
         $validation = Validator::make($request->all(), [
-//            'rate' => 'required',
-            'description' => 'required|string',
+            'rate' => 'nullable',
+            'description' => 'nullable|string',
         ]);
 
         if ($validation->fails()) {
@@ -86,13 +86,13 @@ class CarController extends Controller
 
             'description'=>$request['description'],
             'place_id'=>$request['place_id'],
-            'user_id'=>$request_data['user_id'],
+            'user_id'=>$request_data['user_id'] ?? '',
         ]);
         $data=PlaceReview::create([
 
             'rate'=>$request_data['rate'],
             'place_id'=>$request['place_id'],
-            'user_id'=>$request_data['user_id'],
+            'user_id'=>$request_data['user_id'] ?? '',
 
         ]);
 
