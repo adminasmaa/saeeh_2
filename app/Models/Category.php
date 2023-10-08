@@ -79,7 +79,7 @@ class Category extends Model
 
     public function roomnumbers($cat_id)
      {
-        $roomnumbers = DB::select("SELECT   DISTINCT aqars.total_rooms  as roomnumbers from aqars  WHERE aqars.category_id=$cat_id order by total_rooms;");
+        $roomnumbers = DB::select("SELECT   DISTINCT aqars.total_rooms  as roomnumbers from aqars  WHERE aqars.category_id=$cat_id  and total_rooms is not Null order by total_rooms;");
         $arr=[];
         foreach($roomnumbers as $number){
 
