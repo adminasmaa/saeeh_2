@@ -84,6 +84,9 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
     Route::get('checkallaquar', 'App\Http\Controllers\Frontend\AquarController@checkallaquar')->name('checkallaquar');
 
+
+
+    
 //booking
     Route::get('bookingaquars/{id}', 'App\Http\Controllers\Frontend\AquarController@bookingaquars')->name('bookingaquars')->middleware('web');
     Route::get('detailbookingaquars/{id}', 'App\Http\Controllers\Frontend\AquarController@detailbookingaquars')->name('detailbookingaquars')->middleware('web');
