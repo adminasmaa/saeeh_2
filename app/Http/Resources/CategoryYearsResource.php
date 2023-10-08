@@ -36,7 +36,7 @@ class CategoryYearsResource extends JsonResource
             "image" => asset('images/categories')."/".$this->image,
             "subcategories"=> (count($this->subcategories)>0 ? true : false),
             "active" => $this->active,
-            "years" =>$this->years($this->id)??[],
+
         ];
     }
 }
