@@ -14,9 +14,11 @@ use App\Models\AqarReview;
 use App\Models\Car;
 use App\Models\City;
 use App\Models\PlaceReview;
+use App\Models\PlaceComment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
-
+use Illuminate\Validation\Rule;
+use DB;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CategoryOnlyResource;
 use App\Http\Resources\CategoryYearsResource;
@@ -25,6 +27,7 @@ use App\Http\Resources\PlaceResource;
 use App\Http\Resources\SubCategoryResource;
 use App\Models\Category;
 use App\Models\Place;
+
 
 
 class CategoryController extends Controller
@@ -133,61 +136,60 @@ class CategoryController extends Controller
     {
         $city_id = $request->city_id;
 
-        // if (!empty($request->rate) && !empty($request->low_price)) {
+        $rule = [
+            'sortBy' => Rule::in(['price','rate']),
+            'sortOrder'=>Rule::in(['asc','desc']),
 
-        //     $aqars_id = AqarReview::orderBy('rate', 'DESC')->pluck('aqar_id')->toArray();
-        //     $aquars = Aqar::where('category_id', '=', $request->category_id)->where('city_id', '=', $city_id)->whereIn('id', $aqars_id)->orderBy('fixed_price', 'ASC')->paginate(20);
+        ];
+        $customMessages = [
+            'sortBy' => __('The sort parameter accept only "price" or "rate" value'),
+            'sortOrder' => __('The sort parameter accept only "asc" or "desc" value'),
+        ];
 
+        $validator = validator()->make($request->all(), $rule, $customMessages);
 
-        // } elseif (!empty($request->rate) && !empty($request->high_price)) {
+        if ($validator->fails()) {
 
-        //     $aqars_id = AqarReview::orderBy('rate', 'DESC')->pluck('aqar_id')->toArray();
-        //     $aquars = Aqar::where('category_id', '=', $request->category_id)->where('city_id', '=', $city_id)->whereIn('id', $aqars_id)->orderBy('fixed_price', 'DESC')->paginate(20);
-        // } elseif (!empty($request->low_price)) {
-        //     $aquars = Aqar::where('category_id', '=', $request->category_id)->orderBy('fixed_price', 'ASC')->paginate(20);
-        // } elseif (!empty($request->high_price)) {
-        //     $aquars = Aqar::where('category_id', '=', $request->category_id)->orderBy('fixed_price', 'DESC')->paginate(20);
+            return $this->respondErrorArray('Validation Error.', $validator->errors(), 400);
 
-        // } elseif (!empty($request->rate)) {
-        //     $aqars_id = AqarReview::orderBy('rate', 'DESC')->pluck('aqar_id')->toArray();
-        //     $aquars = Aqar::where('category_id', '=', $request->category_id)->where('city_id', '=', $city_id)->whereIn('id', $aqars_id)->paginate(20);
-
-
-        // } else {
-
-        //     $aquars = Aqar::where('category_id', '=', $request->category_id)->where('city_id', '=', $city_id)->paginate(20);
-
-        // }
-        $aqar = Aqar::selectRaw('aqars.*, round(avg(aqar_comments.rating)) as avgRating')->leftjoin('aqar_comments','aqar_comments.aqar_id','=','aqars.id')->where('category_id', '=', $request->category_id)->where('city_id', '=', $city_id)->groupBy('aqars.id');
-        if ( isset($request->rate) && trim($request->rate !== '') ) {
-            $aqar->having('avgRating',$request->rate);
-           
-        }
+        } else {
         
-        if ( isset($request->name) && trim($request->name !== '') ) {
-            $aqar->where('name_ar', 'LIKE', '%'.trim($request->name) . '%');
-        } 
-        if ( isset($request->roomnubers) && trim($request->roomnubers !== '') ) {
-            $aqar->where('total_rooms', '=', trim($request->roomnubers));
-        }
-        if ( isset($request->price_asc) && trim($request->price_asc !== '') ) {
-            $aqar->orderBy('fixed_price', 'asc');
-        }
-        if ( isset($request->price_desc) && trim($request->price_desc !== '') ) {
-            $aqar->orderBy('fixed_price', 'desc');
-        }
-        if ( isset($request->rate_asc) && trim($request->rate_asc !== '') ) {
-            $aqar->orderBy('avgRating', 'asc');
-        }
-        if ( isset($request->rate_desc) && trim($request->rate_desc !== '') ) {
-            $aqar->orderBy('avgRating', 'desc');
-        }
+        $aqar = Aqar::selectRaw('aqars.*, round(avg(aqar_comments.rating)) as avgRating')->leftjoin('aqar_comments','aqar_comments.aqar_id','=','aqars.id')->where('category_id', '=', $request->category_id)->where('city_id', '=', $city_id)->groupBy('aqars.id')
+        ->when($request->name, function ($query) use($request) {
+            $query->where('name_ar', 'LIKE', '%'.trim($request->name) . '%');
+            
+        })
+        ->when($request->roomnubers, function ($query) use($request) {
+            $query->where('total_rooms', '=', trim($request->roomnubers));
+            
+        })
+         ->when($request->min_price, function ($query) use($request) {
+            $query->where('fixed_price', '>=', trim($request->min_price));
+            
+        })
+        ->when($request->max_price, function ($query) use($request) {
+            $query->where('fixed_price', '<=', trim($request->max_price));
+            
+        })
+         ->when($request->rate, function ($query) use($request) {
+            $query->having('avgRating',trim($request->rate));
+            
+        })
+         ->when(($request->sortBy=='price') && $request->sortOrder, function ($query) use($request) {
+            $query->orderBy('fixed_price',$request->sortOrder);
+            
+        })
+        ->when(($request->sortBy=='rate') && $request->sortOrder, function ($query) use($request) {
+            $query->orderBy('avgRating',$request->sortOrder);
+            
+        })
        
-        $aquars=$aqar->paginate(20);
+        ->paginate(20);
+        
 
-        if (count($aquars)) {
+        if (count($aqar)) {
 
-            $aquarss = AqarResource::collection($aquars)->response()->getData();
+            $aquarss = AqarResource::collection($aqar)->response()->getData();
 
             return $this->respondSuccessPaginate($aquarss, __('message.data retrieved successfully.'));
 
@@ -195,53 +197,78 @@ class CategoryController extends Controller
             return $this->respondError(__('message.Data not found.'), ['error' => __('message.Data not found.')], 404);
 
         }
+        }
 
     }
 
     public function listofCarswithsubcategory(Request $request)
     {
         $city_id = $request->city_id;
+        $rule = [
+            'sortBy' => Rule::in(['price','rate']),
+            'sortOrder'=>Rule::in(['asc','desc']),
 
-       // $cars = Car::where('sub_category_id', '=', $request->sub_category_id)->where('city_id', '=', $city_id)->paginate(20);
+        ];
+        $customMessages = [
+            'sortBy' => __('The sort parameter accept only "price" or "rate" value'),
+            'sortOrder' => __('The sort parameter accept only "asc" or "desc" value'),
+        ];
+
+        $validator = validator()->make($request->all(), $rule, $customMessages);
+
+        if ($validator->fails()) {
+
+            return $this->respondErrorArray('Validation Error.', $validator->errors(), 400);
+
+        } else {
+
+      //  $car = Car::where('sub_category_id', '=', $request->sub_category_id)->where('city_id', '=', $city_id)->paginate(20);
 
 
-        $car = Car::selectRaw('cars.*, round(avg(car_comments.rating)) as avgRating')->leftjoin('car_comments','car_comments.car_id','=','cars.id')->where('sub_category_id', '=', $request->sub_category_id)->where('city_id', '=', $city_id)->groupBy('cars.id');
-        if ( isset($request->rate) && trim($request->rate !== '') ) {
-            $car->having('avgRating',$request->rate);
-           
-        }
-        
-        if ( isset($request->name) && trim($request->name !== '') ) {
-            $car->where('name_ar', 'LIKE', '%'.trim($request->name) . '%');
-        } 
-        if ( isset($request->year ) && trim($request->year  !== '') ) {
-            $car->where('year', '=', trim($request->year ));
-        }
-        if ( isset($request->price_asc) && trim($request->price_asc !== '') ) {
-            $car->orderBy('fixed_price', 'asc');
-        }
-        if ( isset($request->price_desc) && trim($request->price_desc !== '') ) {
-            $car->orderBy('fixed_price', 'desc');
-        }
-        if ( isset($request->rate_asc) && trim($request->rate_asc !== '') ) {
-            $car->orderBy('avgRating', 'asc');
-        }
-        if ( isset($request->rate_desc) && trim($request->rate_desc !== '') ) {
-            $car->orderBy('avgRating', 'desc');
-        }
+        $car = Car::selectRaw('cars.*, round(avg(car_comments.rating)) as avgRating')->leftjoin('car_comments','car_comments.car_id','=','cars.id')->where('sub_category_id', '=', $request->sub_category_id)->where('city_id', '=', $city_id)->groupBy('cars.id')
        
-        $cars=$car->paginate(20);
+         ->when($request->name, function ($query) use($request) {
+            $query->where('name_ar', 'LIKE', '%'.trim($request->name) . '%');
+            
+        })
+        ->when($request->year, function ($query) use($request) {
+            $query->where('year', '=', trim($request->year));
+            
+        })
+         ->when($request->min_price, function ($query) use($request) {
+            $query->where('fixed_price', '>=', trim($request->min_price));
+            
+        })
+        ->when($request->max_price, function ($query) use($request) {
+            $query->where('fixed_price', '<=', trim($request->max_price));
+            
+        })
+         ->when($request->rate, function ($query) use($request) {
+            $query->having('avgRating',trim($request->rate));
+            
+        })
+         ->when(($request->sortBy=='price') && $request->sortOrder, function ($query) use($request) {
+            $query->orderBy('fixed_price',$request->sortOrder);
+            
+        })
+        ->when(($request->sortBy=='rate') && $request->sortOrder, function ($query) use($request) {
+            $query->orderBy('avgRating',$request->sortOrder);
+            
+        })
+       
+        ->paginate(20);
 
 
-        if (count($cars)) {
+        if (count($car)) {
 
-            $carss = CarResource::collection($cars)->response()->getData();
+            $carss = CarResource::collection($car)->response()->getData();
 
             return $this->respondSuccessPaginate($carss, __('message.data retrieved successfully.'));
 
         } else {
             return $this->respondErrorArray(__('message.Data not found.'), ['error' => __('message.Data not found.')], 200);
 
+        }
         }
 
     }
@@ -299,20 +326,48 @@ class CategoryController extends Controller
         $subcategories = SubCategoryResource::collection(Category::where('parent_id', $cat_id)->get());
 
 
-        if (!empty($request->rate)) {
-            $places_id = PlaceReview::orderBy('rate', 'DESC')->pluck('place_id')->toArray();
+        // if (!empty($request->rate)) {
+        //     $places_id = PlaceReview::orderBy('rate', 'DESC')->pluck('place_id')->toArray();
 
 
-            $placess = Place::where(function ($query) use ($cat_id) {
-                $query->where('category_id', $cat_id)->orwhere('sub_category_id', $cat_id);
-            })->where('city_id', '=', $city_id)->whereIn('id', $places_id)->paginate(20);
+        //     $placess = Place::where(function ($query) use ($cat_id) {
+        //         $query->where('category_id', $cat_id)->orwhere('sub_category_id', $cat_id);
+        //     })->where('city_id', '=', $city_id)->whereIn('id', $places_id)->paginate(20);
 
-        } else {
+        // } else {
 
-            $placess = Place::where(function ($query) use ($cat_id) {
-                $query->where('category_id', $cat_id)->orwhere('sub_category_id', $cat_id);
-            })->where('city_id', '=', $city_id)->paginate(20);
-        }
+        //     $placess = Place::where(function ($query) use ($cat_id) {
+        //         $query->where('category_id', $cat_id)->orwhere('sub_category_id', $cat_id);
+        //     })->where('city_id', '=', $city_id)->paginate(20);
+        // }
+        
+        $rate=$request->rate;
+        $placess = Place::selectRaw('places.*, round(avg(place_comments.rating)) as avgRating')->leftjoin('place_comments','place_comments.place_id','=','places.id')
+        ->where(function ($query) use ($cat_id) {
+                 $query->where('category_id', $cat_id)->orwhere('sub_category_id', $cat_id);
+             })->where('city_id', '=', $city_id)->groupBy('places.id')
+             ->when($request->name, function ($query) use($request) {
+                $query->where('name_ar', 'LIKE', '%'.trim($request->name) . '%');
+                
+            })
+            ->when($request->rate, function ($query) use($request,$rate) {
+                
+                $ids=[];
+                 $places_id=DB::select("select `place_id`from `place_comments`   GROUP BY place_id HAVING round(avg(rating))=$rate;");
+                 foreach($places_id as $item){
+                     array_push($ids,$item->place_id);
+                 }
+             
+                $query->whereIn('places.id', $ids);
+                
+            })
+            ->when(($request->sortBy=='rate') && $request->sortOrder, function ($query) use($request) {
+                $query->orderBy('avgRating',$request->sortOrder);
+                
+            })
+       
+        ->paginate(20);
+
 
 
         if (count($subcategories) == 0) {
