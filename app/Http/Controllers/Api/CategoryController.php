@@ -155,7 +155,7 @@ class CategoryController extends Controller
 
         } else {
         
-        $aqar = Aqar::selectRaw('aqars.*, round(avg(aqar_comments.rating)) as avgRating')->leftjoin('aqar_comments','aqar_comments.aqar_id','=','aqars.id')->where('category_id', '=', $request->category_id)->where('city_id', '=', $city_id)->groupBy('aqars.id')
+        $aqar = Aqar::selectRaw('aqars.*, round(avg(aqar_reviews.rate)) as avgRating')->leftjoin('aqar_reviews','aqar_reviews.aqar_id','=','aqars.id')->where('category_id', '=', $request->category_id)->where('city_id', '=', $city_id)->groupBy('aqars.id')
         ->when($request->name, function ($query) use($request) {
             $query->where('name_ar', 'LIKE', '%'.trim($request->name) . '%');
             
@@ -248,7 +248,7 @@ class CategoryController extends Controller
       //  $car = Car::where('sub_category_id', '=', $request->sub_category_id)->where('city_id', '=', $city_id)->paginate(20);
 
 
-        $car = Car::selectRaw('cars.*, round(avg(car_comments.rating)) as avgRating')->leftjoin('car_comments','car_comments.car_id','=','cars.id')->where('sub_category_id', '=', $request->sub_category_id)->where('city_id', '=', $city_id)->groupBy('cars.id')
+        $car = Car::selectRaw('cars.*, round(avg(car_reviews.rate)) as avgRating')->leftjoin('car_reviews','car_reviews.car_id','=','cars.id')->where('sub_category_id', '=', $request->sub_category_id)->where('city_id', '=', $city_id)->groupBy('cars.id')
        
          ->when($request->name, function ($query) use($request) {
             $query->where('name_ar', 'LIKE', '%'.trim($request->name) . '%');
@@ -374,7 +374,7 @@ class CategoryController extends Controller
         
         $rate=$request->rate;
         $place_table=$request->place_table;
-        $placess = Place::selectRaw('places.*, round(avg(place_comments.rating)) as avgRating')->leftjoin('place_comments','place_comments.place_id','=','places.id')
+        $placess = Place::selectRaw('places.*, round(avg(place_reviews.rating)) as avgRating')->leftjoin('place_reviews','place_comments.place_id','=','places.id')
         ->where(function ($query) use ($cat_id) {
                  $query->where('category_id', $cat_id)->orwhere('sub_category_id', $cat_id);
              })->where('city_id', '=', $city_id)->groupBy('places.id')
@@ -385,7 +385,7 @@ class CategoryController extends Controller
             ->when($request->rate, function ($query) use($request,$rate) {
                 
                 $ids=[];
-                 $places_id=DB::select("select `place_id`from `place_comments`   GROUP BY place_id HAVING round(avg(rating))=$rate;");
+                 $places_id=DB::select("select `place_id`from `place_reviews`   GROUP BY place_id HAVING round(avg(rate))=$rate;");
                  foreach($places_id as $item){
                      array_push($ids,$item->place_id);
                  }
