@@ -135,6 +135,7 @@ class CategoryController extends Controller
     public function listofAquarWithCategory(Request $request)
     {
         $city_id = $request->city_id;
+        $floor_number=$request->floor_number;
 
         $rule = [
             'sortBy' => Rule::in(['price','rate']),
@@ -163,6 +164,20 @@ class CategoryController extends Controller
             $query->where('total_rooms', '=', trim($request->roomnubers));
             
         })
+        ->when($request->floor_number, function ($query) use($request,$floor_number) {
+                
+            $ids1=[];
+             $floor_id=DB::select("select `id` from `aqar_details`  where parent_id=1 and name_ar=$floor_number");  
+             $floor_id=$floor_id[0]->id;
+             $aqars_id=DB::select("select `aqar_id` from `aqar_sections`  where sub_section_id=$floor_id;");
+             foreach($aqars_id as $item){
+                 array_push($ids1,$item->aqar_id);
+             }
+         
+            $query->whereIn('aqars.id', $ids1);
+            
+        })
+
          ->when($request->min_price, function ($query) use($request) {
             $query->where('fixed_price', '>=', trim($request->min_price));
             
@@ -202,7 +217,7 @@ class CategoryController extends Controller
             return $this->respondSuccessPaginate($aquarss, __('message.data retrieved successfully.'));
 
         } else {
-            return $this->respondError(__('message.Data not found.'), ['error' => __('message.Data not found.')], 404);
+            return $this->respondError(__('message.Data not found.'), ['error' => __('message.Data not found.')], 200);
 
         }
         }
@@ -358,6 +373,7 @@ class CategoryController extends Controller
         // }
         
         $rate=$request->rate;
+        $place_table=$request->place_table;
         $placess = Place::selectRaw('places.*, round(avg(place_comments.rating)) as avgRating')->leftjoin('place_comments','place_comments.place_id','=','places.id')
         ->where(function ($query) use ($cat_id) {
                  $query->where('category_id', $cat_id)->orwhere('sub_category_id', $cat_id);
@@ -375,6 +391,17 @@ class CategoryController extends Controller
                  }
              
                 $query->whereIn('places.id', $ids);
+                
+            })
+            ->when($request->place_table, function ($query) use($request,$place_table) {
+                
+                $ids1=[];
+                 $places_id=DB::select("select `place_id`from `place_tables`  where id=$place_table;");
+                 foreach($places_id as $item){
+                     array_push($ids1,$item->place_id);
+                 }
+             
+                $query->whereIn('places.id', $ids1);
                 
             })
             ->when($request->rate_asc, function ($query) use($request) {

@@ -178,21 +178,28 @@ class Aqar extends Model
         return $this->belongsToMany(User::class, 'aqar_user', 'aqar_id', 'user_id');
     }
 
-    public function roomnumbers($cat_id,$aqar_id)
-    {
+    // public function roomnumbers($cat_id,$aqar_id)
+    // {
 
-        $roomnumbers = DB::select("SELECT   DISTINCT sum(aqar_details.name_ar) as total
-        FROM `aqars`
-        INNER JOIN aqar_sections on aqars.id=aqar_sections.aqar_id
-        INNER JOIN aqar_details on aqar_details.id=aqar_sections.sub_section_id
-        WHERE aqars.category_id=$cat_id and aqar_sections.section_id=6 or aqar_sections.section_id=18  and aqars.id=$aqar_id;");
-        if(!empty($floornumbers)){
-        return $roomnumbers[0]->total;
-        }
+    //     $roomnumbers = DB::select("SELECT   DISTINCT sum(aqar_details.name_ar) as total
+    //     FROM `aqars`
+    //     INNER JOIN aqar_sections on aqars.id=aqar_sections.aqar_id
+    //     INNER JOIN aqar_details on aqar_details.id=aqar_sections.sub_section_id
+    //     WHERE aqars.category_id=$cat_id and (aqar_sections.section_id=6 or aqar_sections.section_id=18)  and aqars.id=$aqar_id;");
+    //     if(!empty($floornumbers)){
+    //     return $roomnumbers[0]->total;
+    //     }
 
 
 
-    }
+    // }
+
+    public function roomnumbers()
+     {
+        $roomnumbers = DB::select("SELECT   DISTINCT aqars.total_rooms from aqars where WHERE aqars.category_id=$cat_id order by total_rooms;");
+        return   "amiira";
+
+     }
 
 
     public function floornumbers($cat_id,$aqar_id)

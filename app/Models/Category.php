@@ -58,14 +58,28 @@ class Category extends Model
         return $this->HasMany(Car::class,'sub_category_id');
     }
 
-    public function roomnumbers($id)
-    {
+    // public function roomnumbers($id)
+    // {
 
-        $roomnumbers = DB::select("SELECT   DISTINCT sum(aqar_details.name_ar) as roomnumbers
-        FROM `aqars`
-        INNER JOIN aqar_sections on aqars.id=aqar_sections.aqar_id
-        INNER JOIN aqar_details on aqar_details.id=aqar_sections.sub_section_id
-        WHERE aqars.category_id=$id and (aqar_sections.section_id=6 or aqar_sections.section_id=18) group by aqars.id  ORDER BY sum(aqar_details.name_ar);");
+    //     $roomnumbers = DB::select("SELECT   DISTINCT sum(aqar_details.name_ar) as roomnumbers
+    //     FROM `aqars`
+    //     INNER JOIN aqar_sections on aqars.id=aqar_sections.aqar_id
+    //     INNER JOIN aqar_details on aqar_details.id=aqar_sections.sub_section_id
+    //     WHERE aqars.category_id=$id and (aqar_sections.section_id=6 or aqar_sections.section_id=18) group by aqars.id  ORDER BY sum(aqar_details.name_ar);");
+    //     $arr=[];
+    //     foreach($roomnumbers as $number){
+
+    //         array_push($arr, $number->roomnumbers);
+    //     }
+    //     return $arr;
+
+
+
+    // }
+
+    public function roomnumbers($cat_id)
+     {
+        $roomnumbers = DB::select("SELECT   DISTINCT aqars.total_rooms  as roomnumbers from aqars  WHERE aqars.category_id=$cat_id order by total_rooms;");
         $arr=[];
         foreach($roomnumbers as $number){
 
@@ -73,9 +87,7 @@ class Category extends Model
         }
         return $arr;
 
-
-
-    }
+     }
 
     public function floornumbers($id)
     {
@@ -116,12 +128,13 @@ class Category extends Model
     public function placetable($subcat_id)
     {
 
-        $places=Place::select('place_tables.name_ar')->join('place_tables', 'places.id', '=', 'place_tables.place_id')->where('places.sub_category_id', '=',$subcat_id)->distinct()->get();
-
+        $places=Place::select('place_tables.name_ar' ,'place_tables.id')->join('place_tables', 'places.id', '=', 'place_tables.place_id')->where('places.sub_category_id', '=',$subcat_id)->distinct()->get();
         $arr=[];
         foreach($places as $place){
 
-            array_push($arr, $place->name_ar);
+            $item['id']=$place->id;
+            $item['name']= $place->name_ar;
+            array_push($arr, $item);
         }
         return $arr;
 
