@@ -122,6 +122,10 @@ protected $appends=['descrption','name','avgRating'];
     {
         return $this->HasMany(PlaceComment::class)->orderBy('rating','desc')->limit(3);
     }
+    public function placeCommentsAll()
+    {
+        return $this->HasMany(PlaceComment::class)->orderBy('rating','desc');
+    }
 
     public function placeComment()
     {
