@@ -112,7 +112,7 @@ class Category extends Model
     public function years($cat_id)
     {
 
-        $cars=Car::select('year')->where('category_id', '=', $this->id)->orderby('year')->distinct()->get();
+        $cars=Car::select('year')->where('sub_category_id', '=', $this->id)->orderby('year')->distinct()->get();
 
         $arr=[];
         foreach($cars as $car){
