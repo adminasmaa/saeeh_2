@@ -28,7 +28,6 @@ class CommentPlaceResource extends JsonResource
 
            "rate" => round(PlaceReview::where('user_id', '=', $user_id)->where('place_id', '=',$this->place_id)->avg('rate')) ?? 0,
 
-
             // "rate" => $this->rating ?? 0,
 //            "status" => $this->status ?? '',
             'user' => new UserResource($this->user),

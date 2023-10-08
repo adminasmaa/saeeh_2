@@ -26,9 +26,8 @@ class CommentCarResource extends JsonResource
 
            "rate" => round(CarReview::where('user_id', '=', $user_id)->where('car_id', '=',$this->car_id)->avg('rate')) ?? 0,
 
-
             // "rate" => $this->rating ?? 0,
-//            "status" => $this->status ?? '',
+            //  "status" => $this->status ?? '',
             'user' => new UserResource($this->user),
             "created_at" => $this->created_at ?? '',
 
