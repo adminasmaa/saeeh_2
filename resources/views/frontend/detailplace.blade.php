@@ -115,7 +115,7 @@
                         <h2>{{$place->name ?? ''}}</h2>
                         <div class="d-flex align-items-center mt-3">
                             <div class="department-badge bg-main text-white">
-                                <div class="pt-1">5</div>
+                                <div class="pt-1">{{$place->PlaceReview->avg('rate') ?? 0}}</div>
                                 <div>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25"
                                          fill="none">
@@ -303,26 +303,26 @@
                                             </p>
                                             <hr class="hr-saeeh">
                                         </div>
-                                        <div class="condition-content">
-                                            <h2>
-                          <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"
-                                 fill="none">
-                              <path
-                                  d="M5.7661 12H26.2328L25.0994 8.00001H6.93277L5.7661 12ZM22.3994 14.6667H9.63277L9.2661 17.3333H22.7328L22.3994 14.6667ZM5.33277 26.6667L6.9661 14.6667H3.99944C3.55499 14.6667 3.20477 14.4889 2.94877 14.1333C2.69277 13.7778 2.62077 13.3889 2.73277 12.9667L4.63277 6.30001C4.72166 6.01112 4.87722 5.77779 5.09944 5.60001C5.32166 5.42223 5.58833 5.33334 5.89944 5.33334H26.0994C26.4106 5.33334 26.6772 5.42223 26.8994 5.60001C27.1217 5.77779 27.2772 6.01112 27.3661 6.30001L29.2661 12.9667C29.3772 13.3889 29.3052 13.7778 29.0501 14.1333C28.795 14.4889 28.4448 14.6667 27.9994 14.6667H25.0661L26.6661 26.6667H23.9994L23.0994 20H8.89944L7.99944 26.6667H5.33277Z"
-                                  fill="#CACACA"></path>
-                            </svg>
-                          </span>
-                                                @lang('site.Restaurant menu link')
-                                            </h2>
-                                            <a
-                                                href="{{url($place->place_link)}}}"> @lang('site.link') </a>
+{{--                                        <div class="condition-content">--}}
+{{--                                            <h2>--}}
+{{--                          <span>--}}
+{{--                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"--}}
+{{--                                 fill="none">--}}
+{{--                              <path--}}
+{{--                                  d="M5.7661 12H26.2328L25.0994 8.00001H6.93277L5.7661 12ZM22.3994 14.6667H9.63277L9.2661 17.3333H22.7328L22.3994 14.6667ZM5.33277 26.6667L6.9661 14.6667H3.99944C3.55499 14.6667 3.20477 14.4889 2.94877 14.1333C2.69277 13.7778 2.62077 13.3889 2.73277 12.9667L4.63277 6.30001C4.72166 6.01112 4.87722 5.77779 5.09944 5.60001C5.32166 5.42223 5.58833 5.33334 5.89944 5.33334H26.0994C26.4106 5.33334 26.6772 5.42223 26.8994 5.60001C27.1217 5.77779 27.2772 6.01112 27.3661 6.30001L29.2661 12.9667C29.3772 13.3889 29.3052 13.7778 29.0501 14.1333C28.795 14.4889 28.4448 14.6667 27.9994 14.6667H25.0661L26.6661 26.6667H23.9994L23.0994 20H8.89944L7.99944 26.6667H5.33277Z"--}}
+{{--                                  fill="#CACACA"></path>--}}
+{{--                            </svg>--}}
+{{--                          </span>--}}
+{{--                                                @lang('site.Restaurant menu link')--}}
+{{--                                            </h2>--}}
+{{--                                            <a--}}
+{{--                                                href="{{url($place->place_link)}}}"> @lang('site.link') </a>--}}
 {{--                                            <div class="custom-ul-list">--}}
 {{--                                                <div class="custom-ul-list-item">شارع رئيسي</div>--}}
 {{--                                                <div class="custom-ul-list-item">مسابح داخلية</div>--}}
 {{--                                            </div>--}}
-                                            <hr class="hr-saeeh">
-                                        </div>
+{{--                                            <hr class="hr-saeeh">--}}
+{{--                                        </div>--}}
                                         <div class="condition-content">
                                             <h2>
                           <span>
@@ -417,10 +417,10 @@
                                             d="M18.3409 28.2434L29.5832 35.0288L26.5998 22.2402L36.5324 13.6356L23.4527 12.5259L18.3409 0.464966L13.2291 12.5259L0.149414 13.6356L10.082 22.2402L7.09856 35.0288L18.3409 28.2434Z"
                                             fill="#FF8600"></path></svg></span>
                                                                     <span
-                                                                        class="text-second"> {{$place->placeComments->avg('rating') ?? 0}}</span>
+                                                                        class="text-second"> {{$place->PlaceReview->avg('rate') ?? 0}}</span>
                                                                 </div>
                                                                 <div class="text-second text-center">
-                                                                    @lang('site.reviews')
+                                                                    @lang('site.comments')  {{$place->placeComments()->count()}}
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -472,7 +472,7 @@
                                                 </h2>
                                             </div>
                                             <div class="see-all">
-                                                <a href="#" class="h2"> @lang('site.all') </a>
+                                                <a href="{{route('allcommentPlace',$place->id)}}"> @lang('site.all') </a>
                                             </div>
                                         </div>
                                     </div>
@@ -496,7 +496,8 @@
                                                                 {{$comment->user->firstname ?? ''}}   {{$comment->user->lastname ?? ''}}
                                                                 <div>
                                                                     <img
-                                                                        src="{{FRONTASSETS}}/images/car-icons/turkey.png"
+                                                                        src="{{asset('images/countries/'.$comment->user->country->flag_image)}}" width="25px" height="25px"
+                                                                        onerror="this.src={{FRONTASSETS}}/images/car-icons/turkey.png"
                                                                         alt="flag-icon">
                                                                 </div>
                                                             </h2>
@@ -508,7 +509,7 @@
                                                     </div>
 
                                                     <div class="department-badge bg-main text-white">
-                                                        <div class="pt-1">{{$comment->avg('rating') ?? 0}}</div>
+                                                        <div class="pt-1">{{ round(\App\Models\PlaceReview::where('user_id', '=', $user->id)->where('place_id', '=',$place->id)->avg('rate')) ?? 0 }}</div>
                                                         <div>
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="25"
                                                                  height="25" viewBox="0 0 25 25" fill="none">
@@ -796,16 +797,25 @@
 
                                                 <div class="rate">
                                                     <input type="hidden" name="place_id" value="{{$place->id}}" class="place_id">
-                                                    <input type="radio" id="star55" name="rate" value="5" class="rate" />
-                                                    <label for="star55" title="text">5 stars</label>
-                                                    <input type="radio" id="star44" name="rate" value="4"  class="rate"/>
-                                                    <label for="star44" title="text">4 stars</label>
-                                                    <input type="radio" id="star33" name="rate" value="3"  class="rate"/>
-                                                    <label for="star33" title="text">3 stars</label>
-                                                    <input type="radio" id="star22" name="rate" value="2" class="rate" />
-                                                    <label for="star22" title="text">2 stars</label>
+
+
+
+
                                                     <input type="radio" id="star11" name="rate" value="1"  class="rate"/>
                                                     <label for="star11" title="text">1 star</label>
+
+
+                                                    <input type="radio" id="star22" name="rate" value="2" class="rate" />
+                                                    <label for="star22" title="text">2 stars</label>
+
+                                                    <input type="radio" id="star33" name="rate" value="3"  class="rate"/>
+                                                    <label for="star33" title="text">3 stars</label>
+
+                                                    <input type="radio" id="star44" name="rate" value="4"  class="rate"/>
+                                                    <label for="star44" title="text">4 stars</label>
+                                                    <input type="radio" id="star55" name="rate" value="5" class="rate" />
+                                                    <label for="star55" title="text">5 stars</label>
+
                                                 </div>
 
                                             </div>
