@@ -51,7 +51,7 @@
                 </div>
                 <div class="row">
                     <div class="col-12 pt-4 mb-5">
-                        @foreach($place->placeComments as $comment)
+                        @foreach($place->placeCommentsAll as $comment)
                             <div class="condition-content">
                                 <div class="d-flex justify-content-between reviews-contentt">
                                     <div class="d-sm-flex w-100">
