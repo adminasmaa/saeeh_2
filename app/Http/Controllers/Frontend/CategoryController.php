@@ -10,10 +10,27 @@ use App\Models\Contact;
 use App\Models\Place;
 use App\Models\Setting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class CategoryController extends Controller
 {
+
+
+
+    public function allcommentPlace($id){
+
+       $user=Auth::user();
+
+       $place=Place::find($id);
+
+
+       $comments=$user->placeComments;
+
+
+
+        return view('frontend.commentplace', compact('comments','user','place'));
+    }
 
     public function categories($id)
     {

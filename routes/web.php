@@ -36,6 +36,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
     Route::get('categories/{id}', 'App\Http\Controllers\Frontend\CategoryController@categories')->name('categories');
     Route::get('subcategories/{id}/{city_id}', 'App\Http\Controllers\Frontend\CategoryController@subcategories')->name('subcategories');
     Route::get('detailplace/{id}', 'App\Http\Controllers\Frontend\CategoryController@detailplace')->name('detailplace');
+    Route::get('allcommentPlace/{id}', 'App\Http\Controllers\Frontend\CategoryController@allcommentPlace')->name('allcommentPlace');
 
     Route::get('logout', 'App\Http\Controllers\Frontend\AuthController@logout')->name('logout');
     Route::get('sitelogin', 'App\Http\Controllers\Frontend\AuthController@login')->name('sitelogin');
@@ -103,7 +104,7 @@ define('MAINASSETS', URL::asset('public/assets'));
 define('FRONTASSETS', URL::asset('public/frontend/assets'));
 define('MAINUPLOADS', URL::asset('public/uploads'));
 define('MAINDIST', URL::asset('public/dist/frontend/img'));
-define('MAINDASHBOARD', URL::asset('public/dashboard_files'));
+define('MAINDASHBOARD', URL::asset('dashboard_files'));
 
 if (!defined('constant')) define('constant', 'value');
 
