@@ -248,7 +248,7 @@ class CategoryController extends Controller
       //  $car = Car::where('sub_category_id', '=', $request->sub_category_id)->where('city_id', '=', $city_id)->paginate(20);
 
 
-        $car = Car::selectRaw('cars.*, round(avg(car_reviews.rate1)) as avgRating')->leftjoin('car_reviews','car_reviews.car_id','=','cars.id')->where('sub_category_id', '=', $request->sub_category_id)->where('city_id', '=', $city_id)->groupBy('cars.id')
+        $car = Car::selectRaw('cars.*, round(avg(car_reviews.rate)) as avgRating')->leftjoin('car_reviews','car_reviews.car_id','=','cars.id')->where('sub_category_id', '=', $request->sub_category_id)->where('city_id', '=', $city_id)->groupBy('cars.id')
        
          ->when($request->name, function ($query) use($request) {
             $query->where('name_ar', 'LIKE', '%'.trim($request->name) . '%');
