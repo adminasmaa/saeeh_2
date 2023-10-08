@@ -175,12 +175,20 @@ class CategoryController extends Controller
             $query->having('avgRating',trim($request->rate));
             
         })
-         ->when(($request->sortBy=='price') && $request->sortOrder, function ($query) use($request) {
-            $query->orderBy('fixed_price',$request->sortOrder);
+         ->when($request->price_asc, function ($query) use($request) {
+            $query->orderBy('fixed_price','asc');
             
         })
-        ->when(($request->sortBy=='rate') && $request->sortOrder, function ($query) use($request) {
-            $query->orderBy('avgRating',$request->sortOrder);
+        ->when($request->price_desc, function ($query) use($request) {
+            $query->orderBy('fixed_price','desc');
+            
+        })
+        ->when($request->rate_asc, function ($query) use($request) {
+            $query->orderBy('avgRating','asc');
+            
+        })
+        ->when($request->rate_desc, function ($query) use($request) {
+            $query->orderBy('avgRating','desc');
             
         })
        
@@ -247,12 +255,20 @@ class CategoryController extends Controller
             $query->having('avgRating',trim($request->rate));
             
         })
-         ->when(($request->sortBy=='price') && $request->sortOrder, function ($query) use($request) {
-            $query->orderBy('fixed_price',$request->sortOrder);
+        ->when($request->price_asc, function ($query) use($request) {
+            $query->orderBy('fixed_price','asc');
             
         })
-        ->when(($request->sortBy=='rate') && $request->sortOrder, function ($query) use($request) {
-            $query->orderBy('avgRating',$request->sortOrder);
+        ->when($request->price_desc, function ($query) use($request) {
+            $query->orderBy('fixed_price','desc');
+            
+        })
+        ->when($request->rate_asc, function ($query) use($request) {
+            $query->orderBy('avgRating','asc');
+            
+        })
+        ->when($request->rate_desc, function ($query) use($request) {
+            $query->orderBy('avgRating','desc');
             
         })
        
@@ -361,8 +377,12 @@ class CategoryController extends Controller
                 $query->whereIn('places.id', $ids);
                 
             })
-            ->when(($request->sortBy=='rate') && $request->sortOrder, function ($query) use($request) {
-                $query->orderBy('avgRating',$request->sortOrder);
+            ->when($request->rate_asc, function ($query) use($request) {
+                $query->orderBy('avgRating','asc');
+                
+            })
+            ->when($request->rate_desc, function ($query) use($request) {
+                $query->orderBy('avgRating','desc');
                 
             })
        

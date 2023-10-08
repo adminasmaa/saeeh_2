@@ -143,9 +143,14 @@ protected $appends=['descrption','name','avgRating'];
         return $this->HasMany(PlaceComment::class);
     }
 
+    public function PlaceReviews()
+    {
+        return $this->HasMany(PlaceReview::class);
+    }
+
     public function averageRating(){
-        $results= $this->place_Comment()
-        ->selectRaw('round(avg(rating)) as avgRating, place_id')
+        $results= $this->PlaceReviews()
+        ->selectRaw('round(avg(rate)) as avgRating, place_id')
         ->groupBy('place_id');
 
         return $results;
