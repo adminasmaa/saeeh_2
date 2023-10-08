@@ -83,7 +83,13 @@
                                     </div>
 
                                     <div class="department-badge bg-main text-white">
+                                        @if(!empty(auth()->user()))
                                         <div class="pt-1">{{ round(\App\Models\PlaceReview::where('user_id', '=', $user->id)->where('place_id', '=',$place->id)->avg('rate')) ?? 0 }}</div>
+
+
+                                        @else
+                                            {{ round(\App\Models\PlaceReview::where('user_id', '=',$comment->user->id)->where('place_id', '=',$place->id)->avg('rate')) ?? 0 }}
+                                        @endif
                                         <div>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="25"
                                                  height="25" viewBox="0 0 25 25" fill="none">
