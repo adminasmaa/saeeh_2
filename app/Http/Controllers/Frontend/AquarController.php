@@ -32,6 +32,16 @@ class AquarController extends Controller
 {
 
 
+    public function allcommentAqar($id)
+    {
+        $user = Auth::user();
+
+        $aquar = Aqar::find($id);
+
+        return view('frontend.commentaquar', compact('user', 'aquar'));
+
+    }
+
     public function addRateAqar(Request $request)
     {
         $validation = Validator::make($request->all(), [

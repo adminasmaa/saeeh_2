@@ -35,7 +35,6 @@
             <div class="container">
 
 
-
                 <div class="row mt-5 pb-2">
                     <div class="col-12">
                         <div
@@ -50,46 +49,50 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 pt-4 mb-5">
-                        @foreach($place->placeCommentsAll as $comment)
+                    <div class="col-12 pt-4 mb-lg-5">
+
+                        @foreach($car->carComment as $comment)
+
                             <div class="condition-content">
-                                <div class="d-flex justify-content-between reviews-contentt">
+                                <div
+                                    class="d-flex justify-content-between reviews-contentt"
+                                >
                                     <div class="d-sm-flex w-100">
                                         <div class="reviews-image">
-
                                             @if(!empty($comment->user->image))
-                                            <img
-                                                src="{{asset('images/employee/'.$comment->user->image)}}"
-                                                alt=""
+                                                <img
 
-                                                onerror="this.src={{FRONTASSETS}}/images/review-image.png"
-                                            >
+
+                                                    src="{{asset('images/employee/'.$comment->user->image ?? '')}}"
+                                                    alt="UserName"
+
+
+                                                />
 
                                             @else
-
-
-
                                                 <img
                                                     src="{{FRONTASSETS}}/images/review-image.png"
-                                                    alt=""
 
-                                                    onerror="this.src={{FRONTASSETS}}/images/review-image.png"
-                                                >
 
+                                                    alt="UserName"
+
+
+                                                />
                                             @endif
                                         </div>
                                         <div class="w-100 padding-right">
                                             <h2 class="reviews-title d-flex text-second">
-                                                {{$comment->user->firstname ?? ''}}   {{$comment->user->lastname ?? ''}}
+                                                {{$comment->user->firstname ?? ''}}
+                                                {{$comment->user->firstname ?? ''}}
                                                 <div>
 
                                                     @if(!empty($comment->user->country->flag_image))
-                                                    <img
+                                                        <img
 
 
-                                                        src="{{asset('images/countries/'.$comment->user->country->flag_image)}}" width="25px" height="25px"
-                                                        onerror="this.src={{FRONTASSETS}}/images/car-icons/turkey.png"
-                                                        alt="flag-icon">
+                                                            src="{{asset('images/countries/'.$comment->user->country->flag_image)}}" width="25px" height="25px"
+                                                            onerror="this.src={{FRONTASSETS}}/images/car-icons/turkey.png"
+                                                            alt="flag-icon">
 
                                                     @else
                                                         <img
@@ -103,39 +106,42 @@
                                                 </div>
                                             </h2>
                                             <p class="details-sm-txt mb-0">
-
-                                                {!! html_entity_decode($comment->description) !!}
+                                                {!! html_entity_decode(substr($comment->description, 0, 125)) !!}
                                             </p>
                                         </div>
                                     </div>
 
                                     <div class="department-badge bg-main text-white">
-                                        @if(!empty(auth()->user()))
-                                        <div class="pt-1">{{ round(\App\Models\PlaceReview::where('user_id', '=', $user->id)->where('place_id', '=',$place->id)->avg('rate')) ?? 0 }}</div>
-
-
-                                        @else
-                                            {{ round(\App\Models\PlaceReview::where('user_id', '=',$comment->user->id)->where('place_id', '=',$place->id)->avg('rate')) ?? 0 }}
-                                        @endif
+                                        <div class="pt-1">{{$comment->rating ?? 0}}</div>
                                         <div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="25"
-                                                 height="25" viewBox="0 0 25 25" fill="none">
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="25"
+                                                height="25"
+                                                viewBox="0 0 25 25"
+                                                fill="none"
+                                            >
                                                 <path
                                                     d="M12.7529 19.6185L20.1689 24.3301L18.2009 15.4501L24.7529 9.47534L16.1249 8.70481L12.7529 0.330078L9.38093 8.70481L0.75293 9.47534L7.30493 15.4501L5.33693 24.3301L12.7529 19.6185Z"
-                                                    fill="white"></path>
+                                                    fill="white"
+                                                />
                                             </svg>
                                         </div>
                                     </div>
                                 </div>
 
-                                <hr class="hr-saeeh">
+                                <hr class="hr-saeeh"/>
                             </div>
                         @endforeach
                     </div>
+                    <div class="col-12 d-flex justify-content-end mb-5">
+                        <div
+                            class="booking-now-btn py-4 d-flex justify-content-center align-items-center"
+                        >
+                            <a href="#"> @lang('site.book')</a>
+                        </div>
+                    </div>
                 </div>
-
-
-
 
             </div>
         </section>

@@ -739,7 +739,7 @@
                                                 <h2> @lang('site.Customer reviews')</h2>
                                             </div>
                                             <div class="see-all">
-                                                <a href="#" class="h2"> @lang('site.all')  </a>
+                                                <a href="{{route('allcommentCar',$car->id)}}" class="h2"> @lang('site.all')  </a>
                                             </div>
                                         </div>
                                     </div>
@@ -747,7 +747,7 @@
                                 <div class="row">
                                     <div class="col-12 pt-4 mb-lg-5">
 
-                                        @foreach($car->carComment as $comment)
+                                        @foreach($car->carComments as $comment)
 
                                             <div class="condition-content">
                                                 <div
@@ -755,9 +755,9 @@
                                                 >
                                                     <div class="d-sm-flex w-100">
                                                         <div class="reviews-image">
-                                                            @if(!empty($comment->user))
+                                                            @if(!empty($comment->user->image))
                                                             <img
-                                                                onerror="this.src={{FRONTASSETS}}/images/review-image.png"
+
 
                                                                 src="{{asset('images/employee/'.$comment->user->image ?? '')}}"
                                                                 alt="UserName"
@@ -781,11 +781,24 @@
                                                                 {{$comment->user->firstname ?? ''}}
                                                                 {{$comment->user->firstname ?? ''}}
                                                                 <div>
-                                                                    <img
 
-                                                                        src="{{FRONTASSETS}}/images/car-icons/turkey.png"
-                                                                        alt="flag-icon"
-                                                                    />
+                                                                    @if(!empty($comment->user->country->flag_image))
+                                                                        <img
+
+
+                                                                            src="{{asset('images/countries/'.$comment->user->country->flag_image)}}" width="25px" height="25px"
+                                                                            onerror="this.src={{FRONTASSETS}}/images/car-icons/turkey.png"
+                                                                            alt="flag-icon">
+
+                                                                    @else
+                                                                        <img
+
+
+                                                                            src="{{FRONTASSETS}}/images/car-icons/turkey.png" width="25px" height="25px"
+                                                                            onerror="this.src={{FRONTASSETS}}/images/car-icons/turkey.png"
+                                                                            alt="flag-icon">
+
+                                                                    @endif
                                                                 </div>
                                                             </h2>
                                                             <p class="details-sm-txt mb-0">
@@ -921,7 +934,7 @@
 
                                     <div class="row">
                                         <div class="col-12">
-                                            <h2>اخبرنا بتقيمك عن المكان</h2>
+                                            <h2>   @lang('site.Tell us your rating about the place')</h2>
                                             <hr class="hr-saeeh" />
                                         </div>
 

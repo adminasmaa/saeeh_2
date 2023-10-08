@@ -162,7 +162,7 @@ return [
     'Service available from the hour' => 'خدمة متاحه من الساعه',
     'pools' => 'حمامات سباحة',
     'Download the application now' => 'حمل التطبيق الان',
-    'delivery_date' => 'تاريخ التسليم او الوصول',
+    'delivery_date' => 'تاريخ التسليم  ',
     'visit_count' => 'الزوار',
     'cancle_reason' => 'إلغاء السبب',
     'car_positions' => 'مكان السيارة ',

@@ -28,7 +28,19 @@ class CarController extends Controller
 {
 
 
-    public function addcancelbookingCar(Request $request){
+    public function allcommentCar($id)
+    {
+
+        $user = Auth::user();
+
+        $car = Car::find($id);
+
+        return view('frontend.commentcar', compact('user', 'car'));
+
+    }
+
+    public function addcancelbookingCar(Request $request)
+    {
 
         $validation = Validator::make($request->all(), [
             'canclereason' => 'required',
@@ -59,8 +71,8 @@ class CarController extends Controller
     }
 
 
-    public function addRateCar(Request $request){
-
+    public function addRateCar(Request $request)
+    {
 
 
         $validation = Validator::make($request->all(), [
@@ -74,20 +86,20 @@ class CarController extends Controller
 
         $request_data = $request->except('_token');
         $request_data['user_id'] = Auth::id() ?? '';
-        $request_data['rate'] =$request['rate'] ?? 0;
+        $request_data['rate'] = $request['rate'] ?? 0;
 
 
-        $comments=CarComment::create([
+        $comments = CarComment::create([
 
-            'description'=>$request['description'],
-            'car_id'=>$request['car_id'],
-            'user_id'=>$request_data['user_id'] ?? '',
+            'description' => $request['description'],
+            'car_id' => $request['car_id'],
+            'user_id' => $request_data['user_id'] ?? '',
         ]);
-        $data=CarReview::create([
+        $data = CarReview::create([
 
-            'rate'=>$request_data['rate'],
-            'car_id'=>$request['car_id'],
-            'user_id'=>$request_data['user_id'] ?? '',
+            'rate' => $request_data['rate'],
+            'car_id' => $request['car_id'],
+            'user_id' => $request_data['user_id'] ?? '',
 
         ]);
 
@@ -95,8 +107,9 @@ class CarController extends Controller
 
 
     }
-   public function addRate(Request $request){
 
+    public function addRate(Request $request)
+    {
 
 
         $validation = Validator::make($request->all(), [
@@ -110,20 +123,20 @@ class CarController extends Controller
 
         $request_data = $request->except('_token');
         $request_data['user_id'] = Auth::id() ?? '';
-        $request_data['rate'] =$request['rate'] ?? 0;
+        $request_data['rate'] = $request['rate'] ?? 0;
 
 
-        $comments=PlaceComment::create([
+        $comments = PlaceComment::create([
 
-            'description'=>$request['description'],
-            'place_id'=>$request['place_id'],
-            'user_id'=>$request_data['user_id'] ?? '',
+            'description' => $request['description'],
+            'place_id' => $request['place_id'],
+            'user_id' => $request_data['user_id'] ?? '',
         ]);
-        $data=PlaceReview::create([
+        $data = PlaceReview::create([
 
-            'rate'=>$request_data['rate'],
-            'place_id'=>$request['place_id'],
-            'user_id'=>$request_data['user_id'] ?? '',
+            'rate' => $request_data['rate'],
+            'place_id' => $request['place_id'],
+            'user_id' => $request_data['user_id'] ?? '',
 
         ]);
 
@@ -149,6 +162,7 @@ class CarController extends Controller
 
 
     }
+
     public function favouritPlace(Request $request, $id)
     {
 
@@ -191,7 +205,7 @@ class CarController extends Controller
                 'delivery_hour' => $requestdata['delivery_hour'], 'delivery_place' => $requestdata['delivery_place'],
                 'fixed_price' => $requestdata['fixed_price'], 'note' => $requestdata['note'],
                 'receipt_hour' => $requestdata['receipt_hour'], 'date' => $newDate,
-                'day_count' => $requestdata['day_count'],'total'=>$total
+                'day_count' => $requestdata['day_count'], 'total' => $total
 
             ]);
 
@@ -275,13 +289,14 @@ class CarController extends Controller
         }
 
         $countries = Country::where('active', '=', 1)->get();
-        $category=Category::find($id);
+        $category = Category::find($id);
         $cities = City::where('active', '=', 1)->get();
         $CategoriesCar = Category::where('parent_id', '=', 2)->where('type', '=', 2)->get();
         $carsfilters = Car::get();
-        return view('frontend.cars', compact('cars', 'carsfilters', 'countries', 'cities', 'CategoriesCar','category'));
+        return view('frontend.cars', compact('cars', 'carsfilters', 'countries', 'cities', 'CategoriesCar', 'category'));
 
     }
+
     public function allcarsFillter(Request $request)
     {
         if (!empty($request->country_id) && !empty($request->city_id) && !empty($request->brand_id) && !empty($request->category_id) && !empty($request->year)) {

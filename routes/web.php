@@ -56,12 +56,16 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
     Route::get('bookingcar/{id}', 'App\Http\Controllers\Frontend\CarController@bookingcar')->name('bookingcar')->middleware('web');
     Route::get('detailbooking/{id}', 'App\Http\Controllers\Frontend\CarController@detailbooking')->name('detailbooking')->middleware('web');
     Route::get('addbookingcar', 'App\Http\Controllers\Frontend\CarController@Addbookingcar')->name('addbookingcar')->middleware('web');
+    Route::get('allcommentCar/{id}', 'App\Http\Controllers\Frontend\CarController@allcommentCar')->name('allcommentCar');
+
 //cars end
 
 //aquar start
     Route::get('aquars/{id}', 'App\Http\Controllers\Frontend\AquarController@allaquars')->name('aquars');
     Route::post('filteraquars', 'App\Http\Controllers\Frontend\AquarController@filteraquars')->name('filteraquars');
     Route::get('detailaquar/{id}', 'App\Http\Controllers\Frontend\AquarController@detailaquar')->name('detailaquar');
+    Route::get('allcommentAqar/{id}', 'App\Http\Controllers\Frontend\AquarController@allcommentAqar')->name('allcommentAqar');
+
     //list of add favourite
     Route::get('aquars/favouritAqar/{id}', 'App\Http\Controllers\Frontend\AquarController@favouritAqar')->name('aquars.favouritAqar')->middleware('web');
     Route::get('subcategorycars/favouritCar/{id}', 'App\Http\Controllers\Frontend\CarController@favouritCar')->name('subcategorycars.favouritCar')->middleware('web');
@@ -104,7 +108,7 @@ define('MAINASSETS', URL::asset('public/assets'));
 define('FRONTASSETS', URL::asset('public/frontend/assets'));
 define('MAINUPLOADS', URL::asset('public/uploads'));
 define('MAINDIST', URL::asset('public/dist/frontend/img'));
-define('MAINDASHBOARD', URL::asset('dashboard_files'));
+define('MAINDASHBOARD', URL::asset('public/dashboard_files'));
 
 if (!defined('constant')) define('constant', 'value');
 

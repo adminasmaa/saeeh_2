@@ -295,7 +295,8 @@
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <div class="h2 text-gray-2 mb-0">@lang('site.Reservation deposit'):</div>
-                                    <div class="h2 text-gray-2 mb-0  padding-details"> {{$aquar->fixed_price ?? 0}}</div>
+                                    <div
+                                        class="h2 text-gray-2 mb-0  padding-details"> {{$aquar->fixed_price ?? 0}}</div>
                                 </div>
 
                             </div>
@@ -537,7 +538,8 @@
                                                 <h2>@lang('site.Customer reviews')</h2>
                                             </div>
                                             <div class="see-all">
-                                                <a href="#" class="h2"> @lang('site.all') </a>
+                                                <a href="{{route('allcommentAqar',$aquar->id)}}"
+                                                   class="h2"> @lang('site.all') </a>
                                             </div>
                                         </div>
                                     </div>
@@ -545,7 +547,7 @@
                                 <div class="row">
                                     <div class="col-12 pt-4 mb-5">
 
-                                        @foreach($aquar->aqarComment as $comment)
+                                        @foreach($aquar->aqarComments as $comment)
                                             <div class="condition-content">
                                                 <div class="d-flex justify-content-between reviews-contentt">
                                                     <div class="d-sm-flex w-100">
@@ -553,15 +555,17 @@
                                                             @if(!empty($comment->user->image))
                                                                 <img
                                                                     alt=""
-                                                                    onerror="this.src='{{FRONTASSETS}}/images/review-image.png'"
+
 
                                                                     src="{{asset('images/employee/'.$comment->user->image ?? '')}}"
+
+
                                                                 />
                                                             @else
 
                                                                 <img
                                                                     alt=""
-                                                                    onerror="this.src='{{FRONTASSETS}}/images/review-image.png'"
+
 
                                                                     src="{{FRONTASSETS}}/images/review-image.png"
                                                                 />
