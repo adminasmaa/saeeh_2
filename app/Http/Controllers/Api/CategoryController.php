@@ -374,7 +374,7 @@ class CategoryController extends Controller
         
         $rate=$request->rate;
         $place_table=$request->place_table;
-        $placess = Place::selectRaw('places.*, round(avg(place_reviews.rating)) as avgRating')->leftjoin('place_reviews','place_comments.place_id','=','places.id')
+        $placess = Place::selectRaw('places.*, round(avg(place_reviews.rate)) as avgRating')->leftjoin('place_reviews','place_comments.place_id','=','places.id')
         ->where(function ($query) use ($cat_id) {
                  $query->where('category_id', $cat_id)->orwhere('sub_category_id', $cat_id);
              })->where('city_id', '=', $city_id)->groupBy('places.id')
