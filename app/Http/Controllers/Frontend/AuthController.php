@@ -41,7 +41,7 @@ class AuthController extends Controller
 
         $validation = Validator::make($request->all(), [
             'email' => ['required', Rule::unique('users')->ignore($id),],
-            'phone' => ['required', Rule::unique('users')->ignore($id),],
+            'phone' => ['required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10', Rule::unique('users')->ignore($id),],
             'password' => 'nullable|confirmed|min:6',
             'name' => 'required',
         ]);
@@ -93,7 +93,7 @@ class AuthController extends Controller
     {
         $validation = Validator::make($request->all(), [
             'email' => 'required|email|string|unique:users',
-            'phone' => 'required|string|unique:users',
+            'phone' => 'required|unique:users|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'password' => 'required|confirmed|min:6',
             'name' => 'required',
         ]);
@@ -124,7 +124,7 @@ class AuthController extends Controller
     {
 
         $validation = Validator::make($request->all(), [
-            'phone' => 'required',
+            'phone' => 'required|unique:users|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
 
             'password' => 'required|min:6',
         ]);

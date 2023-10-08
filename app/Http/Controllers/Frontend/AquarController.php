@@ -135,7 +135,7 @@ class AquarController extends Controller
     {
         $user = Auth::user();
 
-        $favouriteaqar = $user->setRelation('favourite_aqars', $user->favourite_aqars()->paginate(20));;
+        $favouriteaqar = $user->setRelation('favourite_aqars', $user->favourite_aqars()->paginate(20));
 
 
         $favouritecar = $user->setRelation('favourite_car', $user->favourite_car()->paginate(20));
