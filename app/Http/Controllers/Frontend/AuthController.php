@@ -124,7 +124,7 @@ class AuthController extends Controller
     {
 
         $validation = Validator::make($request->all(), [
-            'phone' => 'required|unique:users|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
 
             'password' => 'required|min:6',
         ]);

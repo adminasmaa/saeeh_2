@@ -64,7 +64,7 @@ class CarController extends Controller
 
 
         $validation = Validator::make($request->all(), [
-            'rate' => 'nullable',
+            'rate' => 'required',
             'description' => 'nullable|string',
         ]);
 
@@ -100,7 +100,7 @@ class CarController extends Controller
 
 
         $validation = Validator::make($request->all(), [
-            'rate' => 'nullable',
+            'rate' => 'required',
             'description' => 'nullable|string',
         ]);
 
