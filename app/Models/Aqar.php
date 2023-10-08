@@ -111,10 +111,17 @@ class Aqar extends Model
         return $this->HasMany(AqarComment::class);
     }
 
+    public function aqarReviews()
+    {
+
+        return $this->HasMany(AqarReview::class ,'aqar_id');
+
+
+    }
 
     public function averageRating(){
-        $results= $this->aqarComment()
-        ->selectRaw('round(avg(rating)) as avgRating, aqar_id')
+        $results= $this->aqarReviews()
+        ->selectRaw('round(avg(rate)) as avgRating, aqar_id')
         ->groupBy('aqar_id');
 
         return $results;

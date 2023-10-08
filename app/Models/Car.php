@@ -16,6 +16,7 @@ use App\Models\Category;
 
 //belongsTo
 use App\Models\CarComment;
+use App\Models\CarReview;
 
 // HasMany
 use App\Models\CarBooking;
@@ -120,11 +121,17 @@ Car extends Model
 
         return $this->belongsToMany(User::class,'car_user','car_id','user_id');
     }
+    
+    public function carReviews()
+    {
+        return $this->HasMany(CarReview::class ,'car_id');
+
+    }
 
 
     public function averageRating(){
-        $results= $this->carComment()
-        ->selectRaw('round(avg(rating)) as avgRating, car_id')
+        $results= $this->carReviews()
+        ->selectRaw('round(avg(rate)) as avgRating, car_id')
         ->groupBy('car_id');
 
         return $results;
