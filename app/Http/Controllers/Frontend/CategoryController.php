@@ -25,11 +25,11 @@ class CategoryController extends Controller
        $place=Place::find($id);
 
 
-       $comments=$user->placeComments;
 
 
 
-        return view('frontend.commentplace', compact('comments','user','place'));
+
+        return view('frontend.commentplace', compact('user','place'));
     }
 
     public function categories($id)
