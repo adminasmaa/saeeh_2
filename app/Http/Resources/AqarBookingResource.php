@@ -25,12 +25,14 @@ class AqarBookingResource extends JsonResource
     {
         $lang = $request->header('localization');
 
-        if ($lang == 'ar') {
-            $name = 'name_ar';
+        if ($lang == 'en') {
+            $name = 'name_en';
+            $currency ='currency';
 
 
         } else {
-            $name = 'name_en';
+            $name = 'name_ar';
+            $currency ='currency_ar';
 
 
         }
@@ -74,6 +76,7 @@ class AqarBookingResource extends JsonResource
             "reviews" => AqarReviewResource::collection($this->aqarReview),
             "fixed_price" => $this->fixed_price ?? 0,
             "changed_price" => $this->changed_price?(json_decode($this->changed_price)->person_num[0]?json_decode($this->changed_price) : NULL):NULL,
+            "currency" => $this->city->country->$currency?? '',
             "created_at" => $this->created_at ?? '',
             "category" => new staticResource($this->category),
             'aqarSection' => $this->aqarSection
