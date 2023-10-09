@@ -69,15 +69,14 @@ class PlaceCategoryDataTable extends DataTable
      */
     public function query(Category $model): QueryBuilder
     {
-        return $model->newQuery()->where('type', '=', 0);
+        return $model->where('type', '=', 0)->where('parent_id',null)->newQuery();
     }
 
     public function count()
     {
-        return Category::where('type', '=', 0)->count();
+        return Category::where('type', '=', 0)->where('parent_id',null)->count();
 
     }
-
     /**
      * Optional method if you want to use html builder.
      *
