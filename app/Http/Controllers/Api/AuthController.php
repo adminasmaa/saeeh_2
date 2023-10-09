@@ -433,7 +433,14 @@ class AuthController extends Controller
 
         } 
         else {
-            return $this->respondError(trans('message.user not found'), ['error' => trans('message.user not found')], 404);
+
+            $set = '123456789';
+            $code = substr(str_shuffle($set), 0, 4);
+            $msg = trans('message.please verified your account') . "\n";
+            $msg = $msg . trans('message.code activation') . "\n" . $code;
+            send_sms_code($msg, $request->phone, $request->country_code);
+            return $this->respondSuccess(json_decode('{}'), trans('message.message sent successfully.'));
+           // return $this->respondError(trans('message.user not found'), ['error' => trans('message.user not found')], 404);
         }
     }
 
