@@ -20,17 +20,19 @@ class AqarFavResource extends JsonResource
 
         if ($lang == 'ar') {
             $name = 'name_ar';
+            $currency ='currency_ar';
 
 
         } else {
             $name = 'name_en';
+            $currency ='currency';
 
         }
             return [
                 "id" => $this->id,
                 "name" => $this->$name ?? '',
                 "favorite" =>true,
-
+                "currency" => $this->city->country->$currency?? '',
                 "description" =>strip_tags($this->description) ?? '',
                 "policy_place" =>  html_entity_decode($this->policy_place) ?? '',
                 "latitude" => $this->latitude ?? 0,

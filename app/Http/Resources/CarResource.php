@@ -19,7 +19,13 @@ class CarResource extends JsonResource
     public function toArray($request)
     {
         $lang = $request->header('localization');
+        if ($lang == 'ar') {
+            $currency ='currency_ar';
 
+        } else {
+            $currency ='currency';
+
+        }
         return [
             "id" => $this->id,
             "name" => $this->name ?? '',
@@ -42,7 +48,7 @@ class CarResource extends JsonResource
 //            "car_delivery_date" => $this->car_delivery_date ?? '',
             "fixed_price" => $this->fixed_price ?? 0,
             "changed_price" => $this->changed_price?(json_decode($this->changed_price)->day_num[0]?json_decode($this->changed_price) : NULL):NULL,
-
+            "currency" => $this->city->country->$currency?? '',
 //            "rate" => round($this->carComment->avg('rating')) ?? 0,
            // "rate" => round(CarReview::where('user_id', '=', Auth::id())->where('car_id', '=',$this->id)->avg('rate')) ?? 0,
             "rate" => $this->avgRating,

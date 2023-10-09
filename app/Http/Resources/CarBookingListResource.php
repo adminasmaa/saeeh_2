@@ -25,11 +25,13 @@ class CarBookingListResource extends JsonResource
         if ($lang == 'en') {
             $name = 'name_en';
             $status ='status_en';
+            $currency ='currency';
 
 
         } else {
             $name = 'name_ar';
             $status ='status_ar';
+            $currency ='currency_ar';
 
 
         }
@@ -40,6 +42,7 @@ class CarBookingListResource extends JsonResource
             "name" => $this->car()->select($name)->get()[0]->$name ?? '',
             'day_count' => $this->day_count,
             "fixed_price" => $this->fixed_price ?? 0,
+            "currency" => $this->city->country->$currency?? '',
             "Reservation_deposit" => $this->fixed_price ?? $this->total_price/$this->day_count,
             'total' => $this->total_price ?? 0,
             "status" => $this->bookingStatus()->select($status)->get()[0]->$status ?? '',   
