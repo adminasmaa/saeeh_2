@@ -32,6 +32,21 @@ class Controller extends BaseController
         return response()->json($response, $code);
     }
 
+    public function respondSuccesswithversion($result,$versions, $message, $code = 200)
+    {
+        $response = [
+            'code' => $code,
+            'status' => true,
+            'message' => $message,
+            'data' => $result,
+            'version'=>$versions,
+            'errorData' => null,
+        ];
+
+
+        return response()->json($response, $code);
+    }
+
     public function respondSuccessPaginate($result, $message, $code = 200)
     {
         unset($result->meta->links);

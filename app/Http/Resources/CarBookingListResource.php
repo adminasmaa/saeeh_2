@@ -42,8 +42,8 @@ class CarBookingListResource extends JsonResource
             "fixed_price" => $this->fixed_price ?? 0,
             "Reservation_deposit" => $this->fixed_price ?? $this->total_price/$this->day_count,
             'total' => $this->total_price ?? 0,
-            "status" => $this->bookingStatus()->select($status)->get()[0]->$status ?? '',   
-            "image" => asset('images/cars') . "/" . $this->car()->select('main_image_ads')->get()[0]->main_image_ads ?? '',
+            "status" => $this->bookingStatus->$status ?? '',   
+            "image" => asset('images/cars') . "/" . $this->car->main_image_ads ?? '',
             "changed_price" => json_decode($this->changed_price) ?? NULL,
             "cancel_byme" => $this->cancel_user_id ==Auth::id()?true:false,
             "created_at" => $this->created_at ?? ''

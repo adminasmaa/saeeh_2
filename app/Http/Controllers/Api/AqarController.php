@@ -470,7 +470,7 @@ class AqarController extends Controller
                 }
                
             }
-            $input = $request->all();
+            $input = $request->all();die;
             $input['user_id'] = Auth::id();
             $input['aqar_id'] =$request->id;
             $input['person_num'] =$request->person_num;
@@ -478,6 +478,7 @@ class AqarController extends Controller
             $input['fixed_price'] = $fixed_price ?? null;
             $input['changed_price'] = $changed_price ?? null;
             $input['booking_status_id'] =1;
+            $input['city_id']=auth()->user()['city_id'];
 
             $success = AqarBooking::create($input);
 

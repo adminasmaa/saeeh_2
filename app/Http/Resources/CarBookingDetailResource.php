@@ -46,7 +46,7 @@ class CarBookingDetailResource extends JsonResource
             "receipt_hour"  =>$this->receipt_hour??'',
             "place_arrive" =>$this->place_arrive??'',
             "place_leave"  =>$this->place_leave??'',
-            "status" => $this->bookingStatus()->select($status)->get()[0]->$status ?? '', 
+            "status" => $this->bookingStatus->$status ?? '', 
             "status_id" => $this->booking_status_id,  
             "changed_price" =>json_decode($this->changed_price) ?? NULL,
             'total' => $this->total_price ?? 0,

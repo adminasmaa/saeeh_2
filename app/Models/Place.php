@@ -102,6 +102,11 @@ protected $appends=['descrption','name','avgRating'];
         return $this->HasMany(PlaceReview::class)->distinct();
     }
 
+    public function Place_Reviews()
+    {
+        return $this->HasMany(PlaceReview::class);
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');

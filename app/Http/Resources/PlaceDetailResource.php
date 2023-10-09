@@ -52,11 +52,11 @@ class PlaceDetailResource extends JsonResource
             // "rate" => round(PlaceReview::where('user_id', '=', Auth::id())->where('place_id', '=',$this->id)->avg('rate')) ?? 0,
             "rate" => round($this->placeReview->avg('rate')) ?? 0,
 
-            "count_review" => $this->PlaceReview->count() ?? 0,
+            "count_review" => $this->Place_Reviews->count() ?? 0,
 
-            "count_comment" => $this->placeComments->count() ?? 0,
+            "count_comment" => $this->place_Comment->count() ?? 0,
 
-            'total' => $this->PlaceReview->count() ?? 0 ,
+            'total' => $this->Place_Reviews->count() ?? 0 ,
 
             "reviews" => PlaceReviewResource::collection($this->PlaceReview()->limit(1)->get()) ?? NULL,
 
