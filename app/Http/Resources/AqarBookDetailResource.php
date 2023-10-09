@@ -52,7 +52,7 @@ class AqarBookDetailResource extends JsonResource
             'person_num'=>$this->person_num,
             "status_id" => $this->booking_status_id,
             'cancel_reason' => $this->cancle_reason ?? '',
-            "status" => $this->bookingStatus()->select($status)->get()[0]->$status ?? '', 
+            "status" => $this->bookingStatus->$status ?? '', 
             "created_at" => $this->created_at ?? '',
             "investor_name"=> $this->aqar->user->firstname ." ".$this->aqar->user->lastname,
             "investor_phone"=>$this->aqar->user->country_code.$this->aqar->user->phone,

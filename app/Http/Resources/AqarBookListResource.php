@@ -37,15 +37,15 @@ class AqarBookListResource extends JsonResource
         }
 
         return [
-            "id" => $this->aqar()->select('id')->get()[0]->id ?? 0,
+            "id" => $this->aqar->id ?? 0,
             "book_id"=>$this->id,
-            "name" => $this->aqar()->select($name)->get()[0]->$name ?? '',
+            "name" => $this->aqar->$name ?? '',
             'day_count' => $this->day_count,
             "fixed_price" => $this->fixed_price ?? 0,
             "Reservation_deposit" => $this->fixed_price ?? $this->total_price/$this->day_count,
             'total' => $this->total_price,
             "currency" => $this->city->country->$currency?? '',   
-            "status" => $this->bookingStatus()->select($status)->get()[0]->$status ?? '',   
+            "status" => $this->bookingStatus->$status ?? '',   
             "image" => asset('images/aqars') . "/" . $this->aqar()->select('main_image')->get()[0]->main_image ??'',
             "changed_price" => json_decode($this->changed_price) ?? NULL,
             "cancel_byme" => $this->cancel_user_id ==Auth::id()?true:false,

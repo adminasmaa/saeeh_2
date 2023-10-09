@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\CountryOnlyResource;
 use App\Http\Resources\CountryResource;
 use App\Models\Country;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
 
@@ -16,7 +17,8 @@ class CountryController extends Controller
     public function countries()
     {
         $Countries =CountryResource::collection(Country::where('active', 1)->get());
-        return $this->respondSuccess($Countries, 'Countries retrieved successfully.');
+        $verions=Setting::first()->only('ios_version','android_version');
+        return $this->respondSuccesswithversion($Countries,$verions, 'Countries retrieved successfully.');
     }
 
 
