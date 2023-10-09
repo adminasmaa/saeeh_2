@@ -21,10 +21,12 @@ class CarFavResource extends JsonResource
 
         if ($lang == 'ar') {
             $name = 'name_ar';
+            $currency ='currency_ar';
 
 
         } else {
             $name = 'name_en';
+            $currency ='currency';
 
         }
         return [
@@ -35,6 +37,7 @@ class CarFavResource extends JsonResource
             "policy_place" =>  html_entity_decode($this->policy_place) ?? '',
             "image" => asset('images/cars') . "/" . $this->main_image_ads,
             "fixed_price" => $this->fixed_price ?? 0,
+            "currency" => $this->city->country->$currency?? '',
 //            "rate" =>round($this->carComment->avg('rating')) ?? 0,
             "rate" => round(CarReview::where('user_id', '=', Auth::id())->where('car_id', '=',$this->id)->avg('rate')) ?? 0,
         ];

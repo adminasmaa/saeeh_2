@@ -24,10 +24,12 @@ class AqarDetailResource extends JsonResource
 
         if ($lang == 'ar') {
             $name = 'name_ar';
+            $currency ='currency_ar';
 
 
         } else {
             $name = 'name_en';
+            $currency ='currency';
 
 
         }
@@ -63,6 +65,7 @@ class AqarDetailResource extends JsonResource
             "count_comment" => $this->aqarComment->count() ?? 0,
             // 'total' => $this->aqarReview->count() + $this->aqarComment->count(),
             'total' => $this->aqarReview->count()?? 0 ,
+            "currency" => $this->city->country->$currency?? '',
 
         //    "rate" => round($this->AqarReview->avg('rating')) ?? 0,
             "rate" => round($this->aqarReview->avg('rate')) ?? 0,

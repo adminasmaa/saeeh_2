@@ -24,10 +24,12 @@ class AqarDetailOnlyResource extends JsonResource
 
         if ($lang == 'en') {
             $name = 'name_en';
+            $currency ='currency';
 
 
         } else {
             $name = 'name_ar';
+            $currency ='currency_ar';
 
 
         }
@@ -55,6 +57,7 @@ class AqarDetailOnlyResource extends JsonResource
             'path' => asset('images/aqars') . "/",
             "comision" => $this->comision ?? '',
             "area" => $this->area->name ?? '',
+            "currency" => $this->city->country->$currency?? '',
             "favorite" => (count(AquarUser::where('aqar_id', '=', $this->id)->where('user_id', '=', Auth::id())->get()) > 0 ? true : false),
             "count_review" => $this->aqarReview->count() ?? 0,
             "count_comment" => $this->aqarComment->count() ?? 0,

@@ -22,7 +22,13 @@ class CarDetailOnlyResource extends JsonResource
     public function toArray($request)
     {
         $lang = $request->header('localization');
+        if ($lang == 'en') {
+            $currency ='currency';
 
+        } else {
+            $currency ='currency_ar';
+
+        }
 
         return [
             "id" => $this->id ?? '',
@@ -41,6 +47,7 @@ class CarDetailOnlyResource extends JsonResource
             "count_review"=>$this->CarReview->count() ?? 0,
             'total' => $this->carComment->count() + $this->CarReview->count(),
            "rate" => round($this->carReview->avg('rate')) ?? 0,
+           "currency" => $this->city->country->$currency?? '',
             "fixed_price" => $this->fixed_price ?? 0,
             "Reservation_deposit" => $this->fixed_price ?? 0,
             "changed_price" => $this->changed_price?(json_decode($this->changed_price)->day_num[0]?json_decode($this->changed_price) : NULL):NULL,

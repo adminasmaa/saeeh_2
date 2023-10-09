@@ -23,7 +23,13 @@ class CarDetailResource extends JsonResource
     {
         $lang = $request->header('localization');
 
+        if ($lang == 'en') {
+            $currency ='currency';
 
+        } else {
+            $currency ='currency_ar';
+
+        }
         return [
             "id" => $this->id ?? '',
             "name" => $this->name ?? '',
@@ -50,7 +56,7 @@ class CarDetailResource extends JsonResource
             "count_review"=>$this->CarReview->count() ?? 0,
             // 'total' => $this->carComment->count() + $this->CarReview->count(),
             'total' => $this->CarReview->count()?? 0,
-
+            "currency" => $this->city->country->$currency?? '',
             "comments" => CommentCarResource::collection($this->carComments),
 //          "rate" => round($this->carComment->avg('rating')) ?? 0,
            "rate" => round($this->carReview->avg('rate')) ?? 0,
