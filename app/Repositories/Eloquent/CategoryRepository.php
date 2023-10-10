@@ -68,12 +68,13 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
         // TODO: Implement store() method.
 
 //        return $request;
-        $request_data = $request->except(['image', 'icon','name_ar_category', 'name_en_category','image_category', 'city_id']);
+        $request_data = $request->except(['image', 'icon','name_ar_category','name_en_category','image_category', 'city_id']);
 
         // To Make  Active
         $request_data['active'] = 1;
         $request_data['type'] = 2;
         $request_data['parent_id'] = 2;
+        $arr = $request->name_ar_category;
 
 
         $category = Category::create($request_data + ['city_id' => json_encode($request['city_id'])]);
@@ -94,7 +95,9 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
 
         }
 
-        if (!empty($request['name_ar_category'])) {
+        if ($arr[0]!=null) {
+
+        // if (!empty($request['name_ar_category'])) {
 
             foreach ($request['name_ar_category'] as $key => $value) {
                 $cat = Category::create([
@@ -134,8 +137,13 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
         // TODO: Implement update() method.
 
 
-        $request_data = $request->except(['image','icon','name_category', 'image_category', 'city_id']);
-        $category->update($request_data + ['city_id' => json_encode($request['city_id'])]);
+        $request_data = $request->except(['image','icon','name_category','image_category', 'city_id']);
+
+        // $category->update($request_data + ['city_id' => json_encode($request['city_id'])]);
+
+        $category->update($request_data);
+
+        $arr = $request->name_category;
 
 
         if ($request->hasFile('image')) {
@@ -149,7 +157,7 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
             UploadImage('images/categories/','icon', $category, $request->file('icon'));
         }
 
-        if (isset($request['name_category'])) {
+        if ($arr[0]!=null) {
 
             foreach ($request['name_category'] as $key => $value) {
                 $cat = Category::create([

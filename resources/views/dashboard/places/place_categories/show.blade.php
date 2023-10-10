@@ -208,14 +208,16 @@
                             @foreach($subcategories as $cat)
                                 <div class="row m-0">
 
-                                    <div class="col-md-3 form-group col-12 p-2">
-
-
-                                        <label>@lang('site.ar.name')</label>
-                                        <input type="text" class="form-control" disabled
-                                               value="{{ $cat->name_ar ?? '' }}">
-                                    </div>
-
+                                        <div class="col-md-6 form-group col-12 p-2">
+                                            <label>@lang('site.name_ar')</label>
+                                            <input type="text" name="name_ar_category[]"
+                                                    class="form-control" value="{{$cat->name_ar}}" readonly disabled/>
+                                        </div>
+                                        <div class="col-md-6 form-group col-12 p-2">
+                                            <label>@lang('site.name_en')</label>
+                                            <input type="text" name="name_en_category[]"
+                                                    class="form-control" value="{{$cat->name_en}}" readonly disabled>
+                                        </div>
 
                                     <div class="col-md-3 form-group col-12 p-2">
                                         <label>@lang('site.image')</label>
