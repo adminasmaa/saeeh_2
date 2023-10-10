@@ -1,24 +1,180 @@
 @extends('layouts.main_investor')
 @section('content')
+ 
+        <section class="py-md-4 py-2">
+            <div class="container">
+                <nav class="breadcrumb-container" aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="javascript:void(0)">@lang('site.dashboard') </a>
+                    </li>
+                    <li class="breadcrumb-item text-gray-4" aria-current="page">
+                    @lang('site.aqars') 
+                    </li>
+                    </ol>
+                </nav>
+            </div>
+        </section>
 
-    <!-- <div class="content-page"> -->
-    <div class="page-body">
-        <div class="container-fluid">
-            <div class="page-title">
+        <section class="ads-header">
+            <div class="container">
                 <div class="row">
-                    <div class="col-6">
-                        <h3>@lang('site.aqars')</h3>
+                    <div class="col-12">
+                    <div class="ads-add-container">
+                        <div class="d-lg-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <div>
+                            <img
+                                src="{{FRONTASSETS}}/images/booking-investor/notify-ic.svg"
+                                alt="notify icon"
+                                class="notify-ic"
+                            />
+                            </div>
+                            <h2>
+                            @lang('site.If you have a problem adding your ad, please call us')
+                        </h2>
+                        </div>
+                        <div
+                            class="add-ads-link d-flex align-items-center justify-content-center mt-lg-0 mt-3"
+                        >
+                            <a href="#">
+                            <span class="call-icon">
+                                <i class="far fa-phone"></i>
+                            </span>
+                            0707078888
+                            </a>
+                        </div>
+                        </div>
                     </div>
-                    <div class="col-6">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item">@lang('site.dashboard')</li>
-
-                            <li class="breadcrumb-item active">@lang('site.aqars') @endlang</li>
-                        </ol>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+        <section class="booking_investor mb-6">
+            <div class="container">
+                <div class="ads_investor_card">
+                    <form action="{{ route('dashboard.aqars.store') }}" method="post" enctype="multipart/form-data"
+                                id="" class="form-main">
+
+                                {{ csrf_field() }}
+                                {{ method_field('post') }}
+                        <div class="row">
+                            <div class="col-12">
+                                <h2 class="add_frm_title mb-3">@lang('site.add')</h2>
+                            </div>
+                            @include('partials._errors')
+                            <div class="col-12">
+                                <div class="add-ads-card mb-md-5 mb-4">
+                                    <div class="row">
+                                        <div class="col-lg-12 mb-3">
+                                            <div class="position-relative">
+                                                <label class="pb-2 ads-card-lbl">@lang('site.users')
+                                                <span class="text-danger">( اجبارى )</span>
+                                                </label>
+                                                <select class="select2"
+                                                        name="user_id" required>
+                                                    <option selected>@lang('site.select')</option>
+                                                    @foreach($users as $user)
+
+                                                        <option value="{{$user->id}}">
+                                                            {{$user->firstname . $user->lastname ?? ''}}</option>
+
+                                                    @endforeach
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 mb-3">
+                                            <div class="position-relative">
+                                            <label class="pb-2 ads-card-lbl">@lang('site.country')
+                                               <span class="text-danger">( اجبارى )</span>
+                                            </label>
+                                                <select class="select2"
+                                                        name="country_id" id="country_id">
+                                                    <option selected value="0">@lang('site.select')</option>
+                                                    @foreach($countries as $country)
+
+                                                        <option
+                                                            value="{{$country->id}}">{{$country->name_ar ?? ''}}</option>
+
+                                                    @endforeach
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 mb-3">
+                                            <div class="position-relative">
+                                            <label class="pb-2 ads-card-lbl">@lang('site.city')</label>
+                                                <select class="select2"
+                                                        name="city_id" id="city_id">
+                                                    <option selected value="0">@lang('site.select')</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 mb-3">
+                                            <div class="position-relative">
+                                            <label for="" class="pb-2 ads-card-lbl">
+                                                اسم الدوبلكس باللغة العربية
+                                                <span class="text-danger">( اجبارى )</span>
+                                            </label>
+                                            <input
+                                                placeholder="ادخل الاسم "
+                                                type="text"
+                                                value=""
+                                            />
+                                            </div>
+                                            <div class="text-danger mt-2">
+                                            ( يظهر الاسم للعميل بعد الحجز )
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 mb-3">
+                                            <div class="position-relative">
+                                            <label for="" class="pb-2 ads-card-lbl">
+                                                اسم الدوبلكس باللغة الانجليزيه
+                                                <span class="text-danger">(غير اجبارى )</span>
+                                            </label>
+                                            <input
+                                                placeholder="ادخل الاسم"
+                                                type="text"
+                                                value=""
+                                            />
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 mb-lg-0 mb-3">
+                                            <label for="" class="pb-2 ads-card-lbl">
+                                            ساعة الدخول
+                                            <span class="text-danger">( اجبارى )</span>
+                                            </label>
+                                            <div class="position-relative">
+                                            <input
+                                                placeholder="9:30pm"
+                                                type="time"
+                                                name="checkIn"
+                                                value=""
+                                                class="form-control "
+                                                autocomplete="off"
+                                            />
+                                            
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <label for="" class="pb-2 ads-card-lbl">
+                                            ساعة الخروج
+                                            </label>
+                                            <div class="position-relative">
+                                            <input
+                                                placeholder="9:30pm"
+                                                type="time"
+                                                name="checkIn"
+                                                value=""
+                                                class="form-control"
+                                                autocomplete="off"
+                                            />
+                                            
+                                            </div>
+                                        </div>
+                                    </div>
 
 
         <div class="container-fluid">
@@ -54,11 +210,6 @@
                                 <center>
                                     <div class="col-sm-8">
                                         <div class="card">
-                                            <div class="card-header">
-                                                <h5 class="text-danger">@lang('site.alert')</h5>
-                                                <h6 class="text-warning">@lang('site.If you have a problem adding your ad, please call us')</h6>
-                                                <h6 class="text-info">0707078888</h6>
-                                            </div>
                                             <div class="card-body">
 
                                                 <div class="col-sm-12">
@@ -329,8 +480,7 @@
             </div>
         </div>
     </div>
-    </div>
-    <!-- Container-fluid Ends-->
+    
 
 @endsection
 

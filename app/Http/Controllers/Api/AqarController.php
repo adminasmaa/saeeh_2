@@ -464,13 +464,12 @@ class AqarController extends Controller
                 $data['person_num'] = array($request->person_num);
                 $data['price'] = array($changedprice);
                 $changed_price=json_encode($data)!=null?json_encode($data, JSON_NUMERIC_CHECK):null;
-
                 if($request->total_price != round($request->day_count * $changedprice ,2)){
                     return $this->respondwarning(json_decode('{}'), trans('message.price changed'), ['error' => trans('message.price changed')], 402);
                 }
                
             }
-            $input = $request->all();die;
+            $input = $request->all();
             $input['user_id'] = Auth::id();
             $input['aqar_id'] =$request->id;
             $input['person_num'] =$request->person_num;
