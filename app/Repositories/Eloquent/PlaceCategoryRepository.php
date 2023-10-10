@@ -68,18 +68,17 @@ class PlaceCategoryRepository implements PlaceCategoryRepositoryInterfaceAlias
         // TODO: Implement store() method.
 
         //        return $request;
-        $request_data = $request->except(['image', 'name_category', 'image_category']);
+        $request_data = $request->except(['image', 'icon','name_ar_category','name_en_category','image_category', 'city_id']);
 
         // To Make  Active
         $request_data['active'] = 1;
         $request_data['type'] = 0;
-        $request_data['parent_id'] = 0;
+        $request_data['parent_id'] = null;
+        $arr = $request->name_ar_category;
 
 //        ['city_id' => json_encode($request['city_id'])
 
         $category = Category::create($request_data);
-
-
 
 
         if ($request->hasFile('image')) {
@@ -88,19 +87,20 @@ class PlaceCategoryRepository implements PlaceCategoryRepositoryInterfaceAlias
 
         }
 
-
         if ($request->hasFile('icon')) {
 
             UploadImage('images/categories/', 'icon', $category, $request->file('icon'));
 
         }
 
-        if (!empty($request['name_category'])) {
+        if ($arr[0]!=null) {
 
-            foreach ($request['name_category'] as $key => $value) {
+        // if (!empty($request['name_ar_category'])) {
+
+            foreach ($request['name_ar_category'] as $key => $value) {
                 $cat = Category::create([
-                    'name_ar' => $value,
-                    'name_en' => $value,
+                    'name_ar' => $request['name_ar_category'][$key],
+                    'name_en' => $request['name_en_category'][$key],
                     'parent_id' => $category->id,
 //                    'city_id' => json_encode($request['city_id'])
                 ]);
@@ -109,7 +109,6 @@ class PlaceCategoryRepository implements PlaceCategoryRepositoryInterfaceAlias
                 if (!empty($request['image_category'][$key])) {
 
                 $image = $request['image_category'][$key] ?? '';
-
 
                 $destinationPath = 'images/categories/';
                 $extension = $image->getClientOriginalExtension(); // getting image extension
@@ -120,7 +119,7 @@ class PlaceCategoryRepository implements PlaceCategoryRepositoryInterfaceAlias
                 $cat->save();
 
             }
-            }
+        }
 
         }
         if ($category) {
@@ -135,10 +134,11 @@ class PlaceCategoryRepository implements PlaceCategoryRepositoryInterfaceAlias
     {
         // TODO: Implement update() method.
 
+        $request_data = $request->except(['image', 'icon','name_ar_category','name_en_category','image_category', 'city_id']);
 
-        $request_data = $request->except(['image', 'name_category', 'image_category']);
         $category->update($request_data);
 
+        $arr = $request->name_ar_category;
 
         if ($request->hasFile('image')) {
 
@@ -150,13 +150,17 @@ class PlaceCategoryRepository implements PlaceCategoryRepositoryInterfaceAlias
 
             UploadImage('images/categories/', 'icon', $category, $request->file('icon'));
         }
+          //  return $request;
+        // if ($arr[0]!=null) {
+            if (isset($request['name_ar_category'])) {
 
-        if (!empty($request['name_category'])) {
-
-            foreach ($request['name_category'] as $key => $value) {
-                $cat = Category::create([
-                    'name_ar' => $value,
-                    'name_en' => $value,
+            foreach ($request['name_ar_category'] as $key => $value) {
+                
+                $cat = Category::updateOrCreate([
+                        'id' => $request['id'][$key]??0
+                    ],[
+                    'name_ar' => $request['name_ar_category'][$key],
+                    'name_en' => $request['name_en_category'][$key],
                     'parent_id' => $category->id,
 //                    'city_id' => json_encode($request['city_id'])
                 ]);
