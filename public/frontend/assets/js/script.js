@@ -293,14 +293,14 @@ $(function () {
   });
 });
 /* intlTelInput */
-// const allTelInputs = document.querySelectorAll("[type='tel']");
-// allTelInputs.forEach((input) => {
-//   intlTelInput(input, {
-//     initialCountry: "sa",
-//     preferredCountries: ["sa"],
-//     separateDialCode: true,
-//   });
-// });
+const allTelInputs = document.querySelectorAll("[type='tel']");
+allTelInputs.forEach((input) => {
+  intlTelInput(input, {
+    initialCountry: "sa",
+    preferredCountries: ["sa"],
+    separateDialCode: true,
+  });
+});
 
 $(".toggle-password").click(function () {
 
@@ -311,7 +311,7 @@ $(".toggle-password").click(function () {
   } else {
     input.attr("type", "password");
   }
-});
+}); 
 $(document).ready(function() {
   var owl = $('.department-img-carousel');
   owl.owlCarousel({
@@ -363,60 +363,61 @@ $(document).ready(function() {
   let nextSlideBtn = document.querySelector('.slide-btn.next-slide');
   let prevSlideBtn = document.querySelector('.slide-btn.prev-slide');
   let nextSlideTimer = 100000;
-
+  
   thumbnails.forEach(thumbnail => {
       thumbnail.addEventListener('click', showSlide);
   });
-
+  
   nextSlideBtn.addEventListener('click', nextSlide);
   prevSlideBtn.addEventListener('click', prevSlide);
-
+  
   let slideshow = setInterval(nextSlide, nextSlideTimer);
-
+  
   function showSlide(e) {
       let slideId = e.currentTarget.dataset.slide;
-
+  
       currentSlide.classList.remove('show');
-
+  
       currentSlide = document.querySelector(`.slide[data-slide="${slideId}"`);
-
+  
       currentSlide.classList.add('show');
-
+  
       resetSlideShow();
   }
-
+  
   function nextSlide() {
       let nextSlideId = currentSlideId >= slideCount ? 1 : parseInt(currentSlideId) + 1;
-
+  
       currentSlide.classList.remove('show');
-
+  
       currentSlide = document.querySelector(`.slide[data-slide="${nextSlideId}"`);
       currentSlideId = currentSlide.dataset.slide;
-
+  
       currentSlide.classList.add('show');
-
+  
       resetSlideShow();
   }
-
+  
   function prevSlide() {
       let prevSlideId = currentSlideId <= 1 ? slideCount : parseInt(currentSlideId) - 1;
-
+  
       currentSlide.classList.remove('show');
-
+  
       currentSlide = document.querySelector(`.slide[data-slide="${prevSlideId}"`);
       currentSlideId = currentSlide.dataset.slide;
-
+  
       currentSlide.classList.add('show');
-
+  
       resetSlideShow();
   }
-
+  
   function resetSlideShow() {
       clearInterval(slideshow);
       slideshow = setInterval(nextSlide, nextSlideTimer);
   }
-
+      
     });
+
 
     let wizardBar = document.querySelector('[data-wizard-bar]')
     let btnPrevious = document.querySelector('[data-btn-previous]')
@@ -424,7 +425,7 @@ $(document).ready(function() {
     let btnSubmit = document.querySelector('[data-btn-submit]')
     let currentTab = 0;
     showTab(currentTab);
-
+    
     function showTab(n) {
       let formTabs = document.querySelectorAll('[data-form-tab]');
       let wizardItem = document.querySelectorAll('[data-wizard-item]')
@@ -447,25 +448,25 @@ $(document).ready(function() {
         btnSubmit.style.display = "none";
         btnPrevious.style.display = "none";
       }
-
+    
     }
-
+    
     function nextPrev(n) {
       let formTabs = document.querySelectorAll('[data-form-tab]');
-
+    
       formTabs[currentTab].classList.remove('active')
       currentTab = currentTab + n;
       showTab(currentTab);
     }
-
+    
     function updateWizardBarWidth() {
       const activeWizards = document.querySelectorAll(".wizard-item.active");
       let wizardItem = document.querySelectorAll('[data-wizard-item]')
       const currentWidth = ((activeWizards.length - 1) / (wizardItem.length - 1)) * 100;
-
+    
       wizardBar.style.width = currentWidth + "%";
     }
-
+    
     document.querySelector('*').addEventListener('click', function (event) {
       if (event.target.dataset.btnPrevious) {
         let wizardItem = document.querySelectorAll('[data-wizard-item]')
@@ -484,19 +485,48 @@ $(document).ready(function() {
     })
 
     jQuery(document).ready(function () {
-      jQuery('#datepicker').datepicker({
-          format: 'dd-mm-yyyy',
-          startDate: '+1d'
-      });
-  });
-
-  jQuery(document).ready(function () {
-    jQuery('#datepicker1').datepicker({
-        format: 'dd-mm-yyyy',
-        startDate: '+1d'
-    });
-});
-
+      jQuery('#datepicker').datepicker(
+        $.datepicker.regional['ar'] = {
+                  closeText: 'إغلاق',
+                  prevText: '&#x3c;السابق',
+                  nextText: 'التالي&#x3e;',
+                  currentText: 'اليوم',
+                    monthNames: [' يناير ', 'فبراير ', 'مارس ', 'ابريل ', 'مايو ', 'يونيو ',   'يوليو ', 'أغسطس ', 'سبتمبر ',  'أكتوبر  ', 'نوفمبر  ', ' ديسمبر '],
+                    monthNamesShort: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+                    dayNames: ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
+                    dayNamesShort: ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
+                    dayNamesMin: ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
+                    weekHeader: 'أسبوع',
+                    dateFormat: 'dd/mm/yy',
+                  firstDay: 6,
+                  isRTL: true,
+                  showMonthAfterYear: false,
+                    yearSuffix: ''},
+            $.datepicker.setDefaults($.datepicker.regional['ar'])
+  )});
+  
+    jQuery(document).ready(function () {
+      jQuery('#datepicker1').datepicker(
+        $.datepicker.regional['ar'] = {
+                  closeText: 'إغلاق',
+                  prevText: '&#x3c;السابق',
+                  nextText: 'التالي&#x3e;',
+                  currentText: 'اليوم',
+                    monthNames: [' يناير ', 'فبراير ', 'مارس ', 'ابريل ', 'مايو ', 'يونيو ',   'يوليو ', 'أغسطس ', 'سبتمبر ',  'أكتوبر  ', 'نوفمبر  ', ' ديسمبر '],
+                    monthNamesShort: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+                    dayNames: ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
+                    dayNamesShort: ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
+                    dayNamesMin: ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
+                    weekHeader: 'أسبوع',
+                    dateFormat: 'dd/mm/yy',
+                  firstDay: 6,
+                  isRTL: true,
+                  showMonthAfterYear: false,
+                    yearSuffix: ''},
+            $.datepicker.setDefaults($.datepicker.regional['ar'])
+  )});
+      
+    
 
 $(function() {
   $('#timepicker').timepicker();
