@@ -438,6 +438,29 @@ class AuthController extends Controller
         }
     }
 
+    public function resendCodeForUpdate(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'country_code' => 'required_without:userId',
+            'phone' => 'required_without:userId',
+            'userId' => 'required_without:phone',
+        ]);
+
+        if(auth()->user()['id']){
+            $user=auth()->user();
+            $set = '123456789';
+            $code = substr(str_shuffle($set), 0, 4);
+            $msg = trans('message.please verified your account') . "\n";
+            $msg = $msg . trans('message.code activation') . "\n" . $code;
+            send_sms_code($msg, $request->phone, $request->country_code);
+            $user->code = $code;
+            $user->save();
+            return $this->respondSuccess(json_decode('{}'), trans('message.message sent successfully.'));}
+            else{
+                return $this->respondError(trans('message.user not found'), ['error' => trans('message.user not found')], 200);
+            }
+    }
+
     public function forgetPassword(Request $request)
     {
         $validator = Validator::make($request->all(), [
