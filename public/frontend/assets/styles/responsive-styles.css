@@ -36,6 +36,9 @@
 }
 
 @media (max-width: 1400px) {
+
+  .register-section .tabs-details .tab-link ,.login-title{
+    font-size: 20px;}
   .modal-custom .modal-content {
     width: 85%;
   }
@@ -50,6 +53,10 @@
   }
   .about-card h4 {
     font-size: 16px;
+  }
+  .booking_investor_card .booking_card h3,
+  .booking_investor_card .booking_card p {
+    font-size: 26px;
   }
   h2,
   .h2,
@@ -89,9 +96,6 @@
   .hotel-name {
     width: 40%;
   }
-  /* .card-restaurant-body {
-    bottom: 5px;
-  } */
 }
 
 @media (max-width: 1200px) {
@@ -125,25 +129,193 @@
   }
 }
 @media (max-width: 992px) {
-  .pagination .page-item nav > div:last-child {
-    display: flex ;}
-    .pagination .page-item nav > div:last-child p {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 0.5rem;}
-      .pagination .page-item nav > div a{
-        display: none !important;
-    }
-    .pagination .page-item nav > div:last-child a:first-child,
-    .pagination .page-item nav > div:last-child a:nth-child( 2 ),
-    .pagination .page-item nav > div:last-child a:nth-last-child( 2 ),
-    .pagination .page-item nav > div:last-child a:last-child,
-    .pagination .page-item nav > div:last-child a.active,
-    .pagination .page-item nav > div:last-child a.disabled {
-  
-          display: flex !important;
-      }
+  .logo-saeeh-investor{max-width: 100%;}
+  .customer-info-header-social{
+    margin-top: 16px;
 
+  }
+  .w-lg-50{width: initial;}
+  .customer-info-bg-icon ,.customer-header-bg-icon{
+    display: none;}
+  .txtarea-ads::placeholder {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .card-empty {
+    padding: 40px;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+  .card-empty-txt {
+    font-size: 40px;
+    line-height: 60px;}
+  .tabs-aqars-booking .ads-left-border {
+    padding-left: 10px;
+}
+.tabs-aqars-booking .padding-ads {
+  padding-right:10px;
+}
+  .add-booking-investor label,
+  .add-ads-card .ads-card-lbl,
+  .rooms-lbl,
+  .prieces-card label {
+    font-size: 14px;
+    line-height: 22px;
+    padding-bottom: 5px !important;
+  }
+  .add-booking-investor .count-days {
+    font-size: 16px;
+    line-height: 18px;}
+  .ads-add-container h2,
+  .add_frm_title,
+  .gray-xx-title {
+    font-size: 20px;
+  }
+  .upload__btn i {
+    font-size: 30px;
+    padding-bottom: 5px;
+  }
+  .text-danger {
+    font-size: 14px;
+    line-height: 20px;
+    padding-right: 5px;
+  }
+  .ads-add-container .notify-ic {
+    width: 70px;
+    height: 60px;
+  }
+  .upload__btn {
+    padding: 30px 10px;
+    margin-top: 10px;
+    line-height: 20px;
+    font-size: 14px;
+  }
+  .add-ads-card {
+    padding: 20px;
+  }
+  .ads_investor_card {
+    padding: 30px 20px;
+  }
+  .ads-add-container {
+    padding: 20px;
+    margin-block: 20px;
+  }
+  .custom-checkbox .form-group .custom-checkbox-item {
+    padding: 6px;
+  }
+
+  .custom-checkbox .form-group label {
+    font-size: 14px;
+    line-height: 150%;
+  }
+  .custom-checkbox .form-group label:before {
+    width: 25px;
+    height: 27px;
+    margin-left: 8px;
+  }
+  .ads-add-container .add-ads-link {
+    width: 50%;
+  }
+  .ads-card .ads-item::before {
+    top: 18px;
+  }
+  .modified-successfully {
+    font-size: 20px;
+    line-height: 30px;
+    margin-top: 16px;
+  }
+
+  .custom-checkbox .form-group input:checked + label:after {
+    top: 12px !important;
+    right: 16px !important;
+    height: 12px;
+  }
+
+  .add-ads-link a {
+    font-size: 16px;
+  }
+
+  .add-ads-container {
+    padding: 20px;
+  }
+  .ads-card-list-item .ads-card-list-item-txt {
+    font-size: 18px;
+    padding-right: 12px;
+  }
+  .ads-card-list-item {
+    margin-bottom: 10px !important;
+  }
+  .ads-card-list-item:last-child {
+    margin-bottom: 0px !important;
+  }
+  .ads-card-list-item img {
+    width: 35px;
+    height: 35px;
+  }
+  .ads-card-img {
+    height: 120px;
+  }
+  .ads-card h2 {
+    padding-top: 15px;
+    font-size: 20px;
+    line-height: 30px;
+  }
+  .side-login-image-edit {
+    width: 100%;
+    padding-top: 20px;
+  }
+  .commission-container .h2 {
+    font-size: 20px;
+  }
+  .commission-container {
+    padding: 15px;
+    margin-block: 5px;
+    width: auto;
+  }
+  .commission-container i {
+    color: var(--m-main);
+    font-size: 18px;
+  }
+  .confirm-pay-content {
+    width: 90% !important;
+  }
+  .tabs-details .tab-link {
+    font-size: 16px;
+  }
+  .add-booking-investor .booking_investor_card {
+    padding: 30px 20px;
+  }
+  .add-booking-investor .booking_investor_card {
+    width: 100%;
+  }
+  .booking_investor_card .booking_card img {
+    width: 80px;
+    height: 80px;
+  }
+  .booking_investor_card .booking_card h3,
+  .booking_investor_card .booking_card p {
+    font-size: 24px;
+  }
+
+  .pagination .page-item nav > div:last-child {
+    display: flex;
+  }
+  .pagination .page-item nav > div:last-child p {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+  }
+  .pagination .page-item nav > div a {
+    display: none !important;
+  }
+  .pagination .page-item nav > div:last-child a:first-child,
+  .pagination .page-item nav > div:last-child a:nth-child(2),
+  .pagination .page-item nav > div:last-child a:nth-last-child(2),
+  .pagination .page-item nav > div:last-child a:last-child,
+  .pagination .page-item nav > div:last-child a.active,
+  .pagination .page-item nav > div:last-child a.disabled {
+    display: flex !important;
+  }
 
   .login-body {
     width: 100%;
@@ -566,9 +738,7 @@
     background-image: none !important;
     content: none;
   }
-  .accordion-button:not(.collapsed) i {
-    /* transform: rotate(180deg); */
-  }
+
   .accordion-button {
     padding: 0.5rem 1.25rem;
   }
@@ -590,6 +760,15 @@
     border-radius: 10px 10px 0 0;
     height: 300px;
   }
+  .side-login-image-investor {
+    width: 100%;
+    background: url(../images/booking-investor/login-bg-mobile2.png) center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px 10px 0 0;
+    height: 300px;
+  }
+
   .side-help-image {
     width: 100%;
     background: url(../images/help-bg-mobile.png) center center;
@@ -613,7 +792,8 @@
     width: 100%;
     order: 2;
   }
-  .login-body ,.help-body{
+  .login-body,
+  .help-body {
     display: flex;
     flex-direction: column;
   }
@@ -848,28 +1028,99 @@
   }
   .help-content label {
     font-size: 14px;
-    line-height: 22px;}
-    .txtarea-booking {
-      padding: 0.5rem !important;}
+    line-height: 22px;
+  }
+  .txtarea-booking {
+    padding: 0.5rem !important;
+  }
 
-      .login-body input::placeholder,.help-body input::placeholder {
-        font-size: 14px;
-      }
-      .wizaredd {
-        padding-top: 20px;
-      }
-      .wizaredd .booking-now-btn {
-        width: 40%;
-    }
+  .login-body input::placeholder,
+  .help-body input::placeholder {
+    font-size: 14px;
+  }
+  .wizaredd {
+    padding-top: 20px;
+  }
+  .wizaredd .booking-now-btn {
+    width: 40%;
+  }
 }
 @media (max-width: 768px) {
+  .side-login-image-investor {
+    height: 222px;
+  }
+  .footer-ic{
+    padding-left: 10px;
+  }
+  .customer-info-title::before{display: none;}
+  .customer-info-title span{
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 30px;
+  color: #0095ff;}
+  .customer-info-table {
+    margin-top: 55px;
+    margin-bottom: 10px;}
+  .aqar-booking .aqar-booking-item {
+    font-size: 18px;
+    line-height: 20px;}
+    .aqar-booking .aqar-booking-i {
+      font-size: 20px;
+      padding-left: 5px;
+  }
+  .card-empty-txt {
+    padding-bottom: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+  .card-empty {
+    display: grid;
+}
+  .tabs-aqars-booking .padding-ads {
+    padding-right: 0;
+}
+  .tabs-aqars-booking .ads-left-border {
+    border-left: 0;
+    padding-left: 0;
+}
+  .tabs-in-mobile.commission li {
+    padding-inline: 8px;
+    width: 50%;
+  }
+  .table label {
+    font-size: 14px;
+  }
+
+  .custom-table .table-sm > :not(caption) > * > * {
+    padding: 10px 10px 10px 0;
+  }
+  .commissions-table th {
+    width: 50%;
+  }
+  .table-txt {
+    font-size: 14px;
+  }
+  .custom-table .th-txt {
+    font-size: 16px;
+  }
+  .ads-search-container {
+    padding: 20px 16px;
+  }
+  .padding-ads {
+    padding-right: 0;
+  }
+  .ads-left-border {
+    border-left: 0;
+    padding-left: 0;
+  }
   .pagination .page-item nav > div:last-child {
-    display: block ;}
+    display: block;
+  }
   .pagination .page-item nav > div:last-child span:last-child {
     box-shadow: none !important;
     display: flex !important;
     justify-content: center;
-}
+  }
   .hotel-owl .owl-stage-outer {
     padding-top: 0px;
   }
@@ -1022,12 +1273,130 @@
     font-size: 22px;
     color: var(--m-second);
   }
+  .tabs-in-mobile {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid var(--m-light-gray);
+    border-bottom: 0;
+    height: 80px;
+  }
+  .tabs-in-mobile li {
+    padding-inline: 0;
+    width: 33.333%;
+  }
+  .tabs-in-mobile li:nth-child(3) {
+    border-left: none;
+  }
+  .tabs-in-mobile li:nth-child(4),
+  .tabs-in-mobile li:nth-child(5) {
+    border-top: 1px solid var(--m-light-gray);
+    width: 50%;
+  }
+
+  .tabs-in-mobile .tab-active:nth-child(3) {
+    border-radius: 10px 0 0 0;
+  }
+  .tabs-in-mobile .tab-active:last-of-type {
+    border-radius: 0;
+  }
+  .register-section .tabs-details .tab-link {
+    font-weight: 700;
+    font-size: 16px;}
+    .register-section .tabs-nav-details li {
+      width: auto ;
+  }
+    .register-section li:nth-child(4),
+    .register-section li:nth-child(5) {
+      border-top: unset;
+      width: auto;
+    }
+    .register-section .tab-active:nth-child(3) {
+      border-radius: 10px;
+    }
 }
 @media (max-width: 578px) {
+  .side-login-image-investor {
+    height: 200px;
+}
+  .customer-info-footer .h2{
+    font-size: 16px;
+  }
+  .custom-table .table-sm > :not(caption) > * > * {
+    padding: 8px 4px  ;
+}
+  .aqar-booking .aqar-booking-item {
+    font-size: 16px;}
+  .form-control {
+    font-size: 14px;}
+  .ads-left-border  .h2{
+    font-size: 16px !important;
+}
+  .ads-card-list-item .ads-card-list-item-txt {
+    font-size: 16px;
+    padding-right: 8px;
+}
+  .add-booking-investor input, .add-ads-card input, .prieces-card input {
+    padding-right: 12px;
+}
+.add-booking-investor input::placeholder,
+.add-ads-card input::placeholder {
+  font-size: 14px;}
+  .text-danger {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
+    padding-right: 5px;
+}
+.ads-radio-list .custom-radio {
+  padding-right: 33px;
+  font-size: 14px;}
+  .add-ads-card .select2-container--default .select2-selection--single .select2-selection__rendered {
+    font-size: 14px;}
+  .upload__btn {
+    padding: 25px 20px;
+    margin-top: 10px;
+    line-height: 18px;
+    font-size: 12px;
+}
+
+  [dir="rtl"] .breadcrumb-item + .breadcrumb-item::before {
+    height: 20px;
+    width: 6px;
+  }
+  .ads-card .ads-item::before {
+    top: 14px;
+    width: 6px;
+    height: 6px;
+  }
+  .table label:before {
+    width: 22px;
+    height: 22px;
+  }
+  .table input:checked + label:after {
+    top: 4px;
+    right: 8px;
+    width: 6px;
+    height: 12px;
+  }
+  .ads-card,
+  .add-ads-card {
+    padding: 15px;
+  }
+  .ads_investor_card {
+    padding: 20px;
+  }
+  .booking_investor_card {
+    padding: 25px;
+  }
+  .booking_investor_card .booking_card h3,
+  .booking_investor_card .booking_card p {
+    font-size: 20px;
+    line-height: 30px;
+  }
   .wizaredd {
     padding-top: 0px;
   }
-  .wizaredd .booking-now-btn{
+  .wizaredd .booking-now-btn {
     width: 100%;
   }
   .side-help-image {
@@ -1077,31 +1446,7 @@
   #gallery {
     min-width: 95vw;
   }
-  .tabs-in-mobile {
-    display: flex;
-    flex-wrap: wrap;
-    border: 1px solid var(--m-light-gray);
-    border-bottom: 0;
-    height: 80px;
-  }
-  .tabs-in-mobile li {
-    padding-inline: 0;
-    width: 33.333%;
-  }
-  .tabs-in-mobile li:nth-child(3) {
-    border-left: none;
-  }
-  .tabs-in-mobile li:nth-child(4),
-  .tabs-in-mobile li:nth-child(5) {
-    border-top: 1px solid var(--m-light-gray);
-    width: 50%;
-  }
-  .tabs-in-mobile .tab-active:nth-child(3) {
-    border-radius: 10px 0 0 0;
-  }
-  .tabs-in-mobile .tab-active:last-of-type {
-    border-radius: 0;
-  }
+
   .container,
   .container-fluid {
     width: 90% !important;
@@ -1110,9 +1455,10 @@
     width: 100%;
     margin-top: 15px;
   }
-  .btn-footer-auth ,.btn-out-footer-auth {
-    
-    width: 48%;}
+  .btn-footer-auth,
+  .btn-out-footer-auth {
+    width: 48%;
+  }
 
   h2,
   .h2,
@@ -1147,6 +1493,11 @@
   .right-container::after {
     content: unset;
   }
+  .register-lbl {
+    font-size: 14px;
+    line-height: 20px;}
+    .register_frm_card {
+      padding: 25px 20px;}
   /* .search-country {
     height: 60px;
   }
@@ -1156,7 +1507,12 @@
     width: 45px;
     height: 45px;
   } */
-
+  .select2-container--default .select2-selection--single .select2-selection__rendered {
+    font-size: 14px;}
+    .availability-item {
+      font-size: 20px;
+      line-height: 30px;
+    }  
   .slide-btn {
     height: 45px;
     width: 45px;
@@ -1180,7 +1536,7 @@
   }
 
   .booking-now-btn {
-    margin-top: 20px;
+    margin-top: 10px;
     width: 60%;
   }
   .booking-now-btn a,
@@ -1198,6 +1554,11 @@
   .dd-txt {
     font-size: 14px;
   }
+  .register_frm_card .text-main{
+    font-size: 13px;
+  }
+  .booking-now-btn a, .booking-now-btn button, .rating-see-btn a {
+    font-size: 16px;}
   .custom-ul-list-item {
     font-size: 14px;
     padding-right: 24px;
@@ -1235,8 +1596,8 @@
   .side-login-image {
     height: 115px;
   }
+ 
   .login-title {
-    font-size: 18px;
     margin-bottom: 10px !important;
   }
 
@@ -1258,7 +1619,8 @@
   .btn-outline-saeeh a,
   .cart-count,
   .ddl-input,
-  .about-card p {
+  .about-card p ,.table label, .register_frm_card .custom-checkbox-item {
+
     font-size: 14px;
   }
 
@@ -1271,11 +1633,30 @@
     padding-top: 8%;
     padding-bottom: 32%;
   }
-
+  .provide-card h4 {
+    font-size: 16px;
+    line-height: 24px;
+    padding-bottom: 5px;
+    min-height: auto;
+}
+.provide-card p {
+  min-height: auto;
+  font-size: 14px;
+}
+.login-list-items li {
+  padding-right: 20px;
+  font-size: 14px;}
   .text-center-mobile {
     text-align: center;
     width: 100%;
   }
+  .how-work-title {
+    width: 100%;
+    min-height: auto !important;
+}
+.how-work-txt {
+  min-height: auto !important;
+}
   .review-owl .owl-nav button.owl-prev {
     left: -20px !important;
   }
@@ -1303,11 +1684,11 @@
   .text-hero {
     font-size: 16px;
   }
-  h2,
-  .h2 {
-    font-size: 16px;
-  }
-
+  .select2-results__option {
+    font-size: 14px;}
+  .table-txt {
+    font-size: 12px;
+}
   .owl-carousel .owl-nav button.owl-prev {
     left: 0px;
   }
@@ -1325,14 +1706,42 @@
   .add-rate-btn {
     width: 100%;
   }
+  .availability-container .count-day {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;}
+    .login-txt-investor {
+      font-size: 16px;
+      line-height: 26px;
+      margin-bottom: 20px;
+  }
 }
 @media (max-width: 450px) {
+  .side-login-image-investor {
+    height: 152px;
+  }
+  .booking_investor_card ,.ads-search-container{
+    padding: 16px;
+}
+.customer-info-table {
+  margin-top: 50px;}
+  .customer-info-title span{
+    font-size: 20px;}
+  .custom-table .th-txt {
+    font-size: 14px;
+    line-height: 24px;
+  }
+  .custom-table i {
+    display: none;
+    /* padding-left: 5px;
+    font-size: 14px; */
+  }
   .tabs-nav-details li {
-    padding-inline: 10px;
+    padding-inline: 0px;
   }
 
   .tabs-details .tab-link {
-    font-size: 14px;
+    font-size: 12px;
   }
   .country-container h2,
   .country-title {
@@ -1361,11 +1770,7 @@
   .btn-out-footer-auth a {
     font-size: 14px;
   }
-  /* .search-country {
-    height: 45px;
-    padding-right: 20px;
-  } */
-
+ 
   .search-c-icon svg {
     width: 20px;
   }
@@ -1398,6 +1803,33 @@
   }
 }
 @media (max-width: 380px) {
+  .side-login-image-investor {
+    height: 132px;
+}
+  .ads-add-container .add-ads-link {
+    width: 100%;
+  }
+  .ads-add-container h2 {
+    font-size: 16px;
+  }
+  .tabs-nav-details.commission {
+    border-radius: 10px;
+  }
+  .tabs-in-mobile.commission li {
+    border-left: 0;
+    padding-inline: 5px;
+    width: 100%;
+  }
+  .tabs-in-mobile.commission .tab-active:first-of-type {
+    border-radius: 10px 10px 0 0;
+  }
+  .tabs-in-mobile.commission .tab-active:last-of-type,
+  .tabs-in-mobile.commission li:last-of-type {
+    border-radius: 0 0 10px 10px;
+  }
+  .register-section .tabs-details .tab-link {
+    font-size: 14px;
+}
   h2,
   .h2,
   .badge-ads-details,
@@ -1413,7 +1845,7 @@
   .box-sort-booking .ddl-input::placeholder,
   .modal-custom-rating .discound-txt,
   .modal-custom-rating label {
-    font-size: 16px;
+    font-size: 18px;
   }
   .details-item .accordion-body,
   .details-sm-txt,
@@ -1451,13 +1883,19 @@
   .dd-txt {
     font-size: 16px;
   }
-  .pagination .page-item nav > div:last-child a, [aria-current="page"] span, [aria-disabled="true"] span {
+  .pagination .page-item nav > div:last-child a,
+  [aria-current="page"] span,
+  [aria-disabled="true"] span {
     font-size: 14px;
     width: 30px;
-    height: 30px;}
-
+    height: 30px;
+  }
 }
+
 @media (max-width: 340px) {
+  .side-login-image-investor {
+    height: 113px;
+}
   .booking-now-btn {
     width: 95%;
   }
