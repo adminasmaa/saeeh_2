@@ -191,7 +191,7 @@
                                                     <div class="position-relative">
                                                         <input placeholder=" {{trans('site.reciept_date')}}" type="text"
                                                                name="reciept_date" id="datepicker" value=""
-                                                               class="calendar mb-4">
+                                                               class="calendar mb-4 reciept_date" >
                                                         <span class="date-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
                                      fill="none">
@@ -206,7 +206,7 @@
                                                     <div class="position-relative">
                                                         <input placeholder="{{trans('site.delivery_date')}}" type="text"
                                                                name="delivery_date" id="datepicker1" value=""
-                                                               class="calendar mb-4">
+                                                               class="calendar mb-4 delivery_date">
                                                         <span class="date-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
                                      fill="none">
@@ -531,13 +531,13 @@
                                 />
                               </svg>
                             </span>
-                                                    {{--                                                    <span class="text-second dd-txt pe-2">@lang('site.area')</span>--}}
+                                                                                                        <span class="text-second dd-txt pe-2">@lang('site.day_count') </span>
                                                 </div>
-                                                {{--                                                <div--}}
-                                                {{--                                                    class="text-gray-2 d-flex align-items-center justify-content-center booking-data"--}}
-                                                {{--                                                >--}}
-                                                {{--                                                  {{$aqar->details ?? ''}}--}}
-                                                {{--                                                </div>--}}
+                                                                                                <div
+                                                                                                    class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
+                                                                                                >
+                                                                                            <p id="daycount"></p>
+                                                                                                </div>
                                             </div>
                                             <hr class="hr-saeeh my-0"/>
                                             <div
@@ -1384,7 +1384,6 @@
 
     <script>
 
-
         $(document).ready(function () {
             $("#btn-submit").click(function (e) {
                 console.log("bookingssss");
@@ -1407,6 +1406,58 @@
                 });
 
                 e.preventDefault();
+            });
+        });
+        function dayDiff(d1, d2)
+        {
+            return new Number((d2.getTime() - d1.getTime()) / 31536000000).toFixed(0);
+        }
+
+        $(document).ready(function () {
+            $("#datepicker1").change(function (e) {
+                console.log("booookkkksssss");
+                // var formData = $("#add-form").serialize();
+
+                var date1=jQuery('.reciept_date').val().format('dd-MM-yy')
+                var date2=jQuery('.delivery_date').val().format('dd-MM-yy')
+                console.log('date1', date1);
+                console.log('date2',date2);
+
+                // time difference
+                var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+
+                // days difference
+                var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+                // difference
+                alert(diffDays);
+
+
+                // var d1 = jQuery('#datepicker').val()
+                // var d2 = jQuery('#datepicker1').val()
+                // document.write("Years since January 1, 2000: ");
+                // document.write(dayDiff(d1, d2));
+                // document.write(" years.");
+                // var d1 = new Date(date1);
+                // var d2 = new Date(date2);
+                //
+                // var diff = d2.getTime() - d1.getTime();
+                //
+                // var daydiff = diff / (1000 * 60 * 60 * 24);
+                // document.write(" Total number of days between <b> " + d1 + " </b> and <b> " + d2 + " </b> is: <b> " + daydiff + " days </b>" );
+                // // test it
+                // const a = date1,
+                //     b = date2,
+                //     difference = dateDiffInDays(a, b);
+                //
+                // console.log(difference + ' days')
+
+                // const diffTime = Math.abs(date2 - date1);
+                // const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                // // console.log(diffTime + " milliseconds");
+                // console.log(diffDays + " days");
+
+
             });
         });
     </script>

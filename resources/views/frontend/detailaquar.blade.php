@@ -353,8 +353,8 @@
                                         <div class="details-txt py-4">
                                             {{$aquar->details ?? ''}}
                                         </div>
-                                        <h3 class="details-head"><br>
-                                            <br> {!! html_entity_decode($aquar->description) !!}</h3>
+                                        <h3 class="details-head">
+                                            {!! html_entity_decode($aquar->description) !!}</h3>
                                     </div>
                                     <div class="col-12 my-lg-3">
                                         <div class="accordion" id="accordion_details">
@@ -631,9 +631,9 @@
                                                     />
                                                 </svg>
                                             </div>
-                                            <p class="details-sm-txt">
-                                                {{$aquar->description ?? ''}}
-                                            </p>
+{{--                                            <p class="details-sm-txt">--}}
+                                                {!! html_entity_decode($aquar->description) !!}
+{{--                                            </p>--}}
                                         </div>
                                     </div>
                                     <div class="col-12">

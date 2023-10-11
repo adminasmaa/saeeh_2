@@ -197,7 +197,7 @@ return [
     'bookings' => 'الحجوزات',
     'place_arrive' => 'مكان الوصول',
     'place_leave' => 'اترك مكان',
-    'day_count' => 'عدد اليوم',
+    'day_count' => 'عدد الايام',
     'reciept_date' => 'تاريخ الاستلام',
 
 
