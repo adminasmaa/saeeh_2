@@ -185,7 +185,7 @@ return [
     'areas' => 'Areas',
     'place_arrive' => 'Place Arrive',
     'place_leave' => 'Place Leave',
-    'day_count' => 'Day Count',
+    'day_count' => 'Day Counts',
     'reciept_date' => 'Reciept Date',
     'balances' => 'Balance',
     'inside' => 'Inside',

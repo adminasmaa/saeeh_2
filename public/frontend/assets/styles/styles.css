@@ -1250,7 +1250,7 @@ video.video-full {
   margin: 0% auto;
 }
 .modal-confirm-pay .modal-dialog {
-  
+
   margin: 0% auto;
 }
 .modal-custom-rating .modal-content {
@@ -2302,9 +2302,27 @@ video.video-full {
 
 #gallery {
   position: relative;
-  overflow: hidden;
+  /*overflow: hidden;*/
+    /* min-height: 550px; */
+    max-height: 550px;
+    overflow-y: auto;
+
+}
+#gallery::-webkit-scrollbar {
+    height: 6px;
+    width: 8px;
 }
 
+#gallery::-webkit-scrollbar-track {
+    background: #e6e6e6;
+    border-radius: 10px;
+    margin-block: 10px;
+}
+
+#gallery::-webkit-scrollbar-thumb {
+    background: var(--m-gray-2);
+    border-radius: 10px;
+}
 #slides img,
 #gallery img {
   border-radius: var(--rounded-main);
@@ -5234,7 +5252,7 @@ margin-bottom: 42px;
   font-weight: 600;
   line-height: 24px;
   text-decoration: underline;
-  
+
 }
 .provide-for-you{
   background-color: #F4F4F4;
