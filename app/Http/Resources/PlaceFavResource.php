@@ -39,7 +39,8 @@ class PlaceFavResource extends JsonResource
                 "latitude" => isset($this->latitude) ? $this->latitude : 0,
                 "restaurant" => true,
                 "address" => $this->address ?? '',
-                "rate" => round(PlaceReview::where('user_id', '=', Auth::id())->where('place_id', '=', $this->id)->avg('rate')) ?? 0,
+                // "rate" => round(PlaceReview::where('user_id', '=', Auth::id())->where('place_id', '=', $this->id)->avg('rate')) ?? 0,
+                "rate" => round($this->placeReview->avg('rate')) ?? 0,
 
             ];
 
@@ -56,7 +57,8 @@ class PlaceFavResource extends JsonResource
                 "latitude" => isset($this->latitude) ? $this->latitude : 0,
                 "restaurant" => false,
                 "address" => $this->address ?? '',
-                "rate" => round(PlaceReview::where('user_id', '=', Auth::id())->where('place_id', '=', $this->id)->avg('rate')) ?? 0,
+                // "rate" => round(PlaceReview::where('user_id', '=', Auth::id())->where('place_id', '=', $this->id)->avg('rate')) ?? 0,
+                "rate" => round($this->placeReview->avg('rate')) ?? 0,
 
             ];
         }

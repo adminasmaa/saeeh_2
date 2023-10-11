@@ -94,6 +94,8 @@ return [
     'not_regex' => 'صيغة :attribute غير صحيحة.',
     'numeric' => 'يجب على :attribute أن يكون رقمًا.',
     'password' => 'كلمة المرور غير صحيحة.',
+    'new password' => ' كلمه المرور الجديدة ' ,
+
     'present' => 'يجب تقديم :attribute.',
     'regex' => 'صيغة :attribute .غير صحيحة.',
     'required' => ':attribute مطلوب.',
@@ -161,6 +163,7 @@ return [
         'product_id' => 'رقم المنتج',
         'contact_type' => 'نوع الرساله ',
         'c_password' => 'تاكيد كلمه المرور ',
+        'new_password' => ' كلمة المرور الجديدة ',
         'field' => 'الحقل',
         'required' => 'مطلوب',
         'unique' => 'مميز',
