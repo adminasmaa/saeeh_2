@@ -101,6 +101,7 @@ class PlaceCategoryRepository implements PlaceCategoryRepositoryInterfaceAlias
                 $cat = Category::create([
                     'name_ar' => $request['name_ar_category'][$key],
                     'name_en' => $request['name_en_category'][$key],
+                    'type' =>  $request['type'] = 0,
                     'parent_id' => $category->id,
 //                    'city_id' => json_encode($request['city_id'])
                 ]);
@@ -161,6 +162,7 @@ class PlaceCategoryRepository implements PlaceCategoryRepositoryInterfaceAlias
                     ],[
                     'name_ar' => $request['name_ar_category'][$key],
                     'name_en' => $request['name_en_category'][$key],
+                    'type' =>  $request['type'] = 0,
                     'parent_id' => $category->id,
 //                    'city_id' => json_encode($request['city_id'])
                 ]);

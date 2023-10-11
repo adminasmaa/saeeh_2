@@ -233,8 +233,7 @@
 
                             <br>
 
-
-                           <div class="row m-t-10">
+                            <div class="row m-t-10">
                                 <div class="m-checkbox-inline">
 
                                     <label for="edo-ani1">
@@ -247,26 +246,33 @@
                             <div class="row m-t-10">
 
                                 @foreach($subcategories as $service)
+                                <input type="hidden" value="{{ $service->id ?? '' }}" name="id[]" class="form-control" />
+
                                     <div class="col-md-12 form-group col-12 ">
                                         <table>
                                             <tr>
                                                 <td>
                                                     <div class="row">
-                                                        <div class="col-md-4 form-group col-12 p-2">
+                                                        <div class="col-md-5 form-group col-12">
                                                             <label>@lang('site.ar.name')</label>
-                                                            <input type="text" class="form-control"
-                                                                value="{{ $service->name_ar ?? '' }}">
+                                                            <input type="text"
+                                                                    class="form-control" value="{{$service->name_ar}}" name="name_ar_category[]"/>
+                                                        </div>
+                                                        <div class="col-md-5 form-group col-12">
+                                                            <label>@lang('site.en.name')</label>
+                                                            <input type="text"
+                                                                    class="form-control" value="{{$service->name_en}}" name="name_en_category[]"/>
                                                         </div>
                                                         <div class="col-md-5 form-group col-12 p-2">
                                                             <label>@lang('site.image')</label>
                                                             <input type="file" class="form-control"
-                                                                value="{{ old('image') }}">
+                                                                value="{{ old('image') }}" name="image_category[]">
 
                                                         </div>
                                                         <div class="col-md-2 form-group col-12 ">
                                                                 <img src="{{asset('images/categories/'.$service->image)}}"
                                                                 width="100px" height="100px">
-                                                            <a  type="button" href="{{route('dashboard.DeleteSubCategories',$service->id)}}" class="btn btn-air-primary btn-pill btn-danger w-100 m-t-30"><i class="fa fa-trash"></i></a>
+                                                            <a  type="button" href="{{route('dashboard.DeleteSubPlaceCategories',$service->id)}}" class="btn btn-air-primary btn-pill btn-danger w-100 m-t-30"><i class="fa fa-trash"></i></a>
                                                         </div>
 
                                                     </div>
@@ -277,10 +283,10 @@
                                     </div>
 
                                 @endforeach
-                                    <div class="col-md-2 form-group col-12">
+                                    <!-- <div class="col-md-2 form-group col-12"> -->
                                         <!-- <a class="btn btn-air-primary btn-pill btn-success add-price w-100 m-t-30"><i
                                                 class="fa fa-plus" aria-hidden="true"></i></a> -->
-                                    </div>
+                                    <!-- </div> -->
                                 <div class="col-md-12 form-group col-12   desc" id="price2" style="display: none;">
                                 <table class="price-list" id="tb_price">
                                         <tr>
@@ -288,7 +294,11 @@
                                                 <div class="row">
                                                     <div class="col-md-5 form-group col-12">
                                                         <label>@lang('site.ar.name')</label>
-                                                        <input type="text" name="name_category[]" class="form-control"/>
+                                                        <input type="text" name="name_ar_category[]" class="form-control"/>
+                                                    </div>
+                                                    <div class="col-md-5 form-group col-12">
+                                                        <label>@lang('site.en.name')</label>
+                                                        <input type="text" name="name_en_category[]" class="form-control">
                                                     </div>
                                                     <div class="col-md-5 form-group col-12">
                                                         <label>@lang('site.image')</label>
@@ -302,14 +312,13 @@
                                             </td>
                                         </tr>
                                 </table>
-                                    
                                 </div>
                                 <br>
                             </div> 
 
-                    <table class="categories-list" id="table5">
+                    <!-- <table class="categories-list" id="table5">
 
-                    </table>
+                    </table> -->
                 </div>
                 </form>
             </div>
@@ -331,31 +340,32 @@
 
 @endsection
 @section('scripts')
-    <script>
+<script>
 
-        $(document).ready(function () {
-            jQuery('a.add-price').click(function (event) {
-                event.preventDefault();
-                var newRow = jQuery('<tr><td><div class="row"><div class="col-md-5 form-group col-12 p-2">' +
-                ' <label>@lang('site.name')</label><input type="text"  name="name_category[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
-                '<label>@lang('site.image')</label><input type="file" name="image_category[]" class="form-control" >' +
-                '  </div>  <div class="col-md-2 form-group col-12 p-2 "> <a class="btn btn-air-primary btn-pill btn-danger add-price w-100 m-t-30" onclick="deletetr(this)" ><i class="fa fa-trash"></i></a>' +
-                '</div></div> </td>  </tr>');
+$(document).ready(function () {
+    jQuery('a.add-price').click(function (event) {
+        event.preventDefault();
+        var newRow = jQuery('<tr><td><div class="row"><div class="col-md-5 form-group col-12 p-2">' +
+        ' <label>@lang('site.ar.name')</label><input type="text"  name="name_ar_category[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
+         '<label>@lang('site.en.name')</label><input type="text" name="name_en_category[]" class="form-control" >' +
+        '<label>@lang('site.image')</label><input type="file" name="image_category[]" class="form-control" >' +
+        '  </div>  <div class="col-md-2 form-group col-12 p-2 "> <a class="btn btn-air-primary btn-pill btn-danger add-price w-100 m-t-30" onclick="deletetr(this)" ><i class="fa fa-trash"></i></a>' +
+        '</div></div> </td>  </tr>');
 
-                jQuery('.price-list').append(newRow);
-            });
+        jQuery('.price-list').append(newRow);
+    });
 
-            $("input[name='price']").click(function () {
-        var test = $(this).val();
+    $("input[name='price']").click(function () {
+    var test = $(this).val();
 
-        $("div.desc").hide();
-        $("#price" + test).show();
-        }); 
+    $("div.desc").hide();
+    $("#price" + test).show();
+    }); 
 
-        });
+    });
 
-        function deletetr(r) {
-            r.closest('tr').remove();
-        }
-    </script>
+    function deletetr(r) {
+        r.closest('tr').remove();
+    }
+</script>
 @endsection

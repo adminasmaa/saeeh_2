@@ -101,8 +101,9 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
 
             foreach ($request['name_ar_category'] as $key => $value) {
                 $cat = Category::create([
-                    'name_ar' => $value,
-                    'name_en' => $value,
+                    'name_ar' => $request['name_ar_category'][$key],
+                    'name_en' => $request['name_en_category'][$key],
+                    'type' =>  $request['type'] = 2,
                     'parent_id' => $category->id
                 ]);
 
@@ -136,14 +137,13 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
     {
         // TODO: Implement update() method.
 
-
-        $request_data = $request->except(['image','icon','name_category','image_category', 'city_id']);
+        $request_data = $request->except(['image', 'icon','name_ar_category','name_en_category','image_category', 'city_id']);
 
         // $category->update($request_data + ['city_id' => json_encode($request['city_id'])]);
 
         $category->update($request_data);
 
-        $arr = $request->name_category;
+        $arr = $request->name_ar_category;
 
 
         if ($request->hasFile('image')) {
@@ -159,12 +159,17 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
 
         if ($arr[0]!=null) {
 
-            foreach ($request['name_category'] as $key => $value) {
-                $cat = Category::create([
-                    'name_ar' => $value,
-                    'name_en' => $value,
-                    'parent_id' => $category->id,
-                    ]);
+            foreach ($request['name_ar_category'] as $key => $value) {
+                $cat = Category::updateOrCreate([
+                    'id' => $request['id'][$key]??0
+                ],[
+                'name_ar' => $request['name_ar_category'][$key],
+                'name_en' => $request['name_en_category'][$key],
+                'type' =>  $request['type'] = 2,
+                'parent_id' => $category->id,
+//                    'city_id' => json_encode($request['city_id'])
+            ]);
+
                 if (!empty($request['image_category'][$key])) {
 
                     $image = $request['image_category'][$key] ?? '';
