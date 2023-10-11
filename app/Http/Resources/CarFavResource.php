@@ -38,8 +38,10 @@ class CarFavResource extends JsonResource
             "image" => asset('images/cars') . "/" . $this->main_image_ads,
             "fixed_price" => $this->fixed_price ?? 0,
             "currency" => $this->city->country->$currency?? '',
-//            "rate" =>round($this->carComment->avg('rating')) ?? 0,
-            "rate" => round(CarReview::where('user_id', '=', Auth::id())->where('car_id', '=',$this->id)->avg('rate')) ?? 0,
+            
+           "rate" => round($this->carReview->avg('rate')) ?? 0,
+
+            // "rate" => round(CarReview::where('user_id', '=', Auth::id())->where('car_id', '=',$this->id)->avg('rate')) ?? 0,
         ];
     }
 }
