@@ -288,9 +288,10 @@ class AuthController extends Controller
         if ($validator->fails()) {
             return $this->respondError('Validation Error.', $validator->errors(), 400);
         }
-        
+       
         if (auth()->attempt(['country_code' => $request->country_code, 'phone' => $request->phone, 'password' => $request->password])) {
             $user = Auth::user();
+            
             if ($user->active) {
                 $user->device_token = $request->device_token;
                 $user->save();
@@ -323,6 +324,7 @@ class AuthController extends Controller
                 $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code', 'code']);
                 return $this->respondwarning($success, trans('message.account not verified'), ['error' => trans('message.account not verified')], 402);
             }
+            
         } 
         else {
             return $this->respondError(trans('message.wrong credientials'), ['error' => trans('message.wrong credientials')], 403);
