@@ -24,9 +24,9 @@ class CommentCarResource extends JsonResource
 
             "description" =>preg_replace( "/\r|\n/", "", strip_tags($this->description) ) ?? '',
 
-           "rate" => round(CarReview::where('user_id', '=', $user_id)->where('car_id', '=',$this->car_id)->avg('rate')) ?? 0,
+          // "rate" => round(CarReview::where('user_id', '=', $user_id)->where('car_id', '=',$this->car_id)->avg('rate')) ?? 0,
 
-            // "rate" => $this->rating ?? 0,
+             "rate" => $this->rating ?? 0,
             //  "status" => $this->status ?? '',
             'user' => new UserResource($this->user),
             "created_at" => $this->created_at ?? '',
