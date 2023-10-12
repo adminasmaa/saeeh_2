@@ -90,9 +90,4 @@ class AqarBooking extends Model
         return $this->belongsTo(BookingStatus::class,'booking_status_id');
     }
 
-    // public function Currancy($country_id)
-    // {
-    //     $currancy=City::select('currancy')->where('country_id', '=', $this->currancy)->distinct()->get();
-
-    // }
 }

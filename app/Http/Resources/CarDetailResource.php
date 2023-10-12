@@ -58,8 +58,8 @@ class CarDetailResource extends JsonResource
             'total' => $this->CarReview->count()?? 0,
             "currency" => $this->city->country->$currency?? '',
             "comments" => CommentCarResource::collection($this->carComments),
-//          "rate" => round($this->carComment->avg('rating')) ?? 0,
-           "rate" => round($this->carReview->avg('rate')) ?? 0,
+
+            "rate" => round($this->carReview->avg('rate')) ?? 0,
 
             // "rate" => round(CarReview::where('user_id', '=', Auth::id())->where('car_id', '=',$this->id)->avg('rate')) ?? 0,
 
