@@ -213,8 +213,100 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="add-ads-card mb-md-5 mb-4">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <h2 class="text-gray-2 mb-3 gray-xx-title">حددالسعر</h2>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="row ads-radio-list">
+                                                <div class="col-lg-3 mb-3">
+                                                    <input
+                                                    type="radio"
+                                                    name="price"
+                                                    id="const-price"
+                                                    checked
+                                                    class="onlineInp"
+                                                    value="1"
+                                                    />
+                                                    <label
+                                                    for="const-price"
+                                                    class="online-lbl custom-radio"
+                                                    >
+                                                    @lang('site.fixed_price')
+                                                    </label>
+                                                </div>
+
+                                                <div class="col-lg-3 mb-3">
+                                                    <input
+                                                    type="radio"
+                                                    name="price"
+                                                    id="change-price"
+                                                    class="onlineInp"
+                                                    value="2"
+                                                    />
+                                                    <label
+                                                    for="change-price"
+                                                    class="online-lbl custom-radio"
+                                                    
+                                                    >
+                                                    @lang('site.changed_price') 
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 mb-lg-0 mb-3 desc" id="price1">
+                                            <div class="position-relative" >
+                                                <label for="" class="pb-2 ads-card-lbl">
+                                                @lang('site.fixed_price')
+                                                    <span class="text-danger">( اجبارى )</span>
+                                                </label>
+                                                <input
+                                                    placeholder="ادخل السعر"
+                                                    type="number" step=".1" name="fixed_price"
+                                                    class="form-control"
+                                                    value="{{old('fixed_price')}}"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 form-group col-12   desc" id="price2"
+                                                style="display: none;">
+                                            <table class="price-list" id="tb_price">
+                                                <tr>
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-md-4 form-group col-12">
+                                                                <label>@lang('site.personnumber')</label>
+                                                                <input type="number" name="person_num[]"
+                                                                        class="form-control"/>
+                                                            </div>
+                                                            <div class="col-md-4 form-group col-12">
+                                                                <label>@lang('site.fixed_price')</label>
+                                                                <input type="number" step=".1"
+                                                                        name="price[]"
+                                                                        class="form-control">
+                                                            </div>
+                                                            <div class="col-md-4 form-group col-12">
+                                                                <a
+                                                                    class="btn btn-air-primary btn-pill btn-success add-price w-100 m-t-30"><i
+                                                                        class="fa fa-plus"
+                                                                        aria-hidden="true"></i></a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+
+                                        </div>
+                                    </div>
+                                </div>
                                     
 
+
+
+                                
 
         <div class="container-fluid">
 

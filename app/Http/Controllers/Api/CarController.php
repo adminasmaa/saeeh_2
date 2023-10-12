@@ -80,7 +80,7 @@ class CarController extends Controller
             $input['total_price'] =$request->total_price;
             $input['car_id'] =$request->id;
             $input['booking_status_id'] =1;
-            $input['city_id']=auth()->user()['city_id'];
+            $input['city_id']=$car['city_id'];
             $success = CarBooking::create($input);
 
             return $this->respondSuccess($success, trans('site.added_successfully'));

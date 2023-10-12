@@ -326,7 +326,7 @@ class AqarController extends Controller
                         $rate=0;
                         //PlaceReview::updateOrCreate(['place_id' => $request->id, 'user_id' => Auth::id()], [
                         PlaceReview::create([
-                            
+
                             'place_id' => $request->id,
 
                             'rate' => $comment['value'],
@@ -480,7 +480,7 @@ class AqarController extends Controller
             $input['fixed_price'] = $fixed_price ?? null;
             $input['changed_price'] = $changed_price ?? null;
             $input['booking_status_id'] =1;
-            $input['city_id']=auth()->user()['city_id'];
+            $input['city_id']=$aqar['city_id'];
 
             $success = AqarBooking::create($input);
 
