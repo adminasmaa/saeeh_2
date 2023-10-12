@@ -137,7 +137,7 @@ class CarController extends Controller
             return $this->respondError('Validation Error.', $validator->errors(), 400);
 
         } else {
-            $comments = CarComment::where('car_id', $request->car_id)->get();
+            $comments = CarComment::where('car_id', $request->car_id)->orderBy('rating', 'DESC')->get();
 
             if (isset($comments)) {
 
