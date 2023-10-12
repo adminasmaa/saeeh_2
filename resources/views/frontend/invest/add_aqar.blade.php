@@ -53,7 +53,7 @@
         <section class="booking_investor mb-6">
             <div class="container">
                 <div class="ads_investor_card">
-                    <form action="{{ route('dashboard.aqars.store') }}" method="post" enctype="multipart/form-data"
+                    <form action="{{ route('invst.aqars.store') }}" method="post" enctype="multipart/form-data"
                                 id="" class="form-main">
 
                                 {{ csrf_field() }}
@@ -143,11 +143,8 @@
                                         <div class="col-lg-12 mb-3">
                                             <div class="position-relative" id="cityarea">
                                             <label class="pb-2 ads-card-lbl">@lang('site.areas')</label>
-                                                <select class="select2"
-                                                        name="area_id" id="area_id">
-                                                    <option selected value="0">@lang('site.select')</option>
-
-                                                </select>
+                                                <div class="row ads-radio-list radios_noborder" id="area_id">
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 mb-3">
@@ -255,363 +252,271 @@
                                                     </label>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-lg-6 mb-lg-0 mb-3 desc" id="price1">
-                                            <div class="position-relative" >
-                                                <label for="" class="pb-2 ads-card-lbl">
-                                                @lang('site.fixed_price')
-                                                    <span class="text-danger">( اجبارى )</span>
-                                                </label>
-                                                <input
-                                                    placeholder="ادخل السعر"
-                                                    type="number" step=".1" name="fixed_price"
-                                                    class="form-control"
-                                                    value="{{old('fixed_price')}}"
-                                                />
+                                            <div class="col-lg-6 mb-lg-0 mb-3 desc" id="price1">
+                                                <div class="position-relative" >
+                                                    <label for="" class="pb-2 ads-card-lbl">
+                                                    @lang('site.fixed_price')
+                                                        <span class="text-danger">( اجبارى )</span>
+                                                    </label>
+                                                    <input
+                                                        placeholder="ادخل السعر"
+                                                        type="number" step=".1" name="fixed_price"
+                                                        class="form-control"
+                                                        value="{{old('fixed_price')}}"
+                                                    />
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-12 form-group col-12   desc" id="price2"
-                                                style="display: none;">
-                                            <table class="price-list" id="tb_price">
-                                                <tr>
-                                                    <td>
-                                                        <div class="row">
-                                                            <div class="col-md-4 form-group col-12">
-                                                                <label>@lang('site.personnumber')</label>
-                                                                <input type="number" name="person_num[]"
-                                                                        class="form-control"/>
+                                            <div class="col-md-12 form-group col-12   desc" id="price2"
+                                                    style="display: none;">
+                                                <table class="price-list" id="tb_price">
+                                                    <tr>
+                                                        <td>
+                                                            <div class="row">
+                                                                <div class="col-md-4 form-group col-12">
+                                                                    <label>@lang('site.personnumber')</label>
+                                                                    <input type="number" name="person_num[]"
+                                                                            class="form-control"/>
+                                                                </div>
+                                                                <div class="col-md-4 form-group col-12">
+                                                                    <label>@lang('site.fixed_price')</label>
+                                                                    <input type="number" step=".1"
+                                                                            name="price[]"
+                                                                            class="form-control">
+                                                                </div>
+                                                                <div class="col-md-4 form-group col-12">
+                                                                    <a
+                                                                        class="btn btn-air-primary btn-pill btn-success add-price w-100 m-t-30"><i
+                                                                            class="fa fa-plus"
+                                                                            aria-hidden="true"></i></a>
+                                                                </div>
                                                             </div>
-                                                            <div class="col-md-4 form-group col-12">
-                                                                <label>@lang('site.fixed_price')</label>
-                                                                <input type="number" step=".1"
-                                                                        name="price[]"
-                                                                        class="form-control">
-                                                            </div>
-                                                            <div class="col-md-4 form-group col-12">
-                                                                <a
-                                                                    class="btn btn-air-primary btn-pill btn-success add-price w-100 m-t-30"><i
-                                                                        class="fa fa-plus"
-                                                                        aria-hidden="true"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
 
 
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6 mb-3">
+                                                    <div class="position-relative">
+                                                        <label for="" class="pb-2 ads-card-lbl">
+                                                        @lang('site.latitude')
+                                                            <span class="text-danger">( اجبارى )</span>
+                                                        </label>
+                                                        <input
+                                                            placeholder="ادخل الاسم "
+                                                            type="text"
+                                                            value=""
+                                                            name="latitude" 
+                                                            required
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 mb-3">
+                                                    <div class="position-relative">
+                                                        <label for="" class="pb-2 ads-card-lbl">
+                                                        @lang('site.longitude')
+                                                            <span class="text-danger">( اجبارى )</span>
+                                                        </label>
+                                                        <input
+                                                            placeholder="ادخل الاسم "
+                                                            type="text"
+                                                            value=""
+                                                            name="longitude" 
+                                                            required
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                    
+                                <div class="add-ads-card mb-md-5 mb-4">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <h2 class="text-gray-2 mb-3 gray-xx-title">
+                                            اختر الصورة الرئيسية للاعلان
+                                            </h2>
+                                        </div>
+
+                                        <div class="col-12 ">
+                                            <div class="position-relative">
+                                            <label for="" class="pb-2 ads-card-lbl">
+                                            @lang('site.display_photo')
+                                                <span class="text-danger">( اجبارى )</span>
+                                            </label>
+                                            </div>
+                                            <div class="text-danger mt-1">
+                                            ( لايتم قبول صور بها شعار أو رقم تليفون )
+                                            </div>
+                                            <label class="upload__btn">
+                                            <div>
+                                                <i class="fal fa-cloud-download"></i>
+                                                <div>drag and drop or browse for upload image</div>
+                                            </div>
+                                            <input
+                                                type="file"
+                                                name="main_image"
+                                                data-max_length="20"
+                                                class="form-control upload__inputfile"
+                                                id="imgInp"
+                                                required
+                                            />
+                                            </label>
+
+                                            <img
+                                            id="frame"
+                                            src=""
+                                            width="150px"
+                                            class="img-upload"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="add-ads-card mb-md-5 mb-4">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <h2 class="text-gray-2 mb-3 gray-xx-title">
+                                            @lang('site.images')   
+                                            </h2>
+                                        </div>
+
+                                        <div class="col-12 mb-lg-0 mb-3">
+                                            <div class="position-relative">
+                                            <label for="" class="pb-2 ads-card-lbl">
+                                                الصورة(على الاقل صورتين)
+                                                <span class="text-danger">( اجبارى )</span>
+                                            </label>
+                                            </div>
+                                            <div class="text-danger mt-1">
+                                            ( لايتم قبول صور بها شعار أو رقم تليفون )
+                                            </div>
+                                            <label class="upload__btn">
+                                            <div>
+                                                <i class="fal fa-cloud-download"></i>
+                                                <div>drag and drop or browse for upload image</div>
+                                            </div>
+                                            <input
+                                                type="file"
+                                                name="images[]"
+                                                class="form-control upload__inputfile"
+                                                multiple
+                                                id="upload-imgs"
+                                                required
+                                            />
+                                            </label>
+
+                                            <div
+                                            class="img-thumbs img-thumbs-hidden"
+                                            id="img-previews"
+                                            ></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="add-ads-card mb-md-5 mb-4">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <h2 class="text-gray-2 mb-3 gray-xx-title">
+                                            اخترالفيديو المناسب
+                                            </h2>
+                                        </div>
+
+                                        <div class="col-12 mb-lg-0 mb-3">
+                                            <div class="position-relative">
+                                            <label for="" class="pb-2 ads-card-lbl">
+                                            @lang('site.video')
+                                                <span class="text-danger">( اختيارى)</span>
+                                            </label>
+                                            </div>
+                                            <div class="text-danger mt-1">
+                                            ( لايتم قبول فيديو بها شعار أو رقم تليفون )
+                                            </div>
+                                            <label class="upload__btn">
+                                            <div>
+                                                <i class="fal fa-cloud-download"></i>
+                                                <div>drag and drop or browse for upload vedio</div>
+                                            </div>
+                                            
+                                            <input
+                                                type="file"
+                                                id="videoUpload"
+                                                class="form-control upload__inputfile"
+                                                name="videos"
+                                                value=""
+                                            />
+                                            </label>
 
 
-
-                                
-
-        <div class="container-fluid">
-
-            <div class="row">
-                <!-- Individual column searching (text inputs) Starts-->
-                <div class="col-sm-12">
-                    <div class="card mt-30">
-                        <form action="{{ route('dashboard.aqars.store') }}" method="post" enctype="multipart/form-data"
-                              id="" class="form-main">
-
-                            {{ csrf_field() }}
-                            {{ method_field('post') }}
-                            <div class="bg-secondary-lighten card-header d-flex justify-content-between">
-                                <h5>@lang('site.add') </h5>
-                                <div class="text-end  group-btn-top">
-                                    <div class="form-group d-flex form-group justify-content-between">
-                                        <button type="button" class="btn btn-pill btn-outline-primary btn-air-primary"
-                                                onclick="history.back();">
-
-                                            @lang('site.back')
-                                        </button>
-                                        <button type="submit" class="btn btn-air-primary btn-pill btn-primary"><i
+                                            <video
+                                            width="250"
+                                            height="250"
+                                            style="display: none;border-radius: 5px;"
+                                            controls
+                                            class="video-upload"
+                                            autoplay
+                                            >
+                                            Your browser does not support the video tag.
+                                            </video>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div  id="result_data1">
+                                </div>
+                                <div class="add-ads-card mb-md-5 mb-4">
+                                    <div class="row">
+                                        <div class="col-12 mb-lg-0 mb-3">
+                                            <label for="" class="pb-2 ads-card-lbl">
+                                            @lang('site.descrption')
+                                            <span class="text-danger">( اجبارى )</span>
+                                            </label>
+                                            <div class="text-danger mt-1">
+                                            ( لايتم قبول  رقم تليفون ) 
+                                            </div>
+                                            <div class="form-group">
+                                            <textarea
+                                                class="form-control txtarea-ads p-3 mt-2"
+                                                placeholder="يرجي كتابة المواصفات  "
+                                                rows="6" name="description" required
+                                            ></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="add-ads-card mb-md-5 mb-4">
+                                    <div class="row">
+                                        <div class="col-12 mb-lg-0 mb-3">
+                                            <label for="" class="pb-2 ads-card-lbl">
+                                            @lang('site.policy_place')
+                                            <span class="text-danger">( اجبارى )</span>
+                                            </label>
+                                            <div class="text-danger mt-1">
+                                            ( لايتم قبول  رقم تليفون ) 
+                                            </div>
+                                            <div class="form-group">
+                                            <textarea
+                                                class="form-control txtarea-ads p-3 mt-2"
+                                                placeholder="يرجي كتابة المواصفات  "
+                                                rows="6" name="policy_place"
+                                                id="editor1"
+                                            ></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 d-flex justify-content-center mt-lg-5 mt-0">
+                                    <div class="booking-now-btn py-4 d-flex justify-content-center align-items-center">
+                                        
+                                        <button type="submit" class="btn"><i
                                                 class="fa fa-plus p-1"></i>
                                             @lang('site.add')</button>
                                     </div>
                                 </div>
-
-
-                            </div>
-                            <div class="card-body">
-                                @include('partials._errors')
-                                <center>
-                                    <div class="col-sm-8">
-                                        <div class="card">
-                                            <div class="card-body">
-
-                                                <div class="col-sm-12">
-                                                    <label class="form-label">@lang('site.users')</label>
-                                                    <select class="js-example-placeholder-multiple col-sm-12"
-                                                            name="user_id" required>
-                                                        <option selected>@lang('site.select')</option>
-                                                        @foreach($users as $user)
-
-                                                            <option value="{{$user->id}}">
-                                                                {{$user->firstname . $user->lastname ?? ''}}</option>
-
-                                                        @endforeach
-
-                                                    </select>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-md-6 form-group">
-                                                        <label class="form-label">@lang('site.country')</label>
-                                                        <select class="js-example-placeholder-multiple col-sm-12"
-                                                                name="country_id" id="country_id">
-                                                            <option selected value="0">@lang('site.select')</option>
-                                                            @foreach($countries as $country)
-
-                                                                <option
-                                                                    value="{{$country->id}}">{{$country->name_ar ?? ''}}</option>
-
-                                                            @endforeach
-
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-md-6 form-group">
-                                                        <label class="form-label">@lang('site.city')</label>
-                                                        <select class="js-example-placeholder-multiple col-sm-12"
-                                                                name="city_id" id="city_id">
-                                                            <option selected value="0">@lang('site.select')</option>
-                                                            <!-- @foreach($cities as $city)
-
-                                                                <option value="{{$city->id}}">{{$city->name_ar ?? ''}}</option>
-
-
-                                                            @endforeach -->
-
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <br>
-                                                <div class="col-sm-12">
-                                                    <h5 class="border-bottom">@lang('site.categories')</h5>
-                                                </div>
-                                                <div class="col">
-                                                    <ul class="mt-4 p-0 categories-list">
-                                                        @foreach($categories as $cat)
-                                                            <li class="form-check radio radio-primary">
-                                                                <input class="form-check-input"
-                                                                       id="category_id{{$cat->id}}"
-                                                                       type="radio" name="category_id"
-                                                                       value="{{$cat->id}}"
-                                                                       required>
-                                                                <label class="form-check-label mb-0"
-                                                                       for="category_id{{$cat->id}}">{{$cat->name_ar ?? ''}}</label>
-                                                            </li>
-                                                        @endforeach
-                                                    </ul>
-                                                </div>
-                                                <br>
-                                                <div class="col-sm-12" id="cityarea">
-                                                    <h5 class="border-bottom">@lang('site.areas')</h5>
-                                                </div>
-                                                <div class="col">
-                                                    <ul class="mt-4 areas-list" id="area_id">
-                                                        <!-- @foreach($Area as $item)
-                                                            <li class="form-check radio radio-primary" >
-
-                                                            </li>
-
-                                                        @endforeach -->
-                                                    </ul>
-                                                </div>
-                                                <br>
-                                                <div class="row m-t-10">
-                                                    <!--<div class="col-md-6">-->
-
-                                                    <div class="col-md-6 form-group col-12 p-2 ">
-                                                        <label>@lang('site.name_ar')<span
-                                                                class="text-danger">*</span></label>
-                                                        <input type="text" name="name_ar" class="form-control"
-                                                               value="{{old('name_ar')}}" required>
-                                                    </div>
-
-                                                    <div class="col-md-6 form-group col-12 p-2 ">
-                                                        <label>@lang('site.name_en')</label>
-                                                        <input type="text" name="name_en" class="form-control"
-                                                               value="{{old('name_en')}}">
-                                                    </div>
-
-                                                </div>
-                                                <div class="row m-t-10">
-                                                    <!--<div class="col-md-6">-->
-
-                                                    <div class="col-md-6 form-group col-12 p-2 ">
-                                                        <label>@lang('site.time_from')<span
-                                                                class="text-danger">*</span></label>
-                                                        <input type="time" name="time_from" class="form-control"
-                                                               value="{{old('time_from')}}" required>
-                                                    </div>
-
-                                                    <div class="col-md-6 form-group col-12 p-2 ">
-                                                        <label>@lang('site.time_to')</label>
-                                                        <input type="time" name="time_to" class="form-control"
-                                                               value="{{old('time_to')}}" required>
-                                                    </div>
-
-                                                </div>
-                                                <br>
-                                                <div class="row m-t-10">
-                                                    <div class="m-checkbox-inline">
-                                                        <label for="edo-ani">
-                                                            <input class="radio_animated" type="radio" name="price"
-                                                                   checked="" data-bs-original-title="" title=""
-                                                                   value="1">@lang('site.fixed_price')
-                                                        </label>
-                                                        <label for="edo-ani1">
-                                                            <input class="radio_animated" type="radio" name="price"
-                                                                   data-bs-original-title="" title=""
-                                                                   value="2">@lang('site.changed_price')
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="row m-t-10">
-                                                    <!--<div class="col-md-6">-->
-
-                                                    <div class="col-md-6 form-group col-12 p-2  desc" id="price1">
-                                                        <label>@lang('site.fixed_price')<span
-                                                                class="text-danger">*</span></label>
-                                                        <input type="number" step=".1" name="fixed_price"
-                                                               class="form-control"
-                                                               value="{{old('fixed_price')}}">
-                                                    </div>
-
-                                                    <div class="col-md-12 form-group col-12   desc" id="price2"
-                                                         style="display: none;">
-                                                        <table class="price-list" id="tb_price">
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="row">
-                                                                        <div class="col-md-4 form-group col-12">
-                                                                            <label>@lang('site.personnumber')</label>
-                                                                            <input type="number" name="person_num[]"
-                                                                                   class="form-control"/>
-                                                                        </div>
-                                                                        <div class="col-md-4 form-group col-12">
-                                                                            <label>@lang('site.fixed_price')</label>
-                                                                            <input type="number" step=".1"
-                                                                                   name="price[]"
-                                                                                   class="form-control">
-                                                                        </div>
-                                                                        <div class="col-md-4 form-group col-12">
-                                                                            <a
-                                                                                class="btn btn-air-primary btn-pill btn-success add-price w-100 m-t-30"><i
-                                                                                    class="fa fa-plus"
-                                                                                    aria-hidden="true"></i></a>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-
-
-                                                    </div>
-                                                    <br>
-                                                    <div class="col-md-6 form-group">
-                                                        <label class="form-label">@lang('site.ads_status')</label>
-                                                        <select class="form-control btn-square" name="ads_status_id"
-                                                                id="ads_status_id">
-                                                            <option selected value="0">@lang('site.select')</option>
-                                                            @foreach($adsStatus as $ads_status)
-
-                                                                <option
-                                                                    value="{{$ads_status->id}}">{{$ads_status->status_ar ?? ''}}</option>
-
-                                                            @endforeach
-
-                                                        </select>
-                                                    </div>
-
-                                                    <div class="col-md-6 form-group">
-                                                        <label>@lang('site.latitude')</label>
-                                                        <input type="text" name="latitude" class="form-control"
-                                                               value="{{old('latitude')}}" required>
-                                                    </div>
-                                                    <div class="col-md-6 form-group">
-                                                        <label>@lang('site.longitude')</label>
-                                                        <input type="text" name="longitude" class="form-control"
-                                                               value="{{old('longitude')}}" required>
-                                                    </div>
-                                                    <div class="col-md-6 form-group">
-                                                        <label class="form-label">@lang('site.active')</label>
-                                                        <select class="js-example-placeholder-multiple col-sm-12" name="active">
-                                                            <option>@lang('site.select')</option>
-                                                            <option value="1">@lang('site.active')</option>
-                                                            <option value="0">@lang('site.not-active') </option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="form-group col-12 p-2">
-                                                            <label>@lang('site.display_photo')</label>
-
-                                                            <input type="file" class="form-control" name="main_image"
-                                                                   id="imgInp" required/>
-                                                            <img id="frame" src="" width="200px" class="img-upload"/>
-
-                                                        </div>
-                                                        <div class="form-group col-12 p-2 mb-3">
-
-                                                            <label>@lang('site.images')</label>
-
-                                                            <input type="file" class="form-control" name="images[]"
-                                                                   value="{{ old('images[]') }}" multiple
-                                                                   id="upload-imgs"/>
-
-                                                            <div class="img-thumbs img-thumbs-hidden" id="img-previews">
-
-                                                            </div>
-                                                            <br>
-                                                            <div class="row">
-                                                                <div class="form-group col-12 p-2">
-                                                                    <label>@lang('site.video')</label>
-
-                                                                    <input type='file' id='videoUpload'
-                                                                           class="form-control"
-                                                                           name="videos" value="{{ old('videos') }}"/>
-                                                                    <video width="250" height="200" style="display:none"
-                                                                           controls
-                                                                           class="video-upload" autoplay>
-                                                                        Your browser does not support the video tag.
-                                                                    </video>
-                                                                </div>
-                                                            </div>
-
-                                                            <br>
-                                                            <div id="result_data1">
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-md-12 form-group col-12 p-2  m-t-15">
-                                                                    <label>@lang('site.descrption')<span
-                                                                            class="text-danger">*</span></label>
-                                                                    <textarea class="form-control" cols="5" rows="5"
-                                                                              name="description" required>
-                                                                    </textarea>
-                                                                </div>
-                                                                <div class="col-md-12 form-group col-12 p-2  m-t-15">
-                                                                    <label>@lang('site.policy_place')</label>
-                                                                    <textarea class="form-control" cols="5" rows="5"
-                                                                              name="policy_place"
-                                                                              id="editor1" >
-                                                                    </textarea>
-                                                                </div>
-                                                            </div>
-                                                    </div>
-                                </center>
-                            </div>
-                    </div>
-
+                        <div>
                     </form>
                 </div>
             </div>
-        </div>
-    </div>
-    
+        </section>
+
 
 @endsection
 
@@ -665,7 +570,7 @@
                 console.log(data);
                 $('#area_id').empty();
                 $.each(data, function (key, value) {
-                    $('#area_id').append('<li class="form-check radio radio-primary" ><input class="form-check-input" id="area_' + value.id + '" type="radio" name="area_id" value="' + value.id + '" required><label class="form-check-label mb-0" for="area_' + value.id + '">' + value.name_ar + '</label></li>')
+                    $('#area_id').append('<div class="col-md-2 col-6"><div class="d-flex align-items-center"><input  id="area_' + value.id + '" type="radio" name="area_id" value="' + value.id + '" required><label class="online-lbl custom-radio" for="area_' + value.id + '">' + value.name_ar + '</label></div></div>')
 
                 });
             })
@@ -674,7 +579,7 @@
             var category_id = $('input[name="category_id"]:checked').val();
 
             $.ajax({
-                url: '{{ url('dashboard/aqars/getsetting') }}' + '/' + category_id,
+                url: '{{ url('invst/aqars/getsetting') }}' + '/' + category_id,
                 success: function (html) {
                     $("#result_data1").show();
                     var element = $('#result_data');
@@ -684,56 +589,6 @@
             })
         });
     </script>
-    <script>
-        var imgUploads = document.getElementById("upload-imgs"),
-            imgPreviews = document.getElementById("img-previews"),
-            imgUploadForms = document.getElementById("form-upload"),
-            totalFiles,
-            previewTitle,
-            previewTitleText,
-            img;
-
-        imgUploads.addEventListener("change", previewImgss, true);
-
-        function previewImgss(event) {
-            totalFiles = imgUploads.files.length;
-
-            if (!!totalFiles) {
-                imgPreviews.classList.remove("img-thumbs-hidden");
-            }
-
-            for (var i = 0; i < totalFiles; i++) {
-                wrapper = document.createElement("div");
-                wrapper.classList.add("wrapper-thumb");
-                removeBtn = document.createElement("span");
-                nodeRemove = document.createTextNode("x");
-                removeBtn.classList.add("remove-btn");
-                removeBtn.appendChild(nodeRemove);
-                img = document.createElement("img");
-                img.src = URL.createObjectURL(event.target.files[i]);
-                img.classList.add("img-preview-thumb");
-                wrapper.appendChild(img);
-                wrapper.appendChild(removeBtn);
-                imgPreviews.appendChild(wrapper);
-
-                $(".remove-btn").click(function () {
-                    $(this).parent(".wrapper-thumb").remove();
-                });
-            }
-        }
-
-        document.getElementById("imgInp").onchange = function () {
-            let imgURL = (frame.src = URL.createObjectURL(event.target.files[0]));
-            document.querySelector("img").src = imgURL;
-        };
-
-        /*video */
-        document.getElementById("videoUpload").onchange = function (event) {
-            let file = event.target.files[0];
-            let blobURL = URL.createObjectURL(file);
-            document.querySelector("video").style.display = "block";
-            document.querySelector("video").src = blobURL;
-        };
-    </script>
+    
 
 @endsection
