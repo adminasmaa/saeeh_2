@@ -60,18 +60,12 @@
 
                                 <div class="col-sm-12">
 
-                                <imnp
-
-                                <div class="col-md-12 form-group col-12 p-2  m-t-15">
-                                                        <label>@lang('site.cancel reseon')<span
-                                                                class="text-danger">*</span></label>
-                                                        <textarea class="form-control" cols="5" rows="5" name="cancel_reason">
-                                                           
-                                                            </textarea>
-                                                    </div>
+                                    <div class="col-md-12 form-group col-12 p-2  m-t-15">
+                                                            <label>@lang('site.cancel reseon')<span
+                                                                    class="text-danger">*</span></label>
+                                                            <textarea class="form-control" cols="5" rows="5" name="cancel_reason"></textarea>
+                                    </div>
                                     
-
-
                                 </div>
                             </div>
                         </div>
