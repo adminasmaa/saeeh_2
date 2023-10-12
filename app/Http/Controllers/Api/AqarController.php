@@ -163,8 +163,7 @@ class AqarController extends Controller
         } else {
 
             // paginate(20)
-            $comments = AqarComment::where('aqar_id', $request->aqar_id)->get();
-
+            $comments = AqarComment::where('aqar_id', $request->aqar_id)->orderBy('rating', 'DESC')->get();
 
             if (isset($comments)) {
 
