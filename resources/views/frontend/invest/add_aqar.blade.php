@@ -112,38 +112,76 @@
                                                 </select>
                                             </div>
                                         </div>
+                                        <div class="col-lg-12 mb-3">
+                                            <div class="position-relative">
+                                            <label class="pb-2 ads-card-lbl">@lang('site.categories')</label>
+                                                <div class="row ads-radio-list radios_noborder">
+                                                    
+                                                    @foreach($categories as $cat)
+                                                        <div class="col-md-2 col-6">
+                                                        <div class="d-flex align-items-center">
+                                                        <input
+                                                            type="radio"
+                                                            name="category_id"
+                                                            id="category_id{{$cat->id}}"
+                                                            value="{{$cat->id}}"
+                                                            checked
+                                                        />
+                                                        <label
+                                                            for="category_id{{$cat->id}}"
+                                                            class="online-lbl custom-radio"
+                                                        >
+                                                        {{$cat->name_ar ?? ''}}
+                                                        </label>
+                                                        </div>
+                                                    </div>
+                                                    @endforeach
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 mb-3">
+                                            <div class="position-relative" id="cityarea">
+                                            <label class="pb-2 ads-card-lbl">@lang('site.areas')</label>
+                                                <select class="select2"
+                                                        name="area_id" id="area_id">
+                                                    <option selected value="0">@lang('site.select')</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
                                         <div class="col-lg-6 mb-3">
                                             <div class="position-relative">
                                             <label for="" class="pb-2 ads-card-lbl">
-                                                اسم الدوبلكس باللغة العربية
+                                            @lang('site.name_ar')
                                                 <span class="text-danger">( اجبارى )</span>
                                             </label>
                                             <input
                                                 placeholder="ادخل الاسم "
                                                 type="text"
                                                 value=""
+                                                name="name_ar" 
+                                                required
                                             />
-                                            </div>
-                                            <div class="text-danger mt-2">
-                                            ( يظهر الاسم للعميل بعد الحجز )
                                             </div>
                                         </div>
                                         <div class="col-lg-6 mb-3">
                                             <div class="position-relative">
                                             <label for="" class="pb-2 ads-card-lbl">
-                                                اسم الدوبلكس باللغة الانجليزيه
+                                            @lang('site.name_en')
                                                 <span class="text-danger">(غير اجبارى )</span>
                                             </label>
                                             <input
                                                 placeholder="ادخل الاسم"
                                                 type="text"
                                                 value=""
+                                                name="name_en"
                                             />
                                             </div>
                                         </div>
                                         <div class="col-lg-6 mb-lg-0 mb-3">
                                             <label for="" class="pb-2 ads-card-lbl">
-                                            ساعة الدخول
+                                            @lang('site.time_from')
                                             <span class="text-danger">( اجبارى )</span>
                                             </label>
                                             <div class="position-relative">
@@ -160,7 +198,7 @@
                                         </div>
                                         <div class="col-lg-6">
                                             <label for="" class="pb-2 ads-card-lbl">
-                                            ساعة الخروج
+                                            @lang('site.time_to') 
                                             </label>
                                             <div class="position-relative">
                                             <input
@@ -175,6 +213,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    
 
 
         <div class="container-fluid">
