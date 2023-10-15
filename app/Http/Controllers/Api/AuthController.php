@@ -423,25 +423,26 @@ class AuthController extends Controller
         $country_code = $request->country_code;
         $phone = $request->phone;
         $user = User::where(function ($query) use ($country_code, $phone) {
-            $query->where('country_code', $country_code)->where('phone', $phone);
+            if($country_code &&$phone){
+            $query->where('country_code', $country_code)->where('phone', $phone);}
         })->orWhere('id', $request->userId)->first();
         if ($user) {
             $set = '123456789';
             $code = substr(str_shuffle($set), 0, 4);
             $msg = trans('message.please verified your account') . "\n";
             $msg = $msg . trans('message.code activation') . "\n" . $code;
-            send_sms_code($msg, $request->phone, $request->country_code);
+            send_sms_code($msg, $user->phone, $user->country_code);
             $user->code = $code;
             $user->save();
             return $this->respondSuccess(json_decode('{}'), trans('message.message sent successfully.'));
 
-        } 
-        else {
-
-            return $this->respondError(trans('message.user not found'), ['error' => trans('message.user not found')], 200);
+        }
+        
+         else {
+            return $this->respondError(trans('message.user not found'), ['error' => trans('message.user not found')], 404);
         }
     }
-
+    
     public function resendCodeForUpdate(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -449,7 +450,9 @@ class AuthController extends Controller
             'phone' => 'required_without:userId',
             'userId' => 'required_without:phone',
         ]);
-
+        if ($validator->fails()) {
+            return $this->respondError('Validation Error.', $validator->errors(), 400);
+        }
         if(auth()->user()['id']){
             $user=auth()->user();
             $set = '123456789';
