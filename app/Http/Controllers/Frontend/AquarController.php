@@ -166,6 +166,30 @@ class AquarController extends Controller
         return abs(round($diff / 86400));
     }
 
+
+    public function countDaysbetweendates(Request $request)
+    {
+
+
+//        return $request;
+
+        $requestdata = $request->all();
+
+        $requestdata['reciept_date'] = date('Y-m-d H:i:s', strtotime($request->reciept_date));
+        $requestdata['delivery_date'] = date('Y-m-d H:i:s', strtotime($request->delivery_date));
+
+
+        return "reciept_date". $requestdata['reciept_date'];
+        return "delivery_date". $requestdata['delivery_date'];
+
+
+        $day_count = $this->diffInDays($requestdata['delivery_date'], $requestdata['reciept_date']);
+
+        return $day_count;
+
+
+    }
+
     public function addbookingaquars(Request $request)
     {
         $requestdata = $request->all();

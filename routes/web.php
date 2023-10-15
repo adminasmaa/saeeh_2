@@ -42,8 +42,8 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
     Route::get('sitelogin', 'App\Http\Controllers\Frontend\AuthController@login')->name('sitelogin');
     Route::post('logins', 'App\Http\Controllers\Frontend\AuthController@checklogin')->name('logins');
     Route::get('registers', 'App\Http\Controllers\Frontend\AuthController@register')->name('registers');
-    Route::get('updateprofile/{id}', 'App\Http\Controllers\Frontend\AuthController@updateprofile')->name('updateprofile')->middleware('web');
-    Route::post('updateprofile/updateprofileData/{id}', 'App\Http\Controllers\Frontend\AuthController@updateprofileData')->name('updateprofile.updateprofileData')->middleware('web');
+    Route::get('updateprofile/{id}', 'App\Http\Controllers\Frontend\AuthController@updateprofile')->name('updateprofile')->middleware([user::class]);
+    Route::post('updateprofile/updateprofileData/{id}', 'App\Http\Controllers\Frontend\AuthController@updateprofileData')->name('updateprofile.updateprofileData')->middleware([user::class]);
     Route::post('createaccount', 'App\Http\Controllers\Frontend\AuthController@createaccount')->name('createaccount');
 
 //cars start
@@ -53,9 +53,9 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
     Route::get('carscategories/{id}', 'App\Http\Controllers\Frontend\CarController@allcarscategories')->name('carscategories');
     Route::get('detailcar/{id}', 'App\Http\Controllers\Frontend\CarController@detailcar')->name('detailcar');
     Route::get('checkallcar', 'App\Http\Controllers\Frontend\CarController@CheckCar')->name('checkallcar');
-    Route::get('bookingcar/{id}', 'App\Http\Controllers\Frontend\CarController@bookingcar')->name('bookingcar')->middleware('web');
-    Route::get('detailbooking/{id}', 'App\Http\Controllers\Frontend\CarController@detailbooking')->name('detailbooking')->middleware('web');
-    Route::get('addbookingcar', 'App\Http\Controllers\Frontend\CarController@Addbookingcar')->name('addbookingcar')->middleware('web');
+    Route::get('bookingcar/{id}', 'App\Http\Controllers\Frontend\CarController@bookingcar')->name('bookingcar')->middleware([user::class]);
+    Route::get('detailbooking/{id}', 'App\Http\Controllers\Frontend\CarController@detailbooking')->name('detailbooking')->middleware([user::class]);
+    Route::get('addbookingcar', 'App\Http\Controllers\Frontend\CarController@Addbookingcar')->name('addbookingcar')->middleware([user::class]);
     Route::get('allcommentCar/{id}', 'App\Http\Controllers\Frontend\CarController@allcommentCar')->name('allcommentCar');
 
 //cars end
@@ -67,35 +67,36 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
     Route::get('allcommentAqar/{id}', 'App\Http\Controllers\Frontend\AquarController@allcommentAqar')->name('allcommentAqar');
 
     //list of add favourite
-    Route::get('aquars/favouritAqar/{id}', 'App\Http\Controllers\Frontend\AquarController@favouritAqar')->name('aquars.favouritAqar')->middleware('web');
-    Route::get('subcategorycars/favouritCar/{id}', 'App\Http\Controllers\Frontend\CarController@favouritCar')->name('subcategorycars.favouritCar')->middleware('web');
-    Route::get('/favouritPlace/{id}', 'App\Http\Controllers\Frontend\CarController@favouritPlace')->name('favouritPlace')->middleware('web');
+    Route::get('aquars/favouritAqar/{id}', 'App\Http\Controllers\Frontend\AquarController@favouritAqar')->name('aquars.favouritAqar')->middleware([user::class]);
+    Route::get('subcategorycars/favouritCar/{id}', 'App\Http\Controllers\Frontend\CarController@favouritCar')->name('subcategorycars.favouritCar')->middleware([user::class]);
+    Route::get('/favouritPlace/{id}', 'App\Http\Controllers\Frontend\CarController@favouritPlace')->name('favouritPlace')->middleware([user::class]);
 
     //ratings
 
-    Route::post('/addRate', 'App\Http\Controllers\Frontend\CarController@addRate')->name('addRate')->middleware('web');
-    Route::post('/addRateCar', 'App\Http\Controllers\Frontend\CarController@addRateCar')->name('addRateCar')->middleware('web');
-    Route::post('/addRateAqar', 'App\Http\Controllers\Frontend\AquarController@addRateAqar')->name('addRateAqar')->middleware('web');
+    Route::post('/addRate', 'App\Http\Controllers\Frontend\CarController@addRate')->name('addRate')->middleware([user::class]);
+    Route::post('/addRateCar', 'App\Http\Controllers\Frontend\CarController@addRateCar')->name('addRateCar')->middleware([user::class]);
+    Route::post('/addRateAqar', 'App\Http\Controllers\Frontend\AquarController@addRateAqar')->name('addRateAqar')->middleware([user::class]);
 
 //cancel reason in cars and aquars
-    Route::post('/addcancelbooking', 'App\Http\Controllers\Frontend\AquarController@addcancelbooking')->name('addcancelbooking')->middleware('web');
-    Route::post('addcancelbookingCar', 'App\Http\Controllers\Frontend\CarController@addcancelbookingCar')->name('addcancelbookingCar')->middleware('web');
+    Route::post('/addcancelbooking', 'App\Http\Controllers\Frontend\AquarController@addcancelbooking')->name('addcancelbooking')->middleware([user::class]);
+    Route::post('addcancelbookingCar', 'App\Http\Controllers\Frontend\CarController@addcancelbookingCar')->name('addcancelbookingCar')->middleware([user::class]);
 
 
     Route::get('checkallaquar', 'App\Http\Controllers\Frontend\AquarController@checkallaquar')->name('checkallaquar');
 
 
 
-    
+
 //booking
-    Route::get('bookingaquars/{id}', 'App\Http\Controllers\Frontend\AquarController@bookingaquars')->name('bookingaquars')->middleware('web');
-    Route::get('detailbookingaquars/{id}', 'App\Http\Controllers\Frontend\AquarController@detailbookingaquars')->name('detailbookingaquars')->middleware('web');
-    Route::get('addbookingaquars', 'App\Http\Controllers\Frontend\AquarController@addbookingaquars')->name('addbookingaquars')->middleware('web');
+    Route::get('countDaysbetweendates', 'App\Http\Controllers\Frontend\AquarController@countDaysbetweendates')->name('countDaysbetweendates')->middleware([user::class]);
+    Route::get('bookingaquars/{id}', 'App\Http\Controllers\Frontend\AquarController@bookingaquars')->name('bookingaquars')->middleware([user::class]);
+    Route::get('detailbookingaquars/{id}', 'App\Http\Controllers\Frontend\AquarController@detailbookingaquars')->name('detailbookingaquars')->middleware([user::class]);
+    Route::get('addbookingaquars', 'App\Http\Controllers\Frontend\AquarController@addbookingaquars')->name('addbookingaquars')->middleware([user::class]);
 
     //my booking all car&&aquars
 
-    Route::get('mybookingAll', 'App\Http\Controllers\Frontend\AquarController@mybookingAll')->name('mybookingAll')->middleware('web');
-    Route::get('myfavouriteAll', 'App\Http\Controllers\Frontend\AquarController@myfavouriteAll')->name('myfavouriteAll')->middleware('web');
+    Route::get('mybookingAll', 'App\Http\Controllers\Frontend\AquarController@mybookingAll')->name('mybookingAll')->middleware([user::class]);
+    Route::get('myfavouriteAll', 'App\Http\Controllers\Frontend\AquarController@myfavouriteAll')->name('myfavouriteAll')->middleware([user::class]);
 
 //aquar end
 
@@ -107,11 +108,11 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
 
 Route::post('addContacts', 'App\Http\Controllers\Frontend\ContactController@addContacts')->name('addContacts');
-define('MAINASSETS', URL::asset('public/assets'));
-define('FRONTASSETS', URL::asset('public/frontend/assets'));
-define('MAINUPLOADS', URL::asset('public/uploads'));
-define('MAINDIST', URL::asset('public/dist/frontend/img'));
-define('MAINDASHBOARD', URL::asset('public/dashboard_files'));
+define('MAINASSETS', URL::asset('assets'));
+define('FRONTASSETS', URL::asset('frontend/assets'));
+define('MAINUPLOADS', URL::asset('uploads'));
+define('MAINDIST', URL::asset('dist/frontend/img'));
+define('MAINDASHBOARD', URL::asset('dashboard_files'));
 
 if (!defined('constant')) define('constant', 'value');
 

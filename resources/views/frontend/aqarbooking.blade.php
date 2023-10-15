@@ -190,7 +190,7 @@
                                                 <div class="col-12">
                                                     <div class="position-relative">
                                                         <input placeholder=" {{trans('site.reciept_date')}}" type="text"
-                                                               name="reciept_date" id="datepicker" value=""
+                                                               name="reciept_date" id="datepicker"
                                                                class="calendar mb-4 reciept_date" >
                                                         <span class="date-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
@@ -204,9 +204,13 @@
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="position-relative">
-                                                        <input placeholder="{{trans('site.delivery_date')}}" type="text"
-                                                               name="delivery_date" id="datepicker1" value=""
-                                                               class="calendar mb-4 delivery_date">
+{{--                                                        <input placeholder="{{trans('site.delivery_date')}}" type="text"--}}
+{{--                                                               name="delivery_date" id="datepicker1"--}}
+{{--                                                               class="calendar mb-4 delivery_dates">--}}
+
+                                                        <input placeholder=" {{trans('site.delivery_date')}}" type="text"
+                                                               name="delivery_date" id="datepicker1"
+                                                               class="calendar mb-4 deliverydate" >
                                                         <span class="date-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
                                      fill="none">
@@ -1382,6 +1386,67 @@
 
 @section('scripts')
 
+
+    <script>
+
+
+        jQuery('.deliverydate').change(function (e) {
+            // console.log('e',e);
+            // console.log("delivery_date",jQuery(".delivery_date").val());
+            // console.log("reciept_date",jQuery('.reciept_date').val());
+            e.preventDefault();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+
+            jQuery.ajax({
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')},
+
+                url: "{{ route('countDaysbetweendates') }}",
+                method: 'get',
+                data: {
+                    _token: '{{ csrf_token() }}',
+
+                    delivery_date: jQuery(".deliverydate").val(),
+
+                    reciept_date: jQuery('.reciept_date').val(),
+
+
+
+                },
+                success: function (result) {
+
+
+
+                    console.log(result);
+
+
+                },
+                error: function (result) {
+                    // console.log(result.responseJSON);
+                    var errors = result.responseJSON;
+                    var errorsList = "";
+                    $.each(errors, function (_, value) {
+                        $.each(value, function (_, fieldErrors) {
+                            fieldErrors.forEach(function (error) {
+                                errorsList += "<li style='color:#e81f1f'>" + error + "</li>";
+                            })
+                        });
+                    });
+                    $('.register_errorsSrate').html(errorsList);
+
+
+                }
+            });
+        });
+
+
+    </script>
+
+
     <script>
 
         $(document).ready(function () {
@@ -1408,58 +1473,7 @@
                 e.preventDefault();
             });
         });
-        function dayDiff(d1, d2)
-        {
-            return new Number((d2.getTime() - d1.getTime()) / 31536000000).toFixed(0);
-        }
 
-        $(document).ready(function () {
-            $("#datepicker1").change(function (e) {
-                console.log("booookkkksssss");
-                // var formData = $("#add-form").serialize();
-
-                var date1=jQuery('.reciept_date').val().format('dd-MM-yy')
-                var date2=jQuery('.delivery_date').val().format('dd-MM-yy')
-                console.log('date1', date1);
-                console.log('date2',date2);
-
-                // time difference
-                var timeDiff = Math.abs(date2.getTime() - date1.getTime());
-
-                // days difference
-                var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-
-                // difference
-                alert(diffDays);
-
-
-                // var d1 = jQuery('#datepicker').val()
-                // var d2 = jQuery('#datepicker1').val()
-                // document.write("Years since January 1, 2000: ");
-                // document.write(dayDiff(d1, d2));
-                // document.write(" years.");
-                // var d1 = new Date(date1);
-                // var d2 = new Date(date2);
-                //
-                // var diff = d2.getTime() - d1.getTime();
-                //
-                // var daydiff = diff / (1000 * 60 * 60 * 24);
-                // document.write(" Total number of days between <b> " + d1 + " </b> and <b> " + d2 + " </b> is: <b> " + daydiff + " days </b>" );
-                // // test it
-                // const a = date1,
-                //     b = date2,
-                //     difference = dateDiffInDays(a, b);
-                //
-                // console.log(difference + ' days')
-
-                // const diffTime = Math.abs(date2 - date1);
-                // const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-                // // console.log(diffTime + " milliseconds");
-                // console.log(diffDays + " days");
-
-
-            });
-        });
     </script>
 
 @endsection
