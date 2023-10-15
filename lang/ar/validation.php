@@ -87,7 +87,8 @@ return [
     'min' => [
         'numeric' => 'يجب أن تكون قيمة :attribute مساوية أو أكبر من :min.',
         'file' => 'يجب أن يكون حجم الملف :attribute على الأقل :min كيلوبايت.',
-        'string' => 'يجب أن يكون طول النص :attribute على الأقل :min أرقام/رقم.',
+        // 'string' => 'يجب أن يكون طول النص :attribute على الأقل :min أرقام/رقم.',
+        'string' => 'يجب الا يقل  :attribute  عن :min أرقام.',
         'array' => 'يجب أن يحتوي :attribute على الأقل على :min عُنصرًا/عناصر.',
     ],
     'not_in' => 'العنصر :attribute غير صحيح.',
