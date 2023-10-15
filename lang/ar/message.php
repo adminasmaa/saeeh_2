@@ -31,5 +31,7 @@ return [
     'new booking'=>'حجز جديد',
     'cancel your request'=>'لقد قمت بالغاء طلبك',
     'password should not be the same with old password'=>'كلمه المرور مستخدمه من قبل يرجي استخدام كلمه مرور جديدة ',
-    'price changed'=>'لقد تم تغيير السعر'
+    'price changed'=>'لقد تم تغيير السعر' ,
+    'incorrect phone'=>'  رقم الهاتق غير مسجل '
+
 ];

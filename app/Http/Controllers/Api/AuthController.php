@@ -268,7 +268,7 @@ class AuthController extends Controller
                 $user = User::create($input);
             }
 
-//            $success['token'] = $user->createToken('MyApp')->accessToken;
+        //            $success['token'] = $user->createToken('MyApp')->accessToken;
             $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code','country_id', 'code']);
 
 
@@ -284,11 +284,12 @@ class AuthController extends Controller
             'password' => 'required|unique:users',
             'device_token' => 'min:2'
         ]);
-
+        if ('phone' != $request->phone) {
+            return $this->respondError(trans('message.incorrect phone'), ['error' =>trans('message.incorrect phone')], 403);
+        }
         if ($validator->fails()) {
             return $this->respondError('Validation Error.', $validator->errors(), 400);
         }
-       
         if (auth()->attempt(['country_code' => $request->country_code, 'phone' => $request->phone, 'password' => $request->password])) {
             $user = Auth::user();
             
@@ -320,7 +321,7 @@ class AuthController extends Controller
                 send_sms_code($msg, $request->phone, $request->country_code);
                 $user->code = $code;
                 $user->save();
-//                $success['token'] = $user->createToken('MyApp')->accessToken;
+            //  $success['token'] = $user->createToken('MyApp')->accessToken;
                 $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code', 'code']);
                 return $this->respondwarning($success, trans('message.account not verified'), ['error' => trans('message.account not verified')], 402);
             }
