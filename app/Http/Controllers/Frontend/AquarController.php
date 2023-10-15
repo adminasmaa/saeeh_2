@@ -175,15 +175,11 @@ class AquarController extends Controller
 
         $requestdata = $request->all();
 
-        $requestdata['reciept_date'] = date('Y-m-d H:i:s', strtotime($request->reciept_date));
-        $requestdata['delivery_date'] = date('Y-m-d H:i:s', strtotime($request->delivery_date));
+        $reciept_date = date('Y-m-d', strtotime($request->reciept_date));
+        $delivery_date = date('Y-m-d', strtotime($request->delivery_date));
 
 
-        return "reciept_date". $requestdata['reciept_date'];
-        return "delivery_date". $requestdata['delivery_date'];
-
-
-        $day_count = $this->diffInDays($requestdata['delivery_date'], $requestdata['reciept_date']);
+        $day_count = $this->diffInDays(Carbon::parse($reciept_date),Carbon::parse($delivery_date));
 
         return $day_count;
 
