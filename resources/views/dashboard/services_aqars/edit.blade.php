@@ -185,26 +185,26 @@
                                                 class="fa fa-plus" aria-hidden="true"></i></a> -->
                                     </div>
                                 <div class="col-md-12 form-group col-12   desc" id="price2" style="display: none;">
-                                <table class="price-list" id="tb_price">
-                                        <tr>
-                                            <td>
-                                                <div class="row">
-                                                    <div class="col-md-5 form-group col-12">
-                                                        <label>@lang('site.name_ar')</label>
-                                                        <input type="text" name="sub_name_ar[]" class="form-control"/>
+                                    <table class="price-list" id="tb_price">
+                                            <tr>
+                                                <td>
+                                                    <div class="row">
+                                                        <div class="col-md-5 form-group col-12">
+                                                            <label>@lang('site.name_ar')</label>
+                                                            <input type="text" name="sub_name_ar[]" class="form-control"/>
+                                                        </div>
+                                                        <div class="col-md-5 form-group col-12">
+                                                            <label>@lang('site.name_en')</label>
+                                                            <input type="text" name="sub_name_en[]" class="form-control">
+                                                        </div>
+                                                        <div class="col-md-2 form-group col-12">
+                                                            <a class="btn btn-air-primary btn-pill btn-success add-price w-100 m-t-30"><i
+                                                                    class="fa fa-plus" aria-hidden="true"></i></a>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-md-5 form-group col-12">
-                                                        <label>@lang('site.name_en')</label>
-                                                        <input type="text" name="sub_name_en[]" class="form-control">
-                                                    </div>
-                                                    <div class="col-md-2 form-group col-12">
-                                                        <a class="btn btn-air-primary btn-pill btn-success add-price w-100 m-t-30"><i
-                                                                class="fa fa-plus" aria-hidden="true"></i></a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
 
                                 </div>
                                 <br>

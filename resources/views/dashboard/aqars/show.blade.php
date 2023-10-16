@@ -244,6 +244,7 @@
                                                 <div class="col-md-12 form-group col-12   desc" id="price2"
                                                     style="display: none;">
                                                     <table class="price-list" id="tb_price">
+                                                    @if(!is_null($aqar->changed_price))
                                                         @for ($x = 0; $x <= count($aqar->changed_price->price)-1; $x++)
                                                             <tr>
                                                                 <td>
@@ -265,6 +266,7 @@
                                                                 </td>
                                                             </tr>
                                                             @endfor
+                                                            @endif
                                                     </table>
 
                                             </div>

@@ -278,6 +278,8 @@ return [
     'ingredients_en' => ' انجليري المكونات ',
     'brand_name_ar' => 'اسم العلامة التجارية بالعربي',
 
+    'country_code' => 'كود الدولة',
+
     'ok' => 'حفظ',
     'distance' => 'المسافة',
     'Notdeleted_successfully' => 'لايمكنك حدف الصفحة',
