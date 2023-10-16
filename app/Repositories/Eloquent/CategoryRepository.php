@@ -171,10 +171,8 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
             ]);
 
                 if (!empty($request['image_category'][$key])) {
-
+                    
                     $image = $request['image_category'][$key] ?? '';
-
-
                     $destinationPath = 'images/categories/';
                     $extension = $image->getClientOriginalExtension(); // getting image extension
                     $name = time() . '' . rand(11111, 99999) . '.' . $extension; // renameing image
