@@ -59,6 +59,8 @@ return [
     'Reservation deposit' => 'عربون حجز',
     'Departure dates' => 'مواعيد المغادرة',
     'total' => 'الاجمالي   ',
+    'totalprice'=>'السعر الكلى ',
+
     'Price summary' => 'ملخص السعر',
     'Reservation deposit' => 'عربون حجز',
 

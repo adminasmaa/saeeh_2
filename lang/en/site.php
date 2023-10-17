@@ -4,6 +4,8 @@ return [
     'settingss' => ' Settings',
     'services' => 'Services',
     'profiles'=>'Profile',
+    'totalprice'=>'Total Price',
+
     'favourite'=>'my favourite',
     ';Tell us your evaluation of the Aquar'=>'Tell us your evaluation of the Aquar',
     'Write your entire experience'=>'Write your entire experience',

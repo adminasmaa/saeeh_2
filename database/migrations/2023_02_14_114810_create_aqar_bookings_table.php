@@ -20,8 +20,8 @@ return new class extends Migration
             $table->float('fixed_price')->nullable();
             $table->json('changed_price')->nullable();
             $table->string('note')->nullable();
-            $table->date('delivery_date')->nullable();
-            $table->date('reciept_date')->nullable();
+            $table->string('delivery_date')->nullable();
+            $table->string('reciept_date')->nullable();
             $table->integer('day_count')->nullable();
             $table->integer('visit_count')->nullable();
             $table->boolean('active')->nullable()->default(1);
