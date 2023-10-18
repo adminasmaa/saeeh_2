@@ -191,7 +191,7 @@
                                                     <div class="position-relative">
                                                         <input placeholder=" {{trans('site.reciept_date')}}" type="text"
                                                                name="reciept_date" id="datepicker"
-                                                               class="calendar mb-4 reciept_date" >
+                                                               class="calendar mb-4 reciept_date">
                                                         <span class="date-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
                                      fill="none">
@@ -204,13 +204,14 @@
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="position-relative">
-{{--                                                        <input placeholder="{{trans('site.delivery_date')}}" type="text"--}}
-{{--                                                               name="delivery_date" id="datepicker1"--}}
-{{--                                                               class="calendar mb-4 delivery_dates">--}}
+                                                        {{--                                                        <input placeholder="{{trans('site.delivery_date')}}" type="text"--}}
+                                                        {{--                                                               name="delivery_date" id="datepicker1"--}}
+                                                        {{--                                                               class="calendar mb-4 delivery_dates">--}}
 
-                                                        <input placeholder=" {{trans('site.delivery_date')}}" type="text"
+                                                        <input placeholder=" {{trans('site.delivery_date')}}"
+                                                               type="text"
                                                                name="delivery_date" id="datepicker1"
-                                                               class="calendar mb-4 deliverydate" >
+                                                               class="calendar mb-4 deliverydate">
                                                         <span class="date-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
                                      fill="none">
@@ -535,17 +536,17 @@
                                 />
                               </svg>
                             </span>
-                                                                                                        <span class="text-second dd-txt pe-2">@lang('site.day_count') </span>
+                                                    <span
+                                                        class="text-second dd-txt pe-2">@lang('site.day_count') </span>
                                                 </div>
-                                                                                                <div
-                                                                                                    class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
-                                                                                                >
-                                                                                            <p id="daycount">
+                                                <div
+                                                    class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
+                                                >
+                                                    <p id="daycount">
 
 
-
-                                                                                            </p>
-                                                                                                </div>
+                                                    </p>
+                                                </div>
                                             </div>
                                             <hr class="hr-saeeh my-0"/>
                                             <div
@@ -884,8 +885,7 @@
                                                 </div>
                                                 <div
                                                     class="text-gray-2 d-flex align-items-center justify-content-center summary-price"
-                                              id="total"  >
-
+                                                    id="total">
 
 
                                                 </div>
@@ -1105,7 +1105,7 @@
 
 
                                 <input type="hidden" name="aqar_id" value="{{$aqar->id}}" class="aqar_id">
-                                <div class="row" id="mybookinghidden">
+                                <div class="row mybookinghidden" id="mybookinghidden">
                                     <div class="col-12">
 
                                         {{--                                        //foreachbooking--}}
@@ -1122,7 +1122,7 @@
                                                                     <img
                                                                         loading="lazy"
 
-                                                                        src="{{asset('images/cars/'.$book->aqar->main_image)}}"
+                                                                        src="{{asset('images/aqars/'.$book->aqar->main_image)}}"
                                                                         onerror="this.src='{{FRONTASSETS}}/images/department-3.svg'"
 
                                                                         class="department-img-list of-cover"
@@ -1273,7 +1273,7 @@
                                                                                 <div
                                                                                     class="text-gray-2 d-flex align-items-center justify-content-center fw-bold span-14"
                                                                                 >
-                                                                                    {{$aqar->fixed_price ?? 0}}
+                                                                                    {{$book->aqar->fixed_price ?? 0}}
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -1285,7 +1285,7 @@
                                                                             >
                                                                                 <div class="d-flex align-items-center">
                                       <span class="text-gray-2">
-                                        حالة الحجز:
+                                         @lang('site.booking_status'):
                                       </span>
                                                                                     <span class="px-1">
                                         <svg
@@ -1305,7 +1305,7 @@
                                                                                 </div>
                                                                                 <div
                                                                                     class="text-gray-2 fw-bold span-14">
-                                                                                    @lang('site.Awaiting approval by the owner')
+                                                                                    {{$book->bookingStatus->status ?? ''}}
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -1326,7 +1326,7 @@
 
                                     </div>
                                 </div>
-                                <div id="mybooking1" class="row">
+                                <div id="mybookingAqars" class="row mybookingAqars" style="display: none">
                                 </div>
                             </div>
 
@@ -1373,7 +1373,6 @@
 
 @section('scripts')
 
-
     <script>
 
 
@@ -1401,7 +1400,7 @@
 
                     reciept_date: jQuery('.reciept_date').val(),
 
-                    'aqar_id':jQuery('.aqar_id').val(),
+                    'aqar_id': jQuery('.aqar_id').val(),
 
                 },
                 success: function (result) {
@@ -1439,29 +1438,98 @@
     <script>
 
         $(document).ready(function () {
+
             $("#btn-submit").click(function (e) {
-                console.log("bookingssss");
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                // console.log("bookingssss");
                 var formData = $("#add-form").serialize();
-                console.log('formData', formData);
                 var url = '{{route('addbookingaquars')}}';
+
+
                 $.ajax({
+                    headers: {'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')},
+
                     type: "GET",
                     url: url,
                     data: formData,
-                    dataType: "json",
-                    encode: true,
-                }).done(function (data) {
-                    // console.log("datadata", data);
-                    $("#mybookinghidden").hide();
-                    //
-                    // $("#mybooking1").show();
-                    $("#mybooking1").html(data);
-                    console.log("response", data);
+                    processData: false,
+                    contentType: false,
+
+                    success: function (response) {
+                        // Handle success response
+
+                        console.log("success", response);
+                        // $(".mybookinghidden").hide();
+                        // // //
+                        // $(".mybookingAqars").show();
+                        // $(".mybookingAqars").html(response);
+                        // console.log("response", data);
+                    },
+                    error: function (xhr, textStatus, error) {
+                        // Handle error response
+
+                        console.log("errrorrrs".error);
+                    }
                 });
 
-                e.preventDefault();
             });
+
         });
+
+
+
+        {{--        $(document).ready(function () {--}}
+        {{--            $("#btn-submit").click(function (e) {--}}
+        {{--                // console.log("bookingssss");--}}
+        {{--                var formData = $("#add-form").serialize();--}}
+        {{--                var url = '{{route('addbookingaquars')}}';--}}
+        {{--                // $.ajax({--}}
+        //                     type: "GET",
+        //                     url: url,
+        //                     data: formData,
+        //                     dataType: "json",
+        //                     encode: true,
+        {{--                // }).done(function (data) {--}}
+        //                     console.log("suceesss", data);
+        //                     // $("#mybookinghidden").hide();
+        //                     //
+        //                     // $("#mybooking1").show();
+        //                     $("#mybooking1").html(data);
+        //                     console.log("response", data);
+        {{--                // });--}}
+
+
+        {{--                $.ajax({--}}
+        {{--                        type: "GET",--}}
+        {{--                        url: url,--}}
+        {{--                        data: formData,--}}
+        {{--                        dataType: "json",--}}
+        {{--                        encode: true,--}}
+        {{--                    },--}}
+        {{--                    success: function (data) {--}}
+        {{--                    console.log("suceesss", data);--}}
+        {{--                    // $("#mybookinghidden").hide();--}}
+        {{--                    //--}}
+        {{--                    // $("#mybooking1").show();--}}
+        {{--                    $("#mybooking1").html(data);--}}
+        {{--                    console.log("response", data);--}}
+        {{--                    },--}}
+        {{--                    error: function (data, textStatus, errorThrown) {--}}
+        {{--                        console.log("error", data);--}}
+        {{--                    },--}}
+        {{--                })  --}}
+        {{--        --}}
+        {{--        });--}}
+        {{--                --}}
+
+        {{--       --}}
+
 
     </script>
 

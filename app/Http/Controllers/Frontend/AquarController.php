@@ -233,6 +233,10 @@ class AquarController extends Controller
         $user = Auth::user();
         $bookings = $user->aqarBooking;
 
+
+//        return response()->json(['status' => true, 'content' => 'success', 'data' => $bookings]);
+
+
         return view('frontend.mybookingAqar', compact('aqar', 'bookings'));
 
 
