@@ -163,7 +163,7 @@ class AquarController extends Controller
     public function diffInDays($date1, $date2)
     {
         $diff = strtotime($date2) - strtotime($date1);
-        return abs(round($diff / 86400));
+        return abs($diff / 86400);
     }
 
 
@@ -171,17 +171,25 @@ class AquarController extends Controller
     {
 
 
-//        return $request;
-
-        $requestdata = $request->all();
-
-        $reciept_date = date('Y-m-d', strtotime($request->reciept_date));
-        $delivery_date = date('Y-m-d', strtotime($request->delivery_date));
+        $price = Aqar::find($request->aqar_id)->fixed_price ?? 0;
 
 
-        $day_count = $this->diffInDays(Carbon::parse($reciept_date),Carbon::parse($delivery_date));
+        $deliverydate = Carbon::createFromFormat('d/m/Y', $request->delivery_date)
+            ->format('d-m-Y');
 
-        return $day_count;
+        $recieptdate = Carbon::createFromFormat('d/m/Y', $request->reciept_date)
+            ->format('d-m-Y');
+
+
+        $days = $this->diffInDays($recieptdate, $deliverydate);
+
+        $total = $price * $days;
+
+        $data['total'] = $total;
+        $data['days'] = $days;
+
+
+        return response()->json(['status' => 200, 'content' => 'success', 'data' => $data]);
 
 
     }
@@ -197,8 +205,16 @@ class AquarController extends Controller
 //        dd($newDate);
         $aqar = Aqar::findorfail($request['aqar_id']);
 
-        $requestdata['reciept_date'] = date('Y-m-d H:i:s', strtotime($request->reciept_date));
-        $requestdata['delivery_date'] = date('Y-m-d H:i:s', strtotime($request->delivery_date));
+//        $requestdata['reciept_date'] = date('Y-m-d H:i:s', strtotime($request->reciept_date));
+//        $requestdata['delivery_date'] = date('Y-m-d H:i:s', strtotime($request->delivery_date));
+
+        $requestdata['reciept_date'] = Carbon::createFromFormat('d/m/Y', $request->reciept_date)
+            ->format('d-m-Y');
+
+        $requestdata['delivery_date'] = Carbon::createFromFormat('d/m/Y', $request->delivery_date)
+            ->format('d-m-Y');
+
+
         $requestdata['day_count'] = $this->diffInDays($requestdata['delivery_date'], $requestdata['reciept_date']);
         $requestdata['date'] = $newDate;
         $requestdata['user_id'] = Auth::id();
@@ -210,12 +226,16 @@ class AquarController extends Controller
                 'reciept_date' => $requestdata['reciept_date'], 'delivery_date' => $requestdata['delivery_date'],
                 'note' => $requestdata['note'],
                 'date' => $newDate, 'fixed_price' => $aqar->fixed_price,
-                'day_count' => $requestdata['day_count'], 'total' => $total
+                'day_count' => $requestdata['day_count'], 'total_price' => $total
 
             ]);
 
         $user = Auth::user();
         $bookings = $user->aqarBooking;
+
+
+//        return response()->json(['status' => true, 'content' => 'success', 'data' => $bookings]);
+
 
         return view('frontend.mybookingAqar', compact('aqar', 'bookings'));
 

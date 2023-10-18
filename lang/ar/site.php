@@ -59,6 +59,13 @@ return [
     'Reservation deposit' => 'عربون حجز',
     'Departure dates' => 'مواعيد المغادرة',
     'total' => 'الاجمالي   ',
+    'totalprice'=>'السعر الكلى ',
+
+
+
+
+
+
     'Price summary' => 'ملخص السعر',
     'Reservation deposit' => 'عربون حجز',
 
@@ -328,7 +335,7 @@ return [
     'time_difference' => 'فارق التوقيت',
     'closing' => 'الاغلاق',
     'Become a partner with us' => 'كن شريكا معنا',
-    'booking_status' => 'حالات الحجز',
+    'booking_status' => 'حاله الحجز',
     'booking_status_ar' => 'حالات الحجز بالعربي',
     'booking_status_en' => 'حالات الحجز بالانجليزي',
     'Awaiting approval by the owner' => 'بانتظار الموافقه من قبل المالك',

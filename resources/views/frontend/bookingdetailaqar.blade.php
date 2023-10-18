@@ -638,27 +638,6 @@
                                 </div>
                             </div>
                             <hr class="hr-saeeh my-0"/>
-                            <div class="d-flex justify-content-between py-3 px-3">
-                                <div class="d-flex align-items-center">
-                    <span>
-                      <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                      >
-                        <path
-                            d="M5 19H6.4L15.025 10.375L13.625 8.975L5 17.6V19ZM19.3 8.925L15.05 4.725L16.45 3.325C16.8333 2.94167 17.3043 2.75 17.863 2.75C18.4217 2.75 18.8923 2.94167 19.275 3.325L20.675 4.725C21.0583 5.10833 21.2583 5.571 21.275 6.113C21.2917 6.655 21.1083 7.11733 20.725 7.5L19.3 8.925ZM4 21C3.71667 21 3.479 20.904 3.287 20.712C3.095 20.52 2.99934 20.2827 3 20V17.175C3 17.0417 3.025 16.9123 3.075 16.787C3.125 16.6617 3.2 16.5493 3.3 16.45L13.6 6.15L17.85 10.4L7.55 20.7C7.45 20.8 7.33767 20.875 7.213 20.925C7.08834 20.975 6.959 21 6.825 21H4ZM14.325 9.675L13.625 8.975L15.025 10.375L14.325 9.675Z"
-                            fill="#005D9F"
-                        />
-                      </svg>
-                    </span>
-                                    <a class="text-second dd-txt pe-2 booking-link"
-                                    > @lang('site.Modify your selection')
-                                    </a>
-                                </div>
-                            </div>
                         </div>
                         <h2 class="mb-3 text-gray-2"> @lang('site.Price summary')</h2>
                         <div class="card-booking mb-4">
@@ -802,12 +781,12 @@
                         />
                       </svg>
                     </span>
-                                    <span class="text-gray-2 dd-txt pe-2">السعر الكلى </span>
+                                    <span class="text-gray-2 dd-txt pe-2"> @lang('site.totalprice') </span>
                                 </div>
                                 <div
                                     class="text-gray-2 d-md-flex align-items-center justify-content-md-center summary-price"
                                 >
-                                    8000 درهم مغربي
+                              {{$booking->total_price ?? 0}}
                                 </div>
                             </div>
                         </div>

@@ -191,7 +191,7 @@
                                                     <div class="position-relative">
                                                         <input placeholder=" {{trans('site.reciept_date')}}" type="text"
                                                                name="reciept_date" id="datepicker"
-                                                               class="calendar mb-4 reciept_date" >
+                                                               class="calendar mb-4 reciept_date">
                                                         <span class="date-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
                                      fill="none">
@@ -204,13 +204,14 @@
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="position-relative">
-{{--                                                        <input placeholder="{{trans('site.delivery_date')}}" type="text"--}}
-{{--                                                               name="delivery_date" id="datepicker1"--}}
-{{--                                                               class="calendar mb-4 delivery_dates">--}}
+                                                        {{--                                                        <input placeholder="{{trans('site.delivery_date')}}" type="text"--}}
+                                                        {{--                                                               name="delivery_date" id="datepicker1"--}}
+                                                        {{--                                                               class="calendar mb-4 delivery_dates">--}}
 
-                                                        <input placeholder=" {{trans('site.delivery_date')}}" type="text"
+                                                        <input placeholder=" {{trans('site.delivery_date')}}"
+                                                               type="text"
                                                                name="delivery_date" id="datepicker1"
-                                                               class="calendar mb-4 deliverydate" >
+                                                               class="calendar mb-4 deliverydate">
                                                         <span class="date-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
                                      fill="none">
@@ -535,13 +536,17 @@
                                 />
                               </svg>
                             </span>
-                                                                                                        <span class="text-second dd-txt pe-2">@lang('site.day_count') </span>
+                                                    <span
+                                                        class="text-second dd-txt pe-2">@lang('site.day_count') </span>
                                                 </div>
-                                                                                                <div
-                                                                                                    class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
-                                                                                                >
-                                                                                            <p id="daycount"></p>
-                                                                                                </div>
+                                                <div
+                                                    class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
+                                                >
+                                                    <p id="daycount">
+
+
+                                                    </p>
+                                                </div>
                                             </div>
                                             <hr class="hr-saeeh my-0"/>
                                             <div
@@ -752,29 +757,7 @@
                                                 </div>
                                             </div>
                                             <hr class="hr-saeeh my-0"/>
-                                            <div
-                                                class="d-flex justify-content-between p-3"
-                                            >
-                                                <div class="d-flex align-items-center">
-                            <span>
-                              <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="24"
-                                  height="24"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                              >
-                                <path
-                                    d="M5 19H6.4L15.025 10.375L13.625 8.975L5 17.6V19ZM19.3 8.925L15.05 4.725L16.45 3.325C16.8333 2.94167 17.3043 2.75 17.863 2.75C18.4217 2.75 18.8923 2.94167 19.275 3.325L20.675 4.725C21.0583 5.10833 21.2583 5.571 21.275 6.113C21.2917 6.655 21.1083 7.11733 20.725 7.5L19.3 8.925ZM4 21C3.71667 21 3.479 20.904 3.287 20.712C3.095 20.52 2.99934 20.2827 3 20V17.175C3 17.0417 3.025 16.9123 3.075 16.787C3.125 16.6617 3.2 16.5493 3.3 16.45L13.6 6.15L17.85 10.4L7.55 20.7C7.45 20.8 7.33767 20.875 7.213 20.925C7.08834 20.975 6.959 21 6.825 21H4ZM14.325 9.675L13.625 8.975L15.025 10.375L14.325 9.675Z"
-                                    fill="#005D9F"
-                                />
-                              </svg>
-                            </span>
-                                                    <a class="text-second dd-txt pe-2 booking-link"
-                                                    > @lang('site.Modify your selection')
-                                                    </a>
-                                                </div>
-                                            </div>
+
                                         </div>
                                         <h2 class="mb-3 text-gray-2"> @lang('site.Price summary')</h2>
                                         <div class="card-booking mb-4">
@@ -895,13 +878,16 @@
                               </svg>
                             </span>
                                                     <span class="text-gray-2 dd-txt pe-2"
-                                                    >السعر الكلى
+                                                    >
+
+                                                        @lang('site.totalprice')
                             </span>
                                                 </div>
                                                 <div
                                                     class="text-gray-2 d-flex align-items-center justify-content-center summary-price"
-                                                >
-                                                    8000 درهم مغربي
+                                                    id="total">
+
+
                                                 </div>
                                             </div>
                                         </div>
@@ -1118,8 +1104,8 @@
                                 </div>
 
 
-                                <input type="hidden" name="aqar_id" value="{{$aqar->id}}">
-                                <div class="row" id="mybookinghidden">
+                                <input type="hidden" name="aqar_id" value="{{$aqar->id}}" class="aqar_id">
+                                <div class="row mybookinghidden" id="mybookinghidden">
                                     <div class="col-12">
 
                                         {{--                                        //foreachbooking--}}
@@ -1136,7 +1122,7 @@
                                                                     <img
                                                                         loading="lazy"
 
-                                                                        src="{{asset('images/cars/'.$book->aqar->main_image)}}"
+                                                                        src="{{asset('images/aqars/'.$book->aqar->main_image)}}"
                                                                         onerror="this.src='{{FRONTASSETS}}/images/department-3.svg'"
 
                                                                         class="department-img-list of-cover"
@@ -1287,7 +1273,7 @@
                                                                                 <div
                                                                                     class="text-gray-2 d-flex align-items-center justify-content-center fw-bold span-14"
                                                                                 >
-                                                                                    {{$aqar->fixed_price ?? 0}}
+                                                                                    {{$book->aqar->fixed_price ?? 0}}
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -1299,7 +1285,7 @@
                                                                             >
                                                                                 <div class="d-flex align-items-center">
                                       <span class="text-gray-2">
-                                        حالة الحجز:
+                                         @lang('site.booking_status'):
                                       </span>
                                                                                     <span class="px-1">
                                         <svg
@@ -1315,10 +1301,11 @@
                                           ></path>
                                         </svg>
                                       </span>
+
                                                                                 </div>
                                                                                 <div
                                                                                     class="text-gray-2 fw-bold span-14">
-                                                                                    @lang('site.Awaiting approval by the owner')
+                                                                                    {{$book->bookingStatus->status ?? ''}}
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -1339,7 +1326,7 @@
 
                                     </div>
                                 </div>
-                                <div id="mybooking1" class="row">
+                                <div id="mybookingAqars" class="row mybookingAqars" style="display: none">
                                 </div>
                             </div>
 
@@ -1386,7 +1373,6 @@
 
 @section('scripts')
 
-
     <script>
 
 
@@ -1414,12 +1400,14 @@
 
                     reciept_date: jQuery('.reciept_date').val(),
 
-
+                    'aqar_id': jQuery('.aqar_id').val(),
 
                 },
                 success: function (result) {
 
 
+                    $('#daycount').html(result.data.days)
+                    $('#total').html(result.data.total)
 
                     console.log(result);
 
@@ -1450,29 +1438,98 @@
     <script>
 
         $(document).ready(function () {
+
             $("#btn-submit").click(function (e) {
-                console.log("bookingssss");
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                // console.log("bookingssss");
                 var formData = $("#add-form").serialize();
-                console.log('formData', formData);
                 var url = '{{route('addbookingaquars')}}';
+
+
                 $.ajax({
+                    headers: {'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')},
+
                     type: "GET",
                     url: url,
                     data: formData,
-                    dataType: "json",
-                    encode: true,
-                }).done(function (data) {
-                    console.log("datadata", data);
-                    // $("#mybookinghidden").hide();
-                    //
-                    // $("#mybooking1").show();
-                    // $("#mybooking1").html(data);
-                    console.log("response", data);
+                    processData: false,
+                    contentType: false,
+
+                    success: function (response) {
+                        // Handle success response
+
+                        console.log("success", response);
+                        // $(".mybookinghidden").hide();
+                        // // //
+                        // $(".mybookingAqars").show();
+                        // $(".mybookingAqars").html(response);
+                        // console.log("response", data);
+                    },
+                    error: function (xhr, textStatus, error) {
+                        // Handle error response
+
+                        console.log("errrorrrs".error);
+                    }
                 });
 
-                e.preventDefault();
             });
+
         });
+
+
+
+        {{--        $(document).ready(function () {--}}
+        {{--            $("#btn-submit").click(function (e) {--}}
+        {{--                // console.log("bookingssss");--}}
+        {{--                var formData = $("#add-form").serialize();--}}
+        {{--                var url = '{{route('addbookingaquars')}}';--}}
+        {{--                // $.ajax({--}}
+        //                     type: "GET",
+        //                     url: url,
+        //                     data: formData,
+        //                     dataType: "json",
+        //                     encode: true,
+        {{--                // }).done(function (data) {--}}
+        //                     console.log("suceesss", data);
+        //                     // $("#mybookinghidden").hide();
+        //                     //
+        //                     // $("#mybooking1").show();
+        //                     $("#mybooking1").html(data);
+        //                     console.log("response", data);
+        {{--                // });--}}
+
+
+        {{--                $.ajax({--}}
+        {{--                        type: "GET",--}}
+        {{--                        url: url,--}}
+        {{--                        data: formData,--}}
+        {{--                        dataType: "json",--}}
+        {{--                        encode: true,--}}
+        {{--                    },--}}
+        {{--                    success: function (data) {--}}
+        {{--                    console.log("suceesss", data);--}}
+        {{--                    // $("#mybookinghidden").hide();--}}
+        {{--                    //--}}
+        {{--                    // $("#mybooking1").show();--}}
+        {{--                    $("#mybooking1").html(data);--}}
+        {{--                    console.log("response", data);--}}
+        {{--                    },--}}
+        {{--                    error: function (data, textStatus, errorThrown) {--}}
+        {{--                        console.log("error", data);--}}
+        {{--                    },--}}
+        {{--                })  --}}
+        {{--        --}}
+        {{--        });--}}
+        {{--                --}}
+
+        {{--       --}}
+
 
     </script>
 
