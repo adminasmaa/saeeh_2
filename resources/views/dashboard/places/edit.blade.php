@@ -506,6 +506,9 @@
                             </video>
                             </div>
 
+
+                            
+
                         <div class="row m-t-10">
                             <h4>@lang('site.place_tables')</h4>
                             @foreach($place_table as $service)
@@ -525,7 +528,7 @@
                                                         <input type="text" name="sub_name_en[]"
                                                             class="form-control" value="{{$service->name_en}}">
                                                     </div>
-                                                    <div class="col-md-5 form-group col-12">
+                                                    <div class="col-md-6 form-group ">
                                                         <label class="form-label">@lang('site.type')</label><span class="text-danger">*</span>
                                                         <select class="js-example-placeholder-multiple col-sm-12" name="sub_type[]"  >
                                                             <option selected>@lang('site.select')</option>
@@ -541,7 +544,7 @@
                                                             </option>
                                                         </select>
                                                     </div>
-                                                    <div class="col-md-3 form-group col-12 p-4">
+                                                    <div class="col-md-6 form-group col-12">
                                                     <a  type="button" href="{{route('dashboard.DeletePlaceTable',$service->id)}}" class="btn btn-air-primary btn-pill btn-danger"><i class="fa fa-trash"></i></a>
                                                 </div>
                                                 </div>
@@ -705,7 +708,7 @@ $(document).ready(function () {
     jQuery('a.add-price').click(function (event) {
         event.preventDefault();
         var newRow = jQuery('<tr><td><div class="row"><div class="col-md-5 form-group col-12 p-2">' +
-        ' <input type="hidden"  name="id[]" class="form-control"/>' +
+        // ' <input type="hidden"  name="id[]" class="form-control"/>' +
             '<label>@lang('site.name_ar')</label><input type="text"  name="sub_name_ar[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
             '<label>@lang('site.name_en')</label><input type="text" name="sub_name_en[]" class="form-control" ></div><div class="col-md-5 form-group col-6 p-2">' +
             '<label>@lang('site.type')</label><select class="form-control btn-square" name="sub_type[]"><option selected>@lang('site.select')</option><option value="Meal">@lang('site.meal')</option><option value="Break">@lang('site.break') </option><option value="Tawla">@lang('site.tawla') </option></select></div><div class="col-md-5 form-group col-6 p-2">' +

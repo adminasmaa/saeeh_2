@@ -284,9 +284,9 @@ class AuthController extends Controller
             'password' => 'required|unique:users',
             'device_token' => 'min:2'
         ]);
-        if ('phone' != $request->phone) {
-            return $this->respondError(trans('message.incorrect phone'), ['error' =>trans('message.incorrect phone')], 403);
-        }
+        // if ('phone' != $request->phone) {
+        //     return $this->respondError(trans('message.incorrect phone'), ['error' =>trans('message.incorrect phone')], 403);
+        // }
         if ($validator->fails()) {
             return $this->respondError('Validation Error.', $validator->errors(), 400);
         }

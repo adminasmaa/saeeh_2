@@ -160,15 +160,18 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
         if ($arr[0]!=null) {
 
             foreach ($request['name_ar_category'] as $key => $value) {
-                $cat = Category::updateOrCreate([
-                    'id' => $request['id'][$key]??0
-                ],[
-                'name_ar' => $request['name_ar_category'][$key],
-                'name_en' => $request['name_en_category'][$key],
-                'type' =>  $request['type'] = 2,
-                'parent_id' => $category->id,
-//                    'city_id' => json_encode($request['city_id'])
-            ]);
+                
+                if( $request['name_ar_category'][$key] !=null){
+                    
+                    $cat = Category::updateOrCreate([
+                        'id' => $request['id'][$key]??0
+                    ],[
+                    'name_ar' => $request['name_ar_category'][$key],
+                    'name_en' => $request['name_en_category'][$key],
+                    'type' =>  $request['type'] = 2,
+                    'parent_id' => $category->id,
+    //                    'city_id' => json_encode($request['city_id'])
+                ]);
 
                 if (!empty($request['image_category'][$key])) {
                     
@@ -183,6 +186,7 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
 
                 }
 
+                }
             }
         }
         if ($category) {

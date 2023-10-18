@@ -407,7 +407,7 @@
                                                     <div class="col-md-2 form-group col-12">
                                                         <a class="btn btn-air-primary btn-pill btn-success add-price w-100 m-t-30"><i
                                                                 class="fa fa-plus" aria-hidden="true"></i></a>
-                                                    </div>
+                                                    </div> 
                                                 </div>
                                             </td>
                                         </tr>

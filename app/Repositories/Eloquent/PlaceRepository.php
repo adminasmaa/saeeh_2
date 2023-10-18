@@ -184,9 +184,16 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
 
         $arr = $request->sub_name_ar;
             // var_dump($request->sub_name_ar );die;
+            // if ($arr[0]!=null) { 
+            // return $request->sub_name_ar ;
+            //  return $request;
 
-        if ($arr[0]!=null) {
-            foreach ($request->sub_name_ar as $key => $value) {
+        if (isset($request['sub_name_ar'])) {
+
+            foreach ($request['sub_name_ar'] as $key => $value) {
+
+                if( $request['sub_name_ar'][$key] !=null){
+
                 PlaceTable::updateOrCreate([
                         'id' => $request['id'][$key]??0
                     ],[
@@ -197,6 +204,7 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
                 ]);
             }
         }
+    }
 
         if ($place) {
            Alert::success('Success', __('site.updated_successfully'));

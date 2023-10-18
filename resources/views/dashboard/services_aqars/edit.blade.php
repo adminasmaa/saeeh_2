@@ -128,16 +128,14 @@
                             </div>
                             <div class="row">
 
-                                <div class="col-md-6 form-group col-12 p-2">
+                            <div class="col-md-6 form-group col-12 p-2">
 
 
-                                    <label>@lang('site.image')</label>
-                                    <input type="file" name="icon" class="form-control"
-                                        value="{{ old('icon') }}">
+                            <label>@lang('site.icon')</label>
+                            <input type="file" name="icon" class="form-control" value="{{ old('icon') }}">
 
 
-                                </div>
-
+                            </div>
 
                             </div>
                             <br>
@@ -146,13 +144,16 @@
 
                                     <label for="edo-ani1">
                                         <input class="radio_animated" type="radio" name="price"
-                                               data-bs-original-title="" title="" value="2">@lang('site.subcategories')
+                                               data-bs-original-title="tooltip" title="AddSubCategory" value="2">@lang('site.subcategories')
                                     </label>
                                 </div>
                             </div>
                             <div class="row m-t-10">
 
                                 @foreach($SubAqarService as $service)
+
+                                <input type="hidden" value="{{ $service->id ?? '' }}" name="id[]" class="form-control" />
+
                                     <div class="col-md-12 form-group col-12 ">
                                         <table>
                                             <tr>
@@ -161,12 +162,12 @@
                                                         <div class="col-md-5 form-group col-12">
                                                             <label>@lang('site.name_ar')</label>
                                                             <input type="text"
-                                                                   class="form-control" value="{{$service->name_ar}}"/>
+                                                                   class="form-control" name="sub_name_ar[]" value="{{$service->name_ar}}"/>
                                                         </div>
                                                         <div class="col-md-5 form-group col-12">
                                                             <label>@lang('site.name_en')</label>
                                                             <input type="text"
-                                                                   class="form-control" value="{{$service->name_en}}">
+                                                                   class="form-control" name="sub_name_en[]" value="{{$service->name_en}}">
                                                         </div>
                                                         <div class="col-md-2 form-group col-12 ">
                                                             <a  type="button" href="{{route('dashboard.DeleteServiceAqar',$service->id)}}" class="btn btn-air-primary btn-pill btn-danger"><i class="fa fa-trash"></i></a>

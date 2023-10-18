@@ -246,6 +246,7 @@
                             <div class="row m-t-10">
 
                                 @foreach($subcategories as $service)
+                                
                                 <input type="hidden" value="{{ $service->id ?? '' }}" name="id[]" class="form-control" />
 
                                     <div class="col-md-12 form-group col-12 ">
