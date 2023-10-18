@@ -153,10 +153,13 @@ class PlaceCategoryRepository implements PlaceCategoryRepositoryInterfaceAlias
         }
           //  return $request;
         // if ($arr[0]!=null) {
-            if (isset($request['name_ar_category'])) {
+
+            if ($arr[0]!=null) {
 
             foreach ($request['name_ar_category'] as $key => $value) {
                 
+                if( $request['name_ar_category'][$key] !=null){
+
                 $cat = Category::updateOrCreate([
                         'id' => $request['id'][$key]??0
                     ],[
@@ -184,6 +187,7 @@ class PlaceCategoryRepository implements PlaceCategoryRepositoryInterfaceAlias
                 }
             }
         }
+    }
         if ($category) {
             Alert::success('Success', __('site.updated_successfully'));
 

@@ -116,26 +116,31 @@ class ServiceAqarRepository implements ServiceAqarRepositoryInterfaceAlias
 
         $AqarService->update($request_data);
         $arr = $request->sub_name_ar;
-
-        if ($arr[0]!=null) {
-            foreach ($request->sub_name_ar as $key => $value) {
-                AqarService::create([
-                    'name_ar' => $request['sub_name_ar'][$key],
-                    'name_en' => $request['sub_name_en'][$key],
-                    'parent_id' => $AqarService->id
-                ]);
-
-            }
-
-
-        }
-
+ 
         if ($request->hasFile('icon')) {
 
             UploadImage('images/services_aqars/', 'icon', $AqarService, $request->file('icon'));
 
         }
 
+        if ($arr[0]!=null) {
+
+            foreach ($request['sub_name_ar'] as $key => $value) {
+                // AqarService::create([
+                    if( $request['sub_name_ar'][$key] !=null){
+                    AqarService::updateOrCreate([
+                        'id' => $request['id'][$key]??0
+                    ],[
+                    'name_ar' => $request['sub_name_ar'][$key],
+                    'name_en' => $request['sub_name_en'][$key],
+                    'parent_id' => $AqarService->id
+                    ]);
+                }
+            }
+
+
+        }
+      
 
         if ($AqarService) {
             Alert::success('Success', __('site.updated_successfully'));
