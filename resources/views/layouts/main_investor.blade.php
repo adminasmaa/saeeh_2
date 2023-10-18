@@ -574,10 +574,13 @@
           });
         }
       }
+      $(".remove-btn").click(function() {
+        $(this).parent(".wrapper-thumb").remove();
+    });
 
       document.getElementById("imgInp").onchange = function () {
         let imgURL = (frame.src = URL.createObjectURL(event.target.files[0]));
-        document.querySelector("img").src = imgURL;
+        document.querySelector("img-upload").src = imgURL;
       };
 
       /*video */

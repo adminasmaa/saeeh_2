@@ -23,6 +23,8 @@ use App\Services\TwoFactorService;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Auth;
+
 
 
 class AqarInvstController extends Controller
@@ -36,19 +38,23 @@ class AqarInvstController extends Controller
         $this->AqarRepository=new AqarRepository();
     }
 
-    public function index(AqarDataTable $AqarDataTable)
+    public function index(Request $request)
     {
 
-        return $this->AqarRepository->getAll($AqarDataTable);
+        $aqars = Aqar::with('category','area')->where('user_id',Auth::id())
+        ->when($request->search_id, function ($query) use($request) {
+            $query->where('id','=',$request->search_id);
+            
+        })     
+        ->paginate(10);
+        return view('frontend.invest.all_aqars' , compact('aqars') );
+
 
     }
 
 
     public function show($id)
     {
-        return $this->AqarRepository->show($id);
-
-
     }
 
 
@@ -87,16 +93,24 @@ class AqarInvstController extends Controller
 
         }
 
-        if ($request->hasFile('images')) {
-            $images = $request->file('images');
-            foreach ($images as $key => $files) {
-                $destinationPath = 'images/places/';
-                $file_name = $_FILES['images']['name'][$key];
-                $files->move($destinationPath, $file_name);
-                $data[] = $_FILES['images']['name'][$key];
-             //   $aqar->images = implode(',',$data);
-             //   $aqar->save();
+        if ($files=$request->file('images')) {
+            //$images = $request->file('images');
+            // foreach ($images as $key => $files) {
+            //     $destinationPath = 'images/places/';
+            //     $file_name = $_FILES['images']['name'][$key];
+            //     $files->move($destinationPath, $file_name);
+            //     $data1[] = $_FILES['images']['name'][$key];
+            //     $aqar->images = implode(',',$data);
+            //     $aqar->save();
+            // }
+            foreach($files as $file){
+                $destinationPath = 'images/aqars/';
+                $name=time().'.'.$file->getClientOriginalExtension();
+                $file->move($destinationPath,$name);
+                $images[]=$name;
             }
+            $aqar->images = implode(',',$images);
+                 $aqar->save();
         }
 
         if ($request->hasFile('videos')) {
@@ -128,7 +142,7 @@ class AqarInvstController extends Controller
         if ($aqar) {
             Alert::success('Success', __('site.added_successfully'));
 
-            return redirect()->route('invest.aqars.index');
+            return redirect()->route('invst.aqars.index');
 
         }
 
@@ -145,7 +159,16 @@ class AqarInvstController extends Controller
 
     public function edit($id)
     {
-        return $this->AqarRepository->edit($id);
+        $users = User::whereNotNull('type')->where('active',1)->get();
+        $categories = Category::where('type',1)->where('parent_id',1)->where('active',1)->get();
+        $Area = Area::where('active',1)->get();
+        $countries = Country::all();
+        $adsStatus = AdsStatus::all();
+        $cities = City::all();
+        $aqar=Aqar::find($id);
+        $aqar['changed_price']=json_decode($aqar['changed_price']);
+
+        return view('frontend.invest.add_aqar' , compact('users', 'categories','Area', 'countries', 'cities', 'adsStatus','aqar') );
 
 
     }//end of user
@@ -160,12 +183,69 @@ class AqarInvstController extends Controller
     public function update(Request $request, $id)
     {
        
-        $Aqar = Aqar::find($id);
+        $aqar = Aqar::find($id);
         $data['person_num'] = $request['person_num'];
         // $data['day_num'] = $request['day_num'];
         $data['price'] = $request['price'];
         $request['changed_price']=json_encode($data)!=null?json_encode($data, JSON_NUMERIC_CHECK):json_encode([]);
-        return $this->AqarRepository->update($Aqar, $request);
+
+        $request_data = $request->except(['main_image', '_token', '_method', 'images','videos','subservice']);
+        $aqar->update($request_data);
+
+
+        if ($request->hasFile('main_image')) {
+
+            UploadImage('images/aqars/','main_image', $aqar, $request->file('main_image'));
+        }
+
+        if ($files=$request->file('images')) {
+            foreach($files as $file){
+                $destinationPath = 'images/aqars/';
+                $name=time().'.'.$file->getClientOriginalExtension();
+                $file->move($destinationPath,$name);
+                $images[]=$name;
+            }
+            $aqar->images = implode(',',$images);
+                 $aqar->save();
+           
+        }
+        if ($request->hasFile('videos')) {
+            $thumbnail = $request->file('videos');
+            $destinationPath = 'images/aqars/videos/';
+            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+            $thumbnail->move($destinationPath, $filename);
+            $aqar->videos = $filename;
+            $aqar->save();
+        
+        }
+        $services=AqarSections::where('aqar_id', $aqar->id)->get()->each(function($service){ $service->delete(); });
+        $totalrooms=0;
+        foreach ($request->subservice as $subserv) {
+            $arr=explode('-',$subserv);
+            AqarSections::create([
+                'section_id' => $arr[0],
+                'sub_section_id' => $arr[1],
+                'aqar_id'=>$aqar->id
+
+            ]);
+            if($arr[0]==6 || $arr[0]==18){
+                $totalrooms +=$arr[2];
+            }
+           
+        }
+        $aqar->total_rooms=$totalrooms;
+        $aqar->save();
+        if ($aqar) {
+            Alert::success('Success', __('site.updated_successfully'));
+
+            return redirect()->route('invst.aqars.index');
+            session()->flash('success', __('site.updated_successfully'));
+        } else {
+            Alert::success('Success', __('site.update_faild'));
+
+            return redirect()->route('invst.aqars.index');
+
+        }
 
 
     }//end of update

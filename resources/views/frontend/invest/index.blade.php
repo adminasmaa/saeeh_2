@@ -22,7 +22,7 @@
           <div class="booking_investor_card">
             <div class="row">
               <div class="col-lg-4 col-sm-6 col-12">
-               <a href="#">
+               <a href="{{route('invst.aqars.index')}}">
                  <div class="booking_card mb-4 text-center pt-sm-5 pb-sm-3 py-4">
                     <img
                       src="{{FRONTASSETS}}/images/booking-investor/ads_b.svg"

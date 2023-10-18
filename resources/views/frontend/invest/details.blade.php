@@ -131,7 +131,7 @@
                                   />
                                   <label
                                   for="subservice_{{$subservice->id}}"
-                                    class="online-lbl custom-radio"
+                                    class="custom-checkbox-item"
                                   >
                                   {{$subservice->name_ar ?? ''}}
                                   </label>
