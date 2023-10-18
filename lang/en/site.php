@@ -221,6 +221,9 @@ return [
     'snapchat' => 'SnapChat',
     'pools' => 'Pools',
     'aqar_comments' => 'AqarComments',
+    'name_al'=> 'name of',
+    'area'=> 'Area',
+
 
 
     'female' => 'Female',

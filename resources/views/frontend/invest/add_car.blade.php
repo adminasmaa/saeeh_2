@@ -9,87 +9,35 @@
                         <a href="javascript:void(0)">@lang('site.dashboard') </a>
                     </li>
                     <li class="breadcrumb-item text-gray-4" aria-current="page">
-                    @lang('site.aqars') 
+                    @lang('site.cars') 
                     </li>
                     </ol>
                 </nav>
             </div>
         </section>
 
-        <section class="ads-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                    <div class="ads-add-container">
-                        <div class="d-lg-flex align-items-center justify-content-between">
-                        <div class="d-flex align-items-center">
-                            <div>
-                            <img
-                                src="{{FRONTASSETS}}/images/booking-investor/notify-ic.svg"
-                                alt="notify icon"
-                                class="notify-ic"
-                            />
-                            </div>
-                            <h2>
-                            @lang('site.If you have a problem adding your ad, please call us')
-                        </h2>
-                        </div>
-                        <div
-                            class="add-ads-link d-flex align-items-center justify-content-center mt-lg-0 mt-3"
-                        >
-                            <a href="#">
-                            <span class="call-icon">
-                                <i class="far fa-phone"></i>
-                            </span>
-                            0707078888
-                            </a>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </section>
         <section class="booking_investor mb-6">
             <div class="container">
                 <div class="ads_investor_card">
-                    <form action="{{ empty($aqar)? route('invst.aqars.store') : route('invst.aqars.update', $aqar->id) }}" method="post" enctype="multipart/form-data"
+                    <form action="{{ empty($car)? route('invst.cars.store') : route('invst.cars.update', $car->id) }}" method="post" enctype="multipart/form-data"
                                 id="" class="form-main">
 
                                 {{ csrf_field() }}
-                                @if(!empty($aqar))
+                                @if(!empty($car))
                                     @method('put')
                                 @endif
                         <div class="row">
                             <div class="col-12">
-                            @if(empty($aqar))
+                            @if(empty($car))
                                 <h2 class="add_frm_title mb-3">@lang('site.add')</h2>
                             @else
-                                <h2 class="add_frm_title mb-3">@lang('site.edit')  إعلان رقم ({{$aqar->id ?? ''}})</h2>
+                                <h2 class="add_frm_title mb-3">@lang('site.edit')  إعلان رقم ({{$car->id ?? ''}})</h2>
                             @endif
                             </div>
                             @include('partials._errors')
                             <div class="col-12">
                                 <div class="add-ads-card mb-md-5 mb-4">
                                     <div class="row">
-                                        <div class="col-lg-12 mb-3">
-                                            <div class="position-relative">
-                                                <label class="pb-2 ads-card-lbl">@lang('site.users')
-                                                <span class="text-danger">( اجبارى )</span>
-                                                </label>
-                                                <select class="select2"
-                                                        name="user_id" required>
-                                                    <option selected>@lang('site.select')</option>
-                                                    @foreach($users as $user)
-
-                                                        <option value="{{$user->id}}"  @if((old('user_id')==$user->id)||(!empty($aqar) && ($aqar->user_id==$user->id)))selected @endif >
-                                                            {{$user->firstname . $user->lastname ?? ''}}</option>
-
-                                                    @endforeach
-
-                                                </select>
-                                            </div>
-                                        </div>
                                         <div class="col-lg-6 mb-3">
                                             <div class="position-relative">
                                             <label class="pb-2 ads-card-lbl">@lang('site.country')
@@ -101,7 +49,7 @@
                                                     @foreach($countries as $country)
 
                                                         <option
-                                                            value="{{$country->id}}" @if((old('country_id')==$country->id)||(!empty($aqar) && ($aqar->country_id==$country->id)))selected @endif>{{$country->name_ar ?? ''}}</option>
+                                                            value="{{$country->id}}" @if((old('country_id')==$country->id)||(!empty($car) && ($car->country_id==$country->id)))selected @endif>{{$country->name_ar ?? ''}}</option>
 
                                                     @endforeach
 
@@ -118,39 +66,30 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-lg-12 mb-3">
+                                        <div class="col-lg-6 mb-3">
                                             <div class="position-relative">
                                             <label class="pb-2 ads-card-lbl">@lang('site.categories')</label>
-                                                <div class="row ads-radio-list radios_noborder">
-                                                    
+                                                <select class="select2"
+                                                        name="category_id" id="category_id">
+                                                    <option selected value="0">@lang('site.select')</option>
                                                     @foreach($categories as $cat)
-                                                        <div class="col-md-auto col-6">
-                                                        <div class="d-flex align-items-center">
-                                                        <input
-                                                            type="radio"
-                                                            name="category_id"
-                                                            id="category_id{{$cat->id}}"
-                                                            value="{{ old('category_id', (empty($aqar))? $cat->id : $aqar['category_id']) }}"
-                                                            @if(!empty($aqar)&&$aqar->category_id!=null && ($aqar->category_id==$cat->id)) checked  @endif
-                                                        />
-                                                        <label
-                                                            for="category_id{{$cat->id}}"
-                                                            class="online-lbl custom-radio"
-                                                        >
-                                                        {{$cat->name_ar ?? ''}}
-                                                        </label>
-                                                        </div>
-                                                    </div>
+
+                                                        <option
+                                                            value="{{$cat->id}}" @if((old('category_id')==$cat->id)||(!empty($car) && ($car->category_id==$cat->id)))selected @endif>{{$cat->name_ar ?? ''}}</option>
+
                                                     @endforeach
-                                                    
-                                                </div>
+
+                                                </select>
                                             </div>
                                         </div>
-                                        <div class="col-lg-12 mb-3">
-                                            <div class="position-relative" id="cityarea">
-                                            <label class="pb-2 ads-card-lbl">@lang('site.areas')</label>
-                                                <div class="row ads-radio-list radios_noborder" id="area_id">
-                                                </div>
+                                        <div class="col-lg-6 mb-3">
+                                            <div class="position-relative" >
+                                            <label class="pb-2 ads-card-lbl">@lang('site.subcategories')</label>
+                                                <select class="select2"
+                                                    name="sub_category_id" id="sub_category_id">
+                                                    <option selected value="0">@lang('site.select')</option>
+
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 mb-3">
@@ -162,7 +101,7 @@
                                             <input
                                                 placeholder="ادخل الاسم "
                                                 type="text"
-                                                value="{{ old('name_ar', (empty($aqar))? null : $aqar['name_ar']) }}"
+                                                value="{{ old('name_ar', (empty($car))? null : $car['name_ar']) }}"
                                                 name="name_ar" 
                                                 required
                                             />
@@ -177,22 +116,48 @@
                                             <input
                                                 placeholder="ادخل الاسم"
                                                 type="text"
-                                                value="{{ old('name_en', (empty($aqar))? null : $aqar['name_en']) }}"
+                                                value="{{ old('name_en', (empty($car))? null : $car['name_en']) }}"
                                                 name="name_en"
+                                            />
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 mb-3">
+                                            <div class="position-relative">
+                                            <label for="" class="pb-2 ads-card-lbl">
+                                            @lang('site.year')
+                                                <span class="text-danger">( اجبارى)</span>
+                                            </label>
+                                            <select class="select2" name="year" id="year">
+                                                @for ($year = (int)date('Y')+1; 1900 <= $year; $year--): 
+                                                    <option value="{{$year}}">{{$year}}</option>
+                                                @endfor
+                                        </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 mb-3">
+                                            <div class="position-relative">
+                                            <label for="" class="pb-2 ads-card-lbl">
+                                            @lang('site.color')
+                                                <span class="text-danger">( اجبارى )</span>
+                                            </label>
+                                            <input
+                                                placeholder="ادخل الاسم"
+                                                type="color"
+                                                value="{{ old('color', (empty($car))? null : $car['color']) }}"
+                                                name="color"
                                             />
                                             </div>
                                         </div>
                                         <div class="col-lg-6 mb-lg-0 mb-3">
                                             <label for="" class="pb-2 ads-card-lbl">
-                                            @lang('site.time_from')
+                                            @lang('site.car_numbers')
                                             <span class="text-danger">( اجبارى )</span>
                                             </label>
                                             <div class="position-relative">
                                             <input
-                                                placeholder="9:30pm"
-                                                type="time"
-                                                name="time_from"
-                                                value="{{ old('time_from', (empty($aqar))? null : $aqar['time_from']) }}"
+                                                type="number"
+                                                name="car_numbers"
+                                                value="{{ old('car_numbers', (empty($car))? null : $car['car_numbers']) }}"
                                                 class="form-control "
                                                 autocomplete="off"
                                             />
@@ -201,14 +166,13 @@
                                         </div>
                                         <div class="col-lg-6">
                                             <label for="" class="pb-2 ads-card-lbl">
-                                            @lang('site.time_to') 
+                                            @lang('site.car_delivery_date') 
                                             </label>
                                             <div class="position-relative">
                                             <input
-                                                placeholder="9:30pm"
                                                 type="time"
-                                                name="time_to"
-                                                value="{{ old('time_to', (empty($aqar))? null : $aqar['time_to']) }}"
+                                                name="car_delivery_date"
+                                                value="{{ old('car_delivery_date', (empty($car))? null : $car['car_delivery_date']) }}"
                                                 class="form-control"
                                                 autocomplete="off"
                                             />
@@ -232,7 +196,7 @@
                                                     checked
                                                     class="onlineInp"
                                                     value="1"
-                                                    @if(!empty($aqar)&&$aqar->fixed_price!=null ) checked  @endif
+                                                    @if(!empty($car)&&$car->fixed_price!=null ) checked  @endif
                                                     />
                                                     <label
                                                     for="const-price"
@@ -249,7 +213,7 @@
                                                     id="change-price"
                                                     class="onlineInp"
                                                     value="2"
-                                                    @if(!empty($aqar)&&is_null($aqar->fixed_price) ) checked  @endif
+                                                    @if(!empty($car)&&is_null($car->fixed_price) ) checked  @endif
                                                     />
                                                     <label
                                                     for="change-price"
@@ -260,6 +224,7 @@
                                                     </label>
                                                 </div>
                                             </div>
+                                            <div class="row">
                                             <div class="col-lg-6 mb-lg-0 mb-3 desc" id="price1">
                                                 <div class="position-relative" >
                                                     <label for="" class="pb-2 ads-card-lbl">
@@ -270,19 +235,19 @@
                                                         placeholder="ادخل السعر"
                                                         type="number" step=".1" name="fixed_price"
                                                         class="form-control"
-                                                        value="{{ old('fixed_price', (empty($aqar))? null : $aqar['fixed_price']) }}"
+                                                        value="{{ old('fixed_price', (empty($car))? null : $car['fixed_price']) }}"
                                                     />
                                                 </div>
                                             </div>
                                             <div class="col-md-12 form-group col-12   desc" id="price2" style="display: none;">
                                                 <table class="price-list" id="tb_price">
-                                                    @if(empty($aqar))
+                                                    @if(empty($car))
                                                     <tr>
                                                         <td>
                                                             <div class="row">
                                                                 <div class="col-md-5 form-group col-12">
-                                                                    <label class="pb-2 ads-card-lbl">@lang('site.personnumber')</label>
-                                                                    <input type="number" name="person_num[]"
+                                                                    <label class="pb-2 ads-card-lbl">@lang('site.daynumber')</label>
+                                                                    <input type="number" name="day_num[]"
                                                                             class="form-control"/>
                                                                 </div>
                                                                 <div class="col-md-5 form-group col-12">
@@ -293,7 +258,7 @@
                                                                 </div>
                                                                 <div class="col-md-2 form-group col-12 d-flex align-items-end"><br>
                                                                     <a
-                                                                        class="btn btn-air-primary btn-pill btn-success add-price  w-100" style="line-height: 1.9"><i
+                                                                        class="btn btn-air-primary btn-pill btn-success add-price w-100 " style="line-height: 1.9"><i
                                                                             class="fa fa-plus"
                                                                             aria-hidden="true"></i></a>
                                                                 </div>
@@ -301,33 +266,33 @@
                                                         </td>
                                                     </tr>
                                                     @else
-                                                    @for ($x = 0; $x <= count($aqar->changed_price->price)-1; $x++)
+                                                    @for ($x = 0; $x <= count($car->changed_price->price)-1; $x++)
                                                     <tr>
                                                         <td>
                                                             <div class="row">
                                                                 <div class="col-md-5 form-group col-12">
-                                                                    <label class="pb-2 ads-card-lbl">@lang('site.personnumber')</label>
-                                                                    <input type="number" name="person_num[]"
+                                                                    <label class="pb-2 ads-card-lbl">@lang('site.daynumber')</label>
+                                                                    <input type="number" name="day_num[]"
                                                                         class="form-control"
-                                                                        value="{{$aqar->changed_price->person_num[$x]}}" />
+                                                                        value="{{$car->changed_price->day_num[$x]}}" />
                                                                 </div>
                                                                 <div class="col-md-5 form-group col-12">
                                                                     <label class="pb-2 ads-card-lbl">@lang('site.fixed_price')</label>
                                                                     <input type="number"  step=".1" name="price[]"
                                                                         class="form-control"
-                                                                        value="{{$aqar->changed_price->price[$x]}}" />
+                                                                        value="{{$car->changed_price->price[$x]}}" />
                                                                 </div>
                                                                 @if($x==0)
                                                                 <div class="col-md-2 form-group col-12 d-flex align-items-end">
                                                                     <a
-                                                                        class="btn btn-air-primary btn-pill btn-success add-price  w-100" style="line-height: 1.9"><i
+                                                                        class="btn btn-air-primary btn-pill btn-success add-price w-100" style="line-height: 1.9"><i
                                                                             class="fa fa-plus"
                                                                             aria-hidden="true"></i></a>
                                                                 </div>
                                                                 @endif
                                                                 @if($x!=0)
                                                                 <div class="col-md-2 form-group col-12 d-flex align-items-end">
-                                                                    <a class="btn btn-air-primary btn-pill btn-danger add-price  w-100" style="line-height: 1.9"
+                                                                    <a class="btn btn-air-primary btn-pill btn-danger add-price w-100 "  style="line-height: 1.9"
                                                                         onclick="deletetr(this)"><i
                                                                             class="fa fa-trash"></i></a>
                                                                 </div>
@@ -341,37 +306,6 @@
 
 
                                             </div>
-                                            <div class="row">
-                                                <div class="col-lg-6 mb-3">
-                                                    <div class="position-relative">
-                                                        <label for="" class="pb-2 ads-card-lbl">
-                                                        @lang('site.latitude')
-                                                            <span class="text-danger">( اجبارى )</span>
-                                                        </label>
-                                                        <input
-                                                            placeholder="ادخل الاسم "
-                                                            type="text"
-                                                            value="{{ old('latitude', (empty($aqar))? null : $aqar['latitude']) }}"
-                                                            name="latitude" 
-                                                            required
-                                                        />
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 mb-3">
-                                                    <div class="position-relative">
-                                                        <label for="" class="pb-2 ads-card-lbl">
-                                                        @lang('site.longitude')
-                                                            <span class="text-danger">( اجبارى )</span>
-                                                        </label>
-                                                        <input
-                                                            placeholder="ادخل الاسم "
-                                                            type="text"
-                                                            value="{{ old('longitude', (empty($aqar))? null : $aqar['longitude']) }}"
-                                                            name="longitude" 
-                                                            required
-                                                        />
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -401,7 +335,7 @@
                                             </div>
                                             <input
                                                 type="file"
-                                                name="main_image"
+                                                name="main_image_ads"
                                                 data-max_length="20"
                                                 class="form-control upload__inputfile"
                                                 id="imgInp"
@@ -411,8 +345,8 @@
 
                                             <img
                                             id="frame"
-                                            @if(!empty($aqar))
-                                            src="{{asset('images/aqars/'.$aqar->main_image)}}" onerror="this.src='{{asset('images/aqars/default.jpg')}}'"  @else src=""  @endif alt=""
+                                            @if(!empty($car))
+                                            src="{{asset('images/cars/'.$car->main_image_ads)}}" onerror="this.src='{{asset('images/cars/default.jpg')}}'"  @else src=""  @endif alt=""
                                             width="150px"
                                             class="img-upload"
                                             />
@@ -453,16 +387,16 @@
                                             </label>
 
                                             <div
-                                            class="img-thumbs @if((empty($aqar)))img-thumbs-hidden @endif"
+                                            class="img-thumbs @if((empty($car)))img-thumbs-hidden @endif"
                                             id="img-previews"
                                             >
 
-                                            @if( (!empty($aqar)))
-                                            @foreach ((explode(',',$aqar->images)) as $img)
+                                            @if( (!empty($car)))
+                                            @foreach ((explode(',',$car->images)) as $img)
                                             <div class="wrapper-thumb">
-                                                <img id="frame" src="{{asset('images/aqars/'.$img)}}"
+                                                <img id="frame" src="{{asset('images/cars/'.$img)}}"
                                                     alt=""
-                                                    onerror="this.src='{{asset('images/aqars/default.jpg')}}'"
+                                                    onerror="this.src='{{asset('images/cars/default.jpg')}}'"
                                                     width="200px" class="img-preview-thumb" /><span
                                                     class="remove-btn">x</span>
                                             </div>
@@ -508,8 +442,8 @@
 
 
                                             <video
-                                            @if(!empty($aqar))
-                                            src="{{asset('images/aqars/videos/'.$aqar->videos)}}" @else src="" @endif
+                                            @if(!empty($car))
+                                            src="{{asset('images/cars/videos/'.$car->videos)}}" @else src="" @endif
                                             width="250"
                                             height="250"
                                             style="display: none;border-radius: 5px;"
@@ -538,8 +472,8 @@
                                             <textarea
                                                 class="form-control txtarea-ads p-3 mt-2"
                                                 placeholder="يرجي كتابة المواصفات  "
-                                                rows="6" name="description" required
-                                            >{{ old('description', (empty($aqar))? null : $aqar['description']) }}</textarea>
+                                                rows="6" name="description_ar" required
+                                            >{{ old('description_ar', (empty($car))? null : $car['description_ar']) }}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -560,7 +494,7 @@
                                                 placeholder="يرجي كتابة المواصفات  "
                                                 rows="6" name="policy_place"
                                                 id="editor1"
-                                            >{{ old('policy_place', (empty($aqar))? null : $aqar['policy_place']) }}</textarea>
+                                            >{{ old('policy_place', (empty($car))? null : $car['policy_place']) }}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -570,7 +504,7 @@
                                         
                                         <button type="submit" class="btn"><i
                                                 class="fa fa-plus p-1"></i>
-                                           @if(empty($aqar)) @lang('site.add') @else @lang('site.edit') @endif</button>
+                                           @if(empty($car)) @lang('site.add') @else @lang('site.edit') @endif</button>
                                     </div>
                                 </div>
                         <div>
@@ -586,30 +520,15 @@
 @section('scripts')
     <script>
         $(document).ready(function () {
-            $("#cityarea").hide();
             var test = $('input[name="price"]:checked').val();
             $("div.desc").hide();
             $("#price" + test).show();
-            @if(!empty($aqar))
-            var category_id =$('input[name="category_id"]:checked').val();
-            var aqar_id={{$aqar->id ?? 0}};
-            $.ajax({
-                url: '{{ url('invst/aqars/getsetting1') }}' + '/' +category_id + '/' +aqar_id ,
-                success : function(html)
-                {
-                    $("#result_data1").show();
-                    var element = $('#result_data1');
-                    element.empty();
-                    $('#result_data1').html(html) ;
-                }
-            });
-           @endif
             jQuery('a.add-price').click(function (event) {
                 event.preventDefault();
                 var newRow = jQuery('<tr><td><div class="row"><div class="col-md-5 form-group col-12">' +
-                    ' <label class="pb-2 ads-card-lbl">@lang('site.personnumber')</label><input type="number"  name="person_num[]" class="form-control"/></div><div class="col-md-5 form-group col-12">' +
+                    ' <label class="pb-2 ads-card-lbl">@lang('site.daynumber')</label ><input type="number"  name="day_num[]" class="form-control"/></div><div class="col-md-5 form-group col-12">' +
                     '<label class="pb-2 ads-card-lbl">@lang('site.fixed_price')</label><input type="number" name="price[]" class="form-control" >' +
-                    '  </div>  <div class="col-md-2 form-group col-12 d-flex align-items-end "> <br><a class="btn btn-air-primary btn-pill btn-danger add-price  w-100" style="line-height: 1.9" onclick="deletetr(this)" ><i class="fa fa-trash"></i></a>' +
+                    '  </div>  <div class="col-md-2 form-group col-12 d-flex align-items-end"> <br><a class="btn btn-air-primary btn-pill btn-danger add-price w-100 " style="line-height: 1.9" onclick="deletetr(this)" ><i class="fa fa-trash"></i></a>' +
                     '</div></div> </td>  </tr>');
                 jQuery('.price-list').append(newRow);
             });
@@ -620,34 +539,32 @@
                 $("div.desc").hide();
                 $("#price" + test).show();
             });
-            @if(!empty($aqar))
+            @if(!empty($car))
             var country_id =  $('#country_id').val();
             $.get("{{url('dashboard/countrycities')}}/"+country_id, function(data){
-            $('#city_id').empty();
-            $('#city_id').append('<option>@lang('site.select')</option>');
-            $.each(data, function(key, value){
-                $('#city_id').append('<option value="'+value.id+'">'+value.name_ar+'</option>')
+                $('#city_id').empty();
+                $('#city_id').append('<option>@lang('site.select')</option>');
+                $.each(data, function(key, value){
+                    $('#city_id').append('<option value="'+value.id+'">'+value.name_ar+'</option>')
 
+                });
+                $('#city_id').val({{$car->city_id ?? 0}});
             });
 
 
+            var categoryId =  $('#category_id').val();
+            $.get("{{url('dashboard/SubCategories')}}/"+categoryId, function(data){
+                console.log(data);
+                $('#sub_category_id').empty();
+                $('#sub_category_id').append('<option>  Select Please  </option>');
+                $.each(data, function(key, value){
+                    $('#sub_category_id').append('<option value="'+value.id+'">'+value.name_ar+'</option>')
 
-        $('#city_id').val({{$aqar->city_id ?? 0}});
-
-            var city_id =$('#city_id').val();
-            var aqarrea={{$aqar->area_id ?? 0}};
-                    $("#cityarea").show();
-                    $.get("{{url('dashboard/cityareas')}}/"+city_id, function(data){
-                        $('#area_id').empty();
-                        $.each(data, function(key, value){
-                            $('#area_id').append('<div class="col-md-3 col-6"><div class="d-flex align-items-center"><input  id="area_'+value.id+'" type="radio" name="area_id" value="'+value.id+'" ' + (value.id == aqarrea ? 'checked' : '') +' ><label class="online-lbl custom-radio" for="area_'+value.id+'">'+value.name_ar+'</label></div></div>')
-
-                        });
-
-                    });
-
-        });
-        @endif
+                });
+                $('#sub_category_id').val({{$car->sub_category_id ?? 0}});
+            })
+           
+            @endif
        
         });
 
@@ -668,32 +585,20 @@
 
                 });
             })
-        })
+        });
+        $('#category_id').on('change',function(e){
+            var categoryId = e.target.value;
 
 
-        $('#city_id').on('change', function (e) {
-            var city_id = e.target.value;
-            $("#cityarea").show();
-            $.get("{{url('dashboard/cityareas')}}/" + city_id, function (data) {
+
+            $.get("{{url('dashboard/SubCategories')}}/"+categoryId, function(data){
                 console.log(data);
-                $('#area_id').empty();
-                $.each(data, function (key, value) {
-                    $('#area_id').append('<div class="col-md-2 col-6"><div class="d-flex align-items-center"><input  id="area_' + value.id + '" type="radio" name="area_id" value="' + value.id + '" required><label class="online-lbl custom-radio" for="area_' + value.id + '">' + value.name_ar + '</label></div></div>')
+                $('#sub_category_id').empty();
+                $('#sub_category_id').append('<option>  Select Please  </option>');
+                $.each(data, function(key, value){
+                    $('#sub_category_id').append('<option value="'+value.id+'">'+value.name_ar+'</option>')
 
                 });
-            })
-        })
-        $('input[type=radio][name=category_id]').change(function () {
-            var category_id = $('input[type="radio"][name="category_id"]:checked').val();
-
-            $.ajax({
-                url: '{{ url('invst/aqars/getsetting') }}' + '/' + category_id,
-                success: function (html) {
-                    $("#result_data1").show();
-                    var element = $('#result_data');
-                    element.empty();
-                    $('#result_data1').html(html);
-                }
             })
         });
     </script>

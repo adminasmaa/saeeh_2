@@ -129,6 +129,14 @@
   }
 }
 @media (max-width: 992px) {
+  .ads-card-img {
+    height: 200px;}
+.ads-lborder::after{content: unset;}
+.ads-lborder ,.w-md-56{
+  width: 100%;
+}
+.ads-lborder .h2{font-size: 20px;}
+.list-menu{margin-top: 20px;}
   .logo-saeeh-investor{max-width: 100%;}
   .customer-info-header-social{
     margin-top: 16px;
@@ -252,9 +260,9 @@
     width: 35px;
     height: 35px;
   }
-  .ads-card-img {
+  /* .ads-card-img {
     height: 120px;
-  }
+  } */
   .ads-card h2 {
     padding-top: 15px;
     font-size: 20px;
@@ -1717,6 +1725,10 @@
   }
 }
 @media (max-width: 450px) {
+  .ads-lborder .h2{font-size: 18px;}
+  .list-menu li {
+    width: 100%;}
+    .list-menu li:nth-child(5),    .list-menu li:nth-child(6) {margin-bottom: 16px !important;}
   .side-login-image-investor {
     height: 152px;
   }
@@ -1854,7 +1866,7 @@
   .booking-dd-btn a,
   .btn-saeeh button,
   .btn-outline-saeeh button,
-  .search-btn a,
+  .search-btn a,.search-btn button,
   .contact-btn,
   .call-btn a,
   .cancle-btn a,
@@ -1927,6 +1939,7 @@
   .btn-saeeh button,
   .btn-outline-saeeh button,
   .search-btn a,
+  .search-btn button,
   .contact-btn,
   .call-btn a,
   .cancle-btn a,

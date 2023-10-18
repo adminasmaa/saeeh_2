@@ -684,6 +684,8 @@ return [
     'Good Afternoon' => 'مساء الخير',
     'all_countries' => 'كل الدول',
     'floor_number' => 'عدد الادوار',
+    'name_al'=> 'اسم ال',
+    'area'=> 'المنطقه',
 
 
     'ar' => [
