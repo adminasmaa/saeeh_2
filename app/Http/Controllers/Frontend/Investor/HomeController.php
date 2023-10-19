@@ -36,6 +36,34 @@ class HomeController extends Controller
         return view('frontend.invest.add_aqar' , compact('users', 'categories','Area', 'countries', 'cities', 'adsStatus') );
 
     }
+
+    public function countrycities($id)
+    {
+
+        $cities = City::where('country_id', $id)->get();
+       return $cities;
+        return Response::json($cities);
+
+
+    }
+    public function cityareas($id)
+    {
+        $areas = Area::where('city_id', $id)->get();
+
+        return Response::json($areas);
+
+    }
+
+    public function SubCategories($id)
+    {
+
+        $subcategories = Category::where('parent_id', $id)->get();
+
+        return Response::json($subcategories);
+
+
+    }
+
     
 
 

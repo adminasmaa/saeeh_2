@@ -82,9 +82,9 @@ class AqarInvstController extends Controller
         $data['price'] = $request['price'];
       
         $request['changed_price']=json_encode($data)!=null?json_encode($data, JSON_NUMERIC_CHECK):json_encode([]);
-
+        $request['user_id']=Auth::id();
         $request_data = $request->except(['main_image','images','videos','subservice']);
-
+           
         $aqar = Aqar::create($request_data);
 
         if ($request->hasFile('main_image')) {
@@ -266,6 +266,15 @@ class AqarInvstController extends Controller
 
     }//end of destroy
 
+    public function detailaqar($id)
+    {
+
+        $aqar = Aqar::find($id);
+        return view('frontend.invest.detailaqar', compact('aqar'));
+
+
+    }
+
 
     public function getsetting($id)
     { 
@@ -288,18 +297,14 @@ class AqarInvstController extends Controller
        return view('frontend.invest.details', compact('details','aqar','arr'));
     }
 
+    public function listbookings()
+    { 
+       $bookings = Aqar::join('aqar_bookings', 'aqars.id', '=', 'aqar_bookings.aqar_id')
+       ->where('aqars.user_id',Auth::id())->get();
 
-    public function roomnumbers($id)
-    {
-
-
-        $roomnumbers = Aqar::distinct()->join('aqar_sections', 'aqars.id', '=', 'aqar_sections.aqar_id')->join('aqar_details', 'aqar_details.id', '=', 'aqar_sections.sub_section_id')->where('aqars.category_id', $id)->where('aqar_sections.section_id', '=', 6)->groupBy('aqars.id')->select( \DB::raw('SUM(aqar_details.name_ar) as total'))
-        ->get()
-        ->pluck('total', 'aqar_details.name_ar')
-        ->toArray();
-        return Response::json($roomnumbers);
-
-
+       return view('frontend.invest.aqarlistbooking', compact('bookings'));
     }
+
+
 
 }
