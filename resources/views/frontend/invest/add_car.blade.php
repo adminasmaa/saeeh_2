@@ -541,7 +541,7 @@
             });
             @if(!empty($car))
             var country_id =  $('#country_id').val();
-            $.get("{{url('dashboard/countrycities')}}/"+country_id, function(data){
+            $.get("{{url('invst/countrycities')}}/"+country_id, function(data){
                 $('#city_id').empty();
                 $('#city_id').append('<option>@lang('site.select')</option>');
                 $.each(data, function(key, value){
@@ -553,7 +553,7 @@
 
 
             var categoryId =  $('#category_id').val();
-            $.get("{{url('dashboard/SubCategories')}}/"+categoryId, function(data){
+            $.get("{{url('invst/SubCategories')}}/"+categoryId, function(data){
                 console.log(data);
                 $('#sub_category_id').empty();
                 $('#sub_category_id').append('<option>  Select Please  </option>');
@@ -576,7 +576,7 @@
             var country_id = e.target.value;
 
 
-            $.get("{{url('dashboard/countrycities')}}/" + country_id, function (data) {
+            $.get("{{url('invst/countrycities')}}/" + country_id, function (data) {
                 console.log(data);
                 $('#city_id').empty();
                 $('#city_id').append('<option>@lang('site.select')</option>');
@@ -591,7 +591,7 @@
 
 
 
-            $.get("{{url('dashboard/SubCategories')}}/"+categoryId, function(data){
+            $.get("{{url('invst/SubCategories')}}/"+categoryId, function(data){
                 console.log(data);
                 $('#sub_category_id').empty();
                 $('#sub_category_id').append('<option>  Select Please  </option>');

@@ -72,7 +72,7 @@
                             <div class="col-12">
                                 <div class="add-ads-card mb-md-5 mb-4">
                                     <div class="row">
-                                        <div class="col-lg-12 mb-3">
+                                        <!-- <div class="col-lg-12 mb-3">
                                             <div class="position-relative">
                                                 <label class="pb-2 ads-card-lbl">@lang('site.users')
                                                 <span class="text-danger">( اجبارى )</span>
@@ -89,7 +89,7 @@
 
                                                 </select>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <div class="col-lg-6 mb-3">
                                             <div class="position-relative">
                                             <label class="pb-2 ads-card-lbl">@lang('site.country')
@@ -260,6 +260,7 @@
                                                     </label>
                                                 </div>
                                             </div>
+                                            <div class="row mb-3">
                                             <div class="col-lg-6 mb-lg-0 mb-3 desc" id="price1">
                                                 <div class="position-relative" >
                                                     <label for="" class="pb-2 ads-card-lbl">
@@ -341,6 +342,8 @@
 
 
                                             </div>
+                                            </div>
+                                           
                                             <div class="row">
                                                 <div class="col-lg-6 mb-3">
                                                     <div class="position-relative">
@@ -622,7 +625,7 @@
             });
             @if(!empty($aqar))
             var country_id =  $('#country_id').val();
-            $.get("{{url('dashboard/countrycities')}}/"+country_id, function(data){
+            $.get("{{url('invst/countrycities')}}/"+country_id, function(data){
             $('#city_id').empty();
             $('#city_id').append('<option>@lang('site.select')</option>');
             $.each(data, function(key, value){
@@ -637,7 +640,7 @@
             var city_id =$('#city_id').val();
             var aqarrea={{$aqar->area_id ?? 0}};
                     $("#cityarea").show();
-                    $.get("{{url('dashboard/cityareas')}}/"+city_id, function(data){
+                    $.get("{{url('invst/cityareas')}}/"+city_id, function(data){
                         $('#area_id').empty();
                         $.each(data, function(key, value){
                             $('#area_id').append('<div class="col-md-3 col-6"><div class="d-flex align-items-center"><input  id="area_'+value.id+'" type="radio" name="area_id" value="'+value.id+'" ' + (value.id == aqarrea ? 'checked' : '') +' ><label class="online-lbl custom-radio" for="area_'+value.id+'">'+value.name_ar+'</label></div></div>')
@@ -659,7 +662,7 @@
             var country_id = e.target.value;
 
 
-            $.get("{{url('dashboard/countrycities')}}/" + country_id, function (data) {
+            $.get("{{url('invst/countrycities')}}/" + country_id, function (data) {
                 console.log(data);
                 $('#city_id').empty();
                 $('#city_id').append('<option>@lang('site.select')</option>');
@@ -674,7 +677,7 @@
         $('#city_id').on('change', function (e) {
             var city_id = e.target.value;
             $("#cityarea").show();
-            $.get("{{url('dashboard/cityareas')}}/" + city_id, function (data) {
+            $.get("{{url('invst/cityareas')}}/" + city_id, function (data) {
                 console.log(data);
                 $('#area_id').empty();
                 $.each(data, function (key, value) {

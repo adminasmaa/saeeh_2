@@ -108,39 +108,33 @@
                           <div class="padding-ads ">
                             <ul class="list-menu flex-center list-unstyled p-0">
                               <li class="liItem-booking-out">
-                                <a href="#">
+                                <a href="#"  class="liItem-link">
                                   <i class="far fa-calendar-plus"></i>
                                   اضافة حجز خارجى</a
                                 >
                               </li>
-                              <li class="liItem-booking-prices">
-                               <a href="#">
-                                <i class="fas fa-tags"></i>
-                                الاسعار
-                               </a>
-                              </li>
                               <li class="liItem-booking-see">
-                                <a href="#">
+                                <a href="{{route('invst.detailaqar',$aqar->id)}}" class="liItem-link">
                                   <i class="far fa-eye"></i>
                                  مشاهدة
                                 </a>
                                </li>
 
                                <li class="liItem-booking-edit">
-                                <a href="#">
+                                <a href="{{route('invst.aqars.edit', $aqar->id) }}"  class="liItem-link">
                                   <i class="fas fa-edit"></i>
                                  تعديل
                                 </a>
                                </li>
                                <li class="liItem-booking">
-                                <a href="#">
+                                <a href="#"  class="liItem-link">
                                   <i class="far fa-book-open"></i>
                                  الحجوزات
                                 </a>
                                </li>
 
                                <li class="liItem-booking-stop">
-                                <a href="#">
+                                <a href="#"  class="liItem-link">
                                   <i class="far fa-stopwatch"></i>
                                   ايقاف مؤقت
                                 </a>
