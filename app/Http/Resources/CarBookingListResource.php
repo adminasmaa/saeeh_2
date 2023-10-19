@@ -43,6 +43,7 @@ class CarBookingListResource extends JsonResource
             'day_count' => $this->day_count,
             "fixed_price" => $this->fixed_price ?? 0,
             "currency" => $this->city->country->$currency?? '',
+            "currency_code" => $this->city->country->currency?? '',
             "Reservation_deposit" => $this->fixed_price ?? $this->total_price/$this->day_count,
             'total' => $this->total_price ?? 0,
             "status" => $this->bookingStatus->$status ?? '',   

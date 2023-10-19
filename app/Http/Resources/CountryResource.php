@@ -28,6 +28,7 @@ class CountryResource extends JsonResource
             "name" => $this->$name ?? '',
             "code" => $this->code ?? '',
             "currency" => $this->$currency ?? '',
+            "currency_code" => $this->city->country->currency?? '',
             "image" => asset('images/countries')."/".$this->image,
             "flag_image" => asset('images/countries')."/".$this->flag_image,
 //            "active" => $this->active,

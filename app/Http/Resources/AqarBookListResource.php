@@ -45,6 +45,7 @@ class AqarBookListResource extends JsonResource
             "Reservation_deposit" => $this->fixed_price ?? $this->total_price/$this->day_count,
             'total' => $this->total_price,
             "currency" => $this->city->country->$currency?? '',   
+            "currency_code" => $this->city->country->currency?? '',
             "status" => $this->bookingStatus->$status ?? '',   
             "image" => asset('images/aqars') . "/" . $this->aqar()->select('main_image')->get()[0]->main_image ??'',
             "changed_price" => json_decode($this->changed_price) ?? NULL,

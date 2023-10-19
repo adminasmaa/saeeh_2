@@ -194,17 +194,17 @@ class PlaceRepository implements PlaceRepositoryInterfaceAlias
 
                 if( $request['sub_name_ar'][$key] !=null){
 
-                PlaceTable::updateOrCreate([
-                        'id' => $request['id'][$key]??0
-                    ],[
-                    'name_ar' => $request['sub_name_ar'][$key],
-                    'name_en' => $request['sub_name_en'][$key],
-                    'type' => $request['sub_type'][$key],
-                    'place_id' => $place->id
-                ]);
+                    PlaceTable::updateOrCreate([
+                            'id' => $request['id'][$key]??0
+                        ],[
+                        'name_ar' => $request['sub_name_ar'][$key],
+                        'name_en' => $request['sub_name_en'][$key],
+                        'type' => $request['sub_type'][$key],
+                        'place_id' => $place->id
+                    ]);
+                }
             }
         }
-    }
 
         if ($place) {
            Alert::success('Success', __('site.updated_successfully'));

@@ -66,7 +66,7 @@ class AqarDetailResource extends JsonResource
             // 'total' => $this->aqarReview->count() + $this->aqarComment->count(),
             'total' => $this->aqarReview->count()?? 0 ,
             "currency" => $this->city->country->$currency?? '',
-
+            "currency_code" => $this->city->country->currency?? '',
         //    "rate" => round($this->AqarReview->avg('rating')) ?? 0,
             "rate" => round($this->aqarReview->avg('rate')) ?? 0,
             // "rate" => round(AqarReview::where('user_id', '=', Auth::id())->where('aqar_id', '=',$this->id)->avg('rate')) ?? 0,

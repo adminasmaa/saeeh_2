@@ -58,6 +58,7 @@ class CarDetailResource extends JsonResource
             // 'total' => $this->carComment->count() + $this->CarReview->count(),
             'total' => $this->CarReview->count()?? 0,
             "currency" => $this->city->country->$currency?? '',
+            "currency_code" => $this->city->country->currency?? '',
             "comments" => CommentCarResource::collection($this->carComments),
 
             "rate" => round($this->carReview->avg('rate')) ?? 0,
@@ -101,6 +102,7 @@ class CarDetailResource extends JsonResource
             // 'total' => $this->carComment->count() + $this->CarReview->count(),
             'total' => $this->CarReview->count()?? 0,
             "currency" => $this->city->country->$currency?? '',
+            "currency_code" => $this->city->country->currency?? '',
             "comments" => CommentCarResource::collection($this->carComments),
 
             "rate" => round($this->carReview->avg('rate')) ?? 0,

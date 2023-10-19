@@ -49,6 +49,7 @@ class CarResource extends JsonResource
             "fixed_price" => $this->fixed_price ?? 0,
             "changed_price" => $this->changed_price?(json_decode($this->changed_price)->day_num[0]?json_decode($this->changed_price) : NULL):NULL,
             "currency" => $this->city->country->$currency?? '',
+            "currency_code" => $this->city->country->currency?? '',
 //            "rate" => round($this->carComment->avg('rating')) ?? 0,
            // "rate" => round(CarReview::where('user_id', '=', Auth::id())->where('car_id', '=',$this->id)->avg('rate')) ?? 0,
             "rate" => $this->avgRating,
