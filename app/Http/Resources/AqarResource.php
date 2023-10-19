@@ -54,6 +54,7 @@ class AqarResource extends JsonResource
             // "Reservation_deposit" => $this->fixed_price ?? 0,
             "changed_price" => $this->changed_price?(json_decode($this->changed_price)->person_num[0]?json_decode($this->changed_price) : NULL):NULL,
             "currency" => $this->city->country->$currency?? '',
+            "currency_code" => $this->city->country->currency?? '',
             'roomnubers'=>$this->total_rooms??0
 
 

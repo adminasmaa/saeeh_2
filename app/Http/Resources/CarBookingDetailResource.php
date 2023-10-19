@@ -42,6 +42,7 @@ class CarBookingDetailResource extends JsonResource
             "is_fixed"  =>$this->car['fixed_price']?true:false,
             "fixed_price" => $this->fixed_price ?? 0,
             "currency" => $this->city->country->$currency?? '',
+            "currency_code" => $this->city->country->currency?? '',
             "Reservation_deposit" => $this->fixed_price ?? $this->total_price/$this->day_count,
             "delivery_date" =>$this->delivery_date??'',
             "reciept_date"  =>$this->reciept_date??'',

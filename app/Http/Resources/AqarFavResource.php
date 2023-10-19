@@ -33,6 +33,7 @@ class AqarFavResource extends JsonResource
                 "name" => $this->$name ?? '',
                 "favorite" =>true,
                 "currency" => $this->city->country->$currency?? '',
+                "currency_code" => $this->city->country->currency?? '',
                 "description" =>strip_tags($this->description) ?? '',
                 "policy_place" =>  html_entity_decode($this->policy_place) ?? '',
                 "latitude" => $this->latitude ?? 0,
