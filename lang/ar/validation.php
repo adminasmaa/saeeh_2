@@ -108,7 +108,9 @@ return [
     'required_with_all' => ':attribute مطلوب إذا توفّر :values.',
     'required_without' => ':attribute مطلوب إذا لم يتوفّر :values.',
     'required_without_all' => ':attribute مطلوب إذا لم يتوفّر :values.',
+
     // 'same' => 'يجب أن يتطابق :attribute الجديدة مع:other.',
+    
     'same' => 'يجب أن يتطابق :other مع :attribute.',
     'size' => [
         'numeric' => 'يجب أن تكون قيمة :attribute مساوية لـ :size.',
