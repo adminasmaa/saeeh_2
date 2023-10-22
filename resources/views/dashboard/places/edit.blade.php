@@ -557,23 +557,46 @@
                             @endforeach
                             <div class="col-md-12 form-group col-12   desc" id="price2" >
                                 <table class="price-list" id="tb_price">
-                                        <tr>
-                                            <td>
-                                                <div class="row">
-                                                    <div class="col-md-3 form-group col-12">
-                                                        <a class="btn btn-air-primary btn-pill btn-success add-price w-100 m-t-30"><i
-                                                                class="fa fa-plus" aria-hidden="true"></i></a>
-                                                    </div>
+                                    <tr>
+                                        <td>
+                                            <div class="row">
+                                                <div class="col-md-5 form-group col-12">
+                                                    <label>@lang('site.name_ar')</label>
+                                                    <input type="text" name="sub_name_ar[]" class="form-control"/>
                                                 </div>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
+                                                <div class="col-md-5 form-group col-12">
+                                                    <label>@lang('site.name_en')</label>
+                                                    <input type="text" name="sub_name_en[]" class="form-control">
+                                                </div>
+                                                <div class="col-md-6 form-group ">
+                                                    <label class="form-label">@lang('site.type')</label><span class="text-danger">*</span>
+                                                    <select class="js-example-placeholder-multiple col-sm-12" name="sub_type[]"  >
+                                                        <option selected>@lang('site.select')</option>
+                                                        <option value="Meal"
+                                                                @if($service->type=='meal') selected @endif>@lang('site.meal')
+                                                        </option>
+                                                        <option value="Break"
+                                                                @if($service->type=='break') selected @endif>@lang('site.break')
+                                                        </option>
+                                                        <option value="Tawla"
+                                                                @if($service->type=='tawla') selected @endif>@lang('site.tawla')
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-2 form-group col-12">
+                                                    <a class="btn btn-air-primary btn-pill btn-success add-price w-100 m-t-30"><i
+                                                            class="fa fa-plus" aria-hidden="true"></i></a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>   
+                                </table>
+                            </div>
                                 <br>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
+                        </div>
+                        </div>
                         </div>
                         </div>
                         </div>
