@@ -27,6 +27,7 @@ use App\Models\Balance;    // HasMany
 use App\Models\Invoice;    // HasMany
 use App\Models\Deposit;    // HasMany
 use App\Models\AccountType;    // HasMany
+use App\Models\Payment;    // HasMany
 
 class User extends Authenticatable
 {
@@ -153,7 +154,10 @@ class User extends Authenticatable
     public function deposit(){
         return $this->HasMany(Deposit::class);
     }
-
+    // relations
+    public function payment(){
+        return $this->HasMany(Payment::class);
+    }
     public function favourite_aqars(){
         return $this->belongsToMany(Aqar::class,'aqar_user');
     }

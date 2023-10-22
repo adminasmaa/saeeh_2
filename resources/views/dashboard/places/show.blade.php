@@ -486,13 +486,13 @@
                                                             <option selected>@lang('site.select')</option>
 
                                                             <option value="Meal"
-                                                                    @if($service->type=='meal') selected @endif>meal
+                                                                    @if($service->type=='meal') selected @endif>@lang('site.meal')
                                                             </option>
                                                             <option value="Break"
-                                                                    @if($service->type=='break') selected @endif>break
+                                                                    @if($service->type=='break') selected @endif>@lang('site.break')
                                                             </option>
                                                             <option value="Tawla"
-                                                                    @if($service->type=='tawla') selected @endif>tawla
+                                                                    @if($service->type=='tawla') selected @endif>@lang('site.tawla')
                                                             </option>
                                                         </select>
                                                     </div>
