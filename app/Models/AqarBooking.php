@@ -37,7 +37,7 @@ class AqarBooking extends Model
         'place_arrive', // nullable
         'place_leave', // nullable
         'wasel_photo', // nullable
-        'type',// enum ,['website','application']
+        'type',// enum ,['website','application','external']
         'aqar_id', //unsigned
         'ads_id', //unsigned
         'city_id', //unsigned

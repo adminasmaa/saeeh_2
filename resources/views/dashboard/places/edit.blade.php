@@ -505,9 +505,18 @@
                                 Your browser does not support the video tag.
                             </video>
                             </div>
+                        </div>
 
+                            <br>
+                            <div class="row m-t-10">
+                                <div class="m-checkbox-inline">
 
-                            
+                                    <label for="edo-ani1">
+                                        <input class="radio_animated" type="radio" name="price"
+                                               data-bs-original-title="tooltip" title="AddPlaceTable" value="2">@lang('site.place_tables')
+                                    </label>
+                                </div>
+                            </div>
 
                         <div class="row m-t-10">
                             <h4>@lang('site.place_tables')</h4>
@@ -546,7 +555,7 @@
                                                     </div>
                                                     <div class="col-md-6 form-group col-12">
                                                     <a  type="button" href="{{route('dashboard.DeletePlaceTable',$service->id)}}" class="btn btn-air-primary btn-pill btn-danger"><i class="fa fa-trash"></i></a>
-                                                </div>
+                                                    </div>
                                                 </div>
                                             </td>
                                         </tr>
@@ -555,7 +564,11 @@
                                 </div>
 
                             @endforeach
-                            <div class="col-md-12 form-group col-12   desc" id="price2" >
+                            <div class="col-md-2 form-group col-12">
+                                        <!-- <a class="btn btn-air-primary btn-pill btn-success add-price w-100 m-t-30"><i
+                                                class="fa fa-plus" aria-hidden="true"></i></a> -->
+                            </div>
+                            <div class="col-md-12 form-group col-12   desc" id="price2" style="display: none;">
                                 <table class="price-list" id="tb_price">
                                     <tr>
                                         <td>
@@ -595,7 +608,6 @@
                                 <br>
                                 </div>
                             </div>
-                        </div>
                         </div>
                         </div>
                         </div>
@@ -736,7 +748,7 @@ $(document).ready(function () {
             '<label>@lang('site.name_en')</label><input type="text" name="sub_name_en[]" class="form-control" ></div><div class="col-md-5 form-group col-6 p-2">' +
             '<label>@lang('site.type')</label><select class="form-control btn-square" name="sub_type[]"><option selected>@lang('site.select')</option><option value="Meal">@lang('site.meal')</option><option value="Break">@lang('site.break') </option><option value="Tawla">@lang('site.tawla') </option></select></div><div class="col-md-5 form-group col-6 p-2">' +
             '  </div>  <div class="col-md-2 form-group col-12 p-2 "> <a class="btn btn-air-primary btn-pill btn-danger add-price w-100 m-t-30" onclick="deletetr(this)" ><i class="fa fa-trash"></i></a>' +
-            '</div></div> </td>  </tr>');
+            '</div> </div> </td> </tr>');
         jQuery('.price-list').append(newRow);
     });
 
