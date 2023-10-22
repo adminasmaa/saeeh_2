@@ -686,6 +686,8 @@ return [
     'floor_number' => 'عدد الادوار',
     'name_al'=> 'اسم ال',
     'area'=> 'المنطقه',
+    'paid_successfully'=>'تم الدفع بنجاح',
+    'paid not complete please try again'=>'حدث خطأ اثناء الدفع برجاء المحاوله مره اخري',
 
 
     'ar' => [
