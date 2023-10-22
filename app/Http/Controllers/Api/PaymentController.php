@@ -63,7 +63,7 @@ class PaymentController extends Controller
                 $success = CarBooking::find($request->book_id)->update(['status_id' => 3]);
                 return $this->respondSuccess($success, trans('site.paid_successfully'));
             }else{
-                return $this->respondError(trans('site.paid not complete please try again'), ['error' => trans('site.paid not complete please try again')], 200);
+                return $this->respondError(trans('site.paid not complete please try again'), ['error' => trans('site.paid not complete please try again')], 402);
             }
 
             
