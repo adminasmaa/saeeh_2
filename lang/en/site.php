@@ -223,6 +223,8 @@ return [
     'aqar_comments' => 'AqarComments',
     'name_al'=> 'name of',
     'area'=> 'Area',
+    'paid_successfully'=>'paid successfully',
+    'paid not complete please try again'=>'paid not complete please try again',
 
 
 

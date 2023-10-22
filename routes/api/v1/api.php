@@ -29,7 +29,6 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('/searchPlace', 'App\Http\Controllers\Api\PlaceController@searchPlace');
     Route::get('/CustomerReviews', 'App\Http\Controllers\Api\PlaceController@CustomerReviews');
     Route::post('/PlaceFavourite', 'App\Http\Controllers\Api\PlaceController@PlaceFavourite');
-    Route::get('/place_filter', 'App\Http\Controllers\Api\PlaceController@place_filter');
 
 
     // start aquars
@@ -42,7 +41,6 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('/AqarFavourite', 'App\Http\Controllers\Api\AqarController@AqarFavourite');
     Route::get('/AqarBookingDetail', 'App\Http\Controllers\Api\AqarController@listofbookings');
     Route::get('/BookingDetail', 'App\Http\Controllers\Api\AqarController@Detailofbookings');
-    Route::get('/aqar_filter', 'App\Http\Controllers\Api\AqarController@aqar_filter');
 
 
     //end aquars
@@ -75,9 +73,10 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::get('/listoffavourite', 'App\Http\Controllers\Api\CarController@listoffavourite');
     Route::get('/listofbookings', 'App\Http\Controllers\Api\AqarController@listofbookings');
     Route::post('/cancelbooking', 'App\Http\Controllers\Api\AqarController@cancelbooking');
-    Route::get('/car_filter', 'App\Http\Controllers\Api\CarController@car_filter');
 
+//payment
 
+    Route::post('/confirmPayment', 'App\Http\Controllers\Api\PaymentController@confirm_pay');
 
     //cars models
     Route::post('/CarFavourite', 'App\Http\Controllers\Api\CarController@CarFavourite');
