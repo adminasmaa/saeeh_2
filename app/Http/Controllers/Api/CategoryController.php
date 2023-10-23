@@ -199,7 +199,7 @@ class CategoryController extends Controller
             
         })
         ->when($request->rate_asc, function ($query) use($request) {
-            $query->orderBy('avgRating','asc');
+            $query->orderBy('avgRating1','asc');
             
         })
         ->when($request->rate_desc, function ($query) use($request) {
