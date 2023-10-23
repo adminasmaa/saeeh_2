@@ -57,10 +57,10 @@ class PaymentController extends Controller
                 'type'=>$request->type,
             ]);
             if($request->invoice_status=='Paid' && $request->type=='aqar'){
-               $success = AqarBooking::find($request->book_id)->update(['status_id' => 3]);
+               $success = AqarBooking::find($request->book_id)->update(['booking_status_id' => 3]);
                return $this->respondSuccess($success, trans('site.paid_successfully'));
             }else if($request->invoice_status=='Paid' && $request->type=='car'){
-                $success = CarBooking::find($request->book_id)->update(['status_id' => 3]);
+                $success = CarBooking::find($request->book_id)->update(['booking_status_id' => 3]);
                 return $this->respondSuccess($success, trans('site.paid_successfully'));
             }else{
                 return $this->respondError(trans('site.paid not complete please try again'), ['error' => trans('site.paid not complete please try again')], 402);
