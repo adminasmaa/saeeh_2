@@ -81,6 +81,7 @@ class CarController extends Controller
             $input['car_id'] =$request->id;
             $input['booking_status_id'] =1;
             $input['city_id']=$car['city_id'];
+            $input['type']='application';
             $success = CarBooking::create($input);
 
             return $this->respondSuccess($success, trans('site.added_successfully'));

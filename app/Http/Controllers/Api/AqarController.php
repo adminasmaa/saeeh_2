@@ -481,6 +481,7 @@ class AqarController extends Controller
             $input['changed_price'] = $changed_price ?? null;
             $input['booking_status_id'] =1;
             $input['city_id']=$aqar['city_id'];
+            $input['type']='application';
 
             $success = AqarBooking::create($input);
 
