@@ -50,7 +50,7 @@ class CarDetailOnlyResource extends JsonResource
            "currency" => $this->city->country->$currency?? '',
            "currency_code" => $this->city->country->currency?? '',
             "fixed_price" => $this->fixed_price ?? 0,
-            "Reservation_deposit" => $this->fixed_price ?? 0,
+            // "Reservation_deposit" => $this->fixed_price ?? 0,
             "changed_price" => $this->changed_price?(json_decode($this->changed_price)->day_num[0]?json_decode($this->changed_price) : NULL):NULL,
 
             ];
@@ -74,7 +74,7 @@ class CarDetailOnlyResource extends JsonResource
            "currency" => $this->city->country->$currency?? '',
            "currency_code" => $this->city->country->currency?? '',
             "fixed_price" => $this->fixed_price ?? 0,
-            "Reservation_deposit" => $this->fixed_price ?? 0,
+            // "Reservation_deposit" => $this->fixed_price ?? 0,
             "changed_price" => $this->changed_price?(json_decode($this->changed_price)->day_num[0]?json_decode($this->changed_price) : NULL):NULL,
             ];
         }
