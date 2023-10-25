@@ -23,6 +23,7 @@ class PaymentController extends Controller
             'invoice_status' => 'required',
             'invoice_value' => 'required',
             'book_id' => 'required',
+            'all_data'=>'nullable',
             'expiry_date' => 'nullable',
             'create_date' => 'nullable',
             'invoice_display_value' => 'nullable',
@@ -59,8 +60,6 @@ class PaymentController extends Controller
 
                 'user_id' => Auth::id(),
 
-               // 'created_at'=> $request->created_at,
-
                 'expiry_date' => $request->expiry_date,
 
                 'create_date' => $request->create_date,
@@ -76,6 +75,8 @@ class PaymentController extends Controller
                 'authorization_id' => $request->authorization_id,
 
                 'type'=>$request->type,
+
+                'response'=>$request->all_data
             ]);
             if($request->invoice_status=='Paid' && $request->type=='aqar'){
                $success = AqarBooking::find($request->book_id)->update(['booking_status_id' => 3]);

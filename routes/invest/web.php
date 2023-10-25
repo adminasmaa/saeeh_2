@@ -28,12 +28,17 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         Route::get('home', 'App\Http\Controllers\Frontend\Investor\HomeController@index')->name('home'); 
         Route::get('logout', 'App\Http\Controllers\Frontend\Investor\HomeController@logout')->name('logout');
         Route::resource('aqars', AqarInvstController::class);
-        Route::get('countrycities/{id}', 'App\Http\Controllers\Frontend\Investor\HomeController@countrycities')->name('countrycities');
-        Route::resource('cars', CarInvstController::class);
-        Route::get('detailaqar/{id}', 'App\Http\Controllers\Frontend\Investor\AqarInvstController@detailaqar')->name('detailaqar');
-        Route::get('listbookings', 'App\Http\Controllers\Frontend\Investor\AqarInvstController@listbookings')->name('listbookings');
+        Route::get('detailaqar/{id}', 'App\Http\Controllers\Frontend\Investor\AqarInvstController@detailaqar')->name('detailaqar'); 
         Route::get('/aqars/getsetting/{id}', 'App\Http\Controllers\Frontend\Investor\AqarInvstController@getsetting');
         Route::get('/aqars/getsetting1/{id}/{id2}', 'App\Http\Controllers\Frontend\Investor\AqarInvstController@getsetting1');
+        Route::get('listbookings/{type}' , 'App\Http\Controllers\Frontend\Investor\AqarInvstBooking@listbookings')->name('listbookings');
+        Route::get('accept/{book_id}', 'App\Http\Controllers\Frontend\Investor\AqarInvstBooking@accept')->name('accept');
+        Route::get('reject/{book_id}', 'App\Http\Controllers\Frontend\Investor\AqarInvstBooking@reject')->name('reject');
+        Route::get('attend/{book_id}', 'App\Http\Controllers\Frontend\Investor\AqarInvstBooking@attend')->name('attend');
+        Route::get('notattend/{book_id}', 'App\Http\Controllers\Frontend\Investor\AqarInvstBooking@notattend')->name('notattend');
+        Route::get('bookingDetails/{book_id}', 'App\Http\Controllers\Frontend\Investor\AqarInvstBooking@bookingDetails')->name('bookingDetails');
+        Route::resource('cars', CarInvstController::class);
+       
  
 
     }); //end of invest routes
