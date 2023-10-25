@@ -27,6 +27,7 @@ class Payment extends Model
         'authorization_id',
         'type',// enum ,['aqar','car']
         'user_id', //unsigned
+        'response'
     ];
 
     // relations

@@ -28,7 +28,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 
-class AqarInvstBooking extends Controller
+class AqarInvstBookingController extends Controller
 {
 
 
@@ -113,46 +113,53 @@ class AqarInvstBooking extends Controller
 
 
     public function listbookings($type,Request $request)
-    { 
-    if($type=='all'){
-       $allbookings = Aqar::join('aqar_bookings', 'aqars.id', '=', 'aqar_bookings.aqar_id')
+    { ;
+        if($type=='all'){
+       $allbookings = Aqar::join('countries', 'countries.id', '=', 'aqars.country_id')->join('aqar_bookings', 'aqars.id', '=', 'aqar_bookings.aqar_id')
        ->where('aqars.user_id',Auth::id())->when($request->search_id, function ($query) use($request) {
         $query->where('aqar_bookings.id','=',$request->search_id)->orwhere('aqar_bookings.aqar_id','=',$request->search_id);
         
        })->paginate(10);}
        else if($type=='app'){
-       $allbookings = Aqar::join('aqar_bookings', 'aqars.id', '=', 'aqar_bookings.aqar_id')
+       $allbookings =Aqar::join('countries', 'countries.id', '=', 'aqars.country_id')->join('aqar_bookings', 'aqars.id', '=', 'aqar_bookings.aqar_id')
        ->where('aqars.user_id',Auth::id())->where('aqar_bookings.type','application')->when($request->search_id, function ($query) use($request) {
         $query->where('aqar_bookings.id','=',$request->search_id)->orwhere('aqar_bookings.aqar_id','=',$request->search_id);
         
        })->paginate(10);
        }else if($type=='web'){
-       $allbookings = Aqar::join('aqar_bookings', 'aqars.id', '=', 'aqar_bookings.aqar_id')
-       ->where('aqars.user_id',Auth::id())->where('aqar_bookings.type','application')->when($request->search_id, function ($query) use($request) {
+       $allbookings =Aqar::join('countries', 'countries.id', '=', 'aqars.country_id')->join('aqar_bookings', 'aqars.id', '=', 'aqar_bookings.aqar_id')
+       ->where('aqars.user_id',Auth::id())->where('aqar_bookings.type','website')->when($request->search_id, function ($query) use($request) {
         $query->where('aqar_bookings.id','=',$request->search_id)->orwhere('aqar_bookings.aqar_id','=',$request->search_id);
         
         })->paginate(10);
        }else if($type=='ext'){
-       $allbookings = Aqar::join('aqar_bookings', 'aqars.id', '=', 'aqar_bookings.aqar_id')
+       $allbookings =Aqar::join('countries', 'countries.id', '=', 'aqars.country_id')->join('aqar_bookings', 'aqars.id', '=', 'aqar_bookings.aqar_id')
        ->where('aqars.user_id',Auth::id())->where('aqar_bookings.type','external')->when($request->search_id, function ($query) use($request) {
         $query->where('aqar_bookings.id','=',$request->search_id)->orwhere('aqar_bookings.aqar_id','=',$request->search_id);
         
        })->paginate(10);
        }else if($type=='cancel'){
-       $allbookings = Aqar::join('aqar_bookings', 'aqars.id', '=', 'aqar_bookings.aqar_id')
+       $allbookings =Aqar::join('countries', 'countries.id', '=', 'aqars.country_id')->join('aqar_bookings', 'aqars.id', '=', 'aqar_bookings.aqar_id')
        ->where('aqars.user_id',Auth::id())->where('aqar_bookings.booking_status_id',4)->when($request->search_id, function ($query) use($request) {
         $query->where('aqar_bookings.id','=',$request->search_id)->orwhere('aqar_bookings.aqar_id','=',$request->search_id);
         
         })->paginate(10);
         }else if($type=='archef'){
-        $allbookings = Aqar::join('aqar_bookings', 'aqars.id', '=', 'aqar_bookings.aqar_id')
+        $allbookings =Aqar::join('countries', 'countries.id', '=', 'aqars.country_id')->join('aqar_bookings', 'aqars.id', '=', 'aqar_bookings.aqar_id')
         ->where('aqars.user_id',Auth::id())->whereIn('aqar_bookings.booking_status_id',[5,6])->when($request->search_id, function ($query) use($request) {
          $query->where('aqar_bookings.id','=',$request->search_id)->orwhere('aqar_bookings.aqar_id','=',$request->search_id);
          
          })->paginate(10);
+        }else if(is_numeric($type)){
+        $allbookings =Aqar::join('countries', 'countries.id', '=', 'aqars.country_id')->join('aqar_bookings', 'aqars.id', '=', 'aqar_bookings.aqar_id')
+        ->where('aqars.user_id',Auth::id())->where('aqar_bookings.aqar_id',$type)->when($request->search_id, function ($query) use($request) {
+         $query->where('aqar_bookings.id','=',$request->search_id)->orwhere('aqar_bookings.aqar_id','=',$request->search_id);
+         
+         })->paginate(10);
+
        }
 
-      // return $allbookings->toArray()['data'];
+       //return $allbookings->toArray()['data'];
 
        return view('frontend.invest.aqarlistbooking', compact('allbookings'));
     }

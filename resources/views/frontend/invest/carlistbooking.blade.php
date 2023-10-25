@@ -2,8 +2,8 @@
 @section('content')
 
 <main>
+@php $current_route=Route::current()->parameters()['type'];@endphp
     <!-- Desktop Breadcrumb -->
-    @php $current_route=Route::current()->parameters()['type'];@endphp
     <section class="py-md-4 py-2">
       <div class="container">
         <nav class="breadcrumb-container" aria-label="breadcrumb">
@@ -16,11 +16,12 @@
             @if(!is_numeric($current_route))  الحجوزات
             @else حجوزات اعلان رقم ({{$current_route}})
             @endif
-          </li>
+            </li>
           </ol>
         </nav>
       </div>
-    </section>   
+    </section>
+   
     <!-- section -->
     <section class="aqar-booking">
       <div class="container">
@@ -29,32 +30,32 @@
           @if(!is_numeric($current_route))
             <ul class="tabs-nav-details list-unstyled mb-0 tabs-in-mobile flex-wrap">
               <li class="{{$current_route=='all'?'tab-active':'' }}">
-                <a href="{{route('invst.listbookings','all')}}" class="tab-link d-flex align-items-center justify-content-center">
+                <a href="{{route('invst.listbookingscar','all')}}" class="tab-link d-flex align-items-center justify-content-center">
                   كل الحجوزات
                 </a>
               </li>
               <li class="{{$current_route=='app'?'tab-active':'' }}">
-                <a href="{{route('invst.listbookings','app')}}" class="tab-link d-flex align-items-center justify-content-center">
+                <a href="{{route('invst.listbookingscar','app')}}" class="tab-link d-flex align-items-center justify-content-center">
                   حجوزات التطبيق
                 </a>
               </li>
               <li class="{{$current_route=='ext'?'tab-active':'' }}">
-                <a href="{{route('invst.listbookings','ext')}}" class="tab-link d-flex align-items-center justify-content-center">
+                <a href="{{route('invst.listbookingscar','ext')}}" class="tab-link d-flex align-items-center justify-content-center">
                   حجوزات خارجية
                 </a>
               </li>
               <li class="{{$current_route=='web'?'tab-active':'' }}">
-                <a href="{{route('invst.listbookings','web')}}" class="tab-link d-flex align-items-center justify-content-center">
+                <a href="{{route('invst.listbookingscar','web')}}" class="tab-link d-flex align-items-center justify-content-center">
                   حجوزات الموقع
                 </a>
               </li>
               <li class="{{$current_route=='cancel'?'tab-active':'' }}">
-                <a href="{{route('invst.listbookings','cancel')}}" class="tab-link d-flex align-items-center justify-content-center">
+                <a href="{{route('invst.listbookingscar','cancel')}}" class="tab-link d-flex align-items-center justify-content-center">
                   حجوزات الملغاه
                 </a>
               </li>
               <li class="{{$current_route=='archef'?'tab-active':'' }}">
-                <a href="{{route('invst.listbookings','archef')}}" class="tab-link d-flex align-items-center justify-content-center">
+                <a href="{{route('invst.listbookingscar','archef')}}" class="tab-link d-flex align-items-center justify-content-center">
                   الارشيف  
                 </a>
               </li>
@@ -93,7 +94,7 @@
                         <div class="col-lg-3 position-relative">
                           <div class="epartment-img-carousel">
                             <div>
-                              <img loading="lazy" src="{{asset('images/aqars/'.$item->main_image)}}"
+                              <img loading="lazy" src="{{asset('images/cars/'.$item->main_image_ads)}}"
                                 class="department-img-list of-cover" alt="image 1" />
                             </div>
                           </div>
@@ -106,7 +107,7 @@
                                   <span class="aqar-booking-i"><i class="fal fa-list-ol"></i></span>
                                   <span class="aqar-booking-item">رقم الإعلان :
                                   </span>
-                                  <span class="aqar-booking-item">{{$item->aqar_id}}</span>
+                                  <span class="aqar-booking-item">{{$item->car_id}}</span>
                                 </div>
                                 <div class="mb-3">
                                   <span class="aqar-booking-i"><i class="fal fa-list-ol"></i></span>
@@ -187,7 +188,7 @@
                         <ul class="list-menu flex-center list-unstyled p-0 list-menu-booking">
                           @if($item->booking_status_id==1)
                           <li class="liItem-booking-out">
-                          <form action="{{route('invst.accept' , $item->id)}}" method="GET" style="display: inline-block" id="acceptForm{{$item->id}}">
+                          <form action="{{route('invst.acceptcar' , $item->id)}}" method="GET" style="display: inline-block" id="acceptForm{{$item->id}}">
                             @csrf
                             <a type="button" onclick="confirmAction('accept',{{$item->id}})" id="accept" class="liItem-link">قبول</a>  
                           </form>
@@ -195,7 +196,7 @@
                           @endif
                           @if($item->booking_status_id==1 )
                           <li class="liItem-booking-prices">
-                          <form action="{{route('invst.reject' , $item->id)}}" method="GET" style="display: inline-block" id="cancelForm{{$item->id}}">
+                          <form action="{{route('invst.rejectcar' , $item->id)}}" method="GET" style="display: inline-block" id="cancelForm{{$item->id}}">
                             @csrf
                             <a type="button" onclick="confirmAction('cancel',{{$item->id}})" id="cancel" class="liItem-link">الغاء الحجز</a>  
                           </form>
@@ -203,21 +204,21 @@
                           @endif
                           @if($item->booking_status_id==3 )
                           <li class="liItem-booking-see">
-                          <form action="{{route('invst.attend' , $item->id)}}" method="GET" style="display: inline-block" id="attendForm{{$item->id}}">
+                          <form action="{{route('invst.attendcar' , $item->id)}}" method="GET" style="display: inline-block" id="attendForm{{$item->id}}">
                             @csrf
                             <a type="button" onclick="confirmAction('attend',{{$item->id}})" id="attend" class="liItem-link">حضور</a>  
                           </form>
                            </li>
 
                            <li class="liItem-booking-edit">
-                           <form action="{{route('invst.notattend' , $item->id)}}" method="GET" style="display: inline-block" id="notattendForm{{$item->id}}">
+                           <form action="{{route('invst.notattendcar' , $item->id)}}" method="GET" style="display: inline-block" id="notattendForm{{$item->id}}">
                             @csrf
                             <a type="button" onclick="confirmAction('notattend',{{$item->id}})" id="notattend" class="liItem-link">عدم حضور</a>  
                           </form>
                            </li>
                            @endif
                            <li class="liItem-booking">
-                            <a href="{{route('invst.bookingDetails' , $item->id)}}" class="liItem-link">
+                            <a href="{{route('invst.bookingCarDetails' , $item->id)}}" class="liItem-link">
                             
                              معلومات الحجز
                             </a>

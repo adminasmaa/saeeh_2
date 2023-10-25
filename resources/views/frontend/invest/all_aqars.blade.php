@@ -108,7 +108,7 @@
                           <div class="padding-ads ">
                             <ul class="list-menu flex-center list-unstyled p-0">
                               <li class="liItem-booking-out">
-                                <a href="#"  class="liItem-link">
+                                <a href="#"  class="liItem-link"  class="liItem-link">
                                   <i class="far fa-calendar-plus"></i>
                                   اضافة حجز خارجى</a
                                 >
@@ -127,18 +127,21 @@
                                 </a>
                                </li>
                                <li class="liItem-booking">
-                                <a href="#"  class="liItem-link">
+                                <a href="{{route('invst.listbookings',$aqar->id)}}"  class="liItem-link">
                                   <i class="far fa-book-open"></i>
                                  الحجوزات
                                 </a>
                                </li>
-
+                               @if($aqar->ads_status_id  !=3)
                                <li class="liItem-booking-stop">
-                                <a href="#"  class="liItem-link">
-                                  <i class="far fa-stopwatch"></i>
+                                <form action="{{route('invst.stop' , $aqar->id)}}" method="GET" style="display: inline-block" id="stopForm{{$aqar->id}}">
+                                  @csrf
+                                  <a type="button" onclick="confirmAction('stop',{{$aqar->id}})" id="stop" class="liItem-link">   <i class="far fa-stopwatch"></i>
                                   ايقاف مؤقت
                                 </a>
-                               </li>
+                                </form>
+                                </li>
+                                @endif
                             </ul>
                           </div>
                         </div>
@@ -176,5 +179,30 @@
       </section>
       
      
+
+@endsection
+
+@section('scripts')
+<script>
+        function confirmAction($action,$id) {
+            var that = document.getElementById($action+"Form" + $id);
+            var n = new Noty({
+                text: "@lang('site.are you sure')",
+                type: "warning",
+                layout:"center",
+                killer: true,
+                buttons: [
+                    Noty.button("@lang('site.yes')", 'btn btn-success mr-2', function () {
+                        that.submit();
+                    }),
+                    Noty.button("@lang('site.no')", 'btn btn-primary mr-2', function () {
+                        n.close();
+                    })
+                ]
+            });
+            n.show();
+        }
+    </script>
+
 
 @endsection
