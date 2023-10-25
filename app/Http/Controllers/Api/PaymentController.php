@@ -23,8 +23,16 @@ class PaymentController extends Controller
             'invoice_status' => 'required',
             'invoice_value' => 'required',
             'book_id' => 'required',
-            'type'=>Rule::in(['aqar','car']),
-            'all_data'=>'nullable'
+            'all_data'=>'nullable',
+            'expiry_date' => 'nullable',
+            'create_date' => 'nullable',
+            'invoice_display_value' => 'nullable',
+            'invoice_reference' => 'nullable',
+            'payment_getway' => 'nullable',
+            'transaction_id' => 'nullable',
+            'authorization_id' => 'nullable',
+          //  'created_at'=>'required',
+            'type'=>Rule::in(['aqar','car'])
 
         ];
         $customMessages = [
@@ -51,6 +59,20 @@ class PaymentController extends Controller
                 'book_id' => $request->book_id,
 
                 'user_id' => Auth::id(),
+
+                'expiry_date' => $request->expiry_date,
+
+                'create_date' => $request->create_date,
+
+                'invoice_display_value' => $request->invoice_display_value,
+
+                'invoice_reference' => $request->invoice_reference,
+
+                'payment_getway' => $request->payment_getway,
+
+                'transaction_id' => $request->transaction_id,
+
+                'authorization_id' => $request->authorization_id,
 
                 'type'=>$request->type,
 

@@ -715,54 +715,54 @@
         }
     }  
    /*video */
-document.getElementById("videoUpload").onchange = function(event) {
-    let file = event.target.files[0];
-    let blobURL = URL.createObjectURL(file);
-    document.querySelector("video").style.display = "block";
-    document.querySelector("video").src = blobURL;
-};
-    $(".remove-btn").click(function() {
-        $(this).parent(".wrapper-thumb").remove();
-    });
-    document.getElementById("imgInp").onchange = function() {
-        let imgURL = (frame.src = URL.createObjectURL(event.target.files[0]));
-        document.querySelector("img").src = imgURL;
+    document.getElementById("videoUpload").onchange = function(event) {
+        let file = event.target.files[0];
+        let blobURL = URL.createObjectURL(file);
+        document.querySelector("video").style.display = "block";
+        document.querySelector("video").src = blobURL;
     };
-    document.getElementById("imgInp2").onchange = function() {
-        let imgURL2 = (frame2.src = URL.createObjectURL(event.target.files[0]));
-        document.querySelector("img2").src = imgURL2;
-    };
-    document.getElementById("imgInp3").onchange = function() {
-        let imgURL3 = (frame3.src = URL.createObjectURL(event.target.files[0]));
-        document.querySelector("img3").src = imgURL2;
-    };
+        $(".remove-btn").click(function() {
+            $(this).parent(".wrapper-thumb").remove();
+        });
+        document.getElementById("imgInp").onchange = function() {
+            let imgURL = (frame.src = URL.createObjectURL(event.target.files[0]));
+            document.querySelector("img").src = imgURL;
+        };
+        document.getElementById("imgInp2").onchange = function() {
+            let imgURL2 = (frame2.src = URL.createObjectURL(event.target.files[0]));
+            document.querySelector("img2").src = imgURL2;
+        };
+        document.getElementById("imgInp3").onchange = function() {
+            let imgURL3 = (frame3.src = URL.createObjectURL(event.target.files[0]));
+            document.querySelector("img3").src = imgURL2;
+        };
 </script>
 <script>
 
-$(document).ready(function () {
-    jQuery('a.add-price').click(function (event) {
-        event.preventDefault();
-        var newRow = jQuery('<tr><td><div class="row"><div class="col-md-5 form-group col-12 p-2">' +
-        // ' <input type="hidden"  name="id[]" class="form-control"/>' +
-            '<label>@lang('site.name_ar')</label><input type="text"  name="sub_name_ar[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
-            '<label>@lang('site.name_en')</label><input type="text" name="sub_name_en[]" class="form-control" ></div><div class="col-md-5 form-group col-6 p-2">' +
-            '<label>@lang('site.type')</label><select class="form-control btn-square" name="sub_type[]"><option selected>@lang('site.select')</option><option value="Meal">@lang('site.meal')</option><option value="Break">@lang('site.break') </option><option value="Tawla">@lang('site.tawla') </option></select></div><div class="col-md-5 form-group col-6 p-2">' +
-            '  </div>  <div class="col-md-2 form-group col-12 p-2 "> <a class="btn btn-air-primary btn-pill btn-danger add-price w-100 m-t-30" onclick="deletetr(this)" ><i class="fa fa-trash"></i></a>' +
-            '</div> </div> </td> </tr>');
-        jQuery('.price-list').append(newRow);
+    $(document).ready(function () {
+        jQuery('a.add-price').click(function (event) {
+            event.preventDefault();
+            var newRow = jQuery('<tr><td><div class="row"><div class="col-md-5 form-group col-12 p-2">' +
+            // ' <input type="hidden"  name="id[]" class="form-control"/>' +
+                '<label>@lang('site.name_ar')</label><input type="text"  name="sub_name_ar[]" class="form-control"/></div><div class="col-md-5 form-group col-12 p-2">' +
+                '<label>@lang('site.name_en')</label><input type="text" name="sub_name_en[]" class="form-control" ></div><div class="col-md-5 form-group col-6 p-2">' +
+                '<label>@lang('site.type')</label><select class="form-control btn-square" name="sub_type[]"><option selected>@lang('site.select')</option><option value="Meal">@lang('site.meal')</option><option value="Break">@lang('site.break') </option><option value="Tawla">@lang('site.tawla') </option></select></div><div class="col-md-5 form-group col-6 p-2">' +
+                '  </div>  <div class="col-md-2 form-group col-12 p-2 "> <a class="btn btn-air-primary btn-pill btn-danger add-price w-100 m-t-30" onclick="deletetr(this)" ><i class="fa fa-trash"></i></a>' +
+                '</div> </div> </td> </tr>');
+            jQuery('.price-list').append(newRow);
+        });
+
+        $("input[name='price']").click(function () {
+            var test = $(this).val();
+
+            $("div.desc").hide();
+            $("#price" + test).show();
+        });
     });
 
-    $("input[name='price']").click(function () {
-        var test = $(this).val();
-
-        $("div.desc").hide();
-        $("#price" + test).show();
-    });
-});
-
-function deletetr(r) {
-    r.closest('tr').remove();
-}
+    function deletetr(r) {
+        r.closest('tr').remove();
+    }
 
 
 </script>

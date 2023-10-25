@@ -18,6 +18,13 @@ class Payment extends Model
         'invoice_status', 
         'invoice_id',  
         'book_id', 
+        'expiry_date',
+        'create_date',
+        'invoice_display_value',
+        'invoice_reference',
+        'payment_getway',
+        'transaction_id',
+        'authorization_id',
         'type',// enum ,['aqar','car']
         'user_id', //unsigned
     ];
