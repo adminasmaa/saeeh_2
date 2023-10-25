@@ -219,6 +219,31 @@ class CarInvstController extends Controller
 
 
     }//end of destroy
+
+    public function detailcar($id)
+    {
+
+        $car = Car::find($id);
+        return view('frontend.invest.detailcar', compact('car'));
+
+
+    }
+
+
+    public function stop($id)
+    {
+
+        $success = Car::find($id)->update(['ads_status_id' => 3]);
+
+        if ($success) {
+            Alert::success('Success', __('site.stop_successfully'));
+        } else {
+                Alert::error('Error', __('site.stop_faild'));
+
+        }
+
+        return back();
+    }
    
 
 }

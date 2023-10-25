@@ -27,6 +27,7 @@ class Payment extends Model
         'authorization_id',
         'type',
         'user_id', //unsigned
+        'response'
     ];
 
     // relations
