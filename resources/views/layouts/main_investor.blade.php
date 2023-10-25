@@ -60,6 +60,8 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{{FRONTASSETS}}/styles/styles.css"/>
     <link rel="stylesheet" href="{{FRONTASSETS}}/styles/responsive-styles.css"/>
+    <link rel="stylesheet" href="{{MAINDASHBOARD}}/plugins/noty/noty.css">
+    <script src="{{MAINDASHBOARD}}/plugins/noty/noty.min.js"></script>
     <script
         src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
@@ -490,7 +492,7 @@
     </div>
 </form>
 
-
+@include('sweetalert::alert')
 
 @yield('content')
 

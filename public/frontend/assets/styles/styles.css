@@ -1733,6 +1733,7 @@ video.video-full {
 }
 
 .department-list-pagination .page-item {
+  display: block !important;
   margin-left: 5px;
   margin-right: 5px;
 }
@@ -2127,7 +2128,7 @@ video.video-full {
 
 .tabs-nav-details li {
   border-left: 1px solid var(--m-light-gray);
-  padding-inline: 25px;
+  padding-inline: 20px;
   /* width: 25%; */
 }
 
@@ -4589,7 +4590,7 @@ video.video-full {
 }
 
 .add-booking-investor .booking_investor_card {
-  width: 70%;
+  width: 80%;
 }
 
 .text-danger {
@@ -4650,12 +4651,12 @@ video.video-full {
 }
 
 .add-booking-investor .booking-now-btn {
-  width: 70%;
+  width: 50%;
 }
 
-.add-booking-investor .booking_investor_card {
+/* .add-booking-investor .booking_investor_card {
   padding: 48px 100px;
-}
+} */
 
 .ads-add-container {
   background: #fff3e6;
@@ -5341,7 +5342,7 @@ margin: 0 auto;
 }
 .register-section .tabs-details .tab-link {
   font-weight: 700;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 150%;
   color: #9c9c9c;
   height: 100%;
@@ -5512,4 +5513,25 @@ border: 1px solid #E5B10B;
   
   .list-menu-booking li:nth-child(5) , .list-menu-booking  li:nth-child(6){
     margin-bottom: 16px!important;
+  }
+
+  .booking-days{
+    background: #FFF3E6;
+    border: 1px solid #FF8600;
+    padding-block: 10px;
+font-size: 16px;
+font-weight: 600;
+line-height: 27px;
+color: var(--m-gray-2);
+border-radius: var(--rounded-main);
+  }
+  .cancel-booking-link{
+font-size: 18px;
+font-weight: 700;
+line-height: 36px;
+color: var(--m-gray-2);
+text-decoration: underline;
+  }
+  .all-days-card{
+    padding: 30px 20px 20px;
   }

@@ -16,6 +16,7 @@ use App\Models\Country;
 use App\Models\AdsStatus;
 use App\Models\AqarService;
 use App\Models\AqarSections;
+use App\Models\AqarBooking;
 use Alert;
 use App\Repositories\Interfaces\AqarRepositoryInterface;
 use App\Repositories\Eloquent\AqarRepository;
@@ -266,6 +267,7 @@ class AqarInvstController extends Controller
 
     }//end of destroy
 
+
     public function detailaqar($id)
     {
 
@@ -297,21 +299,7 @@ class AqarInvstController extends Controller
        return view('frontend.invest.details', compact('details','aqar','arr'));
     }
 
-    public function listbookings()
-    { 
-       $allbookings = Aqar::join('aqar_bookings', 'aqars.id', '=', 'aqar_bookings.aqar_id')
-       ->where('aqars.user_id',Auth::id())->paginate(10);
-       $allbookings_application = Aqar::join('aqar_bookings', 'aqars.id', '=', 'aqar_bookings.aqar_id')
-       ->where('aqars.user_id',Auth::id())->where('aqar_bookings.type','application')->paginate(10);
-       $allbookings_website = Aqar::join('aqar_bookings', 'aqars.id', '=', 'aqar_bookings.aqar_id')
-       ->where('aqars.user_id',Auth::id())->where('aqar_bookings.type','application')->paginate(10);
-       $allbookings_external = Aqar::join('aqar_bookings', 'aqars.id', '=', 'aqar_bookings.aqar_id')
-       ->where('aqars.user_id',Auth::id())->where('aqar_bookings.type','external')->paginate(10);
-       $allbookings_refuse = Aqar::join('aqar_bookings', 'aqars.id', '=', 'aqar_bookings.aqar_id')
-       ->where('aqars.user_id',Auth::id())->where('aqar_bookings.booking_status_id',4)->paginate(10);
-
-       return view('frontend.invest.aqarlistbooking', compact('allbookings','allbookings_application','allbookings_website','allbookings_external','allbookings_refuse'));
-    }
+    
 
 
 

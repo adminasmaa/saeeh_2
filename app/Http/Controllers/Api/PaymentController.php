@@ -23,8 +23,8 @@ class PaymentController extends Controller
             'invoice_status' => 'required',
             'invoice_value' => 'required',
             'book_id' => 'required',
-          //  'created_at'=>'required',
-            'type'=>Rule::in(['aqar','car'])
+            'type'=>Rule::in(['aqar','car']),
+            'all_data'=>'nullable'
 
         ];
         $customMessages = [
@@ -52,9 +52,9 @@ class PaymentController extends Controller
 
                 'user_id' => Auth::id(),
 
-               // 'created_at'=> $request->created_at,
-
                 'type'=>$request->type,
+
+                'response'=>$request->all_data
             ]);
             if($request->invoice_status=='Paid' && $request->type=='aqar'){
                $success = AqarBooking::find($request->book_id)->update(['booking_status_id' => 3]);
