@@ -25,7 +25,7 @@ class Payment extends Model
         'payment_getway',
         'transaction_id',
         'authorization_id',
-        'type',// enum ,['aqar','car']
+        'type',
         'user_id', //unsigned
     ];
 
