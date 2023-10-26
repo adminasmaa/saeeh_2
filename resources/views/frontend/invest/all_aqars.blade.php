@@ -141,6 +141,15 @@
                                 </a>
                                 </form>
                                 </li>
+                                @else
+                                <li class="liItem-booking-out">
+                                <form action="{{route('invst.active' , $aqar->id)}}" method="GET" style="display: inline-block" id="activeForm{{$aqar->id}}">
+                                  @csrf
+                                  <a type="button" onclick="confirmAction('active',{{$aqar->id}})" id="active" class="liItem-link">   <i class="far fa-stopwatch"></i>
+                                   تفعيل
+                                </a>
+                                </form>
+                                </li>
                                 @endif
                             </ul>
                           </div>
