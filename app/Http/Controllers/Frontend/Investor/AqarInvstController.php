@@ -315,6 +315,21 @@ class AqarInvstController extends Controller
         return back();
     }
 
+    public function active($id)
+    {
+
+        $success = Aqar::find($id)->update(['ads_status_id' => 1]);
+
+        if ($success) {
+            Alert::success('Success', __('site.stop_successfully'));
+        } else {
+                Alert::error('Error', __('site.stop_faild'));
+
+        }
+
+        return back();
+    }
+
     
 
 
