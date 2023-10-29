@@ -27,6 +27,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         Route::get('SubCategories/{id}', 'App\Http\Controllers\Frontend\Investor\HomeController@SubCategories')->name('SubCategories');
         Route::get('home', 'App\Http\Controllers\Frontend\Investor\HomeController@index')->name('home'); 
         Route::get('logout', 'App\Http\Controllers\Frontend\Investor\HomeController@logout')->name('logout');
+        Route::post('addContacts', 'App\Http\Controllers\Frontend\Investor\HomeController@addContacts')->name('addContacts');
         Route::resource('aqars', AqarInvstController::class);
         Route::get('stop/{aqar_id}', 'App\Http\Controllers\Frontend\Investor\AqarInvstController@stop')->name('stop');
         Route::get('active/{aqar_id}', 'App\Http\Controllers\Frontend\Investor\AqarInvstController@active')->name('active');
@@ -41,6 +42,9 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         Route::get('bookingDetails/{book_id}', 'App\Http\Controllers\Frontend\Investor\AqarInvstBookingController@bookingDetails')->name('bookingDetails');
         Route::get('addaqarbook/{aqar_id}', 'App\Http\Controllers\Frontend\Investor\AqarInvstBookingController@show_extbooking')->name('addaqarbook');
         Route::post('add_extbooking', 'App\Http\Controllers\Frontend\Investor\AqarInvstBookingController@add_extbooking')->name('add_extbooking');
+        Route::get('listcommisions/{type}/{pay}', 'App\Http\Controllers\Frontend\Investor\CommissionController@listaqarcomm')->name('listcommisions');
+        Route::post('confirm_pay', 'App\Http\Controllers\Frontend\Investor\CommissionController@confirm_pay')->name('confirm_pay');
+        
         Route::resource('cars', CarInvstController::class);
         Route::get('stopcar/{car_id}', 'App\Http\Controllers\Frontend\Investor\AqarInvstController@stop')->name('stopcar');
         Route::get('activecar/{car_id}', 'App\Http\Controllers\Frontend\Investor\AqarInvstController@active')->name('activecar');
@@ -55,6 +59,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
  
 
     }); //end of invest routes
+   
 });
 
 

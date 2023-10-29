@@ -6,6 +6,7 @@ use App\Models\Aqar;
 use App\Models\AqarBooking;
 use App\Models\BookingStatus;
 use App\Models\Notification;
+use App\Models\Commission;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -54,7 +55,7 @@ class AqarBookingObserver
         }
         $status=BookingStatus::find($aqarBooking->booking_status_id) ;
         $user = User::find($aqarBooking->user_id);
-        $aqar=Aqar::find($aqarBooking->aqar_id);
+        $aqar=Aqar::with('user')->find($aqarBooking->aqar_id);
         $title=trans('message.adv number').$aqarBooking->aqar_id."  (".$aqar->name_ar." )";
         if($role=='admin'){
         $desription=$status->admin_message;} else if( $role=='invest'){
@@ -76,6 +77,8 @@ class AqarBookingObserver
 
         ]);
         send_push_notification('aqar',$aqarBooking->id,$user->device_token,$title,$desription);
+
+        
 
     }
 
