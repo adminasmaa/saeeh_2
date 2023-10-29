@@ -30,13 +30,13 @@
                     />
                     <div class="pt-md-4 pt-2">
                       <h3 class="mb-0">@lang('site.advertising')</h3>
-                      <p class="mb-0">25</p>
+                      <p class="mb-0">{{count($ads)}}</p>
                     </div>
                 </div> 
               </a>
               </div>
               <div class="col-lg-4 col-sm-6 col-12">
-                <a href="#">
+                <a href="{{route('invst.listbookings','all')}}">
                 <div class="booking_card mb-4 text-center pt-sm-5 pb-sm-3 py-4">
                     <img
                       src="{{FRONTASSETS}}/images/booking-investor/booking-ic.svg"
@@ -44,13 +44,13 @@
                     />
                     <div class="pt-md-4 pt-2">
                       <h3 class="mb-0"> @lang('site.bookings')</h3>
-                      <p class="mb-0">25</p>
+                      <p class="mb-0">{{count($bookings)}}</p>
                     </div>
                 </div>
                </a>
               </div>
               <div class="col-lg-4 col-sm-6 col-12">
-                <a href="#">
+                <a href="{{route('invst.listcommisions',['aqar','unpaid'])}}">
                   <div class="booking_card mb-4 text-center pt-sm-5 pb-sm-3 py-4">
                     <img
                       src="{{FRONTASSETS}}/images/booking-investor/booking_ic_2.svg"
@@ -58,7 +58,7 @@
                     />
                     <div class="pt-md-4 pt-2">
                       <h3 class="mb-0"> @lang('site.commissions')</h3>
-                      <p class="mb-0">25</p>
+                      <p class="mb-0">{{count($commisions)}}</p>
                     </div>
                 </div>
                </a>

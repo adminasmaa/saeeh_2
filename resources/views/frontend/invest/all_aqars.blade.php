@@ -108,7 +108,7 @@
                           <div class="padding-ads ">
                             <ul class="list-menu flex-center list-unstyled p-0">
                               <li class="liItem-booking-out">
-                                <a href="#"  class="liItem-link"  class="liItem-link">
+                                <a href="{{route('invst.addaqarbook' , $aqar->id)}}"  class="liItem-link"  class="liItem-link">
                                   <i class="far fa-calendar-plus"></i>
                                   اضافة حجز خارجى</a
                                 >

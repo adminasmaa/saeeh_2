@@ -56,10 +56,17 @@
                       id="total_price"
                       value=""
                     />
+
+                    <input
+                      type="hidden"
+                      name="day_count"
+                      id="day_count"
+                      value=""
+                    />
                   <div class="position-relative">
                     <input
                       placeholder=" تاريخ الوصول"
-                      type="date"
+                      type="text"
                       name="delivery_date"
                       id="datepicker"
                       value=""
@@ -78,7 +85,7 @@
                   <div class="position-relative">
                     <input
                       placeholder="تاريخ المغادرة "
-                      type="date"
+                      type="text"
                       name="reciept_date"
                       id="datepicker1"
                       value=""
@@ -93,7 +100,7 @@
                 <div class="form-group mb-4">
                   <label for="">
                     رقم هاتف العميل             
-                  <span class="text-danger">( اختيارى )</span>
+                  <span class="text-danger">( اجباري )</span>
                   </label>
                   <input
                     placeholder=" اكتب رقم الهاتف  "  name="customer_phone"
@@ -101,18 +108,6 @@
                     value=""
                   />
                 </div>
-                <div class="form-group mb-4">
-                  <label for="">
-                    اسم العميل
-                    <span class="text-danger">( اختيارى )</span>
-                  </label>
-                  <input
-                    placeholder="  اسم العميل " name="customer_name"
-                    type="text"
-                    value=""
-                  />
-                </div>
-              
              
               </div>
               <div class="col-lg-4">
@@ -178,6 +173,7 @@
      $("#total").text(total);
 
      $("#total_price").val(total);
+     $("#day_count").val(days);
      
 
 }

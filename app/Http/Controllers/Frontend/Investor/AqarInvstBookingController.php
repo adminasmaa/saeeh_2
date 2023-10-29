@@ -17,6 +17,8 @@ use App\Models\AdsStatus;
 use App\Models\AqarService;
 use App\Models\AqarSections;
 use App\Models\AqarBooking;
+use App\Models\Commission;
+
 use Alert;
 use App\Repositories\Interfaces\AqarRepositoryInterface;
 use App\Repositories\Eloquent\AqarRepository;
@@ -74,9 +76,22 @@ class AqarInvstBookingController extends Controller
     public function attend($id)
     {
 
-        $success = AqarBooking::find($id)->update(['booking_status_id' => 5]);
+        $success1 = AqarBooking::find($id)->update(['booking_status_id' => 5]);
+        $aqarBooking = AqarBooking::find($id);
+        $aqar=Aqar::with('user')->find($aqarBooking->aqar_id);
+        $commision = str_replace('%','', $aqarBooking->comision);
+        $price= ($commision/100)*$aqarBooking->total_price;
+        $comm=Commission::create([
+            'booking_id'=>$aqarBooking->id,
+            'user_id'=>$aqar->user['id'],
+            'price'=>$price,
+            'type'=>'aqar',
 
-        if ($success) {
+
+        ]);
+        $success=$aqarBooking->update(['commission_id' => $comm->id]);
+
+        if ($success && $success1) {
             Alert::success('Success', __('site.attend_successfully'));
         } else {
                 Alert::error('Error', __('site.attend_faild'));
@@ -126,6 +141,7 @@ class AqarInvstBookingController extends Controller
             'id' => 'required',
             'total_price' => 'required',
             'person_num'=>'nullable',
+            'customer_phone'=>'required',
 
 
         ];
@@ -141,7 +157,9 @@ class AqarInvstBookingController extends Controller
 
         } else {
 
-            $aqar=Aqar::find($request->id);
+            $aqar=Aqar::with('user')->find($request->id);
+            $user=User::where('phone',$request->customer_phone)->first();
+
 
             if($aqar->fixed_price){
                 $fixed_price=$aqar['fixed_price'];
@@ -155,7 +173,7 @@ class AqarInvstBookingController extends Controller
                 $changed_price=json_encode($data)!=null?json_encode($data, JSON_NUMERIC_CHECK):null;     
             }
             $input = $request->all();
-            $input['user_id'] = Auth::id();
+            $input['user_id'] = $user->id;
             $input['aqar_id'] =$request->id;
             $input['person_num'] =$request->person_num;
             $input['total_price'] =$request->total_price;
@@ -163,6 +181,7 @@ class AqarInvstBookingController extends Controller
             $input['changed_price'] = $changed_price ?? null;
             $input['booking_status_id'] =2;
             $input['city_id']=$aqar['city_id'];
+            $input['comision']=$aqar->user['comision'];
             $input['type']='external';
 
             $success = AqarBooking::create($input);

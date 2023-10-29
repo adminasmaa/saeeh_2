@@ -47,7 +47,8 @@ class AqarBooking extends Model
         'book_status',
         'total_price',
         'person_num',
-        'cancel_user_id'
+        'cancel_user_id',
+        'comision',
     ];
     protected $hidden=['deleted_at','updated_at'];
 

@@ -72,7 +72,7 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token','account_type_id','comision','address',
+        'remember_token','address',
         'email_verified_at','country_id','city_id','deleted_at','created_at','updated_at','isguest','token','active','image'
     ];
 

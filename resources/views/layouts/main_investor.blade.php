@@ -264,15 +264,7 @@
                                                 </a>
                                             </li>
 
-                                            <li class="p-3">
-                                                <a href="{{route('myfavouriteAll')}}">
-
-
-                                                    @lang('site.favourite')
-
-
-                                                </a>
-                                            </li>
+                    
                                             <li class="p-3">
                                                 <a href="{{route('mybookingAll')}}">
                                                     @lang('site.My bookings')
@@ -306,20 +298,18 @@
                             <a href="{{route('invst.home')}}" class="pe-0"> @lang('site.home') </a>
                         </li>
                         <li class="nav-link">
-                            <a href="#" class="pe-0"> @lang('site.advertising') </a>
+                            <a href="{{route('invst.aqars.index')}}" class="pe-0"> @lang('site.advertising') </a>
                         </li>
                         <li class="nav-link">
-                            <a href="#" class="pe-0"> @lang('site.bookings') </a>
+                            <a href="{{route('invst.listbookings','all')}}" class="pe-0"> @lang('site.bookings') </a>
                         </li>
                         <li class="nav-link">
-                            <a href="#" class="pe-0"> @lang('site.commissions') </a>
+                            <a href="{{route('invst.listcommisions',['aqar','unpaid'])}}" class="pe-0"> @lang('site.commissions') </a>
                         </li>
                         <li class="nav-link">
                             <a href="#" class="pe-0"> @lang('site.profiles') </a>
                         </li>
-                        <li class="nav-link">
-                            <a href="#" class="pe-0"> @lang('site.commissions') </a>
-                        </li>
+                       
                         
                     </ul>
                 </div>
@@ -528,6 +518,7 @@
 <!-- Main JS -->
 <script src="{{FRONTASSETS}}/js/script.js"></script>
 <script src="{{FRONTASSETS}}/js/custom-rating.js"></script>
+<script src="{{FRONTASSETS}}/js/customdate.js"></script>
 {{--   <script src="{{FRONTASSETS}}/js/sliderPrice.js"></script>--}}
 <script src="{{FRONTASSETS}}/js/filter-menu-mobile.js"></script>
 <!-- Main JS -->
@@ -593,6 +584,72 @@
         document.querySelector("video").src = blobURL;
       };
     </script>
+
+<script>
+
+
+jQuery('.formregisters').click(function (e) {
+    // console.log("daaaa");
+    e.preventDefault();
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+
+    jQuery.ajax({
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')},
+        dataType: "json",
+        url: "{{ route('invst.addContacts') }}",
+        method: 'post',
+        data: {
+            _token: '{{ csrf_token() }}',
+            name: jQuery('.name').val(),
+            message: jQuery('.message').val(),
+            phone: jQuery('.phone').val(),
+
+
+        },
+        success: function (result) {
+            console.log(result);
+
+            if (result.content == 'success')
+
+
+            swal({
+                title: "Success!",
+                text: "The message has been successfully sent!",
+                type: "success",
+                confirmButtonText: "OK"
+            });
+
+            setTimeout(function () {
+                Swal.close()
+            }, 2000)
+
+            window.location.href = '{{route('Home')}}';
+
+        },
+        error: function (result) {
+            // console.log(result.responseJSON);
+            var errors = result.responseJSON;
+            var errorsList = "";
+            $.each(errors, function (_, value) {
+                $.each(value, function (_, fieldErrors) {
+                    fieldErrors.forEach(function (error) {
+                        errorsList += "<li style='color:#e81f1f'>" + error + "</li>";
+                    })
+                });
+            });
+            $('.register_errors').html(errorsList);
+
+
+        }
+    });
+});
+
+</script>
 
 </body>
 </html>
