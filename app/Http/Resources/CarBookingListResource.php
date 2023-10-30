@@ -50,7 +50,8 @@ class CarBookingListResource extends JsonResource
             "image" => asset('images/cars') . "/" . $this->car->main_image_ads ?? '',
             "changed_price" => json_decode($this->changed_price) ?? NULL,
             "cancel_byme" => $this->cancel_user_id ==Auth::id()?true:false,
-            "created_at" => $this->created_at ?? ''
+            "created_at" => $this->created_at ?? '',
+            'invoice_id'=>$this->payment->invoice_id ?? ''
 
         ];
 

@@ -77,6 +77,7 @@ Route::group(['middleware' => 'auth:api'], function () {
 //payment
 
     Route::post('/confirmPayment', 'App\Http\Controllers\Api\PaymentController@confirm_pay');
+    Route::post('/GetPaymentStatus', 'App\Http\Controllers\Api\PaymentController@get_paymentstatus');
 
     //cars models
     Route::post('/CarFavourite', 'App\Http\Controllers\Api\CarController@CarFavourite');

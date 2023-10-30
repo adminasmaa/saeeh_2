@@ -17,6 +17,7 @@ use App\Models\AdsStatus;
 use App\Models\AqarService;
 use App\Models\AqarSections;
 use App\Models\AqarBooking;
+use App\Models\CarBooking;
 use App\Models\Commission;
 use Alert;
 use App\Repositories\Interfaces\AqarRepositoryInterface;
@@ -46,13 +47,12 @@ class CommissionController extends Controller
         $allcomms = AqarBooking::with('user','city.country')->join('commissions', 'aqar_bookings.commission_id', '=', 'commissions.id')
         ->where('commissions.user_id',Auth::id())->where('commissions.status',1)->where('commissions.type','aqar')->paginate(10);}
        else if($type=='car'&& $pay=='unpaid'){
-        $allcomms = AqarBooking::with('user','city.country')->join('commissions', 'aqar_bookings.commission_id', '=', 'commissions.id')
+        $allcomms = CarBooking::with('user','city.country')->join('commissions', 'car_bookings.commission_id', '=', 'commissions.id')
         ->where('commissions.user_id',Auth::id())->where('commissions.status',0)->where('commissions.type','aqar')->paginate(10);}
         else if($type=='car'&& $pay=='paid'){
-            $allcomms = AqarBooking::with('user','city.country')->join('commissions', 'aqar_bookings.commission_id', '=', 'commissions.id')
+            $allcomms = CarBooking::with('user','city.country')->join('commissions', 'car_bookings.commission_id', '=', 'commissions.id')
             ->where('commissions.user_id',Auth::id())->where('commissions.status',1)->where('commissions.type','aqar')->paginate(10);}
-        $type='aqar';
-          //  return $allcomms->toArray()['data'];
+     
        return view('frontend.invest.listcommisions', compact('allcomms','type'));
     }
 

@@ -9,10 +9,23 @@ use App\Models\Payment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
+use MyFatoorah\Library\PaymentMyfatoorahApiV2;
+
 
 
 class PaymentController extends Controller
 {
+
+    public $mfObj;
+
+    //-----------------------------------------------------------------------------------------------------------------------------------------
+    
+        /**
+         * create MyFatoorah object
+         */
+        public function __construct() {
+            $this->mfObj = new PaymentMyfatoorahApiV2(config('myfatoorah.api_key'), config('myfatoorah.country_iso'), config('myfatoorah.test_mode'));
+        }
 
     public function confirm_pay(Request $request)
     {
@@ -48,7 +61,7 @@ class PaymentController extends Controller
 
         } else {
 
-            $data=Payment::create([
+            $data=Payment::updateOrCreate([
 
                 'invoice_id' => $request->invoice_id,
 
@@ -94,6 +107,28 @@ class PaymentController extends Controller
         
 
     }
+
+    public function get_paymentstatus(Request $request)
+    {
+
+        try {
+            $InvoiceId = $request->InvoiceId;
+            $data      = $this->mfObj->getPaymentStatus($InvoiceId, 'InvoiceId');
+
+            if ($data->InvoiceStatus == 'Paid') {
+                $msg = trans('site.Invoice is paid.');
+            } 
+            else{
+                $msg=trans('site.paid not complete please try again');
+            }
+            return $this->respondSuccess($data, $msg);
+        } catch (\Exception $e) {
+            return $this->respondError('Error.',  $e->getMessage(), 400);
+        }
+       
+    }
+    
+
 
 
 

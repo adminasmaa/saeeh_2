@@ -14,6 +14,7 @@ use App\Models\BookingNote;    // HasMany
 use App\Models\Deposit;    // HasMany
 use App\Models\AqarComment;    // HasMany
 use App\Models\BookingStatus;   //belongsTo
+use App\Models\Payment;   //belongsTo
 
 class AqarBooking extends Model
 {
@@ -89,6 +90,10 @@ class AqarBooking extends Model
     // relations
     public function bookingStatus(){
         return $this->belongsTo(BookingStatus::class,'booking_status_id');
+    }
+
+    public function payment(){
+        return $this->hasOne(Payment::class,'book_id')->where('type','aqar');
     }
 
 }

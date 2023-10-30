@@ -70,15 +70,14 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{{FRONTASSETS}}/styles/styles.css" />
     <link rel="stylesheet" href="{{FRONTASSETS}}/styles/responsive-styles.css" />
-    <style>
+  </head>
+  <style>
     @media print {
   #printPageButton {
     display: none;
   }
 }
   </style>
-  </head>
-
 
   <body>
     <section class="mt-5 mb-lg-5 mb-3">
@@ -87,7 +86,7 @@
           <div class="col-12">
             <div class="d-flex justify-content-end nav-section">
               <nav class="navbar navbar-expand-lg">
-                <button type="button"  id="printPageButton"  class="btn btn-main btn-print" onclick="window.print()">
+                <button type="button" id="printPageButton" class="btn btn-main btn-print" onclick="window.print()">
                   <span><i class="far fa-print"></i></span>
                   طباعة
                 </button>
@@ -303,7 +302,7 @@
 
                         <th>
                           <div class="d-flex align-items-center">
-                            <div class="th-txt">{{$booking->aqar->user->firstname}}</div>
+                            <div class="th-txt">{{$booking->car->user->firstname}}</div>
                           </div>
                         </th>
                       </tr>
@@ -319,7 +318,7 @@
                           </div>
                         </td>
                         <td>
-                          <div class="table-txt">{{$booking->aqar->category->name_ar}}</div>
+                          <div class="table-txt">{{$booking->car->category->name_ar}}</div>
                         </td>
                       </tr>
                       <tr>
@@ -333,21 +332,7 @@
                         </td>
 
                         <td>
-                          <div class="table-txt">{{$booking->aqar->id}}</div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="d-flex align-items-center">
-                            <div class="mt-2">
-                              <i class="far fa-map-marker-alt"></i>
-                            </div>
-                            <div class="th-txt">المنطقة </div>
-                          </div>
-                        </td>
-
-                        <td>
-                          <div class="table-txt"> {{$booking->aqar->area->name_ar}} </div>
+                          <div class="table-txt">{{$booking->car->id}}</div>
                         </td>
                       </tr>
                       <tr>
