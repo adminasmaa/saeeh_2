@@ -84,4 +84,8 @@ class CarBooking extends Model
     public function bookingStatus(){
         return $this->belongsTo(BookingStatus::class,'booking_status_id');
     }
+
+    public function payment(){
+        return $this->hasOne(Payment::class,'book_id')->where('type','car');
+    }
 }

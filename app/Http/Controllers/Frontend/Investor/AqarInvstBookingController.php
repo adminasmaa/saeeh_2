@@ -120,7 +120,7 @@ class AqarInvstBookingController extends Controller
     {
         
 
-        $booking = AqarBooking::with(['user','aqar'])->find($id);
+        $booking = AqarBooking::with(['user','aqar.category','aqar.user','aqar.area','city.country'])->find($id);
 
         return view('frontend.invest.detailbooking', compact('booking'));
     }

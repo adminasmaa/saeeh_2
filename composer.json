@@ -15,6 +15,7 @@
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.2",
         "mcamara/laravel-localization": "^1.7",
+        "myfatoorah/laravel-package": "^2.1",
         "realrashid/sweet-alert": "^5.1",
         "santigarcor/laratrust": "^7.1",
         "yajra/laravel-datatables": "9.0",

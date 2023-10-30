@@ -22,7 +22,7 @@
           <div class="booking_investor_card">
             <div class="row">
               <div class="col-lg-4 col-sm-6 col-12">
-               <a href="{{route('invst.aqars.index')}}">
+               <a href="{{(Auth::user()->type=='invest' && Auth::user()->account_type_id ==4)?route('invst.aqars.index'):route('invst.cars.index')}}">
                  <div class="booking_card mb-4 text-center pt-sm-5 pb-sm-3 py-4">
                     <img
                       src="{{FRONTASSETS}}/images/booking-investor/ads_b.svg"
@@ -36,7 +36,7 @@
               </a>
               </div>
               <div class="col-lg-4 col-sm-6 col-12">
-                <a href="{{route('invst.listbookings','all')}}">
+                <a href="{{(Auth::user()->type=='invest' && Auth::user()->account_type_id ==4)?route('invst.listbookings','all'):route('invst.listbookingscar','all')}}">
                 <div class="booking_card mb-4 text-center pt-sm-5 pb-sm-3 py-4">
                     <img
                       src="{{FRONTASSETS}}/images/booking-investor/booking-ic.svg"
@@ -50,7 +50,7 @@
                </a>
               </div>
               <div class="col-lg-4 col-sm-6 col-12">
-                <a href="{{route('invst.listcommisions',['aqar','unpaid'])}}">
+                <a href="{{(Auth::user()->type=='invest' && Auth::user()->account_type_id ==4)?route('invst.listcommisions',['aqar','unpaid']):route('invst.listcommisions',['car','unpaid'])}}">
                   <div class="booking_card mb-4 text-center pt-sm-5 pb-sm-3 py-4">
                     <img
                       src="{{FRONTASSETS}}/images/booking-investor/booking_ic_2.svg"

@@ -103,9 +103,8 @@ class CarInvstBookingController extends Controller
     {
         
 
-        $booking = CarBooking::with(['user','car'])->find($id);
-
-        return view('frontend.invest.detailbooking', compact('booking'));
+        $booking = CarBooking::with(['user','car.category','car.user','city.country'])->find($id);
+        return view('frontend.invest.detailcarbooking', compact('booking'));
     }
 
 

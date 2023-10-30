@@ -50,7 +50,8 @@ class AqarBookListResource extends JsonResource
             "image" => asset('images/aqars') . "/" . $this->aqar()->select('main_image')->get()[0]->main_image ??'',
             "changed_price" => json_decode($this->changed_price) ?? NULL,
             "cancel_byme" => $this->cancel_user_id ==Auth::id()?true:false,
-            "created_at" => $this->created_at ?? ''
+            "created_at" => $this->created_at ?? '',
+            'invoice_id'=>$this->payment->invoice_id ?? ''
 
         ];
 

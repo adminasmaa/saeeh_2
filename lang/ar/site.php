@@ -60,6 +60,7 @@ return [
     'Departure dates' => 'مواعيد المغادرة',
     'total' => 'الاجمالي   ',
     'totalprice'=>'السعر الكلى ',
+    'Invoice is paid.'=>'تم دفع الفاتوره بنجاح',
 
 
 
