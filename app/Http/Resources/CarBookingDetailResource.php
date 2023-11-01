@@ -59,6 +59,7 @@ class CarBookingDetailResource extends JsonResource
             "investor_name"=> $this->car->user->firstname ." ".$this->car->user->lastname,
             "investor_phone"=>$this->car->user->country_code.$this->car->user->phone,
             "cancel_byme" => $this->cancel_user_id ==Auth::id()?true:false,
+            'invoice_id'=>$this->payment->invoice_id ?? '',
             "data"=>new CarDetailOnlyResource($this->car),
            
 
