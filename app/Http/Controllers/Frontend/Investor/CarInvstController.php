@@ -244,6 +244,21 @@ class CarInvstController extends Controller
 
         return back();
     }
+
+    public function active($id)
+    {
+
+        $success = Car::find($id)->update(['ads_status_id' => 1]);
+
+        if ($success) {
+            Alert::success('Success', __('site.active_successfully'));
+        } else {
+                Alert::error('Error', __('site.active_faild'));
+
+        }
+
+        return back();
+    }
    
 
 }

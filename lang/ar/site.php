@@ -61,6 +61,32 @@ return [
     'total' => 'الاجمالي   ',
     'totalprice'=>'السعر الكلى ',
     'Invoice is paid.'=>'تم دفع الفاتوره بنجاح',
+    'stop ads'=>'هل تريد إيقاف مؤقت للاعلان',
+    'active ads'=>'هل تريدتفعيل الاعلان',
+    'active ads'=>'هل تريدتفعيل الاعلان',
+    'accept booking'=>'قبول الحجز؟',
+    'cancel booking'=>'الغاء الحجز؟',
+    'attend booking'=>'حضور الحجز؟',
+    'not attend booking'=>'عدم حضور الحجز؟',
+    'write cancel reason'=>'سبب الغاء الحجز',
+    'stop_successfully'=>'تم الايقاف المؤقت بنجاح',
+    'stop_faild'=>'فشل الايقاف المؤقت',
+    'active_successfully'=>'تم التفعيل بنجاح',
+    'stop_faild'=>'فشل  التفعيل',
+    'active_successfully'=>'تم التفعيل بنجاح',
+    'stop_faild'=>'فشل  التفعيل',
+    'active_successfully'=>'تم التفعيل بنجاح',
+    'stop_faild'=>'فشل  التفعيل',
+    'accept_successfully'=>'تم قبول الحجز بنجاح',
+    'accept_faild'=>'فشل  قبول الحجز',
+    'reject_successfully'=>'تم الغاءالحجز بنجاح',
+    'reject_faild'=>'فشل  الغاء الحجز',
+    'attend_successfully'=>'تم حضور الحجز  بنجاح',
+    'attend_faild'=>'فشل  حضور الحجز',
+    'notattend_successfully'=>'تم عدم حضور الحجز بنجاح',
+    'notattend_faild'=>'فشل  عدم حضور الحجز',
+    
+
 
 
 

@@ -5535,3 +5535,68 @@ text-decoration: underline;
   .all-days-card{
     padding: 30px 20px 20px;
   }
+  .register-section .register-radio-list {
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid var(--m-main);
+    height: auto;
+  }
+  .register-checkbox-list{
+    justify-content: space-between;
+  
+  }
+  
+  
+  .register-radio-list input[type="radio"] {
+    display: none;
+  }
+  .register-radio-list .custom-radio {
+    width: 100%;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    padding-right: 40px;
+    color: #9c9c9c;
+    background: transparent;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 36px;
+  }
+  
+  .register-radio-list :checked + .custom-radio {
+    color: var(--m-main);
+  }
+  
+  .register-radio-list .custom-radio:before {
+    content: " ";
+    border-radius: 50%;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #9c9c9c;
+    top: 2px;
+    right: 0px;
+  }
+  .register-radio-list :checked + .custom-radio:before {
+    border: 1px solid var(--m-main);
+  }
+  .register-radio-list :checked + .custom-radio:after {
+    content: "";
+    color: #fff;
+    background-color: var(--m-main);
+    border-radius: 50%;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    right: 5px;
+    top: 7px;
+  }
+  

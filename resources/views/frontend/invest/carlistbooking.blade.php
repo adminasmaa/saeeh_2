@@ -188,17 +188,19 @@
                         <ul class="list-menu flex-center list-unstyled p-0 list-menu-booking">
                           @if($item->booking_status_id==1)
                           <li class="liItem-booking-out">
-                          <form action="{{route('invst.acceptcar' , $item->id)}}" method="GET" style="display: inline-block" id="acceptForm{{$item->id}}">
+                          <form action="{{route('invst.acceptcar' , $item->id )}}" method="GET" style="display: inline-block" id="acceptForm{{$item->id}}">
                             @csrf
-                            <a type="button" onclick="confirmAction('accept',{{$item->id}})" id="accept" class="liItem-link">قبول</a>  
+                            <a type="button" onclick="confirmAction('accept',{{$item->id}},'@lang('site.accept booking')','{{FRONTASSETS}}/images/accept.png',150,150)" id="accept" class="liItem-link">قبول</a>  
                           </form>
                           </li>
                           @endif
                           @if($item->booking_status_id==1 )
                           <li class="liItem-booking-prices">
-                          <form action="{{route('invst.rejectcar' , $item->id)}}" method="GET" style="display: inline-block" id="cancelForm{{$item->id}}">
-                            @csrf
-                            <a type="button" onclick="confirmAction('cancel',{{$item->id}})" id="cancel" class="liItem-link">الغاء الحجز</a>  
+                          <form action="{{route('invst.rejectcar')}}" method="Post" style="display: inline-block" id="cancelForm{{$item->id}}">
+                            @csrf  
+                            <input type="hidden" name="id" value="{{$item->id}}">
+                            <input type="hidden" name="cancel_reason" class="cancel_reason" value="{{$item->id}}">
+                            <a type="button" onclick="confirmcancel('cancel',{{$item->id}},'@lang('site.cancel booking')','{{FRONTASSETS}}/images/cancel.png')" id="cancel" class="liItem-link">الغاء الحجز</a>  
                           </form>
                           </li>
                           @endif
@@ -206,14 +208,14 @@
                           <li class="liItem-booking-see">
                           <form action="{{route('invst.attendcar' , $item->id)}}" method="GET" style="display: inline-block" id="attendForm{{$item->id}}">
                             @csrf
-                            <a type="button" onclick="confirmAction('attend',{{$item->id}})" id="attend" class="liItem-link">حضور</a>  
+                            <a type="button" onclick="confirmAction('attend',{{$item->id}},'@lang('site.attend booking')','{{FRONTASSETS}}/images/attend.png',300,200)" id="attend" class="liItem-link">حضور</a>  
                           </form>
                            </li>
 
                            <li class="liItem-booking-edit">
                            <form action="{{route('invst.notattendcar' , $item->id)}}" method="GET" style="display: inline-block" id="notattendForm{{$item->id}}">
                             @csrf
-                            <a type="button" onclick="confirmAction('notattend',{{$item->id}})" id="notattend" class="liItem-link">عدم حضور</a>  
+                            <a type="button" onclick="confirmAction('notattend',{{$item->id}},'@lang('site.not attend booking')','{{FRONTASSETS}}/images/notattend.png',150,150)" id="notattend" class="liItem-link">عدم حضور</a>  
                           </form>
                            </li>
                            @endif
@@ -226,6 +228,8 @@
 
                            
                         </ul></div>
+
+
                       </div>
                     </div>
                   </div>
@@ -271,23 +275,72 @@
 
 @section('scripts')
 <script>
-        function confirmAction($action,$id) {
+        // function confirmAction($action,$id) {
+        //     var that = document.getElementById($action+"Form" + $id);
+        //     var n = new Noty({
+        //         text: "@lang('site.are you sure')",
+        //         type: "warning",
+        //         layout:"center",
+        //         killer: true,
+        //         buttons: [
+        //             Noty.button("@lang('site.yes')", 'btn btn-success mr-2', function () {
+        //                 that.submit();
+        //             }),
+        //             Noty.button("@lang('site.no')", 'btn btn-primary mr-2', function () {
+        //                 n.close();
+        //             })
+        //         ]
+        //     });
+        //     n.show();
+        // }
+        function confirmAction($action,$id,$mess,$image,$width,$hight) {
             var that = document.getElementById($action+"Form" + $id);
-            var n = new Noty({
-                text: "@lang('site.are you sure')",
-                type: "warning",
-                layout:"center",
-                killer: true,
-                buttons: [
-                    Noty.button("@lang('site.yes')", 'btn btn-success mr-2', function () {
-                        that.submit();
-                    }),
-                    Noty.button("@lang('site.no')", 'btn btn-primary mr-2', function () {
-                        n.close();
-                    })
-                ]
-            });
-            n.show();
+            swal.fire({
+              title:$mess,
+              imageUrl: $image,
+              imageWidth: $width,
+              imageHeight: $hight,
+              imageAlt: 'Custom image',
+              confirmButtonText:  'نعم',
+              cancelButtonText:  'لا',
+              showCancelButton: true,
+              showCloseButton: true,
+              confirmButtonColor: '#ff8600',    
+              allowOutsideClick: true,
+            }).then((result) => {
+                    if (result.isConfirmed) {
+                      that.submit();
+                    }else {
+                 
+                }
+                })  
+        }
+
+
+          function confirmcancel($action,$id,$mess,$image) {
+            var that = document.getElementById($action+"Form" + $id);
+            Swal.fire({
+              input: 'textarea',
+              inputPlaceholder: '@lang("write cancel reason")',
+              title:$mess,
+              imageUrl: $image,
+              imageWidth: 100,
+              imageHeight: 100,
+              imageAlt: 'Custom image',
+              confirmButtonText:  'تأكيد',
+              cancelButtonText:  'رجوع',
+              showCancelButton: true,
+              showCloseButton: true,
+              confirmButtonColor: '#ff8600',    
+              allowOutsideClick: true,
+            }).then((result) => {
+                    if (result.isConfirmed) {
+                      $('.cancel_reason').val(result.value);
+                      that.submit();
+                    }else {
+                 
+                }
+                })  
         }
     </script>
 

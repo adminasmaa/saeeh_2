@@ -129,13 +129,21 @@
                                  الحجوزات
                                 </a>
                                </li>
-
-                               @if($car->ads_status_id  !=3)
+                                @if($car->ads_status_id  !=3)
                                <li class="liItem-booking-stop">
                                 <form action="{{route('invst.stopcar' , $car->id)}}" method="GET" style="display: inline-block" id="stopForm{{$car->id}}">
                                   @csrf
-                                  <a type="button" onclick="confirmAction('stop',{{$car->id}})" id="stop" class="liItem-link">   <i class="far fa-stopwatch"></i>
+                                  <a type="button" onclick="confirmAction('stop',{{$car->id}},'@lang('site.stop ads')','error')" id="stop" class="liItem-link">   <i class="far fa-stopwatch"></i>
                                   ايقاف مؤقت
+                                </a>
+                                </form>
+                                </li>
+                                @else
+                                <li class="liItem-booking-out">
+                                <form action="{{route('invst.activecar' , $car->id)}}" method="GET" style="display: inline-block" id="activeForm{{$car->id}}">
+                                  @csrf
+                                  <a type="button" onclick="confirmAction('active',{{$car->id}},'@lang('site.active ads')','success')" id="active" class="liItem-link">   <i class="far fa-stopwatch"></i>
+                                   تفعيل
                                 </a>
                                 </form>
                                 </li>
@@ -182,23 +190,25 @@
 
 @section('scripts')
 <script>
-        function confirmAction($action,$id) {
+        function confirmAction($action,$id,$mess,$icon) {
             var that = document.getElementById($action+"Form" + $id);
-            var n = new Noty({
-                text: "@lang('site.are you sure')",
-                type: "warning",
-                layout:"center",
-                killer: true,
-                buttons: [
-                    Noty.button("@lang('site.yes')", 'btn btn-success mr-2', function () {
-                        that.submit();
-                    }),
-                    Noty.button("@lang('site.no')", 'btn btn-primary mr-2', function () {
-                        n.close();
-                    })
-                ]
-            });
-            n.show();
+            swal.fire({
+              title:$mess,
+              icon: $icon,    
+              imageAlt: 'Custom image',
+              confirmButtonText:  'نعم',
+              cancelButtonText:  'لا',
+              showCancelButton: true,
+              showCloseButton: true,
+              confirmButtonColor: '#ff8600',    
+              allowOutsideClick: true,
+            }).then((result) => {
+                    if (result.isConfirmed) {
+                      that.submit();
+                    }else {
+                 
+                }
+                })                   
         }
     </script>
 
