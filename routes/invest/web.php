@@ -36,7 +36,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         Route::get('/aqars/getsetting1/{id}/{id2}', 'App\Http\Controllers\Frontend\Investor\AqarInvstController@getsetting1');
         Route::get('listbookings/{type}' , 'App\Http\Controllers\Frontend\Investor\AqarInvstBookingController@listbookings')->name('listbookings');
         Route::get('accept/{book_id}', 'App\Http\Controllers\Frontend\Investor\AqarInvstBookingController@accept')->name('accept');
-        Route::get('reject/{book_id}', 'App\Http\Controllers\Frontend\Investor\AqarInvstBookingController@reject')->name('reject');
+        Route::post('reject', 'App\Http\Controllers\Frontend\Investor\AqarInvstBookingController@reject')->name('reject');
         Route::get('attend/{book_id}', 'App\Http\Controllers\Frontend\Investor\AqarInvstBookingController@attend')->name('attend');
         Route::get('notattend/{book_id}', 'App\Http\Controllers\Frontend\Investor\AqarInvstBookingController@notattend')->name('notattend');
         Route::get('bookingDetails/{book_id}', 'App\Http\Controllers\Frontend\Investor\AqarInvstBookingController@bookingDetails')->name('bookingDetails');
@@ -46,12 +46,12 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         Route::post('confirm_pay', 'App\Http\Controllers\Frontend\Investor\CommissionController@confirm_pay')->name('confirm_pay');
         
         Route::resource('cars', CarInvstController::class);
-        Route::get('stopcar/{car_id}', 'App\Http\Controllers\Frontend\Investor\AqarInvstController@stop')->name('stopcar');
-        Route::get('activecar/{car_id}', 'App\Http\Controllers\Frontend\Investor\AqarInvstController@active')->name('activecar');
+        Route::get('stopcar/{car_id}', 'App\Http\Controllers\Frontend\Investor\CarInvstController@stop')->name('stopcar');
+        Route::get('activecar/{car_id}', 'App\Http\Controllers\Frontend\Investor\CarInvstController@active')->name('activecar');
         Route::get('detailcar/{id}', 'App\Http\Controllers\Frontend\Investor\CarInvstController@detailcar')->name('detailcar'); 
         Route::get('listbookingscar/{type}' , 'App\Http\Controllers\Frontend\Investor\CarInvstBookingController@listbookings')->name('listbookingscar');
         Route::get('acceptcar/{book_id}', 'App\Http\Controllers\Frontend\Investor\CarInvstBookingController@accept')->name('acceptcar');
-        Route::get('rejectcar/{book_id}', 'App\Http\Controllers\Frontend\Investor\CarInvstBookingController@reject')->name('rejectcar');
+        Route::post('rejectcar', 'App\Http\Controllers\Frontend\Investor\CarInvstBookingController@reject')->name('rejectcar');
         Route::get('attendcar/{book_id}', 'App\Http\Controllers\Frontend\Investor\CarInvstBookingController@attend')->name('attendcar');
         Route::get('notattendcar/{book_id}', 'App\Http\Controllers\Frontend\Investor\CarInvstBookingController@notattend')->name('notattendcar');
         Route::get('bookingCarDetails/{book_id}', 'App\Http\Controllers\Frontend\Investor\CarInvstBookingController@bookingDetails')->name('bookingCarDetails');

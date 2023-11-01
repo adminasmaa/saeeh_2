@@ -136,7 +136,7 @@
                                <li class="liItem-booking-stop">
                                 <form action="{{route('invst.stop' , $aqar->id)}}" method="GET" style="display: inline-block" id="stopForm{{$aqar->id}}">
                                   @csrf
-                                  <a type="button" onclick="confirmAction('stop',{{$aqar->id}})" id="stop" class="liItem-link">   <i class="far fa-stopwatch"></i>
+                                  <a type="button" onclick="confirmAction('stop',{{$aqar->id}},'@lang('site.stop ads')','error')" id="stop" class="liItem-link">   <i class="far fa-stopwatch"></i>
                                   ايقاف مؤقت
                                 </a>
                                 </form>
@@ -145,7 +145,7 @@
                                 <li class="liItem-booking-out">
                                 <form action="{{route('invst.active' , $aqar->id)}}" method="GET" style="display: inline-block" id="activeForm{{$aqar->id}}">
                                   @csrf
-                                  <a type="button" onclick="confirmAction('active',{{$aqar->id}})" id="active" class="liItem-link">   <i class="far fa-stopwatch"></i>
+                                  <a type="button" onclick="confirmAction('active',{{$aqar->id}},'@lang('site.active ads')','success')" id="active" class="liItem-link">   <i class="far fa-stopwatch"></i>
                                    تفعيل
                                 </a>
                                 </form>
@@ -193,23 +193,25 @@
 
 @section('scripts')
 <script>
-        function confirmAction($action,$id) {
+        function confirmAction($action,$id,$mess,$icon) {
             var that = document.getElementById($action+"Form" + $id);
-            var n = new Noty({
-                text: "@lang('site.are you sure')",
-                type: "warning",
-                layout:"center",
-                killer: true,
-                buttons: [
-                    Noty.button("@lang('site.yes')", 'btn btn-success mr-2', function () {
-                        that.submit();
-                    }),
-                    Noty.button("@lang('site.no')", 'btn btn-primary mr-2', function () {
-                        n.close();
-                    })
-                ]
-            });
-            n.show();
+            swal.fire({
+              title:$mess,
+              icon: $icon,    
+              imageAlt: 'Custom image',
+              confirmButtonText:  'نعم',
+              cancelButtonText:  'لا',
+              showCancelButton: true,
+              showCloseButton: true,
+              confirmButtonColor: '#ff8600',    
+              allowOutsideClick: true,
+            }).then((result) => {
+                    if (result.isConfirmed) {
+                      that.submit();
+                    }else {
+                 
+                }
+                })                   
         }
     </script>
 

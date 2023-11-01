@@ -58,10 +58,9 @@ class AqarInvstBookingController extends Controller
         return back();
     }
 
-    public function reject($id)
+    public function reject(Request $request)
     {
-
-        $success = AqarBooking::find($id)->update(['booking_status_id' => 4]);
+        $success = AqarBooking::find($request->id)->update(['booking_status_id' => 4,'cancle_reason'=>$request->cancel_reason ,'cancel_user_id'=>Auth::id()]);
 
         if ($success) {
             Alert::success('Success', __('site.reject_successfully'));
