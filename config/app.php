@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Alkoot'),
 
     /*
     |--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'debug' => (bool) env('APP_DEBUG', false),
+    'debug' => (bool) env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -95,7 +95,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'ar',
 
     /*
     |--------------------------------------------------------------------------
@@ -182,6 +182,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -199,6 +200,9 @@ return [
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
 
 
+        Illuminate\Auth\AuthServiceProvider::class,
+
+        Intervention\Image\ImageServiceProvider::class
 
     ],
 
@@ -216,6 +220,8 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         'Datatables' => Yajra\DataTables\Facades\DataTables::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+                'Auth' => Illuminate\Support\Facades\Auth::class,
+        'Image' => Intervention\Image\Facades\Image::class
 
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),

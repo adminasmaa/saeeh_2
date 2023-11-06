@@ -86,7 +86,7 @@
                                             <tr>
                                                 <th>
                                                     <img name="soso" src="{{asset('images/employee/'.$user->image)}}" alt=""
-                                                        width="400px" height="aut0">
+                                                        width="400px" height="aut0"    onerror="this.src='{{asset('images/employee/default.jpg')}}'">
 
                                                 </th>
                                             </tr>
@@ -170,7 +170,7 @@
                                     <option selected></option>
                                     @foreach($countries as $country)
 
-                                        <option value="{{$country->id}}"   @if($country->id==$user->country_id) selected @endif>{{$country->name ?? ''}}</option>
+                                        <option value="{{$country->id}}"   @if($country->id==$user->country_id) selected @endif>{{$country->name_ar ?? ''}}</option>
 
                                     @endforeach
 
@@ -182,7 +182,7 @@
                                     <option selected></option>
                                     @foreach($cities as $city)
 
-                                        <option value="{{$city->id}}"   @if($city->id==$user->city_id) selected @endif>{{$city->name ?? ''}}</option>
+                                        <option value="{{$city->id}}"   @if($city->id==$user->city_id) selected @endif>{{$city->name_ar ?? ''}}</option>
 
                                     @endforeach
 

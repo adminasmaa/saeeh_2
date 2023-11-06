@@ -15,7 +15,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/home';
+    public const HOME = 'dashboard/home';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -41,6 +41,8 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapWebRoutes();
 
         $this->mapDashboardRoutes();
+
+        $this->mapInvRoutes();
     }
 
     /**
@@ -55,6 +57,12 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
             ->group(base_path('routes/web.php'));
     }
+    protected function mapInvRoutes()
+    {
+        Route::middleware('web')
+            ->group(base_path('routes/invest/web.php'));
+    }
+
 
     protected function mapDashboardRoutes()
     {

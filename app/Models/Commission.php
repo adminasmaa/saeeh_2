@@ -19,6 +19,8 @@ class Commission extends Model
         'price', // nullable
         'status', // default (0)
         'user_id', //unsigned 
+        'booking_id',
+        'type'
     ];
     // relations
     public function user(){
