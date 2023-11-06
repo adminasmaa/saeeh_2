@@ -75,4 +75,39 @@ class AuthController extends Controller
         return back();
 
     }
+    public function updateprofile($id)
+    {
+        $invest=User::find($id);
+        $AccountTypes = AccountType::all();
+        $countries = Country::where('active', '=', 1)->get();
+        $cities = City::where('active', '=', 1)->get();
+        $settings = Setting::first();
+        return view('frontend.invest.register' , compact('AccountTypes','countries','cities','settings','invest') );
+    }
+    public function updateaccount(Request $request, $id)
+    {
+        $invest=User::find($id);
+        $this->validate($request,[
+            'email' => 'required|email|string|unique:users',
+            'phone' => 'required|unique:users|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'password' => 'required|min:6',    
+            'c_password' => 'required|same:password',
+            'firstname' => 'required',
+            'comision'=>'required',
+            'accept_term'=>'required'
+        ]);
+        $request_data = $request->except(['password', 'password_confirmation', '_token']);
+        $request_data['password'] = bcrypt($request->password);
+        $invest->update($request_data);
+        if ($invest) {
+            Alert::success('Success', __('site.added_successfully'));
+        } else {
+                Alert::error('Error', __('site.faild'));
+
+        }
+
+        return back();
+
+    }
+    
 }

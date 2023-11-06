@@ -129,6 +129,62 @@
   }
 }
 @media (max-width: 992px) {
+  .verification-modal .close-modal {
+    background: var(--m-main);
+  }
+  .order-mobile-1 {
+    order: 1;
+  }
+  .order-mobile-0 {
+    order: 0;
+  }
+  .verification_image img {
+    height: auto;
+    
+}
+.modal-custom .modal-dialog.small-modal .modal-content {
+  width: 70%;
+}
+  .verification_title {
+    font-size: 24px;
+}
+  .activatiopn-txt {
+    margin-top: 25px;
+    text-align: center;
+  }
+  .verification_counter {
+    width: 100%;
+    font-size: 26px;
+    line-height: 32px;
+  }
+  .verification_txt {
+    width: 100%;
+  }
+  #activationCode {
+    justify-content: center;
+  }
+  #activationCode .code {
+    width: 50px;
+    height: 50px;
+    margin: 0px 8px;
+    font-weight: 400;
+    font-size: 16px;
+  }
+  .verification_image {
+    text-align: center;
+  }
+
+  .second-btn button {
+    font-size: 16px;
+  }
+  .verification-content h3 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .verification_saeeh_card  {
+    padding: 24px 16px;
+}
+
   .register-radio-list .custom-radio:before {
     width: 20px;
     height: 20px;
@@ -1354,6 +1410,11 @@
     }
 }
 @media (max-width: 578px) {
+  .verification-content .check-image {
+    width: 84px;
+    height: 84px;
+}
+  
   .cancel-booking-link {
     font-size: 16px;
     line-height: 24px;

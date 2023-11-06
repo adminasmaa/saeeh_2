@@ -5641,3 +5641,124 @@ text-decoration: underline;
 .dd-selected-description{
   display: none !important;
 }
+
+
+/* verification page */
+
+.activatiopn-txt{
+  color: var(--m-main);
+font-size: 18px;
+font-weight: 500;
+line-height: 24px;
+}
+
+
+#activationCode {
+  direction: ltr;
+  justify-content: right;
+}
+#activationCode .code:focus-visible {
+  border: 1px solid var(--m-gray-2) !important;}
+#activationCode .code {
+  text-align: center;
+  width: 65px;
+  height: 65px;
+  border: 1px solid var(--m-light-gray);
+  margin: 0px 10px;
+font-weight: 400;
+color: var(--m-main);
+  font-size: 20px;
+  border-radius: var(--rounded-main);
+}
+#activationCode .code::placeholder{
+font-size: 20px;
+font-weight: 400;
+color: var(--m-light-gray);
+}
+#activationCode .code.active {
+  border: 1px solid var(--m-main);
+}
+.verification_counter{
+  width: 60%;
+font-size: 30px;
+font-weight: 500;
+line-height: 42px;
+color:var(--m-main);
+text-align: center;
+}
+.verification_txt{
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+width: 60%;
+  color:var(--m-gray-2);
+text-align: center;
+}
+
+.second-btn ,.main-btn{
+  height: 44px;
+  
+  background: var(--m-gray-2);
+  border-radius: var(--rounded-main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.second-btn button ,.main-btn button{
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 150%;
+  color: var(--m-white);
+  height: 100%;
+  width: 100%;
+}
+.main-btn{
+  background: var(--m-main);}
+
+
+.activationBtns div{
+  padding-inline: 0px;
+width: 48%;
+}
+
+.verification-modal .modal-dialog.small-modal .modal-content {
+  width: 30%;
+}
+.verification-content .check-image{
+  width: 150px;
+  height: 150px;
+}
+
+.verification-content h3{
+font-size: 32px;
+line-height: 60px;
+
+}
+.verification_image{
+  text-align: left;
+
+}
+.verification_image img{
+  height: 410px;
+  max-width: 100%;
+}
+.verification_title{
+  font-size: 30px;
+}
+.verification_saeeh_card {
+    background-color: #fff;
+    border: 1px solid #CACACA;
+    border-radius: var(--rounded-main);
+    padding: 48px 37px  0 0;
+}
+.close-modal i {
+  color: #fff;
+  font-size: 20px;
+}
+.modal-open{
+  padding-right: 0 !important;
+}
+.modal-custom .modal-dialog.small-modal {
+  margin: 0% auto;
+  height: 100%;
+}

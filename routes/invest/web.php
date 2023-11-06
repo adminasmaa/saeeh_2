@@ -28,6 +28,8 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
     });
     Route::prefix('invst')->name('invst.')->middleware(['auth'])->group(function () {
        
+        Route::get('updateprofile/{id}', 'App\Http\Controllers\Frontend\Investor\AuthController@updateprofile')->name('updateprofile');
+        Route::post('updateaccount', 'App\Http\Controllers\Frontend\Investor\AuthController@updateaccount')->name('updateaccount');
         Route::get('cityareas/{id}', 'App\Http\Controllers\Frontend\Investor\HomeController@cityareas')->name('cityareas');
         Route::get('SubCategories/{id}', 'App\Http\Controllers\Frontend\Investor\HomeController@SubCategories')->name('SubCategories');
         Route::get('home', 'App\Http\Controllers\Frontend\Investor\HomeController@index')->name('home'); 
