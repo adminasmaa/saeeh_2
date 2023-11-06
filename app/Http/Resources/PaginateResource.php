@@ -5,9 +5,6 @@ namespace App\Http\Resources;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Resources\Json\PaginatedResourceResponse;
 
-use App\Http\Resources\CategoryOnlyResource;
-use App\Http\Resources\PlaceReviewResource;
-
 class PaginateResource extends JsonResource
 {
 
