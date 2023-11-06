@@ -25,6 +25,7 @@
                       @if ($k==0)checked @endif
                       class="registerInp"
                       data-form="registerdata{{$k+1}}"
+                      @if(!empty($invest)&&$invest->account_type_id!=null && ($invest->account_type_id==$item->id)) checked  @endif
                     />
                     @if($errors->has('account_type'))
                             <span class="error">{{ $errors->first('account_type') }}</span>
@@ -72,6 +73,7 @@
                         name="firstname"
                         class="form-control register-input"
                         placeholder="اسم المسئول " 
+                        value="{{ old('firstname', (empty($invest))? null : $invest['firstname']) }}"
                       />
                       @if($errors->has('firstname'))
                           <span class="error">{{ $errors->first('firstname') }}</span>
@@ -87,6 +89,7 @@
                         name="username"
                         class="form-control register-input"
                         placeholder="الاسم التجارى  "
+                        value="{{ old('username', (empty($invest))? null : $invest['username']) }}"
                       />
                       @if($errors->has('username'))
                           <span class="error">{{ $errors->first('username') }}</span>
@@ -102,6 +105,7 @@
                         id="address"
                         class="form-control register-input"
                         placeholder="ادخل العنوان بالكامل     "
+                        value="{{ old('address', (empty($invest))? null : $invest['address']) }}"
                       />
                       @if($errors->has('address'))
                           <span class="error">{{ $errors->first('address') }}</span>
@@ -157,6 +161,7 @@
                         name="email"
                         id="email"
                         class="form-control register-input"
+                        value="{{ old('email', (empty($invest))? null : $invest['email']) }}"
                       />
                       @if($errors->has('email'))
                           <span class="error">{{ $errors->first('email') }}</span>
@@ -175,6 +180,7 @@
                           name="password"
                           placeholder="كلمة المرور"
                            maxlength="10"
+                           value="{{ old('password', (empty($invest))? null : $invest['password']) }}"
                         />
                         @if($errors->has('password'))
                           <span class="error">{{ $errors->first('password') }}</span>
@@ -201,6 +207,7 @@
                           name="c_password"
                           placeholder="تأكيد كلمه المرور"
                           maxlength="10"
+                          value="{{ old('password', (empty($invest))? null : $invest['password']) }}"
 
                         />
                         @if($errors->has('c_password'))
@@ -221,10 +228,10 @@
                         </label>
                         <select class="select2" name="comision">
                           <option value="1">ادخل العمولة</option>
-                          <option value="5%">5%</option>
-                          <option value="10%">10%</option>
+                          <option value="5%" @if((old('comision')=='5%')||(!empty($invest) && ($invest->comision=='5%')))selected @endif>5%</option>
+                          <option value="10%" @if((old('comision')=='10%')||(!empty($invest) && ($invest->comision=='10%')))selected @endif>10%</option>
                           @for ($x = 11; $x <= 30; $x++) 
-                          <option value="{{$x}}%">{{$x}}%</option>
+                          <option value="{{$x}}%" @if((old('comision')=='{{$x}}%')||(!empty($invest) && ($invest->comision=='{{$x}}%')))selected @endif>{{$x}}%</option>
                           @endfor
                         </select>
                         @if($errors->has('comision'))
