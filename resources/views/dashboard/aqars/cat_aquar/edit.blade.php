@@ -52,58 +52,104 @@
                         <div class="card-body">
                             @include('partials._errors')
 
-
                             <div class="row form-group">
 
-                                <div class="col-sm-12">
+                                    <div class="col-md-6 form-group col-12 p-2  ">
 
+                                        <label>@lang('site.image')</label>
+                                        <img  name="image"src="{{asset('images/categories/'.$category->image)}}"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#exampleModalss" width="100px" height="100px" class="d-block"
+                                            onerror="this.src='{{asset('images/categories/default.jpg')}}'"
+                                            >
+                                    </div>
+                                    <div class="col-md-6 form-group col-12 p-2">
+                                        <label>@lang('site.icon')</label>
+                                        <img name="icon" src="{{asset('images/categories/'.$category->icon)}}"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#exampleModalss2" width="100px" height="100px" class="d-block"
+                                            onerror="this.src='{{asset('images/categories/default.jpg')}}'"
+                                        >
 
-                                    <label>@lang('site.image')</label>
-                                    <img src="{{asset('images/categories/'.$category->image)}}" data-bs-toggle="modal"
-                                         data-bs-target="#exampleModalss" width="100px" height="100px" class="d-block"
-                                         onerror="this.src='{{asset('images/categories/default.jpg')}}'"
-                                    >
-
-
-                                </div>
+                                    </div>
                             </div>
 
                             <!-- Modal -->
                             <div class="modal fade" id="exampleModalss" tabindex="-1"
-                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">@lang('site.image')</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <table class="border-5">
-                                                <tr>
-                                                    <th>
-                                                        <img name="soso"
-                                                             src="{{asset('images/categories/'.$category->image)}}"
-                                                             alt=""
-                                                             width="400px" height="aut0"
-
-
-                                                             onerror="this.src='{{asset('images/categories/default.jpg')}}'"
-                                                        >
-
-                                                    </th>
-                                                </tr>
-
-
-                                            </table>
-
-
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">@lang('site.Cancel')</button>
-                                        </div>
+                             aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">@lang('site.image')</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
                                     </div>
+                                    <div class="modal-body">
+                                        <table class="border-5">
+                                            <tr>
+                                                <th>
+                                                    <img name="image"
+                                                         src="{{asset('images/categories/'.$category->image)}}"
+                                                         alt=""
+                                                         width="400px" height="aut0"
+
+
+                                                         onerror="this.src='{{asset('images/categories/default.jpg')}}'"
+                                                    >
+
+                                                </th>
+                                            </tr>
+
+
+                                        </table>
+                                    </div>
+                                    <br>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">@lang('site.Cancel')</button>
+                                    </div>
+                                    <br>
+                                    </div>
+                                </div>
+                                    </div>
+
+                            <div class="modal fade" id="exampleModalss2" tabindex="-1"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">@lang('site.icon')</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <table class="border-5">
+                                    <tr>
+                                        <th>
+                                            <img name="icon"
+                                                    src="{{asset('images/categories/'.$category->icon)}}"
+                                                    alt=""
+                                                    width="400px" height="aut0"
+
+
+                                                    onerror="this.src='{{asset('images/categories/default.jpg')}}'"
+                                            >
+
+                                        </th>
+                                    </tr>
+
+
+                                </table>
+                            </div>
+                            <br>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">@lang('site.Cancel')</button>
+                            </div>
+                            <br>
+                            </div>
+                        </div>
+                            </div>
                                 </div>
                             </div>
                             <!--  End Of Modal -->
@@ -111,10 +157,16 @@
                                 <!--<div class="col-md-6">-->
 
                                 <div class="col-md-6 form-group col-12 p-2">
-                                    <label>@lang('site.name')<span class="text-danger">*</span></label>
-                                    <input type="text" name="name" class="form-control" value="{{ $category->name }}"
+                                    <label>@lang('site.ar.name')<span class="text-danger">*</span></label>
+                                    <input type="text" name="name_ar" class="form-control" value="{{ $category->name_ar }}"
                                            required>
                                 </div>
+                                <div class="col-md-6 form-group col-12 p-2">
+                                    <label>@lang('site.en.name')<span class="text-danger">*</span></label>
+                                    <input type="text" name="name_en" class="form-control" value="{{ $category->name_en }}"
+                                           >
+                                </div>
+
                             </div>
                             <div class="row">
                                 <!--<div class="col-md-6">-->
@@ -136,25 +188,22 @@
                                     <input type="file" name="image" class="form-control" value="{{ old('image') }}">
 
 
+                                </div>       <div class="col-md-6 form-group col-12 p-2">
+
+
+                                    <label>@lang('site.icon')</label>
+                                    <input type="file" name="icon" class="form-control" value="{{ old('icon') }}">
+
+
                                 </div>
                             </div>
 
                             <br>
 
-                                    <div class="col-md-2 form-group col-12 p-2">
-
-                                        <br>
-                                        <a
-                                            class="btn btn-air-primary btn-pill btn-primary add-category w-100">@lang('site.add')</a>
-                                    </div>
 
                                 </div>
 
-                                <table class="categories-list" id="table5">
 
-
-
-                                </table>
 
 
                         </div>
@@ -176,25 +225,5 @@
     <!-- Container-fluid Ends-->
     </div>
 
-@endsection
-@section('scripts')
-    <script>
-
-
-
-
-        $(document).ready(function () {
-            jQuery('a.add-category').click(function (event) {
-                event.preventDefault();
-                var newRow = jQuery('<tr><td><div class="row"><div class="col-md-3 form-group col-12 p-2">' +
-                    '<input type="text"     name="name_category[]" class="form-control"/></div><div class="col-md-3 form-group col-12 p-2">' +
-                    '<input type="file" name="image_category[]" class="form-control" >' +
-                    '  </div>  <div class="col-md-3 form-group col-12 p-2 "> <a  onclick="deleteRow(this)" ><i class="fa fa-trash"></i></a>' +
-
-                    '</div></div> </td>  </tr>');
-                jQuery('.categories-list').append(newRow);
-            });
-        });
-    </script>
 @endsection
 

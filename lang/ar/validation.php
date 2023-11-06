@@ -12,6 +12,7 @@ return [
     | as the size rules. Feel free to tweak each of these messages here.
     |
     */
+    'incorrect phone'=>'  رقم الهاتق غير مسجل ',
     'User register successfully.' => 'تسجيل المستخدم بنجاح.',
     'accepted' => 'يجب قبول :attribute.',
     'active_url' => ':attribute لا يُمثّل رابطًا صحيحًا.',
@@ -34,7 +35,8 @@ return [
     'date' => ':attribute ليس تاريخًا صحيحًا.',
     'date_equals' => 'يجب أن يكون :attribute مطابقاً للتاريخ :date.',
     'date_format' => 'لا يتوافق :attribute مع الشكل :format.',
-    'different' => 'يجب أن يكون الحقلان :attribute و :other مُختلفين.',
+    // 'different' => 'يجب أن يكون الحقلان :attribute و :other  الحاليه مُختلفان.',
+    'different' => 'يجب أن يكون الحقلان :other الحالية و:attribute مُختلفان.',
     'digits' => 'يجب أن يحتوي :attribute على :digits رقمًا/أرقام.',
     'digits_between' => 'يجب أن يحتوي :attribute بين :min و :max رقمًا/أرقام .',
     'dimensions' => 'الـ :attribute يحتوي على أبعاد صورة غير صالحة.',
@@ -87,13 +89,16 @@ return [
     'min' => [
         'numeric' => 'يجب أن تكون قيمة :attribute مساوية أو أكبر من :min.',
         'file' => 'يجب أن يكون حجم الملف :attribute على الأقل :min كيلوبايت.',
-        'string' => 'يجب أن يكون طول النص :attribute على الأقل :min حروفٍ/حرفًا.',
+        // 'string' => 'يجب أن يكون طول النص :attribute على الأقل :min أرقام/رقم.',
+        'string' => 'يجب الا يقل  :attribute  عن :min أرقام.',
         'array' => 'يجب أن يحتوي :attribute على الأقل على :min عُنصرًا/عناصر.',
     ],
     'not_in' => 'العنصر :attribute غير صحيح.',
     'not_regex' => 'صيغة :attribute غير صحيحة.',
     'numeric' => 'يجب على :attribute أن يكون رقمًا.',
     'password' => 'كلمة المرور غير صحيحة.',
+    'new password' => ' كلمه المرور الجديدة ' ,
+
     'present' => 'يجب تقديم :attribute.',
     'regex' => 'صيغة :attribute .غير صحيحة.',
     'required' => ':attribute مطلوب.',
@@ -103,7 +108,10 @@ return [
     'required_with_all' => ':attribute مطلوب إذا توفّر :values.',
     'required_without' => ':attribute مطلوب إذا لم يتوفّر :values.',
     'required_without_all' => ':attribute مطلوب إذا لم يتوفّر :values.',
-    'same' => 'يجب أن يتطابق :attribute مع :other.',
+
+    // 'same' => 'يجب أن يتطابق :attribute الجديدة مع:other.',
+    
+    'same' => 'يجب أن يتطابق :other مع :attribute.',
     'size' => [
         'numeric' => 'يجب أن تكون قيمة :attribute مساوية لـ :size.',
         'file' => 'يجب أن يكون حجم الملف :attribute :size كيلوبايت.',
@@ -147,7 +155,7 @@ return [
     */
 
     'attributes' => [
-        'rate' => 'تقيم',
+        'rate' => 'تقييم',
         'comment' => 'تعليق',
         'cart_id' => 'عربة',
         'quantity' => 'كمية',
@@ -160,7 +168,8 @@ return [
         'id' => 'الرقم',
         'product_id' => 'رقم المنتج',
         'contact_type' => 'نوع الرساله ',
-        'c_password' => 'تاكيد كلمه المرو ',
+        'c_password' => 'تاكيد كلمه المرور ',
+        'new_password' => ' كلمة المرور الجديدة ',
         'field' => 'الحقل',
         'required' => 'مطلوب',
         'unique' => 'مميز',

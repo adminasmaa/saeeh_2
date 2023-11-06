@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('name_en')->nullable();
             $table->integer('place_order')->required();
             $table->integer('place_error')->required()->default(0);
-            $table->string('const_from')->required();
-            $table->string('const_to')->required();
+            $table->time('const_from')->required();
+            $table->time('const_to')->required();
             $table->string('address')->required();
             $table->string('descrption_ar')->required();
             $table->string('descrption_en')->nullable();
@@ -31,13 +31,13 @@ return new class extends Migration
             $table->string('google_mark_link')->nullable();
             $table->string('place_link')->nullable();
             $table->string('share_link')->nullable();
-            $table->integer('time_check')->nullable();
+            $table->time('time_check')->nullable();
             $table->integer('seen_counter')->required()->default(0);
             $table->integer('delivery')->nullable();
-            $table->integer('diff_time')->nullable();
-            $table->integer('const_time')->nullable();
-            $table->string('latitude')->nullable();
-            $table->string('longitude')->nullable();
+            $table->time('diff_time')->nullable();
+            $table->time('const_time')->nullable();
+            $table->double('latitude')->nullable();
+            $table->double('longitude')->nullable();
             $table->json('rest_one')->nullable(); //eat_types
             $table->json('rest_two')->nullable(); //break_type
             $table->json('rest_three')->nullable(); //place_table(tawla)

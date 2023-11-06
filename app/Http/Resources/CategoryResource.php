@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Resources;
+use App\Http\Resources\PlaceResource;
+use App\Http\Resources\SubCategoryResource;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -24,13 +26,13 @@ class CategoryResource extends JsonResource
         }
         return [
             "id" => $this->id,
-            "city_id " => $this->city_id ,
             "name" => $this->$name,
-            "icon" => $this->icon,
+            "icon" => asset('images/categories')."/".$this->icon,
             "image" => asset('images/categories')."/".$this->image,
             "active" => $this->active,
             "subcategories"=> SubCategoryResource::collection($this->whenLoaded('subcategories')),
-            "places"=> $this->when($this->subcategories->isEmpty(),PlaceResource::collection($this->places)),
+//            "places"=> $this->when($this->subcategories->isEmpty(),PlaceResource::collection($this->places)),
+            
         ];
     }
 }

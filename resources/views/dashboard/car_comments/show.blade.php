@@ -51,19 +51,11 @@
 
                             <div class="col-md-6 form-group col-12 p-2">
                                 <label>@lang('site.rating')<span class="text-danger">*</span></label>
-                                <input type="text" name="rating" class="form-control"
-                                       value="{{ $CarComment->rating }}" readonly
+                                <input type="float" name="rating" class="form-control"
+                                       value="{{ $CarComment->rating }}" readonly=""disabled
                                 >
                             </div>
-
-
-                            <div class="col-md-6 form-group col-12 p-2 ">
-                                <label>@lang('site.status')<span class="text-danger">*</span></label>
-                                <input type="text" name="status" class="form-control"
-                                       value="{{ $CarComment->status }}" readonly
-                                >
-                            </div>
-
+                        </div>
 
                         </div>
 
@@ -73,12 +65,25 @@
 
                             <div class="col-md-6 form-group">
                                 <label class="form-label">@lang('site.users')</label>
-                                <select class="form-control btn-square" name="user_id" readonly="">
+                                <select class="form-control btn-square" name="user_id" readonly=""disabled>
                                     <option selected>@lang('site.select')</option>
                                     @foreach($users as $user)
 
                                         <option value="{{$user->id}}"
-                                                @if($CarComment->user_id==$user->id) selected @endif>{{$user->username ?? ''}}</option>
+                                                @if($CarComment->user_id==$user->id) selected  @endif>{{$user->firstname . $user->lastname ?? ''}}</option>
+
+                                    @endforeach
+
+                                </select>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label class="form-label">@lang('site.cars')</label>
+                                <select class="form-control btn-square" name="car_id" readonly=""disabled>
+                                    <option selected>@lang('site.select')</option>
+                                    @foreach($cars as $car)
+
+                                        <option value="{{$car->id}}"
+                                                @if($CarComment->car_id==$car->id) selected @endif>{{$car->name_ar ?? ''}}</option>
 
                                     @endforeach
 
@@ -86,19 +91,20 @@
                             </div>
 
                             <div class="col-md-6 form-group">
-                                <label class="form-label">@lang('site.cars')</label>
-                                <select class="form-control btn-square" name="car_id" readonly="">
+                                <label class="form-label">@lang('site.bookings')</label>
+                                <select class="form-control btn-square" name="car_booking_id " id="car_booking_id " disabled
+                                        readonly="">
                                     <option selected>@lang('site.select')</option>
-                                    @foreach($cars as $car)
+                                    @foreach($carBooking as $carBooking)
 
-                                        <option value="{{$car->id}}"
-                                                @if($CarComment->car_id==$car->id) selected @endif>{{$car->name ?? ''}}</option>
+                                        <option value="{{$carBooking->id}}" @if($carBooking->
+                                                        id==$carBooking->id ) selected
+                                            @endif>{{$carBooking->type ?? ''}}</option>
 
                                     @endforeach
 
                                 </select>
                             </div>
-
 
                         </div>
 
@@ -108,9 +114,9 @@
 
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.description')<span class="text-danger">*</span></label>
-                                <textarea class="form-control" cols="5" rows="5" name="description" readonly>
-{{ $CarComment->description ?? '' }}
-                                        </textarea>
+                                <textarea class="form-control" cols="5" rows="5" name="description" readonly=""disabled>
+                                        {{ $CarComment->description ?? '' }}
+                                </textarea>
                             </div>
                         </div>
 

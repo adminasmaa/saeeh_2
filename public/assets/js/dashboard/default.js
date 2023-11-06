@@ -1,16 +1,4 @@
-// greeting
-var today = new Date()
-var curHr = today.getHours()
 
-if (curHr >= 0 && curHr < 4) {
-    document.getElementById("greeting").innerHTML = 'Good Night';
-} else if (curHr >= 4 && curHr < 12) {
-    document.getElementById("greeting").innerHTML = 'Good Morning';
-} else if (curHr >= 12 && curHr < 16) {
-    document.getElementById("greeting").innerHTML = 'Good Afternoon';
-} else {
-    document.getElementById("greeting").innerHTML = 'Good Evening';
-}
 // time 
 function startTime() {
     var today = new Date();
@@ -34,14 +22,14 @@ function checkTime(i) {
 // currently sale
 var options = {
     series: [{
-        name: 'series1',
+        name: 'Online',
         data: [6, 20, 15, 40, 18, 20, 18, 23, 18, 35, 30, 55, 0]
     }, {
-        name: 'series2',
+        name: 'Store',
         data: [2, 22, 35, 32, 40, 25, 50, 38, 42, 28, 20, 45, 0]
     }],
     chart: {
-        height: 240,
+        height: 254,
         type: 'area',
         toolbar: {
             show: false

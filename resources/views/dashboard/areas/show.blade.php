@@ -76,26 +76,27 @@
                                 </div>
                                 <div class="col-md-6 form-group col-12 p-2">
                                     <label>@lang('site.active')</label>
-                                    <select class="form-control btn-square" name="active" readonly="" disabled>
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="active" readonly="" disabled>
                                         <option selected>@lang('site.select')</option>
 
                                         <option value="1"
-                                                @if($area->active=='active') selected @endif>active
+                                                @if($area->active=='1') selected @endif>@lang('site.active')
                                         </option>
                                         <option value="0"
-                                                @if($area->active=='inactive') selected @endif>inactive
+                                                @if($area->active=='0') selected @endif>@lang('site.in_active')
                                         </option>
-                                        
+
                                     </select>
                                 </div>
+                           
                                 <div class="col-md-6 form-group col-12 p-2">
                                 <label class="form-label">@lang('site.cities')</label>
-                                <select class="form-control btn-square" name="city_id" readonly="" >
+                                <select class="js-example-placeholder-multiple col-sm-12" name="city_id" readonly="" disabled>
                                     <option selected>@lang('site.select')</option>
                                     @foreach($cities as $city)
 
                                         <option value="{{$city->id}}"
-                                                @if($city->city_id==$city->id) selected @endif>{{$city->name ?? ''}}</option>
+                                                @if($area->city_id==$city->id) selected @endif>{{$city->name_ar ?? ''}}</option>
 
                                     @endforeach
 

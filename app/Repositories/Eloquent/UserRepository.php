@@ -29,7 +29,7 @@ class UserRepository implements IUserRepositoryAlias
         $countries = Country::all();
         $cities = City::all();
 
-        return view('dashboard.users.create', compact('roles', 'countries','cities'));
+        return view('dashboard.users.create', compact('roles', 'countries', 'cities'));
     }
 
     public function edit($Id)
@@ -42,7 +42,7 @@ class UserRepository implements IUserRepositoryAlias
         $countries = Country::all();
         $cities = City::all();
 
-        return view('dashboard.users.edit', compact('user', 'roles', 'countries','cities'));
+        return view('dashboard.users.edit', compact('user', 'roles', 'countries', 'cities'));
     }
 
     public function show($Id)
@@ -58,7 +58,7 @@ class UserRepository implements IUserRepositoryAlias
 
         $roles = Role::all();
 
-        return view('dashboard.users.show', compact('user', 'roles', 'countries','cities'));
+        return view('dashboard.users.show', compact('user', 'roles', 'countries', 'cities'));
     }
 
     public function destroy($user)
@@ -67,9 +67,9 @@ class UserRepository implements IUserRepositoryAlias
 
         $result = $user->delete();
         if ($result) {
-                Alert::toast('Deleted', __('site.deleted_successfully'));
+            Alert::toast('Deleted', __('site.deleted_successfully'));
         } else {
-                Alert::toast('Error', __('site.delete_faild'));
+            Alert::toast('Error', __('site.delete_faild'));
 
 //                session()->flash('error', __('site.delete_faild'));
         }
@@ -92,12 +92,14 @@ class UserRepository implements IUserRepositoryAlias
 
 
         if ($request->hasFile('image')) {
-            $thumbnail = $request->file('image');
-            $destinationPath = 'images/employee/';
-            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move($destinationPath, $filename);
-            $user->image = $filename;
-            $user->save();
+//            $thumbnail = $request->file('image');
+//            $destinationPath = 'images/employee/';
+//            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+//            $thumbnail->move($destinationPath, $filename);
+//            $user->image = $filename;
+//            $user->save();
+
+            UploadImage('images/employee/','image', $user, $request->file('image'));
         }
 
         if ($request->roles) {
@@ -129,12 +131,15 @@ class UserRepository implements IUserRepositoryAlias
 
 
         if ($request->hasFile('image')) {
-            $thumbnail = $request->file('image');
-            $destinationPath = 'images/employee/';
-            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move($destinationPath, $filename);
-            $user->image = $filename;
-            $user->save();
+//            $thumbnail = $request->file('image');
+//            $destinationPath = 'images/employee/';
+//            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+//            $thumbnail->move($destinationPath, $filename);
+//            $user->image = $filename;
+//            $user->save();
+
+            UploadImage('images/employee/','image', $user, $request->file('image'));
+
         }
 
         if (isset($request->roles)) {

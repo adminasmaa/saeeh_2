@@ -5,6 +5,7 @@ namespace App\Repositories\Eloquent;
 
 use App\Models\Car;
 use App\Models\CarComment;
+use App\Models\CarBooking;
 use App\Models\User;
 use App\Repositories\Interfaces\CarCommentRepositoryInterface as CarCommentRepositoryInterfaceAlias;
 use Illuminate\Support\Facades\DB;
@@ -30,12 +31,15 @@ class CarCommentRepository implements CarCommentRepositoryInterfaceAlias
     {
         // TODO: Implement show() method.
         $CarComment=CarComment::find($Id);
+
         $cars = Car::all();
+
+        $carBooking = CarBooking::all();
 
         $users = User::all();
 
 
-        return view('dashboard.car_comments.show', compact('cars', 'users', 'CarComment'));
+        return view('dashboard.car_comments.show', compact('cars', 'users', 'carBooking','CarComment'));
     }
 
 

@@ -35,11 +35,15 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
 
         $category = Category::find($Id);
 
+        $citiesrelated = json_decode($category->city_id) ?? [];
+
+//        return $citiesrelated;
+
         $subcategories = Category::where('parent_id', $Id)->get();
 
         $cities = City::all();
 
-        return view('dashboard.categories.edit', compact('category', 'subcategories', 'cities'));
+        return view('dashboard.categories.edit', compact('category', 'subcategories', 'cities', 'citiesrelated'));
     }
 
     public function show($Id)
@@ -52,8 +56,10 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
 
         $cities = City::all();
 
+        $citiesrelated = json_decode($category->city_id) ?? [];
 
-        return view('dashboard.categories.show', compact('category', 'subcategories', 'cities'));
+
+        return view('dashboard.categories.show', compact('category', 'subcategories', 'cities', 'citiesrelated'));
     }
 
 
@@ -61,46 +67,62 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
     {
         // TODO: Implement store() method.
 
-        $request_data = $request->except(['image', 'name_category', 'image_category']);
+//        return $request;
+        $request_data = $request->except(['image', 'icon','name_ar_category','name_en_category','image_category', 'city_id']);
 
         // To Make  Active
         $request_data['active'] = 1;
+        $request_data['type'] = 2;
+        $request_data['parent_id'] = 2;
+        $arr = $request->name_ar_category;
 
-        $category = Category::create($request_data);
+
+        $category = Category::create($request_data + ['city_id' => json_encode($request['city_id'])]);
+
+
+//        $category->city_id = $request_data['city_id'];
+//        $category->save();
 
         if ($request->hasFile('image')) {
-            $thumbnail = $request->file('image');
-            $destinationPath = 'images/categories/';
-            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move($destinationPath, $filename);
-            $category->image = $filename;
-            $category->save();
+
+            UploadImage('images/categories/','image', $category, $request->file('image'));
+
         }
 
-        if (isset($request['name_category'])) {
+        if ($request->hasFile('icon')) {
 
-            foreach ($request['name_category'] as $key => $value) {
+            UploadImage('images/categories/','icon', $category, $request->file('icon'));
+
+        }
+
+        if ($arr[0]!=null) {
+
+        // if (!empty($request['name_ar_category'])) {
+
+            foreach ($request['name_ar_category'] as $key => $value) {
                 $cat = Category::create([
-                    'name_ar' => $value,
+                    'name_ar' => $request['name_ar_category'][$key],
+                    'name_en' => $request['name_en_category'][$key],
+                    'type' =>  $request['type'] = 2,
                     'parent_id' => $category->id
                 ]);
 
 
-//                if (isset($request['image_category'][$key])) {
+                if (!empty($request['image_category'][$key])) {
 
-                    $image = $request['image_category'][$key];
-
-
+                    $image = $request['image_category'][$key] ?? '';
+    
+    
                     $destinationPath = 'images/categories/';
                     $extension = $image->getClientOriginalExtension(); // getting image extension
                     $name = time() . '' . rand(11111, 99999) . '.' . $extension; // renameing image
                     $image->move($destinationPath, $name); // uploading file to given
                     $cat->image = $name;
-
+    
                     $cat->save();
-
+    
                 }
-//            }
+            }
 
         }
         if ($category) {
@@ -115,42 +137,56 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
     {
         // TODO: Implement update() method.
 
+        $request_data = $request->except(['image', 'icon','name_ar_category','name_en_category','image_category', 'city_id']);
 
-        $request_data = $request->except(['image', 'name_category', 'image_category']);
+        // $category->update($request_data + ['city_id' => json_encode($request['city_id'])]);
+
         $category->update($request_data);
+
+        $arr = $request->name_ar_category;
 
 
         if ($request->hasFile('image')) {
-            $thumbnail = $request->file('image');
-            $destinationPath = 'images/categories/';
-            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move($destinationPath, $filename);
-            $category->image = $filename;
-            $category->save();
+
+            UploadImage('images/categories/','image', $category, $request->file('image'));
         }
 
-        if (isset($request['name_category'])) {
 
-            foreach ($request['name_category'] as $key => $value) {
-                $cat = Category::create([
-                    'name_ar' => $value,
-                    'parent_id' => $category->id
+        if ($request->hasFile('icon')) {
+
+            UploadImage('images/categories/','icon', $category, $request->file('icon'));
+        }
+
+        if ($arr[0]!=null) {
+
+            foreach ($request['name_ar_category'] as $key => $value) {
+                
+                if( $request['name_ar_category'][$key] !=null){
+                    
+                    $cat = Category::updateOrCreate([
+                        'id' => $request['id'][$key]??0
+                    ],[
+                    'name_ar' => $request['name_ar_category'][$key],
+                    'name_en' => $request['name_en_category'][$key],
+                    'type' =>  $request['type'] = 2,
+                    'parent_id' => $category->id,
+    //                    'city_id' => json_encode($request['city_id'])
                 ]);
 
+                if (!empty($request['image_category'][$key])) {
+                    
+                    $image = $request['image_category'][$key] ?? '';
+                    $destinationPath = 'images/categories/';
+                    $extension = $image->getClientOriginalExtension(); // getting image extension
+                    $name = time() . '' . rand(11111, 99999) . '.' . $extension; // renameing image
+                    $image->move($destinationPath, $name); // uploading file to given
+                    $cat->image = $name;
 
-//            if (isset($request['image_category'][$key])) {
+                    $cat->save();
 
-                $image = $request['image_category'][$key];
+                }
 
-
-                $destinationPath = 'images/categories/';
-                $extension = $image->getClientOriginalExtension(); // getting image extension
-                $name = time() . '' . rand(11111, 99999) . '.' . $extension; // renameing image
-                $image->move($destinationPath, $name); // uploading file to given
-                $cat->image = $name;
-
-                $cat->save();
-
+                }
             }
         }
         if ($category) {
@@ -158,7 +194,7 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
 
             //   return redirect()->route('dashboard.users.index');
             return redirect()->route('dashboard.categories.index');
-//            session()->flash('success', __('site.updated_successfully'));
+            //   session()->flash('success', __('site.updated_successfully'));
         } else {
             Alert::error('Error', __('site.update_faild'));
 
@@ -173,12 +209,13 @@ class CategoryRepository implements CategoryRepositoryInterfaceAlias
         // TODO: Implement destroy() method.
         $result = $category->delete();
         if ($result) {
-                Alert::toast('Deleted', __('site.deleted_successfully'));
+            Alert::toast('Deleted', __('site.deleted_successfully'));
         } else {
-                Alert::toast('Deleted', __('site.delete_faild'));
+            Alert::toast('Deleted', __('site.delete_faild'));
 
         }
 
         return back();
     }
+    
 }

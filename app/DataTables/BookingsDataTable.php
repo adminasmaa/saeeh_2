@@ -50,6 +50,27 @@ class BookingsDataTable extends DataTable
             ->editColumn('created_at', function ($model) {
                 return (!empty($model->created_at)) ? $model->created_at->diffForHumans() : '';
             })
+            ->addIndexColumn()
+            ->addColumn('status', function ($model) {
+
+
+                return '           
+       
+                <div class="dropdown">
+                <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                    عمليات
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="'.route('dashboard.acceptcarbooking' , $model->id).'">'.trans('site.accepted').'</a></li>
+                    <li><a class="dropdown-item" href="'.route('dashboard.rejectcarbooking' , $model->id).'">'.trans('site.reject').'</a></li>
+                </ul>
+               </div>
+                
+                
+                ';
+              
+
+            })
             ->addColumn('action', function ($model) {
                 $actions = '';
 
@@ -57,7 +78,7 @@ class BookingsDataTable extends DataTable
                 $actions .= DTHelper::dtShowButton(route($this->getRoutes()['show'], $model->id), trans('site.show'), $this->getPermissions()['delete']);
 
                 return $actions;
-            });
+             })->rawColumns(['action', 'status']);
     }
 
     /**
@@ -86,17 +107,20 @@ class BookingsDataTable extends DataTable
     {
         return $this->builder()
             ->setTableId('bookings-table')
+            ->addTableClass('cell-border stripe')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            //->dom('Bfrtip')
+          ->dom('Bfrtip')
             ->orderBy(1)
             ->selectStyleSingle()
             ->buttons([
-                Button::make('create')->text('<i class="fa fa-plus"></i> ' . trans('site.add')),
+            //    Button::make('create')->text('<i class="fa fa-plus"></i> ' . trans('site.add')),
                 Button::make('csv')->text('<i class="fa fa-download"></i> ' . trans('site.export')),
                 Button::make('print')->text('<i class="fa fa-print"></i> ' . trans('site.print')),
-                Button::make('reset')->text('<i class="fa fa-undo"></i> ' . trans('site.reset')),
-                Button::make('reload')->text('<i class="fa fa-refresh"></i> ' . trans('site.reload')),
+            //    Button::make('reset')->text('<i class="fa fa-undo"></i> ' . trans('site.reset')),
+             //   Button::make('reload')->text('<i class="fa fa-refresh"></i> ' . trans('site.reload')),
+            ])->language([
+                "url" => app()->getLocale() == 'ar' ? "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json":"//cdn.datatables.net/plug-ins/1.13.4/i18n/en-GB.json"
             ]);
     }
 
@@ -108,12 +132,18 @@ class BookingsDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            Column::make('id'),
+            Column::make('DT_RowIndex')->data('DT_RowIndex')->name('id')->title('#'),
+
             Column::make('type')->title(trans('site.type')),
             Column::make('fixed_price')->title(trans('site.price')),
             Column::make('delivery_date')->title(trans('site.date')),
             Column::make('created_at')->title(trans('site.created_at')),
             Column::computed('action')
+                ->exportable(false)
+                ->printable(false)
+                ->width(60)
+                ->addClass('text-center')->title(trans('site.action')),
+                Column::computed('status')
                 ->exportable(false)
                 ->printable(false)
                 ->width(60)

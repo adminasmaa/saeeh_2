@@ -30,7 +30,7 @@ class PlaceCommentRepository implements PlaceCommentRepositoryInterfaceAlias
     {
         // TODO: Implement show() method.
         $PlaceComment=PlaceComment::find($Id);
-        $places = Place::all();
+        $places = Place::find($PlaceComment->place_id);
 
         $users = User::all();
 

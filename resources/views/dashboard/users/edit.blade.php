@@ -192,30 +192,29 @@
                                     </select>
                                 </div>
 
-                                <div class="col-md-6 form-group">
-                                    <label class="form-label">@lang('site.country')</label>
-                                    <select class="form-control btn-square" name="country_id">
-                                        <option selected>@lang('site.select')</option>
-                                        @foreach($countries as $country)
+                                <div class="row">
+                                                <div class="col-md-6 form-group">
+                                                    <label class="form-label">@lang('site.country')</label>
+                                                    <select class="js-example-placeholder-multiple col-sm-12" name="country_id" id="country_id">
+                                                        <option selected disabled>@lang('site.select')</option>
+                                                        @foreach($countries as $country)
 
-                                            <option value="{{$country->id}}"   @if($country->id==$user->country_id) selected @endif>{{$country->name ?? ''}}</option>
+                                                        <option value="{{$country->id}}" @if($country->
+                                                            id==$user->country_id) selected
+                                                            @endif>{{$country->name_ar ?? ''}}</option>
 
-                                        @endforeach
+                                                        @endforeach
 
-                                    </select>
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label class="form-label">@lang('site.city')</label>
-                                    <select class="form-control btn-square" name="city_id">
-                                        <option selected>@lang('site.select')</option>
-                                        @foreach($cities as $city)
-
-                                            <option value="{{$city->id}}"   @if($city->id==$user->city_id) selected @endif>{{$city->name ?? ''}}</option>
-
-                                        @endforeach
-
-                                    </select>
-                                </div>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6 form-group">
+                                                    <label class="form-label">@lang('site.city')</label>
+                                                    <select class="js-example-placeholder-multiple col-sm-12" name="city_id" id="city_id">
+                                                        <option selected disabled>@lang('site.select')</option>
+                                                      
+                                                    </select>
+                                                </div>
+                            </div>
 
 
 
@@ -232,4 +231,40 @@
     <!-- Container-fluid Ends-->
     </div>
 
+@endsection
+
+@section('scripts')
+
+    <script>
+        $(document).ready(function () {
+            var country_id =  $('#country_id').val();
+                $.get("{{url('dashboard/countrycities')}}/"+country_id, function(data){
+                    $('#city_id').empty();
+                    $('#city_id').append('<option>@lang('site.select')</option>');
+                    $.each(data, function(key, value){
+                        $('#city_id').append('<option value="'+value.id+'">'+value.name_ar+'</option>')
+
+                });
+                $('#city_id').val({{$user->city_id}});
+
+        });
+    });
+        $('#country_id').on('change',function(e){
+            var country_id = e.target.value;
+
+
+
+            $.get("{{url('dashboard/countrycities')}}/"+country_id, function(data){
+                console.log(data);
+                $('#city_id').empty();
+                $('#city_id').append('<option>@lang('site.select')</option>');
+                $.each(data, function(key, value){
+                    $('#city_id').append('<option value="'+value.id+'">'+value.name_ar+'</option>')
+
+                });
+            })
+        })
+        
+
+    </script>
 @endsection

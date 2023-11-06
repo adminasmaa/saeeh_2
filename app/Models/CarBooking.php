@@ -12,6 +12,7 @@ use App\Models\Ads;   //belongsTo
 use App\Models\Commission;   //belongsTo
 use App\Models\BookingNote;    // HasMany
 use App\Models\Deposit;    // HasMany
+use App\Models\BookingStatus;   //belongsTo
 
 class CarBooking extends Model
 {
@@ -21,7 +22,6 @@ class CarBooking extends Model
     protected $table = 'car_bookings';
 
     protected $fillable = [
-        'book_status', // default(2) ,integer
         'fixed_price', // nullable ,float
         'changed_price', // json ,nullable
         'note', // nullable
@@ -32,13 +32,22 @@ class CarBooking extends Model
         'cancle_reason', // nullable
         'place_arrive', // nullable
         'place_leave', // nullable
-        '7agz_type', // required ,default(1)
         'type',// enum ,['website','application']
         'car_id', // unsigned
         'ads_id', // unsigned
         'city_id', // unsigned
         'commission_id', // unsigned
         'user_id', //unsigned
+        'booking_status_id', // unsigned
+        'delivery_hour', // unsigned
+        'receipt_hour', // unsigned
+        'delivery_place', // unsigned
+        'date', // unsigned
+        'total', // unsigned
+        'book_status',
+        'total_price',
+        'cancel_user_id'
+
     ];
     // scope
     public function scopeCarBookingType($query,$Type){
@@ -70,5 +79,13 @@ class CarBooking extends Model
     // relations
     public function deposit(){
         return $this->HasMany(Deposit::class);
+    }
+    // relations
+    public function bookingStatus(){
+        return $this->belongsTo(BookingStatus::class,'booking_status_id');
+    }
+
+    public function payment(){
+        return $this->hasOne(Payment::class,'book_id')->where('type','car');
     }
 }

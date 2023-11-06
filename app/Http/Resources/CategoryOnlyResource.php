@@ -18,16 +18,21 @@ class CategoryOnlyResource extends JsonResource
 
         if ($lang == 'ar') {
             $name = 'name_ar';
+
         } else {
             $name = 'name_en';
+
 
         }
         return [
             "id" => $this->id,
-            "city_id " => $this->city_id ,
             "name" => $this->$name,
-            "icon" => $this->icon,
+
+            "description" =>preg_replace( "/\r|\n/", "", strip_tags($this->description) ) ?? '',
+
+            "icon" => asset('images/categories')."/".$this->icon,
             "image" => asset('images/categories')."/".$this->image,
+            "subcategories"=> (count($this->subcategories)>0 ? true : false),
             "active" => $this->active,
         ];
     }

@@ -69,26 +69,29 @@ class CountryRepository implements ICountryRepositoryAlias
         $request_data = $request->except(['image','flag_image']);
 
         // To Make User Active
-        $request_data['active'] = 1;
+        // $request_data['active'] = 1;
 
         $country = Country::create($request_data);
 
 
         if ($request->hasFile('image')) {
-            $thumbnail = $request->file('image');
-            $destinationPath = 'images/countries/';
-            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move($destinationPath, $filename);
-            $country->image = $filename;
-            $country->save();
+//            $thumbnail = $request->file('image');
+//            $destinationPath = 'images/countries/';
+//            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+//            $thumbnail->move($destinationPath, $filename);
+//            $country->image = $filename;
+//            $country->save();
+            UploadImage('images/countries/','image', $country, $request->file('image'));
+
         }
         if ($request->hasFile('flag_image')) {
-            $thumbnail = $request->file('flag_image');
-            $destinationPath = 'images/countries/';
-            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move($destinationPath, $filename);
-            $country->flag_image = $filename;
-            $country->save();
+//            $thumbnail = $request->file('flag_image');
+//            $destinationPath = 'images/countries/';
+//            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+//            $thumbnail->move($destinationPath, $filename);
+//            $country->flag_image = $filename;
+//            $country->save();
+            UploadImage('images/countries/','flag_image', $country, $request->file('flag_image'));
         }
 
 
@@ -112,21 +115,24 @@ class CountryRepository implements ICountryRepositoryAlias
 
 
         if ($request->hasFile('image')) {
-            $thumbnail = $request->file('image');
-            $destinationPath = 'images/countries/';
-            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move($destinationPath, $filename);
-            $country->image = $filename;
-            $country->save();
+//            $thumbnail = $request->file('image');
+//            $destinationPath = 'images/countries/';
+//            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+//            $thumbnail->move($destinationPath, $filename);
+//            $country->image = $filename;
+//            $country->save();
+            UploadImage('images/countries/','image', $country, $request->file('image'));
         }
 
         if ($request->hasFile('flag_image')) {
-            $thumbnail = $request->file('flag_image');
-            $destinationPath = 'images/countries/';
-            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move($destinationPath, $filename);
-            $country->flag_image = $filename;
-            $country->save();
+//            $thumbnail = $request->file('flag_image');
+//            $destinationPath = 'images/countries/';
+//            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+//            $thumbnail->move($destinationPath, $filename);
+//            $country->flag_image = $filename;
+//            $country->save();
+            UploadImage('images/countries/','flag_image', $country, $request->file('flag_image'));
+
         }
 
 

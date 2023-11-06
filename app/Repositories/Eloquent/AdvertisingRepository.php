@@ -15,11 +15,13 @@ class AdvertisingRepository implements AdvertisingRepositoryInterfaceAlias
     public function getAll($data)
     {
 
-//        return $data->query();
 
-        return $data->render('dashboard.advertising.index', [
+       
+    //    return $data->query();
+
+        return $data->render('dashboard.advertisings.index', [
             'title' => trans('site.advertising'),
-            'model' => 'advertising',
+            'model' => 'ads',
             'count' => $data->count(),
 
         ]);
@@ -30,7 +32,7 @@ class AdvertisingRepository implements AdvertisingRepositoryInterfaceAlias
         // TODO: Implement create() method.
         $users = User::get();
 
-        return view('dashboard.advertising.create', compact('users'));
+        return view('dashboard.advertisings.create', compact('users'));
     }
 
     public function edit($Id)
@@ -41,7 +43,7 @@ class AdvertisingRepository implements AdvertisingRepositoryInterfaceAlias
         $users = User::get();
 
 
-        return view('dashboard.advertising.edit', compact('advertising', 'users'));
+        return view('dashboard.advertisings.edit', compact('advertising', 'users'));
     }
 
     public function show($Id)
@@ -52,7 +54,7 @@ class AdvertisingRepository implements AdvertisingRepositoryInterfaceAlias
         $users = User::get();
 
 
-        return view('dashboard.advertising.show', compact('advertising', 'users'));
+        return view('dashboard.advertisings.show', compact('advertising', 'users'));
     }
 
 
@@ -68,18 +70,21 @@ class AdvertisingRepository implements AdvertisingRepositoryInterfaceAlias
         $advertising = Ads::create($request_data);
 
         if ($request->hasFile('ads_image')) {
-            $thumbnail = $request->file('ads_image');
-            $destinationPath = 'images/advertising/';
-            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move($destinationPath, $filename);
-            $advertising->ads_image = $filename;
-            $advertising->save();
+//            $thumbnail = $request->file('ads_image');
+//            $destinationPath = 'images/advertising/';
+//            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+//            $thumbnail->move($destinationPath, $filename);
+//            $advertising->ads_image = $filename;
+//            $advertising->save();
+
+            UploadImage('images/advertisings/','ads_image', $advertising, $request->file('ads_image'));
+
         }
 
         if ($advertising) {
             Alert::success('Success', __('site.added_successfully'));
 
-            return redirect()->route('dashboard.advertising.index');
+            return redirect()->route('dashboard.advertisings.index');
 
         }
     }
@@ -93,24 +98,25 @@ class AdvertisingRepository implements AdvertisingRepositoryInterfaceAlias
 
 
         if ($request->hasFile('ads_image')) {
-            $thumbnail = $request->file('ads_image');
-            $destinationPath = 'images/advertising/';
-            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
-            $thumbnail->move($destinationPath, $filename);
-            $advertising->ads_image = $filename;
-            $advertising->save();
+//            $thumbnail = $request->file('ads_image');
+//            $destinationPath = 'images/advertising/';
+//            $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+//            $thumbnail->move($destinationPath, $filename);
+//            $advertising->ads_image = $filename;
+//            $advertising->save();
+            UploadImage('images/advertisings/','ads_image', $advertising, $request->file('ads_image'));
         }
 
 
         if ($advertising) {
             Alert::success('Success', __('site.updated_successfully'));
 
-            return redirect()->route('dashboard.advertising.index');
+            return redirect()->route('dashboard.advertisings.index');
 //            session()->flash('success', __('site.updated_successfully'));
         } else {
             Alert::error('Success', __('site.update_faild'));
 
-            return redirect()->route('dashboard.advertising.index');
+            return redirect()->route('dashboard.advertisings.index');
 
         }
     }

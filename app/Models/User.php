@@ -26,6 +26,9 @@ use App\Models\Notification;    // HasMany
 use App\Models\Balance;    // HasMany
 use App\Models\Invoice;    // HasMany
 use App\Models\Deposit;    // HasMany
+use App\Models\AccountType;    // HasMany
+use App\Models\Payment;    // HasMany
+
 class User extends Authenticatable
 {
     use LaratrustUserTrait;
@@ -51,11 +54,16 @@ class User extends Authenticatable
         'city_id',
         'address',
         'longitude',
-        'account_type',
+        'account_type_id',
         'phone',
-        'country_code'
+        'country_code',
+        'device_token',
+        'token',
+        'isguest',
+        'type',
+        'account_type_id'
     ];
-    
+
 
     /**
      * The attributes that should be hidden for serialization.
@@ -64,7 +72,8 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token',
+        'remember_token','address',
+        'email_verified_at','country_id','city_id','deleted_at','created_at','updated_at','isguest','token','active','image'
     ];
 
     /**
@@ -94,6 +103,12 @@ class User extends Authenticatable
     // relations
     public function carComment(){
         return $this->HasMany(CarComment::class);
+    }
+    public function accountType(){
+        return $this->belongsTo(AccountType::class,'account_type_id');
+    }
+    public function country(){
+        return $this->belongsTo(Country::class,'country_id');
     }
     // relations
     public function commission(){
@@ -138,5 +153,28 @@ class User extends Authenticatable
     // relations
     public function deposit(){
         return $this->HasMany(Deposit::class);
+    }
+    // relations
+    public function payment(){
+        return $this->HasMany(Payment::class);
+    }
+    public function favourite_aqars(){
+        return $this->belongsToMany(Aqar::class,'aqar_user');
+    }
+    public function FavouriteCities(){
+        return $this->belongsToMany(City::class,'city_user','city_id','user_id');
+    }
+
+    public function favourite_car(){
+        return $this->belongsToMany(Car::class,'car_user');
+    }
+
+//    public function favourite_place(){
+//        return $this->belongsToMany(Place::class,'user_palace','user_id', 'place_id');
+//    }
+
+    public function favourite_place(){
+
+        return $this->belongsToMany(Place::class, 'user_place', 'user_id', 'place_id');
     }
 }

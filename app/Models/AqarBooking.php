@@ -12,6 +12,9 @@ use App\Models\Ads;   //belongsTo
 use App\Models\Aqar;   //belongsTo
 use App\Models\BookingNote;    // HasMany
 use App\Models\Deposit;    // HasMany
+use App\Models\AqarComment;    // HasMany
+use App\Models\BookingStatus;   //belongsTo
+use App\Models\Payment;   //belongsTo
 
 class AqarBooking extends Model
 {
@@ -20,29 +23,37 @@ class AqarBooking extends Model
 
     protected $table = 'aqar_bookings';
 
+    protected $with=['bookingStatus'];
+
     protected $fillable = [
-        'book_status', // required ,default(2)
-        'fixed_price', // nullable 
+        'fixed_price', // nullable
         'changed_price', // nullable ,json
-        'note', // nullable 
-        'delivery_date', // required 
-        'reciept_date', // required 
-        'day_count', // nullable 
-        'visit_count', // nullable 
+        'note', // nullable
+        'delivery_date', // required
+        'reciept_date', // required
+        'day_count', // nullable
+        'visit_count', // nullable
         'active', // required ,default(0)
-        'cancle_reason', // nullable 
-        'place_arrive', // nullable 
-        'place_leave', // nullable 
-        '7agz_type', // required ,default(1)
-        'wasel_photo', // nullable 
-        'type',// enum ,['website','application']
-        'aqar_id', //unsigned 
-        'ads_id', //unsigned 
-        'city_id', //unsigned 
-        'commission_id', //unsigned 
-        'user_id', //unsigned 
+        'cancle_reason', // nullable
+        'place_arrive', // nullable
+        'place_leave', // nullable
+        'wasel_photo', // nullable
+        'type',// enum ,['website','application','external']
+        'aqar_id', //unsigned
+        'ads_id', //unsigned
+        'city_id', //unsigned
+        'commission_id', //unsigned
+        'user_id', //unsigned
+        'booking_status_id', // unsigned
+        'book_status',
+        'total_price',
+        'person_num',
+        'cancel_user_id',
+        'comision',
     ];
-     // scope
+    protected $hidden=['deleted_at','updated_at'];
+
+    // scope
      public function scopeType($query,$type){
         if($type){
             return $query->where('type', $type);
@@ -76,5 +87,13 @@ class AqarBooking extends Model
     public function deposit(){
         return $this->HasMany(Deposit::class);
     }
+    // relations
+    public function bookingStatus(){
+        return $this->belongsTo(BookingStatus::class,'booking_status_id');
+    }
+
+    public function payment(){
+        return $this->hasOne(Payment::class,'book_id')->where('type','aqar');
+    }
+
 }
-            

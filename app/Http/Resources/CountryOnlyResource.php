@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\CityOnlyResourceCI;
 
 class CountryOnlyResource extends JsonResource
 {
@@ -18,14 +19,21 @@ class CountryOnlyResource extends JsonResource
 
         if ($lang == 'ar') {
             $name = 'name_ar';
+            $currency ='currency_ar';
+
         } else {
             $name = 'name_en';
+            $currency ='currency';
 
         }
         return [
-            "id" => $this->id,
-            "name" => $this->$name,
+            "id" => $this->id ?? '',
+            "name" => $this->$name ?? '',
+            "code" => $this->code ?? '',
+            "currency" => $this->$currency ?? '',
+            "flag_image" => asset('images/countries')."/".$this->flag_image,
             "image" => asset('images/countries')."/".$this->image,
+            "cities"=>CityOnlyResource::collection($this->cities)
         ];
     }
 }

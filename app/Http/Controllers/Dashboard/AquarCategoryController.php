@@ -15,19 +15,21 @@ class AquarCategoryController extends Controller
      * @var $AquarCategoryRepository
      */
     protected $AquarCategoryRepository;
+
     /**
      * CarCategoryController constructor.
      */
     public function __construct()
     {
-        $this->AquarCategoryRepository=new AquarCategoryRepository();
+        $this->AquarCategoryRepository = new AquarCategoryRepository();
     }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(AquarCategoryDataTable $AquarCategoryDataTable )
+    public function index(AquarCategoryDataTable $AquarCategoryDataTable)
     {
         return $this->AquarCategoryRepository->getAll($AquarCategoryDataTable);
     }
@@ -45,26 +47,26 @@ class AquarCategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         $request->validate([
 
-            'name' => 'required',
+                'name_ar' => 'required',
 
-        ]
-    );
+            ]
+        );
 
 
-    return $this->AquarCategoryRepository->store($request);
+        return $this->AquarCategoryRepository->store($request);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -75,7 +77,7 @@ class AquarCategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -86,27 +88,28 @@ class AquarCategoryController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $request->validate([
 
-            'name' => 'required',
-
-        ]
-    );
+                'name_ar' => 'required',
 
 
-    return $this->AquarCategoryRepository->update($category, $request);
+            ]
+        );
+        $category = Category::find($id);
+
+        return $this->AquarCategoryRepository->update($category, $request);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

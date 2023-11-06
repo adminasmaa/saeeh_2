@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\CountryOnlyResource;
 use App\Http\Resources\CountryResource;
 use App\Models\Country;
+use App\Models\Setting;
+use Illuminate\Http\Request;
 
 
 class CountryController extends Controller
@@ -14,20 +16,27 @@ class CountryController extends Controller
 
     public function countries()
     {
-        $Countries =CountryOnlyResource::collection(Country::where('active', 1)->get());
-        return $this->respondSuccess($Countries, 'Countries retrieved successfully.');
+        $Countries =CountryResource::collection(Country::where('active', 1)->get());
+        $verions=Setting::first()->only('ios_version','android_version');
+        return $this->respondSuccesswithversion($Countries,$verions, 'Countries retrieved successfully.');
     }
 
 
-    public function countrydetail($id)
+    public function countrydetail(Request $request)
     {
-        $countryDetail=new CountryOnlyResource(Country::where('id',$id)->where('active',1)->first());
+        $id=$request->country_id;
+        $country=Country::where('id',$id)->where('active',1)->first();
+        if(isset($country)){
+            $countryDetail=new CountryOnlyResource($country);
+            return $this->respondSuccess($countryDetail, 'Country retrieved successfully.');
 
-//        if (count($countryDetail)==0) {
-//            return $this->respondError(__('Country not found.'),['error'=>__('Country not found.')],404);
-//        }
+        }else{
+      return $this->respondError(__('Country not found.'),['error'=>__('Country not found.')],404);
 
-        return $this->respondSuccess($countryDetail, 'Country retrieved successfully.');
+
+        }
+
+
     }
 
 }

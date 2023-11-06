@@ -49,26 +49,34 @@
                         <div class="row">
                             <!--<div class="col-md-6">-->
 
-                            <!-- <div class="col-md-6 form-group col-12 p-2">
+                            <div class="col-md-6 form-group col-12 p-2">
                                 <label>@lang('site.description')<span class="text-danger">*</span></label>
                                 <input type="text" name="description" class="form-control"
-                                       value="{{ $PlaceComment->description }}" readonly
+                                       value="{{ $PlaceComment->description }}" readonly=""disabled
                                 >
-                            </div> -->
+                            </div>
 
                             <div class="col-md-6 form-group col-12 p-2">
                                 <label>@lang('site.rating')<span class="text-danger">*</span></label>
-                                <input type="text" name="rating" class="form-control"
-                                       value="{{ $PlaceComment->rating }}" readonly
+                                <input type="number" name="rating" class="form-control"
+                                       value="{{ $PlaceComment->rating }}" readonly=""disabled
                                 >
                             </div>
 
 
                             <div class="col-md-6 form-group col-12 p-2 ">
-                                <label>@lang('site.status')<span class="text-danger">*</span></label>
-                                <input type="text" name="status" class="form-control"
-                                       value="{{ $PlaceComment->status }}" readonly
-                                >
+                                <label class="form-label">@lang('site.status')</label>
+                                    <select class="form-control btn-square" name="status" readonly="" disabled>
+                                        <option selected>@lang('site.select')</option>
+
+                                        <option value="1"
+                                                @if($PlaceComment->status=='1') selected @endif>@lang('site.active')
+                                        </option>
+                                        <option value="0"
+                                                @if($PlaceComment->status=='0') selected @endif>@lang('site.inactive')
+                                        </option>
+                                        
+                                    </select>
                             </div>
 
 
@@ -80,49 +88,26 @@
 
                             <div class="col-md-6 form-group">
                                 <label class="form-label">@lang('site.users')</label>
-                                <select class="form-control btn-square" name="user_id" readonly="">
+                                <select class="form-control btn-square" name="user_id" readonly=""disabled>
                                     <option selected>@lang('site.select')</option>
                                     @foreach($users as $user)
 
                                         <option value="{{$user->id}}"
-                                                @if($PlaceComment->user_id==$user->id) selected @endif>{{$user->username ?? ''}}</option>
+                                                @if($PlaceComment->user_id==$user->id) selected @endif>{{$user->firstname . $user->lastname ?? ''}}</option>
 
                                     @endforeach
 
                                 </select>
                             </div>
 
-                            <div class="col-md-6 form-group">
-                                <label class="form-label">@lang('site.places')</label>
-                                <select class="form-control btn-square" name="place_id" readonly="">
-                                    <option selected>@lang('site.select')</option>
-                                    @foreach($places as $place)
-
-                                        <option value="{{$place->id}}"
-                                                @if($PlaceComment->place_id==$place->id) selected @endif>{{$place->name_ar ?? ''}}</option>
-
-                                    @endforeach
-
-                                </select>
+                            <div class="col-md-6 form-group col-12 p-2">
+                                <label>@lang('site.places')</label>
+                                <input type="text" name="place_id" class="form-control"
+                                       value="{{$places['name_ar']}}" readonly=""disabled
+                                >
                             </div>
 
-
                         </div>
-
-
-                        <div class="row">
-                            <!--<div class="col-md-6">-->
-
-                            <div class="col-md-6 form-group col-12 p-2 ">
-                                <label>@lang('site.description')<span class="text-danger">*</span></label>
-                                <textarea class="form-control" cols="5" rows="5" name="description" readonly>
-                                    {{ $PlaceComment->description ?? '' }}
-                                </textarea>
-                            </div>
-                        </div>
-
-
-
                     </div>
                 </div>
             </div>

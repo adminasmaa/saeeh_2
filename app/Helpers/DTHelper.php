@@ -62,7 +62,7 @@ HTML;
 //        if (auth()->user()->hasPermission($permission)) {
 
         $html = <<< HTML
- <a href="$link" class="btn-table"> <i class="fa fa-eye""></i></a>
+ <a href="$link" class="btn-table"> <i class="fa fa-eye"></i></a>
 HTML;
 
         return $html;

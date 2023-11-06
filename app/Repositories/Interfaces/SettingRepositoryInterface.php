@@ -16,9 +16,9 @@ interface SettingRepositoryInterface
 
     public function show($Id);
 
-    public function destroy($role);
+    public function destroy($setting);
 
     public function store($request);
 
-    public function update($request);
+    public function update($data,$request);
 }

@@ -33,7 +33,8 @@
                                     <label class="col-form-label">{{ __('Password') }}</label>
                                     <div class="form-input position-relative">
                                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-                                        <div class="show-hide"><span class="show">                         </span></div>
+                                        <!-- <div class="show-hide"><span class="show">                         </span></div> -->
+                                        <span toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                                         @error('password')
                                         <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

@@ -15,16 +15,18 @@ return new class extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->required();
-            $table->string('year')->required();
-            $table->string('color')->required();
-            $table->string('category')->required();
-            $table->integer('car_numbers')->required();
-            $table->date('car_delivery_date')->required();
+            $table->string('name_ar')->nullable();
+            $table->string('name_en')->nullable();
+            $table->string('year')->nullable();
+            $table->string('color')->nullable();
+            $table->string('category')->nullable();
+            $table->integer('car_numbers')->nullable();
+            $table->string('car_delivery_date')->nullable();
             $table->float('fixed_price')->nullable();
             $table->json('changed_price')->nullable();
 
-            $table->string('description')->required();
+            $table->string('description_ar')->nullable();
+            $table->string('description_en')->nullable();
             $table->string('main_image_ads')->nullable();
             $table->json('images')->nullable();
             $table->string('videos')->nullable();
@@ -34,7 +36,7 @@ return new class extends Migration
             $table->foreign('car_brand_id')->references('id')->on('car_brands')->onDelete('cascade');
             $table->integer('ads_id')->nullable( )->unsigned();
             $table->foreign('ads_id')->references('id')->on('ads');
-            $table->foreignId('user_id')->required( )->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('user_id')->nullable( )->references('id')->on('users')->onDelete('cascade');
 
             $table->timestamps();
             $table->softDeletes();

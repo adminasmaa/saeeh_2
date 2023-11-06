@@ -2,7 +2,13 @@
 
 return [
     'User register successfully.' => 'تسجيل المستخدم بنجاح',
+    'Comment retrieved successfully.' =>'تم استرداد البيانات بنجاح',
+    'logout'=>'تم تسجيل الخروج ',
+    'Data not found.'=>'لم يتم العثور على البيانات',
+    'chanagepassword'=>'تم تغير الرقم السري بنجاح',
+    'User updated successfully'=> 'تعديل المستخدم بنجاح',
     'category retrieved successfully.'=>'تم استرداد الفئات بنجاح',
+    'data retrieved successfully.'=>'تم استرداد البيانات بنجاح',
     'wrong credientials' => 'خطا ف بيانات الدخول',
     'User login successfully.'=>'تم الدخول بنجاح',
     'account not verified'=>'الاكونت غير مفعل',
@@ -20,4 +26,12 @@ return [
     'subcategories retrieved successfully.'=>'تم استرداد الفئات بنجاح',
     'Place not found.'=>'المكان غير موجود',
     'Place retrieved successfully.'=>'تم استرداد المكان بنجاح',
+    'guest successfully.'=>'مرحبا بك ف سايح',
+    'adv number'=>'الاعلان رقم',
+    'new booking'=>'حجز جديد',
+    'cancel your request'=>'لقد قمت بالغاء طلبك',
+    'password should not be the same with old password'=>'كلمه المرور مستخدمه من قبل يرجي استخدام كلمه مرور جديدة ',
+    'price changed'=>'لقد تم تغيير السعر' ,
+    'incorrect phone'=>'  رقم الهاتق غير مسجل '
+
 ];

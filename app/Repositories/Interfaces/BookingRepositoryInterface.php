@@ -16,5 +16,11 @@ interface BookingRepositoryInterface
 
     public function destroy($booking);
 
+    public function acceptbooking($car_id);
+
+    public function rejectbooking($car_id);
+
+    public function confirmRejectbooking($book_id,$request);
+
 
 }

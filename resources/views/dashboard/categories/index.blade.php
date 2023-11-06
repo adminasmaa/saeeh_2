@@ -36,7 +36,6 @@
 
 
                         </div>
-
                         <div class="bg-secondary-lighten card-header d-flex justify-content-between">
                             <h5>@lang('site.add') </h5>
                             <div class="text-end  group-btn-top">
@@ -50,18 +49,17 @@
 
 
                         </div>
-
                         <div class="card-body">
 
                             <div class="dt-ext table-responsive">
                                 <table class="display" id="export-button">
 
-                                        {!! $dataTable->table([], true) !!}
+                                    {!! $dataTable->table([], true) !!}
 
 
-                                    </table>
+                                </table>
 
-                                </div>
+                            </div>
 
                         </div>
                     </div>
@@ -81,9 +79,13 @@
 @endsection
 
 @section('scripts')
-    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <!-- <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script> -->
 
+   
 
+    {{--    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>--}}
+    {{--    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>--}}
+    {{--    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.bootstrap4.min.js"></script>--}}
 
     <script>
         $(document).ready(function () {

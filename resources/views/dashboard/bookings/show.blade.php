@@ -52,23 +52,14 @@
                             <div class="col-md-6 form-group col-12 p-2">
                                 <label>@lang('site.type')<span class="text-danger">*</span></label>
                                 <input type="text" name="type" class="form-control"
-                                       value="{{ $booking->type }}" readonly
+                                       value="{{ $booking->type }}" disabled readonly=""
                                 >
                             </div>
-
-
-                            <div class="col-md-6 form-group col-12 p-2 ">
-                                <label>@lang('site.status')<span class="text-danger">*</span></label>
-                                <input type="text" name="book_status" class="form-control"
-                                       value="{{ $booking->book_status }}" readonly
-                                >
-                            </div>
-
 
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.price')<span class="text-danger">*</span></label>
                                 <input type="text" name="fixed_price" class="form-control"
-                                       value="{{ $booking->fixed_price }}" readonly
+                                       value="{{ $booking->fixed_price }}" disabled readonly=""
                                 >
                             </div>
 
@@ -76,14 +67,14 @@
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.changed_price')<span class="text-danger">*</span></label>
                                 <input type="text" name="changed_price" class="form-control"
-                                       value="{{ $booking->changed_price }}" readonly
+                                       value="{{ $booking->changed_price }}" disabled readonly=""
                                 >
                             </div>
 
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.place_arrive')<span class="text-danger">*</span></label>
                                 <input type="text" name="place_arrive" class="form-control"
-                                       value="{{ $booking->place_arrive }}" readonly
+                                       value="{{ $booking->place_arrive }}" disabled readonly=""
                                 >
                             </div>
 
@@ -91,25 +82,29 @@
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.place_leave')<span class="text-danger">*</span></label>
                                 <input type="text" name="place_leave" class="form-control"
-                                       value="{{ $booking->place_leave }}" readonly
+                                       value="{{ $booking->place_leave }}" disabled readonly=""
                                 >
                             </div>
 
+                            <div class="col-md-6 form-group col-12 p-2">
+                                <label>@lang('site.active')</label>
+                                <select class="form-control btn-square" name="active" readonly="" disabled>
+                                    <option selected>@lang('site.select')</option>
 
+                                    <option value="1"
+                                            @if($booking->active=='1') selected @endif>@lang('site.active')
+                                    </option>
+                                    <option value="0"
+                                            @if($booking->active=='0') selected @endif>@lang('site.in_active')
+                                    </option>
 
-{{--                            <div class="col-md-6 form-group col-12 p-2 ">--}}
-{{--                                <label>@lang('site.type')<span class="text-danger">*</span></label>--}}
-{{--                                <input type="text" name="7agz_type" class="form-control"--}}
-{{--                                       value="{{ $booking->type ?? '' }}" readonly--}}
-{{--                                >--}}
-{{--                            </div>--}}
-
-
+                                </select>
+                            </div>
 
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.day_count')<span class="text-danger">*</span></label>
                                 <input type="text" name="day_count" class="form-control"
-                                       value="{{ $booking->day_count }}" readonly
+                                       value="{{ $booking->day_count }}" disabled readonly=""
                                 >
                             </div>
 
@@ -117,17 +112,30 @@
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.date')<span class="text-danger">*</span></label>
                                 <input type="date" name="delivery_date" class="form-control"
-                                       value="{{ $booking->delivery_date }}" readonly
+                                       value="{{ $booking->delivery_date }}" disabled readonly=""
                                 >
                             </div>
 
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.reciept_date')<span class="text-danger">*</span></label>
                                 <input type="date" name="reciept_date" class="form-control"
-                                       value="{{ $booking->reciept_date }}" readonly
+                                       value="{{ $booking->reciept_date }}" disabled readonly=""
                                 >
                             </div>
 
+                            <div class="col-md-6 form-group col-12 p-2 ">
+                                <label>@lang('site.receipt_hour')<span class="text-danger">*</span></label>
+                                <input type="time" name="receipt_hour" class="form-control"
+                                       value="{{ $booking->receipt_hour }}" disabled readonly=""
+                                >
+                            </div>
+
+                            <div class="col-md-6 form-group col-12 p-2 ">
+                                <label>@lang('site.delivery_hour')<span class="text-danger">*</span></label>
+                                <input type="time" name="delivery_hour" class="form-control"
+                                       value="{{ $booking->delivery_hour }}" disabled readonly=""
+                                >
+                            </div>
 
                         </div>
 
@@ -137,12 +145,12 @@
 
                             <div class="col-md-6 form-group">
                                 <label class="form-label">@lang('site.users')</label>
-                                <select class="form-control btn-square" name="user_id" readonly="">
+                                <select class="form-control btn-square" name="user_id" disabled readonly="">
                                     <option selected>@lang('site.select')</option>
                                     @foreach($users as $user)
 
                                         <option value="{{$user->id}}"
-                                                @if($booking->user_id==$user->id) selected @endif>{{$user->username ?? ''}}</option>
+                                                @if($booking->user_id==$user->id) selected @endif>{{$user->firstname . $user->lastname ?? ''}}</option>
 
                                     @endforeach
 
@@ -150,7 +158,7 @@
                             </div>
                             <div class="col-md-6 form-group">
                                 <label class="form-label">@lang('site.cities')</label>
-                                <select class="form-control btn-square" name="city_id" readonly="">
+                                <select class="form-control btn-square" name="city_id" disabled readonly="">
                                     <option selected>@lang('site.select')</option>
                                     @foreach($cities as $city)
 
@@ -164,7 +172,7 @@
 
                             <div class="col-md-6 form-group">
                                 <label class="form-label">@lang('site.cars')</label>
-                                <select class="form-control btn-square" name="car_id" readonly="">
+                                <select class="form-control btn-square" name="car_id" disabled readonly="">
                                     <option selected>@lang('site.select')</option>
                                     @foreach($cars as $car)
 
@@ -176,6 +184,19 @@
                                 </select>
                             </div>
 
+                            <div class="col-md-6 form-group">
+                                <label class="form-label">@lang('site.booking_status')</label>
+                                <select class="form-control btn-square" name="booking_status_id" readonly=""disabled>
+                                    <option selected>@lang('site.select')</option>
+                                    @foreach($bookingStatus as $bookingStatus)
+
+                                        <option value="{{$bookingStatus->id}}"
+                                                @if($booking->booking_status_id==$bookingStatus->id) selected @endif>{{$bookingStatus->status_ar ?? ''}}</option>
+
+                                    @endforeach
+
+                                </select>
+                            </div>
 
                         </div>
 
@@ -185,13 +206,13 @@
 
                             <div class="col-md-6 form-group col-12 p-2 ">
                                 <label>@lang('site.description')<span class="text-danger">*</span></label>
-                                <textarea class="form-control" cols="5" rows="5" name="note" readonly>
+                                <textarea class="form-control" cols="5" rows="5" name="note" disabled readonly="">
 {{ $booking->note ?? '' }}
                                         </textarea>
                             </div>
                             <div class="col-md-6 form-group col-12 p-2 ">
-                                <label>@lang('site.reason')<span class="text-danger">*</span></label>
-                                <textarea class="form-control" cols="5" rows="5" name="cancle_reason" readonly>
+                                <label>@lang('site.cancle_reason')<span class="text-danger">*</span></label>
+                                <textarea class="form-control" cols="5" rows="5" name="cancle_reason" disabled readonly="">
 {{ $booking->cancle_reason ?? '' }}
                                         </textarea>
                             </div>

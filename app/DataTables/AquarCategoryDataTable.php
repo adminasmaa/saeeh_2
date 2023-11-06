@@ -49,6 +49,7 @@ class AquarCategoryDataTable extends DataTable
             ->editColumn('created_at', function ($model) {
                 return (!empty($model->created_at)) ? $model->created_at->diffForHumans() : '';
             })
+            ->addIndexColumn()
             ->addColumn('action', function ($model) {
                 $actions = '';
 
@@ -86,17 +87,20 @@ class AquarCategoryDataTable extends DataTable
     {
         return $this->builder()
             ->setTableId('categories-table')
+            ->addTableClass('cell-border stripe')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            //->dom('Bfrtip')
+            ->dom('Bfrtip')
             ->orderBy(1)
             ->selectStyleSingle()
             ->buttons([
-                Button::make('create')->text('<i class="fa fa-plus"></i> ' . trans('site.add')),
+             //   Button::make('create')->text('<i class="fa fa-plus"></i> ' . trans('site.add')),
                 Button::make('csv')->text('<i class="fa fa-download"></i> ' . trans('site.export')),
                 Button::make('print')->text('<i class="fa fa-print"></i> ' . trans('site.print')),
-                Button::make('reset')->text('<i class="fa fa-undo"></i> ' . trans('site.reset')),
-                Button::make('reload')->text('<i class="fa fa-refresh"></i> ' . trans('site.reload')),
+             //   Button::make('reset')->text('<i class="fa fa-undo"></i> ' . trans('site.reset')),
+             //   Button::make('reload')->text('<i class="fa fa-refresh"></i> ' . trans('site.reload')),
+            ])->language([
+                "url" => app()->getLocale() == 'ar' ? "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json":"//cdn.datatables.net/plug-ins/1.13.4/i18n/en-GB.json"
             ]);
     }
 
@@ -107,9 +111,11 @@ class AquarCategoryDataTable extends DataTable
      */
     public function getColumns(): array
     {
+        $lan = app()->getLocale();
         return [
-            Column::make('id'),
-            Column::make('name')->title(trans('site.name')),
+            Column::make('id')->data('DT_RowIndex')->name('id')->title('#'),
+
+            Column::make('name_'.$lan)->title(trans('site.name')),
             Column::make('description')->title(trans('site.description')),
             Column::make('created_at')->title(trans('site.created_at')),
             Column::computed('action')

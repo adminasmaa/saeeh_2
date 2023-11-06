@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Aqar;
+use App\Models\Car;
+use App\Models\Notification;
+use App\Models\Place;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +28,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $cars = Car::count();
+
+        $places = Place::count();
+
+        $aqars = Aqar::count();
+
+        $users=User::count();
+
+        $notifications=Notification::count();
+
+        return view('home', compact('cars', 'places', 'aqars','users','notifications'));
     }
+
+
+
 }

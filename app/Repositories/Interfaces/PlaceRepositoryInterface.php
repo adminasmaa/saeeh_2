@@ -18,6 +18,8 @@ interface PlaceRepositoryInterface
 
     public function destroy($place);
 
+    public function destroy2($place_table);
+
     public function store($request);
 
     public function update($place, $request);

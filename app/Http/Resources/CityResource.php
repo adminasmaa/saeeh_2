@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\CategoryOnlyResource;
 
 class CityResource extends JsonResource
 {
@@ -24,7 +25,7 @@ class CityResource extends JsonResource
         }
         return [
             "id" => $this->id,
-            "country_id " => $this->country_id ,
+            "country_id" => $this->country_id ,
             "name" => $this->$name,
             "image" => asset('images/cities')."/".$this->image,
             "active" => $this->active,

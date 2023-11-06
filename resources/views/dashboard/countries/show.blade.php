@@ -67,7 +67,17 @@
                                             >
                                         </div>
 
+                                        <div class="col-md-6">
+                                            <label class="d-block">@lang('site.flag_image')</label>
 
+
+                                            <img src="{{asset('images/countries/'.$country->flag_image)}}"
+                                                 data-bs-toggle="modal"
+                                                 data-bs-target="#exampleModalss2" width="100px" height="100px"
+                                                 class="d-block"
+                                                 onerror="this.src='{{asset('images/countries/default.jpg')}}'"
+                                            >
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -98,6 +108,39 @@
 
                                             </table>
 
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">@lang('site.Cancel')</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal fade" id="exampleModalss2" tabindex="-1"
+                                 aria-labelledby="exampleModalLabel"
+                                 aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">@lang('site.flag_image')</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <table class="border-5">
+                                                <tr>
+                                                    <th>
+                                                        <img name="soso"
+                                                             src="{{asset('images/countries/'.$country->flag_image)}}"
+                                                             alt=""
+                                                             width="400px" height="aut0">
+
+                                                    </th>
+                                                </tr>
+
+
+                                            </table>
 
                                         </div>
                                         <div class="modal-footer">
@@ -107,9 +150,9 @@
                                     </div>
                                 </div>
                             </div>
+
                             <!--  End Of Modal -->
                             <div class="row">
-
 
                                 <div class="col-md-6 form-group col-12 p-2">
                                     <label>@lang('site.ar.name')</label>
@@ -130,6 +173,12 @@
                                            disabled>
                                 </div>
 
+                                <div class="col-md-6 form-group col-12 p-2 ">
+                                    <label>@lang('site.currency_ar')</label>
+                                    <input type="text" name="currency_ar" class="form-control"
+                                           value="{{ $country->currency_ar }}"
+                                           disabled>
+                                </div>
 
                                 <div class="col-md-6 form-group col-12 p-2">
                                     <label>@lang('site.code')</label>
@@ -138,10 +187,23 @@
                                 </div>
                             </div>
 
+                                 <div class="col-md-6 form-group col-12 p-2">
+                                    <label>@lang('site.active')</label>
+                                    <select class="js-example-placeholder-multiple col-sm-12" name="active" readonly="" disabled>
+                                        <option selected>@lang('site.select')</option>
 
+                                        <option value="1"
+                                                @if($country->active=='1') selected @endif>@lang('site.active')
+                                        </option>
+                                        <option value="0"
+                                                @if($country->active=='0') selected @endif>@lang('site.not-active')
+                                        </option>
+
+                                    </select>
+                                </div>
+
+                                
                         </div>
-
-
                     </div>
                 </div>
             </div>

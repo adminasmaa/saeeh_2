@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use Response;
 
 use App\DataTables\AqarDataTable;
 use App\Http\Controllers\Controller;
 
 use App\Models\Aqar;
 use App\Models\Category;
+use App\Models\AqarService;
 use App\Repositories\Interfaces\AqarRepositoryInterface;
 use App\Repositories\Eloquent\AqarRepository;
 use App\Services\TwoFactorService;
@@ -53,18 +55,13 @@ class AqarController extends Controller
     public function store(Request $request)
     {
         
-        $request['floor_id'] = $request['floor_id']!=null?json_encode($request['floor_id']): json_encode([]);
-        $request['floor_number_id'] = $request['floor_number_id']!=null?json_encode($request['floor_number_id']):json_encode([]);
-        $request['masterroom'] = $request['masterroom']!=null? json_encode($request['masterroom']): json_encode([]);
-        $request['normalroom'] = $request['normalroom']!=null? json_encode($request['normalroom']): json_encode([]);
-        $request['service_id'] = $request['service_id']!=null?json_encode($request['service_id']): json_encode([]);
-        $request['free_service_id'] = $request['free_service_id']!=null?json_encode($request['free_service_id']): json_encode([]);
-        $request['crew_id'] = $request['crew_id']!=null?json_encode($request['crew_id']): json_encode([]);
-        $request['kitchen_id'] = $request['kitchen_id']!=null?json_encode($request['kitchen_id']): json_encode([]);
-        $request['bathroom_id'] = $request['bathroom_id']!=null?json_encode($request['bathroom_id']): json_encode([]);
-        $request['laundry_id'] = $request['laundry_id']!=null?json_encode($request['laundry_id']): json_encode([]);
-        $request['another_room_id'] = $request['another_room_id']!=null?json_encode($request['another_room_id']): json_encode([]);
-        $request['conditioning_type_id'] = ($request['conditioning_type_id']!=null)?json_encode($request['conditioning_type_id']):json_encode([]);
+      
+        $data['person_num'] = $request['person_num'];
+        // $data['day_num'] = $request['day_num'];
+        $data['price'] = $request['price'];
+      
+        $request['changed_price']=json_encode($data)!=null?json_encode($data, JSON_NUMERIC_CHECK):json_encode([]);
+
         return $this->AqarRepository->store($request);
 
     }//end of store
@@ -94,19 +91,10 @@ class AqarController extends Controller
     {
        
         $Aqar = Aqar::find($id);
-        $request['floor_id'] = $request['floor_id']!=null?json_encode($request['floor_id']): json_encode([]);
-        $request['floor_number_id'] = $request['floor_number_id']!=null?json_encode($request['floor_number_id']):json_encode([]);
-        $request['masterroom'] = $request['masterroom']!=null? json_encode($request['masterroom']): json_encode([]);
-        $request['normalroom'] = $request['normalroom']!=null? json_encode($request['normalroom']): json_encode([]);
-        $request['service_id'] = $request['service_id']!=null?json_encode($request['service_id']): json_encode([]);
-        $request['free_service_id'] = $request['free_service_id']!=null?json_encode($request['free_service_id']): json_encode([]);
-        $request['crew_id'] = $request['crew_id']!=null?json_encode($request['crew_id']): json_encode([]);
-        $request['kitchen_id'] = $request['kitchen_id']!=null?json_encode($request['kitchen_id']): json_encode([]);
-        $request['bathroom_id'] = $request['bathroom_id']!=null?json_encode($request['bathroom_id']): json_encode([]);
-        $request['laundry_id'] = $request['laundry_id']!=null?json_encode($request['laundry_id']): json_encode([]);
-        $request['another_room_id'] = $request['another_room_id']!=null?json_encode($request['another_room_id']): json_encode([]);
-        $request['conditioning_type_id'] = ($request['conditioning_type_id']!=null)?json_encode($request['conditioning_type_id']):json_encode([]);
-
+        $data['person_num'] = $request['person_num'];
+        // $data['day_num'] = $request['day_num'];
+        $data['price'] = $request['price'];
+        $request['changed_price']=json_encode($data)!=null?json_encode($data, JSON_NUMERIC_CHECK):json_encode([]);
         return $this->AqarRepository->update($Aqar, $request);
 
 
@@ -127,5 +115,41 @@ class AqarController extends Controller
 
 
     }//end of destroy
+
+
+    public function getsetting($id)
+    { 
+       $details = AqarService::setEagerLoads([])->join('aqar_setting', 'aqar_setting.detail_id', '=', 'aqar_details.id')
+       ->where('category_id',$id)->where('display',1)->with('subservices')->get(); 
+       $arr=[]; 
+       return view('dashboard.aqars.details', compact('details','arr'));
+    }
+
+    public function getsetting1($id,$aqar_id)
+    { 
+       $details = AqarService::setEagerLoads([])->join('aqar_setting', 'aqar_setting.detail_id', '=', 'aqar_details.id')
+       ->where('category_id',$id)->where('display',1)->with('subservices')->get();
+       $aqar = Aqar::with('aqarSubSection')->find($aqar_id);
+       $arr=[];
+       foreach($aqar->aqarSubSection as $item){
+        array_push($arr,$item->sub_section_id);
+       }
+      // return $arr;
+       return view('dashboard.aqars.details', compact('details','aqar','arr'));
+    }
+
+
+    public function roomnumbers($id)
+    {
+
+
+        $roomnumbers = Aqar::distinct()->join('aqar_sections', 'aqars.id', '=', 'aqar_sections.aqar_id')->join('aqar_details', 'aqar_details.id', '=', 'aqar_sections.sub_section_id')->where('aqars.category_id', $id)->where('aqar_sections.section_id', '=', 6)->groupBy('aqars.id')->select( \DB::raw('SUM(aqar_details.name_ar) as total'))
+        ->get()
+        ->pluck('total', 'aqar_details.name_ar')
+        ->toArray();
+        return Response::json($roomnumbers);
+
+
+    }
 
 }

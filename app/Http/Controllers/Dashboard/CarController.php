@@ -7,7 +7,7 @@ use App\DataTables\CarsDataTable;
 use App\Http\Controllers\Controller;
 
 use App\Models\Car;
-use App\Models\CarBrand;
+use App\Models\Category;
 use App\Repositories\Interfaces\CarRepositoryInterface;
 use App\Services\TwoFactorService;
 use DB;
@@ -52,15 +52,13 @@ class CarController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-
-                'name' => 'required',
-
-            ]
-        );
-
-
+        $data['day_num'] = $request['day_num'];
+        $data['price'] = $request['price'];
+        $request['changed_price']=json_encode($data)!=null?json_encode($data, JSON_NUMERIC_CHECK):json_encode([]);
+       
         return $this->CarRepository->store($request);
+
+
 
     }//end of store
 
@@ -87,14 +85,10 @@ class CarController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-
-                'name' => 'required',
-
-            ]
-        );
         $car = Car::find($id);
-
+        $data['day_num'] = $request['day_num'];
+        $data['price'] = $request['price'];
+        $request['changed_price']=json_encode($data)!=null?json_encode($data, JSON_NUMERIC_CHECK):json_encode([]);
         return $this->CarRepository->update($car, $request);
 
 

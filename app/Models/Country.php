@@ -17,11 +17,16 @@ class Country extends Model
         'active',
         'image',
         'currency',
-        'display_data',
+        'currency_ar',
         'flag_image',
     ];
 
     public function cities(){
         return $this->HasMany(City::class);
+    }
+
+    public function getNameAttribute()
+    {
+        return (app()->getLocale() === 'ar') ? $this->name_ar : $this->name_en;
     }
 }

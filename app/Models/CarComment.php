@@ -17,10 +17,6 @@ class CarComment extends Model
     protected $fillable = [
         'description', // nullable
         'rating', // required
-        'status', // default (0)
-        'demo_clean', // default (0)
-        'demo_status', // default (0)
-        'demo_work', // default (0)
         'car_id', //unsigned 
         'user_id', //unsigned 
     ];
