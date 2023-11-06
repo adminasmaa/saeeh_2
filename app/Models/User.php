@@ -61,7 +61,7 @@ class User extends Authenticatable
         'token',
         'isguest',
         'type',
-        'account_type_id '
+        'account_type_id'
     ];
 
 

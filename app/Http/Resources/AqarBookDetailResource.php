@@ -58,7 +58,7 @@ class AqarBookDetailResource extends JsonResource
             "investor_name"=> $this->aqar->user->firstname ." ".$this->aqar->user->lastname,
             "investor_phone"=>$this->aqar->user->country_code.$this->aqar->user->phone,
             "cancel_byme" => $this->cancel_user_id ==Auth::id()?true:false,
-            'invoice_id'=>$this->payment->invoice_id ?? '',
+            'invoice_id'=>$this->payment->invoice_id ?? NULL,
             "data"   =>new AqarDetailOnlyResource($this->aqar),
             
         ];

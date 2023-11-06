@@ -21,8 +21,13 @@ use App\Http\Controllers\Frontend\Investor\CarInvstController;
 */
 
 Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedirect', 'localizationRedirect', 'localeViewPath')->group(function () {
+    Route::prefix('invst')->name('invst.')->group(function () {
+    Route::get('register', 'App\Http\Controllers\Frontend\Investor\AuthController@register')->name('register');
+    Route::post('createaccount', 'App\Http\Controllers\Frontend\Investor\AuthController@createaccount')->name('createaccount');
+    Route::get('countrycities/{id}', 'App\Http\Controllers\Frontend\Investor\HomeController@countrycities')->name('countrycities');
+    });
     Route::prefix('invst')->name('invst.')->middleware(['auth'])->group(function () {
-        Route::get('countrycities/{id}', 'App\Http\Controllers\Frontend\Investor\HomeController@countrycities')->name('countrycities');
+       
         Route::get('cityareas/{id}', 'App\Http\Controllers\Frontend\Investor\HomeController@cityareas')->name('cityareas');
         Route::get('SubCategories/{id}', 'App\Http\Controllers\Frontend\Investor\HomeController@SubCategories')->name('SubCategories');
         Route::get('home', 'App\Http\Controllers\Frontend\Investor\HomeController@index')->name('home'); 
