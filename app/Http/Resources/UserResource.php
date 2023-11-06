@@ -20,10 +20,8 @@ class UserResource extends JsonResource
             "id" => $this->id ?? '',
             "name" => $this->firstname.''.$this->lastname,
             "image" => asset('images/users')."/".$this->image,
-            // "country" => $this->country()->pluck('flag_image'),
             "flag_image" => asset('images/countries')."/".$this->country->flag_image?? '',
-            // "flag_image" => asset('images/countries')."/".$this->country()->select('flag_image')->get()[0],
-            // 'image'     => asset('images/products/' . $this->country()->$flag_image),
+  
 
         ];
     }

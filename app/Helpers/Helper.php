@@ -2,12 +2,6 @@
 
 use Illuminate\Support\Facades\View;
 use App\Models\Category;
-use App\Models\City;
-use App\Models\Aqar;
-use App\Models\Country;
-use App\Models\Place;
-use App\Models\PlaceComment;
-use App\Models\category_city;
 use App\Models\Setting;
 use App\Models\HomeServices;
 
