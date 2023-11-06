@@ -141,6 +141,7 @@
 
 <body>
 {!! headerweb() !!}
+@include('sweetalert::alert')
 
 
 

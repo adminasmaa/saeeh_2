@@ -5599,4 +5599,45 @@ text-decoration: underline;
     right: 5px;
     top: 7px;
   }
+
+  #demo-htmlselect .dd-selected-text ,.dd-option-text{
+    line-height: 2 !important;
+  }
+ #demo-htmlselect .dd-option-image, .dd-selected-image {
+  max-width: 25px !important;
+  height: 18px !important;
+}
+#demo-htmlselect{
+  width: 22% !important;
+}
   
+#demo-htmlselect .dd-select{
+  width: auto !important;
+  border-radius: 10px 0 0 10px !important;
+}
+#demo-htmlselect .dd-selected {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  padding: 6px !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  direction: ltr !important;
+  color: #000 !important;
+}
+
+.register-input-r {
+  border-radius: 0 10px 10px 0 !important;
+  border-left: 0;
+}
+.dd-option {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  direction: ltr;}
+  .dd-options {
+    max-height: 250px !important;
+}
+.dd-selected-description{
+  display: none !important;
+}
