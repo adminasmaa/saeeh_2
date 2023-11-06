@@ -6,10 +6,7 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
-use App\Observers\AqarBookingObserver;
-use App\Models\AqarBooking;
-use App\Observers\CarBookingObserver;
-use App\Models\CarBooking;
+
 
 
 class EventServiceProvider extends ServiceProvider
@@ -31,9 +28,7 @@ class EventServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {
-          AqarBooking::observe(AqarBookingObserver::class);
-          CarBooking::observe(CarBookingObserver::class);
+    {        
 
     }
 

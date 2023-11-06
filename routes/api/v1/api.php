@@ -4,17 +4,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/register', 'App\Http\Controllers\Api\AuthController@register');
 Route::post('/login', 'App\Http\Controllers\Api\AuthController@login');
-Route::post('/guest', 'App\Http\Controllers\Api\AuthController@guest');
-Route::post('/activateRegister', 'App\Http\Controllers\Api\AuthController@activateRegister');
-Route::post('/resendCodeRegister', 'App\Http\Controllers\Api\AuthController@resendCode');
-Route::post('/forgetPassword', 'App\Http\Controllers\Api\AuthController@forgetPassword');
-Route::post('/checkCodeForget', 'App\Http\Controllers\Api\AuthController@checkCode');
-Route::post('/resetpassword', 'App\Http\Controllers\Api\AuthController@resetpassword');
-Route::get('/countries', 'App\Http\Controllers\Api\CountryController@countries');
-
 
 Route::group(['middleware' => 'auth:api'], function () {
 
+<<<<<<< HEAD
 
     Route::post('/resendCodeForUpdate', 'App\Http\Controllers\Api\AuthController@resendCodeForUpdate');
 
@@ -86,6 +79,8 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('/AddCarBooking', 'App\Http\Controllers\Api\CarController@AddCarBooking');
 
 
+=======
+>>>>>>> 1ad7ddf2dfd284c77150d436770c3233102ca1f0
 });
 
 
