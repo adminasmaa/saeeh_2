@@ -42,7 +42,8 @@ class AqarFavResource extends JsonResource
                 "image" => asset('images/aqars') . "/" . $this->main_image,
                 "fixed_price" => $this->fixed_price ?? 0,
                 // "rate" => round(AqarReview::where('user_id', '=', Auth::id())->where('aqar_id', '=',$this->id)->avg('rate')) ?? 0,
-                "rate" => round($this->aqarReview->avg('rate')) ?? 0,
+                // "rate" => round($this->aqarReview->avg('rate')) ?? 0,
+                "rate" =>$this->avgRating,
 
             ];
         }
