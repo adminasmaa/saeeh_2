@@ -181,6 +181,8 @@ class AuthController extends Controller
 
     public function changepassword(Request $request)
     {
+        $user = Auth::user();
+
         $rule = [
             'password' => 'required',
             'new_password' => 'required|different:password|min:6',
@@ -190,7 +192,7 @@ class AuthController extends Controller
         $customMessages = [
             'required' => __('validation.attributes.required'),
         ];
-
+        
         $validator = validator()->make($request->all(), $rule, $customMessages);
 
         if ($validator->fails()) {
@@ -199,7 +201,10 @@ class AuthController extends Controller
 
         } else {
 
-
+            // if ((Hash::check($request->password, $user->password))) {
+            //     return $this->respondError('Validation Error.', ['password' => [ trans('message.password should not be the same with old password')]], 400);
+            //     // return $this->respondError('Validation Error.', trans('message.password should not be the same with old password'), 400);
+            // }
             $user = Auth::user();
 
             if (Hash::check($request->input('password'), $user->password)) {
