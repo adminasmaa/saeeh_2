@@ -34,7 +34,21 @@ function UploadImage($path, $image, $model, $request)
     $model->$image = $filename;
     $model->save();
 }
+function UploadImage2($path, $image, $model, $request)
+{
 
+    $thumbnail = $request;
+    $destinationPath = $path;
+    $filename = time() . '.' . $thumbnail->getClientOriginalExtension();
+    $thumbnail->move($destinationPath, $filename);
+    // $thumbnail->resize(1080, 1080);
+    $thumbnail = Image::make(public_path() . '/'.$path.'/' . $filename);
+    // $thumbnail->resize(1080,1080);
+    $thumbnail = Image::make(public_path() . '/'.$path.'/' . $filename); //for server
+    // $thumbnail->insert(public_path('/images/logo.png'), 'bottom-left', -10, -5)->save(public_path($path.'/' . $filename)); //base_path() for server
+    $model->$image = $filename;
+    $model->save();
+}
 if (!function_exists('whats_send')) {
     function whats_send($mobile, $message, $country_code)
     {
