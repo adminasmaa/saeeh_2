@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Models\Country;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\AuthenticationException;
 use Validator;
 use Illuminate\Validation\Rule; //import Rule class 
 use DB;
@@ -45,7 +46,7 @@ class AuthController extends Controller
             // 'email' => 'max:254|unique:email|nullable',
             // 'email' => ['max:254|nullable',Rule::unique('users')->ignore($user->id)],
             'email' => "nullable|email|max:254|unique:users,email,".$user->id.",id",  
-            'image' => 'nullable', 'mimes:jpg,jpeg,png' , 'max:50000',
+            'image' => 'nullable','mimes:jpg,jpeg,png',
             'firstname' => 'nullable',
             'lastname' => 'nullable',
             // 'password' => 'nullable|min:6',
@@ -279,10 +280,13 @@ class AuthController extends Controller
         }
     }
 
-    public function login(Request $request)
+    public function login(Request $request, AuthenticationException $exception)
     {
+        $user = Auth::user();
+
         $validator = Validator::make($request->all(), [
             'country_code' => 'required',
+            // 'phone' => ["required|min:9",Rule::unique('users')->ignore($user->id)],  
             'phone' => 'required|min:9',
             'password' => 'required|unique:users',
             'device_token' => 'min:2'
@@ -327,13 +331,15 @@ class AuthController extends Controller
             }
             
         } 
-        // elseif('phone'!=$request->phone) {
-        //     return $this->respondError(trans('message.incorrect phone'), ['error' =>trans('message.incorrect phone')], 403);
-        // }else{
-        // return $this->respondError(trans('message.pass wrong'), ['error' => trans('message.pass wrong')], 403);
-            return $this->respondError(trans('message.wrong credientials'), ['error' => trans('message.wrong credientials')], 403);
-            // return $this->respondError(trans('message.user not found'), ['error' => trans('message.user not found')], 404);
-        
+        // if(!auth('api')->check()){
+        // elseif( $request -> get( 'phone' , false ) ) {
+        // return $this->respondError(trans('message.incorrect phone'), ['error' =>trans('message.incorrect phone')], 403);
+        // }
+        else{
+        // return $this->respondError(trans('message.pass wrong'), ['error' => trans('message.wrong credientials')], 403);
+        return $this->respondError(trans('message.wrong credientials'), ['error' => trans('message.wrong credientials')], 403);
+        // return $this->respondError(trans('message.user not found'), ['error' => trans('message.user not found')], 404);
+        }
     }
 
     public function guest(Request $request)
