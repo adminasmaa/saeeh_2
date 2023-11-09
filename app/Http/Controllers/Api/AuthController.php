@@ -48,8 +48,8 @@ class AuthController extends Controller
             'image' => 'nullable', 'mimes:jpg,jpeg,png' , 'max:5000',
             'firstname' => 'nullable',
             'lastname' => 'nullable',
-            'password' => 'nullable|min:6',
-            'c_password' => 'nullable|same:password',
+            // 'password' => 'nullable|min:6',
+            // 'c_password' => 'nullable|same:password',
             // 'country_code' => 'required_with:phone',
             // 'phone' => 'required_with:country_code|min:9|unique:users',
         ];
@@ -65,7 +65,6 @@ class AuthController extends Controller
         return $this->respondError(trans('message.Data not changed'), ['error' => trans('message.Data not changed')], 403);
 
         }
-
         if ($validator->fails()) {
 
             return $this->respondError('Validation Error.', $validator->errors(), 400);
@@ -77,19 +76,18 @@ class AuthController extends Controller
             if ($request->hasFile('image')) {
                 UploadImage2('images/users/','image', $user, $request->file('image'));
             }
-            // $user->image = isset($request->image) ? $request->hasFile('image') : $user->image;
             $user->firstname = isset($request->firstname) ? $request->firstname : $user->firstname;
             $user->lastname = isset($request->lastname) ? $request->lastname : $user->lastname;
             $user->email = isset($request->email) ? $request->email : $user->email;
-            // $user->phone = isset($request->phone) ? $request->phone : $user->phone;
-            $user->password = Hash::make($request['password']) ?? '';
-            // $user->active = 0;
+            // $user->password = Hash::make($request['password']) ?? '';
+            // $user->active =1;
             $user->save();
-            $success['token'] = $user->createToken('MyApp')->accessToken;
+            // $success['token'] = $user->createToken('MyApp')->accessToken;
             $user->image=asset('images/users/').'/'.$user->image;
-            $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname','code','image']);
+            // $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname','code','image']);
+            $users = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code', 'code','image']);
 
-            return $this->respondSuccess($success, trans('message.User updated successfully'));
+            return $this->respondSuccess($users, trans('message.User updated successfully'));
 
 
         }
@@ -195,12 +193,8 @@ class AuthController extends Controller
             'required' => __('validation.attributes.required'),
         ];
 
-        // if ((Hash::check($request->password, $user->password))) {
-        //     return $this->respondError('Validation Error.', ['password' => [ trans('message.password should not be the same with old password')]], 400);
-        //     // return $this->respondError('Validation Error.', trans('message.password should not be the same with old password'), 400);
-        // }
-
         $validator = validator()->make($request->all(), $rule, $customMessages);
+
 
         if ($validator->fails()) {
 
@@ -208,9 +202,10 @@ class AuthController extends Controller
 
         } else {
 
-            $user = Auth::user();
+            $user = Auth::user();           
 
             if (Hash::check($request->input('password'), $user->password)) {
+               
                 $user->fill([
                     'password' => Hash::make($request->new_password)
                 ])->save();
@@ -219,7 +214,7 @@ class AuthController extends Controller
                 return $this->respondSuccess($users, trans('message.chanagepassword'));
 
             } else {
-                return $this->respondError(trans('message.wrong credientials'), ['error' => trans('message.wrong credientials')], 403);
+                return $this->respondError(trans('message.incorrect current password'), ['error' => trans('message.incorrect current password')], 403);
 
             }
 
@@ -366,8 +361,6 @@ class AuthController extends Controller
 
     public function activateRegister(Request $request)
     {
-
-
         $validator = Validator::make($request->all(), [
             'country_code' => 'required_without:userId',
             'phone' => 'required_without:userId',
