@@ -186,7 +186,7 @@ class AuthController extends Controller
         $user = Auth::user();
 
         $rule = [
-            'password' => 'required',
+            'password' => 'required|min:6',
             'new_password' => 'required|different:password|min:6',
             'c_password' => 'nullable|same:new_password',
 
@@ -194,7 +194,12 @@ class AuthController extends Controller
         $customMessages = [
             'required' => __('validation.attributes.required'),
         ];
-        
+
+        // if ((Hash::check($request->password, $user->password))) {
+        //     return $this->respondError('Validation Error.', ['password' => [ trans('message.password should not be the same with old password')]], 400);
+        //     // return $this->respondError('Validation Error.', trans('message.password should not be the same with old password'), 400);
+        // }
+
         $validator = validator()->make($request->all(), $rule, $customMessages);
 
         if ($validator->fails()) {
@@ -203,10 +208,6 @@ class AuthController extends Controller
 
         } else {
 
-            // if ((Hash::check($request->password, $user->password))) {
-            //     return $this->respondError('Validation Error.', ['password' => [ trans('message.password should not be the same with old password')]], 400);
-            //     // return $this->respondError('Validation Error.', trans('message.password should not be the same with old password'), 400);
-            // }
             $user = Auth::user();
 
             if (Hash::check($request->input('password'), $user->password)) {
@@ -315,7 +316,8 @@ class AuthController extends Controller
 
                 }
                 $success['token'] = $user->createToken('MyApp')->accessToken;
-                $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code', 'code']);
+                $user->image=asset('images/users/').'/'.$user->image;
+                $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code', 'code','image']);
 
                 return $this->respondSuccess($success, trans('message.User login successfully.'));
             } else {
@@ -329,7 +331,7 @@ class AuthController extends Controller
                 $user->code = $code;
                 $user->save();
             //  $success['token'] = $user->createToken('MyApp')->accessToken;
-                $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code', 'code']);
+                $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code', 'code','image']);
                 return $this->respondwarning($success, trans('message.account not verified'), ['error' => trans('message.account not verified')], 402);
             }
             
@@ -400,14 +402,16 @@ class AuthController extends Controller
                     $user->save();
                 }
                 $success['token'] = $user->createToken('MyApp')->accessToken;
-                $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code', 'code']);
+                $user->image=asset('images/users/').'/'.$user->image;
+                $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code', 'code','image']);
                 return $this->respondSuccess($success, trans('message.User already active.'));
             } else {
                 $user->active = 1;
                 $user->device_token = $request->device_token;
                 $user->save();
                 $success['token'] = $user->createToken('MyApp')->accessToken;
-                $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code', 'code']);
+                $user->image=asset('images/users/').'/'.$user->image;
+                $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code', 'code','image']);
                 return $this->respondSuccess($success, trans('message.User activate successfully.'));
             }
         } else {
