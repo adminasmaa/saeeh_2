@@ -25,11 +25,14 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
     Route::get('register', 'App\Http\Controllers\Frontend\Investor\AuthController@register')->name('register');
     Route::post('createaccount', 'App\Http\Controllers\Frontend\Investor\AuthController@createaccount')->name('createaccount');
     Route::get('countrycities/{id}', 'App\Http\Controllers\Frontend\Investor\HomeController@countrycities')->name('countrycities');
+    Route::get('confirmcode/{id}', 'App\Http\Controllers\Frontend\Investor\AuthController@confirmcode')->name('confirmcode');
+    Route::post('confirmtion', 'App\Http\Controllers\Frontend\Investor\AuthController@confirmtion')->name('confirmtion');
     });
     Route::prefix('invst')->name('invst.')->middleware(['auth'])->group(function () {
        
         Route::get('updateprofile/{id}', 'App\Http\Controllers\Frontend\Investor\AuthController@updateprofile')->name('updateprofile');
-        Route::post('updateaccount', 'App\Http\Controllers\Frontend\Investor\AuthController@updateaccount')->name('updateaccount');
+        Route::put('updateaccount/{id}', 'App\Http\Controllers\Frontend\Investor\AuthController@updateaccount')->name('updateaccount');
+        Route::get('resendcode/{id}', 'App\Http\Controllers\Frontend\Investor\AuthController@resendcode')->name('resendcode');
         Route::get('cityareas/{id}', 'App\Http\Controllers\Frontend\Investor\HomeController@cityareas')->name('cityareas');
         Route::get('SubCategories/{id}', 'App\Http\Controllers\Frontend\Investor\HomeController@SubCategories')->name('SubCategories');
         Route::get('home', 'App\Http\Controllers\Frontend\Investor\HomeController@index')->name('home'); 

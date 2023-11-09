@@ -28,7 +28,7 @@ class HomeController extends Controller
     public function index()
     {
 
-        if(Auth::user()->type=='invest' && Auth::user()->account_type_id ==4){
+        if(Auth::user()->type=='invest' && (Auth::user()->account_type_id ==1||Auth::user()->account_type_id ==2||Auth::user()->account_type_id ==3||Auth::user()->account_type_id ==4)){
         $ads = Aqar::where('user_id',Auth::id())->get();
         $bookings=AqarBooking::where('user_id',Auth::id())->get();
         $commisions=Commission::where('user_id',Auth::id())->where('type','aqar')->get();

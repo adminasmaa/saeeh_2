@@ -1,4 +1,6 @@
-@extends('layouts.main_frontend')
+
+@extends((( empty($invest)) ? 'layouts.main_frontend' : 'layouts.main_investor' ))
+
 @section('content')
 <main>
       <!-- section -->
@@ -7,13 +9,20 @@
           <div class="row">
             <div class="col-12">
               <h2 class="fw-bold login-title my-lg-5 my-3 text-center">
-                تسجيل جديد
+              @if(empty($invest))
+                                <h2 class="add_frm_title mb-3">@lang('site.add')</h2>
+                            @else
+                                <h2 class="add_frm_title mb-3">@lang('site.edit') </h2>
+                            @endif
               </h2>
             </div>
             <div class="col-12">
-              <form action="{{  route('invst.createaccount') }}" method="post" enctype="multipart/form-data">
+              <form action="{{ empty($invest)? route('invst.createaccount') : route('invst.updateaccount', $invest->id) }}" method="post" enctype="multipart/form-data">
               {{ csrf_field() }}
-                
+                @if(!empty($invest))
+                    @method('put')
+                @endif
+                @if(empty($invest)) 
                 <ul class="register-radio-list py-md-4 p-3 px-md-5 d-flex align-items-center list-unstyled flex-wrap mb-4"  >
                 @foreach($AccountTypes as $k=> $item)
                   <li>
@@ -36,6 +45,7 @@
                   </li>
                 @endforeach
                 </ul>
+                @endif
 
                 <div class="register_frm_card grid-container ">
                   <!--<div class="customerData" id="registerdata1">
@@ -117,11 +127,11 @@
                               <div class="d-flex">
                                     <input type="hidden" name="country_id" id="country_id" value="">
                                     <input type="hidden" name="country_code" id="country_code" value="">
-                                    <input type="text" name="phone" class="form-control register-input register-input-r" id="exampleFormControlInput3" maxlength="11" placeholder="012-345-6789">
+                                    <input type="text" name="phone" class="form-control register-input register-input-r" id="exampleFormControlInput3" maxlength="11"  value="{{ old('phone', (empty($invest))? null : $invest['phone']) }}">
                                     <select id="demo-htmlselect" >
                                       @foreach($countries as $country)
                                         <option value="{{$country->id}}" data-imagesrc="{{asset('images/countries/'.$country->flag_image)}}"
-                                        data-description="{{$country->name}}">{{$country->code}}</option>
+                                        data-description="{{$country->name}}" @if((old('country_id')==$country->id)||(!empty($invest) && ($invest->country_id==$country->id)))selected @endif>{{$country->code}}</option>
                                       @endforeach
                                     </select>
                                    
@@ -144,8 +154,8 @@
                     <div class="col-lg-6 mb-lg-0 mb-3">
                       <div class="position-relative">
                         <label for="" class="pb-2 register-lbl"> المدن </label>
-                        <select class="select2" name="city_id" id="city_id">
-                          <option value="1">اختر المدينة</option>
+                        <select class="select2" name="city_id" id="city_id1">
+                          <option value="0">اختر المدينة</option>
                           
                         </select>
                       </div>
@@ -180,7 +190,7 @@
                           name="password"
                           placeholder="كلمة المرور"
                            maxlength="10"
-                           value="{{ old('password', (empty($invest))? null : $invest['password']) }}"
+                           value=""
                         />
                         @if($errors->has('password'))
                           <span class="error">{{ $errors->first('password') }}</span>
@@ -207,7 +217,7 @@
                           name="c_password"
                           placeholder="تأكيد كلمه المرور"
                           maxlength="10"
-                          value="{{ old('password', (empty($invest))? null : $invest['password']) }}"
+                          value=""
 
                         />
                         @if($errors->has('c_password'))
@@ -231,7 +241,7 @@
                           <option value="5%" @if((old('comision')=='5%')||(!empty($invest) && ($invest->comision=='5%')))selected @endif>5%</option>
                           <option value="10%" @if((old('comision')=='10%')||(!empty($invest) && ($invest->comision=='10%')))selected @endif>10%</option>
                           @for ($x = 11; $x <= 30; $x++) 
-                          <option value="{{$x}}%" @if((old('comision')=='{{$x}}%')||(!empty($invest) && ($invest->comision=='{{$x}}%')))selected @endif>{{$x}}%</option>
+                          <option value="{{$x}}%" @if((old('comision')=="$x%")||(!empty($invest) && ($invest->comision=="$x%")))selected @endif>{{$x}}%</option>
                           @endfor
                         </select>
                         @if($errors->has('comision'))
@@ -266,6 +276,7 @@
                         type="checkbox"
                         id="register-check" 
                         name="accept_term"
+                        @if((!empty($invest)))checked @endif
                       />
                       @if($errors->has('accept_term'))
                           <span class="error">{{ $errors->first('accept_term') }}</span>
@@ -280,7 +291,7 @@
                       <div
                         class="booking-now-btn py-4 d-flex justify-content-center align-items-center"
                       >
-                        <button type="submit">تسجيل</button>
+                        <button type="submit"> @if(empty($invest)) @lang('site.add') @else @lang('site.edit') @endif</button>
                       </div>
                     </div>
                   </div>
@@ -300,6 +311,19 @@
 <script type="text/javascript" src="https://cdn.rawgit.com/prashantchaudhary/ddslick/master/jquery.ddslick.min.js" ></script>
     <script>
         $(document).ready(function () {
+          var country_id ={{$invest->country_id ??''}}
+          $.get("{{url('invst/countrycities')}}/" + country_id, function (data) {
+                        $('#city_id1').empty();
+                        $('#city_id1').append('<option>@lang('site.select')</option>');
+                        $.each(data, function (key, value) {
+                            $('#city_id1').append('<option value="' + value.id + '" >' + value.name_ar + '</option>')
+
+                        });
+                      
+                    })
+                
+              $('#country_id').val(country_id);
+             
                 $('#demo-htmlselect').ddslick({
                     onSelected: function(selectedData){
                       var country_code = selectedData.selectedData.text;
@@ -307,12 +331,14 @@
                       $('#country_code').val(country_code);
                       $('#country_id').val(country_id);
                       $.get("{{url('invst/countrycities')}}/" + country_id, function (data) {
-                        $('#city_id').empty();
-                        $('#city_id').append('<option>@lang('site.select')</option>');
+                        $('#city_id1').empty();
+                        $('#city_id1').append('<option>@lang('site.select')</option>');
                         $.each(data, function (key, value) {
-                            $('#city_id').append('<option value="' + value.id + '">' + value.name_ar + '</option>')
+                            $('#city_id1').append('<option value="' + value.id + '">' + value.name_ar + '</option>')
 
                         });
+                        $('#city_id1').val({{$invest->city_id ??''}}); 
+                        $('#city_id1').trigger('change');
                     })
                     }   
                 });
@@ -320,6 +346,8 @@
 
 
         });
+      
+
         </script>
     
 
