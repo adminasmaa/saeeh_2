@@ -299,16 +299,16 @@
                             <a href="{{route('invst.home')}}" class="pe-0"> @lang('site.home') </a>
                         </li>
                         <li class="nav-link">
-                            <a href="{{(Auth::user()->type=='invest' && Auth::user()->account_type_id ==4)?route('invst.aqars.index'):route('invst.cars.index')}}" class="pe-0"> @lang('site.advertising') </a>
+                            <a href="{{(Auth::user()->type=='invest' && (Auth::user()->account_type_id ==1||Auth::user()->account_type_id ==2||Auth::user()->account_type_id ==3||Auth::user()->account_type_id ==4))?route('invst.aqars.index'):route('invst.cars.index')}}" class="pe-0"> @lang('site.advertising') </a>
                         </li>
                         <li class="nav-link">
-                            <a href="{{(Auth::user()->type=='invest' && Auth::user()->account_type_id ==4)?route('invst.listbookings','all'):route('invst.listbookingscar','all')}}" class="pe-0"> @lang('site.bookings') </a>
+                            <a href="{{(Auth::user()->type=='invest' && (Auth::user()->account_type_id ==1||Auth::user()->account_type_id ==2||Auth::user()->account_type_id ==3||Auth::user()->account_type_id ==4))?route('invst.listbookings','all'):route('invst.listbookingscar','all')}}" class="pe-0"> @lang('site.bookings') </a>
                         </li>
                         <li class="nav-link">
-                            <a href="{{(Auth::user()->type=='invest' && Auth::user()->account_type_id ==4)?route('invst.listcommisions',['aqar','unpaid']):route('invst.listcommisions',['car','unpaid'])}}" class="pe-0"> @lang('site.commissions') </a>
+                            <a href="{{(Auth::user()->type=='invest' && (Auth::user()->account_type_id ==1||Auth::user()->account_type_id ==2||Auth::user()->account_type_id ==3||Auth::user()->account_type_id ==4))?route('invst.listcommisions',['aqar','unpaid']):route('invst.listcommisions',['car','unpaid'])}}" class="pe-0"> @lang('site.commissions') </a>
                         </li>
                         <li class="nav-link">
-                            <a href="#" class="pe-0"> @lang('site.profiles') </a>
+                            <a href="{{route('invst.updateprofile',Auth::id())}}" class="pe-0"> @lang('site.profiles') </a>
                         </li>
                        
                         
@@ -652,6 +652,7 @@ jQuery('.formregisters').click(function (e) {
 });
 
 </script>
+
 
 </body>
 </html>

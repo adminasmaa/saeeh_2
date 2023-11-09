@@ -64,9 +64,9 @@
                </a>
               </div>
               <div class="col-lg-4 col-sm-6 col-12">
-                <a href="#">
+                <a href="{{route('invst.updateprofile',Auth::id())}}">
                   <div class="booking_card mb-md-0 mb-4 text-center py-sm-5  py-4">
-                     <img
+                     <img 
                        src="{{FRONTASSETS}}/images/booking-investor/booking_ic_3.svg"
                        alt="booking investor icon"
                      />
