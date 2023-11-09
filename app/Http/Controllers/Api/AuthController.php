@@ -45,7 +45,7 @@ class AuthController extends Controller
             // 'email' => 'max:254|unique:email|nullable',
             // 'email' => ['max:254|nullable',Rule::unique('users')->ignore($user->id)],
             'email' => "nullable|email|max:254|unique:users,email,".$user->id.",id",  
-            'image' => 'nullable', 'mimes:jpg,jpeg,png' , 'max:5000',
+            'image' => 'nullable', 'mimes:jpg,jpeg,png' , 'max:50000',
             'firstname' => 'nullable',
             'lastname' => 'nullable',
             // 'password' => 'nullable|min:6',
@@ -287,9 +287,6 @@ class AuthController extends Controller
             'password' => 'required|unique:users',
             'device_token' => 'min:2'
         ]);
-        // if ('phone' != $request->phone) {
-        //     return $this->respondError(trans('message.incorrect phone'), ['error' =>trans('message.incorrect phone')], 403);
-        // }
         if ($validator->fails()) {
             return $this->respondError('Validation Error.', $validator->errors(), 400);
         }
@@ -308,7 +305,6 @@ class AuthController extends Controller
                         User::where('id', $guest->id)->delete();
 
                     }
-
                 }
                 $success['token'] = $user->createToken('MyApp')->accessToken;
                 $user->image=asset('images/users/').'/'.$user->image;
@@ -331,10 +327,13 @@ class AuthController extends Controller
             }
             
         } 
-        else {
+        // elseif('phone'!=$request->phone) {
+        //     return $this->respondError(trans('message.incorrect phone'), ['error' =>trans('message.incorrect phone')], 403);
+        // }else{
+        // return $this->respondError(trans('message.pass wrong'), ['error' => trans('message.pass wrong')], 403);
             return $this->respondError(trans('message.wrong credientials'), ['error' => trans('message.wrong credientials')], 403);
             // return $this->respondError(trans('message.user not found'), ['error' => trans('message.user not found')], 404);
-        }
+        
     }
 
     public function guest(Request $request)
