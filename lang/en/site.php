@@ -610,6 +610,7 @@ return [
     'social_media' => 'Social Media ',
     'display_photo' => 'Display Photo ',
     'notify_photo' => 'Notify Photo ',
+    'Reservation and cancellation policy'=>'Reservation and cancellation policy',
 
 
     'ar' => [

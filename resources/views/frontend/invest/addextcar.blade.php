@@ -26,14 +26,14 @@
       <section class="add-booking-investor mb-5 mt-lg-0 mt-4">
         <div class="container d-flex justify-content-center">
           <div class="booking_investor_card">
-            <form  action="{{route('invst.add_extbooking')}}" method="POST">
+            <form  action="{{route('invst.add_extcarbooking')}}" method="POST">
             {{ csrf_field() }}
             <div class="row">
               <div class="col-12">
                 <h2 class="mb-4 text-gray ">إضافة حجز خارجى</h2>
               </div>
               <div class="col-lg-8">
-              @if(is_null($aqar->fixed_price))
+              @if(is_null($car->fixed_price))
                 <div class="form-group mb-4">
                   <label for="">
                   عدد الاشخاص              
@@ -47,15 +47,15 @@
                     />
                     <input
                       type="hidden"
-                      name="person_num"
-                      id="person_num"
+                      name="day_num"
+                      id="day_num"
                       value=""
                     />
                   <select class="select2"
                           name="price" id="price">
                       <option  value="0">@lang('site.select')</option>
-                      @for ($x = 0; $x <= count($aqar->changed_price->price)-1; $x++)
-                      <option  value="{{$aqar->changed_price->price[$x]}}">{{$aqar->changed_price->person_num[$x]}}</option>
+                      @for ($x = 0; $x <= count($car->changed_price->price)-1; $x++)
+                      <option  value="{{$car->changed_price->price[$x]}}">{{$car->changed_price->day_num[$x]}}</option>
                       @endfor
 
                   </select>
@@ -73,12 +73,12 @@
                       type="hidden"
                       name="amount"
                       id="amount"
-                      value="{{$aqar->fixed_price}}"
+                      value="{{$car->fixed_price}}"
                     />
                     <input
                       type="hidden"
                       name="id"
-                      value="{{$aqar->id}}"
+                      value="{{$car->id}}"
                     />
                     <input
                       type="hidden"
@@ -198,9 +198,9 @@
 <script>
 $('#price').on('change', function (e) {
             var price = e.target.value;
-            var person_num = $("#price option:selected").text();
+            var day_num = $("#price option:selected").text();
             $("#amount1").val(price);
-            $("#person_num").val(person_num);
+            $("#day_num").val(day_num);
            
         })
 

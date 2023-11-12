@@ -161,6 +161,84 @@ class CarInvstBookingController extends Controller
        return view('frontend.invest.carlistbooking', compact('allbookings'));
     }
 
+    public function show_extbooking($id)
+    {
+        $car=Car::find($id);
+        $car['changed_price']=json_decode($car['changed_price']);
+      
+        return view('frontend.invest.addextcar',compact('car'));
+    }
+
+    public function add_extbooking(Request $request)
+    {
+        
+
+        $rule = [
+            'delivery_date' => 'date|required',
+            'reciept_date' => 'date|after_or_equal:delivery_date',
+            'id' => 'required',
+            'total_price' => 'required',
+            'day_num'=>'nullable',
+            'customer_phone'=>'required',
+            'customer_name'=>'required',
+
+
+        ];
+        $customMessages = [
+            'required' => __('validation.attributes.required'),
+        ];
+
+        $validator = validator()->make($request->all(), $rule, $customMessages);
+
+        if ($validator->fails()) {
+
+            return $this->respondError('Validation Error.', $validator->errors(), 400);
+
+        } else {
+
+            $car=Car::with('user')->find($request->id);
+           // $user=User::where('phone',$request->customer_phone)->first();
+
+
+            if($car->fixed_price){
+                $fixed_price=$car['fixed_price'];
+                
+            }else{
+                $price=json_decode($car['changed_price'])->day_num;
+                $key=array_search ($request->day_num, $price);
+                $changedprice=json_decode($car['changed_price'])->price[$key];
+                $data['day_num'] = array($request->day_num);
+                $data['price'] = array($changedprice);
+                $changed_price=json_encode($data)!=null?json_encode($data, JSON_NUMERIC_CHECK):null;     
+            }
+            $input = $request->all();
+            $input['customer_phone'] = $request->customer_phone;
+            $input['customer_name'] = $request->customer_name;
+            $input['car_id'] =$request->id;
+            $input['day_num'] =$request->day_num;
+            $input['total_price'] =$request->total_price;
+            $input['fixed_price'] = $fixed_price ?? null;
+            $input['changed_price'] = $changed_price ?? null;
+            $input['booking_status_id'] =2;
+            $input['city_id']=$car['city_id'];
+            $input['comision']=$car->user['comision'];
+            $input['type']='external';
+
+            $success = CarBooking::create($input);
+
+            if ($success) {
+                Alert::success('Success', __('site.add_externalbooking_successfully'));
+            } else {
+                    Alert::error('Error', __('site.add_externalbooking_faild'));
+    
+            }
+            return redirect()->route('invst.cars.index');
+
+
+        }
+    }
+
+
 
 
 }

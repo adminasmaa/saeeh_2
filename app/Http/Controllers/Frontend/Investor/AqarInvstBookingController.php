@@ -127,6 +127,8 @@ class AqarInvstBookingController extends Controller
     public function show_extbooking($id)
     {
         $aqar=Aqar::find($id);
+        $aqar['changed_price']=json_decode($aqar['changed_price']);
+      
         return view('frontend.invest.addextaqar',compact('aqar'));
     }
 
@@ -141,6 +143,7 @@ class AqarInvstBookingController extends Controller
             'total_price' => 'required',
             'person_num'=>'nullable',
             'customer_phone'=>'required',
+            'customer_name'=>'required',
 
 
         ];
@@ -157,7 +160,7 @@ class AqarInvstBookingController extends Controller
         } else {
 
             $aqar=Aqar::with('user')->find($request->id);
-            $user=User::where('phone',$request->customer_phone)->first();
+           // $user=User::where('phone',$request->customer_phone)->first();
 
 
             if($aqar->fixed_price){
@@ -172,7 +175,8 @@ class AqarInvstBookingController extends Controller
                 $changed_price=json_encode($data)!=null?json_encode($data, JSON_NUMERIC_CHECK):null;     
             }
             $input = $request->all();
-            $input['user_id'] = $user->id;
+            $input['customer_phone'] = $request->customer_phone;
+            $input['customer_name'] = $request->customer_name;
             $input['aqar_id'] =$request->id;
             $input['person_num'] =$request->person_num;
             $input['total_price'] =$request->total_price;
@@ -186,9 +190,9 @@ class AqarInvstBookingController extends Controller
             $success = AqarBooking::create($input);
 
             if ($success) {
-                Alert::success('Success', __('site.stop_successfully'));
+                Alert::success('Success', __('site.add_externalbooking_successfully'));
             } else {
-                    Alert::error('Error', __('site.stop_faild'));
+                    Alert::error('Error', __('site.add_externalbooking_faild'));
     
             }
             return redirect()->route('invst.aqars.index');

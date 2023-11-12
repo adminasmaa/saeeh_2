@@ -156,131 +156,17 @@
                         <nav class="navbar navbar-expand-lg">
                             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                                 <ul class="navbar-nav align-items-center">
-                                    <li class="ms-5">
-                                        <a class="nav-link" href="javascript:void(0)">
-                                            <div
-                                                class="notification d-flex justify-content-center align-items-center position-relative">
-                                                <span class="notification-icon">
-                                                          <i class="far fa-bell"></i>
-
-                                                </span>
-                                                <div
-                                                    class="cart-count d-flex justify-content-center align-items-center">
-                                                    5
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-
+                                    
                                     @if(!empty(auth()->user()))
-                                    <li class="ms-5">
-                                        <a class="nav-link" href="javascript:void(0)">
-                                            <div
-                                                class="notification-profile d-flex justify-content-center align-items-center position-relative">
-                                                <span class="notification-icon">
-                                                <i class="far fa-user"></i>
-                                                </span>
-
-                                            </div>
-                                        </a>
-                                    </li>
-                               @else
                                     <li class="btn-saeeh btn-space">
-                                        <a href="{{route('registers')}}"
+                                        <a href="{{route('invst.home')}}"
                                            class="d-flex justify-content-center align-items-center w-100 h-100">
-                                            @lang('site.create account')
-                                        </a>
-                                    </li>
-                                    <li class="btn-outline-saeeh">
-                                        <a href="{{route('sitelogin')}}"
-                                           class=" d-flex justify-content-center align-items-center w-100 h-100">
-                                            @lang('site.login')
-                                        </a>
+                                            {{auth()->user()->firstname}} {{auth()->user()->lastname}}
                                         </a>
                                     </li>
                                     @endif
 
                                 </ul>
-
-
-                                <div class="box-notifications  bg-white" id="box-notifications">
-                                    <div class="d-flex justify-content-start align-items-center close-notify">
-                                        <i class="fas fa-times close-btn-notify cursor "></i>
-                                    </div>
-
-                                    <ul class="notifications-list px-0">
-
-                                        <li class="p-3">
-                                            <a href="#">
-                                                <p class="mb-0 text-gray">
-                                                    لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج
-                                                    أليايت,سيت دو أيوسمود تيمبور
-                                                </p>
-                                                <p class="mb-0  pt-1 text-gray-4"> الاحد 14 فبراير 2023
-                                                </p>
-                                            </a>
-                                        </li>
-                                        <li class="p-3">
-                                            <a href="#">
-                                                <p class="mb-0 text-gray">
-                                                    لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج
-                                                    أليايت,سيت دو أيوسمود تيمبور
-                                                </p>
-                                                <p class="mb-0  pt-1 text-gray-4"> الاحد 14 فبراير 2023
-                                                </p>
-                                            </a>
-                                        </li>
-                                        <li class="p-3 ">
-                                            <a href="#">
-                                                <p class="mb-0 text-gray">
-                                                    لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج
-                                                    أليايت,سيت دو أيوسمود تيمبور
-                                                </p>
-                                                <p class="mb-0  pt-1 text-gray-4"> الاحد 14 فبراير 2023
-                                                </p>
-                                            </a>
-                                        </li>
-
-                                    </ul>
-
-                                </div>
-
-                                @if(!empty(auth()->user()))
-
-                                    <div class="box-notifications box-notifications-profile  bg-white"
-                                         id="box-notifications-profile">
-                                        <div class="d-flex justify-content-start align-items-center close-notify">
-                                            <i class="fas fa-times close-btn-notify-profile cursor "></i>
-                                        </div>
-
-                                        <ul class="notifications-list px-0">
-
-                                            <li class="p-3">
-                                                <a href="{{route('updateprofile',auth()->user()->id)}}">
-
-
-                                                    @lang('site.profiles')
-
-
-                                                </a>
-                                            </li>
-
-                    
-                                            <li class="p-3">
-                                                <a href="{{route('mybookingAll')}}">
-                                                    @lang('site.My bookings')
-                                                </a>
-                                            </li>
-                                            <li class="p-3 ">
-                                                <a href="{{route('logout')}}">
-                                                    @lang('site.logout')
-                                                </a>
-                                            </li>
-
-                                        </ul>
-
-                                    </div>
-                                @endif
 
                             </div>
                         </nav>
@@ -309,6 +195,10 @@
                         </li>
                         <li class="nav-link">
                             <a href="{{route('invst.updateprofile',Auth::id())}}" class="pe-0"> @lang('site.profiles') </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="{{route('invst.conditions')}}" class="pe-0"> @lang('site.Reservation and cancellation policy') </a>
                         </li>
                        
                         

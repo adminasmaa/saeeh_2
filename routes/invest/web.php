@@ -65,6 +65,11 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         Route::get('attendcar/{book_id}', 'App\Http\Controllers\Frontend\Investor\CarInvstBookingController@attend')->name('attendcar');
         Route::get('notattendcar/{book_id}', 'App\Http\Controllers\Frontend\Investor\CarInvstBookingController@notattend')->name('notattendcar');
         Route::get('bookingCarDetails/{book_id}', 'App\Http\Controllers\Frontend\Investor\CarInvstBookingController@bookingDetails')->name('bookingCarDetails');
+        Route::get('addcarbook/{aqar_id}', 'App\Http\Controllers\Frontend\Investor\CarInvstBookingController@show_extbooking')->name('addcarbook');
+        Route::post('add_extcarbooking', 'App\Http\Controllers\Frontend\Investor\CarInvstBookingController@add_extbooking')->name('add_extcarbooking');
+
+        Route::get('conditions', 'App\Http\Controllers\Frontend\Investor\HomeController@conditions')->name('conditions');
+        Route::post('add_conditions', 'App\Http\Controllers\Frontend\Investor\HomeController@add_conditions')->name('add_conditions');
        
  
 

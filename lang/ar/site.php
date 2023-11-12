@@ -85,6 +85,7 @@ return [
     'attend_faild'=>'فشل  حضور الحجز',
     'notattend_successfully'=>'تم عدم حضور الحجز بنجاح',
     'notattend_faild'=>'فشل  عدم حضور الحجز',
+    'Reservation and cancellation policy'=>'سياسة الحجز والالغاء',
     
 
 
