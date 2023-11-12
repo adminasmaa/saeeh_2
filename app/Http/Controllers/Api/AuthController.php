@@ -226,7 +226,7 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $rule = [
-            'email' => 'max:254|unique:users|email|required',
+            'email' => 'required|max:254|unique:users|email',
             'firstname' => 'required',
             'lastname' => 'required',
             'country_code' => 'required',
@@ -286,6 +286,7 @@ class AuthController extends Controller
 
         $validator = Validator::make($request->all(), [
             'country_code' => 'required',
+            // 'phone' => "required|phone|min:9|unique:users,phone,".$user->id.",id",  
             // 'phone' => ["required|min:9",Rule::unique('users')->ignore($user->id)],  
             'phone' => 'required|min:9',
             'password' => 'required|unique:users',
