@@ -354,7 +354,7 @@
                             data-bs-parent="#accordionFlushProfile"
                         >
                             <div class="accordion-Profile">
-                                <ul class="submenu">
+                                <ul class="submenu list-unstyled">
                                     <li>
                                         <a href="{{route('updateprofile',auth()->user()->id)}}"
                                            class="d-flex align-items-center">
@@ -400,7 +400,7 @@
                 <li class="d-flex justify-content-center mt-2 mb-3">
                     <a
                         href="{{route('sitelogin')}}"
-                        class="btn-outline-7agz d-flex justify-content-center align-items-center"
+                        class="btn-outline-saeeh-mobile d-flex justify-content-center align-items-center"
                     >
                         <i class="fas fa-user"></i>
                         @lang('site.login')
@@ -409,7 +409,7 @@
                 <li class="d-flex justify-content-center">
                     <a
                         href="{{route('registers')}}"
-                        class="btn-7agz d-flex justify-content-center align-items-center"
+                        class="btn-saeeh-mobile d-flex justify-content-center align-items-center"
                     >
                         <i class="fas fa-user"></i>
                         @lang('site.create account')

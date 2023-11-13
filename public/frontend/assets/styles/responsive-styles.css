@@ -130,6 +130,70 @@
     }
 }
 @media (max-width: 992px) {
+    .btn-saeeh-mobile i,.btn-outline-saeeh-mobile i{
+        padding-left: 5px;
+    }
+    
+    .btn-saeeh-mobile {
+        color: var(--m-white) !important;
+        background-color: var(--m-main);
+        border: 1px solid var(--m-main);
+        border-radius: var(--rounded-main);
+    }
+    .btn-outline-saeeh-mobile {
+        color: var(--m-main) !important;
+        width: 180px;
+        height: 60px;
+        background-color: var(--m-white);
+        border: 1px solid var(--m-main);
+        border-radius: var(--rounded-main);}
+    .btn-outline-saeeh-mobile,
+    .btn-saeeh-mobile {
+      width: 88%;
+      height: 50px;
+      padding: 0 !important;
+      font-size: 14px !important;
+      font-weight: 700 !important;
+      line-height: 36px !important;
+    }
+    .side-menu-wrap .accordion-Profile a i {
+        color: var(--m-main);
+        font-size: 16px;
+        padding-left: 5px;
+    }
+    .profile-ic {
+        text-align: center;
+        width: 15%;
+      }
+      .side-menu-wrap .accordion-Profile a {
+        color: var(--m-gray);
+        padding: 12px 0px 5px 10px;
+        font-weight: 700;
+        font-size: 14px;
+    }
+    .side-menu-wrap .accordion-Profile ul {
+        padding-right: 20px;
+        list-style: none;
+    }
+    .btn-outline-saeeh-mobile:hover,
+    .btn-saeeh-mobile:hover {
+      background-color: unset;
+      border: 1px solid unset;
+      color: unset;
+    }
+    #accordionFlushProfile .accordion-button {
+        width: 88%;
+        border-radius: var(--rounded-main);
+        background-color: var(--m-main);
+        color: var(--m-white);
+        padding: 12px 15px;
+        font-weight: 700;
+        font-size: 14px;
+    }
+    #accordionFlushProfile .accordion-button i {font-size: 16px;}
+
+
+
     .verification-modal .close-modal {
         background: var(--m-main);
     }
@@ -728,9 +792,9 @@
         padding-top: 70px !important;
     }
     .side-menu-nav .main-menu > li > a {
-        color: var(--m-gray-2);
+        color: var(--m-gray);
         padding: 15px 20px 5px 10px;
-        font-weight: 600;
+        font-weight: 700;
         font-size: 14px;
         display: block;
         transition: 0.4s;
@@ -854,6 +918,10 @@
 
     .accordion-button {
         padding: 0.5rem 1.25rem;
+        font-size: 14px;
+        color: var(--m-gray);
+        font-weight: 700;
+
     }
     .accordion-button:focus {
         box-shadow: none;
@@ -862,7 +930,7 @@
         padding: 0.5rem 1.25rem;
     }
     .submenu li a {
-        color: var(--m-gray-2);
+        color: var(--m-gray);
     }
 
     .side-login-image {
@@ -1444,6 +1512,10 @@
     }
 }
 @media (max-width: 578px) {
+    .iti--separate-dial-code.iti--show-flags .iti__selected-dial-code {
+        font-size: 14px;
+    }
+  
     .verification-content .check-image {
         width: 84px;
         height: 84px;
