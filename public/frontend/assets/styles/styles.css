@@ -1428,7 +1428,7 @@ video.video-full {
     border: 1px solid #cfcfcf;
     border-radius: 10px;
     height: 46px;
-    padding-right: 40px;
+    padding-right: 35px;
     text-align: right;
 }
 .edit-body input {
@@ -1479,9 +1479,13 @@ video.video-full {
 .icon-placeholder {
     position: absolute;
     right: 15px;
-    top: 10px;
-}
+    display: flex;
+    height: 100%;
+    align-items: center;
+    top: 0;
 
+}
+.icon-placeholder i{color: var(--m-gray-4);}
 .iti--separate-dial-code input[type="tel"] {
     padding-right: 40px;
 }
@@ -1509,8 +1513,9 @@ video.video-full {
 .user-link {
     color: var(--m-main);
 }
-
-[dir="rtl"] .breadcrumb-item + .breadcrumb-item::before {
+.iti--allow-dropdown input,  .iti--allow-dropdown input[type=text],  .iti--allow-dropdown input[type=tel] {
+    padding-right: 36px !important;}
+ .breadcrumb-item + .breadcrumb-item::before {
     content: "";
     height: 30px;
     width: 16px;
@@ -1560,7 +1565,7 @@ video.video-full {
     align-items: center;
 }
 
-[dir="rtl"] .form-check .form-check-input {
+.form-check .form-check-input {
     float: right;
     margin: 0;
 }
@@ -4336,7 +4341,7 @@ video.video-full {
     width: 100% !important;
 }
 
-.select2-container[dir="rtl"]
+.select2-container
     .select2-selection--single
     .select2-selection__rendered {
     padding-right: 8px;
