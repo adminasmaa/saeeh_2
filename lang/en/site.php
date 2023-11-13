@@ -418,6 +418,7 @@ return [
     'room number' => 'Room Number',
 
     'Welcome to Saeeh' => 'Welcome to Saeeh',
+    'Welcome to' => 'Welcome to',
     'Book what suits you from our services' => 'Book what suits you from our services',
     'Aqar Booking' => 'Aqar Booking ',
     'Car Booking' => 'Car Booking',

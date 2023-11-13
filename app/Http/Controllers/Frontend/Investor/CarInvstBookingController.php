@@ -112,43 +112,43 @@ class CarInvstBookingController extends Controller
     public function listbookings($type,Request $request)
     { 
     if($type=='all'){
-       $allbookings = Car::join('countries', 'countries.id', '=', 'cars.country_id')->join('car_bookings', 'cars.id', '=', 'car_bookings.car_id')
+       $allbookings = Car::join('countries', 'countries.id', '=', 'cars.country_id')->join('car_bookings', 'cars.id', '=', 'car_bookings.car_id')->join('booking_status', 'booking_status.id', '=', 'aqar_bookings.booking_status_id')->select('*','aqar_bookings.id as book_id')
        ->where('cars.user_id',Auth::id())->when($request->search_id, function ($query) use($request) {
         $query->where('car_bookings.id','=',$request->search_id)->orwhere('car_bookings.car_id','=',$request->search_id);
         
        })->paginate(10);}
        else if($type=='app'){
-       $allbookings = Car::join('countries', 'countries.id', '=', 'cars.country_id')->join('car_bookings', 'cars.id', '=', 'car_bookings.car_id')
+       $allbookings = Car::join('countries', 'countries.id', '=', 'cars.country_id')->join('car_bookings', 'cars.id', '=', 'car_bookings.car_id')->join('booking_status', 'booking_status.id', '=', 'aqar_bookings.booking_status_id')->select('*','aqar_bookings.id as book_id')
        ->where('cars.user_id',Auth::id())->where('car_bookings.type','application')->when($request->search_id, function ($query) use($request) {
         $query->where('car_bookings.id','=',$request->search_id)->orwhere('car_bookings.car_id','=',$request->search_id);
         
        })->paginate(10);
        }else if($type=='web'){
-       $allbookings = Car::join('countries', 'countries.id', '=', 'cars.country_id')->join('car_bookings', 'cars.id', '=', 'car_bookings.car_id')
+       $allbookings = Car::join('countries', 'countries.id', '=', 'cars.country_id')->join('car_bookings', 'cars.id', '=', 'car_bookings.car_id')->join('booking_status', 'booking_status.id', '=', 'aqar_bookings.booking_status_id')->select('*','aqar_bookings.id as book_id')
        ->where('cars.user_id',Auth::id())->where('car_bookings.type','website')->when($request->search_id, function ($query) use($request) {
         $query->where('car_bookings.id','=',$request->search_id)->orwhere('car_bookings.car_id','=',$request->search_id);
         
         })->paginate(10);
        }else if($type=='ext'){
-       $allbookings = Car::join('countries', 'countries.id', '=', 'cars.country_id')->join('car_bookings', 'cars.id', '=', 'car_bookings.car_id')
+       $allbookings = Car::join('countries', 'countries.id', '=', 'cars.country_id')->join('car_bookings', 'cars.id', '=', 'car_bookings.car_id')->join('booking_status', 'booking_status.id', '=', 'aqar_bookings.booking_status_id')->select('*','aqar_bookings.id as book_id')
        ->where('cars.user_id',Auth::id())->where('car_bookings.type','external')->when($request->search_id, function ($query) use($request) {
         $query->where('car_bookings.id','=',$request->search_id)->orwhere('car_bookings.car_id','=',$request->search_id);
         
        })->paginate(10);
        }else if($type=='cancel'){
-       $allbookings = Car::join('countries', 'countries.id', '=', 'cars.country_id')->join('car_bookings', 'cars.id', '=', 'car_bookings.car_id')
+       $allbookings = Car::join('countries', 'countries.id', '=', 'cars.country_id')->join('car_bookings', 'cars.id', '=', 'car_bookings.car_id')->join('booking_status', 'booking_status.id', '=', 'aqar_bookings.booking_status_id')->select('*','aqar_bookings.id as book_id')
        ->where('cars.user_id',Auth::id())->where('car_bookings.booking_status_id',4)->when($request->search_id, function ($query) use($request) {
         $query->where('car_bookings.id','=',$request->search_id)->orwhere('car_bookings.car_id','=',$request->search_id);
         
         })->paginate(10);
         }else if($type=='archef'){
-        $allbookings = Car::join('countries', 'countries.id', '=', 'cars.country_id')->join('car_bookings', 'cars.id', '=', 'car_bookings.car_id')
+        $allbookings = Car::join('countries', 'countries.id', '=', 'cars.country_id')->join('car_bookings', 'cars.id', '=', 'car_bookings.car_id')->join('booking_status', 'booking_status.id', '=', 'aqar_bookings.booking_status_id')->select('*','aqar_bookings.id as book_id')
         ->where('cars.user_id',Auth::id())->whereIn('car_bookings.booking_status_id',[5,6])->when($request->search_id, function ($query) use($request) {
          $query->where('car_bookings.id','=',$request->search_id)->orwhere('car_bookings.car_id','=',$request->search_id);
          
          })->paginate(10);
         }else if(is_numeric($type)){
-            $allbookings = Car::join('countries', 'countries.id', '=', 'cars.country_id')->join('car_bookings', 'cars.id', '=', 'car_bookings.car_id')
+            $allbookings = Car::join('countries', 'countries.id', '=', 'cars.country_id')->join('car_bookings', 'cars.id', '=', 'car_bookings.car_id')->join('booking_status', 'booking_status.id', '=', 'aqar_bookings.booking_status_id')->select('*','aqar_bookings.id as book_id')
             ->where('cars.user_id',Auth::id())->where('car_bookings.car_id',$type)->when($request->search_id, function ($query) use($request) {
              $query->where('car_bookings.id','=',$request->search_id)->orwhere('car_bookings.car_id','=',$request->search_id);
              

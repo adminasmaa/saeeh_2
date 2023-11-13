@@ -158,12 +158,45 @@
                                 <ul class="navbar-nav align-items-center">
                                     
                                     @if(!empty(auth()->user()))
-                                    <li class="btn-saeeh btn-space">
+                                    <!-- <li class="btn-saeeh btn-space">
                                         <a href="{{route('invst.home')}}"
                                            class="d-flex justify-content-center align-items-center w-100 h-100">
                                             {{auth()->user()->firstname}} {{auth()->user()->lastname}}
                                         </a>
-                                    </li>
+                                    </li> -->
+                                    <li>
+                                            <div class="dropdown-container">
+                                                <div class="dropdown-toggle click-dropdown d-flex align-items-center">
+
+                                                    اهلا بك
+                                                    {{auth()->user()->firstname}} {{auth()->user()->lastname}}
+                                                    <span>
+                                                      <i class="far fa-angle-down d-flex align-items-center"></i>
+                                                    </span>
+                                                </div>
+                                                <div class="dropdown-menu">
+                                                    <ul>
+                                                        <li>
+                                                            <a href="{{(Auth::user()->type=='invest' && Auth::user()->account_type_id ==5)?route('invst.listbookingscar','all'):route('invst.listbookings','all')}}" class="d-flex align-items-center">
+                                                                <div class="profile-ic">
+                                                                    <i class="far fa-book-open"></i>
+                                                                </div>
+                                                                <div>الحجوزات</div>
+                                                            </a>
+                                                        </li>
+
+                                                        <li>
+                                                            <a href="{{route('logout')}}" class="d-flex align-items-center">
+                                                                <div class="profile-ic">
+                                                                    <i class="far fa-sign-out"></i>
+                                                                </div>
+                                                                <div> تسجيل الخروج</div>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
                                     @endif
 
                                 </ul>
@@ -176,29 +209,30 @@
         </div>
     </section>
     <!--lower header-->
-    <section class="lower-header">
+    <section class="lower-header py-0">
         <div class="container w-100">
-            <div class="row justify-content-between align-items-center my-2">
+            <div class="row justify-content-between align-items-center">
                 <div class="col-8">
+                @php $current_route=Route::currentRouteName(); @endphp
                     <ul class="navbar-nav d-flex align-items-center flex-lg-row position-relative">
-                        <li class="nav-link">
-                            <a href="{{route('invst.home')}}" class="pe-0"> @lang('site.home') </a>
+                        <li class="nav-link investor-nav-item {{($current_route=='invst.home')?'active':'' }}">
+                            <a href="{{route('invst.home')}}" class="investor-nav-link"> @lang('site.home') </a>
                         </li>
-                        <li class="nav-link">
-                            <a href="{{(Auth::user()->type=='invest' && (Auth::user()->account_type_id ==1||Auth::user()->account_type_id ==2||Auth::user()->account_type_id ==3||Auth::user()->account_type_id ==4))?route('invst.aqars.index'):route('invst.cars.index')}}" class="pe-0"> @lang('site.advertising') </a>
+                        <li class="nav-link investor-nav-item {{($current_route==('invst.aqars.index'))||($current_route==('invst.cars.index'))?'active':'' }}">
+                            <a href="{{(Auth::user()->type=='invest' && (Auth::user()->account_type_id ==1||Auth::user()->account_type_id ==2||Auth::user()->account_type_id ==3||Auth::user()->account_type_id ==4))?route('invst.aqars.index'):route('invst.cars.index')}}" class="investor-nav-link"> @lang('site.advertising') </a>
                         </li>
-                        <li class="nav-link">
-                            <a href="{{(Auth::user()->type=='invest' && (Auth::user()->account_type_id ==1||Auth::user()->account_type_id ==2||Auth::user()->account_type_id ==3||Auth::user()->account_type_id ==4))?route('invst.listbookings','all'):route('invst.listbookingscar','all')}}" class="pe-0"> @lang('site.bookings') </a>
+                        <li class="nav-link investor-nav-item {{($current_route==('invst.listbookings'))||($current_route==('invst.listcarbookings'))?'active':'' }}">
+                            <a href="{{(Auth::user()->type=='invest' && (Auth::user()->account_type_id ==1||Auth::user()->account_type_id ==2||Auth::user()->account_type_id ==3||Auth::user()->account_type_id ==4))?route('invst.listbookings','all'):route('invst.listbookingscar','all')}}" class="investor-nav-link"> @lang('site.bookings') </a>
                         </li>
-                        <li class="nav-link">
-                            <a href="{{(Auth::user()->type=='invest' && (Auth::user()->account_type_id ==1||Auth::user()->account_type_id ==2||Auth::user()->account_type_id ==3||Auth::user()->account_type_id ==4))?route('invst.listcommisions',['aqar','unpaid']):route('invst.listcommisions',['car','unpaid'])}}" class="pe-0"> @lang('site.commissions') </a>
+                        <li class="nav-link investor-nav-item {{($current_route=='invst.listcommisions')?'active':'' }}">
+                            <a href="{{(Auth::user()->type=='invest' && (Auth::user()->account_type_id ==1||Auth::user()->account_type_id ==2||Auth::user()->account_type_id ==3||Auth::user()->account_type_id ==4))?route('invst.listcommisions',['aqar','unpaid']):route('invst.listcommisions',['car','unpaid'])}}" class="investor-nav-link"> @lang('site.commissions') </a>
                         </li>
-                        <li class="nav-link">
-                            <a href="{{route('invst.updateprofile',Auth::id())}}" class="pe-0"> @lang('site.profiles') </a>
+                        <li class="nav-link investor-nav-item {{($current_route=='invst.updateprofile')?'active':'' }}">
+                            <a href="{{route('invst.updateprofile',Auth::id())}}" class="investor-nav-link"> @lang('site.profiles') </a>
                         </li>
 
-                        <li class="nav-link">
-                            <a href="{{route('invst.conditions')}}" class="pe-0"> @lang('site.Reservation and cancellation policy') </a>
+                        <li class="nav-link investor-nav-item {{($current_route=='invst.conditions')?'active':'' }}">
+                            <a href="{{route('invst.conditions')}}" class="investor-nav-link"> @lang('site.Reservation and cancellation policy') </a>
                         </li>
                        
                         
@@ -374,7 +408,7 @@
 </form>
 
 @include('sweetalert::alert')
-
+@include('frontend.layout.header_mobile')
 @yield('content')
 
 </body>

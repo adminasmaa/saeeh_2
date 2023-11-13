@@ -50,6 +50,8 @@ class AqarBooking extends Model
         'person_num',
         'cancel_user_id',
         'comision',
+        'customer_name',
+        'customer_phone',
     ];
     protected $hidden=['deleted_at','updated_at'];
 

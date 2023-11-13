@@ -63,7 +63,7 @@
                   
                 </div>
                 @endif
-                
+                @if(!is_null($car->fixed_price))
                 <div class="form-group mb-4">
                   <label for="">
                     تاريخ الوصول
@@ -128,6 +128,7 @@
                   </div>
                  
                 </div>
+                @endif
                 
                 <div class="form-group mb-4">
                   <label for="">
@@ -230,12 +231,12 @@ $('#price').on('change', function (e) {
      }
      else{
       var amount1 = $('#amount1').val();
-      var total=amount1*days;
+      var total=amount1;
     
      $("#total").text(total);
 
      $("#total_price").val(total);
-     $("#day_count").val(days);
+     $("#day_count").val(day_num);
 
      } 
 

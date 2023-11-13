@@ -130,6 +130,21 @@
     }
 }
 @media (max-width: 992px) {
+    .padding-ads {
+        padding-right: 0px;
+      }
+      .list-menu-booking li {
+        width: 46%;
+      }
+      .w-aqar-status,
+      .ads-status {
+        width: auto !important;
+      }
+      .aqar-img-list {
+        height: 300px;
+      }
+
+
     .verification-modal .close-modal {
         background: var(--m-main);
     }
@@ -1444,6 +1459,10 @@
     }
 }
 @media (max-width: 578px) {
+    .aqar-img-list {
+        height: 275px;
+      }
+
     .verification-content .check-image {
         width: 84px;
         height: 84px;

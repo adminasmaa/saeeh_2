@@ -23,6 +23,18 @@ if(!function_exists('headerweb')){
         return $view;
     }
 }
+if(!function_exists('headerwebmobile')){
+
+    function headerwebmobile()
+    {
+        $CategoriesAquar=Category::where('parent_id', '=', 1)->where('type', '=', 1)->get();
+        $CategoriesCar =Category::where('parent_id', '=', 2)->where('type', '=', 2)->get();
+        $CategoriesPlaces=Category::where('parent_id', '=', null)->where('type', '=', 0)->get();
+        $settings=Setting::first();
+        $view = (string) View::make('frontend.layout.header_mobile', compact('CategoriesAquar','CategoriesCar','CategoriesPlaces','settings'));
+        return $view;
+    }
+    }
 
 if(!function_exists('footerweb')){
     function footerweb()

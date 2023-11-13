@@ -113,7 +113,7 @@
                                   <span class="aqar-booking-item">
                                     رقم الحجز :
                                   </span>
-                                  <span class="aqar-booking-item">{{$item->id}}</span>
+                                  <span class="aqar-booking-item">{{$item->book_id}}</span>
                                 </div>
                                 <div class="mb-3">
                                   <span class="aqar-booking-i"><i class="fal fa-list-ol"></i></span>
@@ -179,6 +179,16 @@
                                 </div>
                               </div>
                             </div>
+                            <div class="ads-status w-aqar-status my-3">
+                                <span> حالة الاعلان : </span>
+                                <span class="mt-md-0 mt-2">
+                                  <span class="ads-status-sure">مؤكد</span>
+                                  <span class="px-1">
+                                    <i class="far fa-alarm-clock text-main"></i>
+                                  </span>
+                                  <span>{{$item->status_ar}}</span>
+                                </span>
+                              </div>
                           </div>
                         </div>
                       </div>
@@ -187,39 +197,39 @@
                         <ul class="list-menu flex-center list-unstyled p-0 list-menu-booking">
                           @if($item->booking_status_id==1)
                           <li class="liItem-booking-out">
-                          <form action="{{route('invst.accept' , $item->id )}}" method="GET" style="display: inline-block" id="acceptForm{{$item->id}}">
+                          <form action="{{route('invst.accept' , $item->book_id )}}" method="GET" style="display: inline-block" id="acceptForm{{$item->book_id}}">
                             @csrf
-                            <a type="button" onclick="confirmAction('accept',{{$item->id}},'@lang('site.accept booking')','{{FRONTASSETS}}/images/accept.png',150,150)" id="accept" class="liItem-link">قبول</a>  
+                            <a type="button" onclick="confirmAction('accept',{{$item->book_id}},'@lang('site.accept booking')','{{FRONTASSETS}}/images/accept.png',150,150)" id="accept" class="liItem-link">قبول</a>  
                           </form>
                           </li>
                           @endif
                           @if($item->booking_status_id==1 )
                           <li class="liItem-booking-prices">
-                          <form action="{{route('invst.reject')}}" method="Post" style="display: inline-block" id="cancelForm{{$item->id}}">
+                          <form action="{{route('invst.reject')}}" method="Post" style="display: inline-block" id="cancelForm{{$item->book_id}}">
                             @csrf  
-                            <input type="hidden" name="id" value="{{$item->id}}">
-                            <input type="hidden" name="cancel_reason" class="cancel_reason" value="{{$item->id}}">
-                            <a type="button" onclick="confirmcancel('cancel',{{$item->id}},'@lang('site.cancel booking')','{{FRONTASSETS}}/images/cancel.png')" id="cancel" class="liItem-link">الغاء الحجز</a>  
+                            <input type="hidden" name="id" value="{{$item->book_id}}">
+                            <input type="hidden" name="cancel_reason" class="cancel_reason" value="{{$item->book_id}}">
+                            <a type="button" onclick="confirmcancel('cancel',{{$item->book_id}},'@lang('site.cancel booking')','{{FRONTASSETS}}/images/cancel.png')" id="cancel" class="liItem-link">الغاء الحجز</a>  
                           </form>
                           </li>
                           @endif
                           @if($item->booking_status_id==3 )
                           <li class="liItem-booking-see">
-                          <form action="{{route('invst.attend' , $item->id)}}" method="GET" style="display: inline-block" id="attendForm{{$item->id}}">
+                          <form action="{{route('invst.attend' , $item->book_id)}}" method="GET" style="display: inline-block" id="attendForm{{$item->book_id}}">
                             @csrf
-                            <a type="button" onclick="confirmAction('attend',{{$item->id}},'@lang('site.attend booking')','{{FRONTASSETS}}/images/attend.png',300,200)" id="attend" class="liItem-link">حضور</a>  
+                            <a type="button" onclick="confirmAction('attend',{{$item->book_id}},'@lang('site.attend booking')','{{FRONTASSETS}}/images/attend.png',300,200)" id="attend" class="liItem-link">حضور</a>  
                           </form>
                            </li>
 
                            <li class="liItem-booking-edit">
-                           <form action="{{route('invst.notattend' , $item->id)}}" method="GET" style="display: inline-block" id="notattendForm{{$item->id}}">
+                           <form action="{{route('invst.notattend' , $item->book_id)}}" method="GET" style="display: inline-block" id="notattendForm{{$item->book_id}}">
                             @csrf
-                            <a type="button" onclick="confirmAction('notattend',{{$item->id}},'@lang('site.not attend booking')','{{FRONTASSETS}}/images/notattend.png',150,150)" id="notattend" class="liItem-link">عدم حضور</a>  
+                            <a type="button" onclick="confirmAction('notattend',{{$item->book_id}},'@lang('site.not attend booking')','{{FRONTASSETS}}/images/notattend.png',150,150)" id="notattend" class="liItem-link">عدم حضور</a>  
                           </form>
                            </li>
                            @endif
                            <li class="liItem-booking">
-                            <a href="{{route('invst.bookingDetails' , $item->id)}}" class="liItem-link">
+                            <a href="{{route('invst.bookingDetails' , $item->book_id)}}" class="liItem-link">
                             
                              معلومات الحجز
                             </a>

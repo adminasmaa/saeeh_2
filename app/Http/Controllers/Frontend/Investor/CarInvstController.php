@@ -39,7 +39,7 @@ class CarInvstController extends Controller
     public function index(Request $request)
     {
 
-        $cars = Car::with('categories','subcategories')->where('user_id',Auth::id())
+        $cars = Car::with('categories','subcategories','adsstatus')->where('user_id',Auth::id())
         ->when($request->search_id, function ($query) use($request) {
             $query->where('id','=',$request->search_id);
             

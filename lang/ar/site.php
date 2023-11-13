@@ -85,8 +85,12 @@ return [
     'attend_faild'=>'فشل  حضور الحجز',
     'notattend_successfully'=>'تم عدم حضور الحجز بنجاح',
     'notattend_faild'=>'فشل  عدم حضور الحجز',
+<<<<<<< HEAD
     'Reservation and cancellation policy'=>'سياسة الحجز والالغاء',
     
+=======
+
+>>>>>>> 1b57520af0ed0c6e097342672baf6c65644a3683
 
 
 
@@ -207,6 +211,7 @@ return [
     'brands' => 'ماركات العربيات',
 
     'Welcome to Saeeh' => ' اهلا بك في سائح',
+    'Welcome to' => ' اهلا بك',
     'Book what suits you from our services' => 'قم بحجز ما يناسبك من خدماتنا',
     'Saeeh' => 'سائح',
 

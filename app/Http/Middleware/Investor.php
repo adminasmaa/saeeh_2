@@ -17,7 +17,7 @@ class Investor
     public function handle(Request $request, Closure $next)
     {
         if (!empty(auth()->user())) {
-            if (Auth::user()->roles->first()->display_name=='invest') {
+            if (Auth::user()->type=='invest') {
                 return $next($request);
 
             }
