@@ -142,7 +142,7 @@
 <body>
 {!! headerweb() !!}
 @include('sweetalert::alert')
-@include('frontend.layout.header_mobile')
+{!! headerwebmobile() !!}
 
 
 

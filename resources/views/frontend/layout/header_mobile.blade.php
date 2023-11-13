@@ -12,7 +12,7 @@
             <div class="col-md-4 col-sm-7 col-5">
                 <div class="header-logo">
                     <a class="" href="{{route('Home')}}">
-                        <img src="{{FRONTASSETS}}/images/logo.svg" alt="logo" class="img-logo-mobile" />
+                        <img src="{{FRONTASSETS}}/images/logo.svg" alt="logo" class="img-logo-mobile"/>
                     </a>
                 </div>
             </div>
@@ -88,28 +88,28 @@
                 <div class="accordion accordion-flush" id="accordionFlushExample">
                     <div id="flush-headingOne">
                         <a class="accordion-button collapsed d-flex justify-content-between" href="#"
-                            data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false"
-                            aria-controls="flush-collapseOne">
+                           data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false"
+                           aria-controls="flush-collapseOne">
                             @lang('site.Aqar Booking')
                             <i class="fa fa-chevron-down"></i>
                         </a>
                     </div>
                     <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-                        data-bs-parent="#accordionFlushExample">
+                         data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
                             <ul class="submenu list-unstyled">
 
                                 @foreach($CategoriesAquar as $category)
-                                <li class="pb-2">
-                                    <a href="{{route('aquars',$category->id)}}">
-                                        <div class="d-flex align-items-center">
-                                            <div class="arrow-ico">
-                                                <i class="fas fa-arrow-left"></i>
+                                    <li class="pb-2">
+                                        <a href="{{route('aquars',$category->id)}}">
+                                            <div class="d-flex align-items-center">
+                                                <div class="arrow-ico">
+                                                    <i class="fas fa-arrow-left"></i>
+                                                </div>
+                                                <div>{{$category->name ?? ''}}</div>
                                             </div>
-                                            <div>{{$category->name ?? ''}}</div>
-                                        </div>
-                                    </a>
-                                </li>
+                                        </a>
+                                    </li>
 
                                 @endforeach
                             </ul>
@@ -121,27 +121,27 @@
                 <div class="accordion accordion-flush" id="accordionFlushExample2">
                     <div id="flush-headingTwo">
                         <a class="accordion-button collapsed d-flex justify-content-between" href="#"
-                            data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false"
-                            aria-controls="flush-collapseTwo">
+                           data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                           aria-controls="flush-collapseTwo">
                             @lang('site.Car Booking')
                             <i class="fa fa-chevron-down"></i>
                         </a>
                     </div>
                     <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
-                        data-bs-parent="#accordionFlushExample2">
+                         data-bs-parent="#accordionFlushExample2">
                         <div class="accordion-body">
                             <ul class="submenu list-unstyled">
                                 @foreach($CategoriesCar as $cat)
-                                <li class="pb-2">
-                                    <a href="{{route('carscategories',$cat->id)}}">
-                                        <div class="d-flex align-items-center">
-                                            <div class="arrow-ico">
-                                                <i class="fas fa-arrow-left"></i>
+                                    <li class="pb-2">
+                                        <a href="{{route('carscategories',$cat->id)}}">
+                                            <div class="d-flex align-items-center">
+                                                <div class="arrow-ico">
+                                                    <i class="fas fa-arrow-left"></i>
+                                                </div>
+                                                <div>{{$cat->name ?? ''}}</div>
                                             </div>
-                                            <div>{{$cat->name ?? ''}}</div>
-                                        </div>
-                                    </a>
-                                </li>
+                                        </a>
+                                    </li>
                                 @endforeach
                             </ul>
                         </div>
@@ -152,27 +152,27 @@
                 <div class="accordion accordion-flush" id="accordionFlushExample3">
                     <div id="flush-headingThree">
                         <a class="accordion-button collapsed d-flex justify-content-between" href="#"
-                            data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false"
-                            aria-controls="flush-collapseThree">
+                           data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false"
+                           aria-controls="flush-collapseThree">
                             @lang('site.another serviecs')
                             <i class="fa fa-chevron-down"></i>
                         </a>
                     </div>
                     <div id="flush-collapseThree" class="accordion-collapse collapse"
-                        aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample3">
+                         aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample3">
                         <div class="accordion-body">
                             <ul class="submenu list-unstyled">
                                 @foreach($CategoriesPlaces as $categoryplace)
-                                <li class="pb-2">
-                                    <a href="{{route('subcategories',['id'=>$categoryplace->id, 'city_id'=>0])}}">
-                                        <div class="d-flex align-items-center">
-                                            <div class="arrow-ico">
-                                                <i class="fas fa-arrow-left"></i>
+                                    <li class="pb-2">
+                                        <a href="{{route('subcategories',['id'=>$categoryplace->id, 'city_id'=>0])}}">
+                                            <div class="d-flex align-items-center">
+                                                <div class="arrow-ico">
+                                                    <i class="fas fa-arrow-left"></i>
+                                                </div>
+                                                <div>{{$categoryplace->name ?? ''}}</div>
                                             </div>
-                                            <div>{{$categoryplace->name ?? ''}}</div>
-                                        </div>
-                                    </a>
-                                </li>
+                                        </a>
+                                    </li>
                                 @endforeach
                             </ul>
                         </div>
@@ -181,7 +181,7 @@
             </li>
             <li>
                 <a href="javascript:void(0)" class="d-flex align-items-center" data-bs-toggle="modal"
-                    data-bs-target="#helpModal">
+                   data-bs-target="#helpModal">
                     <div class=" ps-1">
                         <i class="far fa-question-circle"></i>
                     </div>
@@ -192,69 +192,236 @@
                 <div class="accordion accordion-flush" id="accordionFlushExample4">
                     <div id="flush-headingFour">
                         <a class="accordion-button collapsed d-flex justify-content-between" href="#"
-                            data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false"
-                            aria-controls="flush-collapseFour">
+                           data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false"
+                           aria-controls="flush-collapseFour">
                             @lang('site.language')
                             <i class="fa fa-chevron-down"></i>
                         </a>
                     </div>
                     <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour"
-                        data-bs-parent="#accordionFlushExample4">
+                         data-bs-parent="#accordionFlushExample4">
                         <div class="accordion-body">
                             <ul class="submenu list-unstyled">
                                 @foreach(LaravelLocalization::getSupportedLocales() as $localeCode =>
                                 $properties)
 
-                                @if($properties['native']=='English')
-                                <li class="pb-2">
-                                    <a href="#">
-                                        <div class="d-flex align-items-center">
-                                            <div>
-                                                <img src="{{FRONTASSETS}}/images/nav-icons/flag-en.png" alt="lang-icon"
-                                                    class="ps-2" />
-                                            </div>
-                                            <div>{{ $properties['native'] }}</div>
-                                        </div>
-                                    </a>
-                                </li>
-                                @else
-                                <li class="pb-2">
-                                    <a href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"
-                                        class="sub-menu-link">
-                                        <div class="d-flex align-items-center">
-                                            <div>
-                                                <img src="{{FRONTASSETS}}/images/nav-icons/flag-ar.svg" alt="lang-icon"
-                                                    class="ps-2" />
-                                            </div>
-                                            <div>{{ $properties['native'] }}</div>
-                                        </div>
-                                    </a>
-                                </li>
-                                @endif
+                                    @if($properties['native']=='English')
+                                        <li class="pb-2">
+                                            <a href="#">
+                                                <div class="d-flex align-items-center">
+                                                    <div>
+                                                        <img src="{{FRONTASSETS}}/images/nav-icons/flag-en.png"
+                                                             alt="lang-icon"
+                                                             class="ps-2"/>
+                                                    </div>
+                                                    <div>{{ $properties['native'] }}</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    @else
+                                        <li class="pb-2">
+                                            <a href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"
+                                               class="sub-menu-link">
+                                                <div class="d-flex align-items-center">
+                                                    <div>
+                                                        <img src="{{FRONTASSETS}}/images/nav-icons/flag-ar.svg"
+                                                             alt="lang-icon"
+                                                             class="ps-2"/>
+                                                    </div>
+                                                    <div>{{ $properties['native'] }}</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    @endif
                                 @endforeach
+                                {{--                                    <li class="btn-saeeh btn-space d-flex justify-content-center align-items-center">--}}
+                                {{--                                        <a href="{{route('registers')}}" class=" border-0 btn-frm-owner" data-bs-toggle="modal"--}}
+                                {{--                                           data-bs-target="#registerModal">--}}
+                                {{--                                            @lang('site.create account')--}}
+                                {{--                                        </a>--}}
+                                {{--                                    </li>--}}
+                                {{--                                    <li class="btn-outline-saeeh d-flex justify-content-center align-items-center">--}}
+                                {{--                                        <a href="{{route('sitelogin')}}" class="border-0 btn-frm-owner" data-bs-toggle="modal"--}}
+                                {{--                                           data-bs-target="#loginModal">--}}
+                                {{--                                            @lang('site.login')--}}
+                                {{--                                        </a>--}}
+                                {{--                                    </li>--}}
+
+
+                                {{--                                    <!-- WHEN User Login -->--}}
+                                {{--                                    <li class="btn-saeeh btn-space d-flex justify-content-center align-items-center">--}}
+
+                                {{--                                        <div class="accordion accordion-flush" id="accordionFlushProfile">--}}
+                                {{--                                            <div--}}
+                                {{--                                                id="flush-headingOne2 d-flex justify-content-center"--}}
+                                {{--                                                class="d-flex justify-content-center"--}}
+                                {{--                                            >--}}
+                                {{--                                                <a--}}
+                                {{--                                                    class="accordion-button collapsed d-flex align-items-center justify-content-between mt-3"--}}
+                                {{--                                                    type="button"--}}
+                                {{--                                                    href="#"--}}
+                                {{--                                                    data-bs-toggle="collapse"--}}
+                                {{--                                                    data-bs-target="#flush-collapseProfile"--}}
+                                {{--                                                    aria-expanded="false"--}}
+                                {{--                                                    aria-controls="flush-collapseProfile"--}}
+                                {{--                                                >--}}
+                                {{--                                                    اهلا بك اميمة--}}
+
+                                {{--                                                    <i class="far fa-angle-down"></i>--}}
+                                {{--                                                </a>--}}
+                                {{--                                            </div>--}}
+                                {{--                                            <div--}}
+                                {{--                                                id="flush-collapseProfile"--}}
+                                {{--                                                class="accordion-collapse collapse"--}}
+                                {{--                                                aria-labelledby="flush-headingOne2"--}}
+                                {{--                                                data-bs-parent="#accordionFlushProfile"--}}
+                                {{--                                            >--}}
+                                {{--                                                <div class="accordion-Profile">--}}
+                                {{--                                                    <ul class="submenu">--}}
+                                {{--                                                        <li>--}}
+                                {{--                                                            <a href="#" class="d-flex align-items-center">--}}
+                                {{--                                                                <div class="profile-ic">--}}
+                                {{--                                                                    <i class="far fa-heart"></i>--}}
+                                {{--                                                                </div>--}}
+                                {{--                                                                <div>المفضلة</div>--}}
+                                {{--                                                            </a>--}}
+                                {{--                                                        </li>--}}
+                                {{--                                                        <li>--}}
+                                {{--                                                            <a href="#" class="d-flex align-items-center">--}}
+                                {{--                                                                <div class="profile-ic">--}}
+                                {{--                                                                    <i class="far fa-book-open"></i>--}}
+                                {{--                                                                </div>--}}
+                                {{--                                                                <div>حجوزاتى</div>--}}
+                                {{--                                                            </a>--}}
+                                {{--                                                        </li>--}}
+                                {{--                                                        <li>--}}
+                                {{--                                                            <a href="#" class="d-flex align-items-center">--}}
+                                {{--                                                                <div class="profile-ic">--}}
+                                {{--                                                                    <i class="far fa-user"></i>--}}
+                                {{--                                                                </div>--}}
+                                {{--                                                                <div>حسابى</div>--}}
+                                {{--                                                            </a>--}}
+                                {{--                                                        </li>--}}
+                                {{--                                                        <li>--}}
+                                {{--                                                            <a href="#" class="d-flex align-items-center">--}}
+                                {{--                                                                <div class="profile-ic">--}}
+                                {{--                                                                    <i class="far fa-sign-out"></i>--}}
+                                {{--                                                                </div>--}}
+                                {{--                                                                <div>تسجيل الخروج</div>--}}
+                                {{--                                                            </a>--}}
+                                {{--                                                        </li>--}}
+                                {{--                                                    </ul>--}}
+                                {{--                                                </div>--}}
+                                {{--                                            </div>--}}
+                                {{--                                        </div>--}}
+                                {{--                                    </li>--}}
+
                             </ul>
+
+
                         </div>
                     </div>
                 </div>
             </li>
+
+            @if(!empty(auth()->user()))
+                <!-- WHEN User Login -->
+                <li>
+                    <div class="accordion accordion-flush" id="accordionFlushProfile">
+                        <div
+                            id="flush-headingOne2 d-flex justify-content-center"
+                            class="d-flex justify-content-center"
+                        >
+                            <a
+                                class="accordion-button collapsed d-flex align-items-center justify-content-between mt-3"
+                                type="button"
+                                href="#"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseProfile"
+                                aria-expanded="false"
+                                aria-controls="flush-collapseProfile"
+                            >
+                                @lang('site.Welcome to')
+                                {{auth()->user()->firstname ?? ''}}
+
+                                <i class="far fa-angle-down"></i>
+                            </a>
+                        </div>
+                        <div
+                            id="flush-collapseProfile"
+                            class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingOne2"
+                            data-bs-parent="#accordionFlushProfile"
+                        >
+                            <div class="accordion-Profile">
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="{{route('updateprofile',auth()->user()->id)}}"
+                                           class="d-flex align-items-center">
+                                            <div class="profile-ic">
+                                                <i class="far fa-heart"></i>
+                                            </div>
+                                            <div>@lang('site.profiles')</div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('myfavouriteAll')}}" class="d-flex align-items-center">
+                                            <div class="profile-ic">
+                                                <i class="far fa-book-open"></i>
+                                            </div>
+                                            <div>@lang('site.favourite')</div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('mybookingAll')}}" class="d-flex align-items-center">
+                                            <div class="profile-ic">
+                                                <i class="far fa-user"></i>
+                                            </div>
+                                            <div>@lang('site.My bookings')</div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('logout')}}" class="d-flex align-items-center">
+                                            <div class="profile-ic">
+                                                <i class="far fa-sign-out"></i>
+                                            </div>
+                                            <div> @lang('site.logout')</div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            @else
+
+                <!-- without login -->
+                <li class="d-flex justify-content-center mt-2 mb-3">
+                    <a
+                        href="{{route('sitelogin')}}"
+                        class="btn-outline-7agz d-flex justify-content-center align-items-center"
+                    >
+                        <i class="fas fa-user"></i>
+                        @lang('site.login')
+                    </a>
+                </li>
+                <li class="d-flex justify-content-center">
+                    <a
+                        href="{{route('registers')}}"
+                        class="btn-7agz d-flex justify-content-center align-items-center"
+                    >
+                        <i class="fas fa-user"></i>
+                        @lang('site.create account')
+                    </a>
+                </li>
+
+            @endif
+
         </ul>
         <div class="row">
             <div class="side-menu-btns-box w-100 d-flex justify-content-center">
                 <div class="col-10">
-                    <ul class="list-unstyled">
-                        <li class="btn-saeeh btn-space d-flex justify-content-center align-items-center">
-                            <a href="{{route('registers')}}" class=" border-0 btn-frm-owner" data-bs-toggle="modal"
-                                data-bs-target="#registerModal">
-                                @lang('site.create account')
-                            </a>
-                        </li>
-                        <li class="btn-outline-saeeh d-flex justify-content-center align-items-center">
-                            <a href="{{route('sitelogin')}}" class="border-0 btn-frm-owner" data-bs-toggle="modal"
-                                data-bs-target="#loginModal">
-                                @lang('site.login')
-                            </a>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </div>

@@ -35,7 +35,9 @@
                                     <li>
                                         <div class="dropdown-container">
                                             <div class="dropdown-toggle click-dropdown d-flex align-items-center">
-                                                اهلا بك اميمة
+                                            @lang('site.Welcome to')
+
+                                                {{auth()->user()->firstname ?? ''}}
                                                 <span>
                                                     <i class="far fa-angle-down d-flex align-items-center"></i>
                                                 </span>
