@@ -408,7 +408,6 @@
 </form>
 
 @include('sweetalert::alert')
-@include('frontend.layout.header_mobile')
 @yield('content')
 
 </body>
