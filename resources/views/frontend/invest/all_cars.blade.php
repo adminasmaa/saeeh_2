@@ -66,11 +66,6 @@
      
       <section class="booking_investor mb-6">
         <div class="container">
-        <div class="row">
-              <div class="col-12">
-       
-       
-         
           <div class="booking_investor_card">
             <div class="row">
               <div class="col-12">
@@ -91,7 +86,7 @@
                       </h2>
                       <div class="d-lg-flex mt-3 w-100">
                         <div class="ads-lborder">
-                          <div class="mb-lg-3 mb-2">
+                          <div class="mb-3">
                           <span class="ads-item h2">@lang('site.category') :</span>
                             <span class="h2 text-gray">{{$car->categories['name_ar'] ??''}}</span>
                           </div>
@@ -151,6 +146,15 @@
                             </ul>
                           </div>
                         </div>
+                      </div>
+                      <div class="ads-status mt-lg-0 mt-3">
+                        <span> حالة الاعلان : </span>
+                        <span class="mt-md-0 mt-2">
+                          <span class="ads-status-ic px-1">
+                            <i class="far fa-check"></i>
+                          </span>
+                          <span> {{$car->adsstatus['status_ar']}}</span>
+                        </span>
                       </div>
                     </div>
                   </div>

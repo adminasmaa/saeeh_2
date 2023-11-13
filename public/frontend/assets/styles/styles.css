@@ -5445,7 +5445,7 @@ tr {
     justify-content: space-between;
     flex-wrap: wrap;
 }
-.list-menu li {
+/* .list-menu li {
     display: block !important;
     width: 47%;
     margin-bottom: 16px;
@@ -5458,11 +5458,36 @@ tr {
     font-size: 16px;
     font-weight: 700;
     line-height: 24px;
-}
+} */
 
-.list-menu li .liItem-link i {
+/* .list-menu li .liItem-link i {
     padding-left: 7px;
-}
+} */
+.list-menu li {
+    display: block !important;
+    width: 47%;
+    margin-bottom: 16px;
+    border-radius: var(--rounded-main);
+    background-color: #fff3e6;
+  }
+  .list-menu li .liItem-link {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding-block: 8px;
+    padding-right: 18px;
+    text-align: right;
+  }
+  
+  .list-menu li .liItem-link i {
+    padding-left: 7px;
+  }
+
+
+
 .liItem-booking-out {
     border: 1px solid #3bc119;
 }
@@ -5910,4 +5935,57 @@ tr {
 
 .help-modal .modal-custom .modal-dialog {
     margin: 0% auto;
+}
+
+
+.ads-status {
+    background-color: #3bc1192b;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: var(--m-gray-2);
+    border-radius: var(--rounded-main);
+    padding: 6px 10px;
+    text-align: center;
+    width: max-content !important;
+  }
+  .ads-status i,
+  .ads-status-sure {
+    color: #2a8213;
+    font-size: 16px;
+  }
+  .w-aqar-status {
+    padding: 10px !important;
+    background-color: #feeeba;
+  }
+  .aqar-img-list {
+    position: relative;
+    width: 100%;
+    height: 370px;
+    border-radius: var(--rounded-main);
+  }
+  .aqar-img-list img {
+    position: absolute;
+    margin: auto;
+    inset: 0;
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--rounded-main);
+  }
+  .investor-nav-link{
+    position: relative;
+    padding: 0 16px !important;
+  }
+  .investor-nav-item{
+    padding-inline: 0 !important;
+    padding-block: 18px !important;
+  }
+  .investor-nav-item.active {
+    border-bottom: 4px solid var(--m-second);
+}
+.investor-nav-item.active .investor-nav-link {
+    color: var(--m-second);
 }

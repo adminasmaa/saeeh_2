@@ -12,12 +12,10 @@
         href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet"
     />
-     <!-- Font Awesome-->
-     <link
-      rel="stylesheet"
-      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-      crossorigin="anonymous"
+    <!-- Font Awesome-->
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        rel="stylesheet"
     />
     <!--start rating-->
     <link
@@ -158,131 +156,50 @@
                         <nav class="navbar navbar-expand-lg">
                             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                                 <ul class="navbar-nav align-items-center">
-                                    <li class="ms-5">
-                                        <a class="nav-link" href="javascript:void(0)">
-                                            <div
-                                                class="notification d-flex justify-content-center align-items-center position-relative">
-                                                <span class="notification-icon">
-                                                          <i class="far fa-bell"></i>
+                                    
+                                    @if(!empty(auth()->user()))
+                                    <!-- <li class="btn-saeeh btn-space">
+                                        <a href="{{route('invst.home')}}"
+                                           class="d-flex justify-content-center align-items-center w-100 h-100">
+                                            {{auth()->user()->firstname}} {{auth()->user()->lastname}}
+                                        </a>
+                                    </li> -->
+                                    <li>
+                                            <div class="dropdown-container">
+                                                <div class="dropdown-toggle click-dropdown d-flex align-items-center">
 
-                                                </span>
-                                                <div
-                                                    class="cart-count d-flex justify-content-center align-items-center">
-                                                    5
+                                                    اهلا بك
+                                                    {{auth()->user()->firstname}} {{auth()->user()->lastname}}
+                                                    <span>
+                                                      <i class="far fa-angle-down d-flex align-items-center"></i>
+                                                    </span>
+                                                </div>
+                                                <div class="dropdown-menu">
+                                                    <ul>
+                                                        <li>
+                                                            <a href="{{(Auth::user()->type=='invest' && Auth::user()->account_type_id ==5)?route('invst.listbookingscar','all'):route('invst.listbookings','all')}}" class="d-flex align-items-center">
+                                                                <div class="profile-ic">
+                                                                    <i class="far fa-book-open"></i>
+                                                                </div>
+                                                                <div>الحجوزات</div>
+                                                            </a>
+                                                        </li>
+
+                                                        <li>
+                                                            <a href="{{route('logout')}}" class="d-flex align-items-center">
+                                                                <div class="profile-ic">
+                                                                    <i class="far fa-sign-out"></i>
+                                                                </div>
+                                                                <div> تسجيل الخروج</div>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
                                                 </div>
                                             </div>
-                                        </a>
-                                    </li>
-
-                                    @if(!empty(auth()->user()))
-                                    <li class="ms-5">
-                                        <a class="nav-link" href="javascript:void(0)">
-                                            <div
-                                                class="notification-profile d-flex justify-content-center align-items-center position-relative">
-                                                <span class="notification-icon">
-                                                <i class="far fa-user"></i>
-                                                </span>
-
-                                            </div>
-                                        </a>
-                                    </li>
-                               @else
-                                    <li class="btn-saeeh btn-space">
-                                        <a href="{{route('registers')}}"
-                                           class="d-flex justify-content-center align-items-center w-100 h-100">
-                                            @lang('site.create account')
-                                        </a>
-                                    </li>
-                                    <li class="btn-outline-saeeh">
-                                        <a href="{{route('sitelogin')}}"
-                                           class=" d-flex justify-content-center align-items-center w-100 h-100">
-                                            @lang('site.login')
-                                        </a>
-                                        </a>
-                                    </li>
+                                        </li>
                                     @endif
 
                                 </ul>
-
-
-                                <div class="box-notifications  bg-white" id="box-notifications">
-                                    <div class="d-flex justify-content-start align-items-center close-notify">
-                                        <i class="fas fa-times close-btn-notify cursor "></i>
-                                    </div>
-
-                                    <ul class="notifications-list px-0">
-
-                                        <li class="p-3">
-                                            <a href="#">
-                                                <p class="mb-0 text-gray">
-                                                    لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج
-                                                    أليايت,سيت دو أيوسمود تيمبور
-                                                </p>
-                                                <p class="mb-0  pt-1 text-gray-4"> الاحد 14 فبراير 2023
-                                                </p>
-                                            </a>
-                                        </li>
-                                        <li class="p-3">
-                                            <a href="#">
-                                                <p class="mb-0 text-gray">
-                                                    لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج
-                                                    أليايت,سيت دو أيوسمود تيمبور
-                                                </p>
-                                                <p class="mb-0  pt-1 text-gray-4"> الاحد 14 فبراير 2023
-                                                </p>
-                                            </a>
-                                        </li>
-                                        <li class="p-3 ">
-                                            <a href="#">
-                                                <p class="mb-0 text-gray">
-                                                    لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج
-                                                    أليايت,سيت دو أيوسمود تيمبور
-                                                </p>
-                                                <p class="mb-0  pt-1 text-gray-4"> الاحد 14 فبراير 2023
-                                                </p>
-                                            </a>
-                                        </li>
-
-                                    </ul>
-
-                                </div>
-
-                                @if(!empty(auth()->user()))
-
-                                    <div class="box-notifications box-notifications-profile  bg-white"
-                                         id="box-notifications-profile">
-                                        <div class="d-flex justify-content-start align-items-center close-notify">
-                                            <i class="fas fa-times close-btn-notify-profile cursor "></i>
-                                        </div>
-
-                                        <ul class="notifications-list px-0">
-
-                                            <li class="p-3">
-                                                <a href="{{route('updateprofile',auth()->user()->id)}}">
-
-
-                                                    @lang('site.profiles')
-
-
-                                                </a>
-                                            </li>
-
-                    
-                                            <li class="p-3">
-                                                <a href="{{route('mybookingAll')}}">
-                                                    @lang('site.My bookings')
-                                                </a>
-                                            </li>
-                                            <li class="p-3 ">
-                                                <a href="{{route('logout')}}">
-                                                    @lang('site.logout')
-                                                </a>
-                                            </li>
-
-                                        </ul>
-
-                                    </div>
-                                @endif
 
                             </div>
                         </nav>
@@ -292,25 +209,30 @@
         </div>
     </section>
     <!--lower header-->
-    <section class="lower-header">
+    <section class="lower-header py-0">
         <div class="container w-100">
-            <div class="row justify-content-between align-items-center my-2">
+            <div class="row justify-content-between align-items-center">
                 <div class="col-8">
+                @php $current_route=Route::currentRouteName(); @endphp
                     <ul class="navbar-nav d-flex align-items-center flex-lg-row position-relative">
-                        <li class="nav-link">
-                            <a href="{{route('invst.home')}}" class="pe-0"> @lang('site.home') </a>
+                        <li class="nav-link investor-nav-item {{($current_route=='invst.home')?'active':'' }}">
+                            <a href="{{route('invst.home')}}" class="investor-nav-link"> @lang('site.home') </a>
                         </li>
-                        <li class="nav-link">
-                            <a href="{{(Auth::user()->type=='invest' && (Auth::user()->account_type_id ==1||Auth::user()->account_type_id ==2||Auth::user()->account_type_id ==3||Auth::user()->account_type_id ==4))?route('invst.aqars.index'):route('invst.cars.index')}}" class="pe-0"> @lang('site.advertising') </a>
+                        <li class="nav-link investor-nav-item {{($current_route==('invst.aqars.index'))||($current_route==('invst.cars.index'))?'active':'' }}">
+                            <a href="{{(Auth::user()->type=='invest' && (Auth::user()->account_type_id ==1||Auth::user()->account_type_id ==2||Auth::user()->account_type_id ==3||Auth::user()->account_type_id ==4))?route('invst.aqars.index'):route('invst.cars.index')}}" class="investor-nav-link"> @lang('site.advertising') </a>
                         </li>
-                        <li class="nav-link">
-                            <a href="{{(Auth::user()->type=='invest' && (Auth::user()->account_type_id ==1||Auth::user()->account_type_id ==2||Auth::user()->account_type_id ==3||Auth::user()->account_type_id ==4))?route('invst.listbookings','all'):route('invst.listbookingscar','all')}}" class="pe-0"> @lang('site.bookings') </a>
+                        <li class="nav-link investor-nav-item {{($current_route==('invst.listbookings'))||($current_route==('invst.listcarbookings'))?'active':'' }}">
+                            <a href="{{(Auth::user()->type=='invest' && (Auth::user()->account_type_id ==1||Auth::user()->account_type_id ==2||Auth::user()->account_type_id ==3||Auth::user()->account_type_id ==4))?route('invst.listbookings','all'):route('invst.listbookingscar','all')}}" class="investor-nav-link"> @lang('site.bookings') </a>
                         </li>
-                        <li class="nav-link">
-                            <a href="{{(Auth::user()->type=='invest' && (Auth::user()->account_type_id ==1||Auth::user()->account_type_id ==2||Auth::user()->account_type_id ==3||Auth::user()->account_type_id ==4))?route('invst.listcommisions',['aqar','unpaid']):route('invst.listcommisions',['car','unpaid'])}}" class="pe-0"> @lang('site.commissions') </a>
+                        <li class="nav-link investor-nav-item {{($current_route=='invst.listcommisions')?'active':'' }}">
+                            <a href="{{(Auth::user()->type=='invest' && (Auth::user()->account_type_id ==1||Auth::user()->account_type_id ==2||Auth::user()->account_type_id ==3||Auth::user()->account_type_id ==4))?route('invst.listcommisions',['aqar','unpaid']):route('invst.listcommisions',['car','unpaid'])}}" class="investor-nav-link"> @lang('site.commissions') </a>
                         </li>
-                        <li class="nav-link">
-                            <a href="{{route('invst.updateprofile',Auth::id())}}" class="pe-0"> @lang('site.profiles') </a>
+                        <li class="nav-link investor-nav-item {{($current_route=='invst.updateprofile')?'active':'' }}">
+                            <a href="{{route('invst.updateprofile',Auth::id())}}" class="investor-nav-link"> @lang('site.profiles') </a>
+                        </li>
+
+                        <li class="nav-link investor-nav-item {{($current_route=='invst.conditions')?'active':'' }}">
+                            <a href="{{route('invst.conditions')}}" class="investor-nav-link"> @lang('site.Reservation and cancellation policy') </a>
                         </li>
                        
                         
@@ -486,7 +408,7 @@
 </form>
 
 @include('sweetalert::alert')
-
+@include('frontend.layout.header_mobile_invest')
 @yield('content')
 
 </body>

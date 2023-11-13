@@ -76,7 +76,10 @@ Car extends Model
         return $this->HasMany(CarReview::class)->distinct();
     }
 
-
+    public function adsstatus()
+    {
+        return $this->belongsTo(AdsStatus::class, 'ads_status_id');
+    }
 
     // relations
     public function user()
