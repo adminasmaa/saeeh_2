@@ -49,14 +49,20 @@ class CommissionsDataTable extends DataTable
             ->editColumn('created_at', function ($model) {
                 return (!empty($model->created_at)) ? $model->created_at->diffForHumans() : '';
             })
-            ->addIndexColumn()
+            ->addIndexColumn()          
             ->addColumn('action', function ($model) {
                 $actions = '';
-
-                $actions .= DTHelper::dtEditButton(route($this->getRoutes()['update'], $model->id), trans('site.edit'), $this->getPermissions()['update']);
-                $actions .= DTHelper::dtDeleteButton(route($this->getRoutes()['delete'], $model->id), trans('site.delete'), $this->getPermissions()['delete'], $model->id);
-                $actions .= DTHelper::dtShowButton(route($this->getRoutes()['show'], $model->id), trans('site.show'), $this->getPermissions()['delete']);
-
+                //     return '
+                //     <div class="dropdown">
+                //     <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                //         عمليات
+                //     </a>
+                //     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
+                //         <li><a class="dropdown-item" href="'.route('dashboard.acceptbooking' , $model->id).'">'.trans('site.accepted').'</a></li>
+                //         <li><a class="dropdown-item" href="'.route('dashboard.rejectbooking' , $model->id).'">'.trans('site.reject').'</a></li>
+                //     </ul>
+                //    </div>
+                //     ';
                 return $actions;
             });
     }
@@ -69,13 +75,37 @@ class CommissionsDataTable extends DataTable
      */
     public function query(Commission $model): QueryBuilder
     {
-        return $model->newQuery();
+        $lan = app()->getLocale();
+        $commission = ('cars_'.$lan);
+        // return $model->newQuery();
+        if ($commission == true) {
+    
+            return $model->where('type', '=', 'car')->newQuery();
+
+        } else {
+
+            return $model->where('type', '=', 'aqar')->newQuery();
+
+        }
+
     }
 
     public function count()
     {
-        return Commission::count();
+        // return Commission::count();
 
+        $lan = app()->getLocale();
+        $commission = ('cars_'.$lan);
+        // return $model->newQuery();
+        if ($commission == true) {
+    
+            return Commission::where('type', '=', 'car')->count();
+
+        } else {
+
+            return Commission::where('type', '=', 'aqar')->count();
+
+        }
     }
 
 
@@ -95,11 +125,11 @@ class CommissionsDataTable extends DataTable
             ->orderBy(1)
             ->selectStyleSingle()
             ->buttons([
-            //    Button::make('create')->text('<i class="fa fa-plus"></i> ' . trans('site.add')),
-                Button::make('csv')->text('<i class="fa fa-download"></i> ' . trans('site.export')),
-                Button::make('print')->text('<i class="fa fa-print"></i> ' . trans('site.print')),
-            //    Button::make('reset')->text('<i class="fa fa-undo"></i> ' . trans('site.reset')),
-            //    Button::make('reload')->text('<i class="fa fa-refresh"></i> ' . trans('site.reload')),
+            // Button::make('create')->text('<i class="fa fa-plus"></i> ' . trans('site.add')),
+            // Button::make('csv')->text('<i class="fa fa-download"></i> ' . trans('site.export')),
+            // Button::make('print')->text('<i class="fa fa-print"></i> ' . trans('site.print')),
+            // Button::make('reset')->text('<i class="fa fa-undo"></i> ' . trans('site.reset')),
+            // Button::make('reload')->text('<i class="fa fa-refresh"></i> ' . trans('site.reload')),
             ])->language([
                 "url" => app()->getLocale() == 'ar' ? "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json":"//cdn.datatables.net/plug-ins/1.13.4/i18n/en-GB.json"
             ]);
@@ -117,6 +147,8 @@ class CommissionsDataTable extends DataTable
             Column::make('user_id')->title(trans('site.users')),
             Column::make('price')->title(trans('site.price')),
             Column::make('status')->title(trans('site.status')),
+            Column::make('type')->title(trans('site.type')),
+            Column::make('booking_id')->title(trans('site.booking_id')),
             Column::make('created_at')->title(trans('site.created_at')),
             Column::computed('action')
                 ->exportable(false)
