@@ -130,7 +130,7 @@
     }
 }
 @media (max-width: 992px) {
-<<<<<<< HEAD
+
     .padding-ads {
         padding-right: 0px;
       }
@@ -144,7 +144,7 @@
       .aqar-img-list {
         height: 300px;
       }
-=======
+
     .btn-saeeh-mobile i,.btn-outline-saeeh-mobile i{
         padding-left: 5px;
     }
@@ -206,8 +206,6 @@
         font-size: 14px;
     }
     #accordionFlushProfile .accordion-button i {font-size: 16px;}
-
->>>>>>> 3ccde299552dc7aebd5689c778ba232fdff5caa0
 
 
     .verification-modal .close-modal {
@@ -1499,10 +1497,10 @@
     .tabs-in-mobile li:nth-child(3) {
         border-left: none;
     }
-    .tabs-in-mobile li:nth-child(4),
-    .tabs-in-mobile li:nth-child(5) {
+   .tabs-in-mobile li:nth-child(4),
+    .tabs-in-mobile li:nth-child(5), .tabs-in-mobile li:nth-child(6){
         border-top: 1px solid var(--m-light-gray);
-        width: 50%;
+        width: 33.3%;
     }
 
     .tabs-in-mobile .tab-active:nth-child(3) {
@@ -1528,17 +1526,15 @@
     }
 }
 @media (max-width: 578px) {
-<<<<<<< HEAD
+
     .aqar-img-list {
         height: 275px;
       }
 
-=======
     .iti--separate-dial-code.iti--show-flags .iti__selected-dial-code {
         font-size: 14px;
     }
   
->>>>>>> 3ccde299552dc7aebd5689c778ba232fdff5caa0
     .verification-content .check-image {
         width: 84px;
         height: 84px;
@@ -2175,6 +2171,7 @@
 }
 
 @media (max-width: 340px) {
+   
     .side-login-image-investor {
         height: 113px;
     }
@@ -2215,8 +2212,11 @@
     .cancle-btn a,
     .boxx-txt,
     .details-rest-btn a,
-    .tabs-details .tab-link,
     .add-rate-btn a {
         font-size: 13px;
     }
+
+
 }
+
+

@@ -88,7 +88,7 @@
                   @if(!empty($allbookings->toArray()['data']))
                   @foreach($allbookings as $k=>$item)
                   <div class="col-12">
-                    <div class="card card-department round-border my-3 p-md-3 p-2">
+                    <!-- <div class="card card-department round-border my-3 p-md-3 p-2">
                       <div class="row g-0">
                         <div class="col-lg-3 position-relative">
                           <div class="epartment-img-carousel">
@@ -238,7 +238,242 @@
                            
                         </ul></div>
                       </div>
-                    </div>
+                    </div> -->
+                    <div
+                        class="card card-department round-border my-3 p-md-3 p-2"
+                      >
+                        <div class="row g-0">
+                          <div class="col-lg-3 position-relative">
+                            <div class="aqar-img-list">
+                              <img
+                                loading="lazy"
+                                src="{{asset('images/aqars/'.$item->main_image)}}"
+                                class="department-img-list of-cover" 
+                                alt="image aqar"
+                              />
+                            </div>
+                          </div>
+                          <div class="col-lg-9">
+                            <div
+                              class="card-body position-relative px-lg-3 px-0 h-100"
+                            >
+                              <div class="d-md-flex">
+                                <div class="ads-left-border">
+                                  <div class="mb-2">
+                                    <span class="aqar-booking-i"
+                                      ><i class="fal fa-list-ol"></i
+                                    ></span>
+                                    <span class="aqar-booking-item"
+                                      >رقم الإعلان :
+                                    </span>
+                                    <span class="aqar-booking-item">{{$item->aqar_id}}</span>
+                                  </div>
+                                  <div class="mb-2">
+                                    <span class="aqar-booking-i"
+                                      ><i class="fal fa-list-ol"></i
+                                    ></span>
+                                    <span class="aqar-booking-item">
+                                      رقم الحجز :
+                                    </span>
+                                    <span class="aqar-booking-item">{{$item->book_id}}</span>
+                                  </div>
+                                  <div class="mb-2">
+                                    <span class="aqar-booking-i"
+                                      ><i class="fal fa-list-ol"></i
+                                    ></span>
+                                    <span class="aqar-booking-item">
+                                      جهة الحجز :
+                                    </span>
+                                    <span class="aqar-booking-item">
+                                    {{trans( $item->type)}}</span
+                                    >
+                                  </div>
+                                  <div class="mb-2">
+                                    <span class="aqar-booking-i"
+                                      ><i class="fal fa-calendar-alt"></i
+                                    ></span>
+                                    <span class="aqar-booking-item"
+                                      >تاريخ الوصول :
+                                    </span>
+                                    <span class="aqar-booking-item">
+                                    {{$item->delivery_date}}</span
+                                    >
+                                  </div>
+                                  <div class="mb-2">
+                                    <span class="aqar-booking-i"
+                                      ><i class="fal fa-calendar-alt"></i
+                                    ></span>
+                                    <span class="aqar-booking-item">
+                                      تاريخ المغادرة :
+                                    </span>
+                                    <span class="aqar-booking-item"
+                                      > {{$item->reciept_date}}</span
+                                    >
+                                  </div>
+                                </div>
+                                <div>
+                                  <div class="padding-ads mb-2">
+                                    <span class="aqar-booking-i"
+                                      ><i class="fal fa-calendar-alt"></i
+                                    ></span>
+                                    <span class="aqar-booking-item">
+                                      الأيام :
+                                    </span>
+                                    <span class="aqar-booking-item">
+                                    {{$item->day_count}} أيام</span>
+                                  </div>
+                                  <div class="padding-ads mb-2">
+                                    <span class="aqar-booking-i"
+                                      ><i class="fal fa-wallet"></i
+                                    ></span>
+                                    <span class="aqar-booking-item">
+                                      المبلغ الاجمالي :
+                                    </span>
+                                    <span class="aqar-booking-item">
+                                    {{$item->total_price}} {{$item->currency_ar}}</span
+                                    >
+                                  </div>
+                                  <div class="padding-ads mb-2">
+                                    <span class="aqar-booking-i"
+                                      ><i class="fal fa-wallet"></i
+                                    ></span>
+                                    <span class="aqar-booking-item">
+                                      العربون :
+                                    </span>
+                                    <span class="aqar-booking-item">
+                                    {{$item->total_price/$item->day_count}} {{$item->currency_ar}}</span
+                                    >
+                                  </div>
+                                  <div class="padding-ads mb-2">
+                                    <span class="aqar-booking-i"
+                                      ><i class="fal fa-clock"></i
+                                    ></span>
+                                    <span class="aqar-booking-item">
+                                      ساعة الوصول :
+                                    </span>
+                                    <span class="aqar-booking-item"
+                                      > {{date('h:i a', strtotime($item->time_from))}}</span
+                                    >
+                                  </div>
+                                  <div class="padding-ads mb-2">
+                                    <span class="aqar-booking-i"
+                                      ><i class="fal fa-clock"></i
+                                    ></span>
+                                    <span class="aqar-booking-item">
+                                      ساعة المغادرة :
+                                    </span>
+                                    <span class="aqar-booking-item"
+                                      >{{date('h:i a', strtotime($item->time_to))}} </span
+                                    >
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="ads-status w-aqar-status my-3">
+                                <span> حالة الاعلان : </span>
+                                <span class="mt-md-0 mt-2">
+                                  <span class="ads-status-sure">مؤكد</span>
+                                  <span class="px-1">
+                                    <i class="far fa-alarm-clock text-main"></i>
+                                  </span>
+                                  <span>  {{$item->status_ar}} </span>
+                                </span>
+                              </div>
+                         <ul class="list-menu flex-center list-unstyled p-0 list-menu-booking">
+                          @if($item->booking_status_id==1)
+                          <li class="liItem-booking-out">
+                          <form action="{{route('invst.accept' , $item->book_id )}}" method="GET" style="display: inline-block" id="acceptForm{{$item->book_id}}">
+                            @csrf
+                            <a type="button" onclick="confirmAction('accept',{{$item->book_id}},'@lang('site.accept booking')','{{FRONTASSETS}}/images/accept.png',150,150)" id="accept" class="liItem-link">قبول</a>  
+                          </form>
+                          </li>
+                          @endif
+                          @if($item->booking_status_id==1 )
+                          <li class="liItem-booking-prices">
+                          <form action="{{route('invst.reject')}}" method="Post" style="display: inline-block" id="cancelForm{{$item->book_id}}">
+                            @csrf  
+                            <input type="hidden" name="id" value="{{$item->book_id}}">
+                            <input type="hidden" name="cancel_reason" class="cancel_reason" value="{{$item->book_id}}">
+                            <a type="button" onclick="confirmcancel('cancel',{{$item->book_id}},'@lang('site.cancel booking')','{{FRONTASSETS}}/images/cancel.png')" id="cancel" class="liItem-link">الغاء الحجز</a>  
+                          </form>
+                          </li>
+                          @endif
+                          @if($item->booking_status_id==3 )
+                          <li class="liItem-booking-see">
+                          <form action="{{route('invst.attend' , $item->book_id)}}" method="GET" style="display: inline-block" id="attendForm{{$item->book_id}}">
+                            @csrf
+                            <a type="button" onclick="confirmAction('attend',{{$item->book_id}},'@lang('site.attend booking')','{{FRONTASSETS}}/images/attend.png',300,200)" id="attend" class="liItem-link"
+                            >
+                            <i class="far fa-user-check"></i>
+                            حضور
+                          
+                          </a>  
+                          </form>
+                           </li>
+
+                           <li class="liItem-booking-edit">
+                           <form action="{{route('invst.notattend' , $item->book_id)}}" method="GET" style="display: inline-block" id="notattendForm{{$item->book_id}}">
+                            @csrf
+                            <a type="button" onclick="confirmAction('notattend',{{$item->book_id}},'@lang('site.not attend booking')','{{FRONTASSETS}}/images/notattend.png',150,150)" id="notattend" class="liItem-link">
+                            <i class="far fa-user-times"></i>
+                            عدم حضور</a>  
+                          </form>
+                           </li>
+                           @endif
+                           <li class="liItem-booking">
+                            <a href="{{route('invst.bookingDetails' , $item->book_id)}}" class="liItem-link">
+                            <i class="far fa-book-open"></i>
+                             معلومات الحجز
+                            </a>
+                           </li>
+
+                           
+                        </ul> 
+                              <!-- <ul
+                                class="list-menu flex-center list-unstyled p-0 list-menu-booking"
+                              >
+                                <li class="liItem-booking-out">
+                                  <a href="#" class="liItem-link">
+                                    <i class="far fa-calendar-plus"></i>
+                                    اضافة حجز خارجى</a
+                                  >
+                                </li>
+                                <li class="liItem-booking-prices">
+                                  <a href="#" class="liItem-link">
+                                    <i class="fas fa-tags"></i>
+                                    الاسعار
+                                  </a>
+                                </li>
+                                <li class="liItem-booking-see">
+                                  <a href="#" class="liItem-link">
+                                    <i class="far fa-eye"></i>
+                                    مشاهدة
+                                  </a>
+                                </li>
+
+                                <li class="liItem-booking-edit">
+                                  <a href="#" class="liItem-link">
+                                    <i class="fas fa-edit"></i>
+                                    تعديل
+                                  </a>
+                                </li>
+                                <li class="liItem-booking">
+                                  <a href="#" class="liItem-link">
+                                    <i class="far fa-book-open"></i>
+                                    الحجوزات
+                                  </a>
+                                </li>
+
+                                <li class="liItem-booking-stop">
+                                  <a href="#" class="liItem-link">
+                                    <i class="far fa-stopwatch"></i>
+                                    ايقاف مؤقت
+                                  </a>
+                                </li>
+                              </ul> -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                   </div>
                   @endforeach
 

@@ -36,7 +36,7 @@ class HomeController extends Controller
             $commisions=Commission::where('user_id',Auth::id())->where('type','aqar')->get();
         }else if(Auth::user()->type=='invest' && Auth::user()->account_type_id ==5){
             $ads = Car::where('user_id',Auth::id())->get();
-            $bookings=CarBooking::join('car', 'car_bookings.car_id', '=', 'cars.id')->where('cars.user_id',Auth::id())->get();
+            $bookings=CarBooking::join('cars', 'car_bookings.car_id', '=', 'cars.id')->where('cars.user_id',Auth::id())->get();
             $commisions=Commission::where('user_id',Auth::id())->where('type','car')->get();
         }
         return view('frontend.invest.index' , compact('ads','bookings','commisions'));
