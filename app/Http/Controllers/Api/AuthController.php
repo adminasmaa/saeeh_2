@@ -5,13 +5,12 @@ namespace App\Http\Controllers\Api;
 use App\Models\Freq_question;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Crypt;
-
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Country;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\AuthenticationException;
 use Validator;
 use Illuminate\Validation\Rule; //import Rule class 
 use DB;
@@ -47,10 +46,11 @@ class AuthController extends Controller
             // 'email' => 'max:254|unique:email|nullable',
             // 'email' => ['max:254|nullable',Rule::unique('users')->ignore($user->id)],
             'email' => "nullable|email|max:254|unique:users,email,".$user->id.",id",  
+            'image' => 'nullable','mimes:jpg,jpeg,png',
             'firstname' => 'nullable',
             'lastname' => 'nullable',
-            'password' => 'nullable|min:6',
-            'c_password' => 'nullable|same:password',
+            // 'password' => 'nullable|min:6',
+            // 'c_password' => 'nullable|same:password',
             // 'country_code' => 'required_with:phone',
             // 'phone' => 'required_with:country_code|min:9|unique:users',
         ];
@@ -66,27 +66,29 @@ class AuthController extends Controller
         return $this->respondError(trans('message.Data not changed'), ['error' => trans('message.Data not changed')], 403);
 
         }
-
         if ($validator->fails()) {
 
             return $this->respondError('Validation Error.', $validator->errors(), 400);
 
         } else {
 
-            $user = User::findorfail(Auth::id());
+            $user = User::findorfail(Auth::id()); 
 
+            if ($request->hasFile('image')) {
+                UploadImage2('images/users/','image', $user, $request->file('image'));
+            }
             $user->firstname = isset($request->firstname) ? $request->firstname : $user->firstname;
             $user->lastname = isset($request->lastname) ? $request->lastname : $user->lastname;
             $user->email = isset($request->email) ? $request->email : $user->email;
-            // $user->phone = isset($request->phone) ? $request->phone : $user->phone;
-            $user->password = Hash::make($request['password']) ?? '';
-            // $user->active = 0;
+            // $user->password = Hash::make($request['password']) ?? '';
+            // $user->active =1;
             $user->save();
-            $success['token'] = $user->createToken('MyApp')->accessToken;
-            $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname','code']);
+            // $success['token'] = $user->createToken('MyApp')->accessToken;
+            $user->image=asset('images/users/').'/'.$user->image;
+            // $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname','code','image']);
+            $users = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code', 'code','image']);
 
-
-            return $this->respondSuccess($success, trans('message.User updated successfully'));
+            return $this->respondSuccess($users, trans('message.User updated successfully'));
 
 
         }
@@ -125,8 +127,7 @@ class AuthController extends Controller
 
         }
                 return $this->respondError(trans('message.code not correct'), ['error' => trans('message.code not correct')], 401);
-    }
-          
+    }        
 
     public function confirmupdatephone(Request $request)
     {
@@ -181,8 +182,10 @@ class AuthController extends Controller
 
     public function changepassword(Request $request)
     {
+        $user = Auth::user();
+
         $rule = [
-            'password' => 'required',
+            'password' => 'required|min:6',
             'new_password' => 'required|different:password|min:6',
             'c_password' => 'nullable|same:new_password',
 
@@ -193,16 +196,17 @@ class AuthController extends Controller
 
         $validator = validator()->make($request->all(), $rule, $customMessages);
 
+
         if ($validator->fails()) {
 
             return $this->respondError('Validation Error.', $validator->errors(), 400);
 
         } else {
 
-
-            $user = Auth::user();
+            $user = Auth::user();           
 
             if (Hash::check($request->input('password'), $user->password)) {
+               
                 $user->fill([
                     'password' => Hash::make($request->new_password)
                 ])->save();
@@ -211,7 +215,7 @@ class AuthController extends Controller
                 return $this->respondSuccess($users, trans('message.chanagepassword'));
 
             } else {
-                return $this->respondError(trans('message.wrong credientials'), ['error' => trans('message.wrong credientials')], 403);
+                return $this->respondError(trans('message.incorrect current password'), ['error' => trans('message.incorrect current password')], 403);
 
             }
 
@@ -222,7 +226,7 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $rule = [
-            'email' => 'max:254|unique:users|email|required',
+            'email' => 'required|max:254|unique:users|email',
             'firstname' => 'required',
             'lastname' => 'required',
             'country_code' => 'required',
@@ -276,17 +280,18 @@ class AuthController extends Controller
         }
     }
 
-    public function login(Request $request)
+    public function login(Request $request, AuthenticationException $exception)
     {
+        $user = Auth::user();
+
         $validator = Validator::make($request->all(), [
             'country_code' => 'required',
+            // 'phone' => "required|phone|min:9|unique:users,phone,".$user->id.",id",  
+            // 'phone' => ["required|min:9",Rule::unique('users')->ignore($user->id)],  
             'phone' => 'required|min:9',
             'password' => 'required|unique:users',
             'device_token' => 'min:2'
         ]);
-        // if ('phone' != $request->phone) {
-        //     return $this->respondError(trans('message.incorrect phone'), ['error' =>trans('message.incorrect phone')], 403);
-        // }
         if ($validator->fails()) {
             return $this->respondError('Validation Error.', $validator->errors(), 400);
         }
@@ -305,10 +310,10 @@ class AuthController extends Controller
                         User::where('id', $guest->id)->delete();
 
                     }
-
                 }
                 $success['token'] = $user->createToken('MyApp')->accessToken;
-                $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code', 'code']);
+                $user->image=asset('images/users/').'/'.$user->image;
+                $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code', 'code','image']);
 
                 return $this->respondSuccess($success, trans('message.User login successfully.'));
             } else {
@@ -322,17 +327,21 @@ class AuthController extends Controller
                 $user->code = $code;
                 $user->save();
             //  $success['token'] = $user->createToken('MyApp')->accessToken;
-                $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code', 'code']);
+                $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code', 'code','image']);
                 return $this->respondwarning($success, trans('message.account not verified'), ['error' => trans('message.account not verified')], 402);
             }
             
         } 
-        else {
-            return $this->respondError(trans('message.wrong credientials'), ['error' => trans('message.wrong credientials')], 403);
-            // return $this->respondError(trans('message.user not found'), ['error' => trans('message.user not found')], 404);
+        // if(!auth('api')->check()){
+        // elseif( $request -> get( 'phone' , false ) ) {
+        // return $this->respondError(trans('message.incorrect phone'), ['error' =>trans('message.incorrect phone')], 403);
+        // }
+        else{
+        // return $this->respondError(trans('message.pass wrong'), ['error' => trans('message.wrong credientials')], 403);
+        return $this->respondError(trans('message.wrong credientials'), ['error' => trans('message.wrong credientials')], 403);
+        // return $this->respondError(trans('message.user not found'), ['error' => trans('message.user not found')], 404);
         }
     }
-
 
     public function guest(Request $request)
     {
@@ -356,11 +365,8 @@ class AuthController extends Controller
         }
     }
 
-
     public function activateRegister(Request $request)
     {
-
-
         $validator = Validator::make($request->all(), [
             'country_code' => 'required_without:userId',
             'phone' => 'required_without:userId',
@@ -395,14 +401,16 @@ class AuthController extends Controller
                     $user->save();
                 }
                 $success['token'] = $user->createToken('MyApp')->accessToken;
-                $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code', 'code']);
+                $user->image=asset('images/users/').'/'.$user->image;
+                $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code', 'code','image']);
                 return $this->respondSuccess($success, trans('message.User already active.'));
             } else {
                 $user->active = 1;
                 $user->device_token = $request->device_token;
                 $user->save();
                 $success['token'] = $user->createToken('MyApp')->accessToken;
-                $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code', 'code']);
+                $user->image=asset('images/users/').'/'.$user->image;
+                $success['user'] = $user->only(['id', 'firstname', 'email', 'lastname', 'phone', 'country_code', 'code','image']);
                 return $this->respondSuccess($success, trans('message.User activate successfully.'));
             }
         } else {
@@ -496,7 +504,6 @@ class AuthController extends Controller
             return $this->respondError(trans('message.user not found'), ['error' => trans('message.user not found')], 404);
         }
     }
-
 
     public function checkCode(Request $request)
     {

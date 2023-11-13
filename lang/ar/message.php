@@ -30,6 +30,7 @@ return [
     'adv number'=>'الاعلان رقم',
     'new booking'=>'حجز جديد',
     'cancel your request'=>'لقد قمت بالغاء طلبك',
+    'incorrect current password'=> 'كلمة المرور الحاليه غير صحيحه',
     'password should not be the same with old password'=>'كلمه المرور مستخدمه من قبل يرجي استخدام كلمه مرور جديدة ',
     'price changed'=>'لقد تم تغيير السعر' ,
     'incorrect phone'=>'  رقم الهاتق غير مسجل '

@@ -40,7 +40,8 @@ class PlaceFavResource extends JsonResource
                 "restaurant" => true,
                 "address" => $this->address ?? '',
                 // "rate" => round(PlaceReview::where('user_id', '=', Auth::id())->where('place_id', '=', $this->id)->avg('rate')) ?? 0,
-                "rate" => round($this->placeReview->avg('rate')) ?? 0,
+                // "rate" => round($this->placeReview->avg('rate')) ?? 0,
+                "rate" =>$this->avgRating,
 
             ];
 
@@ -58,7 +59,8 @@ class PlaceFavResource extends JsonResource
                 "restaurant" => false,
                 "address" => $this->address ?? '',
                 // "rate" => round(PlaceReview::where('user_id', '=', Auth::id())->where('place_id', '=', $this->id)->avg('rate')) ?? 0,
-                "rate" => round($this->placeReview->avg('rate')) ?? 0,
+                // "rate" => round($this->placeReview->avg('rate')) ?? 0,
+                "rate" =>$this->avgRating,
 
             ];
         }
