@@ -154,12 +154,13 @@
 
 
 <!-- JQuery-->
+<script src="{{FRONTASSETS}}/js/jquery.min.js"></script>
+<!-- Bootstrap-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"
         integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="{{FRONTASSETS}}/vendor/bootstrap/js/bootstrap.js"></script>
-<!-- JQuery-->
-<script src="{{FRONTASSETS}}/js/jquery.min.js"></script>
+
 <!--timepicker-->
 <script src="{{FRONTASSETS}}/js/jquery-timepicker/js/jquery.timepicker.js"></script>
 <!--datepicker-->

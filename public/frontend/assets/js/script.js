@@ -315,6 +315,7 @@ $(document).ready(function () {
         items: 1,
         loop: true,
         dots: true,
+        rtl:true,
         slideSpeed: 400,
         animateIn: "fadeIn", // add this
         animateOut: "fadeOut", // and this
