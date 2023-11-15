@@ -52,17 +52,6 @@ class CommissionsDataTable extends DataTable
             ->addIndexColumn()          
             ->addColumn('action', function ($model) {
                 $actions = '';
-                //     return '
-                //     <div class="dropdown">
-                //     <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                //         عمليات
-                //     </a>
-                //     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
-                //         <li><a class="dropdown-item" href="'.route('dashboard.acceptbooking' , $model->id).'">'.trans('site.accepted').'</a></li>
-                //         <li><a class="dropdown-item" href="'.route('dashboard.rejectbooking' , $model->id).'">'.trans('site.reject').'</a></li>
-                //     </ul>
-                //    </div>
-                //     ';
                 return $actions;
             });
     }
@@ -77,14 +66,17 @@ class CommissionsDataTable extends DataTable
     {
         $lan = app()->getLocale();
         $commission = ('cars_'.$lan);
+        $recieve = ('active_'.$lan);
+
         // return $model->newQuery();
-        if ($commission == true) {
+
+        if ($commission == true && $recieve == true ) {
     
-            return $model->where('type', '=', 'car')->newQuery();
+            return $model->where('type', '=', 'car')->where('status', '=', 1)->newQuery();
 
         } else {
 
-            return $model->where('type', '=', 'aqar')->newQuery();
+            return $model->where('type', '=', 'aqar')->where('status', '=', 1)->newQuery();
 
         }
 
@@ -96,14 +88,16 @@ class CommissionsDataTable extends DataTable
 
         $lan = app()->getLocale();
         $commission = ('cars_'.$lan);
+        $recieve = ('active_'.$lan);
+
         // return $model->newQuery();
-        if ($commission == true) {
+        if ($commission == true && $recieve == true ) {
     
-            return Commission::where('type', '=', 'car')->count();
+            return Commission::where('type', '=', 'car')->where('status', '=', 1)->count();
 
         } else {
 
-            return Commission::where('type', '=', 'aqar')->count();
+            return Commission::where('type', '=', 'aqar')->where('status', '=', 1)->count();
 
         }
     }
