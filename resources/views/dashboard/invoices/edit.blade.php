@@ -64,33 +64,33 @@
                                                value="{{$invoice->amount}}"
                                             >
                                     </div>
-                                    <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.description')</label>
-                                        <input type="text" name="description" class="form-control"
-                                               value="{{$invoice->description}}"
-                                            >
-                                    </div>
+
                                 <div class="col-md-6 form-group">
-                                    <label class="form-label">@lang('site.type')</label><span class="text-danger">*</span>
-                                    <select class="js-example-placeholder-multiple col-sm-12" name="type">
-                                            <option selected>@lang('site.select')</option>
-                                        <option value="income"
-                                                @if($invoice->type=='income') selected @endif>@lang('site.income')
-                                        </option>
-                                        <option value="capital"
-                                                @if($invoice->type=='capital') selected @endif>@lang('site.capital')
-                                        </option>                                           
-                                        <option value="expenses"
-                                                @if($invoice->type=='expenses') selected @endif>@lang('site.expenses')
-                                        </option> 
-                                        <option value="export"
-                                                @if($invoice->type=='export') selected @endif>@lang('site.export')
-                                        </option> 
-                                    </select>
-                                </div>
+                                    <label class="form-label mt-4 p-0" style="font-size:15px;">@lang('site.type')</label><span class="text-danger">*</span>
+                                    <br>
+                                    <input class="form-check-input" id="income" type="radio" name="type" value="income"
+                                           {{$invoice->type=='income'? 'checked':'' }}>
+
+                                    <label for="income" style="font-size:15px;" >@lang('site.income')</label><br>
+
+                                    <input class="form-check-input" id="capital" type="radio" name="type" value="capital"
+                                           {{$invoice->type=='capital'? 'checked':'' }}>
+
+                                    <label for="capital" style="font-size:15px;">@lang('site.capital')</label><br>
+
+                                    <input class="form-check-input" id="expenses" type="radio" name="type" value="expenses"
+                                           {{$invoice->type=='expenses'? 'checked':'' }}>
+                                    
+                                    <label for="expenses" style="font-size:15px;">@lang('site.expenses')</label><br>
+
+                                    <input class="form-check-input" id="export" type="radio" name="type" value="export" 
+                                           {{$invoice->type=='export'? 'checked':'' }}>
+
+                                    <label for="export" style="font-size:15px;">@lang('site.export')</label><br>
 
                                 </div>
-                                <div class="row">
+
+                                <br> <br>
 
                                 <div class="col-md-6 form-group"><span class="text-danger">*</span>
                                     <label class="form-label">@lang('site.users')</label>
@@ -104,7 +104,15 @@
 
                                     </select>
                                 </div>
-                             
+
+                                <div class="col-md-12 form-group col-12 p-2  m-t-15">
+                                        <label>@lang('site.descrption')<span
+                                                class="text-danger">*</span></label>
+                                        <textarea class="form-control" cols="5" rows="5" name="description">
+                                            {{$invoice->description}}
+                                            </textarea>
+                                </div>
+
                                 </div>
                             <br>
 
