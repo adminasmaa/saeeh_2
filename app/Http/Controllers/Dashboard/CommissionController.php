@@ -119,4 +119,11 @@ class CommissionController extends Controller
 
     }//end of destroy
 
+
+    public function uploadweasel(Request $request)
+    {
+       return $request;
+
+
+    }
 }
