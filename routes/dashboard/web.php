@@ -161,7 +161,8 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         Route::resource('notifications', NotificationController::class);
 
         //commissions
-        Route::resource('commissions', CommissionController::class);
+       // Route::resource('commissions', CommissionController::class);
+        Route::get('/commissions/{type}/{pay}', 'App\Http\Controllers\Dashboard\CommissionController@index')->name('commissions');;
 
         //questions
         Route::resource('questions', QuestionController::class);

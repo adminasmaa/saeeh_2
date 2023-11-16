@@ -221,7 +221,7 @@
                         <li class="nav-link investor-nav-item {{($current_route==('invst.aqars.index'))||($current_route==('invst.cars.index'))?'active':'' }}">
                             <a href="{{(Auth::user()->type=='invest' && (Auth::user()->account_type_id ==1||Auth::user()->account_type_id ==2||Auth::user()->account_type_id ==3||Auth::user()->account_type_id ==4))?route('invst.aqars.index'):route('invst.cars.index')}}" class="investor-nav-link"> @lang('site.advertising') </a>
                         </li>
-                        <li class="nav-link investor-nav-item {{($current_route==('invst.listbookings'))||($current_route==('invst.listcarbookings'))?'active':'' }}">
+                        <li class="nav-link investor-nav-item {{($current_route==('invst.listbookings'))||($current_route==('invst.listbookingscar'))?'active':'' }}">
                             <a href="{{(Auth::user()->type=='invest' && (Auth::user()->account_type_id ==1||Auth::user()->account_type_id ==2||Auth::user()->account_type_id ==3||Auth::user()->account_type_id ==4))?route('invst.listbookings','all'):route('invst.listbookingscar','all')}}" class="investor-nav-link"> @lang('site.bookings') </a>
                         </li>
                         <li class="nav-link investor-nav-item {{($current_route=='invst.listcommisions')?'active':'' }}">

@@ -15,6 +15,7 @@ use Yajra\DataTables\Services\DataTable;
 
 class CommissionsDataTable extends DataTable
 {
+    
     private $crudName = 'commissions';
 
     private function getRoutes()
@@ -49,11 +50,28 @@ class CommissionsDataTable extends DataTable
             ->editColumn('created_at', function ($model) {
                 return (!empty($model->created_at)) ? $model->created_at->diffForHumans() : '';
             })
-            ->addIndexColumn()          
+            ->addIndexColumn()
+            ->addColumn('status', function ($model) {
+
+
+                return '           
+       
+                <li class="liItem-booking-out">
+                <form action="'.route('dashboard.acceptcarbooking' , $model->id).'" method="GET" style="display: inline-block" id="acceptForm{{$item->book_id}}">
+                  
+                  <a type="button" onclick="" id="accept" class="liItem-link">قبول</a>  
+                </form>
+                </li>
+                
+                
+                ';
+              
+
+            })          
             ->addColumn('action', function ($model) {
                 $actions = '';
                 return $actions;
-            });
+            })->rawColumns(['action', 'status']);
     }
 
     /**
@@ -64,42 +82,17 @@ class CommissionsDataTable extends DataTable
      */
     public function query(Commission $model): QueryBuilder
     {
-        $lan = app()->getLocale();
-        $commission = ('cars_'.$lan);
-        $recieve = ('active_'.$lan);
+       if($this->pay=='unpaid'){$status=0;}else{$status=1;}
+            return Commission::where('commissions.type', '=', $this->type)->where('commissions.status', '=',$status)->newQuery()->with(['user',$this->type.'Booking']);
 
-        // return $model->newQuery();
-
-        if ($commission == true && $recieve == true ) {
-    
-            return $model->where('type', '=', 'car')->where('status', '=', 1)->newQuery();
-
-        } else {
-
-            return $model->where('type', '=', 'aqar')->where('status', '=', 1)->newQuery();
-
-        }
+        
 
     }
 
     public function count()
     {
-        // return Commission::count();
-
-        $lan = app()->getLocale();
-        $commission = ('cars_'.$lan);
-        $recieve = ('active_'.$lan);
-
-        // return $model->newQuery();
-        if ($commission == true && $recieve == true ) {
-    
-            return Commission::where('type', '=', 'car')->where('status', '=', 1)->count();
-
-        } else {
-
-            return Commission::where('type', '=', 'aqar')->where('status', '=', 1)->count();
-
-        }
+        if($this->pay=='unpaid'){$status=0;}else{$status=1;}
+            return Commission::where('type', '=', $this->type)->where('status', '=',$status)->count();
     }
 
 
@@ -138,13 +131,16 @@ class CommissionsDataTable extends DataTable
     {
         return [
             Column::make('DT_RowIndex')->data('DT_RowIndex')->name('id')->title('#'),
-            Column::make('user_id')->title(trans('site.users')),
+            Column::make('user.firstname')->title(trans('site.investor')),
             Column::make('price')->title(trans('site.price')),
-            Column::make('status')->title(trans('site.status')),
-            Column::make('type')->title(trans('site.type')),
             Column::make('booking_id')->title(trans('site.booking_id')),
             Column::make('created_at')->title(trans('site.created_at')),
             Column::computed('action')
+                ->exportable(false)
+                ->printable(false)
+                ->width(60)
+                ->addClass('text-center')->title(trans('site.action')),
+                Column::computed('status')
                 ->exportable(false)
                 ->printable(false)
                 ->width(60)

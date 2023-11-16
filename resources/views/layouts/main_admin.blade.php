@@ -522,7 +522,7 @@
 
                             <li class="sidebar-list">
                                 <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.commissions.index')?'activee':'' }}"
-                                   href="{{route('dashboard.commissions.index')}}">
+                                   href="{{route('dashboard.commissions',['aqar','unpaid'])}}">
                                     <i data-feather="plus-circle"></i><span>@lang('site.commissions')</span></a>
                             </li>
                             @endif
