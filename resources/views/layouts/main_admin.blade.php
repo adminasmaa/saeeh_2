@@ -47,6 +47,7 @@
     <link id="color" rel="stylesheet" href="{{MAINASSETS}}/css/color-1.css" media="screen">
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="{{MAINASSETS}}/css/responsive.css">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.9.0/dist/sweetalert2.min.css" rel="stylesheet">
     @yield('css');
     <link href="{{MAINASSETS}}/plugins/datatables/datatable.min.css" rel="stylesheet"/>
     <script src="{{MAINASSETS}}/js/jquery-3.5.1.min.js"></script>
@@ -661,6 +662,7 @@
 <script src="{{MAINASSETS}}/js/script.js"></script>
 <script src="{{MAINASSETS}}/js/theme-customizer/customizer.js"></script>
 <script src="https://cdn.tutorialjinni.com/jquery.repeater/1.2.1/jquery.repeater.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.9.0/dist/sweetalert2.all.min.js"></script>
 </body>
 <!-- login js-->
 <script>
@@ -680,6 +682,53 @@
       $(this).parent().parent().addClass('display-ul');
     });
 </script>
+
+<script>
+        async  function waseluploadAction($id) {
+            var that = document.getElementById("waseluploadForm" + $id);
+            // swal.fire({
+            //   title:$mess,
+            //   icon: $icon,    
+            //   imageAlt: 'Custom image',
+            //   confirmButtonText:  'نعم',
+            //   cancelButtonText:  'لا',
+            //   showCancelButton: true,
+            //   showCloseButton: true,
+            //   confirmButtonColor: '#ff8600',    
+            //   allowOutsideClick: true,
+            // }).then((result) => {
+            //         if (result.isConfirmed) {
+            //           that.submit();
+            //         }else {
+                 
+            //     }
+            //     })     
+            
+            const { value: file } = await Swal.fire({
+                title: "رفع الإيصال",
+                input: "file",
+                inputAttributes: {
+                    "accept": "image/*",
+                    "aria-label": "Upload your profile picture"
+                }
+                });
+                if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    Swal.fire({
+                    title: "Your uploaded picture",
+                    imageUrl: e.target.result,
+                    imageAlt: "The uploaded picture"
+                    });
+                };
+                reader.readAsDataURL(file);
+                var data   = new FormData();
+                that.append('file', file);
+             //   $('.weasel').val(file);
+                that.submit();
+            }
+        }
+    </script>
 @yield('js')
 @yield('scripts')
 <!-- Plugin used-->

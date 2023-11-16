@@ -17,7 +17,7 @@ class CommissionsDataTable extends DataTable
 {
     
     private $crudName = 'commissions';
-
+     
     private function getRoutes()
     {
         return [
@@ -45,6 +45,7 @@ class CommissionsDataTable extends DataTable
      */
     public function dataTable($query)
     {
+
         return datatables()
             ->eloquent($query)
             ->editColumn('created_at', function ($model) {
@@ -54,16 +55,12 @@ class CommissionsDataTable extends DataTable
             ->addColumn('status', function ($model) {
 
 
-                return '           
-       
-                <li class="liItem-booking-out">
-                <form action="'.route('dashboard.acceptcarbooking' , $model->id).'" method="GET" style="display: inline-block" id="acceptForm{{$item->book_id}}">
-                  
-                  <a type="button" onclick="" id="accept" class="liItem-link">قبول</a>  
-                </form>
-                </li>
-                
-                
+                return '                   
+                <form action="'.route('dashboard.uploadweasel').'" method="POST" style="display: inline-block" id="waseluploadForm'.$model->id.'">'.csrf_field().'  
+                  <input   type="file" name="weasel" id="fileUpload" style="display:none"> 
+                  <input type="hidden" name="booking_id" value="'.$model->booking_id.'" class="booking_id">           
+                  <a type="button"  onclick="waseluploadAction('.$model->id.')"  id="accept" class="btn btn-secondary">رفع الإيصال</a>  
+                </form>   
                 ';
               
 
@@ -157,4 +154,5 @@ class CommissionsDataTable extends DataTable
     {
         return 'Commissions_' . date('YmdHis');
     }
+
 }
