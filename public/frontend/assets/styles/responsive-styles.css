@@ -65,7 +65,6 @@
     .tabs-details .tab-link,
     .details-txt,
     .details-head,
-    .details-item .accordion-button,
     .restaurant-details-txt,
     .tabs a,
     .department-price,
@@ -130,6 +129,9 @@
     }
 }
 @media (max-width: 992px) {
+    .w-45{
+        width: 100% !important;
+    }
     .accordion-item:last-of-type,
 .accordion-item:last-of-type .accordion-button.collapsed {
     border-bottom-right-radius: 0;
