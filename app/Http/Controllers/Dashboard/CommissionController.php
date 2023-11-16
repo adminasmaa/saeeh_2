@@ -24,10 +24,10 @@ class CommissionController extends Controller
         $this->CommissionRepository = $CommissionRepository;
     }
 
-    public function index(CommissionsDataTable $CommissionsDataTable)
+    public function index(CommissionsDataTable $CommissionsDataTable ,$type,$pay)
     {
 
-        return $this->CommissionRepository->getAll($CommissionsDataTable);
+        return $this->CommissionRepository->getAll($CommissionsDataTable->with(['type' => $type, 'pay' => $pay]));
 
     }
 

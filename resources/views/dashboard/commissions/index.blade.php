@@ -26,15 +26,9 @@
                 </div>
             </div>
         </div>
+        @php $current_route=Route::current()->parameters()['type'];@endphp
         <!-- Container-fluid starts-->
-        <div class="container-fluid">
-
-            <form action="{{ route('dashboard.commissions.update',1) }}" method="post"
-                  enctype="multipart/form-data">
-
-                {{ csrf_field() }}
-                {{ method_field('put') }}
-
+            <div class="container-fluid">
                 <div class="email-wrap bookmark-wrap">
                     <div class="row">
                         <div class="col-xl-3 box-col-6">
@@ -51,16 +45,16 @@
                                             <hr>
                                             <ul class="nav main-menu" role="tablist">
 
-                                                <li><a id="pills-created-tab" data-bs-toggle="pill"
-                                                       href="#pills-created"
-                                                       role="tab" aria-controls="pills-created"
-                                                       aria-selected="true"><span
-                                                              class=" title btn btn-light" style="font-size:20px;" >@lang('site.cars')</span></a></li>
-                                                <li><a class="show" id="pills-todaytask-tab" data-bs-toggle="pill"
-                                                       href="#pills-todaytask" role="tab"
-                                                       aria-controls="pills-todaytask"
-                                                       aria-selected="false"><span
+                                                
+                                                <li ><a 
+                                                       href="{{route('dashboard.commissions',['aqar','unpaid'])}}"  class="{{$current_route=='aqar'?'activee': ''}}"
+                                                      ><span
                                                             class=" title btn btn-light" style="font-size:20px;" > @lang('site.aqars')</span></a></li>
+
+                                                <li ><a
+                                                        href="{{route('dashboard.commissions',['car','unpaid'])}}" class="{{$current_route=='car'?'activee': ''}}"
+                                                ><span
+                                                        class=" title btn btn-light" style="font-size:20px;" >@lang('site.cars')</span></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -79,12 +73,12 @@
 
                                                     <div class="card-body">
                                                         <div class="card-header d-flex">
-                                                            <h5 class="mb-0">  @lang('site.cars')</h5>
+                                                            <h5 class="mb-0">{{$current_route=='aqar'?trans('site.aqars'): trans('site.cars')}}  </h5>
                                                         </div>
 
-                                                        <button type="button" class="btn btn-outline-primary" style="border: 4px double #7b38d8;" id="active">@lang('site.active')</button>
+                                                        <a href="{{route('dashboard.commissions',[$current_route,'unpaid'])}}" type="button" class="btn btn-outline-primary" style="border: 4px double #7b38d8;" id="active">عمولات غير مسلمه</a>
 
-                                                        <button type="button" class="btn btn-outline-primary" style="border: 4px double #7b38d8;" id="not-active">@lang('site.not-active')</button>
+                                                        <a href="{{route('dashboard.commissions',[$current_route,'paid'])}}" type="button" class="btn btn-outline-primary" style="border: 4px double #7b38d8;" id="not-active">عمولات مسلمه</a>
                                                         
                                                         <div class="dt-ext table-responsive">
                                                             <table class="display">
@@ -97,40 +91,15 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        <div class="fade tab-pane" id="pills-todaytask" role="tabpanel"
-                                            aria-labelledby="pills-todaytask-tab">
-                                                 
-                                            <div class="card mb-0">
-
-                                                <div class="card-body">
-                                                        <div class="card-header d-flex">
-                                                            <h5 class="mb-0">  @lang('site.aqars')</h5>
-                                                        </div>
-
-                                                        <div class="dt-ext table-responsive">
-
-                                                            <button type="button" class="btn btn-outline-primary" style="border: 4px double #7b38d8;" id="active">@lang('site.active')</button>
-
-                                                            <button type="button" class="btn btn-outline-primary" style="border: 4px double #7b38d8;" id="not-active">@lang('site.not-active')</button>
-
-                                                                <table class="display"  style="display: block;" >
-
-                                                                    {!! $dataTable->table([], true) !!}
-                                                                </table>
-
-                                                        </div>
-                                                      
-                                                </div>
-                                            </div>
-                             
                                         </div>
+                                    </div>
+                                </div>                                       
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </form>
             </div>
-        </div>
-        <!-- Container-fluid Ends-->
-    </div>
-
+</div>
 @endsection
 @section('scripts')
     <!-- <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script> -->
