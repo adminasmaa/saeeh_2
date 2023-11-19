@@ -301,15 +301,23 @@ button {
     word-spacing: 0.25rem;
 }
 
-h2,
-.h2 {
+h2 {
     font-weight: 700;
     font-size: 24px;
     line-height: 150%;
     color: var(--m-second);
     margin-bottom: 0;
 }
-
+.h2 {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 150%;
+    color: var(--m-second);
+    margin-bottom: 0;
+}
+.w-45{
+    width: 45% !important;
+}
 /********************** header css style ************************/
 .upper-header {
     display: flex;
@@ -522,6 +530,7 @@ h2,
     font-size: 16px !important;
     line-height: 150% !important;
     padding: 0px 5px !important;
+    width: 100%;
 }
 
 /*hero section*/
@@ -2150,10 +2159,11 @@ video.video-full {
 
 .tabs-details .tab-link {
     font-weight: 700;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 150%;
     color: var(--m-second);
     height: 100%;
+    padding-inline: 20px;
 }
 
 .details-txt {
@@ -2165,7 +2175,7 @@ video.video-full {
 
 .details-head {
     font-weight: 700;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 150%;
     color: var(--m-second);
 }
@@ -2186,7 +2196,7 @@ video.video-full {
 
 .tabs-nav-details li {
     border-left: 1px solid var(--m-light-gray);
-    padding-inline: 20px;
+    /* padding-inline: 20px; */
     /* width: 25%; */
 }
 
@@ -2203,11 +2213,14 @@ video.video-full {
     border-radius: 0 !important;
     color: var(--m-second) !important;
     font-weight: 500 !important;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 150%;
     padding-right: 0;
 }
-
+.details-item .accordion-button img{
+    width: 35px;
+    height: 35px;
+}
 .details-item .accordion-body {
     font-weight: 500;
     font-size: 20px;
@@ -2222,7 +2235,7 @@ video.video-full {
     padding-right: 30px;
     padding-bottom: 5px;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 150%;
     color: var(--m-gray-2);
 }
@@ -2231,9 +2244,9 @@ video.video-full {
     content: "";
     position: absolute;
     right: 10px;
-    top: 10px;
-    width: 8px;
-    height: 8px;
+    top: 12px;
+    width: 7px;
+    height: 7px;
     background-color: var(--m-gray-2);
     border-radius: 50%;
     -moz-border-radius: 50%;
@@ -2301,7 +2314,7 @@ video.video-full {
     height: 47px;
     color: #fff;
     font-weight: 600;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 150%;
 }
 
@@ -2386,6 +2399,7 @@ video.video-full {
     border-radius: var(--rounded-main);
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 
 .slide {
@@ -2403,11 +2417,11 @@ video.video-full {
 }
 
 .thumbnail {
-    height: 120px;
+    height: 97px;
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    margin-bottom: 20px;
+    margin-bottom: 14px;
 }
 
 .slide-btn {
@@ -2416,15 +2430,19 @@ video.video-full {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 52px;
-    width: 52px;
+    height: 50px;
+    width: 50px;
     background-color: #fff;
     border-radius: 50%;
     cursor: pointer;
     transition: all 0.4s linear;
     z-index: 100;
 }
-
+.slide-btn i{
+    transform: rotate(180deg);
+    color: var(--m-main);
+    font-size: 18px;
+}
 .next-slide {
     right: 20px;
 }
@@ -3458,6 +3476,15 @@ video.video-full {
 .details-icon {
     padding-left: 8px;
 }
+.details-icon i{
+    color: var(--m-gray-4);
+font-size: 24px;
+}
+.details-icon i.fa-wallet{
+    color: var(--m-main);
+font-size: 22px;
+}
+
 
 .badge-filter {
     border: 1px solid var(--m-second);
@@ -6048,4 +6075,21 @@ tr {
   .modal-sort-by.in .modal-dialog {
     transform: translate3d(0, 0, 0);
   }
-  
+  .star-review i{
+    font-size: 26px;
+    color: var(--m-main);
+  }
+  .condition-content{
+    position: relative;
+    padding-bottom: 35px;
+  }
+  .condition-content::after{
+    position: absolute;
+    content: '';
+    border-bottom: 1px solid #cacacab3;
+    width: 100%;
+    padding-top: 20px;
+  }
+  .condition-content:last-of-type::after{
+content: unset;
+  }

@@ -200,19 +200,19 @@ $(".tabs-nav a").on("click", function (event) {
     $($(this).attr("href")).show();
 });
 
-// // Show the first tab by default details page
-// $(".tabs-content li").hide();
-// $(".tabs-content li:first").show();
-// $(".tabs-nav-details li:first").addClass("tab-active");
+// Show the first tab by default details page
+$(".tabs-content-details li").hide();
+$(".tabs-content-details li:first").show();
+$(".tabs-nav-details li:first").addClass("tab-active");
 
-// // Change tab class and display content
-// $(".tabs-nav-details a").on("click", function (event) {
-//   event.preventDefault();
-//   $(".tabs-nav-details li").removeClass("tab-active");
-//   $(this).parent().addClass("tab-active");
-//   $(".tabs-content li").hide();
-//   $($(this).attr("href")).show();
-// });
+// Change tab class and display content
+$(".tabs-nav-details a").on("click", function (event) {
+  event.preventDefault();
+  $(".tabs-nav-details li").removeClass("tab-active");
+  $(this).parent().addClass("tab-active");
+  $(".tabs-content-details li").hide();
+  $($(this).attr("href")).show();
+});
 
 // Show the first tab by default all booking page
 // $(".tabs-content li").hide();

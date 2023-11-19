@@ -943,8 +943,7 @@
                                                             class="d-flex justify-content-lg-end align-items-center"
                                                         >
                                                             <div class="department-badge bg-main text-white">
-                                                                <span
-                                                                    class="">     {{$aquar->aqarReview->avg('rate')}}</span>
+                                                                <span class="">     {{$aquar->aqarReview->avg('rate')}}</span>
                                                                 <span>
                                                                    <i class="fas fa-star"></i>
                                                                 </span>
