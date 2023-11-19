@@ -86,7 +86,7 @@
     .contact-btn,
     .call-btn a,
     .cancle-btn a,
-    .add-rate-btn a {
+    .add-rate-btn a ,.add-rate-btn button{
         font-size: 16px;
     }
     .banner-txt {
@@ -1045,9 +1045,9 @@
     #slides {
         height: 350px;
     }
-    .tabs-nav-details li {
+    /* .tabs-nav-details li {
         padding-inline: 15px;
-    }
+    } */
 
     .rating-see-btn {
         margin-top: 20px;
@@ -1228,7 +1228,7 @@
         overflow-y: visible;
         overflow-x: auto;
         width: 100%;
-        min-width: 70vw;
+        min-width:160vw;
     }
     .thumbnail {
         position: relative;
@@ -1549,6 +1549,12 @@
     }
 }
 @media (max-width: 578px) {
+    .modal-custom-rating .discound-txt {
+        font-size: 16px;
+    }
+    .tabs-details .tab-link {
+        padding-inline: 8px;
+    }
     .search-result {
         font-size: 20px;
     }
@@ -1708,7 +1714,7 @@
         aspect-ratio: 290/240;
     }
     #gallery {
-        min-width: 95vw;
+        min-width: 235vw;
     }
 
     .container,
@@ -1806,7 +1812,7 @@
 
     .booking-now-btn {
         margin-top: 10px;
-        width: 60%;
+        width: 70%;
     }
     .booking-now-btn a,
     .rating-see-btn a {
@@ -2001,6 +2007,9 @@
     }
 }
 @media (max-width: 450px) {
+    #gallery {
+        min-width: 375vw;
+    }
     .ads-lborder .h2 {
         font-size: 18px;
     }
@@ -2159,7 +2168,7 @@
     .cancle-btn a,
     .boxx-txt,
     .details-rest-btn a,
-    .add-rate-btn a {
+    .add-rate-btn a ,.add-rate-btn button{
         font-size: 14px;
     }
     .tabs-nav-edits .tabs a {
@@ -2239,7 +2248,7 @@
     .cancle-btn a,
     .boxx-txt,
     .details-rest-btn a,
-    .add-rate-btn a {
+    .add-rate-btn a ,.add-rate-btn button {
         font-size: 13px;
     }
 
