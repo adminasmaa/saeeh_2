@@ -56,10 +56,11 @@ class CommissionsDataTable extends DataTable
 
 
                 return '                   
-                <form action="'.route('dashboard.uploadweasel').'" method="POST" style="display: inline-block" id="waseluploadForm'.$model->id.'">'.csrf_field().'  
-                  <input   type="file" name="weasel" id="fileUpload" style="display:none"> 
+                <form action="'.route('dashboard.uploadweasel').'" method="POST" enctype="multipart/form-data" style="display: inline-block" id="waseluploadForm'.$model->id.'">
+                <meta name="csrf-token" content="'. csrf_token() .'">
+                  <input  type="hidden" name="weasel" id="weasel"> 
                   <input type="hidden" name="booking_id" value="'.$model->booking_id.'" class="booking_id">           
-                  <a type="button"  onclick="waseluploadAction('.$model->id.')"  id="accept" class="btn btn-secondary">رفع الإيصال</a>  
+                  <a type="button"  onclick="waseluploadAction('.$model->id.',`'. $this->type.'`)"  id="accept" class="btn btn-secondary">رفع الإيصال</a>  
                 </form>   
                 ';
               

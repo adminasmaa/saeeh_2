@@ -684,7 +684,7 @@
 </script>
 
 <script>
-        async  function waseluploadAction($id) {
+        async  function waseluploadAction($id ,$type) {
             var that = document.getElementById("waseluploadForm" + $id);
             // swal.fire({
             //   title:$mess,
@@ -713,19 +713,41 @@
                 }
                 });
                 if (file) {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    Swal.fire({
-                    title: "Your uploaded picture",
-                    imageUrl: e.target.result,
-                    imageAlt: "The uploaded picture"
-                    });
-                };
-                reader.readAsDataURL(file);
-                var data   = new FormData();
-                that.append('file', file);
-             //   $('.weasel').val(file);
-                that.submit();
+               
+                var formData = new FormData();
+                    formData.append("file", file);
+                    formData.append("id", $id);
+                    formData.append("type", $type);
+                    $.ajax({
+                        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                        method: 'post',
+                        url: "{{ route('dashboard.uploadweasel') }}",
+                        data: formData, 
+                        enctype: 'multipart/form-data',
+                        processData: false,
+                        contentType: false,
+                        success: function (resp) {
+                           // Swal('Uploaded', 'Your file have been uploaded', 'success');
+                           const reader = new FileReader();
+                            reader.onload = (e) => {
+                                Swal.fire({
+                                title: "Your uploaded picture",
+                                imageUrl: e.target.result,
+                                imageAlt: "The uploaded picture"
+                                });
+                            };
+                            reader.readAsDataURL(file);
+                            if(resp){
+                                location.reload();
+                            }
+                        },
+                        error: function() {
+                           // Swal({ type: 'error', title: 'Oops...', text: 'Something went wrong!' })
+                        }
+                    })
+
+                
+                //that.submit();
             }
         }
     </script>
