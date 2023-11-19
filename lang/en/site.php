@@ -18,6 +18,7 @@ return [
     'filtering'=>'Filtering',
     'Do you want to cancel your reservation?'=>'Do you want to cancel your reservation?',
     'Share via social media'=>'Share via social media',
+    'investor' => 'Investor',
 
     'floor_numbers' => 'Floor Numbers',
     'floor_number' => 'Floor Numbers',

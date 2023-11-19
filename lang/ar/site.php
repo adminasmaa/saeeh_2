@@ -159,7 +159,7 @@ return [
     'banner' => 'شعار',
     'upper_middle' => 'فى الوسط الاعلى',
     'lower_middle' => 'فى الوسط الاسفل',
-
+    'investor' => 'المستثمر',
     'delivery place' => 'مكان التسليم',
     'Receipt hour' => 'ساعة الاستلام',
     'delivery hour' => 'ساعة التسليم ',
