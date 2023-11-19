@@ -85,8 +85,8 @@
 
                                 </div>
 
-                                <div class="col-md-6 form-group"><span class="text-danger">*</span>
-                                    <label class="form-label mt-4 p-0">@lang('site.users')</label>
+                                <div class="col-md-6 form-group">
+                                    <label class="form-label mt-4 p-0">@lang('site.users')</label><span class="text-danger">*</span>
                                     <select class="js-example-placeholder-multiple col-sm-12" name="user_id">
                                         <option selected>@lang('site.select')</option>
                                         @foreach($users as $user)
@@ -98,8 +98,7 @@
                                     </select>
                                 </div>
                                     <div class="col-md-12 form-group col-12 p-2  m-t-15">
-                                        <label>@lang('site.descrption')<span
-                                                class="text-danger">*</span></label>
+                                        <label>@lang('site.descrption')<span class="text-danger">*</span></label>
                                         <textarea class="form-control" cols="5" rows="5"
                                                     name="description" required>
                                         </textarea>
