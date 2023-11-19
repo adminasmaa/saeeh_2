@@ -68,8 +68,8 @@
                                     <label class="form-label">@lang('site.type')</label>
                                     <br>
                                     <select class="form-control btn-square" name="type" readonly="" disabled>
-                                        <option selected>@lang('site.select')</option>
 
+                                        <option selected>@lang('site.select')</option>
                                         <option value="income"
                                                 @if($invoice->type=='income') selected @endif>@lang('site.income')
                                         </option>

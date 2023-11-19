@@ -31,18 +31,18 @@
             <div class="container-fluid">
                 <div class="email-wrap bookmark-wrap">
                     <div class="row">
-                        <div class="col-xl-3 box-col-6">
+                        <div class="col-12">
                             <div class="email-left-aside">
-                                <div class="card">
+                                <div class="card mb-0">
                                     <div class="card-body">
-                                        <div class="email-app-sidebar left-bookmark task-sidebar">
+                                        <div class="email-app-sidebar  task-sidebar">
                                             <!-- <div class="media">
                                                 <div class="media-body">
                                                     <h6 class="f-w-600">@lang('site.commissions') </h6>
                                                 </div>
                                             </div> -->
 
-                                            <hr>
+                                            <!-- <hr> -->
                                             <ul class="nav main-menu" role="tablist">
 
                                                 
@@ -61,7 +61,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-9 col-md-12 box-col-12">
+                        <div class="col-12 box-col-12">
                             <div class="email-right-aside bookmark-tabcontent">
                                 <div class="card email-body radius-left">
                                     <div class="ps-0">
@@ -71,14 +71,14 @@
 
                                                 <div class="card mb-0">
 
-                                                    <div class="card-body">
-                                                        <div class="card-header d-flex">
+                                                    <div class="card-body pt-0">
+                                                        <div class="card-header d-flex p-0 pb-3">
                                                             <h5 class="mb-0">{{$current_route=='aqar'?trans('site.aqars'): trans('site.cars')}}  </h5>
                                                         </div>
+                                                        
+                                                        <a href="{{route('dashboard.commissions',[$current_route,'unpaid'])}}" type="button" class="btn btn-outline-primary btn-recieve active"  >عمولات غير مسلمه</a>
 
-                                                        <a href="{{route('dashboard.commissions',[$current_route,'unpaid'])}}" type="button" class="btn btn-outline-primary" style="border: 4px double #7b38d8;" id="active">عمولات غير مسلمه</a>
-
-                                                        <a href="{{route('dashboard.commissions',[$current_route,'paid'])}}" type="button" class="btn btn-outline-primary" style="border: 4px double #7b38d8;" id="not-active">عمولات مسلمه</a>
+                                                        <a href="{{route('dashboard.commissions',[$current_route,'paid'])}}" type="button" class="btn btn-outline-primary btn-recieve"  >عمولات مسلمه</a>
                                                         
                                                         <div class="dt-ext table-responsive">
                                                             <table class="display">
