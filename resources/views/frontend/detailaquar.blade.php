@@ -34,8 +34,8 @@
                                 @endforeach
 
                             @else
-                              <div class="slide" data-slide="2">--}}
-                                 <img src="{{FRONTASSETS}}/images/side-image-1.png" alt="department"/>--}}
+                              <div class="slide" data-slide="{{$key}}">
+                                 <img src="{{FRONTASSETS}}/images/side-image-1.png" alt="department"/>
                                </div>
 
                             @endif
@@ -53,7 +53,7 @@
                         <div id="gallery">
                             @if(!empty($aquar->images))
                                 @foreach(explode(',',$aquar->images) as $key=>$img)
-                                    <div class="thumbnail" data-slide="{{$key}}">
+                                    <div class="thumbnail @if($key==0) active @endif" data-slide="{{$key}}">
                                         <img src="{{asset('images/aqars/'.$img)}}"
                                              onerror="this.src='{{FRONTASSETS}}/images/department-1.svg'"
                                              alt="department"/>
@@ -61,7 +61,7 @@
                                 @endforeach
 
                             @else
-                                <div class="thumbnail" data-slide="2">
+                                <div class="thumbnail" data-slide="{{$key}}">
                                     <img src="{{FRONTASSETS}}/images/side-image-1.png" alt="department"/>
                                 </div>
 
@@ -372,24 +372,13 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <h3 class="details-head pt-4">@lang('site.locations')</h3>
-                                        <div class="d-flex">
-                                            <div>
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="24"
-                                                    height="24"
-                                                    viewBox="0 0 24 24"
-                                                    fill="none"
-                                                >
-                                                    <path
-                                                        d="M12 12C12.55 12 13.021 11.804 13.413 11.412C13.8043 11.0207 14 10.55 14 10C14 9.45 13.8043 8.979 13.413 8.587C13.021 8.19567 12.55 8 12 8C11.45 8 10.9793 8.19567 10.588 8.587C10.196 8.979 10 9.45 10 10C10 10.55 10.196 11.0207 10.588 11.412C10.9793 11.804 11.45 12 12 12ZM12 19.35C14.0333 17.4833 15.5417 15.7873 16.525 14.262C17.5083 12.7373 18 11.3833 18 10.2C18 8.38333 17.4207 6.89567 16.262 5.737C15.104 4.579 13.6833 4 12 4C10.3167 4 8.89567 4.579 7.737 5.737C6.579 6.89567 6 8.38333 6 10.2C6 11.3833 6.49167 12.7373 7.475 14.262C8.45833 15.7873 9.96667 17.4833 12 19.35ZM12 22C9.31667 19.7167 7.31267 17.5957 5.988 15.637C4.66267 13.679 4 11.8667 4 10.2C4 7.7 4.80433 5.70833 6.413 4.225C8.021 2.74167 9.88333 2 12 2C14.1167 2 15.979 2.74167 17.587 4.225C19.1957 5.70833 20 7.7 20 10.2C20 11.8667 19.3377 13.679 18.013 15.637C16.6877 17.5957 14.6833 19.7167 12 22Z"
-                                                        fill="#CACACA"
-                                                    />
-                                                </svg>
+                                        <div class="d-flex pt-2">
+                                            <div class="location-ic">
+                                            <i class="far fa-map-marker-alt"></i>
                                             </div>
-{{--                                            <p class="details-sm-txt">--}}
+                                           <p class="details-sm-txt">
                                                 {!! html_entity_decode($aquar->description) !!}
-{{--                                            </p>--}}
+                                            </p>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -425,14 +414,14 @@
                                                     {{$aquar->personnumber ?? 0}}
                                                 </div>
                                             </h2>
-                                            <p class="details-sm-txt padding-right">
+                                            <p class="details-sm-txt padding-right mb-0">
                                                 @lang('site.allownumber')
                                                 {{$aquar->unitnumber ?? 0}}
                                             </p>
                                         </div>
                                         <div class="condition-content">
                                             <h2 class="condition-title"> @lang('site.Arrival dates')</h2>
-                                            <p class="details-sm-txt padding-right">
+                                            <p class="details-sm-txt padding-right mb-0">
                                                 {{$aquar->time_from ?? ''}}
                                             </p>
                                         </div>
@@ -445,7 +434,7 @@
                                                     {{$aquar->time_to ?? ''}}
                                                 </div>
                                             </h2>
-                                            <p class="details-sm-txt padding-right">
+                                            <p class="details-sm-txt padding-right mb-0">
 
 
                                                 {{$aquar->time_to ?? ''}}
@@ -477,18 +466,7 @@
                                     data-bs-dismiss="modal"
                                     aria-label="Close"
                                 >
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="32"
-                                        height="32"
-                                        viewBox="0 0 32 32"
-                                        fill="none"
-                                    >
-                                        <path
-                                            d="M8.53366 25.3327L6.66699 23.466L14.1337 15.9993L6.66699 8.53268L8.53366 6.66602L16.0003 14.1327L23.467 6.66602L25.3337 8.53268L17.867 15.9993L25.3337 23.466L23.467 25.3327L16.0003 17.866L8.53366 25.3327Z"
-                                            fill="white"
-                                        />
-                                    </svg>
+                                <i class="fal fa-times"></i>
                                 </button>
                             </div>
                             <div class="modal-body p-lg-5 p-3">
@@ -503,61 +481,60 @@
 
                                         <div class="col-12">
                                             <div class="discound-app d-flex align-items-center mb-4 p-2">
-                  <span class="discound-icon">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 20 20"
-                        fill="none"
-                    >
-                      <path
-                          d="M7.5 12.5L12.5 7.5"
-                          stroke="#9C9C9C"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                      />
-                      <path
-                          d="M7.91667 8.33333C8.14679 8.33333 8.33333 8.14679 8.33333 7.91667C8.33333 7.68655 8.14679 7.5 7.91667 7.5C7.68655 7.5 7.5 7.68655 7.5 7.91667C7.5 8.14679 7.68655 8.33333 7.91667 8.33333Z"
-                          fill="#9C9C9C"
-                          stroke="#9C9C9C"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                      />
-                      <path
-                          d="M12.0833 12.4993C12.3134 12.4993 12.5 12.3128 12.5 12.0827C12.5 11.8526 12.3134 11.666 12.0833 11.666C11.8532 11.666 11.6666 11.8526 11.6666 12.0827C11.6666 12.3128 11.8532 12.4993 12.0833 12.4993Z"
-                          fill="#9C9C9C"
-                          stroke="#9C9C9C"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                      />
-                      <path
-                          d="M2.5 10C2.5 10.9849 2.69399 11.9602 3.0709 12.8701C3.44781 13.7801 4.00026 14.6069 4.6967 15.3033C5.39314 15.9997 6.21993 16.5522 7.12987 16.9291C8.03982 17.306 9.01509 17.5 10 17.5C10.9849 17.5 11.9602 17.306 12.8701 16.9291C13.7801 16.5522 14.6069 15.9997 15.3033 15.3033C15.9997 14.6069 16.5522 13.7801 16.9291 12.8701C17.306 11.9602 17.5 10.9849 17.5 10C17.5 9.01509 17.306 8.03982 16.9291 7.12987C16.5522 6.21993 15.9997 5.39314 15.3033 4.6967C14.6069 4.00026 13.7801 3.44781 12.8701 3.0709C11.9602 2.69399 10.9849 2.5 10 2.5C9.01509 2.5 8.03982 2.69399 7.12987 3.0709C6.21993 3.44781 5.39314 4.00026 4.6967 4.6967C4.00026 5.39314 3.44781 6.21993 3.0709 7.12987C2.69399 8.03982 2.5 9.01509 2.5 10Z"
-                          stroke="#9C9C9C"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                      />
-                    </svg>
-                  </span>
-                                                <span class="text-main discound-txt">
-                    يوجد خصم
-                    <span class="txt_10">10%</span>
-                    لمستخدمي تطبيق سائح
-                  </span>
+                                            <span class="discound-icon">
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="20"
+                                                    height="20"
+                                                    viewBox="0 0 20 20"
+                                                    fill="none"
+                                                >
+                                                <path
+                                                    d="M7.5 12.5L12.5 7.5"
+                                                    stroke="#9C9C9C"
+                                                    stroke-width="2"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                />
+                                                <path
+                                                    d="M7.91667 8.33333C8.14679 8.33333 8.33333 8.14679 8.33333 7.91667C8.33333 7.68655 8.14679 7.5 7.91667 7.5C7.68655 7.5 7.5 7.68655 7.5 7.91667C7.5 8.14679 7.68655 8.33333 7.91667 8.33333Z"
+                                                    fill="#9C9C9C"
+                                                    stroke="#9C9C9C"
+                                                    stroke-width="2"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                />
+                                                <path
+                                                    d="M12.0833 12.4993C12.3134 12.4993 12.5 12.3128 12.5 12.0827C12.5 11.8526 12.3134 11.666 12.0833 11.666C11.8532 11.666 11.6666 11.8526 11.6666 12.0827C11.6666 12.3128 11.8532 12.4993 12.0833 12.4993Z"
+                                                    fill="#9C9C9C"
+                                                    stroke="#9C9C9C"
+                                                    stroke-width="2"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                />
+                                                <path
+                                                    d="M2.5 10C2.5 10.9849 2.69399 11.9602 3.0709 12.8701C3.44781 13.7801 4.00026 14.6069 4.6967 15.3033C5.39314 15.9997 6.21993 16.5522 7.12987 16.9291C8.03982 17.306 9.01509 17.5 10 17.5C10.9849 17.5 11.9602 17.306 12.8701 16.9291C13.7801 16.5522 14.6069 15.9997 15.3033 15.3033C15.9997 14.6069 16.5522 13.7801 16.9291 12.8701C17.306 11.9602 17.5 10.9849 17.5 10C17.5 9.01509 17.306 8.03982 16.9291 7.12987C16.5522 6.21993 15.9997 5.39314 15.3033 4.6967C14.6069 4.00026 13.7801 3.44781 12.8701 3.0709C11.9602 2.69399 10.9849 2.5 10 2.5C9.01509 2.5 8.03982 2.69399 7.12987 3.0709C6.21993 3.44781 5.39314 4.00026 4.6967 4.6967C4.00026 5.39314 3.44781 6.21993 3.0709 7.12987C2.69399 8.03982 2.5 9.01509 2.5 10Z"
+                                                    stroke="#9C9C9C"
+                                                    stroke-width="2"
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                />
+                                                </svg>
+                                            </span>
+                                                                            <span class="text-main discound-txt">
+                                                يوجد خصم
+                                                <span class="txt_10">10%</span>
+                                                لمستخدمي تطبيق سائح
+                                            </span>
                                             </div>
                                         </div>
 
 
                                         <div class="row">
                                             <div class="col-lg-6">
-                                                <div class="mb-3">
 
-                                                    <ul class="register_errorsSaqar"></ul>
-                                                </div>
+                                                    <ul class="register_errorsSaqar mb-0"></ul>
+                                         
                                             </div>
                                         </div>
 
@@ -570,17 +547,17 @@
                                                     @if(!empty($value->reviewElement))
                                                         <div class="d-sm-flex justify-content-between py-2 px-3">
                                                             <div class="d-flex align-items-center">
-                      <span>
-               <img src="{{asset('images/reviewElements/'.$value->reviewElement->icon)}}"
-                    width="50" height="50"
-                    onerror="this.src='{{FRONTASSETS}}/images/side-image-2.png'"
-                    alt="car"/>
-                      </span>
+                                                            <span>
+                                                            <img src="{{asset('images/reviewElements/'.$value->reviewElement->icon)}}"
+                                                                    width="50" height="50"
+                                                                    onerror="this.src='{{FRONTASSETS}}/images/side-image-2.png'"
+                                                                    alt="car"/>
+                                                            </span>
                                                                 <span
                                                                     class="text-gray-2 h2 mb-0 badge-txt">{{$value->reviewElement->name ?? ''}} </span>
                                                             </div>
                                                             <!-- Output HTML -->
-
+                                                         <div class="d-flex align-items-center">
                                                             <div class="rate">
                                                                 <input type="hidden" name="aqar_id"
                                                                        value="{{$aquar->id}}" class="aqar_id">
@@ -607,7 +584,13 @@
                                                                        value="1" class="rate"/>
                                                                 <label for="star111{{$key}}" title="text">1 star</label>
                                                             </div>
-
+                                                            <div class="department-badge bg-main text-white badge-modal">
+                                                              <div class="pt-1 live-rating">0.0</div>
+                                                             <div>
+                                                              <i class="fas fa-star"></i>
+                                                             </div>
+                                                            </div>
+                                                        </div>
                                                         </div>
                                                         <hr class="hr-saeeh my-0"/>
                                                     @endif
@@ -617,13 +600,13 @@
                                         <div class="col-12">
                                             <h2 class="text-gray-2 mb-3">@lang('site.Add a comment about the place')</h2>
                                             <div class="form-group">
-                  <textarea
-                      class="form-control txtarea-booking px-3 py-2 mt-2 description"
-                      placeholder="{{trans('site.Write your entire experience')}} "
-                      rows="4"
-                      id="description"
-                      name="description"
-                  ></textarea>
+                                            <textarea
+                                                class="form-control txtarea-booking px-3 py-2 mt-2 description"
+                                                placeholder="{{trans('site.Write your entire experience')}} "
+                                                rows="4"
+                                                id="description"
+                                                name="description"
+                                            ></textarea>
                                             </div>
                                         </div>
                                         <div class="col-12 d-flex justify-content-md-end pt-lg-5 pt-3">

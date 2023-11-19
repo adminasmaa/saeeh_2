@@ -1305,6 +1305,11 @@ video.video-full {
     right: -4.3rem;
     top: 10rem;
 }
+.modal-custom-rating .rating-close i{
+    color: #fff;
+    font-size: 26px;
+}
+
 
 .sort-modal {
     width: 70%;
@@ -2331,7 +2336,8 @@ video.video-full {
 }
 
 .badge-condition {
-    width: 57px;
+    min-width: 57px;
+    padding-inline: 8px;
     height: 25px;
     background: var(--m-orange);
     font-weight: 500;
@@ -2346,7 +2352,7 @@ video.video-full {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    width: 22%;
+    width: 30%;
 }
 
 .padding-right {
@@ -2423,7 +2429,10 @@ video.video-full {
     overflow: hidden;
     margin-bottom: 14px;
 }
-
+.thumbnail.active {
+    border: 2px solid var(--m-main);
+    border-radius: var(--rounded-main);
+}
 .slide-btn {
     position: absolute;
     top: 50%;
@@ -4117,7 +4126,7 @@ font-size: 22px;
     width: 40%;
 }
 
-.modal-custom-rating input[type="radio"],
+/* .modal-custom-rating input[type="radio"],
 .modal-goto input[type="radio"] {
     display: none;
 }
@@ -4197,7 +4206,7 @@ font-size: 22px;
     transform: translateY(-50%) scale(0);
     transition: transform 400ms ease;
 }
-
+*/
 .modal-custom-rating .discound-app,
 .modal-goto .discound-app {
     width: 100%;
@@ -4208,9 +4217,9 @@ font-size: 22px;
     font-weight: 500;
     font-size: 24px;
     line-height: 150%;
-}
+} 
 
-.modal-custom-rating input[type="radio"]:checked + label::before,
+/* .modal-custom-rating input[type="radio"]:checked + label::before,
 .modal-goto input[type="radio"]:checked + label::before {
     border-color: var(--m-main);
 }
@@ -4218,7 +4227,7 @@ font-size: 22px;
 .modal-custom-rating input[type="radio"]:checked + label::after,
 .modal-goto input[type="radio"]:checked + label::after {
     transform: translateY(-50%) scale(0.55);
-}
+} */
 
 .card-groups {
     background: #ffffff;
@@ -4250,7 +4259,7 @@ font-size: 22px;
     border-radius: 10px;
 }
 
-.add-rate-btn a {
+.add-rate-btn a ,.add-rate-btn button {
     font-weight: 700;
     font-size: 20px;
     line-height: 150%;
@@ -4265,7 +4274,7 @@ font-size: 22px;
     background: var(--m-second);
 }
 
-.add-rate-btn:hover a {
+.add-rate-btn:hover a ,.add-rate-btn:hover button{
     color: #ffffff;
 }
 
@@ -6093,3 +6102,53 @@ tr {
   .condition-content:last-of-type::after{
 content: unset;
   }
+
+  .location-ic i{
+    color: #9C9C9C;
+    font-size: 20px;
+  }
+
+
+  
+  .hide {
+    display: none;
+}
+#valid-msg {
+    color: #00c900;
+}
+
+
+.rate:not(:checked) > input {
+    display: none;
+}
+
+.rate:not(:checked) > label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: var(--m-gray-3);
+}
+
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+
+.rate > input:checked ~ label {
+    color: var(--m-main);
+}
+
+.rate:not(:checked) > label:hover, .rate:not(:checked) > label:hover ~ label {
+    color: var(--m-main);
+}
+
+.rate > input:checked + label:hover, .rate > input:checked + label:hover ~ label, .rate > input:checked ~ label:hover, .rate > input:checked ~ label:hover ~ label, .rate > label:hover ~ input:checked ~ label {
+    color: var(--m-main);
+}
+[dir=rtl] .iti--allow-dropdown .iti__flag-container, [dir=rtl] .iti--separate-dial-code .iti__flag-container{
+    right: auto;
+    left: 0;
+    direction: ltr;
+}
