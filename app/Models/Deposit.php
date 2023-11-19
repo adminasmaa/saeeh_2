@@ -18,8 +18,10 @@ class Deposit extends Model
 
     protected $fillable = [
         'deposit', // required 
-        'aqar_booking_id', //unsigned 
-        'car_booking_id', //unsigned 
+        'booking_id', //unsigned 
+        'type', // required 
+        'status', // required 
+        'waseal_photo', // required 
         'user_id', //unsigned 
     ];
     // relations
