@@ -20,7 +20,8 @@ class Commission extends Model
         'status', // default (0)
         'user_id', //unsigned 
         'booking_id',
-        'type'
+        'type',
+        'waseal_photo'
     ];
     // relations
     public function user(){
