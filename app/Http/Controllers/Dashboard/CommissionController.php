@@ -122,7 +122,12 @@ class CommissionController extends Controller
 
     public function uploadweasel(Request $request)
     {
-       return $request;
+        if ($request->hasFile('file')) {
+           // UploadImage('images/commisions/','waseal_photo', $aqar, $request->file('file'));
+        }
+        $sucess=Commission::find($request->id)->update(['status' => 1]);
+
+        return $sucess;
 
 
     }
