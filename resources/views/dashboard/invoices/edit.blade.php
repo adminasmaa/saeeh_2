@@ -49,48 +49,52 @@
 
 
                         </div>
-                                <div class="row">
-                                    <!--<div class="col-md-6">-->
+                            <div class="row">
+                                <!--<div class="col-md-6">-->
 
-                                    <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.balances')</label>
-                                        <input type="number" step=".1" name="balance" class="form-control"
-                                               value="{{$invoice->balance}}"
-                                            >
-                                    </div>
                                 <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.amount')</label>
-                                        <input type="number" step=".1" name="amount" class="form-control"
-                                               value="{{$invoice->amount}}"
-                                            >
-                                    </div>
+                                    <label>@lang('site.balances')</label>
+                                    <input type="number" step=".1" name="balance" class="form-control"
+                                            value="{{$invoice->balance}}"
+                                        >
+                                </div>
+                                <div class="col-md-6 form-group col-12 p-2 ">
+                                    <label>@lang('site.amount')</label>
+                                    <input type="number" step=".1" name="amount" class="form-control"
+                                            value="{{$invoice->amount}}"
+                                        >
+                                </div>
 
                                 <div class="col-md-6 form-group">
                                     <label class="form-label mt-4 p-0" style="font-size:15px;">@lang('site.type')</label>
-                                    <br>
-                                    <input class="form-check-input" id="income" type="radio" name="type" value="income"
-                                           {{$invoice->type=='income'? 'checked':'' }}>
+                                    <ul class="px-0 list-unstyled d-flex flex-wrap">
 
-                                    <label for="income" style="font-size:15px;" >@lang('site.income')</label><br>
+                                        <li class="d-flex align-items-center checkx-input-li mb-lg-0 mb-2"> 
+                                            <input class="form-checkx-input" id="income" type="radio" name="type" value="income"
+                                                {{$invoice->type=='income'? 'checked':'' }}>
+                                            <label for="income" style="font-size:15px;" class="mb-0 px-2" >@lang('site.income')</label>
+                                        </li>
 
-                                    <input class="form-check-input" id="capital" type="radio" name="type" value="capital"
-                                           {{$invoice->type=='capital'? 'checked':'' }}>
+                                        <li class="d-flex align-items-center checkx-input-li mb-lg-0 mb-2"> 
+                                            <input class="form-check-input" id="capital" type="radio" name="type" value="capital"
+                                                {{$invoice->type=='capital'? 'checked':'' }}>
+                                            <label for="capital" style="font-size:15px;" class="mb-0 px-2">@lang('site.capital')</label>
+                                        </li>
 
-                                    <label for="capital" style="font-size:15px;">@lang('site.capital')</label><br>
+                                        <li class="d-flex align-items-center checkx-input-li mb-lg-0 mb-2"> 
+                                            <input class="form-check-input" id="expenses" type="radio" name="type" value="expenses"
+                                                {{$invoice->type=='expenses'? 'checked':'' }}>
+                                            <label for="expenses" style="font-size:15px;" class="mb-0 px-2">@lang('site.expenses')</label>
+                                        </li>
 
-                                    <input class="form-check-input" id="expenses" type="radio" name="type" value="expenses"
-                                           {{$invoice->type=='expenses'? 'checked':'' }}>
+                                        <li class="d-flex align-items-center checkx-input-li mb-lg-0 mb-2"> 
+                                            <input class="form-check-input" id="export" type="radio" name="type" value="export" 
+                                                {{$invoice->type=='export'? 'checked':'' }}>
+                                            <label for="export" style="font-size:15px;" class="mb-0 px-2">@lang('site.export')</label>
+                                        </li>
                                     
-                                    <label for="expenses" style="font-size:15px;">@lang('site.expenses')</label><br>
-
-                                    <input class="form-check-input" id="export" type="radio" name="type" value="export" 
-                                           {{$invoice->type=='export'? 'checked':'' }}>
-
-                                    <label for="export" style="font-size:15px;">@lang('site.export')</label><br>
-
+                                </ul>
                                 </div>
-
-                                <br> <br>
 
                                 <div class="col-md-6 form-group">
                                     <label class="form-label">@lang('site.users')</label>
@@ -112,7 +116,7 @@
                                             </textarea>
                                 </div>
 
-                                </div>
+                            </div>
                             <br>
 
                         </div>

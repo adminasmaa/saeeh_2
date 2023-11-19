@@ -17435,8 +17435,27 @@ footer.blockquote-footer {
     border: 2px solid #ecf3fa;
 }
 .email-wrap .email-app-sidebar .main-menu > li {
-    width: 100%;
+    width: 25%;
     text-align: left;
+}
+.btn-recieve{
+    border: 4px double #7b38d8;
+}
+.btn-recieve.active{
+    background-color: var(--theme-secondary);
+    color:#fff
+}
+.form-checkx-input {
+    width: 1.3rem;
+    height: 1.3rem;
+}
+.checkx-input-li{padding-left: 25px;}
+.main-menu .activee {
+    background-color: #ededed;
+}
+.main-menu .activee span{
+    background-color: rgba(115, 102, 255, 0.1) !important;
+    border-color: rgba(115, 102, 255, 0.1) !important;
 }
 .email-wrap .email-app-sidebar .main-menu > li a {
     line-height: 39px;

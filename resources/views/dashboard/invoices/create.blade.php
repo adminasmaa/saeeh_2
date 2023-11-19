@@ -73,15 +73,26 @@
                                     
                                 <div class="col-md-6 form-group">
                                     <label class="form-label mt-4 p-0" style="font-size:15px;" >@lang('site.type')</label><span class="text-danger">*</span>
-                                    <br>
-                                    <input type="radio" class="form-check-input" id="income" name="type" value="income">
-                                    <label for="income" style="font-size:15px;" >@lang('site.income')</label><br>
-                                    <input type="radio" class="form-check-input" id="capital" name="type" value="capital">
-                                    <label for="capital" style="font-size:15px;">@lang('site.capital')</label><br>
-                                    <input type="radio" class="form-check-input" id="expenses" name="type" value="expenses">
-                                    <label for="expenses" style="font-size:15px;">@lang('site.expenses')</label><br>
-                                    <input type="radio" class="form-check-input" id="export" name="type" value="export">
-                                    <label for="export" style="font-size:15px;">@lang('site.export')</label><br>
+                                    <ul class="px-0 list-unstyled d-flex flex-wrap">
+                                        
+                                        <li class="d-flex align-items-center checkx-input-li mb-lg-0 mb-2"> 
+                                            <input type="radio" class="form-checkx-input" id="income" name="type" value="income">
+                                            <label for="income" style="font-size:15px;" class="mb-0 px-2">@lang('site.income')</label>
+                                        </li>
+                                        <li class="d-flex align-items-center checkx-input-li mb-lg-0 mb-2">
+                                            <input type="radio" class="form-checkx-input" id="capital" name="type" value="capital">
+                                            <label for="capital" style="font-size:15px;" class="mb-0 px-2">@lang('site.capital')</label>
+                                        </li>
+                                        <li class="d-flex align-items-center checkx-input-li mb-lg-0 mb-2">
+                                            <input type="radio" class="form-checkx-input" id="expenses" name="type" value="expenses">
+                                            <label for="expenses" style="font-size:15px;" class="mb-0 px-2">@lang('site.expenses')</label>
+                                        </li>
+                                        <li class="d-flex align-items-center checkx-input-li mb-lg-0 mb-2">
+                                            <input type="radio" class="form-checkx-input" id="export" name="type" value="export">
+                                            <label for="export" style="font-size:15px;" class="mb-0 px-2">@lang('site.export')</label>
+                                        </li>
+
+                                    </ul>
 
                                 </div>
 
