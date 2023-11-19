@@ -66,7 +66,7 @@
                                     </div>
 
                                 <div class="col-md-6 form-group">
-                                    <label class="form-label mt-4 p-0" style="font-size:15px;">@lang('site.type')</label><span class="text-danger">*</span>
+                                    <label class="form-label mt-4 p-0" style="font-size:15px;">@lang('site.type')</label>
                                     <br>
                                     <input class="form-check-input" id="income" type="radio" name="type" value="income"
                                            {{$invoice->type=='income'? 'checked':'' }}>
@@ -92,7 +92,7 @@
 
                                 <br> <br>
 
-                                <div class="col-md-6 form-group"><span class="text-danger">*</span>
+                                <div class="col-md-6 form-group">
                                     <label class="form-label">@lang('site.users')</label>
                                     <select class="js-example-placeholder-multiple col-sm-12" name="user_id">
                                         <option selected>@lang('site.select')</option>
@@ -106,8 +106,7 @@
                                 </div>
 
                                 <div class="col-md-12 form-group col-12 p-2  m-t-15">
-                                        <label>@lang('site.descrption')<span
-                                                class="text-danger">*</span></label>
+                                        <label>@lang('site.descrption')</label>
                                         <textarea class="form-control" cols="5" rows="5" name="description">
                                             {{$invoice->description}}
                                             </textarea>
