@@ -62,7 +62,7 @@
                     </div>
                     <button type="submit" class="mt-lg-4  btn-login formregisterslogin">
                     @lang('site.login')
-                    </button>
+                 </button>
                     <div class="forgit-password pt-2">
 {{--                      <a href="#"> @lang('site.forget_password') ؟ </a>--}}
                     </div>
