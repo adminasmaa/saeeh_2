@@ -22,39 +22,30 @@ class Payment extends Model
         'create_date',
         'invoice_display_value',
         'invoice_reference',
-        'payment_getway',
+        'payment_getway', // بوابة الدفع
         'transaction_id',
         'authorization_id',
         'type',
         'user_id', //unsigned
         'response',
-        'customer_reference',
-        'expiry_time', //time
-        'comments',
-        'user_defined_field',
-        'due_deposit', //float
-        'deposit_status', //deposit , notdeposit
-        'transaction_date', 
-        'reference_id', 
-        'track_id',
-        'payment_id',
-        'transaction_status', // succss , failed
-        'transaction_value',
-        'customer_service_charge',
-        'total_service_charge',
-        'due_value',
-        'paid_currency',
-        'paid_currency_value',
-        'card_number',
-        'ip_address',
-        'error_code',
-        'error',
-        'invoice_error',
-        'invoice_item', //array
-        'suppliers', //array
-        'total_before',
-        'total_after',
-        'vat_amount'
+        'customer_reference', // مرجع العميل
+        'invoice_reference', //مرجع الفاتورة 
+        'value_of_currency_paid', // قيمةالعملة المدفوعة
+        'batch_number', // رقم الدفعة
+        'operation_number', // رقم العملية
+        'authorization_number', // رقم التفويض
+        'follow_up_number',  // رقم المتابعة
+        'reference_number', // رقم المرجع
+        'transaction_date_time', // تاريخ الصفقة بالوقت
+        'customer_email',// البريد الالكتروني للعميل
+        'customer_phone', // جوال العميل
+        'customer_name', // اسم العميل
+        'total_before', // المجموع (غير شامل ضريبة القيمة المضافة)
+        'total_after', //  المجموع بعد اضافة القيمة المضافة
+        'vat_amount', // ضريبة القيمة المضافة
+        'price', // السعر
+        'quantity', // الكمية
+        'element ' // العنصر
     ];
 
     // relations
