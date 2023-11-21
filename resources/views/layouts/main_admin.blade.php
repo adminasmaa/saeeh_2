@@ -47,6 +47,7 @@
     <link id="color" rel="stylesheet" href="{{MAINASSETS}}/css/color-1.css" media="screen">
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="{{MAINASSETS}}/css/responsive.css">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.9.0/dist/sweetalert2.min.css" rel="stylesheet">
     @yield('css');
     <link href="{{MAINASSETS}}/plugins/datatables/datatable.min.css" rel="stylesheet"/>
     <script src="{{MAINASSETS}}/js/jquery-3.5.1.min.js"></script>
@@ -521,8 +522,8 @@
                             @if (auth()->user()->hasPermission('read_commissions'))
 
                             <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.commissions.index')?'activee':'' }}"
-                                   href="{{route('dashboard.commissions.index')}}">
+                                <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.commissions')?'activee':'' }}"
+                                   href="{{route('dashboard.commissions',['aqar','unpaid'])}}">
                                     <i data-feather="plus-circle"></i><span>@lang('site.commissions')</span></a>
                             </li>
                             @endif
@@ -552,8 +553,8 @@
                             @if (auth()->user()->hasPermission('read_deposits'))
 
                             <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.deposits.index')?'activee':'' }}"
-                                   href="{{route('dashboard.deposits.index')}}">
+                                <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.deposits')?'activee':'' }}"
+                                   href="{{route('dashboard.deposits',['aqar','unpaid'])}}">
                                     <i data-feather="credit-card"></i><span>@lang('site.deposits') </span></a>
                             </li>
                             @endif
@@ -661,6 +662,7 @@
 <script src="{{MAINASSETS}}/js/script.js"></script>
 <script src="{{MAINASSETS}}/js/theme-customizer/customizer.js"></script>
 <script src="https://cdn.tutorialjinni.com/jquery.repeater/1.2.1/jquery.repeater.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.9.0/dist/sweetalert2.all.min.js"></script>
 </body>
 <!-- login js-->
 <script>
@@ -680,6 +682,101 @@
       $(this).parent().parent().addClass('display-ul');
     });
 </script>
+
+<script>
+        async  function waseluploadAction($id ,$type) {
+            var that = document.getElementById("waseluploadForm" + $id);
+            const { value: file } = await Swal.fire({
+                title: "رفع الإيصال",
+                input: "file",
+                inputAttributes: {
+                    "accept": "image/*",
+                    "aria-label": "Upload your profile picture"
+                }
+                });
+                if (file) {
+               
+                var formData = new FormData();
+                    formData.append("file", file);
+                    formData.append("id", $id);
+                    formData.append("type", $type);
+                    $.ajax({
+                        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                        method: 'post',
+                        url: "{{ route('dashboard.uploadweasel') }}",
+                        data: formData, 
+                        enctype: 'multipart/form-data',
+                        processData: false,
+                        contentType: false,
+                        success: function (resp) {
+                           // Swal('Uploaded', 'Your file have been uploaded', 'success');
+                           const reader = new FileReader();
+                            reader.onload = (e) => {
+                                Swal.fire({
+                                title: "Your uploaded picture",
+                                imageUrl: e.target.result,
+                                imageAlt: "The uploaded picture"
+                                });
+                            };
+                            reader.readAsDataURL(file);
+                            if(resp){
+                                location.reload();
+                            }
+                        },
+                        error: function() {
+                            Swal.fire({ type: 'error', title: 'Oops...', text: 'Something went wrong!' })
+                        }
+                    })
+            }
+        }
+
+
+        async  function waseluploadDeposit($id ,$type) {
+            var that = document.getElementById("waseldepositForm" + $id);
+            const { value: file } = await Swal.fire({
+                title: "رفع الإيصال",
+                input: "file",
+                inputAttributes: {
+                    "accept": "image/*",
+                    "aria-label": "Upload your profile picture"
+                }
+                });
+                if (file) {
+               
+                var formData = new FormData();
+                    formData.append("file", file);
+                    formData.append("id", $id);
+                    formData.append("type", $type);
+                    $.ajax({
+                        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                        method: 'post',
+                        url: "{{ route('dashboard.uploaddepositweasel') }}",
+                        data: formData, 
+                        enctype: 'multipart/form-data',
+                        processData: false,
+                        contentType: false,
+                        success: function (resp) {
+                           // Swal('Uploaded', 'Your file have been uploaded', 'success');
+                           const reader = new FileReader();
+                            reader.onload = (e) => {
+                                Swal.fire({
+                                title: "Your uploaded picture",
+                                imageUrl: e.target.result,
+                                imageAlt: "The uploaded picture"
+                                });
+                            };
+                            reader.readAsDataURL(file);
+                            if(resp){
+                                location.reload();
+                            }
+                        },
+                        error: function() {
+                            Swal.fire({ type: 'error', title: 'Oops...', text: 'Something went wrong!' })
+                        }
+                    })
+            }
+        }
+    </script>
 @yield('js')
 @yield('scripts')
 <!-- Plugin used-->

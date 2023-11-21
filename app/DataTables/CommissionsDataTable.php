@@ -15,8 +15,9 @@ use Yajra\DataTables\Services\DataTable;
 
 class CommissionsDataTable extends DataTable
 {
+    
     private $crudName = 'commissions';
-
+     
     private function getRoutes()
     {
         return [
@@ -44,21 +45,31 @@ class CommissionsDataTable extends DataTable
      */
     public function dataTable($query)
     {
+
         return datatables()
             ->eloquent($query)
             ->editColumn('created_at', function ($model) {
                 return (!empty($model->created_at)) ? $model->created_at->diffForHumans() : '';
             })
             ->addIndexColumn()
+            ->addColumn('status', function ($model) {
+
+
+                return '                   
+                <form action="'.route('dashboard.uploadweasel').'" method="POST" enctype="multipart/form-data" style="display: inline-block" id="waseluploadForm'.$model->commision_id.'">
+                <meta name="csrf-token" content="'. csrf_token() .'">
+                  <input  type="hidden" name="weasel" id="weasel"> 
+                  <input type="hidden" name="booking_id" value="'.$model->booking_id.'" class="booking_id">           
+                  <a type="button"  onclick="waseluploadAction('.$model->commision_id.',`'. $this->type.'`)"  id="accept" class="btn btn-secondary">رفع الإيصال</a>  
+                </form>   
+                ';
+              
+
+            })          
             ->addColumn('action', function ($model) {
                 $actions = '';
-
-                $actions .= DTHelper::dtEditButton(route($this->getRoutes()['update'], $model->id), trans('site.edit'), $this->getPermissions()['update']);
-                $actions .= DTHelper::dtDeleteButton(route($this->getRoutes()['delete'], $model->id), trans('site.delete'), $this->getPermissions()['delete'], $model->id);
-                $actions .= DTHelper::dtShowButton(route($this->getRoutes()['show'], $model->id), trans('site.show'), $this->getPermissions()['delete']);
-
                 return $actions;
-            });
+            })->rawColumns(['action', 'status']);
     }
 
     /**
@@ -69,13 +80,17 @@ class CommissionsDataTable extends DataTable
      */
     public function query(Commission $model): QueryBuilder
     {
-        return $model->newQuery();
+       if($this->pay=='unpaid'){$status=0;}else{$status=1;}
+            return Commission::where('commissions.type','=', $this->type)->where('commissions.status','=',$status)->select('*','commissions.id as commision_id')->newQuery()->with(['user',$this->type.'Booking']);
+
+        
+
     }
 
     public function count()
     {
-        return Commission::count();
-
+        if($this->pay=='unpaid'){$status=0;}else{$status=1;}
+            return Commission::where('type', '=', $this->type)->where('status', '=',$status)->count();
     }
 
 
@@ -95,11 +110,11 @@ class CommissionsDataTable extends DataTable
             ->orderBy(1)
             ->selectStyleSingle()
             ->buttons([
-            //    Button::make('create')->text('<i class="fa fa-plus"></i> ' . trans('site.add')),
-                Button::make('csv')->text('<i class="fa fa-download"></i> ' . trans('site.export')),
-                Button::make('print')->text('<i class="fa fa-print"></i> ' . trans('site.print')),
-            //    Button::make('reset')->text('<i class="fa fa-undo"></i> ' . trans('site.reset')),
-            //    Button::make('reload')->text('<i class="fa fa-refresh"></i> ' . trans('site.reload')),
+            // Button::make('create')->text('<i class="fa fa-plus"></i> ' . trans('site.add')),
+            // Button::make('csv')->text('<i class="fa fa-download"></i> ' . trans('site.export')),
+            // Button::make('print')->text('<i class="fa fa-print"></i> ' . trans('site.print')),
+            // Button::make('reset')->text('<i class="fa fa-undo"></i> ' . trans('site.reset')),
+            // Button::make('reload')->text('<i class="fa fa-refresh"></i> ' . trans('site.reload')),
             ])->language([
                 "url" => app()->getLocale() == 'ar' ? "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json":"//cdn.datatables.net/plug-ins/1.13.4/i18n/en-GB.json"
             ]);
@@ -114,11 +129,16 @@ class CommissionsDataTable extends DataTable
     {
         return [
             Column::make('DT_RowIndex')->data('DT_RowIndex')->name('id')->title('#'),
-            Column::make('user_id')->title(trans('site.users')),
+            Column::make('user.firstname')->title(trans('site.investor')),
             Column::make('price')->title(trans('site.price')),
-            Column::make('status')->title(trans('site.status')),
+            Column::make('booking_id')->title(trans('site.booking_id')),
             Column::make('created_at')->title(trans('site.created_at')),
             Column::computed('action')
+                ->exportable(false)
+                ->printable(false)
+                ->width(60)
+                ->addClass('text-center')->title(trans('site.action')),
+                Column::computed('status')
                 ->exportable(false)
                 ->printable(false)
                 ->width(60)
@@ -135,4 +155,5 @@ class CommissionsDataTable extends DataTable
     {
         return 'Commissions_' . date('YmdHis');
     }
+
 }

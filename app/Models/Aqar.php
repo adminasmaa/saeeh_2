@@ -61,6 +61,7 @@ class Aqar extends Model
         'country_id',
         'ads_status_id',
         'city_id',
+       
     ];
 
     protected $appends = ["avgRating"];
@@ -94,6 +95,11 @@ class Aqar extends Model
     public function ads()
     {
         return $this->belongsTo(Ads::class, 'ads_id');
+    }
+
+    public function adsstatus()
+    {
+        return $this->belongsTo(AdsStatus::class, 'ads_status_id');
     }
 
     public function country()

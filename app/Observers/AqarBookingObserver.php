@@ -26,7 +26,7 @@ class AqarBookingObserver
         $aqar=Aqar::find($aqarBooking->aqar_id);
         $title=trans('message.adv number').$aqarBooking->aqar_id."  (".$aqar->name_ar." )";
         $desription=trans('message.new booking')." (".$status->status_ar .")";
-       
+       if($user){
         $not=Notification::updateOrCreate(['booking_id'=>$aqarBooking->id, 'status'=>$aqarBooking->booking_status_id],[
             'title'=>$title,
             'booking_id'=>$aqarBooking->id,
@@ -38,6 +38,7 @@ class AqarBookingObserver
 
         ]);
         send_push_notification('aqar',$aqarBooking->id,$user->device_token,$title,$desription);
+    }
     }
 
     /**
@@ -66,6 +67,7 @@ class AqarBookingObserver
         else{
             $desription=$status->status_ar ;
         }
+        if($user){
         $not=Notification::updateOrCreate(['booking_id'=>$aqarBooking->id, 'status'=>$aqarBooking->booking_status_id],[
             'title'=>$title,
             'booking_id'=>$aqarBooking->id,
@@ -77,6 +79,7 @@ class AqarBookingObserver
 
         ]);
         send_push_notification('aqar',$aqarBooking->id,$user->device_token,$title,$desription);
+    }
 
         
 

@@ -65,7 +65,6 @@
     .tabs-details .tab-link,
     .details-txt,
     .details-head,
-    .details-item .accordion-button,
     .restaurant-details-txt,
     .tabs a,
     .department-price,
@@ -87,7 +86,7 @@
     .contact-btn,
     .call-btn a,
     .cancle-btn a,
-    .add-rate-btn a {
+    .add-rate-btn a ,.add-rate-btn button{
         font-size: 16px;
     }
     .banner-txt {
@@ -130,6 +129,111 @@
     }
 }
 @media (max-width: 992px) {
+    .exclamation-ic i{
+        font-size: 100px;
+    }
+    .w-45{
+        width: 100% !important;
+    }
+    .accordion-item:last-of-type,
+.accordion-item:last-of-type .accordion-button.collapsed {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+    .department-sm-badge i {
+        padding-right: 2px;
+        font-size: 12px;
+    }
+    .department-sm-badge {
+        width: 48px;
+        height: 25px;
+        font-size: 14px;
+        padding-top: 2px;}
+    .filter-title {
+        border: none;
+        border-bottom: 1px solid var(--m-light-gray);}
+    .accordion-item{
+        border-right: none;
+        border-left: none;
+    }
+    .padding-ads {
+        padding-right: 0px;
+      }
+      .list-menu-booking li {
+        width: 46%;
+      }
+      .w-aqar-status,
+      .ads-status {
+        width: auto !important;
+      }
+      .aqar-img-list {
+        height: 300px;
+      }
+
+    .btn-saeeh-mobile i,.btn-outline-saeeh-mobile i{
+        padding-left: 5px;
+    }
+    
+    .btn-saeeh-mobile {
+        color: var(--m-white) !important;
+        background-color: var(--m-main);
+        border: 1px solid var(--m-main);
+        border-radius: var(--rounded-main);
+    }
+    .btn-outline-saeeh-mobile {
+        color: var(--m-main) !important;
+        width: 180px;
+        height: 60px;
+        background-color: var(--m-white);
+        border: 1px solid var(--m-main);
+        border-radius: var(--rounded-main);}
+    .btn-outline-saeeh-mobile,
+    .btn-saeeh-mobile {
+      width: 88%;
+      height: 50px;
+      padding: 0 !important;
+      font-size: 14px !important;
+      font-weight: 700 !important;
+      line-height: 36px !important;
+    }
+    .side-menu-wrap .accordion-Profile a i {
+        color: var(--m-main);
+        font-size: 16px;
+        padding-left: 5px;
+    }
+    .profile-ic {
+        text-align: center;
+        width: 15%;
+      }
+      .side-menu-wrap .accordion-Profile a {
+        color: var(--m-gray);
+        padding: 12px 0px 5px 10px;
+        font-weight: 700;
+        font-size: 14px;
+    }
+    .side-menu-wrap .accordion-Profile ul {
+        padding-right: 20px;
+        list-style: none;
+    }
+    .btn-outline-saeeh-mobile:hover,
+    .btn-saeeh-mobile:hover {
+      background-color: unset;
+      border: 1px solid unset;
+      color: unset;
+    }
+    #accordionFlushProfile .accordion-button {
+        width: 88%;
+        border-radius: var(--rounded-main);
+        background-color: var(--m-main);
+        color: var(--m-white);
+        padding: 12px 15px;
+        font-weight: 700;
+        font-size: 14px;
+    }
+    #accordionFlushProfile .accordion-button i {font-size: 16px;}
+
+
     .verification-modal .close-modal {
         background: var(--m-main);
     }
@@ -728,9 +832,9 @@
         padding-top: 70px !important;
     }
     .side-menu-nav .main-menu > li > a {
-        color: var(--m-gray-2);
+        color: var(--m-gray);
         padding: 15px 20px 5px 10px;
-        font-weight: 600;
+        font-weight: 700;
         font-size: 14px;
         display: block;
         transition: 0.4s;
@@ -854,6 +958,10 @@
 
     .accordion-button {
         padding: 0.5rem 1.25rem;
+        font-size: 14px;
+        color: var(--m-gray);
+        font-weight: 700;
+
     }
     .accordion-button:focus {
         box-shadow: none;
@@ -862,7 +970,7 @@
         padding: 0.5rem 1.25rem;
     }
     .submenu li a {
-        color: var(--m-gray-2);
+        color: var(--m-gray);
     }
 
     .side-login-image {
@@ -917,10 +1025,13 @@
         right: -15px;
         width: 43px;
         height: 43px;
-        background: #fff;
+        /* background: ; */
         border-radius: 50%;
         z-index: 1;
     }
+    /* .close-modal i{
+      color: var(--m-main);
+    } */
     .close-modal svg {
         width: 18px;
     }
@@ -940,9 +1051,9 @@
     #slides {
         height: 350px;
     }
-    .tabs-nav-details li {
+    /* .tabs-nav-details li {
         padding-inline: 15px;
-    }
+    } */
 
     .rating-see-btn {
         margin-top: 20px;
@@ -1123,7 +1234,7 @@
         overflow-y: visible;
         overflow-x: auto;
         width: 100%;
-        min-width: 70vw;
+        min-width:160vw;
     }
     .thumbnail {
         position: relative;
@@ -1145,7 +1256,11 @@
         line-height: 22px;
     }
     .txtarea-booking {
+        
         padding: 0.5rem !important;
+    }
+    .txtarea-booking::placeholder {
+        line-height: 24px;
     }
 
     .login-body input::placeholder,
@@ -1166,6 +1281,9 @@
     }
     .about-card {
         min-height: auto;
+    }
+    .booking-data {
+        width: auto;
     }
 }
 @media (max-width: 768px) {
@@ -1415,10 +1533,10 @@
     .tabs-in-mobile li:nth-child(3) {
         border-left: none;
     }
-    .tabs-in-mobile li:nth-child(4),
-    .tabs-in-mobile li:nth-child(5) {
+   .tabs-in-mobile li:nth-child(4),
+    .tabs-in-mobile li:nth-child(5), .tabs-in-mobile li:nth-child(6){
         border-top: 1px solid var(--m-light-gray);
-        width: 50%;
+        width: 33.3%;
     }
 
     .tabs-in-mobile .tab-active:nth-child(3) {
@@ -1444,6 +1562,29 @@
     }
 }
 @media (max-width: 578px) {
+    .cancel-booking-title {
+        font-size: 20px;
+    }
+    .exclamation-ic i{
+        font-size: 80px;
+    }
+    .modal-custom-rating .discound-txt {
+        font-size: 16px;
+    }
+    .tabs-details .tab-link {
+        padding-inline: 8px;
+    }
+    .search-result {
+        font-size: 20px;
+    }
+    .aqar-img-list {
+        height: 275px;
+      }
+
+    .iti--separate-dial-code.iti--show-flags .iti__selected-dial-code {
+        font-size: 14px;
+    }
+  
     .verification-content .check-image {
         width: 84px;
         height: 84px;
@@ -1592,7 +1733,7 @@
         aspect-ratio: 290/240;
     }
     #gallery {
-        min-width: 95vw;
+        min-width: 235vw;
     }
 
     .container,
@@ -1690,26 +1831,13 @@
 
     .booking-now-btn {
         margin-top: 10px;
-        width: 60%;
+        width: 70%;
     }
     .booking-now-btn a,
     .rating-see-btn a {
         font-size: 16px;
     }
-    .tabs-details .tab-link,
-    .details-txt,
-    .details-head,
-    .details-item .accordion-button,
-    .restaurant-details-txt,
-    .tabs a,
-    .department-price,
-    .department-title,
-    .dd-txt {
-        font-size: 14px;
-    }
-    .register_frm_card .text-main {
-        font-size: 13px;
-    }
+  
     .booking-now-btn a,
     .booking-now-btn button,
     .rating-see-btn a {
@@ -1866,8 +1994,10 @@
         height: 50px;
     }
     .position-department {
-        font-size: 18px;
+        font-size: 16px;
     }
+    .department-txt {
+        font-size: 14px;}
     .add-rate-btn {
         width: 100%;
     }
@@ -1883,6 +2013,9 @@
     }
 }
 @media (max-width: 450px) {
+    #gallery {
+        min-width: 375vw;
+    }
     .ads-lborder .h2 {
         font-size: 18px;
     }
@@ -2009,8 +2142,6 @@
     .register-section .tabs-details .tab-link {
         font-size: 14px;
     }
-    h2,
-    .h2,
     .badge-ads-details,
     .details-txt,
     .details-head,
@@ -2039,9 +2170,10 @@
     .contact-btn,
     .call-btn a,
     .cancle-btn a,
+.cancle-btn button,
     .boxx-txt,
     .details-rest-btn a,
-    .add-rate-btn a {
+    .add-rate-btn a ,.add-rate-btn button{
         font-size: 14px;
     }
     .tabs-nav-edits .tabs a {
@@ -2064,12 +2196,10 @@
     .details-btn {
         width: 100%;
     }
-    .booking-data {
-        width: 50%;
-    }
-    .dd-txt {
+  
+    /* .dd-txt {
         font-size: 16px;
-    }
+    } */
     .pagination .page-item nav > div:last-child a,
     [aria-current="page"] span,
     [aria-disabled="true"] span {
@@ -2080,6 +2210,7 @@
 }
 
 @media (max-width: 340px) {
+   
     .side-login-image-investor {
         height: 113px;
     }
@@ -2104,7 +2235,7 @@
     .rating-see-btn a,
     .modal-custom-rating .discound-txt,
     .modal-custom-rating label {
-        font-size: 15px;
+        font-size: 16px;
     }
     .details-item .accordion-body,
     .details-sm-txt,
@@ -2118,10 +2249,14 @@
     .contact-btn,
     .call-btn a,
     .cancle-btn a,
+.cancle-btn button,
     .boxx-txt,
     .details-rest-btn a,
-    .tabs-details .tab-link,
-    .add-rate-btn a {
-        font-size: 13px;
+    .add-rate-btn a ,.add-rate-btn button {
+        font-size: 14px;
     }
+
+
 }
+
+

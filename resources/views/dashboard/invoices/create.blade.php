@@ -58,42 +58,46 @@
                                 <div class="row">
                                     <!--<div class="col-md-6">-->
 
-                                    <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.balances')</label>
-                                        <input type="number" step=".1" name="balance" class="form-control"
+                                    <div class="col-md-6 form-group">
+                                        <label>@lang('site.balances')</label><span class="text-danger">*</span>
+                                        <input type="number" step=".1" name="balance" class="form-control col-sm-12"
                                                value="{{old('balance')}}"
                                                >
                                     </div>
-                                    <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.amount')</label>
-                                        <input type="number" step=".1" name="amount" class="form-control"
+                                    <div class="col-md-6 form-group">
+                                        <label>@lang('site.amount')</label><span class="text-danger">*</span>
+                                        <input type="number" step=".1" name="amount" class="form-control col-sm-12"
                                                value="{{old('amount')}}"
                                                >
                                     </div>
-                                    <div class="col-md-6 form-group col-12 p-2 ">
-                                        <label>@lang('site.description')</label>
-                                        <input type="text" name="description" class="form-control"
-                                               value="{{old('description')}}"
-                                               >
-                                    </div>
-                                    <div class="col-md-6 form-group">
-                                    <label class="form-label">@lang('site.type')</label><span class="text-danger">*</span>
-                                    <select class="js-example-placeholder-multiple col-sm-12" name="type">
-                                            <option selected>@lang('site.select')</option>
-                                            <option value="income">@lang('site.income')</option>
-                                            <option value="capital">@lang('site.capital')</option>
-                                            <option value="expenses">@lang('site.expenses')</option>
-                                            <option value="export">@lang('site.export') </option>
+                                    
+                                <div class="col-md-6 form-group">
+                                    <label class="form-label mt-4 p-0" style="font-size:15px;" >@lang('site.type')</label><span class="text-danger">*</span>
+                                    <ul class="px-0 list-unstyled d-flex flex-wrap">
+                                        
+                                        <li class="d-flex align-items-center checkx-input-li mb-lg-0 mb-2"> 
+                                            <input type="radio" class="form-checkx-input" id="income" name="type" value="income">
+                                            <label for="income" style="font-size:15px;" class="mb-0 px-2">@lang('site.income')</label>
+                                        </li>
+                                        <li class="d-flex align-items-center checkx-input-li mb-lg-0 mb-2">
+                                            <input type="radio" class="form-checkx-input" id="capital" name="type" value="capital">
+                                            <label for="capital" style="font-size:15px;" class="mb-0 px-2">@lang('site.capital')</label>
+                                        </li>
+                                        <li class="d-flex align-items-center checkx-input-li mb-lg-0 mb-2">
+                                            <input type="radio" class="form-checkx-input" id="expenses" name="type" value="expenses">
+                                            <label for="expenses" style="font-size:15px;" class="mb-0 px-2">@lang('site.expenses')</label>
+                                        </li>
+                                        <li class="d-flex align-items-center checkx-input-li mb-lg-0 mb-2">
+                                            <input type="radio" class="form-checkx-input" id="export" name="type" value="export">
+                                            <label for="export" style="font-size:15px;" class="mb-0 px-2">@lang('site.export')</label>
+                                        </li>
 
-                                    </select>
-                                    </div>
-                                
+                                    </ul>
+
                                 </div>
 
-                                <div class="row">
-
-                                <div class="col-md-6 form-group"><span class="text-danger">*</span>
-                                    <label class="form-label">@lang('site.users')</label>
+                                <div class="col-md-6 form-group">
+                                    <label class="form-label mt-4 p-0">@lang('site.users')</label><span class="text-danger">*</span>
                                     <select class="js-example-placeholder-multiple col-sm-12" name="user_id">
                                         <option selected>@lang('site.select')</option>
                                         @foreach($users as $user)
@@ -104,8 +108,12 @@
 
                                     </select>
                                 </div>
-
-                                </div>
+                                    <div class="col-md-12 form-group col-12 p-2  m-t-15">
+                                        <label>@lang('site.descrption')<span class="text-danger">*</span></label>
+                                        <textarea class="form-control" cols="5" rows="5"
+                                                    name="description" required>
+                                        </textarea>
+                                    </div>
                                 <br>
 
                             </div>

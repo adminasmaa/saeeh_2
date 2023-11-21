@@ -161,7 +161,9 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         Route::resource('notifications', NotificationController::class);
 
         //commissions
-        Route::resource('commissions', CommissionController::class);
+       // Route::resource('commissions', CommissionController::class);
+        Route::get('/commissions/{type}/{pay}', 'App\Http\Controllers\Dashboard\CommissionController@index')->name('commissions');
+        Route::post('/uploadweasel', 'App\Http\Controllers\Dashboard\CommissionController@uploadweasel')->name('uploadweasel');;
 
         //questions
         Route::resource('questions', QuestionController::class);
@@ -196,7 +198,10 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
         Route::get('/aqarsetting/active_input_required/{id}/{id2}', 'App\Http\Controllers\Dashboard\AqarSettingController@active_input_required');
         //deposits
-        Route::resource('deposits', DepositController::class);
+       // Route::resource('deposits', DepositController::class);
+
+       Route::get('/deposits/{type}/{pay}', 'App\Http\Controllers\Dashboard\DepositController@index')->name('deposits');
+       Route::post('/uploaddepositweasel', 'App\Http\Controllers\Dashboard\DepositController@uploadweasel')->name('uploaddepositweasel');;
 
         //sections
         Route::resource('sections', SectionController::class);

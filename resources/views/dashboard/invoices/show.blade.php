@@ -63,16 +63,13 @@
                                     <input type="number" step=".1" name="amount" class="form-control" value="{{ $invoice->amount }}"
                                            disabled>
                                 </div>
-                                <div class="col-md-6 form-group col-12 p-2">
-                                    <label>@lang('site.description')</label>
-                                    <input type="text" name="description" class="form-control" value="{{ $invoice->description }}"
-                                           disabled>
-                                </div>
-                                <div class="col-md-6 form-group col-12 p-2">
-                                <label class="form-label">@lang('site.type')</label>
-                                    <select class="form-control btn-square" name="type" readonly="" disabled>
-                                        <option selected>@lang('site.select')</option>
 
+                                <div class="col-md-6 form-group col-12 p-2">
+                                    <label class="form-label">@lang('site.type')</label>
+                                    <br>
+                                    <select class="form-control btn-square" name="type" readonly="" disabled>
+
+                                        <option selected>@lang('site.select')</option>
                                         <option value="income"
                                                 @if($invoice->type=='income') selected @endif>@lang('site.income')
                                         </option>
@@ -88,26 +85,28 @@
                                         
                                     </select>
                                 </div>
-                            </div>
 
-                            <div class="row">
-                                <!--<div class="col-md-6">-->
                                 <div class="col-md-6 form-group col-12 p-2">
-                                <label class="form-label">@lang('site.users')</label>
-                                <select class="form-control btn-square" name="user_id" readonly=""disabled>
-                                    <option selected>@lang('site.select')</option>
-                                    @foreach($users as $user)
+                                    <label class="form-label">@lang('site.users')</label>
+                                    <select class="form-control btn-square" name="user_id" readonly=""disabled>
+                                        <option selected>@lang('site.select')</option>
+                                        @foreach($users as $user)
 
-                                        <option value="{{$user->id}}"
-                                                @if($invoice->user_id==$user->id) selected @endif>{{$user->firstname . $user->lastname ?? ''}}</option>
+                                            <option value="{{$user->id}}"
+                                                    @if($invoice->user_id==$user->id) selected @endif>{{$user->firstname . $user->lastname ?? ''}}</option>
 
-                                    @endforeach
+                                        @endforeach
 
-                                </select>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6 form-group col-12 p-2">
+                                    <label>@lang('site.description')</label>
+                                    <input type="text" name="description" class="form-control" value="{{ $invoice->description }}"
+                                           disabled>
+                                </div>
+
                             </div>
-                                
-                            </div>
-
 
                             <br>
 

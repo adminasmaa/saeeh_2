@@ -37,14 +37,18 @@
                                 <div class="slide" data-slide="{{$key}}">
                                     <img src="{{FRONTASSETS}}/images/side-image-1.png" alt="department"/>
                                 </div>
+                              <div class="slide" data-slide="{{$key}}">
+                                 <img src="{{FRONTASSETS}}/images/side-image-1.png" alt="department"/>
+                               </div>
 
                             @endif
 
                             <div class="slide-btn next-slide">
                                 <i class="fas fa-chevron-left"></i>
                             </div>
+
                             <div class="slide-btn prev-slide">
-                                <i class="fas fa-chevron-right"></i>
+                              <i class="fas fa-chevron-right"></i>
                             </div>
                         </div>
                     </div>
@@ -83,6 +87,7 @@
                                 <div class="pt-1">{{$aquar->aqarReview->avg('rate')}}</div>
                                 <div>
                                     <i class="fas fa-star"></i>
+
                                 </div>
                             </div>
                             <div class="number-ads gray-txt">
@@ -92,7 +97,8 @@
                             </div>
 
                         </div>
-                        <div class="booking-now-btn py-4 w-45 d-flex justify-content-center align-items-center mt-4">
+
+                        <div class="booking-now-btn py-4 w-45 d-flex justify-content-center align-items-center mt-4"   >
                             <a href="{{route('bookingaquars',$aquar->id)}}"> @lang('site.book')</a>
                         </div>
                     </div>
@@ -100,11 +106,13 @@
                         <div class="details-box mb-4 mt-lg-0 mt-3">
                             <div class="pb-2 p-3 d-flex align-items-center">
                                 <div class="details-icon">
-                                    <i class="far fa-wallet"></i>
+
+                                <i class="far fa-wallet"></i>
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <div class="h2 text-second mb-0">  @lang('site.price'):</div>
                                     <div
+
                                         class="h2 text-main mb-0 padding-details">  {{$aquar->fixed_price ?? 0}} درهم
                                     </div>
                                 </div>
@@ -114,6 +122,7 @@
                             <div class="py-2 px-3 d-flex align-items-center">
                                 <div class="details-icon">
                                     <i class="far fa-map-marker-alt"></i>
+
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <div class="h2 text-second mb-0">@lang('site.locations'):</div>
@@ -126,6 +135,7 @@
                             <div class="py-2 px-3 d-flex align-items-center">
                                 <div class="details-icon">
                                     <i class="far fa-building"></i>
+
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <div class="h2 text-second mb-0">@lang('site.floor_numbers')</div>
@@ -137,6 +147,7 @@
                             <div class="py-2 px-3 bg-light-orange d-flex align-items-center">
                                 <div class="details-icon">
                                     <i class="far fa-wallet"></i>
+
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <div class="h2 text-gray-2 mb-0">@lang('site.Reservation deposit'):</div>
@@ -147,10 +158,10 @@
                             </div>
                             <div class="pt-2 p-3">
                             <span>
-                                <img src="{{FRONTASSETS}}/images/money-ic.png" alt="money icon">
+
+                                <img src="{{FRONTASSETS}}/images/money-ic.png" alt="money icon" >
                             </span>
-                                <span
-                                    class="boxx-txt text-gray-2">   @lang('site.The deposit is paid at the time of booking')</span>
+                             <span class="boxx-txt text-gray-2">   @lang('site.The deposit is paid at the time of booking')</span>
                             </div>
                         </div>
 
@@ -213,6 +224,7 @@
 
                                                             <div>
                                                                 <i class="far fa-chevron-down"></i>
+
                                                             </div>
                                                         </button>
                                                     </h2>
@@ -259,6 +271,7 @@
                                                                 <div>
                                                                     <span class="star-review"><i
                                                                             class="fas fa-star"></i></span>
+
                                                                     <span class="text-second"> ({{$aquar->aqarReview->avg('rate')}})</span>
                                                                 </div>
                                                                 <div class="text-second text-center">
@@ -339,6 +352,8 @@
 
                                                                 <img alt="review image"
                                                                      src="{{FRONTASSETS}}/images/review-image.png"/>
+
+
                                                             @endif
                                                         </div>
                                                         <div class="w-100 padding-right">
@@ -360,7 +375,8 @@
                                                         <div class="pt-1">{{$comment->rating ?? 0}}</div>
 
                                                         <div>
-                                                            <i class="fas fa-star"></i>
+
+                                                        <i class="fas fa-star"></i>
                                                             {{--<p class="details-sm-txt">
                                                                 {{$allaquars->$aqarSection->icon ?? ''}}
                                                             </p> --}}
@@ -393,7 +409,9 @@
                                             <div class="location-ic">
                                                 <i class="far fa-map-marker-alt"></i>
                                             </div>
-                                            <p class="details-sm-txt">
+
+                                           <p class="details-sm-txt">
+
                                                 {!! html_entity_decode($aquar->description) !!}
                                             </p>
                                         </div>
@@ -484,6 +502,7 @@
                                     aria-label="Close"
                                 >
                                     <i class="fal fa-times"></i>
+
                                 </button>
                             </div>
                             <div class="modal-body p-lg-5 p-3">
@@ -539,6 +558,7 @@
                                                 </svg>
                                             </span>
                                                 <span class="text-main discound-txt">
+
                                                 يوجد خصم
                                                 <span class="txt_10">10%</span>
                                                 لمستخدمي تطبيق سائح
@@ -550,7 +570,9 @@
                                         <div class="row">
                                             <div class="col-lg-6">
 
-                                                <ul class="register_errorsSaqar mb-0"></ul>
+
+                                                    <ul class="register_errorsSaqar mb-0"></ul>
+
 
                                             </div>
                                         </div>
@@ -565,52 +587,50 @@
                                                         <div class="d-sm-flex justify-content-between py-2 px-3">
                                                             <div class="d-flex align-items-center">
                                                             <span>
-                                                            <img
-                                                                src="{{asset('images/reviewElements/'.$value->reviewElement->icon)}}"
-                                                                width="50" height="50"
-                                                                onerror="this.src='{{FRONTASSETS}}/images/side-image-2.png'"
-                                                                alt="car"/>
+
+                                                            <img src="{{asset('images/reviewElements/'.$value->reviewElement->icon)}}"
+                                                                    width="50" height="50"
+                                                                    onerror="this.src='{{FRONTASSETS}}/images/side-image-2.png'"
+                                                                    alt="car"/>
                                                             </span>
                                                                 <span
                                                                     class="text-gray-2 h2 mb-0 badge-txt">{{$value->reviewElement->name ?? ''}} </span>
                                                             </div>
                                                             <!-- Output HTML -->
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="rate">
-                                                                    <input type="hidden" name="aqar_id"
-                                                                           value="{{$aquar->id}}" class="aqar_id">
-                                                                    <input type="hidden" name="review_element_id "
-                                                                           value="{{$value->reviewElement->id}}"
-                                                                           class="review_element_id ">
-                                                                    <input type="radio" id="star555{{$key}}" name="rate"
-                                                                           value="5" class="rate"/>
-                                                                    <label for="star555{{$key}}" title="text">5
-                                                                        stars</label>
-                                                                    <input type="radio" id="star444{{$key}}" name="rate"
-                                                                           value="4" class="rate"/>
-                                                                    <label for="star444{{$key}}" title="text">4
-                                                                        stars</label>
-                                                                    <input type="radio" id="star333{{$key}}" name="rate"
-                                                                           value="3" class="rate"/>
-                                                                    <label for="star333{{$key}}" title="text">3
-                                                                        stars</label>
-                                                                    <input type="radio" id="star222{{$key}}" name="rate"
-                                                                           value="2" class="rate"/>
-                                                                    <label for="star222{{$key}}" title="text">2
-                                                                        stars</label>
-                                                                    <input type="radio" id="star111{{$key}}" name="rate"
-                                                                           value="1" class="rate"/>
-                                                                    <label for="star111{{$key}}" title="text">1
-                                                                        star</label>
-                                                                </div>
-                                                                <div
-                                                                    class="department-badge bg-main text-white badge-modal">
-                                                                    <div class="pt-1 live-rating">0.0</div>
-                                                                    <div>
-                                                                        <i class="fas fa-star"></i>
-                                                                    </div>
-                                                                </div>
+                                               <div class="d-flex align-items-center">
+                                                            <div class="rate">
+                                                                <input type="hidden" name="aqar_id"
+                                                                       value="{{$aquar->id}}" class="aqar_id">
+                                                                <input type="hidden" name="review_element_id "
+                                                                       value="{{$value->reviewElement->id}}"
+                                                                       class="review_element_id ">
+                                                                <input type="radio" id="star555{{$key}}" name="rate"
+                                                                       value="5" class="rate"/>
+                                                                <label for="star555{{$key}}" title="text">5
+                                                                    stars</label>
+                                                                <input type="radio" id="star444{{$key}}" name="rate"
+                                                                       value="4" class="rate"/>
+                                                                <label for="star444{{$key}}" title="text">4
+                                                                    stars</label>
+                                                                <input type="radio" id="star333{{$key}}" name="rate"
+                                                                       value="3" class="rate"/>
+                                                                <label for="star333{{$key}}" title="text">3
+                                                                    stars</label>
+                                                                <input type="radio" id="star222{{$key}}" name="rate"
+                                                                       value="2" class="rate"/>
+                                                                <label for="star222{{$key}}" title="text">2
+                                                                    stars</label>
+                                                                <input type="radio" id="star111{{$key}}" name="rate"
+                                                                       value="1" class="rate"/>
+                                                                <label for="star111{{$key}}" title="text">1 star</label>
                                                             </div>
+                                                            <div class="department-badge bg-main text-white badge-modal">
+                                                              <div class="pt-1 live-rating">0.0</div>
+                                                             <div>
+                                                              <i class="fas fa-star"></i>
+                                                             </div>
+                                                            </div>
+                                                        </div>
                                                         </div>
                                                         <hr class="hr-saeeh my-0"/>
                                                     @endif

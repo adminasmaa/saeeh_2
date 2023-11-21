@@ -22,12 +22,30 @@ class Payment extends Model
         'create_date',
         'invoice_display_value',
         'invoice_reference',
-        'payment_getway',
+        'payment_getway', // بوابة الدفع
         'transaction_id',
         'authorization_id',
         'type',
         'user_id', //unsigned
-        'response'
+        'response',
+        'customer_reference', // مرجع العميل
+        'invoice_reference', //مرجع الفاتورة 
+        'value_of_currency_paid', // قيمةالعملة المدفوعة
+        'batch_number', // رقم الدفعة
+        'operation_number', // رقم العملية
+        'authorization_number', // رقم التفويض
+        'follow_up_number',  // رقم المتابعة
+        'reference_number', // رقم المرجع
+        'transaction_date_time', // تاريخ الصفقة بالوقت
+        'customer_email',// البريد الالكتروني للعميل
+        'customer_phone', // جوال العميل
+        'customer_name', // اسم العميل
+        'total_before', // المجموع (غير شامل ضريبة القيمة المضافة)
+        'total_after', //  المجموع بعد اضافة القيمة المضافة
+        'vat_amount', // ضريبة القيمة المضافة
+        'price', // السعر
+        'quantity', // الكمية
+        'element ' // العنصر
     ];
 
     // relations

@@ -42,7 +42,7 @@ class AqarInvstController extends Controller
     public function index(Request $request)
     {
 
-        $aqars = Aqar::with('category','area')->where('user_id',Auth::id())
+        $aqars = Aqar::with('category','area','adsstatus')->where('user_id',Auth::id())
         ->when($request->search_id, function ($query) use($request) {
             $query->where('id','=',$request->search_id);
             
