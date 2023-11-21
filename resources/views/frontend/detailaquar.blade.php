@@ -843,7 +843,7 @@
                                             <div class="w-100 padding-right">
                                                 <h2 class="reviews-title d-flex text-second">
                                                     {{$comment->user->firstname ?? ''}}
-                                                    {{$comment->user->firstname ?? ''}}
+                                                    {{$comment->user->lastname ?? ''}}
                                                     <div>
                                                         @if(!empty($comment->user->country->flag_image))
                                                             <img
