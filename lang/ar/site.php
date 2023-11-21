@@ -143,7 +143,7 @@ return [
     'income' => 'ايراد',
     'capital' => 'راس مال',
     'expenses' => 'مصروفات',
-    'export' => 'دفع العربون',
+    'export' => 'تصدير',
     'place_categories' => 'الفئات',
     'deposits' => 'العربون',
     'deposit' => 'العربون',

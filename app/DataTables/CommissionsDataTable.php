@@ -56,11 +56,11 @@ class CommissionsDataTable extends DataTable
 
 
                 return '                   
-                <form action="'.route('dashboard.uploadweasel').'" method="POST" enctype="multipart/form-data" style="display: inline-block" id="waseluploadForm'.$model->id.'">
+                <form action="'.route('dashboard.uploadweasel').'" method="POST" enctype="multipart/form-data" style="display: inline-block" id="waseluploadForm'.$model->commision_id.'">
                 <meta name="csrf-token" content="'. csrf_token() .'">
                   <input  type="hidden" name="weasel" id="weasel"> 
                   <input type="hidden" name="booking_id" value="'.$model->booking_id.'" class="booking_id">           
-                  <a type="button"  onclick="waseluploadAction('.$model->id.',`'. $this->type.'`)"  id="accept" class="btn btn-secondary">رفع الإيصال</a>  
+                  <a type="button"  onclick="waseluploadAction('.$model->commision_id.',`'. $this->type.'`)"  id="accept" class="btn btn-secondary">رفع الإيصال</a>  
                 </form>   
                 ';
               
@@ -81,7 +81,7 @@ class CommissionsDataTable extends DataTable
     public function query(Commission $model): QueryBuilder
     {
        if($this->pay=='unpaid'){$status=0;}else{$status=1;}
-            return Commission::where('commissions.type', '=', $this->type)->where('commissions.status', '=',$status)->newQuery()->with(['user',$this->type.'Booking']);
+            return Commission::where('commissions.type','=', $this->type)->where('commissions.status','=',$status)->select('*','commissions.id as commision_id')->newQuery()->with(['user',$this->type.'Booking']);
 
         
 

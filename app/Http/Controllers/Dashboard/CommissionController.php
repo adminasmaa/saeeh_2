@@ -26,7 +26,7 @@ class CommissionController extends Controller
 
     public function index(CommissionsDataTable $CommissionsDataTable ,$type,$pay)
     {
-
+        
         return $this->CommissionRepository->getAll($CommissionsDataTable->with(['type' => $type, 'pay' => $pay]));
 
     }
@@ -122,10 +122,11 @@ class CommissionController extends Controller
 
     public function uploadweasel(Request $request)
     {
+        $commision=Commission::find($request->id);
         if ($request->hasFile('file')) {
-           // UploadImage('images/commisions/','waseal_photo', $aqar, $request->file('file'));
+            UploadImage('images/commisions/','waseal_photo', $commision, $request->file('file'));
         }
-        $sucess=Commission::find($request->id)->update(['status' => 1]);
+        $sucess=$commision->update(['status' => 1]);
 
         return $sucess;
 

@@ -24,10 +24,10 @@ class DepositController extends Controller
         $this->DepositRepository = $DepositRepository;
     }
 
-    public function index(DepositsDataTable $DepositsDataTable)
+    public function index(DepositsDataTable $DepositsDataTable,$type,$pay)
     {
 
-        return $this->DepositRepository->getAll($DepositsDataTable);
+        return $this->DepositRepository->getAll($DepositsDataTable->with(['type' => $type, 'pay' => $pay]));
 
     }
 
@@ -100,5 +100,19 @@ class DepositController extends Controller
 
 
     }//end of destroy
+
+
+    public function uploadweasel(Request $request)
+    {
+        $deposit=Deposit::find($request->id);
+        if ($request->hasFile('file')) {
+            UploadImage('images/commisions/','waseal_photo', $deposit, $request->file('file'));
+        }
+        $sucess=$deposit->update(['status' => 1]);
+
+        return $sucess;
+
+
+    }
 
 }
