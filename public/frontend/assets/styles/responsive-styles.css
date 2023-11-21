@@ -129,6 +129,9 @@
     }
 }
 @media (max-width: 992px) {
+    .exclamation-ic i{
+        font-size: 100px;
+    }
     .w-45{
         width: 100% !important;
     }
@@ -1022,10 +1025,13 @@
         right: -15px;
         width: 43px;
         height: 43px;
-        background: #fff;
+        /* background: ; */
         border-radius: 50%;
         z-index: 1;
     }
+    /* .close-modal i{
+      color: var(--m-main);
+    } */
     .close-modal svg {
         width: 18px;
     }
@@ -1250,7 +1256,11 @@
         line-height: 22px;
     }
     .txtarea-booking {
+        
         padding: 0.5rem !important;
+    }
+    .txtarea-booking::placeholder {
+        line-height: 24px;
     }
 
     .login-body input::placeholder,
@@ -1271,6 +1281,9 @@
     }
     .about-card {
         min-height: auto;
+    }
+    .booking-data {
+        width: auto;
     }
 }
 @media (max-width: 768px) {
@@ -1549,6 +1562,12 @@
     }
 }
 @media (max-width: 578px) {
+    .cancel-booking-title {
+        font-size: 20px;
+    }
+    .exclamation-ic i{
+        font-size: 80px;
+    }
     .modal-custom-rating .discound-txt {
         font-size: 16px;
     }
@@ -1818,20 +1837,7 @@
     .rating-see-btn a {
         font-size: 16px;
     }
-    .tabs-details .tab-link,
-    .details-txt,
-    .details-head,
-    .details-item .accordion-button,
-    .restaurant-details-txt,
-    .tabs a,
-    .department-price,
-    .department-title,
-    .dd-txt {
-        font-size: 14px;
-    }
-    .register_frm_card .text-main {
-        font-size: 13px;
-    }
+  
     .booking-now-btn a,
     .booking-now-btn button,
     .rating-see-btn a {
@@ -2136,8 +2142,6 @@
     .register-section .tabs-details .tab-link {
         font-size: 14px;
     }
-    h2,
-    .h2,
     .badge-ads-details,
     .details-txt,
     .details-head,
@@ -2166,6 +2170,7 @@
     .contact-btn,
     .call-btn a,
     .cancle-btn a,
+.cancle-btn button,
     .boxx-txt,
     .details-rest-btn a,
     .add-rate-btn a ,.add-rate-btn button{
@@ -2191,12 +2196,10 @@
     .details-btn {
         width: 100%;
     }
-    .booking-data {
-        width: 50%;
-    }
-    .dd-txt {
+  
+    /* .dd-txt {
         font-size: 16px;
-    }
+    } */
     .pagination .page-item nav > div:last-child a,
     [aria-current="page"] span,
     [aria-disabled="true"] span {
@@ -2232,7 +2235,7 @@
     .rating-see-btn a,
     .modal-custom-rating .discound-txt,
     .modal-custom-rating label {
-        font-size: 15px;
+        font-size: 16px;
     }
     .details-item .accordion-body,
     .details-sm-txt,
@@ -2246,10 +2249,11 @@
     .contact-btn,
     .call-btn a,
     .cancle-btn a,
+.cancle-btn button,
     .boxx-txt,
     .details-rest-btn a,
     .add-rate-btn a ,.add-rate-btn button {
-        font-size: 13px;
+        font-size: 14px;
     }
 
 

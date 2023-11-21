@@ -365,7 +365,7 @@
                                             >
                                                 <div class="d-flex align-items-center">
                                                 <span class="booking-icon">
-                                                <i class="far fa-bed-alt"></i>
+                                                <i class="far fa-bed"></i>
                                                 </span>
                                                     <span class="text-second dd-txt pe-2">
                                                     @lang('site.normalroom')
