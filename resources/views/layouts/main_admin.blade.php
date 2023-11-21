@@ -522,7 +522,7 @@
                             @if (auth()->user()->hasPermission('read_commissions'))
 
                             <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.commissions.index')?'activee':'' }}"
+                                <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.commissions')?'activee':'' }}"
                                    href="{{route('dashboard.commissions',['aqar','unpaid'])}}">
                                     <i data-feather="plus-circle"></i><span>@lang('site.commissions')</span></a>
                             </li>
@@ -553,8 +553,8 @@
                             @if (auth()->user()->hasPermission('read_deposits'))
 
                             <li class="sidebar-list">
-                                <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.deposits.index')?'activee':'' }}"
-                                   href="{{route('dashboard.deposits.index')}}">
+                                <a class="sidebar-link sidebar-title link-nav {{($current_route=='dashboard.deposits')?'activee':'' }}"
+                                   href="{{route('dashboard.deposits',['aqar','unpaid'])}}">
                                     <i data-feather="credit-card"></i><span>@lang('site.deposits') </span></a>
                             </li>
                             @endif
@@ -686,24 +686,6 @@
 <script>
         async  function waseluploadAction($id ,$type) {
             var that = document.getElementById("waseluploadForm" + $id);
-            // swal.fire({
-            //   title:$mess,
-            //   icon: $icon,    
-            //   imageAlt: 'Custom image',
-            //   confirmButtonText:  'نعم',
-            //   cancelButtonText:  'لا',
-            //   showCancelButton: true,
-            //   showCloseButton: true,
-            //   confirmButtonColor: '#ff8600',    
-            //   allowOutsideClick: true,
-            // }).then((result) => {
-            //         if (result.isConfirmed) {
-            //           that.submit();
-            //         }else {
-                 
-            //     }
-            //     })     
-            
             const { value: file } = await Swal.fire({
                 title: "رفع الإيصال",
                 input: "file",
@@ -742,12 +724,56 @@
                             }
                         },
                         error: function() {
-                           // Swal({ type: 'error', title: 'Oops...', text: 'Something went wrong!' })
+                            Swal.fire({ type: 'error', title: 'Oops...', text: 'Something went wrong!' })
                         }
                     })
+            }
+        }
 
-                
-                //that.submit();
+
+        async  function waseluploadDeposit($id ,$type) {
+            var that = document.getElementById("waseldepositForm" + $id);
+            const { value: file } = await Swal.fire({
+                title: "رفع الإيصال",
+                input: "file",
+                inputAttributes: {
+                    "accept": "image/*",
+                    "aria-label": "Upload your profile picture"
+                }
+                });
+                if (file) {
+               
+                var formData = new FormData();
+                    formData.append("file", file);
+                    formData.append("id", $id);
+                    formData.append("type", $type);
+                    $.ajax({
+                        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                        method: 'post',
+                        url: "{{ route('dashboard.uploaddepositweasel') }}",
+                        data: formData, 
+                        enctype: 'multipart/form-data',
+                        processData: false,
+                        contentType: false,
+                        success: function (resp) {
+                           // Swal('Uploaded', 'Your file have been uploaded', 'success');
+                           const reader = new FileReader();
+                            reader.onload = (e) => {
+                                Swal.fire({
+                                title: "Your uploaded picture",
+                                imageUrl: e.target.result,
+                                imageAlt: "The uploaded picture"
+                                });
+                            };
+                            reader.readAsDataURL(file);
+                            if(resp){
+                                location.reload();
+                            }
+                        },
+                        error: function() {
+                            Swal.fire({ type: 'error', title: 'Oops...', text: 'Something went wrong!' })
+                        }
+                    })
             }
         }
     </script>

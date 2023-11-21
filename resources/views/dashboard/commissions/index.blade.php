@@ -26,7 +26,9 @@
                 </div>
             </div>
         </div>
-        @php $current_route=Route::current()->parameters()['type'];@endphp
+        @php $current_route=Route::current()->parameters()['type'];
+            $pay_route=Route::current()->parameters()['pay'];
+        @endphp
         <!-- Container-fluid starts-->
             <div class="container-fluid">
                 <div class="email-wrap bookmark-wrap">
@@ -76,9 +78,9 @@
                                                             <h5 class="mb-0">{{$current_route=='aqar'?trans('site.aqars'): trans('site.cars')}}  </h5>
                                                         </div>
                                                         
-                                                        <a href="{{route('dashboard.commissions',[$current_route,'unpaid'])}}" type="button" class="btn btn-outline-primary btn-recieve active"  >عمولات غير مسلمه</a>
+                                                        <a href="{{route('dashboard.commissions',[$current_route,'unpaid'])}}" type="button" class="btn btn-outline-primary btn-recieve {{$pay_route=='unpaid'?'active': ''}}"  >عمولات غير مسلمه ({{$count}})</a>
 
-                                                        <a href="{{route('dashboard.commissions',[$current_route,'paid'])}}" type="button" class="btn btn-outline-primary btn-recieve"  >عمولات مسلمه</a>
+                                                        <a href="{{route('dashboard.commissions',[$current_route,'paid'])}}" type="button" class="btn btn-outline-primary btn-recieve {{$pay_route=='paid'?'active': ''}}"  >عمولات مسلمه ({{$count}})</a>
                                                         
                                                         <div class="dt-ext table-responsive">
                                                             <table class="display">
