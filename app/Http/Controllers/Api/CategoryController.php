@@ -12,7 +12,6 @@ use App\Http\Resources\CityCategoryResource;
 use App\Models\Aqar;
 use App\Models\AqarReview;
 use App\Models\Car;
-use App\Models\category_city;
 use App\Models\City;
 use App\Models\PlaceReview;
 use App\Models\PlaceComment;
@@ -318,7 +317,7 @@ class CategoryController extends Controller
 
         //     }
         // }
-        $categories=category_city::join('categories', 'categories.id', '=', 'cities-categories.category_id')->where('categories.type', '=', 0)->where('categories.parent_id', null)->where('categories.id', '!=', 1)->where('categories.id', '!=', 2)->where('cities-categories.city_id',$request->city_id)->get();
+        $categories=Category::join('cities-categories', 'categories.id', '=', 'cities-categories.category_id')->where('categories.type', '=', 0)->where('categories.parent_id', null)->where('categories.id', '!=', 1)->where('categories.id', '!=', 2)->where('cities-categories.city_id',$request->city_id)->select('categories.*')->get();
 
         if (count($categories)) {
 
