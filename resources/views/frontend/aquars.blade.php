@@ -10,7 +10,7 @@
                         <li class="breadcrumb-item">
                             <a href="{{route('Home')}}"> @lang('site.home') </a>
                         </li>
-                     
+
                         <li class="breadcrumb-item text-gray-4" aria-current="page">
                             {{$category->name ?? ''}}
                         </li>
@@ -128,7 +128,7 @@
                     {{--                        </a>--}}
                     {{--                    </div>--}}
                                         <div class="col-12">
-                                                               <h2 class="pb-3 search-result">وجدنا 44 شقة مناسبة لطلبك</h2>
+{{--                                                               <h2 class="pb-3 search-result">وجدنا 44 شقة مناسبة لطلبك</h2>--}}
                                             <div class="form-group mb-4 position-relative">
                                                 <input
                                                     type="search"
@@ -141,23 +141,23 @@
                                               <i class="far fa-search"></i>
                                                 </div>
                                             </div>
-                                            <div class="box-sort-by mb-lg-4 mb-md-4 mb-3 position-relative web-view">
-                                    <span class="icon-top-select">
-                                    <i class="far fa-chevron-up"></i>
-                                   </span>
-                                               <span class="icon-bottom-select">
-                                               <i class="far fa-chevron-down"></i>
-                                    </span>
-                                                <select class="ddl-select" id="list-sort" name="list-sort">
-                                                   <option>الترتيب حسب</option>
-                                                    <option value="1">الافضل</option>
-                                                    <option value="2">السعر من (الاعلي الي الاقل)</option>
-                                                   <option value="3">السعر من (الاقل الي الاعلي)</option>
-                                                 <option value="4">التقييمات من(1 الي 5)</option>
-                                                   <option value="5">التقييمات من(5 الي1)</option>
-                                               </select>
-                                            </div>
-                                        </div>
+{{--                                            <div class="box-sort-by mb-lg-4 mb-md-4 mb-3 position-relative web-view">--}}
+{{--                                    <span class="icon-top-select">--}}
+{{--                                    <i class="far fa-chevron-up"></i>--}}
+{{--                                   </span>--}}
+{{--                                               <span class="icon-bottom-select">--}}
+{{--                                               <i class="far fa-chevron-down"></i>--}}
+{{--                                    </span>--}}
+{{--                                                <select class="ddl-select" id="list-sort" name="list-sort">--}}
+{{--                                                   <option>الترتيب حسب</option>--}}
+{{--                                                    <option value="1">الافضل</option>--}}
+{{--                                                    <option value="2">السعر من (الاعلي الي الاقل)</option>--}}
+{{--                                                   <option value="3">السعر من (الاقل الي الاعلي)</option>--}}
+{{--                                                 <option value="4">التقييمات من(1 الي 5)</option>--}}
+{{--                                                   <option value="5">التقييمات من(5 الي1)</option>--}}
+{{--                                               </select>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
                 </div>
 
                 <div class="row">
@@ -206,7 +206,7 @@
                                                     </div>
                                                     @endforeach
                                                     @endif
-                                                  
+
                                                 </form>
                                             </div>
                                         </div>
@@ -242,7 +242,7 @@
                                                                onclick="GetAtrribute(this.id,this.name)"/>
                                                         <label for="two">2</label>
                                                     </div>
-                                                  
+
                                                 </form>
                                             </div>
                                         </div>
@@ -476,27 +476,27 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="filter_icon show_mobile">
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <div class="filter-btn js-toggle-filter fw-bold">
-                                    <i class="fas fa-filter"></i> تصفية
-                                </div>
-                                <div class="">
-                                    <a
-                                        class="text-second fw-bold"
-                                        href="#"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#SortByModal"><i class="fas fa-sort"></i> الترتيب</a>
-                                </div>
-                                <div class="">
-                                    {{--                                    <a--}}
-                                    {{--                                        class="text-second fw-bold"--}}
-                                    {{--                                        href="#"--}}
-                                    {{--                                        data-bs-toggle="modal"--}}
-                                    {{--                                        data-bs-target="#mapModal"><i class="far fa-map"></i> الخريطة</a>--}}
-                                </div>
-                            </div>
-                        </div>
+{{--                        <div class="filter_icon show_mobile">--}}
+{{--                            <div class="d-flex justify-content-between align-items-center mb-3">--}}
+{{--                                <div class="filter-btn js-toggle-filter fw-bold">--}}
+{{--                                    <i class="fas fa-filter"></i> تصفية--}}
+{{--                                </div>--}}
+{{--                                <div class="">--}}
+{{--                                    <a--}}
+{{--                                        class="text-second fw-bold"--}}
+{{--                                        href="#"--}}
+{{--                                        data-bs-toggle="modal"--}}
+{{--                                        data-bs-target="#SortByModal"><i class="fas fa-sort"></i> الترتيب</a>--}}
+{{--                                </div>--}}
+{{--                                <div class="">--}}
+{{--                                    --}}{{--                                    <a--}}
+{{--                                    --}}{{--                                        class="text-second fw-bold"--}}
+{{--                                    --}}{{--                                        href="#"--}}
+{{--                                    --}}{{--                                        data-bs-toggle="modal"--}}
+{{--                                    --}}{{--                                        data-bs-target="#mapModal"><i class="far fa-map"></i> الخريطة</a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                         <div class="show_mobile filter js-filter">
                             <div class="accordion" id="accordion_filter">
                                 <div
@@ -899,7 +899,7 @@
                                                                     class=" @if(count(\App\Models\AquarUser::where('aqar_id', '=',$aquar->id)->where('user_id', '=', auth()->user()->id)->get()) > 0) fas @else far @endif far fa-heart "></i></a>
                                                                 </span>
                                                         @endif
-                                                       
+
                                                         <img
                                                             loading="lazy"
                                                             src="{{FRONTASSETS}}/images/department-1.svg"
@@ -916,7 +916,7 @@
                                                                 </span>
 
                                                         @endif
-                                                        
+
                                                         <img
                                                             loading="lazy"
                                                             src="{{FRONTASSETS}}/images/department-2.svg"
@@ -943,7 +943,7 @@
                                                             class="d-flex justify-content-lg-end align-items-center"
                                                         >
                                                             <div class="department-badge bg-main text-white">
-                                                                <span class="">     {{$aquar->aqarReview->avg('rate')}}</span>
+                                                                <span class="">     {{ round($aquar->aqarReview->avg('rate')) ?? 0}}</span>
                                                                 <span>
                                                                    <i class="fas fa-star"></i>
                                                                 </span>
@@ -951,7 +951,7 @@
                                                             <div class="number-ads gray-txt">
                                                                 @lang('site.comments')
 
-                                                                {{$aquar->aqarComment->count()}}
+                                                                {{$aquar->aqarComment->count() ?? 0}}
                                                             </div>
                                                         </div>
                                                     </div>
@@ -962,7 +962,7 @@
 
                                                 <div class="gray-txt number-ads">
                                                 <i class="far fa-map-marker-alt"></i>
-                                                   
+
                                                     <span> {{$aquar->country->name ?? ''}} , {{$aquar->city->name ?? ''}}</span>
                                                     <!-- <span> {{$aquar->address?? ''}} </span> -->
                                                 </div>
@@ -1049,7 +1049,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h2 class="modal-title text-black">الترتيب حسب :</h2>
-        
+
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -1076,10 +1076,10 @@
                 <input type="radio" name="radio"/>
                 <span>التقييمات من(5 الي1)</span>
               </label>
-            </form>   
+            </form>
           </div>
         </div>
-       
+
       </div>
 
     </div>

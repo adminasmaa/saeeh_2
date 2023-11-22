@@ -342,7 +342,9 @@
                                         <div class="details-txt py-4">
 
 
-                                            {!! html_entity_decode($car->description) !!}
+
+                                            {!! html_entity_decode(substr($car->description, 0, 125)) !!}
+
                                         </div>
                                         <h3 class="details-head"> {{$car->name ?? ''}}</h3>
                                     </div>
@@ -720,7 +722,7 @@
                                                     @lang('site.Receipt and delivery procedures')
                                                 </div>
                                                 <div
-                                                    class="">{{$review->RateTotal($review->car_id) / $review->CountUser($review->car_id) ?? 0}}</div>
+                                                    class="">{{round($review->RateTotal($review->car_id) / $review->CountUser($review->car_id)) ?? 0}}</div>
                                             </div>
                                             <div class="loading-range">
                                                 <div class="base-range">
@@ -779,7 +781,7 @@
                                                         <div class="w-100 padding-right">
                                                             <h2 class="reviews-title d-flex text-second">
                                                                 {{$comment->user->firstname ?? ''}}
-                                                                {{$comment->user->firstname ?? ''}}
+                                                                {{$comment->user->lastname ?? ''}}
                                                                 <div>
 
                                                                     @if(!empty($comment->user->country->flag_image))
@@ -837,6 +839,19 @@
                                             <a href="#"> @lang('site.book')</a>
                                         </div>
                                     </div>
+
+
+                                    <div class="col-lg-3 my-5">
+                                        <div
+                                            class="rating-see-btn py-4 d-flex justify-content-center align-items-center"
+                                        >
+                                            <a href="#"
+                                               data-bs-toggle="modal"
+                                               data-bs-target="#AllRatingsModal">  @lang('site.Read all reviews') </a>
+                                        </div>
+                                    </div>
+
+
                                 </div>
                             </li>
 
@@ -1076,6 +1091,212 @@
         </section>
     </main>
 
+
+    <!--All Ratings Modal-->
+    <div
+        class="modal fade modal-custom-rating"
+        id="AllRatingsModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+    >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div>
+                    <button
+                        type="button"
+                        class="btn-close rating-close d-flex justify-content-center align-items-center"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            viewBox="0 0 32 32"
+                            fill="none"
+                        >
+                            <path
+                                d="M8.53366 25.3327L6.66699 23.466L14.1337 15.9993L6.66699 8.53268L8.53366 6.66602L16.0003 14.1327L23.467 6.66602L25.3337 8.53268L17.867 15.9993L25.3337 23.466L23.467 25.3327L16.0003 17.866L8.53366 25.3327Z"
+                                fill="white"
+                            />
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-body p-lg-5 p-3">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="full-reviews round-border py-lg-4 px-lg-5 p-3">
+                                <div class="row g-0">
+                                    <div class="col-12 d-md-flex align-items-center">
+                                        <div
+                                            class="d-flex align-items-center justify-content-center"
+                                        >
+                                            <div
+                                                class="round-box d-flex justify-content-center align-items-center"
+                                            >
+                                                <div>
+                                                    <div>
+                                <span
+                                ><svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="34"
+                                        height="36"
+                                        viewBox="0 0 34 36"
+                                        fill="none"
+                                    >
+                                    <path
+                                        d="M18.3409 28.2434L29.5832 35.0288L26.5998 22.2402L36.5324 13.6356L23.4527 12.5259L18.3409 0.464966L13.2291 12.5259L0.149414 13.6356L10.082 22.2402L7.09856 35.0288L18.3409 28.2434Z"
+                                        fill="#FF8600"
+                                    /></svg
+                                    ></span>
+
+
+
+
+                                                        <span class="text-second"> ({{$car->CarReview->count() ?? 0 }})</span>
+                                                    </div>
+                                                    <div
+                                                        class="text-second text-center">{{$car->CarReview->count() ?? 0 }} @lang('site.reviews')</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="reviews-content">
+                                            <h2 class="review-title">@lang('site.excellent')</h2>
+                                            <p class="review-txt">
+                                                @lang('site.Based on reviews from all kinds of travelers')
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row pt-4">
+                        <div class="col-12">
+                            <h2>@lang('site.categories')</h2>
+                        </div>
+                        @foreach($car->CarReview->unique('name') as $review)
+                            <div class="col-lg-6 pb-4">
+                                <div
+                                    class="d-flex justify-content-between align-items-center"
+                                >
+                                    <div class="text-gray-2 pb-1">
+                                        @lang('site.Receipt and delivery procedures')
+                                    </div>
+                                    <div
+                                        class="">{{round($review->RateTotal($review->car_id) / $review->CountUser($review->car_id)) ?? 0}}</div>
+                                </div>
+                                <div class="loading-range">
+                                    <div class="base-range">
+                                        <div class="upper bg-orange"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+
+
+                    </div>
+                    <hr class="hr-saeeh"/>
+                    <div class="row mt-5 pb-2">
+                        <div class="col-12">
+                            <div
+                                class="d-md-flex justify-content-md-between align-items-center"
+                            >
+                                <div>
+                                    <h2> @lang('site.Customer reviews')</h2>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 pt-4 mb-lg-5">
+                            @foreach($car->carComment as $comment)
+
+                                <div class="condition-content">
+                                    <div class="d-flex justify-content-between reviews-contentt">
+                                        <div class="d-sm-flex w-100">
+                                            <div class="reviews-image">
+                                                @if(!empty($comment->user->image))
+                                                    <img
+                                                        alt=""
+
+
+                                                        src="{{asset('images/employee/'.$comment->user->image ?? '')}}"
+
+
+                                                    />
+                                                @else
+
+                                                    <img
+                                                        alt=""
+
+
+                                                        src="{{FRONTASSETS}}/images/review-image.png"
+                                                    />
+                                                @endif
+                                            </div>
+                                            <div class="w-100 padding-right">
+                                                <h2 class="reviews-title d-flex text-second">
+                                                    {{$comment->user->firstname ?? ''}}
+                                                    {{$comment->user->lastname ?? ''}}
+                                                    <div>
+                                                        @if(!empty($comment->user->country->flag_image))
+                                                            <img
+
+
+                                                                src="{{asset('images/countries/'.$comment->user->country->flag_image)}}" width="25px" height="25px"
+                                                                onerror="this.src={{FRONTASSETS}}/images/car-icons/turkey.png"
+                                                                alt="flag-icon">
+
+                                                        @else
+                                                            <img
+
+
+                                                                src="{{FRONTASSETS}}/images/car-icons/turkey.png" width="25px" height="25px"
+                                                                onerror="this.src={{FRONTASSETS}}/images/car-icons/turkey.png"
+                                                                alt="flag-icon">
+
+                                                        @endif
+                                                    </div>
+                                                </h2>
+                                                <p class="details-sm-txt mb-0">
+                                                    {!! html_entity_decode(substr($comment->description, 0, 125)) !!}
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="department-badge bg-main text-white">
+                                            <div class="pt-1">{{$comment->rating ?? 0}}</div>
+                                            <div>
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="25"
+                                                    height="25"
+                                                    viewBox="0 0 25 25"
+                                                    fill="none"
+                                                >
+                                                    <path
+                                                        d="M12.7529 19.6185L20.1689 24.3301L18.2009 15.4501L24.7529 9.47534L16.1249 8.70481L12.7529 0.330078L9.38093 8.70481L0.75293 9.47534L7.30493 15.4501L5.33693 24.3301L12.7529 19.6185Z"
+                                                        fill="white"
+                                                    />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr class="hr-saeeh"/>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--your Rate Modal-->
+
 @endsection
 
 @section('scripts')
@@ -1127,8 +1348,8 @@
                         Swal.close()
                     }, 2000)
 
-                    window.location.href = '{{route('Home')}}';
-
+                    $('#YourRateModal').hide();
+                    window.location.reload();
                 },
                 error: function (result) {
                     // console.log(result.responseJSON);

@@ -90,7 +90,7 @@ class CarController extends Controller
 
 
         $comments = CarComment::create([
-
+            'rating' => $request_data['rate'],
             'description' => $request['description'],
             'car_id' => $request['car_id'],
             'user_id' => $request_data['user_id'] ?? '',
@@ -127,7 +127,7 @@ class CarController extends Controller
 
 
         $comments = PlaceComment::create([
-
+            'rating' => $request_data['rate'],
             'description' => $request['description'],
             'place_id' => $request['place_id'],
             'user_id' => $request_data['user_id'] ?? '',

@@ -264,7 +264,7 @@
                                                 <div
                                                     class="w-100 details-btn d-flex align-items-center justify-content-center"
                                                 >
-                                                    <a href="#">
+                                                    <a href="{{route('showmap',$place->id)}}">
                             <span>
                               <svg
                                   xmlns="http://www.w3.org/2000/svg"

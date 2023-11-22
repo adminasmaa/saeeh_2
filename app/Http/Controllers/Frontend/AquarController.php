@@ -59,7 +59,7 @@ class AquarController extends Controller
 
 
         $comments = AqarComment::create([
-
+            'rating' => $request_data['rate'],
             'description' => $request['description'],
             'aqar_id' => $request['aqar_id'],
             'user_id' => $request_data['user_id'] ?? '',

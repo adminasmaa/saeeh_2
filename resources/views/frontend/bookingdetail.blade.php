@@ -403,12 +403,12 @@
                         />
                       </svg>
                     </span>
-                                    <span class="text-second dd-txt pe-2">عدد الاشخاص</span>
+                                    <span class="text-second dd-txt pe-2">@lang('site.personnumber') </span>
                                 </div>
                                 <div
                                     class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
                                 >
-                                    2 يوم
+                                    {{$booking->person_num ?? 0}}
                                 </div>
                             </div>
                         </div>
