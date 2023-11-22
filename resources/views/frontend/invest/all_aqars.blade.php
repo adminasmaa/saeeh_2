@@ -7,12 +7,12 @@
           <nav class="breadcrumb-container" aria-label="breadcrumb">
             <ol class="breadcrumb mb-0">
               <li class="breadcrumb-item">
-                <a href="javascript:void(0)"> الرئيسية </a>
+                <a href="javascript:void(0)">  @lang('site.home')  </a>
               </li>
              
 
               <li class="breadcrumb-item text-gray-4" aria-current="page">
-                اعلاناتى
+                @lang('site.ads')
               </li>
             </ol>
           </nav>
@@ -31,7 +31,7 @@
                   <input
                     type="search"
                     class="form-control"
-                    placeholder="ادخل رقم الاعلان"
+                    placeholder=" @lang('site.add_ads_number')  "
                     name="search_id"
                     value="{{ request()->get('search_id') }}"
                   />
@@ -54,8 +54,8 @@
                         src="{{FRONTASSETS}}/images/booking-investor/plus-circle.svg"
                         alt="plus icon"
                     /></span>
-                    اضافة اعلان
-                  </a>
+                    @lang('site.add_ads')
+                                    </a>
                 </div>
               </div>
             </div>
@@ -82,7 +82,7 @@
                     </div>
                     <div class="col-lg-8">
                     <h2 class="text-main">
-                      إعلان رقم ({{$aqar->id ?? ''}}) 
+                    @lang('site.ads_number') ({{$aqar->id ?? ''}}) 
                       </h2>
                       <div class="d-lg-flex mt-3 w-100">
                         <div class="ads-lborder">
@@ -105,26 +105,27 @@
                               <li class="liItem-booking-out">
                                 <a href="{{route('invst.addaqarbook' , $aqar->id)}}"  class="liItem-link"  >
                                   <i class="far fa-calendar-plus"></i>
-                                  اضافة حجز خارجى</a
+                                  @lang('site.add_external_booking')</a
                                 >
                               </li>
                               <li class="liItem-booking-see">
                                 <a href="{{route('invst.detailaqar',$aqar->id)}}" class="liItem-link">
                                   <i class="far fa-eye"></i>
-                                 مشاهدة
+                                  @lang('site.Watch')
                                 </a>
                                </li>
 
                                <li class="liItem-booking-edit">
                                 <a href="{{route('invst.aqars.edit', $aqar->id) }}"  class="liItem-link">
                                   <i class="fas fa-edit"></i>
-                                 تعديل
+                                 @lang('site.edit')
+
                                 </a>
                                </li>
                                <li class="liItem-booking">
                                 <a href="{{route('invst.listbookings',$aqar->id)}}"  class="liItem-link">
                                   <i class="far fa-book-open"></i>
-                                 الحجوزات
+                                  @lang('site.bookings')
                                 </a>
                                </li>
                                @if($aqar->ads_status_id  !=3)
@@ -132,7 +133,9 @@
                                 <form action="{{route('invst.stop' , $aqar->id)}}" method="GET" style="display: inline-block" id="stopForm{{$aqar->id}}">
                                   @csrf
                                   <a type="button" onclick="confirmAction('stop',{{$aqar->id}},'@lang('site.stop ads')','error')" id="stop" class="liItem-link">   <i class="far fa-stopwatch"></i>
-                                  ايقاف مؤقت
+                                  
+                                  @lang('site.Pause')
+
                                 </a>
                                 </form>
                                 </li>
@@ -141,7 +144,8 @@
                                 <form action="{{route('invst.active' , $aqar->id)}}" method="GET" style="display: inline-block" id="activeForm{{$aqar->id}}">
                                   @csrf
                                   <a type="button" onclick="confirmAction('active',{{$aqar->id}},'@lang('site.active ads')','success')" id="active" class="liItem-link">   <i class="far fa-stopwatch"></i>
-                                   تفعيل
+                                   @lang('site.Active')
+
                                 </a>
                                 </form>
                                 </li>
@@ -151,7 +155,7 @@
                         </div>
                       </div>
                       <div class="ads-status mt-lg-0 mt-3">
-                        <span> حالة الاعلان : </span>
+                        <span> @lang('site.ads_status') : </span>
                         <span class="mt-md-0 mt-2">
                           <span class="ads-status-ic px-1">
                             <i class="far fa-check"></i>
