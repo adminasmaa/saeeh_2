@@ -84,7 +84,7 @@
                         <h2 class="pt-3">{{$aquar->name ?? ''}}</h2>
                         <div class="d-flex align-items-center mt-2">
                             <div class="department-badge bg-main text-white">
-                                <div class="pt-1">{{$aquar->aqarReview->avg('rate')}}</div>
+                                <div class="pt-1">{{round($aquar->aqarReview->avg('rate')) ?? 0}}</div>
                                 <div>
                                     <i class="fas fa-star"></i>
 
@@ -272,10 +272,10 @@
                                                                     <span class="star-review"><i
                                                                             class="fas fa-star"></i></span>
 
-                                                                    <span class="text-second"> ({{$aquar->aqarReview->avg('rate')}})</span>
+                                                                    <span class="text-second"> ({{ round($aquar->aqarReview->avg('rate')) ?? 0}})</span>
                                                                 </div>
                                                                 <div class="text-second text-center">
-                                                                    {{$aquar->aqarReview->avg('rate')}} @lang('site.reviews')
+                                                                    {{$aquar->aqarReview->count() ?? 0}} @lang('site.reviews')
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -392,7 +392,7 @@
                                                     >
                                                         <a href="#"
                                                            data-bs-toggle="modal"
-                                                           data-bs-target="#AllRatingsModal">اقرأ جميع التقييمات </a>
+                                                           data-bs-target="#AllRatingsModal">  @lang('site.Read all reviews') </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -732,10 +732,10 @@
                                     ></span>
 
 
-                                                            <span class="text-second"> ({{$aquar->aqarReview->avg('rate')}})</span>
+                                                            <span class="text-second"> ({{ round($aquar->aqarReview->avg('rate')) ?? 0}})</span>
                                                         </div>
                                                         <div
-                                                            class="text-second text-center">{{$aquar->aqarReview->avg('rate')}} @lang('site.reviews')</div>
+                                                            class="text-second text-center">{{ round($aquar->aqarReview->count()) ?? 0}} @lang('site.reviews')</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -781,54 +781,6 @@
                                 >
                                     <div>
                                         <h2> @lang('site.Customer reviews')</h2>
-                                    </div>
-                                    <div
-                                        class="d-sm-flex align-items-center justify-content-md-end sort-modal"
-                                    >
-                                        {{--                                        <div class="text-second rating-modal-txt">--}}
-                                        {{--                                            رتب التقييمات حسب:--}}
-                                        {{--                                        </div>--}}
-                                        {{--                                        <div class="box-sort-by position-relative">--}}
-                                        {{--                        <span class="icon-top-select">--}}
-                                        {{--                          <svg--}}
-                                        {{--                              xmlns="http://www.w3.org/2000/svg"--}}
-                                        {{--                              width="16"--}}
-                                        {{--                              height="8"--}}
-                                        {{--                              viewBox="0 0 16 8"--}}
-                                        {{--                              fill="none"--}}
-                                        {{--                          >--}}
-                                        {{--                            <path--}}
-                                        {{--                                d="M7.85335 0.061111C8.43543 0.0660483 9.01559 0.296795 9.45255 0.74379L14.828 6.24267C15.067 6.48725 15.0636 6.88869 14.8204 7.12919C14.5772 7.36968 14.1781 7.36629 13.939 7.12171L8.5636 1.62283C8.16786 1.218 7.51926 1.2125 7.11671 1.61055L1.6488 7.01746C1.4056 7.25795 1.00646 7.25457 0.767368 7.00998C0.528277 6.7654 0.531682 6.36396 0.774887 6.12347L6.2428 0.716564C6.68727 0.277045 7.27127 0.0561737 7.85335 0.061111Z"--}}
-                                        {{--                                fill="#FF8600"--}}
-                                        {{--                            />--}}
-                                        {{--                          </svg>--}}
-                                        {{--                        </span>--}}
-                                        {{--                                            <span class="icon-bottom-select">--}}
-                                        {{--                          <svg--}}
-                                        {{--                              xmlns="http://www.w3.org/2000/svg"--}}
-                                        {{--                              width="15"--}}
-                                        {{--                              height="8"--}}
-                                        {{--                              viewBox="0 0 15 8"--}}
-                                        {{--                              fill="none"--}}
-                                        {{--                          >--}}
-                                        {{--                            <path--}}
-                                        {{--                                d="M7.20766 7.25155C6.62556 7.25155 6.04345 7.02573 5.60272 6.58246L0.180867 1.12937C-0.060289 0.886822 -0.060289 0.485368 0.180867 0.242822C0.422023 0.000276733 0.821178 0.000276733 1.06233 0.242822L6.48419 5.69591C6.88334 6.09737 7.53197 6.09737 7.93112 5.69591L13.353 0.242822C13.5941 0.000276733 13.9933 0.000276733 14.2344 0.242822C14.4756 0.485368 14.4756 0.886822 14.2344 1.12937L8.81259 6.58246C8.37186 7.02573 7.78976 7.25155 7.20766 7.25155Z"--}}
-                                        {{--                                fill="#FF8600"--}}
-                                        {{--                            />--}}
-                                        {{--                          </svg>--}}
-                                        {{--                        </span>--}}
-                                        {{--                                            <select--}}
-                                        {{--                                                class="ddl-select"--}}
-                                        {{--                                                id="list-sort"--}}
-                                        {{--                                                name="list-sort"--}}
-                                        {{--                                            >--}}
-                                        {{--                                                <option>الأكثر ملائمة</option>--}}
-                                        {{--                                                <option value="1">الأحدث أولآ</option>--}}
-                                        {{--                                                <option value="2">الأقدم أولآ</option>--}}
-                                        {{--                                                <option value="3">أعلي تقيما</option>--}}
-                                        {{--                                                <option value="4">أقل تقيما</option>--}}
-                                        {{--                                            </select>--}}
-                                        {{--                                        </div>--}}
                                     </div>
                                 </div>
                             </div>

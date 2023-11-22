@@ -24,6 +24,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 //});
 Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedirect', 'localizationRedirect', 'localeViewPath')->group(function () {
     Route::get('/', 'App\Http\Controllers\Frontend\HomeController@index')->name('Home');
+    Route::get('showmap/{id}', 'App\Http\Controllers\Frontend\HomeController@showmap')->name('showmap')->middleware([user::class]);;
     Route::get('countries', 'App\Http\Controllers\Frontend\CountryController@index')->name('countries');
     Route::get('cities/{id}', 'App\Http\Controllers\Frontend\CityController@index')->name('cities');
     Route::get('countrycities/{id}', 'App\Http\Controllers\Frontend\HomeController@countrycities')->name('countrycities');

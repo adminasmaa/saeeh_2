@@ -29,6 +29,31 @@ class HomeController extends Controller
 {
 
 
+    public function showmap($id){
+
+        $place=Place::find($id);
+
+
+//
+//        $locations = [
+//            ["lat" =>$place->latitude, "lng" => $place->longitude],
+//            ["lat" =>$place->latitude, "lng" => $place->longitude],
+//            ["lat" =>$place->latitude, "lng" => $place->longitude],
+//
+//        ];
+
+
+//        $place=Place::find($id);
+//
+//
+//
+//        $locations = [
+//            ["lat" => $place->latitude, "lng" => $place->longitude],
+//
+//        ];
+        return view("frontend.map",['place'=>$place]);
+    }
+
     public function index()
     {
         $countries = Country::where('active', '=', 1)->get();
