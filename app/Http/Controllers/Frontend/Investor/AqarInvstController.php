@@ -84,7 +84,7 @@ class AqarInvstController extends Controller
       
         $request['changed_price']=json_encode($data)!=null?json_encode($data, JSON_NUMERIC_CHECK):json_encode([]);
         $request['user_id']=Auth::id();
-        $request_data = $request->except(['main_image','images','videos','subservice']);
+        $request_data = $request->except(['main_image','images','videos','subservice','latitude','longitude']);
            
         $aqar = Aqar::create($request_data);
 
@@ -190,7 +190,7 @@ class AqarInvstController extends Controller
         $data['price'] = $request['price'];
         $request['changed_price']=json_encode($data)!=null?json_encode($data, JSON_NUMERIC_CHECK):json_encode([]);
 
-        $request_data = $request->except(['main_image', '_token', '_method', 'images','videos','subservice']);
+        $request_data = $request->except(['main_image', '_token', '_method', 'images','videos','subservice','latitude','longitude']);
         $aqar->update($request_data);
 
 

@@ -84,7 +84,7 @@
                        alt="booking investor icon"
                      />
                      <div class="pt-md-4 pt-2">
-                       <h3 class="mb-0">شروط الحجز والالغاء</h3>
+                       <h3 class="mb-0">@lang('site.Reservation and cancellation conditions')</h3>
                      </div>
                  </div>
                 </a>

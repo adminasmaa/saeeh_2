@@ -220,7 +220,8 @@
                                 <div class="add-ads-card mb-md-5 mb-4">
                                     <div class="row">
                                         <div class="col-12">
-                                            <h2 class="text-gray-2 mb-3 gray-xx-title">حددالسعر</h2>
+                                            <h2 class="text-gray-2 mb-3 gray-xx-title">@lang('site.choose_price')
+                                            </h2>
                                         </div>
                                         <div class="col-12">
                                             <div class="row ads-radio-list">
@@ -268,7 +269,7 @@
                                                         <span class="text-danger">( اجبارى )</span>
                                                     </label>
                                                     <input
-                                                        placeholder="ادخل السعر"
+                                                        placeholder="@lang('site.put_price')"
                                                         type="number" step=".1" name="fixed_price"
                                                         class="form-control"
                                                         value="{{ old('fixed_price', (empty($aqar))? null : $aqar['fixed_price']) }}"
@@ -352,7 +353,7 @@
                                                             <span class="text-danger">( اجبارى )</span>
                                                         </label>
                                                         <input
-                                                            placeholder="ادخل الاسم "
+                                                            placeholder=" @lang('site.put_latitude') "
                                                             type="text"
                                                             value="{{ old('latitude', (empty($aqar))? null : $aqar['latitude']) }}"
                                                             name="latitude" 
@@ -367,7 +368,7 @@
                                                             <span class="text-danger">( اجبارى )</span>
                                                         </label>
                                                         <input
-                                                            placeholder="ادخل الاسم "
+                                                            placeholder=" @lang('site.put_longitude') "
                                                             type="text"
                                                             value="{{ old('longitude', (empty($aqar))? null : $aqar['longitude']) }}"
                                                             name="longitude" 
@@ -383,7 +384,8 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <h2 class="text-gray-2 mb-3 gray-xx-title">
-                                            اختر الصورة الرئيسية للاعلان
+                                            @lang('site.choose_ads_main_image')
+
                                             </h2>
                                         </div>
 

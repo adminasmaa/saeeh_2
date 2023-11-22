@@ -22,7 +22,7 @@ return [
     'Report any problem' => 'الابلاغ عن اى مشكلة',
     'reviews' => 'المراجعات',
     'comments' => 'التقيمات',
-    'ads_status' => 'حالات الاعلان',
+    'ads_status' => 'حاله الاعلان',
     'status_ar' => 'حالات الاعلان بالعربي',
     'status_en' => 'حالات الاعلان بالانجليزي',
     'You may be able to save' => 'قد تتمكن من توفير ',
@@ -33,6 +33,17 @@ return [
     'video_photo' => 'صورة الفيديو',
     'We offer you the most popular restaurants at discounts' => 'نقدم لك أشهر المطاعم بخصومات تصل الي 10% ',
     'all' => 'الكل',
+    'add_external_booking' => 'اضافة حجز خارجى',
+    'Watch' =>'مشاهدة',
+    'edit' =>'تعديل',
+    'Active' => 'تفعيل',
+    'put_price' => 'ادخل السعر',
+    'choose_price' => ' حدد السعر',
+    'put_longitude' => ' حدد خط الطول',
+    'put_latitude' => ' حدد خط العرض',
+    'choose_ads_main_image' => 'اختر الصورة الرئيسية للاعلان',
+
+    'Pause' => 'ايقاف مؤقت',
     'My bookings' => 'حجوزاتي',
     'Restaurant videos' => 'فيديوهات ',
     'valuesearch' => 'نتايج البحث',
@@ -371,16 +382,16 @@ return [
     'Awaiting approval by the owner' => 'بانتظار الموافقه من قبل المالك',
     'open' => 'مفتوح',
     'closed' => 'مغلق',
-
+    'ads' =>'اعلاناتي',
     'logo' => 'الشعار',
-
-
+    'add_ads_number' => 'ادخل رقم الاعلان',
+    'add_ads' => 'اضافة اعلان',
     'twitter' => 'تويتر',
     'facebook' => 'فيسبوك',
     'instagram' => 'انستغرام',
     'youtube' => 'موقع YouTube',
     'snapchat' => 'سناب شات',
-
+    'ads_number' => 'اعلان رقم',
 
     'create account' => 'مستخدم جديد',
     'login' => 'سجل الدخول ',

@@ -168,7 +168,7 @@
                                             <div class="dropdown-container">
                                                 <div class="dropdown-toggle click-dropdown d-flex align-items-center">
 
-                                                    اهلا بك
+                                                @lang('site.Welcome to')
                                                     {{auth()->user()->firstname}} {{auth()->user()->lastname}}
                                                     <span>
                                                       <i class="far fa-angle-down d-flex align-items-center"></i>
@@ -181,7 +181,7 @@
                                                                 <div class="profile-ic">
                                                                     <i class="far fa-book-open"></i>
                                                                 </div>
-                                                                <div>الحجوزات</div>
+                                                                <div>   @lang('site.bookings')</div>
                                                             </a>
                                                         </li>
 
@@ -190,7 +190,7 @@
                                                                 <div class="profile-ic">
                                                                     <i class="far fa-sign-out"></i>
                                                                 </div>
-                                                                <div> تسجيل الخروج</div>
+                                                                <div> @lang('site.logout') </div>
                                                             </a>
                                                         </li>
                                                     </ul>
