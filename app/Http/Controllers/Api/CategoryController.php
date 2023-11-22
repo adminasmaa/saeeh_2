@@ -317,7 +317,7 @@ class CategoryController extends Controller
 
         //     }
         // }
-        $categories=Category::join('cities-categories', 'categories.id', '=', 'cities-categories.category_id')->where('categories.type', '=', 0)->where('categories.parent_id', null)->where('categories.id', '!=', 1)->where('categories.id', '!=', 2)->where('cities-categories',$request->city_id)->get();
+        $categories=Category::join('cities-categories', 'categories.id', '=', 'cities-categories.category_id')->where('categories.type', '=', 0)->where('categories.parent_id', null)->where('categories.id', '!=', 1)->where('categories.id', '!=', 2)->where('cities-categories.city_id',$request->city_id)->get();
 
         if (count($categories)) {
 
