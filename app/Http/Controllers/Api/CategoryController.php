@@ -321,7 +321,7 @@ class CategoryController extends Controller
        
         $cities = City::find($request->city_id);
 
-        if (count($cities)) {
+        if (isset($cities)) {
 
             $categories = new CityCategoryResource($cities);
            // $categories = CategoryOnlyResource::collection($categories);
