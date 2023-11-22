@@ -80,7 +80,7 @@
                                                         
                                                         <a href="{{route('dashboard.commissions',[$current_route,'unpaid'])}}" type="button" class="btn btn-outline-primary btn-recieve {{$pay_route=='unpaid'?'active': ''}}"  >عمولات غير مسلمه ({{$count}})</a>
 
-                                                        <a href="{{route('dashboard.commissions',[$current_route,'paid'])}}" type="button" class="btn btn-outline-primary btn-recieve {{$pay_route=='paid'?'active': ''}}"  >عمولات مسلمه ({{$count}})</a>
+                                                        <a href="{{route('dashboard.commissions',[$current_route,'paid'])}}" type="button" class="btn btn-outline-primary btn-recieve {{$pay_route=='paid'?'active': ''}}"  >عمولات مسلمه ({{$count1}})</a>
                                                         
                                                         <div class="dt-ext table-responsive">
                                                             <table class="display">

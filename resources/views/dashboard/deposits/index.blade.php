@@ -81,7 +81,7 @@
                                                         
                                                         <a href="{{route('dashboard.deposits',[$current_route,'unpaid'])}}" type="button" class="btn btn-outline-primary btn-recieve {{$pay_route=='unpaid'?'active': ''}}"  >عربون بانتظار التسليم({{$count}})</a>
 
-                                                        <a href="{{route('dashboard.deposits',[$current_route,'paid'])}}" type="button" class="btn btn-outline-primary btn-recieve {{$pay_route=='paid'?'active': ''}}"  > عربون مسلم ({{$count}})</a>
+                                                        <a href="{{route('dashboard.deposits',[$current_route,'paid'])}}" type="button" class="btn btn-outline-primary btn-recieve {{$pay_route=='paid'?'active': ''}}"  > عربون مسلم ({{$count1}})</a>
                                                         
                                                         <div class="dt-ext table-responsive">
                                                             <table class="display">
