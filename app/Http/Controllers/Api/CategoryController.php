@@ -317,13 +317,10 @@ class CategoryController extends Controller
 
         //     }
         // }
+        $categories=Category::join('cities-categories', 'categories.id', '=', 'cities-categories.category_id')->where('categories.type', '=', 0)->where('categories.parent_id', null)->where('categories.id', '!=', 1)->where('categories.id', '!=', 2)->where('cities-categories',$request->city_id)->get();
 
-       
-        $cities = City::find($request->city_id);
+        if (count($categories)) {
 
-        if (isset($cities)) {
-
-            $categories = new CityCategoryResource($cities);
            // $categories = CategoryOnlyResource::collection($categories);
             return $this->respondSuccess($categories, __('message.categories retrieved successfully.'));
 
