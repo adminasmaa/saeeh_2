@@ -321,7 +321,7 @@ class CategoryController extends Controller
 
         if (count($categories)) {
 
-           // $categories = CategoryOnlyResource::collection($categories);
+            $categories = CategoryOnlyResource::collection($categories);
             return $this->respondSuccess($categories, __('message.categories retrieved successfully.'));
 
         } else {
