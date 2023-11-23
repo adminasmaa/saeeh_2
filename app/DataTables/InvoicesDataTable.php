@@ -50,6 +50,19 @@ class InvoicesDataTable extends DataTable
                 return (!empty($model->created_at)) ? $model->created_at->diffForHumans() : '';
             })
             ->addIndexColumn()
+            ->editColumn('type', 
+                '@if($type =="income") '.trans('site.income').' @elseif($type=="capital") '.trans('site.capital').' @elseif($type =="expenses") '.trans('site.expenses').' @elseif($type =="export") '.trans('site.export').'@endif'
+            )
+            ->editColumn('balance', function ($model){ return 
+                ($model->type=="income"||$model->type=="capital") ? $model->balance : '-'.$model->balance;
+            })
+            ->addIndexColumn()
+            ->editColumn('balance1', function ($model){ return 
+                ($model->type=="income"||$model->type=="capital") ? $model->balance : '-';
+            })
+            ->editColumn('balance2', function ($model){ return 
+                ($model->type=="expenses"||$model->type=="export") ? $model->balance : '-';
+            })
             ->addColumn('action', function ($model) {
                 $actions = '';
 
@@ -116,7 +129,8 @@ class InvoicesDataTable extends DataTable
             Column::make('DT_RowIndex')->data('DT_RowIndex')->name('id')->title('#'),
 
             Column::make('balance')->title(trans('site.balance')),
-            Column::make('amount')->title(trans('site.amount')),
+            Column::make('balance1')->title('دائن'),
+            Column::make('balance2')->title('مدين'),
             Column::make('description')->title(trans('site.description')),
             Column::make('type')->title(trans('site.type')),
             Column::make('created_at')->title(trans('site.created_at')),

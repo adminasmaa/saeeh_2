@@ -3,7 +3,8 @@
 namespace App\Observers;
 
 use App\Models\Deposit;
-
+use App\Models\Invoice;
+use Illuminate\Support\Facades\Auth;
 class DepositObserver
 {
     /**
@@ -25,7 +26,19 @@ class DepositObserver
      */
     public function updated(Deposit $deposit)
     {
-        //
+        if($deposit->status==1 && $deposit->waseal_photo != NULL){
+
+            Invoice::create([
+                'balance'=>$deposit->price,
+                'amount'=>$deposit->price,
+                'description'=>trans('site.deposit booking').$deposit->booking_id,
+                'type'=>'export',
+                'user_id'=>Auth::id(),
+    
+            ]);
+
+
+        }
     }
 
     /**
