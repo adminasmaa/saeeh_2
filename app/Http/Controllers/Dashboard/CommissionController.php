@@ -12,6 +12,8 @@ use App\Repositories\Interfaces\CommissionRepositoryInterface;
 use App\Services\TwoFactorService;
 use DB;
 use Illuminate\Http\Request;
+use App\Models\Invoice;
+
 use Illuminate\Validation\Rule;
 
 class CommissionController extends Controller
@@ -26,7 +28,7 @@ class CommissionController extends Controller
 
     public function index(CommissionsDataTable $CommissionsDataTable ,$type,$pay)
     {
-        
+       
         return $this->CommissionRepository->getAll($CommissionsDataTable->with(['type' => $type, 'pay' => $pay]));
 
     }
@@ -122,11 +124,13 @@ class CommissionController extends Controller
 
     public function uploadweasel(Request $request)
     {
+
         $commision=Commission::find($request->id);
         if ($request->hasFile('file')) {
             UploadImage('images/commisions/','waseal_photo', $commision, $request->file('file'));
         }
         $sucess=$commision->update(['status' => 1]);
+        
 
         return $sucess;
 

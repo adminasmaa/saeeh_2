@@ -163,7 +163,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
         //commissions
        // Route::resource('commissions', CommissionController::class);
         Route::get('/commissions/{type}/{pay}', 'App\Http\Controllers\Dashboard\CommissionController@index')->name('commissions');
-        Route::post('/uploadweasel', 'App\Http\Controllers\Dashboard\CommissionController@uploadweasel')->name('uploadweasel');;
+        Route::post('/uploadweasel', 'App\Http\Controllers\Dashboard\CommissionController@uploadweasel')->name('uploadweasel');
 
         //questions
         Route::resource('questions', QuestionController::class);

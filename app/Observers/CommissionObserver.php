@@ -3,6 +3,8 @@
 namespace App\Observers;
 
 use App\Models\Commission;
+use App\Models\Invoice;
+use Illuminate\Support\Facades\Auth;
 
 class CommissionObserver
 {
@@ -14,6 +16,7 @@ class CommissionObserver
      */
     public function created(Commission $commission)
     {
+        return $commission;
         //
     }
 
@@ -25,9 +28,18 @@ class CommissionObserver
      */
     public function updated(Commission $commission)
     {
-        if($commission->status==1 &&$commission->waseal_photo != NULL){
+        if($commission->status==1 && $commission->waseal_photo != NULL){
 
-           
+            Invoice::create([
+                'balance'=>$commission->price,
+                'amount'=>$commission->price,
+                'description'=>trans('site.commission booking').$commission->booking_id,
+                'type'=>'income',
+                'user_id'=>Auth::id(),
+    
+            ]);
+
+
         }
     }
 

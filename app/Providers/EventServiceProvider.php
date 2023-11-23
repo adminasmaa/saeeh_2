@@ -10,6 +10,11 @@ use App\Observers\AqarBookingObserver;
 use App\Models\AqarBooking;
 use App\Observers\CarBookingObserver;
 use App\Models\CarBooking;
+use App\Observers\CommissionObserver;
+use App\Models\Commission;
+use App\Observers\DepositObserver;
+use App\Models\Deposit;
+
 
 
 class EventServiceProvider extends ServiceProvider
@@ -34,6 +39,8 @@ class EventServiceProvider extends ServiceProvider
     {
           AqarBooking::observe(AqarBookingObserver::class);
           CarBooking::observe(CarBookingObserver::class);
+          Commission::observe(CommissionObserver::class);
+          Deposit::observe(DepositObserver::class);
 
     }
 
