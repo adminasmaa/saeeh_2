@@ -1,6 +1,5 @@
 @extends('layouts.main_frontend')
 @section('content')
-
     <main>
         <!-- Desktop Breadcrumb -->
         <section class="py-md-4 py-2">
@@ -27,8 +26,6 @@
                             <div class="row">
                                 <div class="col-lg-3">
                                     <div class="box-search mb-lg-0 mb-md-0 mb-3">
-
-
                                         <select
                                             class="select2"
                                             id="country_id"
@@ -57,8 +54,6 @@
                                             <!-- @foreach($cities as $city)
                                                 <option
                                                    value="{{$city->id}}">{{$city->name ?? ''}}</option>
-
-
                                             @endforeach -->
                                         </select>
                                     </div>
@@ -141,6 +136,7 @@
                                               <i class="far fa-search"></i>
                                                 </div>
                                             </div>
+                                           </div>
 {{--                                            <div class="box-sort-by mb-lg-4 mb-md-4 mb-3 position-relative web-view">--}}
 {{--                                    <span class="icon-top-select">--}}
 {{--                                    <i class="far fa-chevron-up"></i>--}}
