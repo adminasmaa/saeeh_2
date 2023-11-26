@@ -17435,6 +17435,10 @@ footer.blockquote-footer {
     border: 2px solid #ecf3fa;
 }
 .email-wrap .email-app-sidebar .main-menu > li {
+    width: 100%;
+    text-align: left;
+}
+.email-wrapp .email-app-sidebar .main-menu > li {
     width: 25%;
     text-align: left;
 }

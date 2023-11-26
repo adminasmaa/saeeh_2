@@ -32,7 +32,7 @@
         @endphp
         <!-- Container-fluid starts-->
             <div class="container-fluid">
-                <div class="email-wrap bookmark-wrap">
+                <div class="email-wrap bookmark-wrap email-wrapp">
                     <div class="row">
                         <div class="col-12">
                             <div class="email-left-aside">
