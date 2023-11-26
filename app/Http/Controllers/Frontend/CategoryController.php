@@ -17,6 +17,22 @@ class CategoryController extends Controller
 {
 
 
+    public function searchcategories(Request $request, $id)
+    {
+        $query = $request->get('query');
+
+
+        $city = City::find($id);
+//        $categories = $city->categoriesTotal;
+
+        $categories = Category::when($query, function ($quer) use ($query) {
+            $quer->where('name_ar', 'LIKE', '%'.trim($query).'%')->orwhere('name_en', 'LIKE', '%'.trim($query).'%');
+
+        })->paginate(20);
+        return view('frontend.searchcategories', compact('categories', 'city'));
+
+    }
+
     public function allcommentPlace($id)
     {
 

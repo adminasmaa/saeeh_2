@@ -8,6 +8,7 @@ return [
     'contactmessage' => 'يمكنك التواصل معنا من خلال الارقام الاتيه',
     'Do you want to cancel your reservation?'=>'هل تريد الغاء حجزك؟',
     'home' => 'الرئيسية',
+    'Search for your favorite country'=>'ابحث عن دولتك المفضلة',
     'Tell us your evaluation of the Aquar' => 'اخبرنا بتقيمك عن العقار',
     'Write your entire experience' => 'اكتب تجربتك كاملة',
     'Add a comment about the place' => 'أضف تعليقا عن المكان',
