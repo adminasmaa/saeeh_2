@@ -6,6 +6,8 @@ return [
     'profiles'=>'Profile',
     'totalprice'=>'Total Price',
 
+    'Search for your favorite country'=>'Search For Your Favorite Country',
+
     'favourite'=>'my favourite',
     ';Tell us your evaluation of the Aquar'=>'Tell us your evaluation of the Aquar',
     'Write your entire experience'=>'Write your entire experience',
