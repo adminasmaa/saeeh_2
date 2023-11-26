@@ -254,9 +254,7 @@
                             </div>
                           </div>
                           <div class="col-lg-9">
-                            <div
-                              class="card-body position-relative px-lg-3 px-0 h-100"
-                            >
+                            <div  class="card-body position-relative px-lg-3 px-0 h-100">
                               <div class="d-md-flex">
                                 <div class="ads-left-border">
                                   <div class="mb-2">
