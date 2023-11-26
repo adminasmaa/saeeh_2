@@ -114,8 +114,8 @@
                       <div class="col-12 mb-lg-0 mb-3">
                         <div class="position-relative">
                           <div class="pb-2 rooms-lbl">
-                          {{$detail->name_ar ?? ''}}  
-                            <span class="text-danger">( غير اجبارى )</span>
+                          {{$detail->name_.app()->getLocale() ?? ''}}
+                            <span class="text-danger">( @lang('site.optional') )</span>
                           </div>
                           <div class="ads-card mb-md-5 mb-4">
                             <div class="row ads-checkbox-list custom-checkbox">
@@ -133,7 +133,7 @@
                                   for="subservice_{{$subservice->id}}"
                                     class="custom-checkbox-item"
                                   >
-                                  {{$subservice->name_ar ?? ''}}
+                                  {{$subservice->name_.app()->getLocale() ?? ''}}
                                   </label>
                                 </div>
                               </div>

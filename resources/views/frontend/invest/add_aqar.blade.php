@@ -65,7 +65,7 @@
                             @if(empty($aqar))
                                 <h2 class="add_frm_title mb-3">@lang('site.add')</h2>
                             @else
-                                <h2 class="add_frm_title mb-3">@lang('site.edit')  إعلان رقم ({{$aqar->id ?? ''}})</h2>
+                                <h2 class="add_frm_title mb-3">@lang('site.edit')  @lang('site.ad_number') ({{$aqar->id ?? ''}})</h2>
                             @endif
                             </div>
                             @include('partials._errors')
@@ -93,7 +93,7 @@
                                         <div class="col-lg-6 mb-3">
                                             <div class="position-relative">
                                             <label class="pb-2 ads-card-lbl">@lang('site.country')
-                                               <span class="text-danger">( اجبارى )</span>
+                                               <span class="text-danger"> ( @lang('site.mandatory') )</span>
                                             </label>
                                                 <select class="select2"
                                                         name="country_id" id="country_id">
@@ -157,7 +157,7 @@
                                             <div class="position-relative">
                                             <label for="" class="pb-2 ads-card-lbl">
                                             @lang('site.name_ar')
-                                                <span class="text-danger">( اجبارى )</span>
+                                                <span class="text-danger">( @lang('site.mandatory') )</span>
                                             </label>
                                             <input
                                                 placeholder="ادخل الاسم "
@@ -172,7 +172,8 @@
                                             <div class="position-relative">
                                             <label for="" class="pb-2 ads-card-lbl">
                                             @lang('site.name_en')
-                                                <span class="text-danger">(غير اجبارى )</span>
+                                                <span class="text-danger">( @lang('site.optional') )
+                                                </span>
                                             </label>
                                             <input
                                                 placeholder="ادخل الاسم"
@@ -185,7 +186,7 @@
                                         <div class="col-lg-6 mb-lg-0 mb-3">
                                             <label for="" class="pb-2 ads-card-lbl">
                                             @lang('site.time_from')
-                                            <span class="text-danger">( اجبارى )</span>
+                                            <span class="text-danger">( @lang('site.mandatory') )</span>
                                             </label>
                                             <div class="position-relative">
                                             <input
@@ -266,7 +267,7 @@
                                                 <div class="position-relative" >
                                                     <label for="" class="pb-2 ads-card-lbl">
                                                     @lang('site.fixed_price')
-                                                        <span class="text-danger">( اجبارى )</span>
+                                                        <span class="text-danger">( @lang('site.mandatory') )</span>
                                                     </label>
                                                     <input
                                                         placeholder="@lang('site.put_price')"
@@ -350,7 +351,7 @@
                                                     <div class="position-relative">
                                                         <label for="" class="pb-2 ads-card-lbl">
                                                         @lang('site.latitude')
-                                                            <span class="text-danger">( اجبارى )</span>
+                                                            <span class="text-danger">( @lang('site.mandatory') )</span>
                                                         </label>
                                                         <input
                                                             placeholder=" @lang('site.put_latitude') "
@@ -365,7 +366,7 @@
                                                     <div class="position-relative">
                                                         <label for="" class="pb-2 ads-card-lbl">
                                                         @lang('site.longitude')
-                                                            <span class="text-danger">( اجبارى )</span>
+                                                            <span class="text-danger">( @lang('site.mandatory') )</span>
                                                         </label>
                                                         <input
                                                             placeholder=" @lang('site.put_longitude') "
@@ -393,11 +394,11 @@
                                             <div class="position-relative">
                                             <label for="" class="pb-2 ads-card-lbl">
                                             @lang('site.display_photo')
-                                                <span class="text-danger">( اجبارى )</span>
+                                                <span class="text-danger">( @lang('site.mandatory') )</span>
                                             </label>
                                             </div>
                                             <div class="text-danger mt-1">
-                                            ( لايتم قبول صور بها شعار أو رقم تليفون )
+                                            ( @lang('site.pictures_containing_logo_or_phone_number_will_not_be_accepted') )
                                             </div>
                                             <label class="upload__btn">
                                             <div>
@@ -435,12 +436,13 @@
                                         <div class="col-12 mb-lg-0 mb-3">
                                             <div class="position-relative">
                                             <label for="" class="pb-2 ads-card-lbl">
-                                                الصورة(على الاقل صورتين)
-                                                <span class="text-danger">( اجبارى )</span>
+                                                @lang('site.image at least two')
+                                                <span class="text-danger">( @lang('site.mandatory') )</span>
                                             </label>
                                             </div>
                                             <div class="text-danger mt-1">
-                                            ( لايتم قبول صور بها شعار أو رقم تليفون )
+                                            ( @lang('site.pictures_containing_logo_or_phone_number_will_not_be_accepted') )
+
                                             </div>
                                             <label class="upload__btn">
                                             <div>
@@ -482,19 +484,19 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <h2 class="text-gray-2 mb-3 gray-xx-title">
-                                            اخترالفيديو المناسب
+                                            @lang('site.choose_the_appropriate_video')
                                             </h2>
                                         </div>
 
                                         <div class="col-12 mb-lg-0 mb-3">
                                             <div class="position-relative">
                                             <label for="" class="pb-2 ads-card-lbl">
-                                            @lang('site.video')
-                                                <span class="text-danger">( اختيارى)</span>
+                                            @lang('site.videos')
+                                                <span class="text-danger">( @lang('site.optional') )</span>
                                             </label>
                                             </div>
                                             <div class="text-danger mt-1">
-                                            ( لايتم قبول فيديو بها شعار أو رقم تليفون )
+                                            ( @lang('site.videos_containing_logo_or_phone_number_will_not_be_accepted') )
                                             </div>
                                             <label class="upload__btn">
                                             <div>
@@ -534,15 +536,15 @@
                                         <div class="col-12 mb-lg-0 mb-3">
                                             <label for="" class="pb-2 ads-card-lbl">
                                             @lang('site.descrption')
-                                            <span class="text-danger">( اجبارى )</span>
+                                            <span class="text-danger">( @lang('site.mandatory') )</span>
                                             </label>
                                             <div class="text-danger mt-1">
-                                            ( لايتم قبول  رقم تليفون ) 
+                                            ( @lang('site.phone_number_is_not_accepted') )
                                             </div>
                                             <div class="form-group">
                                             <textarea
                                                 class="form-control txtarea-ads p-3 mt-2"
-                                                placeholder="يرجي كتابة المواصفات  "
+                                                placeholder=" @lang('site.please_write_specifications')"
                                                 rows="6" name="description" required
                                             >{{ old('description', (empty($aqar))? null : $aqar['description']) }}</textarea>
                                             </div>
@@ -554,15 +556,14 @@
                                         <div class="col-12 mb-lg-0 mb-3">
                                             <label for="" class="pb-2 ads-card-lbl">
                                             @lang('site.policy_place')
-                                            <span class="text-danger">( اجبارى )</span>
+                                            <span class="text-danger">( @lang('site.mandatory') )</span>
                                             </label>
-                                            <div class="text-danger mt-1">
-                                            ( لايتم قبول  رقم تليفون ) 
+                                            <div class="text-danger mt-1">( @lang('site.phone_number_is_not_accepted') )
                                             </div>
                                             <div class="form-group">
                                             <textarea
                                                 class="form-control txtarea-ads p-3 mt-2"
-                                                placeholder="يرجي كتابة المواصفات  "
+                                                placeholder=" @lang('site.please_write_specifications')"
                                                 rows="6" name="policy_place"
                                                 id="editor1"
                                             >{{ old('policy_place', (empty($aqar))? null : $aqar['policy_place']) }}</textarea>
