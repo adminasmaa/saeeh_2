@@ -24,6 +24,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 //});
 Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedirect', 'localizationRedirect', 'localeViewPath')->group(function () {
     Route::get('/', 'App\Http\Controllers\Frontend\HomeController@index')->name('Home');
+    Route::get('showmap/{id}', 'App\Http\Controllers\Frontend\HomeController@showmap')->name('showmap')->middleware([user::class]);;
     Route::get('countries', 'App\Http\Controllers\Frontend\CountryController@index')->name('countries');
     Route::get('cities/{id}', 'App\Http\Controllers\Frontend\CityController@index')->name('cities');
     Route::get('countrycities/{id}', 'App\Http\Controllers\Frontend\HomeController@countrycities')->name('countrycities');
@@ -34,10 +35,11 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
     Route::get('contacts', 'App\Http\Controllers\Frontend\ContactController@contacts')->name('contacts');
     Route::get('termAndCondition', 'App\Http\Controllers\Frontend\HomeController@termAndCondition')->name('termAndCondition');
     Route::get('categories/{id}', 'App\Http\Controllers\Frontend\CategoryController@categories')->name('categories');
+    Route::get('searchcategories/{id}', 'App\Http\Controllers\Frontend\CategoryController@searchcategories')->name('searchcategories');
     Route::get('subcategories/{id}/{city_id}', 'App\Http\Controllers\Frontend\CategoryController@subcategories')->name('subcategories');
     Route::get('detailplace/{id}', 'App\Http\Controllers\Frontend\CategoryController@detailplace')->name('detailplace');
     Route::get('allcommentPlace/{id}', 'App\Http\Controllers\Frontend\CategoryController@allcommentPlace')->name('allcommentPlace');
-
+// start login auth and register
     Route::get('logout', 'App\Http\Controllers\Frontend\AuthController@logout')->name('logout');
     Route::get('sitelogin', 'App\Http\Controllers\Frontend\AuthController@login')->name('sitelogin');
     Route::post('logins', 'App\Http\Controllers\Frontend\AuthController@checklogin')->name('logins');
@@ -45,6 +47,8 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
     Route::get('updateprofile/{id}', 'App\Http\Controllers\Frontend\AuthController@updateprofile')->name('updateprofile')->middleware([user::class]);
     Route::post('updateprofile/updateprofileData/{id}', 'App\Http\Controllers\Frontend\AuthController@updateprofileData')->name('updateprofile.updateprofileData')->middleware([user::class]);
     Route::post('createaccount', 'App\Http\Controllers\Frontend\AuthController@createaccount')->name('createaccount');
+//end login auth and register
+
 
 //cars start
     Route::get('subcategorycars/{id}', 'App\Http\Controllers\Frontend\CarController@allcars')->name('subcategorycars');
@@ -67,9 +71,9 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
     Route::get('allcommentAqar/{id}', 'App\Http\Controllers\Frontend\AquarController@allcommentAqar')->name('allcommentAqar');
 
     //list of add favourite
-    Route::get('aquars/favouritAqar/{id}', 'App\Http\Controllers\Frontend\AquarController@favouritAqar')->name('aquars.favouritAqar')->middleware([user::class]);
-    Route::get('subcategorycars/favouritCar/{id}', 'App\Http\Controllers\Frontend\CarController@favouritCar')->name('subcategorycars.favouritCar')->middleware([user::class]);
-    Route::get('/favouritPlace/{id}', 'App\Http\Controllers\Frontend\CarController@favouritPlace')->name('favouritPlace')->middleware([user::class]);
+    Route::get('aquars/favouritAqar/{id}', 'App\Http\Controllers\Frontend\AquarController@favouritAqar')->name('aquars.favouritAqar');
+    Route::get('subcategorycars/favouritCar/{id}', 'App\Http\Controllers\Frontend\CarController@favouritCar')->name('subcategorycars.favouritCar');
+    Route::get('/favouritPlace/{id}', 'App\Http\Controllers\Frontend\CarController@favouritPlace')->name('favouritPlace');
 
     //ratings
 
@@ -83,8 +87,6 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
 
     Route::get('checkallaquar', 'App\Http\Controllers\Frontend\AquarController@checkallaquar')->name('checkallaquar');
-
-
 
 
 //booking

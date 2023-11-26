@@ -290,8 +290,7 @@
                         <img src="{{asset('images/home_serviecs/'.$service->image)}}" alt="image" />
                         <div class="pt-3">
                             <h4 class="text-main">{{ $service->title_ar}}</h4>
-                            <p class="mb-0 text-light-gray">{!! html_entity_decode(substr($service->description_ar, 0,
-                                125)) !!}</p>
+                            <p class="mb-0 text-light-gray">{!! html_entity_decode(substr($service->description_ar, 0, 40)) !!}</p>
                         </div>
                     </div>
                 </div>

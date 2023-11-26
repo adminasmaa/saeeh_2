@@ -11,7 +11,7 @@
                         <li class="breadcrumb-item">
                             <a href="{{route('Home')}}"> @lang('site.home') </a>
                         </li>
-                     
+
                         <li class="breadcrumb-item text-gray-4" aria-current="page">
                             @lang('site.details')
                         </li>
@@ -34,6 +34,9 @@
                                 @endforeach
 
                             @else
+                                <div class="slide" data-slide="{{$key}}">
+                                    <img src="{{FRONTASSETS}}/images/side-image-1.png" alt="department"/>
+                                </div>
                               <div class="slide" data-slide="{{$key}}">
                                  <img src="{{FRONTASSETS}}/images/side-image-1.png" alt="department"/>
                                </div>
@@ -41,8 +44,9 @@
                             @endif
 
                             <div class="slide-btn next-slide">
-                               <i class="fas fa-chevron-left"></i>
+                                <i class="fas fa-chevron-left"></i>
                             </div>
+
                             <div class="slide-btn prev-slide">
                               <i class="fas fa-chevron-right"></i>
                             </div>
@@ -80,9 +84,10 @@
                         <h2 class="pt-3">{{$aquar->name ?? ''}}</h2>
                         <div class="d-flex align-items-center mt-2">
                             <div class="department-badge bg-main text-white">
-                                <div class="pt-1">{{$aquar->aqarReview->avg('rate')}}</div>
+                                <div class="pt-1">{{round($aquar->aqarReview->avg('rate')) ?? 0}}</div>
                                 <div>
-                                <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+
                                 </div>
                             </div>
                             <div class="number-ads gray-txt">
@@ -90,8 +95,9 @@
 
                                 {{$aquar->aqarComment->count()}}
                             </div>
-                           
+
                         </div>
+
                         <div class="booking-now-btn py-4 w-45 d-flex justify-content-center align-items-center mt-4"   >
                             <a href="{{route('bookingaquars',$aquar->id)}}"> @lang('site.book')</a>
                         </div>
@@ -100,19 +106,23 @@
                         <div class="details-box mb-4 mt-lg-0 mt-3">
                             <div class="pb-2 p-3 d-flex align-items-center">
                                 <div class="details-icon">
+
                                 <i class="far fa-wallet"></i>
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <div class="h2 text-second mb-0">  @lang('site.price'):</div>
                                     <div
-                                        class="h2 text-main mb-0 padding-details">  {{$aquar->fixed_price ?? 0}}   درهم</div>
+
+                                        class="h2 text-main mb-0 padding-details">  {{$aquar->fixed_price ?? 0}} درهم
+                                    </div>
                                 </div>
 
 
                             </div>
                             <div class="py-2 px-3 d-flex align-items-center">
                                 <div class="details-icon">
-                                <i class="far fa-map-marker-alt"></i>
+                                    <i class="far fa-map-marker-alt"></i>
+
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <div class="h2 text-second mb-0">@lang('site.locations'):</div>
@@ -124,7 +134,8 @@
                             </div>
                             <div class="py-2 px-3 d-flex align-items-center">
                                 <div class="details-icon">
-                                <i class="far fa-building"></i>
+                                    <i class="far fa-building"></i>
+
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <div class="h2 text-second mb-0">@lang('site.floor_numbers')</div>
@@ -134,8 +145,9 @@
 
                             </div>
                             <div class="py-2 px-3 bg-light-orange d-flex align-items-center">
-                            <div class="details-icon">
-                                <i class="far fa-wallet"></i>
+                                <div class="details-icon">
+                                    <i class="far fa-wallet"></i>
+
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <div class="h2 text-gray-2 mb-0">@lang('site.Reservation deposit'):</div>
@@ -146,12 +158,13 @@
                             </div>
                             <div class="pt-2 p-3">
                             <span>
+
                                 <img src="{{FRONTASSETS}}/images/money-ic.png" alt="money icon" >
                             </span>
                              <span class="boxx-txt text-gray-2">   @lang('site.The deposit is paid at the time of booking')</span>
                             </div>
                         </div>
-                        
+
                     </div>
 
                 </div>
@@ -204,13 +217,14 @@
                                                                     width="50" height="50"
                                                                     onerror="this.src='{{FRONTASSETS}}/images/side-image-2.png'"
                                                                     alt="car"/>
-                                                               
+
 
                                                                 {{$section->name ?? ''}}
                                                             </div>
 
                                                             <div>
-                                                            <i class="far fa-chevron-down"></i>
+                                                                <i class="far fa-chevron-down"></i>
+
                                                             </div>
                                                         </button>
                                                     </h2>
@@ -255,11 +269,13 @@
                                                         >
                                                             <div>
                                                                 <div>
-                                                     <span class="star-review"><i class="fas fa-star"></i></span>
-                                                                    <span class="text-second"> ({{$aquar->aqarReview->avg('rate')}})</span>
+                                                                    <span class="star-review"><i
+                                                                            class="fas fa-star"></i></span>
+
+                                                                    <span class="text-second"> ({{ round($aquar->aqarReview->avg('rate')) ?? 0}})</span>
                                                                 </div>
                                                                 <div class="text-second text-center">
-                                                                    {{$aquar->aqarReview->avg('rate')}} @lang('site.reviews')
+                                                                    {{$aquar->aqarReview->count() ?? 0}} @lang('site.reviews')
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -295,7 +311,7 @@
                                                     <div
                                                         class="text-gray-2">{{$review->reviewElement->name ?? ''}}</div>
                                                     <div
-                                                        class="">{{$review->RateTotal($review->reviewElement->id) / $review->CountUser($review->reviewElement->id) ?? 0}}</div>
+                                                        class="">{{round($review->RateTotal($review->reviewElement->id) / $review->CountUser($review->reviewElement->id)) ?? 0}}</div>
                                                 </div>
                                             @endif
                                             <div class="loading-range">
@@ -330,10 +346,14 @@
                                                     <div class="d-sm-flex w-100">
                                                         <div class="reviews-image">
                                                             @if(!empty($comment->user->image))
-                                                                <img   alt="review image" src="{{asset('images/employee/'.$comment->user->image ?? '')}}" />
+                                                                <img alt="review image"
+                                                                     src="{{asset('images/employee/'.$comment->user->image ?? '')}}"/>
                                                             @else
 
-                                                                <img alt="review image" src="{{FRONTASSETS}}/images/review-image.png"/>
+                                                                <img alt="review image"
+                                                                     src="{{FRONTASSETS}}/images/review-image.png"/>
+
+
                                                             @endif
                                                         </div>
                                                         <div class="w-100 padding-right">
@@ -355,6 +375,7 @@
                                                         <div class="pt-1">{{$comment->rating ?? 0}}</div>
 
                                                         <div>
+
                                                         <i class="fas fa-star"></i>
                                                             {{--<p class="details-sm-txt">
                                                                 {{$allaquars->$aqarSection->icon ?? ''}}
@@ -363,8 +384,20 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                @endforeach
+
+                                                <div class="col-lg-3 my-5">
+                                                    <div
+                                                        class="rating-see-btn py-4 d-flex justify-content-center align-items-center"
+                                                    >
+                                                        <a href="#"
+                                                           data-bs-toggle="modal"
+                                                           data-bs-target="#AllRatingsModal">  @lang('site.Read all reviews') </a>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        @endforeach
+
+
                                     </div>
                                 </div>
                             </li>
@@ -374,9 +407,11 @@
                                         <h3 class="details-head pt-4">@lang('site.locations')</h3>
                                         <div class="d-flex pt-2">
                                             <div class="location-ic">
-                                            <i class="far fa-map-marker-alt"></i>
+                                                <i class="far fa-map-marker-alt"></i>
                                             </div>
+
                                            <p class="details-sm-txt">
+
                                                 {!! html_entity_decode($aquar->description) !!}
                                             </p>
                                         </div>
@@ -439,7 +474,7 @@
 
                                                 {{$aquar->time_to ?? ''}}
                                             </p>
-                                           
+
                                         </div>
                                     </div>
                                 </div>
@@ -466,7 +501,8 @@
                                     data-bs-dismiss="modal"
                                     aria-label="Close"
                                 >
-                                <i class="fal fa-times"></i>
+                                    <i class="fal fa-times"></i>
+
                                 </button>
                             </div>
                             <div class="modal-body p-lg-5 p-3">
@@ -521,7 +557,8 @@
                                                 />
                                                 </svg>
                                             </span>
-                                                                            <span class="text-main discound-txt">
+                                                <span class="text-main discound-txt">
+
                                                 يوجد خصم
                                                 <span class="txt_10">10%</span>
                                                 لمستخدمي تطبيق سائح
@@ -533,8 +570,10 @@
                                         <div class="row">
                                             <div class="col-lg-6">
 
+
                                                     <ul class="register_errorsSaqar mb-0"></ul>
-                                         
+
+
                                             </div>
                                         </div>
 
@@ -548,6 +587,7 @@
                                                         <div class="d-sm-flex justify-content-between py-2 px-3">
                                                             <div class="d-flex align-items-center">
                                                             <span>
+
                                                             <img src="{{asset('images/reviewElements/'.$value->reviewElement->icon)}}"
                                                                     width="50" height="50"
                                                                     onerror="this.src='{{FRONTASSETS}}/images/side-image-2.png'"
@@ -557,7 +597,7 @@
                                                                     class="text-gray-2 h2 mb-0 badge-txt">{{$value->reviewElement->name ?? ''}} </span>
                                                             </div>
                                                             <!-- Output HTML -->
-                                                         <div class="d-flex align-items-center">
+                                               <div class="d-flex align-items-center">
                                                             <div class="rate">
                                                                 <input type="hidden" name="aqar_id"
                                                                        value="{{$aquar->id}}" class="aqar_id">
@@ -631,6 +671,206 @@
             </div>
             </div>
         </section>
+
+        <!--All Ratings Modal-->
+        <div
+            class="modal fade modal-custom-rating"
+            id="AllRatingsModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div>
+                        <button
+                            type="button"
+                            class="btn-close rating-close d-flex justify-content-center align-items-center"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="32"
+                                height="32"
+                                viewBox="0 0 32 32"
+                                fill="none"
+                            >
+                                <path
+                                    d="M8.53366 25.3327L6.66699 23.466L14.1337 15.9993L6.66699 8.53268L8.53366 6.66602L16.0003 14.1327L23.467 6.66602L25.3337 8.53268L17.867 15.9993L25.3337 23.466L23.467 25.3327L16.0003 17.866L8.53366 25.3327Z"
+                                    fill="white"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="modal-body p-lg-5 p-3">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="full-reviews round-border py-lg-4 px-lg-5 p-3">
+                                    <div class="row g-0">
+                                        <div class="col-12 d-md-flex align-items-center">
+                                            <div
+                                                class="d-flex align-items-center justify-content-center"
+                                            >
+                                                <div
+                                                    class="round-box d-flex justify-content-center align-items-center"
+                                                >
+                                                    <div>
+                                                        <div>
+                                <span
+                                ><svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="34"
+                                        height="36"
+                                        viewBox="0 0 34 36"
+                                        fill="none"
+                                    >
+                                    <path
+                                        d="M18.3409 28.2434L29.5832 35.0288L26.5998 22.2402L36.5324 13.6356L23.4527 12.5259L18.3409 0.464966L13.2291 12.5259L0.149414 13.6356L10.082 22.2402L7.09856 35.0288L18.3409 28.2434Z"
+                                        fill="#FF8600"
+                                    /></svg
+                                    ></span>
+
+
+                                                            <span class="text-second"> ({{ round($aquar->aqarReview->avg('rate')) ?? 0}})</span>
+                                                        </div>
+                                                        <div
+                                                            class="text-second text-center">{{ round($aquar->aqarReview->count()) ?? 0}} @lang('site.reviews')</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="reviews-content">
+                                                <h2 class="review-title">@lang('site.excellent')</h2>
+                                                <p class="review-txt">
+                                                    @lang('site.Based on reviews from all kinds of travelers')
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row pt-4">
+                            <div class="col-12">
+                                <h2>@lang('site.categories')</h2>
+                            </div>
+                            @foreach($aquar->aqarReview as $review)
+                                <div class="col-lg-6 pb-4">
+                                    @if(!empty($review->reviewElement))
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="text-gray-2 pb-1">{{$review->reviewElement->name ?? ''}}</div>
+                                            <div
+                                                class="">{{round($review->RateTotal($review->reviewElement->id) / $review->CountUser($review->reviewElement->id)) ?? 0}}</div>
+                                        </div>
+                                        <div class="loading-range">
+                                            <div class="base-range">
+                                                <div class="upper bg-orange"></div>
+                                            </div>
+                                        </div>
+                                    @endif
+                                </div>
+                            @endforeach
+
+
+                        </div>
+                        <hr class="hr-saeeh"/>
+                        <div class="row mt-5 pb-2">
+                            <div class="col-12">
+                                <div
+                                    class="d-md-flex justify-content-md-between align-items-center"
+                                >
+                                    <div>
+                                        <h2> @lang('site.Customer reviews')</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 pt-4 mb-lg-5">
+                                @foreach($aquar->aqarCommentsAll as $comment)
+
+                                <div class="condition-content">
+                                    <div class="d-flex justify-content-between reviews-contentt">
+                                        <div class="d-sm-flex w-100">
+                                            <div class="reviews-image">
+                                                @if(!empty($comment->user->image))
+                                                    <img
+                                                        alt=""
+
+
+                                                        src="{{asset('images/employee/'.$comment->user->image ?? '')}}"
+
+
+                                                    />
+                                                @else
+
+                                                    <img
+                                                        alt=""
+
+
+                                                        src="{{FRONTASSETS}}/images/review-image.png"
+                                                    />
+                                                @endif
+                                            </div>
+                                            <div class="w-100 padding-right">
+                                                <h2 class="reviews-title d-flex text-second">
+                                                    {{$comment->user->firstname ?? ''}}
+                                                    {{$comment->user->lastname ?? ''}}
+                                                    <div>
+                                                        @if(!empty($comment->user->country->flag_image))
+                                                            <img
+
+
+                                                                src="{{asset('images/countries/'.$comment->user->country->flag_image)}}" width="25px" height="25px"
+                                                                onerror="this.src={{FRONTASSETS}}/images/car-icons/turkey.png"
+                                                                alt="flag-icon">
+
+                                                        @else
+                                                            <img
+
+
+                                                                src="{{FRONTASSETS}}/images/car-icons/turkey.png" width="25px" height="25px"
+                                                                onerror="this.src={{FRONTASSETS}}/images/car-icons/turkey.png"
+                                                                alt="flag-icon">
+
+                                                        @endif
+                                                    </div>
+                                                </h2>
+                                                <p class="details-sm-txt mb-0">
+                                                    {!! html_entity_decode(substr($comment->description, 0, 125)) !!}
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="department-badge bg-main text-white">
+                                            <div class="pt-1">{{$comment->rating ?? 0}}</div>
+                                            <div>
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="25"
+                                                    height="25"
+                                                    viewBox="0 0 25 25"
+                                                    fill="none"
+                                                >
+                                                    <path
+                                                        d="M12.7529 19.6185L20.1689 24.3301L18.2009 15.4501L24.7529 9.47534L16.1249 8.70481L12.7529 0.330078L9.38093 8.70481L0.75293 9.47534L7.30493 15.4501L5.33693 24.3301L12.7529 19.6185Z"
+                                                        fill="white"
+                                                    />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr class="hr-saeeh"/>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--your Rate Modal-->
     </main>
 
 @endsection
@@ -684,7 +924,18 @@
                         Swal.close()
                     }, 2000)
 
-                    window.location.href = '{{route('Home')}}';
+                    $('#YourRateModal').hide();
+                    window.location.reload();
+
+                    // Refresh the page by setting the URL to itself
+                    // location.href = location.href;
+                    // location.reload(true);
+                    {{--window.location.href = '{{route('Home')}}';--}}
+
+                    // Refresh the page after a delay of 3 seconds
+                    // setTimeout(function(){
+                    //     location.reload();
+                    // }, 500); // 3000 milliseconds = 3 seconds
 
                 },
                 error: function (result) {

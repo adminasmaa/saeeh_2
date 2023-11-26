@@ -51,16 +51,19 @@ class DepositsDataTable extends DataTable
             })
             ->addIndexColumn()
             ->addColumn('status', function ($model) {
-
-
-                return '                   
-                <form action="'.route('dashboard.uploadweasel').'" method="POST" enctype="multipart/form-data" style="display: inline-block" id="waseldepositForm'.$model->deposit_id.'">
+                $output = '';                            
+                $output.='<form action="'.route('dashboard.uploadweasel').'" method="POST" enctype="multipart/form-data" style="display: inline-block" id="waseldepositForm'.$model->deposit_id.'">
                 <meta name="csrf-token" content="'. csrf_token() .'">
                   <input  type="hidden" name="weasel" id="weasel"> 
-                  <input type="hidden" name="booking_id" value="'.$model->booking_id.'" class="booking_id">           
-                  <a type="button"  onclick="waseluploadDeposit('.$model->deposit_id.',`'. $this->type.'`)"  id="accept" class="btn btn-secondary">رفع الإيصال</a>  
-                </form>   
-                ';
+                  <input type="hidden" name="booking_id" value="'.$model->booking_id.'" class="booking_id">';           
+                if(!$model->waseal_photo && $model->status==0){           
+                    $output.= '<a type="button"  onclick="waseluploadDeposit('.$model->deposit_id.',`'. $this->type.'`)"  id="accept" class="btn btn-secondary">رفع الإيصال</a>';
+                    }else{
+                    $output.='<img src="'.config('app.url').'/images/commisions/'.$model->waseal_photo.'" width="70%" height="70%"/>'; 
+                    }
+                    $output.='</form>';
+                  
+                    return $output;
               
 
             })      
@@ -96,9 +99,15 @@ class DepositsDataTable extends DataTable
 
     public function count()
     {
-        if($this->pay=='unpaid'){$status=0;}else{$status=1;}
-            return Deposit::where('type', '=', $this->type)->where('status', '=',$status)->count();
 
+            return Deposit::where('type', '=', $this->type)->where('status', '=',0)->count();
+    }
+
+
+    public function count1()
+    {
+
+            return Deposit::where('type', '=', $this->type)->where('status', '=',1)->count();
     }
 
 

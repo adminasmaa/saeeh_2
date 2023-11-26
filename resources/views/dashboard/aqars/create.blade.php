@@ -316,7 +316,7 @@
                                                                     <label>@lang('site.policy_place')</label>
                                                                     <textarea class="form-control" cols="5" rows="5"
                                                                               name="policy_place"
-                                                                              id="editor1" >
+                                                                             >
                                                                     </textarea>
                                                                 </div>
                                                             </div>

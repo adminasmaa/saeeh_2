@@ -59,7 +59,7 @@ class AquarController extends Controller
 
 
         $comments = AqarComment::create([
-
+            'rating' => $request_data['rate'],
             'description' => $request['description'],
             'aqar_id' => $request['aqar_id'],
             'user_id' => $request_data['user_id'] ?? '',
@@ -109,18 +109,27 @@ class AquarController extends Controller
     public function favouritAqar(Request $request, $id)
     {
 
-
-        $user_id = Auth::id();
-
-        $users = User::find($user_id);
+        if (auth()->user()) {
 
 
-        $user = $users->favourite_aqars()->toggle($id);
+            $user_id = Auth::id();
 
-        $status = ($user['attached'] !== []) ? 'added' : 'deleted';
+            $users = User::find($user_id);
 
-        return response()->json(['status' => $status, 'content' => 'success']);
 
+            $user = $users->favourite_aqars()->toggle($id);
+
+            $status = ($user['attached'] !== []) ? 'added' : 'deleted';
+
+            return response()->json(['status' => $status, 'content' => 'success']);
+        } else {
+
+
+
+            return response()->json(['status' => 'auth', 'content' => 'login']);
+
+
+        }
 
     }
 

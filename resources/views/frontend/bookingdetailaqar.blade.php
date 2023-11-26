@@ -98,7 +98,7 @@
                                     <h2 class="text-gray-2 mb-lg-0 mb-3">@lang('site.basic information')</h2>
                                     <div class="d-flex">
                                         <div class="d-flex align-items-center">
-                                        <span class="booking-icon"> 
+                                        <span class="booking-icon">
                                         <i class="far fa-user"></i>
                                         </span>
                                             <span class="text-second dd-txt px-2"
@@ -117,7 +117,7 @@
                                                 <span>
                                                 <i class="far fa-phone"></i>
                                                 </span>
-                                                <span class="pe-1">اتصال</span>
+                                                <span class="pe-1">@lang('site.communication')</span>
                                             </a>
                                         </div>
                                         <div
@@ -126,7 +126,7 @@
                                             <a href="#"
                                                data-bs-toggle="modal"
                                                data-bs-target="#cancelBookingModal">
-                                                <span>الغاء الحجز</span>
+                                                <span>@lang('site.cancle_reason')</span>
                                             </a>
                                         </div>
                                     </div>
@@ -221,7 +221,7 @@
                             <hr class="hr-saeeh my-0"/>
                             <div class="d-flex justify-content-between py-1 px-3">
                                 <div class="d-flex align-items-center">
-                                <span class="booking-icon"> 
+                                <span class="booking-icon">
                                         <i class="far fa-user"></i>
                                         </span>
                                     <span class="text-second dd-txt pe-2"> @lang('site.visit_count')</span>
@@ -240,7 +240,7 @@
                                     <span class="booking-icon">
                                         <i class="far fa-map-marker-alt"></i>
                                     </span>
-                                
+
                                     <span class="text-second dd-txt pe-2">@lang('site.country')</span>
                                 </div>
                                 <div
@@ -405,7 +405,7 @@
                             >
                                 <div class="col-md-10 col-10 my-lg-5 my-2">
                                     <div class="exclamation-ic">
-                                        
+
                                         <i class="fas fa-exclamation-circle"></i>
                                     </div>
 

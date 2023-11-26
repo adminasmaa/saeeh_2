@@ -22,6 +22,7 @@ class DepositRepository implements DepositRepositoryInterfaceAlias
             'title' => trans('site.deposits'),
             'model' => 'deposits',
             'count' => $data->count(),
+            'count1' => $data->count1(),
 
         ]);
     }

@@ -18,6 +18,7 @@ class CommissionRepository implements CommissionRepositoryInterfaceAlias
             'title' => trans('site.commissions'),
             'model' => 'commissions',
             'count' => $data->count(),
+            'count1' => $data->count1(),
 
         ]);
     }
