@@ -8,6 +8,7 @@ return [
     'contactmessage' => 'يمكنك التواصل معنا من خلال الارقام الاتيه',
     'Do you want to cancel your reservation?'=>'هل تريد الغاء حجزك؟',
     'home' => 'الرئيسية',
+    'Search for your favorite country'=>'ابحث عن دولتك المفضلة',
     'Tell us your evaluation of the Aquar' => 'اخبرنا بتقيمك عن العقار',
     'Write your entire experience' => 'اكتب تجربتك كاملة',
     'Add a comment about the place' => 'أضف تعليقا عن المكان',
@@ -42,7 +43,12 @@ return [
     'put_longitude' => ' حدد خط الطول',
     'put_latitude' => ' حدد خط العرض',
     'choose_ads_main_image' => 'اختر الصورة الرئيسية للاعلان',
-
+    'pictures_containing_logo_or_phone_number_will_not_be_accepted' => 'لايتم قبول صور بها شعار أو رقم تليفون',
+    'choose_the_appropriate_video' => 'اختر الفيديو المناسب',
+    'mandatory' => 'اجباري',
+    'optional' => 'اختياري',
+    'phone_number_is_not_accepted' => 'لايتم قبول رقم تليفون',
+    'videos_containing_logo_or_phone_number_will_not_be_accepted' => 'لايتم قبول فيديو بها شعار أو رقم تليفون',
     'Pause' => 'ايقاف مؤقت',
     'My bookings' => 'حجوزاتي',
     'Restaurant videos' => 'فيديوهات ',
@@ -97,13 +103,9 @@ return [
     'notattend_successfully'=>'تم عدم حضور الحجز بنجاح',
     'notattend_faild'=>'فشل  عدم حضور الحجز',
     'Reservation and cancellation policy'=>'سياسة الحجز والالغاء',
-
-
-
-
-
-
-
+    'booking_number' => 'رقم الحجز',
+    'booking_destination' => 'جهة الحجز',
+    'date_of_arrival' => 'تاريخ الوصول',
 
 
     'Price summary' => 'ملخص السعر',
@@ -251,29 +253,37 @@ return [
     'place_leave' => ' مكان التسليم',
     'day_count' => 'عدد الايام',
     'reciept_date' => 'تاريخ الاستلام',
-
-
+    'booking_ads_no' =>'حجوزات اعلان رقم',
+    'all_bookings' => 'كل الحجوزات',
+    'application_bookings' => 'حجوزات التطبيق',
     'basic information' => ' المعلومات الرئيسية',
-
+    'external_bookings' => 'حجوزات خارجية',
     'Reset Password' => 'إعادة تعيين كلمة المرور',
     'Send Password Reset' => 'إرسال إعادة تعيين كلمة المرور',
-
+    'website_bookings' => 'حجوزات الموقع',
+    'canceled_bookings' => 'حجوزات الملغاه',
+    'archives' => 'الارشيف',
+    'booking_no_ads_no' => 'رقم الحجز /رقم الاعلان',
     'reference' => 'المرجع',
     'videos' => 'الفيديو',
-
-    'car_delivery_date' => ' اخر موعد لتسليم السيارة ',
+    'image at least two' => 'الصورة(على الاقل صورتين)',
+    'car_delivery_date' => 'اخر موعد لتسليم السيارة',
     'color' => 'اللون',
     'rate' => 'التقيم',
     'year' => 'السنه',
     'changed_price' => 'السعر المتغير',
     'comment_text' => 'النص',
-
+    'no_bookings' => 'لا يوجد حجوزات',
+    'person_number' => ' عدد الاشخاص ',
+    'please_write_specifications' => 'يرجي كتابة المواصفات',
 
     'namessss' => 'أسم الملف',
-
-
+    'add_external_booking' => 'اضافة حجز خارجى',
+    'ad' => 'اعلان',
+    'date_of_arrival' => 'تاريخ الوصول',
     'national' => 'الجنسية',
     'hours' => 'عدد ساعات العمل اليومية',
+    'date_of_departure' => 'تاريخ المغادرة',
 
     'others' => 'أخرى',
 
@@ -490,10 +500,15 @@ return [
     'delete_faild' => 'حدث خطأ .. لم تتم عملية الحذف !',
 
     'no_data_found' => 'للاسف لا يوجد اي سجلات',
-
+    'total_amount' => 'المبلغ الاجمالى',
+    'number_of_days' => 'عدد الايام',
+    'ad_number' => 'اعلان رقم',
     'clients' => 'العملاء',
     'client_name' => 'اسم العميل',
-
+    'add_your_inquiry' => 'اضف استفسارك',
+    'add_whatever_you_want' => 'أضف ما تريد',
+    'write_your_phone_number' => 'اكتب رقم الهاتف',
+    'client_phone_number' =>'رقم هاتف العميل',
     'suppliers' => 'الموردين',
     'supp_name' => 'اسم المورد',
     'type1' => 'النوع/الجنس',

@@ -94,18 +94,18 @@ class AqarBookingController extends Controller
 
     
 
-    public function acceptbooking($aqar_id)
+    public function acceptbooking($bookid)
     {
 
-      return $this->aqarBookingRepository->acceptbooking($aqar_id);
+      return $this->aqarBookingRepository->acceptbooking($bookid);
 
     }
 
 
-    public function rejectbooking($aqar_id)
+    public function rejectbooking($bookid)
     {
 
-      return $this->aqarBookingRepository->rejectbooking($aqar_id);
+      return $this->aqarBookingRepository->rejectbooking($bookid);
 
     }
 
@@ -113,6 +113,20 @@ class AqarBookingController extends Controller
     {
 
       return $this->aqarBookingRepository->confirmRejectbooking($book_id ,$request);
+
+    }
+
+    public function attendbooking($bookid)
+    {
+
+      return $this->aqarBookingRepository->attendbooking($bookid);
+
+    }
+
+    public function notattendbooking($bookid)
+    {
+
+      return $this->aqarBookingRepository->notattendbooking($bookid);
 
     }
 
