@@ -35,13 +35,16 @@
 
                       <div class="emailcont">
                           <input id="phoneee" type="tel" class="form-control frm-input phone3">
-                          <span id="valid-msg" class="hide">✓ Valid</span>
-                          <span id="error-msg" class="hide"></span>
+                         
                         <span class="icon-placeholder">
                     
                       <i class="far fa-phone"></i>
                     </span>
 
+                      </div>
+                      <div>
+                      <span id="valid-msg" class="hide">✓ Valid</span>
+                          <span id="error-msg" class="hide"></span>
                       </div>
                     <div class="emailcont">
                       <input

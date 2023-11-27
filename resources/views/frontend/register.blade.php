@@ -11,7 +11,7 @@
             >
 
               <div class="text-center my-lg-5 my-3 login-content">
-               <form  >
+               <form>
 
                 <div
                   class="row d-flex justify-content-center align-items-center h-100"
@@ -97,20 +97,14 @@
                       </div>
                     </div>
                     <div class="emailcont">
-{{--                      <input--}}
-{{--                        type="tel"--}}
-{{--                        name="phone"--}}
-{{--                        class="form-control frm-input mb-3 phone2"--}}
-{{--                        placeholder="{{trans('site.phone')}}"--}}
-{{--                      />--}}
-
                         <input id="phoneData" type="tel"  class="form-control frm-input mb-3 phone2"    name="phone">
-                        <span id="valid-msg" class="hide">✓ Valid</span>
-                        <span id="error-msg" class="hide"></span>
                       <span class="icon-placeholder">
-                       
                         <i class="far fa-phone"></i>
                       </span>
+                    </div>
+                    <div>
+                        <span id="valid-msg" class="hide">✓ Valid</span>
+                        <span id="error-msg" class="hide"></span>
                     </div>
                     <button type="submit" class="mt-lg-4 mt-3 btn-login formregistersUser">
                        {{trans('site.sing_up')}}
@@ -118,9 +112,6 @@
 
                     <div class="pt-lg-3 pt-2 user-links">
                       <p class="text-bold">
-
-
-
                         @lang('site.haveprofile')
                         <a href="{{route('sitelogin')}}" class="user-link"> {{trans('site.login')}} </a>
                       </p>
