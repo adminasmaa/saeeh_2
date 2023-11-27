@@ -87,7 +87,6 @@
                                 <div class="pt-1">{{round($aquar->aqarReview->avg('rate')) ?? 0}}</div>
                                 <div>
                                     <i class="fas fa-star"></i>
-
                                 </div>
                             </div>
                             <div class="number-ads gray-txt">

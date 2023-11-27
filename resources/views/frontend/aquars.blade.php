@@ -47,9 +47,7 @@
                                             class="select2"
                                             id="city_id"
                                             name="city_id"
-
-                                            required
-                                        >
+                                            required>
                                             <option value="">@lang('site.city')</option>
                                             <!-- @foreach($cities as $city)
                                                 <option

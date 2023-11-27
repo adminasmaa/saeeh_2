@@ -2031,7 +2031,7 @@ video.video-full {
     content: "";
     display: block;
     position: absolute;
-    top: 6px;
+    top: 7px;
     right: 9px;
     width: 6px;
     height: 12px;
@@ -3886,14 +3886,19 @@ font-size: 22px;
     height: 40px;
     border-radius: 50%;
 }
-
+.search-c-icon i{
+color: #fff;
+}
 .right-container {
     width: 50%;
     padding-right: 6rem;
     padding-left: 15rem;
     position: relative;
 }
-
+.cars-ic {padding-left: 8px;}
+.cars-ic i{
+    font-size: 18px;
+    color: var(--m-main);}
 .left-container {
     width: 50%;
     position: relative;
@@ -6184,4 +6189,8 @@ content: unset;
 }
 .comment-image img{
     height: 18px;
+}
+.details-car-ic i{
+color: var(--m-gray-4);
+font-size: 20px;
 }
