@@ -75,14 +75,14 @@
                   <div class="row">
                     <div class="col-lg-6 mb-3">
                       <label for="name" class="pb-2 register-lbl">
-                        اسم المسئول
+                      @lang('site.Name of the manager') 
                       </label>
                       <input
                         type="text"
                         id="name"
                         name="firstname"
                         class="form-control register-input"
-                        placeholder="اسم المسئول " 
+                        placeholder="@lang('site.Name of the manager')" 
                         value="{{ old('firstname', (empty($invest))? null : $invest['firstname']) }}"
                       />
                       @if($errors->has('firstname'))
@@ -91,14 +91,14 @@
                     </div>
                     <div class="col-lg-6 mb-3">
                       <label for="name" class="pb-2 register-lbl">
-                        الاسم التجارى
+                      @lang('site.Trade Name') 
                       </label>
                       <input
                         type="text"
                         id="name"
                         name="username"
                         class="form-control register-input"
-                        placeholder="الاسم التجارى  "
+                        placeholder=" @lang('site.Trade Name') "
                         value="{{ old('username', (empty($invest))? null : $invest['username']) }}"
                       />
                       @if($errors->has('username'))
@@ -107,14 +107,14 @@
                     </div>
                     <div class="col-lg-6 mb-3">
                       <label for="address" class="pb-2 register-lbl">
-                        العنوان
+                        @lang('site.address')
                       </label>
                       <input
                         type="text"
                         name="address"
                         id="address"
                         class="form-control register-input"
-                        placeholder="ادخل العنوان بالكامل     "
+                        placeholder="  @lang('site.Enter the full address') " 
                         value="{{ old('address', (empty($invest))? null : $invest['address']) }}"
                       />
                       @if($errors->has('address'))
@@ -123,7 +123,7 @@
                     </div>
                     <div class="col-lg-6 mb-lg-0 mb-3">
                       <div class="form-group">
-                          <label class="pb-2 register-lbl">رقم الهاتف</label>
+                          <label class="pb-2 register-lbl"> @lang('site.phone_number') </label>
                               <div class="d-flex">
                                     <input type="hidden" name="country_id" id="country_id" value="">
                                     <input type="hidden" name="country_code" id="country_code" value="">
@@ -140,9 +140,8 @@
                       @if($errors->has('phone'))
                           <span class="error">{{ $errors->first('phone') }}</span>
                       @endif
-                      <div class="py-2 text-main">
-                        سنقوم بإرسال رسالة نصية للتحقق من رقم الهاتف عن طريق
-                        الواتس اب
+                      <div class="py-2 text-main"> 
+                        @lang('site.We will send a text message to verify the phone number via WhatsApp')
                         <span class="">
                           <img
                             src="{{FRONTASSETS}}/images/booking-investor/wt-icon.png"
@@ -153,9 +152,9 @@
                     </div>
                     <div class="col-lg-6 mb-lg-0 mb-3">
                       <div class="position-relative">
-                        <label for="" class="pb-2 register-lbl"> المدن </label>
+                        <label for="" class="pb-2 register-lbl">  @lang('site.cities') </label>
                         <select class="select2" name="city_id" id="city_id1">
-                          <option value="0">اختر المدينة</option>
+                          <option value="0"> @lang('site.Select city')  </option>
                           
                         </select>
                       </div>
@@ -164,7 +163,7 @@
                     
                     <div class="col-lg-6 mb-3">
                       <label for="email" class="pb-2 register-lbl">
-                        البريد الالكتروني
+                        @lang('site.email') 
                       </label>
                       <input
                         type="email"
@@ -180,7 +179,7 @@
 
                     <div class="col-lg-6 mb-3">
                       <label for="password-field" class="pb-2 register-lbl">
-                        كلمة المرور
+                        @lang('site.password')
                       </label>
                       <div class="position-relative">
                         <input
@@ -188,7 +187,7 @@
                           type="password"
                           class="form-control register-input"
                           name="password"
-                          placeholder="كلمة المرور"
+                          placeholder="@lang('site.password')"
                            maxlength="10"
                            value=""
                         />
@@ -206,8 +205,7 @@
                       <label
                         for="password-field-confirm"
                         class="pb-2 register-lbl"
-                      >
-                        تأكيد كلمة المرور
+                      >  @lang('site.Confirm Password')
                       </label>
                       <div class="position-relative">
                         <input
@@ -215,7 +213,7 @@
                           type="password"
                           class="form-control register-input"
                           name="c_password"
-                          placeholder="تأكيد كلمه المرور"
+                          placeholder=" @lang('site.Confirm Password') "
                           maxlength="10"
                           value=""
 
@@ -233,11 +231,11 @@
                     <div class="col-lg-6 mb-3">
                       <div class="position-relative">
                         <label for="" class="pb-2 register-lbl">
-                          العمولة
-                          <span class="text-main">(تبدأ من 5%)</span>
+                        @lang('site.commission')
+                          <span class="text-main">(starting from 5%)</span>
                         </label>
                         <select class="select2" name="comision">
-                          <option value="1">ادخل العمولة</option>
+                          <option value="1"> @lang('site.Enter_commission')</option>
                           <option value="5%" @if((old('comision')=='5%')||(!empty($invest) && ($invest->comision=='5%')))selected @endif>5%</option>
                           <option value="10%" @if((old('comision')=='10%')||(!empty($invest) && ($invest->comision=='10%')))selected @endif>10%</option>
                           @for ($x = 11; $x <= 30; $x++) 
@@ -249,21 +247,20 @@
                         @endif
                       </div>
                       <div class="pt-3 pb-4 text-main">
-                        (عزيزى العميل كلما زادت نسبة العمولة سوف يتم إظهار
-                        أعلانك بالمقدمة)
+                      (@lang('site.Dear customer, the higher the commission rate, the more your ad will appear in the introduction'))
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-12 mb-4">
                       <label for="" class="pb-2 register-lbl">
-                        الشروط والأحكام
+                        @lang('site.Terms and Conditions')
                       </label>
 
                       <div class="form-group">
                         <textarea
                           class="form-control txtarea-ads p-3 mt-2"
-                          placeholder="تطبق الشروط والاحكام"
+                          placeholder=" @lang('site.Terms and conditions apply') " 
                           rows="6" disabled
                         >{{strip_tags(trim($settings->terms_conditions,'\n'))}}</textarea>
                       </div>
@@ -282,7 +279,7 @@
                           <span class="error">{{ $errors->first('accept_term') }}</span>
                         @endif
                       <label for="register-check" class="custom-checkbox-item">
-                        أوافق على الشروط والاحكام
+                      @lang('site.I agree to the terms and conditions')
                       </label>
                     </div>
                     <div

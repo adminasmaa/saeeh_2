@@ -14,7 +14,7 @@
               </li>
 
               <li class="breadcrumb-item text-main" aria-current="page">
-                عمولاتي
+              @lang('site.My commissions') 
               </li>
             </ol>
           </nav>
@@ -296,7 +296,7 @@
                             <div class="mt-2">
                               <i class="far fa-wallet"></i>
                             </div>
-                            <div class="th-txt"> @lang('site.Commission_paid')</div>
+                            <div class="th-txt"> @lang('site.Commission_paid') </div>
                           </div>
                         </td>
 
@@ -314,10 +314,8 @@
                         <td colspan="100%">
                           <div
                             class="d-flex align-items-center justify-content-center"
-                          > 
-                          <!-- @lang('site.Commission_paid') -->
-                            سوف تقوم بدفع عموله وقدرها
-                            <span class="text-main comm_price">  لاغير</span>
+                          > @lang('site.You will pay a commission amount')
+                          <span class="text-main comm_price">  @lang('site.Nothing else') </span>
                           </div>
                         </td>
                       </tr>
@@ -329,7 +327,7 @@
                   <div
                     class="booking-now-btn d-flex justify-content-center align-items-center"
                   >
-                    <button type="submit">تأكيد الدفع</button>
+                    <button type="submit"> @lang('site.Confirm payment') </button>
                   </div>
                 </div>
               </div>
