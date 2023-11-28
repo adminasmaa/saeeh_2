@@ -67,6 +67,8 @@ return [
     'Reservation and cancellation conditions' => 'Reservation and cancellation conditions',
     'policy_place' => 'PolicyPlace',
     'video_photo' => 'VideoPhoto',
+    'departure_hour' => 'Departure hour',
+    'ads_status' => 'Ads status',
 
     'admin_message' => 'AdminMessage',
     'investor_message' => 'InvestorMessage',
@@ -89,7 +91,8 @@ return [
     'haveprofile' => 'If you have an account',
     'date' => 'Date',
     'cancle_reason' => 'CancleReason',
-
+    'presence' => 'Presence',
+    'absence' => 'Absence',
     'or more at this property at check-in' => 'or more at this property at check-in',
     'all' => 'All',
     'Based on reviews' => 'Based on reviews from all kinds of travelers',
@@ -160,7 +163,9 @@ return [
     'serving our customers' => 'Serving Our Customers',
     'contact with' => ' Contact With',
     'Service available from the hour' => 'Service available from the hour',
-
+    'The code has been activated successfully' => 'The code has been activated successfully',
+    'print' => 'Print',
+    'client_information' => 'Client information',
     'Download the application now' => 'Download the application now',
     'create account' => 'Create Account ',
     'login' => ' Login',
@@ -413,11 +418,13 @@ return [
     'confirm_delete' => 'Confirm Delete ?',
     'yes' => 'Yes',
     'no' => 'No',
-
+    'Ads_number' => 'Ads_number',
     'login' => 'Log In',
     'remember_me' => 'Remember Me',
     'password' => 'Password',
     'password_confirmation' => 'Confirm Password',
+    'unpaid commissions' => 'Unpaid commissions',
+    'paid commissions' => 'paid commissions',
 
     'added_successfully' => 'Data Added Successfully',
     'updated_successfully' => 'Data Updated Successfully',
@@ -440,7 +447,15 @@ return [
     'choose_ads_main_image' => 'Choose Ads Main Image',
     'mandatory' => 'Mandatory',
     'optional' => 'Optional',
-
+    'date_of_departure' => 'Date of departure',
+    'days' => 'Days',
+    'day' =>'Day',
+    'total_price' => 'Total price',
+    'paid' => 'Paid',
+    'residual' => 'Residual',
+    'category_information' => 'Category information',
+    'Name of the manager' => 'Name of the manager',
+    'Category' => 'Category',
     'write_your_phone_number' => 'Write your phone number',
     'date_of_arrival' => 'Date of arrival',
     'client_phone_number' =>'Client phone number',
@@ -530,7 +545,8 @@ return [
     'categories' => 'Categories',
     'all_categories' => 'All Categories',
     'all_clients' => 'All Clients',
-
+    'phone_number' => 'Phone number',
+    'booking_no' => 'Booking number',
     'name' => 'Name',
     'short_name' => 'Short Name',
     'display_name' => 'Display Name',
@@ -539,16 +555,17 @@ return [
     'created_at' => 'Created At',
     'date' => 'Date',
     'basic information' => 'basic information',
-
-
+    'booking_price' => 'Booking price',
+    'Commission_paid' => 'Commission_paid',
+    'pay' => 'Pay',
     'color' => 'Color',
     'style' => 'Style',
-
+    'There are no commissions' => 'There are no commissions',
     'send' => 'Send',
     'inbox' => 'Inbox',
     'mangers' => 'Mangers',
     'activess' => 'Active',
-
+    'Confirm payment' => 'Confirm payment',
     'inactivess' => 'InActive',
     'day' => 'Day',
 
@@ -670,8 +687,15 @@ return [
     'display_photo' => 'Display Photo ',
     'notify_photo' => 'Notify Photo ',
     'Reservation and cancellation policy'=>'Reservation and cancellation policy',
-
-
+    'Which cancellation and return policy suits you ?' => 'Which cancellation and return policy suits you ?',
+    'The customer will be shown the existing reservation conditions at the time of his reservation' => 'The customer will be shown the existing reservation conditions at the time of his reservation',
+    'To edit or write conditions' => 'To edit or write conditions',
+    'Terms and Conditions' => 'Terms and Conditions' ,
+    'activation code' => 'Activation code',
+    'enter_activation_code' => 'Enter activation code',
+    'a code has been sent to the registered phone number' => 'A code has been sent to the registered phone number',
+    'to be sure' => 'To be sure',
+    'send again' => 'Send again',
     'ar' => [
         'name' => 'Arabic Name',
         'description' => 'Arabic Description',

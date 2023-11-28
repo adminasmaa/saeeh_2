@@ -10,7 +10,7 @@
           <nav class="breadcrumb-container" aria-label="breadcrumb">
             <ol class="breadcrumb mb-0">
               <li class="breadcrumb-item">
-                <a href="javascript:void(0)"> الرئيسية </a>
+                <a href="javascript:void(0)"> @lang('site.home') </a>
               </li>
 
               <li class="breadcrumb-item text-main" aria-current="page">
@@ -33,12 +33,12 @@
                  
                   <li class="{{$current_route=='unpaid'?'tab-active':'' }}">
                         <a href="{{route('invst.listcommisions',[$type,'unpaid'])}}" class="tab-link d-flex align-items-center justify-content-center">
-                        عمولات غير مدفوعه 
+                        @lang('site.unpaid commissions') 
                         </a>
                   </li>
                   <li class="{{$current_route=='paid'?'tab-active':'' }}">
                         <a href="{{route('invst.listcommisions',[$type,'paid'])}}" class="tab-link d-flex align-items-center justify-content-center">
-                        عمولات مدفوعه 
+                        @lang('site.paid commissions') 
                         </a>
                   </li>
                 </ul>
@@ -57,13 +57,13 @@
                                 <div class="mt-2">
                                   <i class="far fa-book-open"></i>
                                 </div>
-                                <div class="h2 px-2">معلومات الحجز</div>
+                                <div class="h2 px-2"> @lang('site.Reservation information')  </div>
                               </div>
                               <div class="d-flex align-items-center">
                                 <div class="mt-2">
                                   <i class="far fa-long-arrow-alt-left"></i>
                                 </div>
-                                <a href="#" class="ps-2">معلومات الحجز</a>
+                                <a href="#" class="ps-2"> @lang('site.Reservation information') </a>
                               </div>
                             </div>
                           </div>
@@ -77,7 +77,7 @@
                                     <div class="mt-2">
                                       <i class="far fa-user-circle"></i>
                                     </div>
-                                    <div class="th-txt">الاسم</div>
+                                    <div class="th-txt"> @lang('site.name')</div>
                                   </div>
                                 </th>
 
@@ -95,7 +95,7 @@
                                     <div class="mt-2">
                                       <i class="far fa-phone"></i>
                                     </div>
-                                    <div class="th-txt">رقم الهاتف</div>
+                                    <div class="th-txt">@lang('site.phone_number')</div>
                                   </div>
                                 </td>
                                 <td>
@@ -108,7 +108,7 @@
                                     <div class="mt-2">
                                       <i class="far fa-list-ol"></i>
                                     </div>
-                                    <div class="th-txt">رقم الحجز</div>
+                                    <div class="th-txt"> @lang('site.booking_no') </div>
                                   </div>
                                 </td>
 
@@ -122,7 +122,7 @@
                                     <div class="mt-2">
                                       <i class="far fa-wallet"></i>
                                     </div>
-                                    <div class="th-txt">مبلغ الحجز</div>
+                                    <div class="th-txt"> @lang('site.booking_price') </div>
                                   </div>
                                 </td>
 
@@ -136,7 +136,7 @@
                                     <div class="mt-2">
                                       <i class="far fa-wallet"></i>
                                     </div>
-                                    <div class="th-txt">دفع العمولة</div>
+                                    <div class="th-txt"> @lang('site.Commission_paid') </div>
                                   </div>
                                 </td>
 
@@ -178,7 +178,7 @@
                               data-id="{{$item->id}}"
                               class="getUser"
                             >
-                              دفع
+                            @lang('site.pay')
                             </a>
                           </div>
                         </div>
@@ -203,7 +203,7 @@
                         <div class="col-12 mb-5">
                             <div class="card-empty d-md-flex  align-items-center">
                         
-                                <div class="card-empty-txt">لا يوجد عمولات</div>
+                                <div class="card-empty-txt"> @lang('site.There are no commissions') </div>
                                 <div>
                                 <img src="{{FRONTASSETS}}/images/booking-investor/empty-ic.svg" alt="empty icon">
                                 </div>
@@ -266,7 +266,7 @@
                 <h2
                   class="fw-bold confirm-pay-title text-second my-3 text-center"
                 >
-                  تاكيد الدفع
+                  @lang('site.Confirm payment')
                 </h2>
                 <input type="hidden" name="id" value="" class="id">
                 <div class="custom-table">
@@ -278,7 +278,7 @@
                             <div class="mt-2">
                               <i class="far fa-user-circle"></i>
                             </div>
-                            <div class="th-txt">الاسم</div>
+                            <div class="th-txt"> @lang('site.name') </div>
                           </div>
                         </th>
 
@@ -296,7 +296,7 @@
                             <div class="mt-2">
                               <i class="far fa-wallet"></i>
                             </div>
-                            <div class="th-txt">دفع العمولة</div>
+                            <div class="th-txt"> @lang('site.Commission_paid')</div>
                           </div>
                         </td>
 
@@ -314,7 +314,8 @@
                         <td colspan="100%">
                           <div
                             class="d-flex align-items-center justify-content-center"
-                          >
+                          > 
+                          <!-- @lang('site.Commission_paid') -->
                             سوف تقوم بدفع عموله وقدرها
                             <span class="text-main comm_price">  لاغير</span>
                           </div>
