@@ -271,7 +271,7 @@
                                             >
                                                 <div class="d-flex align-items-center">
                                                 <span class="booking-icon">
-                                                <i class="far fa-map-marker-alt"></i>
+                                                <i class="fal fa-map-marker-alt"></i>
                                                 </span>
                                                  <span class="text-second dd-txt pe-2">
                                                 @lang('site.country')
@@ -289,7 +289,7 @@
                                             >
                                                 <div class="d-flex align-items-center">
                                                 <span class="booking-icon">
-                                                <i class="far fa-map-marker-alt"></i>
+                                                <i class="fal fa-map-marker-alt"></i>
                                                 </span>
                                                     <span class="text-second dd-txt pe-2">
                                             @lang('site.city')
@@ -307,7 +307,7 @@
                                             >
                                             <div class="d-flex align-items-center">
                                             <span class="booking-icon">
-                                            <i class="far fa-lamp"></i>
+                                            <i class="fal fa-lamp"></i>
                                             </span>
                                                     <span class="text-second dd-txt pe-2"
                                                     > @lang('site.hallnumber')
@@ -325,7 +325,7 @@
                                             >
                                                 <div class="d-flex align-items-center">
                                                 <span class="booking-icon">
-                                                  <i class="far fa-user"></i>
+                                                  <i class="fal fa-user"></i>
                                                 </span>
                                                     <span class="text-second dd-txt pe-2"
                                                     > @lang('site.personnumber')</span
@@ -345,7 +345,7 @@
                                             >
                                                 <div class="d-flex align-items-center">
                                                 <span class="booking-icon">
-                                                <i class="far fa-cloud-sun"></i>
+                                                <i class="fal fa-cloud-sun"></i>
                                                 </span>
                                                     <span
                                                         class="text-second dd-txt pe-2">@lang('site.day_count') </span>
@@ -365,7 +365,7 @@
                                             >
                                                 <div class="d-flex align-items-center">
                                                 <span class="booking-icon">
-                                                <i class="far fa-bed"></i>
+                                                <i class="fal fa-bed"></i>
                                                 </span>
                                                     <span class="text-second dd-txt pe-2">
                                                     @lang('site.normalroom')
@@ -383,7 +383,7 @@
                                             >
                                                 <div class="d-flex align-items-center">
                                                 <span class="booking-icon">
-                                                <i class="far fa-user"></i>
+                                                <i class="fal fa-user"></i>
                                              </span>
                                                  <span class="text-second dd-txt pe-2">
                                                 @lang('site.personnumber')
@@ -401,7 +401,7 @@
                                             >
                                                 <div class="d-flex align-items-center">
                                                 <span class="booking-icon">
-                                                <i class="far fa-bath"></i>
+                                                <i class="fal fa-bath"></i>
                                                </span>
                                                     <span class="text-second dd-txt pe-2"
                                                     >@lang('site.swimmingpool')
@@ -419,7 +419,7 @@
                                             >
                                                 <div class="d-flex align-items-center">
                                                 <span class="booking-icon">
-                                                <i class="far fa-building"></i>
+                                                <i class="fal fa-building"></i>
                                            </span>
                                                     <span class="text-second dd-txt pe-2">
                                                 @lang('site.unitnumber')
@@ -441,8 +441,8 @@
                                             >
                                                 <div class="d-flex align-items-center">
                                                 <span class="booking-icon">
-                                                <i class="far fa-wallet"></i>
-                            </span>
+                                                 <i class="fal fa-wallet"></i>
+                                                </span>
                                                     <span class="text-second dd-txt pe-2"
                                                     > @lang('site.price')</span
                                                     >
@@ -462,7 +462,7 @@
                                             >
                                                 <div class="d-flex align-items-center">
                                                 <span class="booking-icon">
-                                                <i class="far fa-wallet"></i>
+                                                <i class="fal fa-wallet"></i>
                                                </span>
                                                     <span class="text-gray-2 dd-txt pe-2"
                                                     > @lang('site.Reservation deposit')
@@ -477,11 +477,11 @@
                                         </div>
                                         <div class="card-booking mb-4 bg-light-blue">
                                             <div
-                                                class="d-flex justify-content-between py-md-4 px-md-3 p-3"
+                                                class="d-flex justify-content-between  p-3"
                                             >
                                                 <div class="d-flex align-items-center">
                                                 <span class="booking-icon">
-                                                <i class="far fa-wallet"></i>
+                                                <i class="fal fa-wallet"></i>
                                             </span>
                                                     <span class="text-gray-2 dd-txt pe-2"
                                                     >
@@ -523,7 +523,7 @@
                                                                 class="row justify-content-between align-items-center mb-3  mt-lg-0 mt-3 small"
                                                             >
                                                                 <div class="col-auto">
-                                      <span class="text-main number-ads">@lang('site.id number'){{$aqar->id}})</span >
+                                      <span class="text-main number-ads">@lang('site.id number'){{$aqar->id}}</span >
                                                                 </div>
                                                                 <div class="col-auto">
                                                                     <div
@@ -549,11 +549,11 @@
                                                             </h2>
 
                                                             <div class="gray-txt number-ads">
-                                                            <i class="far fa-map-marker-alt"></i>
+                                                            <i class="fal fa-map-marker-alt"></i>
                                                                 <span> {{$aqar->country->name ?? ''}} , {{$aqar->city->name ?? ''}}</span>
                                                             </div>
                                                             <div class="pt-2">
-                                                          <span class="road-ic"><i class="far fa-road"></i></span>
+                                                          <span class="road-ic"><i class="fal fa-road"></i></span>
                                                             <span class="position-department">
                                                              {!! html_entity_decode($aqar->description) !!}
                                                             </span>
@@ -622,11 +622,11 @@
                                             class="booking-dd-btn d-flex align-items-center justify-content-center mb-1"
                                         >
                                             <a href="#">
-                                            <span class>
-                                            <i class="far fa-book-open"></i>
+                                            <span>
+                                            <i class="fal fa-book-open"></i>
                                             </span>
-                                                                        <span class="pe-2">@lang('site.My bookings')</span>
-                                                                        <span class="pe-3">
+                                                    <span class="pe-2">@lang('site.My bookings')</span>
+                                                    <span class="pe-3">
                                                 <i class="fas fa-chevron-left"></i>
                                             </span>
                                             </a>
@@ -693,11 +693,11 @@
                                                                 </h2>
 
                                                                 <div class="gray-txt number-ads">
-                                                                <i class="far fa-map-marker-alt"></i>
+                                                                <i class="fal fa-map-marker-alt"></i>
                                                                     <span>{{$book->aqar->country->name ?? ''}},{{$book->aqar->city->name ?? ''}} </span>
                                                                 </div>
                                                                 <div class="pt-2">
-                                                         <span class="booking-icon"><i class="far fa-road  text-main"></i></span>
+                                                         <span class="booking-icon"><i class="fal fa-road  text-main"></i></span>
                                                                     <span class="text-main position-department">
                                                              {!! html_entity_decode(substr($book->aqar->description, 0, 125)) !!}
 
@@ -728,7 +728,7 @@
                                                                             >
                                                                                 <div class="d-flex align-items-center">
                                                                                 <span class="booking-icon">
-                                                                                <i class="far fa-wallet text-main"></i>
+                                                                                <i class="fal fa-wallet text-main"></i>
                                                                                 </span>
                                                                                     <span class="text-gray-2 pe-1 ps-2">
                                                                                          @lang('site.Reservation deposit'):
@@ -752,7 +752,7 @@
                                                                                         @lang('site.booking_status'):
                                                                                     </span>
                                                                                     <span class="px-1 booking-icon">
-                                                                                    <i class="far fa-clock text-main"></i>
+                                                                                    <i class="fal fa-clock text-main"></i>
                                                                                     </span>
 
                                                                                 </div>

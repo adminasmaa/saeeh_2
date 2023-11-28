@@ -785,23 +785,7 @@
                                             >
                                                 <div>
                                                     <div>
-                                <span
-                                ><svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="34"
-                                        height="36"
-                                        viewBox="0 0 34 36"
-                                        fill="none"
-                                    >
-                                    <path
-                                        d="M18.3409 28.2434L29.5832 35.0288L26.5998 22.2402L36.5324 13.6356L23.4527 12.5259L18.3409 0.464966L13.2291 12.5259L0.149414 13.6356L10.082 22.2402L7.09856 35.0288L18.3409 28.2434Z"
-                                        fill="#FF8600"
-                                    /></svg
-                                    ></span>
-
-
-
-
+                                                     <span class="star-review"><i class="fas fa-star"></i></span>
                                                         <span class="text-second"> ({{$car->CarReview->count() ?? 0 }})</span>
                                                     </div>
                                                     <div
@@ -918,23 +902,11 @@
                                         <div class="department-badge bg-main text-white">
                                             <div class="pt-1">{{$comment->rating ?? 0}}</div>
                                             <div>
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="25"
-                                                    height="25"
-                                                    viewBox="0 0 25 25"
-                                                    fill="none"
-                                                >
-                                                    <path
-                                                        d="M12.7529 19.6185L20.1689 24.3301L18.2009 15.4501L24.7529 9.47534L16.1249 8.70481L12.7529 0.330078L9.38093 8.70481L0.75293 9.47534L7.30493 15.4501L5.33693 24.3301L12.7529 19.6185Z"
-                                                        fill="white"
-                                                    />
-                                                </svg>
+                                            <i class="fas fa-star"></i>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <hr class="hr-saeeh"/>
                                 </div>
                             @endforeach
                         </div>

@@ -428,9 +428,7 @@
                                         </div>
                                     </div>
                                     <div class="col-12 d-flex justify-content-center my-md-5 my-2">
-                                        <div
-                                            class="booking-now-btn py-4 d-flex justify-content-center align-items-center"
-                                        >
+                                        <div class="booking-now-btn py-4 d-flex justify-content-center align-items-center"  >
                                             <a href="{{route('bookingaquars',$aquar->id)}}">@lang('site.book')</a>
                                         </div>
                                     </div>
