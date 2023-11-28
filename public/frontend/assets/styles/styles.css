@@ -5931,7 +5931,7 @@ tr {
 .dropdown-container .dropdown-toggle {
     background-color: var(--m-main);
     width: 220px;
-    height: 50px;
+    height: 46px;
     padding-right: 15px;
     border-radius: var(--rounded-main);
     font-size: 16px;
@@ -6193,4 +6193,13 @@ content: unset;
 .details-car-ic i{
 color: var(--m-gray-4);
 font-size: 20px;
+}
+.dropdown-register{
+    width: 175px;
+    height: 46px;
+}
+
+.car-sid-icon i{
+    font-size: 18px;
+    color: var(--m-gray-4);
 }
