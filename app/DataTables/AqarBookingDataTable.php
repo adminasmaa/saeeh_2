@@ -62,21 +62,25 @@ class AqarBookingDataTable extends DataTable
             ->addColumn('status', function ($model) {
 
 
-                return '           
-       
-                <div class="dropdown">
-                <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                    عمليات
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
-                    <li><a class="dropdown-item" href="'.route('dashboard.acceptbooking' , $model->id).'">'.trans('site.accepted').'</a></li>
-                    <li><a class="dropdown-item" href="'.route('dashboard.rejectbooking' , $model->id).'">'.trans('site.reject').'</a></li>
-                </ul>
-               </div>
-                
-                
-                ';
-              
+                            
+                $output = '';
+                $output .='<div class="dropdown">
+                    <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        عمليات
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">';
+                    if($model->booking_status_id==1){
+                        $output .='<li><a class="dropdown-item" href="'.route('dashboard.acceptbooking' , $model->id).'">'.trans('site.accepted').'</a></li>
+                        <li><a class="dropdown-item" href="'.route('dashboard.rejectbooking' , $model->id).'">'.trans('site.reject').'</a></li>';
+                    }
+                    if($model->booking_status_id==3){
+                        $output .='<li><a class="dropdown-item" href="'.route('dashboard.attendbooking' , $model->id).'">'.trans('site.attend').'</a></li>
+                        <li><a class="dropdown-item" href="'.route('dashboard.notattendbooking' , $model->id).'">'.trans('site.notattend').'</a></li>';
+                    }
+                    
+                '</ul>
+               </div>';
+               return $output ;
 
             })
             ->addColumn('action', function ($model) {

@@ -811,12 +811,12 @@
                                                            class="place_id">
 
 
-                                                    <input type="radio" id="star11" name="rate" value="1"
+                                                    <input type="radio" id="star11" name="rate" value="5"
                                                            class="rate"/>
                                                     <label for="star11" title="text">1 star</label>
 
 
-                                                    <input type="radio" id="star22" name="rate" value="2"
+                                                    <input type="radio" id="star22" name="rate" value="4"
                                                            class="rate"/>
                                                     <label for="star22" title="text">2 stars</label>
 
@@ -824,10 +824,10 @@
                                                            class="rate"/>
                                                     <label for="star33" title="text">3 stars</label>
 
-                                                    <input type="radio" id="star44" name="rate" value="4"
+                                                    <input type="radio" id="star44" name="rate" value="2"
                                                            class="rate"/>
                                                     <label for="star44" title="text">4 stars</label>
-                                                    <input type="radio" id="star55" name="rate" value="5"
+                                                    <input type="radio" id="star55" name="rate" value="1"
                                                            class="rate"/>
                                                     <label for="star55" title="text">5 stars</label>
 

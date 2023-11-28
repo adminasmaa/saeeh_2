@@ -194,30 +194,8 @@
                           class="card-city-body d-flex justify-content-between align-items-center"
                         >
                           <h2 class=" card-title">{{$city->name ?? ''}}</h2>
-                          <div
-                            class="d-flex justify-content-center align-items-center"
-                          >
-                            <div class="city-badge bg-main text-white ms-2">
-                              <div>5</div>
-                              <div class="mb-2">
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="17"
-                                  height="20"
-                                  viewBox="0 0 17 20"
-                                  fill="none"
-                                >
-                                  <path
-                                    d="M8 15.8589L12.944 19L11.632 13.08L16 9.09684L10.248 8.58316L8 3L5.752 8.58316L0 9.09684L4.368 13.08L3.056 19L8 15.8589Z"
-                                    fill="white"
-                                  />
-                                </svg>
-                              </div>
-                            </div>
-                            <div class="city-number-ads gray-txt">
-{{--                              64 من التقييمات--}}
-                            </div>
-                          </div>
+
+
                         </div>
                       </a>
                       </div>
@@ -247,6 +225,11 @@
         </div>
         @endif
       </section>
+
+    @if(!empty(auth()->user()))
+
+    @else
+
       <section class="d-lg-flex">
         <div class="right-container bg-main d-flex align-items-center py-lg-0 py-4">
             <div class="right-container-content">
@@ -269,6 +252,8 @@
             background-image: url('{{FRONTASSETS}}/images/countries/footer-image.png');
           "></div>
     </section>
+
+    @endif
 
     </main>
 @endsection

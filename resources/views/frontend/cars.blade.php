@@ -1249,7 +1249,10 @@
                             $(`#favouritess${id} i`).addClass('far').removeClass('fas');
                         else if (result.status == 'added')
                             $(`#favouritess${id} i`).addClass('fas').removeClass('far');
-                        console.log(result);
+
+                        else if (result.status == 'auth')
+                            window.location.href = '{{route('sitelogin')}}';
+
                     },
                     error: function (err) {
                         console.log(err)

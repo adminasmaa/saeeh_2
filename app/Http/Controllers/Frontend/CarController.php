@@ -148,30 +148,39 @@ class CarController extends Controller
     public function favouritCar(Request $request, $id)
     {
 
+        if (auth()->user()) {
+            $user_id = Auth::id();
 
-        $user_id = Auth::id();
-
-        $users = User::find($user_id);
+            $users = User::find($user_id);
 
 
-        $user = $users->favourite_car()->toggle($id);
+            $user = $users->favourite_car()->toggle($id);
 
-        $status = ($user['attached'] !== []) ? 'added' : 'deleted';
+            $status = ($user['attached'] !== []) ? 'added' : 'deleted';
 
-        return response()->json(['status' => $status, 'content' => 'success']);
+            return response()->json(['status' => $status, 'content' => 'success']);
+        } else {
 
+            return response()->json(['status' => 'auth', 'content' => 'login']);
+
+        }
 
     }
 
     public function favouritPlace(Request $request, $id)
     {
+        if (auth()->user()) {
+            $user_id = Auth::id();
+            $users = User::find($user_id);
+            $user = $users->favourite_place()->toggle($id);
+            $status = ($user['attached'] !== []) ? 'added' : 'deleted';
+            return response()->json(['status' => $status, 'content' => 'success']);
+        } else {
 
-        $user_id = Auth::id();
-        $users = User::find($user_id);
-        $user = $users->favourite_place()->toggle($id);
-        $status = ($user['attached'] !== []) ? 'added' : 'deleted';
-        return response()->json(['status' => $status, 'content' => 'success']);
+            return response()->json(['status' => 'auth', 'content' => 'login']);
 
+
+        }
     }
 
     public function diffInDays($date1, $date2)

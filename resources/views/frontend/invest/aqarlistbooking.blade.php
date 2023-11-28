@@ -9,12 +9,12 @@
         <nav class="breadcrumb-container" aria-label="breadcrumb">
           <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item">
-              <a href="javascript:void(0)"> الرئيسية </a>
+              <a href="javascript:void(0)"> @lang('site.home') </a>
             </li>
 
             <li class="breadcrumb-item text-main" aria-current="page">
-            @if(!is_numeric($current_route))  الحجوزات
-            @else حجوزات اعلان رقم ({{$current_route}})
+            @if(!is_numeric($current_route))   @lang('site.bookings')
+            @else @lang('site.booking_ads_no') ({{$current_route}})
             @endif
           </li>
           </ol>
@@ -30,32 +30,32 @@
             <ul class="tabs-nav-details list-unstyled mb-0 tabs-in-mobile flex-wrap">
               <li class="{{$current_route=='all'?'tab-active':'' }}">
                 <a href="{{route('invst.listbookings','all')}}" class="tab-link d-flex align-items-center justify-content-center">
-                  كل الحجوزات
+                  @lang('site.all_bookings')
                 </a>
               </li>
               <li class="{{$current_route=='app'?'tab-active':'' }}">
                 <a href="{{route('invst.listbookings','app')}}" class="tab-link d-flex align-items-center justify-content-center">
-                  حجوزات التطبيق
+                @lang('site.application_bookings')
                 </a>
               </li>
               <li class="{{$current_route=='ext'?'tab-active':'' }}">
                 <a href="{{route('invst.listbookings','ext')}}" class="tab-link d-flex align-items-center justify-content-center">
-                  حجوزات خارجية
+                @lang('site.external_bookings')
                 </a>
               </li>
               <li class="{{$current_route=='web'?'tab-active':'' }}">
                 <a href="{{route('invst.listbookings','web')}}" class="tab-link d-flex align-items-center justify-content-center">
-                  حجوزات الموقع
+                @lang('site.website_bookings')
                 </a>
               </li>
               <li class="{{$current_route=='cancel'?'tab-active':'' }}">
                 <a href="{{route('invst.listbookings','cancel')}}" class="tab-link d-flex align-items-center justify-content-center">
-                  حجوزات الملغاه
+                @lang('site.canceled_bookings')
                 </a>
               </li>
               <li class="{{$current_route=='archef'?'tab-active':'' }}">
                 <a href="{{route('invst.listbookings','archef')}}" class="tab-link d-flex align-items-center justify-content-center">
-                  الارشيف  
+                @lang('site.archives')
                 </a>
               </li>
              
@@ -72,7 +72,7 @@
                       <div class="row">
                         <div class="col-lg-8">
                           <input type="search" class="form-control w-100"
-                            placeholder=" رقم الحجز /رقم الاعلان "   name="search_id"
+                            placeholder="@lang('site.booking_no_ads_no')"   name="search_id"
                           value="{{ request()->get('search_id') }}"/>
                         </div>
                         <div class="col-lg-4">
@@ -254,9 +254,7 @@
                             </div>
                           </div>
                           <div class="col-lg-9">
-                            <div
-                              class="card-body position-relative px-lg-3 px-0 h-100"
-                            >
+                            <div  class="card-body position-relative px-lg-3 px-0 h-100">
                               <div class="d-md-flex">
                                 <div class="ads-left-border">
                                   <div class="mb-2">
@@ -264,7 +262,8 @@
                                       ><i class="fal fa-list-ol"></i
                                     ></span>
                                     <span class="aqar-booking-item"
-                                      >رقم الإعلان :
+                                      > @lang('site.ads_number') :
+
                                     </span>
                                     <span class="aqar-booking-item">{{$item->aqar_id}}</span>
                                   </div>
@@ -273,7 +272,7 @@
                                       ><i class="fal fa-list-ol"></i
                                     ></span>
                                     <span class="aqar-booking-item">
-                                      رقم الحجز :
+                                      @lang('site.booking_number') :
                                     </span>
                                     <span class="aqar-booking-item">{{$item->book_id}}</span>
                                   </div>
@@ -282,7 +281,7 @@
                                       ><i class="fal fa-list-ol"></i
                                     ></span>
                                     <span class="aqar-booking-item">
-                                      جهة الحجز :
+                                      @lang('site.booking_destination') :
                                     </span>
                                     <span class="aqar-booking-item">
                                     {{trans( $item->type)}}</span
@@ -293,7 +292,7 @@
                                       ><i class="fal fa-calendar-alt"></i
                                     ></span>
                                     <span class="aqar-booking-item"
-                                      >تاريخ الوصول :
+                                    > @lang('site.date_of_arrival') :  
                                     </span>
                                     <span class="aqar-booking-item">
                                     {{$item->delivery_date}}</span
@@ -304,7 +303,7 @@
                                       ><i class="fal fa-calendar-alt"></i
                                     ></span>
                                     <span class="aqar-booking-item">
-                                      تاريخ المغادرة :
+                                      @lang('site.date_of_departure') :
                                     </span>
                                     <span class="aqar-booking-item"
                                       > {{$item->reciept_date}}</span
@@ -317,17 +316,17 @@
                                       ><i class="fal fa-calendar-alt"></i
                                     ></span>
                                     <span class="aqar-booking-item">
-                                      الأيام :
+                                      @lang('site.days') :
                                     </span>
                                     <span class="aqar-booking-item">
-                                    {{$item->day_count}} أيام</span>
+                                    {{$item->day_count}} @lang('site.day')</span>
                                   </div>
                                   <div class="padding-ads mb-2">
                                     <span class="aqar-booking-i"
                                       ><i class="fal fa-wallet"></i
                                     ></span>
                                     <span class="aqar-booking-item">
-                                      المبلغ الاجمالي :
+                                      @lang('site.total_price') :
                                     </span>
                                     <span class="aqar-booking-item">
                                     {{$item->total_price}} {{$item->currency_ar}}</span
@@ -338,7 +337,7 @@
                                       ><i class="fal fa-wallet"></i
                                     ></span>
                                     <span class="aqar-booking-item">
-                                      العربون :
+                                     @lang('site.deposits') :
                                     </span>
                                     <span class="aqar-booking-item">
                                     {{$item->total_price/$item->day_count}} {{$item->currency_ar}}</span
@@ -349,7 +348,7 @@
                                       ><i class="fal fa-clock"></i
                                     ></span>
                                     <span class="aqar-booking-item">
-                                      ساعة الوصول :
+                                    @lang('site.arrival hour') :
                                     </span>
                                     <span class="aqar-booking-item"
                                       > {{date('h:i a', strtotime($item->time_from))}}</span
@@ -360,7 +359,7 @@
                                       ><i class="fal fa-clock"></i
                                     ></span>
                                     <span class="aqar-booking-item">
-                                      ساعة المغادرة :
+                                    @lang('site.departure_hour') :
                                     </span>
                                     <span class="aqar-booking-item"
                                       >{{date('h:i a', strtotime($item->time_to))}} </span
@@ -369,9 +368,9 @@
                                 </div>
                               </div>
                               <div class="ads-status w-aqar-status my-3">
-                                <span> حالة الاعلان : </span>
+                                <span> @lang('site.ads_status') : </span>
                                 <span class="mt-md-0 mt-2">
-                                  <span class="ads-status-sure">مؤكد</span>
+                                  <span class="ads-status-sure">@lang('site.confirmed') </span>
                                   <span class="px-1">
                                     <i class="far fa-alarm-clock text-main"></i>
                                   </span>
@@ -383,7 +382,7 @@
                           <li class="liItem-booking-out">
                           <form action="{{route('invst.accept' , $item->book_id )}}" method="GET" style="display: inline-block" id="acceptForm{{$item->book_id}}">
                             @csrf
-                            <a type="button" onclick="confirmAction('accept',{{$item->book_id}},'@lang('site.accept booking')','{{FRONTASSETS}}/images/accept.png',150,150)" id="accept" class="liItem-link">قبول</a>  
+                            <a type="button" onclick="confirmAction('accept',{{$item->book_id}},'@lang('site.accept booking')','{{FRONTASSETS}}/images/accept.png',150,150)" id="accept" class="liItem-link">@lang('site.accepted')</a>  
                           </form>
                           </li>
                           @endif
@@ -393,7 +392,7 @@
                             @csrf  
                             <input type="hidden" name="id" value="{{$item->book_id}}">
                             <input type="hidden" name="cancel_reason" class="cancel_reason" value="{{$item->book_id}}">
-                            <a type="button" onclick="confirmcancel('cancel',{{$item->book_id}},'@lang('site.cancel booking')','{{FRONTASSETS}}/images/cancel.png')" id="cancel" class="liItem-link">الغاء الحجز</a>  
+                            <a type="button" onclick="confirmcancel('cancel',{{$item->book_id}},'@lang('site.cancel booking')','{{FRONTASSETS}}/images/cancel.png')" id="cancel" class="liItem-link">@lang('site.cancle_reason')</a>  
                           </form>
                           </li>
                           @endif
@@ -404,8 +403,7 @@
                             <a type="button" onclick="confirmAction('attend',{{$item->book_id}},'@lang('site.attend booking')','{{FRONTASSETS}}/images/attend.png',300,200)" id="attend" class="liItem-link"
                             >
                             <i class="far fa-user-check"></i>
-                            حضور
-                          
+                            @lang('site.presence')
                           </a>  
                           </form>
                            </li>
@@ -415,14 +413,14 @@
                             @csrf
                             <a type="button" onclick="confirmAction('notattend',{{$item->book_id}},'@lang('site.not attend booking')','{{FRONTASSETS}}/images/notattend.png',150,150)" id="notattend" class="liItem-link">
                             <i class="far fa-user-times"></i>
-                            عدم حضور</a>  
+                            @lang('site.absence')</a>  
                           </form>
                            </li>
                            @endif
                            <li class="liItem-booking">
                             <a href="{{route('invst.bookingDetails' , $item->book_id)}}" class="liItem-link">
                             <i class="far fa-book-open"></i>
-                             معلومات الحجز
+                              @lang('site.Reservation information')
                             </a>
                            </li>
 
@@ -495,7 +493,7 @@
                   <div class="col-12 mb-5">
                     <div class="card-empty d-md-flex  align-items-center">
                   
-                        <div class="card-empty-txt">لا يوجد حجوزات</div>
+                        <div class="card-empty-txt"> @lang('site.no_bookings')</div>
                         <div>
                           <img src="{{FRONTASSETS}}/images/booking-investor/empty-ic.svg" alt="empty icon">
                         </div>
