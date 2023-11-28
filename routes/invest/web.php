@@ -24,6 +24,8 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
     Route::prefix('invst')->name('invst.')->group(function () {
     Route::get('register', 'App\Http\Controllers\Frontend\Investor\AuthController@register')->name('register');
     Route::post('createaccount', 'App\Http\Controllers\Frontend\Investor\AuthController@createaccount')->name('createaccount');
+    Route::get('login', 'App\Http\Controllers\Frontend\Investor\AuthController@login')->name('login');
+    Route::post('checklogin', 'App\Http\Controllers\Frontend\Investor\AuthController@checklogin')->name('checklogin');
     Route::get('countrycities/{id}', 'App\Http\Controllers\Frontend\Investor\HomeController@countrycities')->name('countrycities');
     Route::get('confirmcode/{id}', 'App\Http\Controllers\Frontend\Investor\AuthController@confirmcode')->name('confirmcode');
     Route::post('confirmtion', 'App\Http\Controllers\Frontend\Investor\AuthController@confirmtion')->name('confirmtion');

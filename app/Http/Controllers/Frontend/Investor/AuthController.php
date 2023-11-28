@@ -171,6 +171,35 @@ class AuthController extends Controller
 
     }
 
+    public function login()
+    {
+        $countries = Country::where('active', '=', 1)->get();
+
+        return view('frontend.invest.login' , compact('countries'));
+
+
+    }
+
+    public function checklogin(Request $request)
+    {
+
+        $this->validate($request,[
+            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'password' => 'required|min:6',
+        ]);
+
+        if (auth()->attempt(['country_code' => $request->country_code, 'phone' => $request->phone, 'password' => $request->password])) {
+            $user = Auth::user();
+            Auth::login($user);
+            return redirect()->route('invst.home');
+        }else{
+            return redirect()->back()
+                ->with('error',__('message.wrong credientials'));
+        }
+
+    }
+
+
    
     
 }
