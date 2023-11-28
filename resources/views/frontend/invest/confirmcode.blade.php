@@ -9,7 +9,7 @@
           <nav class="breadcrumb-container" aria-label="breadcrumb">
             <ol class="breadcrumb mb-0">
               <li class="breadcrumb-item">
-                <a href="javascript:void(0)"> الرئيسية </a>
+                <a href="javascript:void(0)"> @lang('site.home') </a>
               </li>
               <li>
                 <span><svg
@@ -27,7 +27,7 @@
               </li>
 
               <li class="breadcrumb-item text-gray-4" aria-current="page">
-                كود التفعيل 
+                  @lang('site.activation code')
               </li>
             </ol>
           </nav>
@@ -43,11 +43,11 @@
             {{ csrf_field() }}
             <div class="row">
               <div class="col-12 mb-3">
-                <h2 class="verification_title">ادخال كود التفعيل</h2>
+                <h2 class="verification_title"> @lang('site.enter_activation_code') </h2>
               </div>
               <div class="col-lg-6 order-mobile-1">
                 <div class="activatiopn-txt">
-                  تم ارسال كود لرقم الهاتف المسجل وهو
+                @lang('site.a code has been sent to the registered phone number')
                   <span class="text-gray-2">{{$invest->country_code}}{{$invest->phone}}</span>
                 </div>
                 <div class="verification__timeout">
@@ -101,11 +101,11 @@
                     <button
                       type="submit"
                     >
-                      تأكيد
+                    @lang('site.to be sure')
                     </button>
                   </div>
                   <div class="second-btn">                   
-                    <a type="button"  href="{{route('invst.resendcode' , $invest->id)}}" >اعادة ارسال</a>  
+                    <a type="button"  href="{{route('invst.resendcode' , $invest->id)}}" > @lang('site.send again') </a>  
                   </div>
                 </div>
               </div>
@@ -151,9 +151,9 @@
                   alt="check icon"
                 />
 
-                <h3 class="fw-bold text-second">تم تفعيل الكود بنجاح</h3>
+                <h3 class="fw-bold text-second">@lang('site.The code has been activated successfully') </h3>
                 <div class="main-btn w-100 mt-md-5 mt-4">
-                  <button type="button" data-bs-dismiss="modal">اغلاق</button>
+                  <button type="button" data-bs-dismiss="modal">@lang('site.closed')</button>
                 </div>
               </div>
             </div>

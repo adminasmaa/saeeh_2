@@ -59,6 +59,8 @@ return [
     'next' => 'التالي',
     "cancel reseon" => 'سبب الغاء الحجز',
     'receipt_hour' => "ساعة المغادره",
+    'paid' => 'المدفوع',
+    'residual' => 'المتبقى',
     'A reservation deposit is required to confirm the reservation' => 'يجب دفع عربوون حجز لتأكيد الحجز',
     'arrival hour' => 'ساعة الوصول',
     'Go to the restaurant' => 'التوجه الي المطعم',
@@ -105,15 +107,15 @@ return [
     'booking_number' => 'رقم الحجز',
     'booking_destination' => 'جهة الحجز',
     'date_of_arrival' => 'تاريخ الوصول',
-
-
-
-
-
-
+    'date_of_departure' => 'تاريخ المغادرة',
+    'days' => 'الأيام',
+    'day' =>'أيام',
+    'total_price' => 'المبلغ الاجمالي',
+    'departure_hour' => 'ساعة المغادرة',
+    'ads_status' => 'حالة الاعلان',
     'Price summary' => 'ملخص السعر',
     'Reservation deposit' => 'عربون حجز',
-
+    'Name of the manager' => 'اسم المسئول',
     'Restaurant menu link' => 'رابط منيو المطعم',
     'communication' => "اتصال",
     'If you have an inquiry' => 'إذا كان لديك استفسار',
@@ -163,6 +165,8 @@ return [
     'place_categories' => 'الفئات',
     'deposits' => 'العربون',
     'deposit' => 'العربون',
+    'Category' => 'الفئة',
+    'category_information' => 'معلومات الفئة ',
     'aquarbooking' => 'حجوزات العقارات',
     'bookings' => 'حجوزات السيارات',
     'aqar_comments' => 'تعليقات العقارات ',
@@ -181,7 +185,6 @@ return [
     'delivery hour' => 'ساعة التسليم ',
     'Reservation and cancellation conditions' => 'شروط الحجز والالغاء',
     'Reservation information' => 'معلومات الحجز ',
-
     'Explore the most famous cities' => 'استكشف اشهر مدن',
     'through site' => ' من خلال موقع',
     'saeeeeeeh' => 'ســــــــــــــــــــائح',
@@ -190,14 +193,16 @@ return [
     'The most famous cities' => 'أشهر مدن',
     'Get instant discounts' => 'احصل علي خصومات  فورية',
     'All you have to do is log in to' => 'ماعليك سوي تسجيل الدخول علي',
-
+    'Which cancellation and return policy suits you ?' => 'أى سياسة إلغاء وإسترجاع تتناسب معك ؟',
     'reviewElements' => '  عناصر التقييمات',
-
+    'The customer will be shown the existing reservation conditions at the time of his reservation' => 'سوف يظهر للعميل شروط الحجز الموجوده وقت ماتم حجزه',
     'aqar_reviews' => ' تقييمات العقارات ',
     'car_reviews' => ' تقييمات السيارات ',
     'place_reviews' => ' تقييمات الاماكن ',
     'car_bookings' => ' حجوزات السيارات ',
     'price_day' => 'سعر اليوم',
+    'To edit or write conditions' => 'لتعديل او كتابة شروط',
+    'Terms and Conditions' => 'الشروط والاحكام' ,
 
     'sections' => 'الأقسام',
     'day_numbers' => 'عدد الايام',
@@ -237,7 +242,7 @@ return [
     'operation' => 'عملية',
     'amount' => 'كميات',
     'date' => 'تاريخ الحجز',
-    'cancle_reason' => ' الغاء الحجز',
+    'cancle_reason' => 'الغاء الحجز',
     'link' => 'الرابط الخاصة',
     'offertime' => 'بعض الوقت',
     'find_your_favorite_country' => 'ابحث عن دولتك المفضلة',
@@ -263,6 +268,7 @@ return [
     'canceled_bookings' => 'حجوزات الملغاه',
     'archives' => 'الارشيف',
     'booking_no_ads_no' => 'رقم الحجز /رقم الاعلان',
+    'booking_no' => 'رقم الحجز',
     'reference' => 'المرجع',
     'videos' => 'الفيديو',
     'image at least two' => 'الصورة(على الاقل صورتين)',
@@ -275,7 +281,8 @@ return [
     'no_bookings' => 'لا يوجد حجوزات',
     'person_number' => ' عدد الاشخاص ',
     'please_write_specifications' => 'يرجي كتابة المواصفات',
-
+    'booking_price' => 'مبلغ الحجز',
+    'Commission_paid' => 'دفع العمولة',
     'namessss' => 'أسم الملف',
     'add_external_booking' => 'اضافة حجز خارجى',
     'ad' => 'اعلان',
@@ -283,7 +290,9 @@ return [
     'national' => 'الجنسية',
     'hours' => 'عدد ساعات العمل اليومية',
     'date_of_departure' => 'تاريخ المغادرة',
-
+    'pay' => 'دفع',
+    'There are no commissions' => 'لا يوجد عمولات',
+    'Confirm payment' => 'تاكيد الدفع',
     'others' => 'أخرى',
 
     'prompt' => 'فوري',
@@ -301,12 +310,12 @@ return [
     // 'os' => 'نظام التشغيل',
 
     'web' => 'الويب',
-
-
+    'presence' => 'حضور',
+    'absence' => 'عدم حضور',
     'reference_name' => 'الاسم المرجعي',
     'variants' => 'المتغيرات',
     'add_new_option' => 'إضافة متغير جديد',
-
+    'paid commissions' => 'عمولات مدفوعه',
     'imagess' => 'صور اضافية',
     'commission' => 'العمولة',
     'desc_en' => 'الوصف بالانجليزية',
@@ -316,7 +325,7 @@ return [
     'comment' => 'تعليقات',
     'Cancel' => 'إلغاء',
     'copy' => 'نسخ',
-
+    'unpaid commissions' => 'عمولات غير مدفوعه',
     'cost' => 'التكلفة',
     'selected' => 'اختيار',
     'position' => 'وضع',
@@ -331,7 +340,9 @@ return [
     'NOT_PAID' => 'لم يتم السداد',
     'PAID' => 'تم السداد',
     'confirm_remove' => 'هل انت متأكد من الانتقال إلى متجر جديد',
-
+    'to be sure' => 'تأكيد',
+    'send again' => 'اعادة ارسال',
+    'client_information' => ' معلومات العميل' ,
     'answer' => 'الرد',
     'refuse' => 'لم يتم السداد',
     'accept' => 'تم السداد',
@@ -340,6 +351,8 @@ return [
     'brand_name_ar' => 'اسم العلامة التجارية بالعربي',
 
     'country_code' => 'كود الدولة',
+    'print' => 'طباعة',
+    'Ads_number' => 'رقم الاعلان',
 
     'ok' => 'حفظ',
     'distance' => 'المسافة',
@@ -405,7 +418,7 @@ return [
     'youtube' => 'موقع YouTube',
     'snapchat' => 'سناب شات',
     'ads_number' => 'اعلان رقم',
-
+    'The code has been activated successfully' => 'تم تفعيل الكود بنجاح',
     'create account' => 'مستخدم جديد',
     'login' => 'سجل الدخول ',
     'another serviecs' => 'خدمات مختلفه',
@@ -497,7 +510,7 @@ return [
     'add_faild' => 'حدث خطأ .. لم تتم عملية الاضافة !',
     'update_faild' => 'حدث خطأ .. لم تتم عملية التعديل !',
     'delete_faild' => 'حدث خطأ .. لم تتم عملية الحذف !',
-
+    'phone_number' => 'رقم الهاتف',
     'no_data_found' => 'للاسف لا يوجد اي سجلات',
     'total_amount' => 'المبلغ الاجمالى',
     'number_of_days' => 'عدد الايام',
@@ -622,10 +635,11 @@ return [
     'icon' => 'الايقونه',
     'pages' => ' الصفحات',
     'addss' => 'اضف مدن جديدة',
-
+    'activation code' => 'كود التفعيل',
     'massages' => 'الرسائل',
     'user_type' => 'نوع المستخدم',
-
+    'enter_activation_code' => 'ادخال كود التفعيل',
+    'a code has been sent to the registered phone number' => 'تم ارسال كود لرقم الهاتف المسجل وهو',
     'file_attchment' => 'تحميل الملف',
     'download_file' => 'تحميل الملف',
     'orderDetail' => 'تفاصيل الطلبات',

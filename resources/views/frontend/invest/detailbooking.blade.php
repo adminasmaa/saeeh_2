@@ -89,7 +89,7 @@
               <nav class="navbar navbar-expand-lg">
                 <button type="button"  id="printPageButton"  class="btn btn-main btn-print" onclick="window.print()">
                   <span><i class="far fa-print"></i></span>
-                  طباعة
+                  @lang('site.print')
                 </button>
               </nav>
             </div>
@@ -143,7 +143,8 @@
             <div class="customer-info-body p-md-5 p-3 position-relative">
               <div class="row">
                 <div class="customer-info-title">
-                  <span> معلومات العميل</span>
+                  <span> @lang('site.client_information')
+                  </span>
                 </div>
                 <div class="col-12 custom-table customer-info-table table-responsive">
                   <table class="table table-bordered table-sm">
@@ -154,7 +155,7 @@
                             <div class="mt-2">
                               <i class="far fa-user-circle"></i>
                             </div>
-                            <div class="th-txt">الاسم</div>
+                            <div class="th-txt"> @lang('site.name') </div>
                           </div>
                         </th>
 
@@ -173,7 +174,7 @@
                             <div class="mt-2">
                               <i class="far fa-list-ol"></i>
                             </div>
-                            <div class="th-txt">رقم الحجز</div>
+                            <div class="th-txt"> @lang('site.booking_number') </div>
                           </div>
                         </td>
 
@@ -187,7 +188,7 @@
                             <div class="mt-2">
                               <i class="fal fa-calendar-alt"></i>
                             </div>
-                            <div class="th-txt">تاريخ الوصول</div>
+                            <div class="th-txt"> @lang('site.date_of_arrival')</div>
                           </div>
                         </td>
 
@@ -201,7 +202,7 @@
                             <div class="mt-2">
                               <i class="fal fa-calendar-alt"></i>
                             </div>
-                            <div class="th-txt">تاريخ المغادرة</div>
+                            <div class="th-txt"> @lang('site.date_of_departure') </div>
                           </div>
                         </td>
 
@@ -215,7 +216,7 @@
                             <div class="mt-2">
                               <i class="far fa-clock"></i>
                             </div>
-                            <div class="th-txt">ساعة الوصول</div>
+                            <div class="th-txt"> @lang('site.arrival hour') </div>
                           </div>
                         </td>
 
@@ -229,7 +230,7 @@
                             <div class="mt-2">
                               <i class="far fa-clock"></i>
                             </div>
-                            <div class="th-txt">ساعة المغادرة</div>
+                            <div class="th-txt"> @lang('site.receipt_hour') </div>
                           </div>
                         </td>
 
@@ -243,7 +244,7 @@
                             <div class="mt-2">
                               <i class="far fa-wallet"></i>
                             </div>
-                            <div class="th-txt">المدفوع</div>
+                            <div class="th-txt"> @lang('site.paid') </div>
                           </div>
                         </td>
 
@@ -257,7 +258,7 @@
                             <div class="mt-2">
                               <i class="far fa-wallet"></i>
                             </div>
-                            <div class="th-txt">المتبقى</div>
+                            <div class="th-txt">@lang('site.residual')</div>
                           </div>
                         </td>
 
@@ -271,7 +272,7 @@
                             <div class="mt-2">
                               <i class="far fa-wallet"></i>
                             </div>
-                            <div class="th-txt">العربون</div>
+                            <div class="th-txt"> @lang('site.deposit')</div>
                           </div>
                         </td>
 
@@ -285,7 +286,7 @@
               </div>
               <div class="row">
                 <div class="customer-info-title">
-                  <span> معلومات الفئة </span>
+                  <span> @lang('site.category_information')</span>
                 </div>
 
                 <div class="col-12 custom-table customer-info-table table-responsive">
@@ -297,7 +298,7 @@
                             <div class="mt-2">
                               <i class="far fa-user-circle"></i>
                             </div>
-                            <div class="th-txt">اسم المسئول </div>
+                            <div class="th-txt"> @lang('site.Name of the manager') </div>
                           </div>
                         </th>
 
@@ -315,7 +316,7 @@
                             <div class="mt-2">
                               <i class="far fa-th-list"></i>
                             </div>
-                            <div class="th-txt">الفئة</div>
+                            <div class="th-txt"> @lang('site.Category') </div>
                           </div>
                         </td>
                         <td>
@@ -328,7 +329,7 @@
                             <div class="mt-2">
                               <i class="far fa-list-ol"></i>
                             </div>
-                            <div class="th-txt">رقم الاعلان </div>
+                            <div class="th-txt"> @lang('site.Ads_number') </div>
                           </div>
                         </td>
 
@@ -342,7 +343,7 @@
                             <div class="mt-2">
                               <i class="far fa-map-marker-alt"></i>
                             </div>
-                            <div class="th-txt">المنطقة </div>
+                            <div class="th-txt"> @lang('site.area') </div>
                           </div>
                         </td>
 
@@ -356,7 +357,7 @@
                             <div class="mt-2">
                               <i class="far fa-wallet"></i>
                             </div>
-                            <div class="th-txt"> العمولة</div>
+                            <div class="th-txt"> @lang('site.commission') </div>
                           </div>
                         </td>
 
