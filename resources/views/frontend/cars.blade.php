@@ -6,7 +6,6 @@
 @endsection
 @section('content')
 
-    <div class="overlay-mobile"></div>
     <main>
         <!-- Desktop Breadcrumb -->
         <section class="py-md-4 py-2">
@@ -16,22 +15,7 @@
                         <li class="breadcrumb-item">
                             <a href="{{route('Home')}}"> @lang('site.home') </a>
                         </li>
-                        <li>
-                <span
-                ><svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="9"
-                        height="15"
-                        viewBox="0 0 9 15"
-                        fill="none"
-                    >
-                    <path
-                        d="M6.71329 13.9459L0.745584 7.99587C0.67475 7.92503 0.624459 7.8483 0.594709 7.76566C0.564959 7.68302 0.55032 7.59448 0.550792 7.50003C0.550792 7.40559 0.565431 7.31705 0.594709 7.23441C0.623987 7.15177 0.674278 7.07503 0.745584 7.0042L6.71329 1.03649C6.87857 0.871213 7.08517 0.788574 7.33308 0.788574C7.581 0.788574 7.7935 0.877116 7.97058 1.0542C8.14767 1.23128 8.23621 1.43788 8.23621 1.67399C8.23621 1.9101 8.14767 2.1167 7.97058 2.29378L2.76433 7.50003L7.97058 12.7063C8.13586 12.8716 8.2185 13.0753 8.2185 13.3176C8.2185 13.5598 8.12996 13.7693 7.95288 13.9459C7.77579 14.1229 7.56919 14.2115 7.33308 14.2115C7.09697 14.2115 6.89038 14.1229 6.71329 13.9459Z"
-                        fill="#005D9F"
-                    />
-                  </svg>
-                </span>
-                        </li>
+                    
                         <li class="breadcrumb-item text-gray-4" aria-current="page">
 
 
@@ -154,6 +138,21 @@
         <section class="py-md-5 py-3">
             <div class="container">
                 <div class="row">
+                <div class="col-12">
+{{--            <h2 class="pb-3 search-result">وجدنا 44 شقة مناسبة لطلبك</h2>--}}
+                    <div class="form-group mb-4 position-relative">
+                        <input
+                            type="search"
+                            class="form-control search-saeeh"
+                            placeholder="ابحث عن اسم العقار"
+                            id="search"
+                            name="q"
+                        />
+                        <div class="search-icon">
+                        <i class="far fa-search"></i>
+                        </div>
+                    </div>
+                 </div>
 {{--                    <div class="col-lg-3 col-md-4 web-view">--}}
 {{--                        <a--}}
 {{--                            href="#"--}}
@@ -171,15 +170,15 @@
 {{--                            </div>--}}
 {{--                        </a>--}}
 {{--                    </div>--}}
-                    <div class="col-lg-9 col-md-8">
-                        <h2 class="pb-3 search-result">
+                    <!-- <div class="col-lg-9 col-md-8">
+                        <h2 class="pb-3 search-result"> -->
 {{--                                                        <!-- المغرب :وجدنا سيارة مناسبة لطلبك -->--}}
 {{--                                                        <label>المغرب :وجدنا--}}
 {{--                                                            <!-- <span>{{$cat->car->car_numbers ?? ''}}</span> -->--}}
 {{--                                                            سيارة مناسبة لطلبك--}}
 {{--                                                        </label>--}}
 
-                        </h2>
+                        <!-- </h2> -->
 {{--                        <div class="form-group mb-4 position-relative">--}}
 {{--                            <input--}}
 {{--                                type="search"--}}
@@ -205,7 +204,7 @@
 {{--                            </div>--}}
 {{--                        </div>--}}
 
-                    </div>
+                    <!-- </div> -->
                 </div>
 
                 <div class="row">
@@ -227,25 +226,14 @@
                                     >
                                         <h5 class="accordion-title mb-0">@lang('site.brands')</h5>
 
-                                        <div>
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="15"
-                                                height="8"
-                                                viewBox="0 0 15 8"
-                                                fill="none"
-                                            >
-                                                <path
-                                                    d="M7.20766 7.19064C6.62556 7.19064 6.04345 6.96482 5.60272 6.52155L0.180867 1.06845C-0.060289 0.825909 -0.060289 0.424455 0.180867 0.181909C0.422023 -0.0606364 0.821178 -0.0606364 1.06233 0.181909L6.48419 5.635C6.88334 6.03645 7.53197 6.03645 7.93112 5.635L13.353 0.181909C13.5941 -0.0606364 13.9933 -0.0606364 14.2344 0.181909C14.4756 0.424455 14.4756 0.825909 14.2344 1.06845L8.81259 6.52155C8.37186 6.96482 7.78976 7.19064 7.20766 7.19064Z"
-                                                    fill="#005D9F"
-                                                />
-                                            </svg>
+                                        <div class="arrow-accordion">
+                                        <i class="far fa-angle-down"></i>
                                         </div>
                                     </button>
                                 </h2>
                                 <div
                                     id="accordion-filter-1"
-                                    class="accordion-collapse collapse show"
+                                    class="collapse show"
                                 >
                                     <div class="accordion-body">
                                         <div class="row align-items-center">
@@ -309,7 +297,7 @@
                             {{--                                </h2>--}}
                             {{--                                <div--}}
                             {{--                                    id="accordion-filter-2"--}}
-                            {{--                                    class="accordion-collapse collapse show"--}}
+                            {{--                                    class="collapse show"--}}
                             {{--                                >--}}
                             {{--                                    <div class="accordion-body">--}}
                             {{--                                        <div class="row align-items-center">--}}
@@ -339,25 +327,14 @@
                                         aria-controls="accordion-filter-5"
                                     >
                                         <h5 class="accordion-title mb-0">@lang('site.year')</h5>
-                                        <div>
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="15"
-                                                height="8"
-                                                viewBox="0 0 15 8"
-                                                fill="none"
-                                            >
-                                                <path
-                                                    d="M7.20766 7.19064C6.62556 7.19064 6.04345 6.96482 5.60272 6.52155L0.180867 1.06845C-0.060289 0.825909 -0.060289 0.424455 0.180867 0.181909C0.422023 -0.0606364 0.821178 -0.0606364 1.06233 0.181909L6.48419 5.635C6.88334 6.03645 7.53197 6.03645 7.93112 5.635L13.353 0.181909C13.5941 -0.0606364 13.9933 -0.0606364 14.2344 0.181909C14.4756 0.424455 14.4756 0.825909 14.2344 1.06845L8.81259 6.52155C8.37186 6.96482 7.78976 7.19064 7.20766 7.19064Z"
-                                                    fill="#005D9F"
-                                                />
-                                            </svg>
+                                        <div class="arrow-accordion">
+                                        <i class="far fa-angle-down"></i>
                                         </div>
                                     </button>
                                 </h2>
                                 <div
                                     id="accordion-filter-5"
-                                    class="accordion-collapse collapse show"
+                                    class="collapse show"
                                 >
                                     <div class="accordion-body">
                                         <div class="row align-items-center">
@@ -388,25 +365,14 @@
                                         aria-controls="accordion-filter-6"
                                     >
                                         <h5 class="accordion-title mb-0">@lang('site.color')</h5>
-                                        <div>
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="15"
-                                                height="8"
-                                                viewBox="0 0 15 8"
-                                                fill="none"
-                                            >
-                                                <path
-                                                    d="M7.20766 7.19064C6.62556 7.19064 6.04345 6.96482 5.60272 6.52155L0.180867 1.06845C-0.060289 0.825909 -0.060289 0.424455 0.180867 0.181909C0.422023 -0.0606364 0.821178 -0.0606364 1.06233 0.181909L6.48419 5.635C6.88334 6.03645 7.53197 6.03645 7.93112 5.635L13.353 0.181909C13.5941 -0.0606364 13.9933 -0.0606364 14.2344 0.181909C14.4756 0.424455 14.4756 0.825909 14.2344 1.06845L8.81259 6.52155C8.37186 6.96482 7.78976 7.19064 7.20766 7.19064Z"
-                                                    fill="#005D9F"
-                                                />
-                                            </svg>
+                                        <div class="arrow-accordion">
+                                        <i class="far fa-angle-down"></i>
                                         </div>
                                     </button>
                                 </h2>
                                 <div
                                     id="accordion-filter-6"
-                                    class="accordion-collapse collapse show"
+                                    class="collapse show"
                                 >
                                     <div class="accordion-body">
                                         <div class="row align-items-center">
@@ -440,25 +406,14 @@
                                         aria-controls="accordion-filter-7"
                                     >
                                         <h5 class="accordion-title mb-0"> @lang('site.price')</h5>
-                                        <div>
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="15"
-                                                height="8"
-                                                viewBox="0 0 15 8"
-                                                fill="none"
-                                            >
-                                                <path
-                                                    d="M7.20766 7.19064C6.62556 7.19064 6.04345 6.96482 5.60272 6.52155L0.180867 1.06845C-0.060289 0.825909 -0.060289 0.424455 0.180867 0.181909C0.422023 -0.0606364 0.821178 -0.0606364 1.06233 0.181909L6.48419 5.635C6.88334 6.03645 7.53197 6.03645 7.93112 5.635L13.353 0.181909C13.5941 -0.0606364 13.9933 -0.0606364 14.2344 0.181909C14.4756 0.424455 14.4756 0.825909 14.2344 1.06845L8.81259 6.52155C8.37186 6.96482 7.78976 7.19064 7.20766 7.19064Z"
-                                                    fill="#005D9F"
-                                                />
-                                            </svg>
+                                        <div class="arrow-accordion">
+                                        <i class="far fa-angle-down"></i>
                                         </div>
                                     </button>
                                 </h2>
                                 <div
                                     id="accordion-filter-7"
-                                    class="accordion-collapse collapse show"
+                                    class="collapse show"
                                 >
                                     <div class="accordion-body">
                                         <div class="row align-items-center">
@@ -494,25 +449,14 @@
                                         aria-controls="accordion-filter-4"
                                     >
                                         <h5 class="accordion-title mb-0">@lang('site.comments')</h5>
-                                        <div>
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="15"
-                                                height="8"
-                                                viewBox="0 0 15 8"
-                                                fill="none"
-                                            >
-                                                <path
-                                                    d="M7.20766 7.19064C6.62556 7.19064 6.04345 6.96482 5.60272 6.52155L0.180867 1.06845C-0.060289 0.825909 -0.060289 0.424455 0.180867 0.181909C0.422023 -0.0606364 0.821178 -0.0606364 1.06233 0.181909L6.48419 5.635C6.88334 6.03645 7.53197 6.03645 7.93112 5.635L13.353 0.181909C13.5941 -0.0606364 13.9933 -0.0606364 14.2344 0.181909C14.4756 0.424455 14.4756 0.825909 14.2344 1.06845L8.81259 6.52155C8.37186 6.96482 7.78976 7.19064 7.20766 7.19064Z"
-                                                    fill="#005D9F"
-                                                />
-                                            </svg>
+                                        <div class="arrow-accordion">
+                                        <i class="far fa-angle-down"></i>
                                         </div>
                                     </button>
                                 </h2>
                                 <div
                                     id="accordion-filter-4"
-                                    class="accordion-collapse collapse show"
+                                    class="collapse show"
                                 >
                                     <div class="accordion-body">
                                         <div class="row align-items-center">
@@ -535,21 +479,10 @@
                                                             <div
                                                                 class="department-sm-badge bg-main text-white"
                                                             >
-                                                                <div>1</div>
-                                                                <div>
-                                                                    <svg
-                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                        width="16"
-                                                                        height="19"
-                                                                        viewBox="0 0 16 19"
-                                                                        fill="none"
-                                                                    >
-                                                                        <path
-                                                                            d="M8.42373 14.9229L13.0357 18.4286L11.8118 11.8214L15.8865 7.37592L10.5208 6.80261L8.42373 0.571411L6.32669 6.80261L0.960938 7.37592L5.03562 11.8214L3.81173 18.4286L8.42373 14.9229Z"
-                                                                            fill="white"
-                                                                        />
-                                                                    </svg>
-                                                                </div>
+                                                                <span>1</span>
+                                                                <span>
+                                                                <i class="fas fa-star"></i>
+                                                                </span>
                                                             </div>
                                                         </label>
                                                     </div>
@@ -566,21 +499,10 @@
                                                             <div
                                                                 class="department-sm-badge bg-main text-white"
                                                             >
-                                                                <div>2</div>
-                                                                <div>
-                                                                    <svg
-                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                        width="16"
-                                                                        height="19"
-                                                                        viewBox="0 0 16 19"
-                                                                        fill="none"
-                                                                    >
-                                                                        <path
-                                                                            d="M8.42373 14.9229L13.0357 18.4286L11.8118 11.8214L15.8865 7.37592L10.5208 6.80261L8.42373 0.571411L6.32669 6.80261L0.960938 7.37592L5.03562 11.8214L3.81173 18.4286L8.42373 14.9229Z"
-                                                                            fill="white"
-                                                                        />
-                                                                    </svg>
-                                                                </div>
+                                                                <span>2</span>
+                                                                <span>
+                                                                <i class="fas fa-star"></i>
+                                                                </span>
                                                             </div>
                                                         </label>
                                                     </div>
@@ -598,21 +520,10 @@
                                                             <div
                                                                 class="department-sm-badge bg-main text-white"
                                                             >
-                                                                <div>3</div>
-                                                                <div>
-                                                                    <svg
-                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                        width="16"
-                                                                        height="19"
-                                                                        viewBox="0 0 16 19"
-                                                                        fill="none"
-                                                                    >
-                                                                        <path
-                                                                            d="M8.42373 14.9229L13.0357 18.4286L11.8118 11.8214L15.8865 7.37592L10.5208 6.80261L8.42373 0.571411L6.32669 6.80261L0.960938 7.37592L5.03562 11.8214L3.81173 18.4286L8.42373 14.9229Z"
-                                                                            fill="white"
-                                                                        />
-                                                                    </svg>
-                                                                </div>
+                                                                <span>3</span>
+                                                                <span>
+                                                                <i class="fas fa-star"></i>
+                                                                </span>
                                                             </div>
                                                         </label>
                                                     </div>
@@ -629,21 +540,10 @@
                                                             <div
                                                                 class="department-sm-badge bg-main text-white"
                                                             >
-                                                                <div>4</div>
-                                                                <div>
-                                                                    <svg
-                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                        width="16"
-                                                                        height="19"
-                                                                        viewBox="0 0 16 19"
-                                                                        fill="none"
-                                                                    >
-                                                                        <path
-                                                                            d="M8.42373 14.9229L13.0357 18.4286L11.8118 11.8214L15.8865 7.37592L10.5208 6.80261L8.42373 0.571411L6.32669 6.80261L0.960938 7.37592L5.03562 11.8214L3.81173 18.4286L8.42373 14.9229Z"
-                                                                            fill="white"
-                                                                        />
-                                                                    </svg>
-                                                                </div>
+                                                                <span>4</span>
+                                                                <span>
+                                                                <i class="fas fa-star"></i>
+                                                                </span>
                                                             </div>
                                                         </label>
                                                     </div>
@@ -661,21 +561,10 @@
                                                             <div
                                                                 class="department-sm-badge bg-main text-white"
                                                             >
-                                                                <div>5</div>
-                                                                <div>
-                                                                    <svg
-                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                        width="16"
-                                                                        height="19"
-                                                                        viewBox="0 0 16 19"
-                                                                        fill="none"
-                                                                    >
-                                                                        <path
-                                                                            d="M8.42373 14.9229L13.0357 18.4286L11.8118 11.8214L15.8865 7.37592L10.5208 6.80261L8.42373 0.571411L6.32669 6.80261L0.960938 7.37592L5.03562 11.8214L3.81173 18.4286L8.42373 14.9229Z"
-                                                                            fill="white"
-                                                                        />
-                                                                    </svg>
-                                                                </div>
+                                                                <span>5</span>
+                                                                <span>
+                                                                <i class="fas fa-star"></i>
+                                                                </span>
                                                             </div>
                                                         </label>
                                                     </div>
@@ -727,25 +616,14 @@
                                         >
                                             <h5 class="accordion-title mb-0">@lang('site.brands')</h5>
 
-                                            <div>
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="15"
-                                                    height="8"
-                                                    viewBox="0 0 15 8"
-                                                    fill="none"
-                                                >
-                                                    <path
-                                                        d="M7.20766 7.19064C6.62556 7.19064 6.04345 6.96482 5.60272 6.52155L0.180867 1.06845C-0.060289 0.825909 -0.060289 0.424455 0.180867 0.181909C0.422023 -0.0606364 0.821178 -0.0606364 1.06233 0.181909L6.48419 5.635C6.88334 6.03645 7.53197 6.03645 7.93112 5.635L13.353 0.181909C13.5941 -0.0606364 13.9933 -0.0606364 14.2344 0.181909C14.4756 0.424455 14.4756 0.825909 14.2344 1.06845L8.81259 6.52155C8.37186 6.96482 7.78976 7.19064 7.20766 7.19064Z"
-                                                        fill="#005D9F"
-                                                    />
-                                                </svg>
-                                            </div>
+                                            <div class="arrow-accordion">
+                                        <i class="far fa-angle-down"></i>
+                                        </div>
                                         </button>
                                     </h2>
                                     <div
                                         id="accordion-filter-1"
-                                        class="accordion-collapse collapse show"
+                                        class="collapse show"
                                     >
                                         <div class="accordion-body">
                                             <div class="row align-items-center">
@@ -812,25 +690,14 @@
                                             aria-controls="accordion-filter-2"
                                         >
                                             <h5 class="accordion-title mb-0">@lang('site.category')</h5>
-                                            <div>
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="15"
-                                                    height="8"
-                                                    viewBox="0 0 15 8"
-                                                    fill="none"
-                                                >
-                                                    <path
-                                                        d="M7.20766 7.19064C6.62556 7.19064 6.04345 6.96482 5.60272 6.52155L0.180867 1.06845C-0.060289 0.825909 -0.060289 0.424455 0.180867 0.181909C0.422023 -0.0606364 0.821178 -0.0606364 1.06233 0.181909L6.48419 5.635C6.88334 6.03645 7.53197 6.03645 7.93112 5.635L13.353 0.181909C13.5941 -0.0606364 13.9933 -0.0606364 14.2344 0.181909C14.4756 0.424455 14.4756 0.825909 14.2344 1.06845L8.81259 6.52155C8.37186 6.96482 7.78976 7.19064 7.20766 7.19064Z"
-                                                        fill="#005D9F"
-                                                    />
-                                                </svg>
-                                            </div>
+                                            <div class="arrow-accordion">
+                                        <i class="far fa-angle-down"></i>
+                                        </div>
                                         </button>
                                     </h2>
                                     <div
                                         id="accordion-filter-2"
-                                        class="accordion-collapse collapse show"
+                                        class="collapse show"
                                     >
                                         <div class="accordion-body">
                                             <div class="row align-items-center">
@@ -870,25 +737,14 @@
                                             aria-controls="accordion-filter-5"
                                         >
                                             <h5 class="accordion-title mb-0">@lang('site.year')</h5>
-                                            <div>
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="15"
-                                                    height="8"
-                                                    viewBox="0 0 15 8"
-                                                    fill="none"
-                                                >
-                                                    <path
-                                                        d="M7.20766 7.19064C6.62556 7.19064 6.04345 6.96482 5.60272 6.52155L0.180867 1.06845C-0.060289 0.825909 -0.060289 0.424455 0.180867 0.181909C0.422023 -0.0606364 0.821178 -0.0606364 1.06233 0.181909L6.48419 5.635C6.88334 6.03645 7.53197 6.03645 7.93112 5.635L13.353 0.181909C13.5941 -0.0606364 13.9933 -0.0606364 14.2344 0.181909C14.4756 0.424455 14.4756 0.825909 14.2344 1.06845L8.81259 6.52155C8.37186 6.96482 7.78976 7.19064 7.20766 7.19064Z"
-                                                        fill="#005D9F"
-                                                    />
-                                                </svg>
-                                            </div>
+                                            <div class="arrow-accordion">
+                                        <i class="far fa-angle-down"></i>
+                                        </div>
                                         </button>
                                     </h2>
                                     <div
                                         id="accordion-filter-5"
-                                        class="accordion-collapse collapse show"
+                                        class="collapse show"
                                     >
                                         <div class="accordion-body">
                                             <div class="row align-items-center">
@@ -919,25 +775,14 @@
                                             aria-controls="accordion-filter-6"
                                         >
                                             <h5 class="accordion-title mb-0">@lang('site.color')</h5>
-                                            <div>
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="15"
-                                                    height="8"
-                                                    viewBox="0 0 15 8"
-                                                    fill="none"
-                                                >
-                                                    <path
-                                                        d="M7.20766 7.19064C6.62556 7.19064 6.04345 6.96482 5.60272 6.52155L0.180867 1.06845C-0.060289 0.825909 -0.060289 0.424455 0.180867 0.181909C0.422023 -0.0606364 0.821178 -0.0606364 1.06233 0.181909L6.48419 5.635C6.88334 6.03645 7.53197 6.03645 7.93112 5.635L13.353 0.181909C13.5941 -0.0606364 13.9933 -0.0606364 14.2344 0.181909C14.4756 0.424455 14.4756 0.825909 14.2344 1.06845L8.81259 6.52155C8.37186 6.96482 7.78976 7.19064 7.20766 7.19064Z"
-                                                        fill="#005D9F"
-                                                    />
-                                                </svg>
-                                            </div>
+                                            <div class="arrow-accordion">
+                                        <i class="far fa-angle-down"></i>
+                                        </div>
                                         </button>
                                     </h2>
                                     <div
                                         id="accordion-filter-6"
-                                        class="accordion-collapse collapse show"
+                                        class="collapse show"
                                     >
                                         <div class="accordion-body">
                                             <div class="row align-items-center">
@@ -968,25 +813,14 @@
                                             aria-controls="accordion-filter-7"
                                         >
                                             <h5 class="accordion-title mb-0"> @lang('site.price')</h5>
-                                            <div>
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="15"
-                                                    height="8"
-                                                    viewBox="0 0 15 8"
-                                                    fill="none"
-                                                >
-                                                    <path
-                                                        d="M7.20766 7.19064C6.62556 7.19064 6.04345 6.96482 5.60272 6.52155L0.180867 1.06845C-0.060289 0.825909 -0.060289 0.424455 0.180867 0.181909C0.422023 -0.0606364 0.821178 -0.0606364 1.06233 0.181909L6.48419 5.635C6.88334 6.03645 7.53197 6.03645 7.93112 5.635L13.353 0.181909C13.5941 -0.0606364 13.9933 -0.0606364 14.2344 0.181909C14.4756 0.424455 14.4756 0.825909 14.2344 1.06845L8.81259 6.52155C8.37186 6.96482 7.78976 7.19064 7.20766 7.19064Z"
-                                                        fill="#005D9F"
-                                                    />
-                                                </svg>
-                                            </div>
+                                            <div class="arrow-accordion">
+                                        <i class="far fa-angle-down"></i>
+                                        </div>
                                         </button>
                                     </h2>
                                     <div
                                         id="accordion-filter-7"
-                                        class="accordion-collapse collapse show"
+                                        class="collapse show"
                                     >
                                         <div class="accordion-body">
                                             <div class="row align-items-center">
@@ -1022,25 +856,14 @@
                                             aria-controls="accordion-filter-4"
                                         >
                                             <h5 class="accordion-title mb-0">@lang('site.comments')</h5>
-                                            <div>
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="15"
-                                                    height="8"
-                                                    viewBox="0 0 15 8"
-                                                    fill="none"
-                                                >
-                                                    <path
-                                                        d="M7.20766 7.19064C6.62556 7.19064 6.04345 6.96482 5.60272 6.52155L0.180867 1.06845C-0.060289 0.825909 -0.060289 0.424455 0.180867 0.181909C0.422023 -0.0606364 0.821178 -0.0606364 1.06233 0.181909L6.48419 5.635C6.88334 6.03645 7.53197 6.03645 7.93112 5.635L13.353 0.181909C13.5941 -0.0606364 13.9933 -0.0606364 14.2344 0.181909C14.4756 0.424455 14.4756 0.825909 14.2344 1.06845L8.81259 6.52155C8.37186 6.96482 7.78976 7.19064 7.20766 7.19064Z"
-                                                        fill="#005D9F"
-                                                    />
-                                                </svg>
-                                            </div>
+                                            <div class="arrow-accordion">
+                                        <i class="far fa-angle-down"></i>
+                                        </div>
                                         </button>
                                     </h2>
                                     <div
                                         id="accordion-filter-4"
-                                        class="accordion-collapse collapse show"
+                                        class="collapse show"
                                     >
                                         <div class="accordion-body">
                                             <div class="row align-items-center">
@@ -1055,21 +878,10 @@
                                                                 <div
                                                                     class="department-sm-badge bg-main text-white"
                                                                 >
-                                                                    <div>1</div>
-                                                                    <div>
-                                                                        <svg
-                                                                            xmlns="http://www.w3.org/2000/svg"
-                                                                            width="16"
-                                                                            height="19"
-                                                                            viewBox="0 0 16 19"
-                                                                            fill="none"
-                                                                        >
-                                                                            <path
-                                                                                d="M8.42373 14.9229L13.0357 18.4286L11.8118 11.8214L15.8865 7.37592L10.5208 6.80261L8.42373 0.571411L6.32669 6.80261L0.960938 7.37592L5.03562 11.8214L3.81173 18.4286L8.42373 14.9229Z"
-                                                                                fill="white"
-                                                                            />
-                                                                        </svg>
-                                                                    </div>
+                                                                    <span>1</span>
+                                                                    <span>
+                                                                <i class="fas fa-star"></i>
+                                                                </span>
                                                                 </div>
                                                             </label>
                                                         </div>
@@ -1082,21 +894,10 @@
                                                                 <div
                                                                     class="department-sm-badge bg-main text-white"
                                                                 >
-                                                                    <div>2</div>
-                                                                    <div>
-                                                                        <svg
-                                                                            xmlns="http://www.w3.org/2000/svg"
-                                                                            width="16"
-                                                                            height="19"
-                                                                            viewBox="0 0 16 19"
-                                                                            fill="none"
-                                                                        >
-                                                                            <path
-                                                                                d="M8.42373 14.9229L13.0357 18.4286L11.8118 11.8214L15.8865 7.37592L10.5208 6.80261L8.42373 0.571411L6.32669 6.80261L0.960938 7.37592L5.03562 11.8214L3.81173 18.4286L8.42373 14.9229Z"
-                                                                                fill="white"
-                                                                            />
-                                                                        </svg>
-                                                                    </div>
+                                                                    <span>2</span>
+                                                                    <span>
+                                                                <i class="fas fa-star"></i>
+                                                                </span>
                                                                 </div>
                                                             </label>
                                                         </div>
@@ -1109,21 +910,10 @@
                                                                 <div
                                                                     class="department-sm-badge bg-main text-white"
                                                                 >
-                                                                    <div>3</div>
-                                                                    <div>
-                                                                        <svg
-                                                                            xmlns="http://www.w3.org/2000/svg"
-                                                                            width="16"
-                                                                            height="19"
-                                                                            viewBox="0 0 16 19"
-                                                                            fill="none"
-                                                                        >
-                                                                            <path
-                                                                                d="M8.42373 14.9229L13.0357 18.4286L11.8118 11.8214L15.8865 7.37592L10.5208 6.80261L8.42373 0.571411L6.32669 6.80261L0.960938 7.37592L5.03562 11.8214L3.81173 18.4286L8.42373 14.9229Z"
-                                                                                fill="white"
-                                                                            />
-                                                                        </svg>
-                                                                    </div>
+                                                                    <span>3</span>
+                                                                    <span>
+                                                                <i class="fas fa-star"></i>
+                                                                </span>
                                                                 </div>
                                                             </label>
                                                         </div>
@@ -1136,21 +926,10 @@
                                                                 <div
                                                                     class="department-sm-badge bg-main text-white"
                                                                 >
-                                                                    <div>4</div>
-                                                                    <div>
-                                                                        <svg
-                                                                            xmlns="http://www.w3.org/2000/svg"
-                                                                            width="16"
-                                                                            height="19"
-                                                                            viewBox="0 0 16 19"
-                                                                            fill="none"
-                                                                        >
-                                                                            <path
-                                                                                d="M8.42373 14.9229L13.0357 18.4286L11.8118 11.8214L15.8865 7.37592L10.5208 6.80261L8.42373 0.571411L6.32669 6.80261L0.960938 7.37592L5.03562 11.8214L3.81173 18.4286L8.42373 14.9229Z"
-                                                                                fill="white"
-                                                                            />
-                                                                        </svg>
-                                                                    </div>
+                                                                    <span>4</span>
+                                                                    <span>
+                                                                <i class="fas fa-star"></i>
+                                                                </span>
                                                                 </div>
                                                             </label>
                                                         </div>
@@ -1163,21 +942,10 @@
                                                                 <div
                                                                     class="department-sm-badge bg-main text-white"
                                                                 >
-                                                                    <div>5</div>
-                                                                    <div>
-                                                                        <svg
-                                                                            xmlns="http://www.w3.org/2000/svg"
-                                                                            width="16"
-                                                                            height="19"
-                                                                            viewBox="0 0 16 19"
-                                                                            fill="none"
-                                                                        >
-                                                                            <path
-                                                                                d="M8.42373 14.9229L13.0357 18.4286L11.8118 11.8214L15.8865 7.37592L10.5208 6.80261L8.42373 0.571411L6.32669 6.80261L0.960938 7.37592L5.03562 11.8214L3.81173 18.4286L8.42373 14.9229Z"
-                                                                                fill="white"
-                                                                            />
-                                                                        </svg>
-                                                                    </div>
+                                                                    <span>5</span>
+                                                                    <span>
+                                                                <i class="fas fa-star"></i>
+                                                                </span>
                                                                 </div>
                                                             </label>
                                                         </div>
@@ -1237,7 +1005,7 @@
 
 {{--                                                                </div>--}}
 
-                                <ul class="tabs-contentt list-unstyled my-4">
+                                <ul class="tabs-contentt list-unstyled">
 
                                     <li id="tab-car-1" class="carhidden">
                                         @if(!empty($cars))
@@ -1269,33 +1037,29 @@
 
                                                                             <span class="department-like">
 
-<a class="favouritess" id="favouritess{{$car->id}}" data-id="{{$car->id}}"><i class="far far fa-heart "></i></a>
+                                                                <a class="favouritess" id="favouritess{{$car->id}}" data-id="{{$car->id}}"><i class="far far fa-heart "></i></a>
 
-                                                                </span>
+                                                                                                                                </span>
 
-                                                                        @endif
+                                                                                                                                        @endif
 
+                                                                                                                                        <img
+                                                                                                                                            loading="lazy"
+                                                                                                                                            src="{{asset('images/cars/'.$img)}}"
+                                                                                                                                            onerror="this.src='{{FRONTASSETS}}/images/cars/car-card-1.png'"
 
+                                                                                                                                            class="department-img-list of-cover car-image"
+                                                                                                                                            alt="image 1"
+                                                                                                                                        />
+                                                                                                                                    </div>
+                                                                                                                                @endforeach
 
+                                                                                                                                @else
 
+                                                                                                                                    <div class="city-item">
+                                                                                                                                                                    <span class="department-like">
 
-                                                                        <img
-                                                                            loading="lazy"
-                                                                            src="{{asset('images/cars/'.$img)}}"
-                                                                            onerror="this.src='{{FRONTASSETS}}/images/cars/car-card-1.png'"
-
-                                                                            class="department-img-list of-cover car-image"
-                                                                            alt="image 1"
-                                                                        />
-                                                                    </div>
-                                                                @endforeach
-
-                                                                @else
-
-                                                                    <div class="city-item">
-                                                                                                    <span class="department-like">
-
-<a class="favouritess" id="favouritess{{$car->id}}" data-id="{{$car->id}}"><i class=" @if(count(\App\Models\CarUser::where('car_id', '=',$car->id)->where('user_id', '=', auth()->user()->id)->get()) > 0) fas @else far @endif far fa-heart "></i></a>
+                                                                <a class="favouritess" id="favouritess{{$car->id}}" data-id="{{$car->id}}"><i class=" @if(count(\App\Models\CarUser::where('car_id', '=',$car->id)->where('user_id', '=', auth()->user()->id)->get()) > 0) fas @else far @endif far fa-heart "></i></a>
 
                                                                 </span>
 
@@ -1321,29 +1085,16 @@
                                                                     class="row justify-content-between align-items-center mb-3 small"
                                                                 >
                                                                     <div class="col-auto mb-lg-0 mb-3">
-                                  <span class="text-main number-ads"
-                                  > @lang('site.id number')( {{$car->id ?? ''}})</span
-                                  >
-
-
+                                                                    <span class="text-main number-ads" > 
+                                                                        @lang('site.id number')( {{$car->id ?? ''}})</span >
                                                                     </div>
                                                                     <div class="col-auto">
-                                                                        <div
-                                                                            class="d-flex justify-content-center align-items-center"
-                                                                        >
-                                                                            <div
-                                                                                class="department-badge bg-main text-white">
+                                                                        <div class="d-flex justify-content-center align-items-center" >
+                                                                            <div class="department-badge bg-main text-white">
                                                                                 <div
                                                                                     class="pt-1">{{$car->CarReview->count() ?? 0}}</div>
                                                                                 <div>
-                                                                                    <svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="25" height="25"
-                                                                                        viewBox="0 0 25 25" fill="none">
-                                                                                        <path
-                                                                                            d="M12.7529 19.6185L20.1689 24.3301L18.2009 15.4501L24.7529 9.47534L16.1249 8.70481L12.7529 0.330078L9.38093 8.70481L0.75293 9.47534L7.30493 15.4501L5.33693 24.3301L12.7529 19.6185Z"
-                                                                                            fill="white"/>
-                                                                                    </svg>
+                                                                                <i class="fas fa-star"></i>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="number-ads gray-txt">
@@ -1359,25 +1110,17 @@
                                                                 </h2>
 
                                                                 <div class="gray-txt number-ads pb-2">
-                                <span
-                                >
-
-
-                                {!! html_entity_decode(substr($car->description, 0, 125)) !!}
-
-                                </span>
+                                                                <span >
+                                                                {!! html_entity_decode(substr($car->description, 0, 125)) !!}
+                                                                </span>
                                                                 </div>
                                                                 <div
                                                                     class="text-gray-2 number-ads d-flex align-items-center"
                                                                 >
                                                                     <div>
-                                  <span class="ps-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-                                            <path d="M18.6665 21.334H11.9998M25.3332 21.334H29.3332V17.134C29.3341 16.8167 29.2218 16.5095 29.0165 16.2676C28.8112 16.0256 28.5264 15.8648 28.2132 15.814L21.3332 14.6674L17.7332 9.86738C17.609 9.70179 17.4479 9.56738 17.2628 9.47481C17.0776 9.38224 16.8735 9.33405 16.6665 9.33405H6.9865C6.48953 9.33059 6.00148 9.46608 5.57741 9.72523C5.15334 9.98439 4.81014 10.3569 4.5865 10.8007L3.51984 12.974C2.96003 14.0869 2.66783 15.315 2.6665 16.5607V21.334H5.33317" stroke="#FF8600" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                            <path d="M8.66683 25.3327C10.5078 25.3327 12.0002 23.8403 12.0002 21.9993C12.0002 20.1584 10.5078 18.666 8.66683 18.666C6.82588 18.666 5.3335 20.1584 5.3335 21.9993C5.3335 23.8403 6.82588 25.3327 8.66683 25.3327Z" stroke="#FF8600" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                            <path d="M21.9998 25.3327C23.8408 25.3327 25.3332 23.8403 25.3332 21.9993C25.3332 20.1584 23.8408 18.666 21.9998 18.666C20.1589 18.666 18.6665 20.1584 18.6665 21.9993C18.6665 23.8403 20.1589 25.3327 21.9998 25.3327Z" stroke="#FF8600" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                        </svg>
-                                  </span>
+                                                                    <span class="cars-ic">
+                                                                       <i class="fal fa-car-side"></i>
+                                                                    </span>
                                                                         <span> @lang('site.car_numbers') {{$car->car_numbers ?? 0}}</span>
 
                                                                     </div>
@@ -1430,7 +1173,7 @@
                                     class="department-list-pagination d-md-flex justify-content-md-between align-items-center"
                                 >
                                     <ul
-                                        class="pagination mb-0 justify-content-lg-start justify-content-center"
+                                        class="pagination mb-0 justify-content-lg-start justify-content-center "
                                     >
                                         <li class="page-item">
                                             <!-- <div>{{ $cars->appends(request()->query())->links()}} </div> -->
@@ -1451,7 +1194,7 @@
                                 <span class="fw-bold text-main"> 10% </span>
                                 @lang('site.or more at this property at check-in')
                             </p>
-                            <ul class="d-flex align-items-center">
+                            <ul class="d-flex align-items-center px-0">
                                 <li
                                     class="btn-outline-saeeh d-flex justify-content-center align-items-center btn-space-x"
                                 >

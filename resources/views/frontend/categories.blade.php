@@ -1,6 +1,27 @@
 @extends('layouts.main_frontend')
 @section('content')
 
+<<<<<<< HEAD
+
+
+<main>
+    <!-- Desktop Breadcrumb -->
+    <section class="py-md-4 py-2">
+        <div class="container">
+            <nav class="breadcrumb-container" aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="{{route('Home')}}"> @lang('site.home') </a>
+                    </li>
+                   
+                    <li class="breadcrumb-item text-gray-4" aria-current="page">
+                        {{$city->name ?? ''}}
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+=======
     <div class="overlay-mobile"></div>
 
 
@@ -38,6 +59,7 @@
                 </nav>
             </div>
         </section>
+>>>>>>> 345ec59311522626c9b53128b790462edb197ff9
 
 
         <!-- section -->
