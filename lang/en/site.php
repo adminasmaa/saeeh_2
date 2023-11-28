@@ -241,9 +241,9 @@ return [
     'area'=> 'Area',
     'paid_successfully'=>'paid successfully',
     'paid not complete please try again'=>'paid not complete please try again',
-
-
-
+    'We will send a text message to verify the phone number via WhatsApp' => 'We will send a text message to verify the phone number via WhatsApp',
+    'Trade Name' => 'Trade Name',
+    'Enter the full address' => 'Enter the full address',
     'female' => 'Female',
     'male' => 'Male',
 
@@ -396,7 +396,7 @@ return [
 
     'logout' => 'Log Out',
     'status' => 'Status',
-
+    'commission' => 'Commission',
     'add' => 'Add',
     'viewAny' => 'View Any',
     'view' => 'View',
@@ -413,7 +413,7 @@ return [
     'title' => 'Saeeh',
     'saeeeeeeh' => 'Saeeh',
     'copyrights' => 'Saeeh@All Rhights Reserved',
-
+    '(starting from 5%)' => '(starting from 5%)',
     'confirm_update' => 'Confirm Update ?',
     'confirm_delete' => 'Confirm Delete ?',
     'yes' => 'Yes',
@@ -425,14 +425,15 @@ return [
     'password_confirmation' => 'Confirm Password',
     'unpaid commissions' => 'Unpaid commissions',
     'paid commissions' => 'paid commissions',
-
+    'I agree to the terms and conditions' => 'I agree to the terms and conditions',
     'added_successfully' => 'Data Added Successfully',
     'updated_successfully' => 'Data Updated Successfully',
     'deleted_successfully' => 'Data Deleted Successfully',
     'add_faild' => 'Error Happen, Add Process Failed',
     'update_faild' => 'Error Happen, Update Process Failed',
     'delete_faild' => 'Error Happen, Delete Process Failed',
-
+    'Terms and Conditions' => 'Terms and Conditions',
+    'Terms and conditions apply' => 'Terms and conditions apply',
     'no_vendor_found' => 'Sorry No Vendor Found',
     'room number' => 'Room Number',
     'ads_number' => 'Ads Number',
@@ -485,9 +486,10 @@ return [
     'date_of_arrival' => 'Date of arrival',
     'date_of_departure' => 'Date of departure',
     'client_name' => 'Client name',
-
+    'Select city' => 'Select city',
     'pictures_containing_logo_or_phone_number_will_not_be_accepted' => 'Pictures containing a logo or phone number will not be accepted',
-
+    'Enter_commission' => 'Enter_commission',
+    'Dear customer, the higher the commission rate, the more your ad will appear in the introduction' => 'Dear customer, the higher the commission rate, the more your ad will appear in the introduction',
     'videos_containing_logo_or_phone_number_will_not_be_accepted' => 'videos containing a logo or phone number will not be accepted',
     'choose_price' => 'Choose Price',
     'Welcome to Saeeh' => 'Welcome to Saeeh',
@@ -518,7 +520,7 @@ return [
     'daynumber' => 'Day Number',
     'services_aqars' => 'Services Aqars',
     'discount_price' => 'Discount Price',
-
+    'My commissions' => 'My commissions',
     'persons' => 'Persons',
     'users' => 'Users',
     'admins' => 'Admins',
@@ -540,7 +542,7 @@ return [
     'Register' => 'Register',
     'latitude' => 'Latitude',
     'longitude' => 'Longitude',
-
+    'Confirm payment' => 'Confirm payment',
     'aquars' => 'Aquars',
     'categories' => 'Categories',
     'all_categories' => 'All Categories',
@@ -568,7 +570,8 @@ return [
     'Confirm payment' => 'Confirm payment',
     'inactivess' => 'InActive',
     'day' => 'Day',
-
+    'You will pay a commission amount' => 'You will pay a commission amount',
+    'Nothing else' => 'Nothing else',
     'rate' => 'Rate',
     'hour' => 'Hour',
     'full_name' => 'Full Name',

@@ -12,6 +12,7 @@ return [
     'Tell us your evaluation of the Aquar' => 'اخبرنا بتقيمك عن العقار',
     'Write your entire experience' => 'اكتب تجربتك كاملة',
     'Add a comment about the place' => 'أضف تعليقا عن المكان',
+    'Trade Name' => 'الاسم التجارى',
 
     'inquires' => 'للحجز والاستفسار',
     'send' => 'ارسال',
@@ -289,6 +290,7 @@ return [
     'please_write_specifications' => 'يرجي كتابة المواصفات',
     'booking_price' => 'مبلغ الحجز',
     'Commission_paid' => 'دفع العمولة',
+    'You will pay a commission amount' => 'سوف تقوم بدفع عموله وقدرها',
     'namessss' => 'أسم الملف',
     'add_external_booking' => 'اضافة حجز خارجى',
     'ad' => 'اعلان',
@@ -300,13 +302,15 @@ return [
     'There are no commissions' => 'لا يوجد عمولات',
     'Confirm payment' => 'تاكيد الدفع',
     'others' => 'أخرى',
-
+    'Nothing else' => 'لاغير',
+    'Confirm payment' => 'تأكيد الدفع',
+    'My commissions' => 'عمولاتي',
     'prompt' => 'فوري',
     'post' => 'اجل',
     'notaccesspermisssions' => 'لاتملك اي صلاحيه للدخول للرابط',
 
     'os' => 'نظام التشغيل',
-
+    '(starting from 5%)' => '(تبدأ من 5%)',
     'Walk around for less' => 'تجول باقل ',
     'prices' => 'الاسعار ',
     'discount on' => 'خصم على ',
@@ -314,7 +318,8 @@ return [
     // 'os' => 'نظام التشغيل',
     // 'os' => 'نظام التشغيل',
     // 'os' => 'نظام التشغيل',
-
+    'Dear customer, the higher the commission rate, the more your ad will appear in the introduction' =>'عزيزى العميل كلما زادت نسبة العمولة سوف يتم إظهار أعلانك بالمقدمة',
+    'Enter_commission' => 'ادخل العمولة',
     'web' => 'الويب',
     'presence' => 'حضور',
     'absence' => 'عدم حضور',
@@ -352,14 +357,14 @@ return [
     'answer' => 'الرد',
     'refuse' => 'لم يتم السداد',
     'accept' => 'تم السداد',
-
+    'I agree to the terms and conditions' => '',
     'ingredients_en' => ' انجليري المكونات ',
     'brand_name_ar' => 'اسم العلامة التجارية بالعربي',
-
+    'Terms and conditions apply' => 'أوافق على الشروط والاحكام',
     'country_code' => 'كود الدولة',
     'print' => 'طباعة',
     'Ads_number' => 'رقم الاعلان',
-
+    'Terms and Conditions' => 'الشروط والأحكام',
     'ok' => 'حفظ',
     'distance' => 'المسافة',
     'Notdeleted_successfully' => 'لايمكنك حدف الصفحة',
@@ -512,7 +517,7 @@ return [
     'deleted_successfully' => 'تم حذف البيانات بنجاح',
     'book_accepted_successfully' => 'تم قبول الحجز بنجاح',
     'book_rejected_successfully' => 'تم رفض الحجز بنجاح',
-
+    'We will send a text message to verify the phone number via WhatsApp' => 'سنقوم بإرسال رسالة نصية للتحقق من رقم الهاتف عن طريق الواتس اب',
     'add_faild' => 'حدث خطأ .. لم تتم عملية الاضافة !',
     'update_faild' => 'حدث خطأ .. لم تتم عملية التعديل !',
     'delete_faild' => 'حدث خطأ .. لم تتم عملية الحذف !',
@@ -543,7 +548,7 @@ return [
     'contact' => 'التواصل',
     'subscription' => 'الإشتراك',
     'Share via social media' => 'مشاركه عبر السوشيال ميديا',
-
+    'Enter the full address' => 'ادخل العنوان بالكامل',
     'management' => 'إدارة',
     'weight' => 'الوزن',
     'users' => 'المستخدمين',
@@ -552,7 +557,7 @@ return [
     'privileges' => 'الصلاحيات',
     'roles' => 'الأدوار',
     'roles_required' => 'اختيار صلاحيات المستخدم مطلوب .. يجب أن يكون لديك صلاحية لرؤية الحقل ',
-
+    'Select city' => 'اختر المدينة',
 
     'first_name' => 'الاسم الاول',
     'last_name' => 'الاسم الاخير',
