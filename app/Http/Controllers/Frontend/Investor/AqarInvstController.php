@@ -272,7 +272,9 @@ class AqarInvstController extends Controller
     {
 
         $aqar = Aqar::find($id);
-        return view('frontend.invest.detailaqar', compact('aqar'));
+        $lat=$aqar->latitude;
+        $long=$aqar->longitude;
+        return view('frontend.invest.detailaqar', compact('aqar','lat','long'));
 
 
     }

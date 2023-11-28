@@ -88,19 +88,71 @@
                                         </div>
                                     </li>
                                     @else
-                                    <li class="btn-saeeh btn-space">
-                                        <a href="{{route('registers')}}"
-                                            class="d-flex justify-content-center align-items-center w-100 h-100">
-                                            @lang('site.create account')
-                                        </a>
-                                    </li>
-                                    <li class="btn-outline-saeeh">
-                                        <a href="{{route('sitelogin')}}"
-                                            class=" d-flex justify-content-center align-items-center w-100 h-100">
-                                            @lang('site.login')
-                                        </a>
-                                        </a>
-                                    </li>
+
+                                    <li>
+                                            <div class="dropdown-container">
+                                                <div class="dropdown-toggle btn-space click-dropdown d-flex align-items-center  dropdown-register">
+
+                                                @lang('site.create account')
+                                                    <span>
+                                                      <i class="far fa-angle-down d-flex align-items-center"></i>
+                                                    </span>
+                                                </div>
+                                                <div class="dropdown-menu">
+                                                    <ul>
+                                                        <li>
+                                                            <a href="{{route('registers')}}" class="d-flex align-items-center">
+                                                                <div class="profile-ic">
+                                                                    <i class="far fa-user"></i>
+                                                                </div>
+                                                                <div>   @lang('site.client')</div>
+                                                            </a>
+                                                        </li>
+
+                                                        <li>
+                                                            <a href="{{route('invst.register')}}" class="d-flex align-items-center">
+                                                                <div class="profile-ic">
+                                                                    <i class="far fa-user"></i>
+                                                                </div>
+                                                                <div> @lang('site.investor') </div>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li >
+                                            <div class="dropdown-container">
+                                                <div class="dropdown-toggle btn-space click-dropdown d-flex align-items-center  dropdown-register">
+
+                                                @lang('site.login')
+                                                    <span>
+                                                      <i class="far fa-angle-down d-flex align-items-center"></i>
+                                                    </span>
+                                                </div>
+                                                <div class="dropdown-menu">
+                                                    <ul>
+                                                        <li>
+                                                            <a href="{{route('sitelogin')}}" class="d-flex align-items-center">
+                                                                <div class="profile-ic">
+                                                                    <i class="far fa-user"></i>
+                                                                </div>
+                                                                <div>   @lang('site.client')</div>
+                                                            </a>
+                                                        </li>
+
+                                                        <li>
+                                                            <a href="{{route('invst.login')}}" class="d-flex align-items-center">
+                                                                <div class="profile-ic">
+                                                                    <i class="far fa-user"></i>
+                                                                </div>
+                                                                <div> @lang('site.investor') </div>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
                                     @endif
 
                                 </ul>
