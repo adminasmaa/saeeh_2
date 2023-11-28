@@ -6,6 +6,8 @@ return [
     'profiles'=>'Profile',
     'totalprice'=>'Total Price',
 
+    'Search for your favorite country'=>'Search For Your Favorite Country',
+
     'favourite'=>'my favourite',
     ';Tell us your evaluation of the Aquar'=>'Tell us your evaluation of the Aquar',
     'Write your entire experience'=>'Write your entire experience',
@@ -48,6 +50,10 @@ return [
     "cancel reseon" => 'Cancel Reseon',
     'user_name'=>'User Name',
     'communication'=>'Communication',
+
+    'detailfaqrancy'=>'Booking through the Sayeh application helps you save time and effort in searching for the appropriate place of residence for you by providing a diverse list of properties in the application. The application also provides you with other features that help you make the appropriate decision. We review together the most important features in the application:',
+
+    'Read all reviews'=>'Read all reviews',
     'conditionBooking'=>'ConditionBooking',
     'My bookings' => 'My bookings',
     'special requests' => 'special requests',
@@ -405,6 +411,7 @@ return [
     'print' => 'Print',
     'image' => 'image',
     'title' => 'Saeeh',
+    'saeeeeeeh' => 'Saeeh',
     'copyrights' => 'Saeeh@All Rhights Reserved',
 
     'confirm_update' => 'Confirm Update ?',

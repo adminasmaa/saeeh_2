@@ -134,4 +134,48 @@ class AqarBookingRepository implements IAqarBookingRepositoryAlias
         return redirect()->route('dashboard.aquarbooking.index');
 
     }
+
+
+    public function attendbooking($book_id)
+    {
+
+        $request_data = AqarBooking::find($book_id);
+
+        $request_data->booking_status_id =5;
+
+        
+        $request_data->save();
+
+        if ($request_data) {
+            Alert::success('Success', __('site.book_attend_successfully'));
+        } else {
+            Alert::error('Error', __('site.attend_faild'));
+
+        }
+        return back();
+
+
+    }
+
+
+    public function notattendbooking($book_id)
+    {
+
+        $request_data = AqarBooking::find($book_id);
+
+        $request_data->booking_status_id =6;
+
+        
+        $request_data->save();
+
+        if ($request_data) {
+            Alert::success('Success', __('site.book_notattend_successfully'));
+        } else {
+            Alert::error('Error', __('site.notattend_faild'));
+
+        }
+        return back();
+
+
+    }
 }

@@ -116,6 +116,8 @@ class HomeController extends Controller
 
         if ($validation->fails()) {
             return response()->json(['errors' => $validation->errors()], 422);
+            Alert::error('Error',$validation->errors());
+                return back();
         }
 
         $request_data = $request->except('_token');

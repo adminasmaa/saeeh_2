@@ -203,12 +203,12 @@ $(".tabs-nav a").on("click", function (event) {
 // Show the first tab by default details page
 $(".tabs-content-details li").hide();
 $(".tabs-content-details li:first").show();
-$(".tabs-nav-details li:first").addClass("tab-active");
+$(".tabs-nav-detailss li:first").addClass("tab-active");
 
 // Change tab class and display content
-$(".tabs-nav-details a").on("click", function (event) {
+$(".tabs-nav-detailss a").on("click", function (event) {
   event.preventDefault();
-  $(".tabs-nav-details li").removeClass("tab-active");
+  $(".tabs-nav-detailss li").removeClass("tab-active");
   $(this).parent().addClass("tab-active");
   $(".tabs-content-details li").hide();
   $($(this).attr("href")).show();

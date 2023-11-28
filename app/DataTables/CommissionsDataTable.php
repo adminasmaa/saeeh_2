@@ -55,16 +55,20 @@ class CommissionsDataTable extends DataTable
             ->addColumn('status', function ($model) {
 
 
-                return '                   
-                <form action="'.route('dashboard.uploadweasel').'" method="POST" enctype="multipart/form-data" style="display: inline-block" id="waseluploadForm'.$model->commision_id.'">
+                  
+                $output = '';                  
+                $output.='<form action="'.route('dashboard.uploadweasel').'" method="POST" enctype="multipart/form-data" style="display: inline-block" id="waseluploadForm'.$model->commision_id.'">
                 <meta name="csrf-token" content="'. csrf_token() .'">
                   <input  type="hidden" name="weasel" id="weasel"> 
-                  <input type="hidden" name="booking_id" value="'.$model->booking_id.'" class="booking_id">           
-                  <a type="button"  onclick="waseluploadAction('.$model->commision_id.',`'. $this->type.'`)"  id="accept" class="btn btn-secondary">رفع الإيصال</a>  
-                </form>   
-                ';
+                  <input type="hidden" name="booking_id" value="'.$model->booking_id.'" class="booking_id">';
+                if(!$model->waseal_photo && $model->status==0){           
+                $output.= '<a type="button"  onclick="waseluploadAction('.$model->commision_id.',`'. $this->type.'`)"  id="accept" class="btn btn-secondary">رفع الإيصال</a>';
+                }else{
+                $output.='<img src="'.config('app.url').'/images/commisions/'.$model->waseal_photo.'" width="70%" height="70%"/>'; 
+                }
+                $output.='</form>';
               
-
+                return $output;
             })          
             ->addColumn('action', function ($model) {
                 $actions = '';
@@ -89,8 +93,15 @@ class CommissionsDataTable extends DataTable
 
     public function count()
     {
-        if($this->pay=='unpaid'){$status=0;}else{$status=1;}
-            return Commission::where('type', '=', $this->type)->where('status', '=',$status)->count();
+
+            return Commission::where('type', '=', $this->type)->where('status', '=',0)->count();
+    }
+
+
+    public function count1()
+    {
+
+            return Commission::where('type', '=', $this->type)->where('status', '=',1)->count();
     }
 
 
@@ -133,11 +144,6 @@ class CommissionsDataTable extends DataTable
             Column::make('price')->title(trans('site.price')),
             Column::make('booking_id')->title(trans('site.booking_id')),
             Column::make('created_at')->title(trans('site.created_at')),
-            Column::computed('action')
-                ->exportable(false)
-                ->printable(false)
-                ->width(60)
-                ->addClass('text-center')->title(trans('site.action')),
                 Column::computed('status')
                 ->exportable(false)
                 ->printable(false)

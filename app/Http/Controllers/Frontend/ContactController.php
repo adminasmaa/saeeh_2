@@ -26,17 +26,11 @@ class ContactController extends Controller
     public function addContacts(Request $request)
     {
 
-//return $request;
-//        $request->validate([
-//            'name' => 'required',
-//            'message' => 'message',
-//            'phone' => 'required|unique:contacts',
-//        ]);
-
         $validation = Validator::make($request->all(), [
             'name' => 'required|string',
-            'message' => 'required|string',
             'phone' => 'required|unique:contacts',
+            'message' => 'required|string',
+
         ]);
 
         if ($validation->fails()) {
@@ -46,11 +40,9 @@ class ContactController extends Controller
         $request_data = $request->except('_token');
         $request_data['user_id'] = Auth::id() ?? '';
 
-      $data=Contact::create($request_data);
+        $data = Contact::create($request_data);
 
         return response()->json(['status' => true, 'content' => 'success', 'data' => $data]);
-
-
 
 
     }

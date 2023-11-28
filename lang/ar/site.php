@@ -8,6 +8,7 @@ return [
     'contactmessage' => 'يمكنك التواصل معنا من خلال الارقام الاتيه',
     'Do you want to cancel your reservation?'=>'هل تريد الغاء حجزك؟',
     'home' => 'الرئيسية',
+    'Search for your favorite country'=>'ابحث عن دولتك المفضلة',
     'Tell us your evaluation of the Aquar' => 'اخبرنا بتقيمك عن العقار',
     'Write your entire experience' => 'اكتب تجربتك كاملة',
     'Add a comment about the place' => 'أضف تعليقا عن المكان',
@@ -243,6 +244,11 @@ return [
     'amount' => 'كميات',
     'date' => 'تاريخ الحجز',
     'cancle_reason' => 'الغاء الحجز',
+
+    'detailfaqrancy'=>' يساعدك الحجز عن طريق تطبيق سائح على توفير الوقت والجهد في البحث عن مكان الاقامة المناسب لك وذلك بتوفير قائمة متنوعة من العقارات في التطبيق, كما يوفر لك التطبيق مميزات اخرى تساعدك على اتخاذ القرار المناسب, نستعرض معاً أهم المميزات في التطبيق:',
+
+    'Read all reviews'=>'اقرأ جميع التقييمات',
+    'cancle_reason' => ' الغاء الحجز',
     'link' => 'الرابط الخاصة',
     'offertime' => 'بعض الوقت',
     'find_your_favorite_country' => 'ابحث عن دولتك المفضلة',

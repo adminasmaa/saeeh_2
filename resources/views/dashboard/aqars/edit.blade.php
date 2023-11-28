@@ -393,7 +393,7 @@
                                                     <div class="col-md-12 form-group col-12 p-2  m-t-15">
                                                         <label>@lang('site.policy_place')</label>
                                                         <textarea class="form-control" cols="5" rows="5" name="policy_place"
-                                                            id="editor1">
+                                                           >
                                                             {{$aqar->policy_place}}
                                                             </textarea>
                                                     </div>

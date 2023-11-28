@@ -58,18 +58,18 @@ class BookingController extends Controller
     }//end of destroy
 
 
-    public function acceptbooking($car_id)
+    public function acceptbooking($bookid)
     {
 
-      return $this->bookingRepository->acceptbooking($car_id);
+      return $this->bookingRepository->acceptbooking($bookid);
 
     }
 
 
-    public function rejectbooking($car_id)
+    public function rejectbooking($bookid)
     {
 
-      return $this->bookingRepository->rejectbooking($car_id);
+      return $this->bookingRepository->rejectbooking($bookid);
 
     }
 
@@ -77,6 +77,20 @@ class BookingController extends Controller
     {
 
       return $this->bookingRepository->confirmRejectbooking($book_id ,$request);
+
+    }
+
+    public function attendbooking($bookid)
+    {
+
+      return $this->bookingRepository->attendbooking($bookid);
+
+    }
+
+    public function notattendbooking($bookid)
+    {
+
+      return $this->bookingRepository->notattendbooking($bookid);
 
     }
 

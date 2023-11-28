@@ -54,7 +54,7 @@
                         src="{{FRONTASSETS}}/images/booking-investor/plus-circle.svg"
                         alt="plus icon"
                     /></span>
-                    اضافة اعلان
+                    @lang('site.add_ads')
                   </a>
                 </div>
               </div>
@@ -82,7 +82,7 @@
                     </div>
                     <div class="col-lg-8">
                     <h2 class="text-main">
-                      إعلان رقم ({{$car->id ?? ''}}) 
+                    @lang('site.ads_number')({{$car->id ?? ''}}) 
                       </h2>
                       <div class="d-lg-flex mt-3 w-100">
                         <div class="ads-lborder">
@@ -90,38 +90,38 @@
                           <span class="ads-item h2">@lang('site.category') :</span>
                             <span class="h2 text-gray">{{$car->categories['name_ar'] ??''}}</span>
                           </div>
-                          <div>
+                          <div class="mb-3">
                           <span class="ads-item h2">@lang('site.name') :</span>
                             <span class="h2 text-gray">{{$car->name ?? ''}}</span>
                           </div>
                         </div>
                         <div class="w-md-56">
                           <div class="padding-ads ">
-                            <ul class="list-menu flex-center list-unstyled p-0">
+                            <ul class="list-menu flex-center list-unstyled p-0  mb-0">
                               <li class="liItem-booking-out">
                                 <a href="#"   class="liItem-link">
                                   <i class="far fa-calendar-plus"></i>
-                                  اضافة حجز خارجى</a
+                                  @lang('site.add_external_booking')</a
                                 >
                               </li>
                              
                               <li class="liItem-booking-see">
                               <a href="{{route('invst.detailcar',$car->id)}}" class="liItem-link">
                                   <i class="far fa-eye"></i>
-                                 مشاهدة
+                                  @lang('site.Watch')
                                 </a>
                                </li>
 
                                <li class="liItem-booking-edit">
                                <a href="{{route('invst.cars.edit', $car->id) }}"  class="liItem-link">
                                   <i class="fas fa-edit"></i>
-                                 تعديل
+                                  @lang('site.edit')
                                 </a>
                                </li>
                                <li class="liItem-booking">
                                 <a href="{{route('invst.listbookingscar',$car->id)}}"  class="liItem-link">
                                   <i class="far fa-book-open"></i>
-                                 الحجوزات
+                                  @lang('site.bookings')
                                 </a>
                                </li>
                                 @if($car->ads_status_id  !=3)
@@ -129,7 +129,7 @@
                                 <form action="{{route('invst.stopcar' , $car->id)}}" method="GET" style="display: inline-block" id="stopForm{{$car->id}}">
                                   @csrf
                                   <a type="button" onclick="confirmAction('stop',{{$car->id}},'@lang('site.stop ads')','error')" id="stop" class="liItem-link">   <i class="far fa-stopwatch"></i>
-                                  ايقاف مؤقت
+                                  @lang('site.Pause')
                                 </a>
                                 </form>
                                 </li>
@@ -138,7 +138,7 @@
                                 <form action="{{route('invst.activecar' , $car->id)}}" method="GET" style="display: inline-block" id="activeForm{{$car->id}}">
                                   @csrf
                                   <a type="button" onclick="confirmAction('active',{{$car->id}},'@lang('site.active ads')','success')" id="active" class="liItem-link">   <i class="far fa-stopwatch"></i>
-                                   تفعيل
+                                  @lang('site.Active')
                                 </a>
                                 </form>
                                 </li>
@@ -148,7 +148,7 @@
                         </div>
                       </div>
                       <div class="ads-status mt-lg-0 mt-3">
-                        <span> حالة الاعلان : </span>
+                        <span>  @lang('site.ads_status'): </span>
                         <span class="mt-md-0 mt-2">
                           <span class="ads-status-ic px-1">
                             <i class="far fa-check"></i>
@@ -159,6 +159,7 @@
                     </div>
                   </div>
                 </div>
+            
                 @endforeach
               </div>
             </div>
