@@ -12,12 +12,12 @@
              
 
               <li class="breadcrumb-item" aria-current="page">
-                <a href="javascript:void(0)"> اعلان </a>
+                <a href="javascript:void(0)"> @lang('site.ad') </a> 
               </li>
             
 
               <li class="breadcrumb-item text-gray-4" aria-current="page">
-                اضافة حجز خارجى
+                @lang('site.add_external_booking')
               </li>
             </ol>
           </nav>
@@ -30,14 +30,14 @@
             {{ csrf_field() }}
             <div class="row">
               <div class="col-12">
-                <h2 class="mb-4 text-gray ">إضافة حجز خارجى</h2>
+                <h2 class="mb-4 text-gray "> @lang('site.add_external_booking') </h2>
               </div>
               <div class="col-lg-8">
               @if(is_null($car->fixed_price))
                 <div class="form-group mb-4">
-                  <label for="">
-                  عدد الاشخاص              
-                  <span class="text-danger">( اجباري )</span>
+                  <label for=""> 
+                  @lang('site.personnumber')
+                  <span class="text-danger">( @lang('site.mandatory') )</span>
                   </label>
                   <input
                       type="hidden"
@@ -66,8 +66,8 @@
                 @if(!is_null($car->fixed_price))
                 <div class="form-group mb-4">
                   <label for="">
-                    تاريخ الوصول
-                    <span class="text-danger">( اجبارى )</span>
+                  @lang('site.date_of_arrival') 
+                    <span class="text-danger">( @lang('site.mandatory') )</span>
                   </label>
                   <input
                       type="hidden"
@@ -96,7 +96,7 @@
                     
                   <div class="position-relative">
                     <input
-                      placeholder=" تاريخ الوصول"
+                      placeholder=" @lang('site.date_of_arrival') "
                       type="text"
                       name="delivery_date"
                       id="datepicker"
@@ -110,12 +110,12 @@
                 </div>
                 <div class="form-group mb-4">
                   <label for="">
-                    تاريخ المغادرة
-                    <span class="text-danger">( اجبارى )</span>
+                  @lang('site.date_of_departure')
+                    <span class="text-danger">( @lang('site.mandatory') )</span>
                   </label>
                   <div class="position-relative">
                     <input
-                      placeholder="تاريخ المغادرة "
+                      placeholder=" @lang('site.date_of_departure') "
                       type="text"
                       name="reciept_date"
                       id="datepicker1"
@@ -132,22 +132,22 @@
                 
                 <div class="form-group mb-4">
                   <label for="">
-                  اسم العميل             
-                  <span class="text-danger">( اجباري )</span>
+                  @lang('site.client_name')
+                  <span class="text-danger">( @lang('site.mandatory') )</span>
                   </label>
-                  <input
-                    placeholder=" اكتب رقم الهاتف  "  name="customer_name"
+                  <input  
+                    placeholder=" @lang('site.write_your_phone_number') "  name="customer_name"
                     type="text"
                     value=""
                   />
                 </div>
                 <div class="form-group mb-4">
                   <label for="">
-                    رقم هاتف العميل             
-                  <span class="text-danger">( اجباري )</span>
+                  @lang('site.client_phone_number')
+                  <span class="text-danger">( @lang('site.mandatory') )</span>
                   </label>
                   <input
-                    placeholder=" اكتب رقم الهاتف  "  name="customer_phone"
+                    placeholder=" @lang('site.write_your_phone_number') "  name="customer_phone"
                     type="text"
                     value=""
                   />
@@ -157,10 +157,10 @@
               <div class="col-lg-4">
                <div class="ads_investor_card all-days-card mb-3">
                 <div class="booking-days text-center mb-3">
-                  عدد الايام:<span id="days"></span>
+                @lang('site.daynumber') :<span id="days"></span>
                 </div>
                 <div class="booking-days text-center mb-3">
-                  المبلغ الاجمالى:<span id="total"></span>
+                @lang('site.total_price') :<span id="total"></span>
                 </div>
                 <div class="text-center">
                   <a href="{{route('invst.conditions')}}" class="cancel-booking-link">@lang('site.Reservation and cancellation policy')</a>
@@ -169,12 +169,12 @@
               </div>
               <div class="col-12 mb-lg-0 mb-3">
                 <label for="" class="pb-2 ads-card-lbl">
-                  اضف استفسارك
-                  <span class="text-danger">( اختيارى )</span>
+                  @lang('site.add_your_inquiry')
+                  <span class="text-danger">( @lang('site.optional') )</span> 
                 </label>
                
                 <div class="form-group">
-                  <textarea class="form-control txtarea-ads p-3 mt-2" placeholder="أضف ما تريد" rows="6" name="note"></textarea>
+                  <textarea class="form-control txtarea-ads p-3 mt-2" placeholder=" @lang('site.add_whatever_you_want') " rows="6" name="note"></textarea>
                 </div>
                 <div class="d-flex justify-content-center mt-lg-5 mt-0">
                   <div class="booking-now-btn  d-flex justify-content-center align-items-center">

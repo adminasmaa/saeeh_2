@@ -54,7 +54,7 @@ class AqarDetailResource extends JsonResource
                 "time_from" => $this->time_from ?? '',
                 "time_to" => $this->time_to ?? '',
                 "image" => asset('images/aqars') . "/" . $this->main_image,
-                "video" =>  $this->videos!=NULL ? asset('images/cars') . "/" . $this->videos : NULL,
+                "video" =>  $this->videos!=NULL ? asset('images/aqars') . "/" . $this->videos : NULL,
                 'path' => asset('images/aqars') . "/",
                 'images' => explode(",", $this->images) ?? [],
                 "comision" => $this->comision ?? '',
