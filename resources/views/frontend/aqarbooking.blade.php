@@ -10,7 +10,7 @@
                         <li class="breadcrumb-item">
                             <a href="{{route('Home')}}">@lang('site.home')</a>
                         </li>
-                     
+
                         <li class="breadcrumb-item text-gray-4" aria-current="page">
                             @lang('site.book')
                         </li>
@@ -902,7 +902,7 @@
 
                 // console.log("bookingssss");
                 var formData = $("#add-form").serialize();
-                var url = '{{route('addbookingaquars')}}';
+                var url = '{{route('bookingsaquars')}}';
 
 
                 $.ajax({
@@ -918,10 +918,10 @@
                         // Handle success response
 
                         console.log("success", response);
-                        // $(".mybookinghidden").hide();
+                        $(".mybookinghidden").hide();
                         // // //
-                        // $(".mybookingAqars").show();
-                        // $(".mybookingAqars").html(response);
+                        $(".mybookingAqars").show();
+                        $(".mybookingAqars").html(response);
                         // console.log("response", data);
                     },
                     error: function (xhr, textStatus, error) {

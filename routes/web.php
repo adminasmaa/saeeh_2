@@ -93,7 +93,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
     Route::get('countDaysbetweendates', 'App\Http\Controllers\Frontend\AquarController@countDaysbetweendates')->name('countDaysbetweendates')->middleware([user::class]);
     Route::get('bookingaquars/{id}', 'App\Http\Controllers\Frontend\AquarController@bookingaquars')->name('bookingaquars')->middleware([user::class]);
     Route::get('detailbookingaquars/{id}', 'App\Http\Controllers\Frontend\AquarController@detailbookingaquars')->name('detailbookingaquars')->middleware([user::class]);
-    Route::get('addbookingaquars', 'App\Http\Controllers\Frontend\AquarController@addbookingaquars')->name('addbookingaquars')->middleware([user::class]);
+    Route::get('bookingsaquars', 'App\Http\Controllers\Frontend\AquarController@bookingaquarsstatus')->name('bookingsaquars')->middleware([user::class]);
 
     //my booking all car&&aquars
 
@@ -110,11 +110,11 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
 
 Route::post('addContacts', 'App\Http\Controllers\Frontend\ContactController@addContacts')->name('addContacts');
-define('MAINASSETS', URL::asset('public/assets'));
-define('FRONTASSETS', URL::asset('public/frontend/assets'));
-define('MAINUPLOADS', URL::asset('public/uploads'));
-define('MAINDIST', URL::asset('public/dist/frontend/img'));
-define('MAINDASHBOARD', URL::asset('public/dashboard_files'));
+define('MAINASSETS', URL::asset('assets'));
+define('FRONTASSETS', URL::asset('frontend/assets'));
+define('MAINUPLOADS', URL::asset('uploads'));
+define('MAINDIST', URL::asset('dist/frontend/img'));
+define('MAINDASHBOARD', URL::asset('dashboard_files'));
 
 if (!defined('constant')) define('constant', 'value');
 

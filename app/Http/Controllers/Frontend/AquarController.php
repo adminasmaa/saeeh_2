@@ -125,7 +125,6 @@ class AquarController extends Controller
         } else {
 
 
-
             return response()->json(['status' => 'auth', 'content' => 'login']);
 
 
@@ -203,7 +202,7 @@ class AquarController extends Controller
 
     }
 
-    public function addbookingaquars(Request $request)
+    public function bookingaquarsstatus(Request $request)
     {
         $requestdata = $request->all();
 
@@ -235,7 +234,8 @@ class AquarController extends Controller
                 'reciept_date' => $requestdata['reciept_date'], 'delivery_date' => $requestdata['delivery_date'],
                 'note' => $requestdata['note'],
                 'date' => $newDate, 'fixed_price' => $aqar->fixed_price,
-                'day_count' => $requestdata['day_count'], 'total_price' => $total
+                'day_count' => $requestdata['day_count'], 'total_price' => $total,
+                'booking_status_id' => 1
 
             ]);
 

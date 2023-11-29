@@ -15,7 +15,7 @@
                         <li class="breadcrumb-item">
                             <a href="javascript:void(0)"> @lang('site.car') </a>
                         </li>
-                        
+
                         <li class="breadcrumb-item text-gray-4" aria-current="page">
                             @lang('site.details')
                         </li>
@@ -62,7 +62,7 @@
                             <div class="slide-btn prev-slide">
                               <i class="fas fa-chevron-right"></i>
                             </div>
-                 
+
                         </div>
                     </div>
 
@@ -484,7 +484,7 @@
                                         <div
                                             class="booking-now-btn py-4 d-flex justify-content-center align-items-center"
                                         >
-                                            <a href="#"> @lang('site.book')</a>
+                                            <a href="{{route('bookingcar',$car->id)}}"> @lang('site.book')</a>
                                         </div>
                                     </div>
 
@@ -548,7 +548,7 @@
                                         <div
                                             class="booking-now-btn py-4 d-flex justify-content-center align-items-center"
                                         >
-                                            <a href="#"> @lang('site.book')</a>
+                                            <a href="{{route('bookingcar',$car->id)}}"> @lang('site.book')</a>
                                         </div>
                                     </div>
                                 </div>
