@@ -645,7 +645,7 @@ h2 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 99999;
+    z-index: 9;
     text-align: center;
 }
 
@@ -2705,7 +2705,14 @@ video.video-full {
     background: var(--m-main);
     margin-left: 10px;
 }
-
+.tabs-social-icon i{
+    font-size: 18px;
+    color: #fff;
+}
+.place-ic i{
+    font-size: 20px;
+    color: var(--m-gray-4);
+}
 .sub-menu-link svg {
     width: 28px;
 }
@@ -3844,7 +3851,7 @@ font-size: 22px;
 
 .country-container h2 {
     font-weight: 700;
-    font-size: 42px;
+    font-size: 38px;
     line-height: 150%;
     color: #ffffff;
 }
@@ -4129,9 +4136,12 @@ color: #fff;
 }
 
 .discound-icon {
-    padding-left: 10px;
+    padding-inline: 10px;
+    padding-top: 3px;
 }
-
+.discound-icon i{
+    color: var(--m-gray-4)
+}
 .txt_10 {
     color: #3bc119;
 }
@@ -6195,11 +6205,24 @@ color: var(--m-gray-4);
 font-size: 20px;
 }
 .dropdown-register{
-    width: 175px;
-    height: 46px;
+    width: 175px !important;
+    height: 46px !important;
 }
 
 .car-sid-icon i{
     font-size: 18px;
     color: var(--m-gray-4);
 }
+.walking-ic i{
+    padding-left: 5px;
+}
+.share-icon i{
+font-size: 22px;
+padding-left: 5px;
+}
+.custom-in{
+    width:80% !important;
+  }
+  .custom-in input{
+    border-radius: 0 10px 10px 0 !important;
+  }
