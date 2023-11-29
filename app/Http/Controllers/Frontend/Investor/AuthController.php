@@ -75,7 +75,7 @@ class AuthController extends Controller
 
         if ($user) {
             Alert::success('Success', __('site.added_successfully'));
-            return redirect()->route('invst.confirmcode',[$user->id]);
+            return redirect()->route('invst.confirmcode',[$user->id,1]);
         } else {
                 Alert::error('Error', __('site.faild'));
                 return back();
@@ -121,10 +121,10 @@ class AuthController extends Controller
         return back();
 
     }
-    public function confirmcode($id)
+    public function confirmcode($id,$type)
     {
         $invest=User::find($id);
-        return view('frontend.invest.confirmcode' , compact('invest') );
+        return view('frontend.invest.confirmcode' , compact('invest','type') );
     }
 
     public function confirmtion(Request $request)
@@ -188,7 +188,7 @@ class AuthController extends Controller
             'password' => 'required|min:6',
         ]);
 
-        if (auth()->attempt(['country_code' => $request->country_code, 'phone' => $request->phone, 'password' => $request->password])) {
+        if (auth()->attempt(['country_code' => $request->country_code, 'phone' => $request->phone, 'password' => $request->password ,'type' => 'invest'])) {
             $user = Auth::user();
             Auth::login($user);
             return redirect()->route('invst.home');
@@ -198,6 +198,80 @@ class AuthController extends Controller
         }
 
     }
+
+    public function forgetpassword()
+    {
+        $countries = Country::where('active', '=', 1)->get();
+        return view('frontend.invest.forgetpassword', compact('countries'));
+
+    }
+
+    public function checkforget(Request $request)
+    {
+        $this->validate($request,[
+            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+        ]);
+
+        $user = User::where('phone', $request->phone)->where('country_code', $request->country_code)->where('type','invest')->first();
+        if ($user) {
+
+            $set = '123456789';
+            $code = substr(str_shuffle($set), 0, 4);
+            $msg = trans('message.for change password') . "\n";
+            $msg = $msg . trans('message.your code ') . "\n" . $code;
+            send_sms_code($msg, $request->phone, $request->country_code);
+            $user->code = $code;
+            $user->save();
+            return redirect()->route('invst.confirmcode',[$user->id ,0]);
+        }else{
+            return redirect()->back()
+                ->with('error',__('message.wrong credientials'));
+        }
+
+    }
+
+    public function update_password(Request $request)
+    {
+
+       
+        $code=$request->code1.$request->code2.$request->code3.$request->code4;
+
+        $user = User::where('id', $request->id)->where('code',$code)->first()->makeVisible('password');
+
+        if ($user) {        
+            return redirect()->route('invst.changpass',[$request->id]);
+        } else {
+            return redirect()->back()
+            ->with('error',__('message.wrong credientials'));
+        }
+
+    }
+    public function changpass($id)
+    {
+        return view('frontend.invest.changepassword',compact('id'));
+    }
+
+    public function editpassword(Request $request)
+    {
+        $this->validate($request,[
+            'password' => 'required|min:6',
+            'new_password' => 'same:password|min:6',
+        ]);
+
+        $user = User::where('id', $request->id)->first();
+        if ($user) {
+            $password = bcrypt($request->password);
+            $user->password = $password;
+            $user->save();
+            return redirect()->route('invst.login');
+        }else{
+            return redirect()->back()
+                ->with('error',__('message.wrong credientials'));
+        }
+    }
+
+
+    
 
 
    

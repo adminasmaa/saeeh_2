@@ -39,7 +39,7 @@
       <section class="investor-verification pt-lg-5 pt-3 pb-6 mb-6 gary-bg-data">
         <div class="container">
           <div class="verification_saeeh_card">
-            <form action="{{route('invst.confirmtion')}}" method="post" enctype="multipart/form-data">
+            <form action="{{ $type==1? route('invst.confirmtion') : route('invst.updatepassword') }}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="row">
               <div class="col-12 mb-3">
