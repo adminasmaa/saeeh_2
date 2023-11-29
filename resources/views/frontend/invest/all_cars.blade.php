@@ -7,12 +7,10 @@
           <nav class="breadcrumb-container" aria-label="breadcrumb">
             <ol class="breadcrumb mb-0">
               <li class="breadcrumb-item">
-                <a href="javascript:void(0)"> الرئيسية </a>
+                <a href="javascript:void(0)"> @lang('site.home') </a>
               </li>
-             
-
               <li class="breadcrumb-item text-gray-4" aria-current="page">
-                اعلاناتى
+                @lang('site.ads')
               </li>
             </ol>
           </nav>
@@ -31,7 +29,7 @@
                   <input
                     type="search"
                     class="form-control"
-                    placeholder="ادخل رقم الاعلان"
+                    placeholder=" @lang('site.add_ads_number') "
                     name="search_id"
                     value="{{ request()->get('search_id') }}"
                   />

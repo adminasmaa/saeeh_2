@@ -272,7 +272,7 @@
                             <div class="mt-2">
                               <i class="far fa-wallet"></i>
                             </div>
-                            <div class="th-txt"> @lang('site.deposit')</div>
+                            <div class="th-txt"> @lang('site.deposit') </div>
                           </div>
                         </td>
 

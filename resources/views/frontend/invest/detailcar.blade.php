@@ -980,10 +980,10 @@
                       />
                     </svg>
                   </span>
-                                                <span class="text-main discound-txt">
-                    يوجد خصم
+                                    <span class="text-main discound-txt">
+                                    @lang('site.There is a discount')
                     <span class="txt_10">10%</span>
-                    لمستخدمي تطبيق سائح
+                    @lang('site.For users of the tourist application')
                   </span>
                                             </div>
                                         </div>
@@ -1050,7 +1050,7 @@
                                             <div class="form-group">
                   <textarea
                       class="form-control txtarea-booking px-3 py-2 mt-2 description"
-                      placeholder="اكتب تجربتك كاملة "
+                      placeholder=" @lang('site.Write your entire experience') "
                       rows="4"
                       id="description"
                       name="description"

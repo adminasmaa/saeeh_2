@@ -577,18 +577,7 @@
                                     data-bs-dismiss="modal"
                                     aria-label="Close"
                                 >
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="32"
-                                        height="32"
-                                        viewBox="0 0 32 32"
-                                        fill="none"
-                                    >
-                                        <path
-                                            d="M8.53366 25.3327L6.66699 23.466L14.1337 15.9993L6.66699 8.53268L8.53366 6.66602L16.0003 14.1327L23.467 6.66602L25.3337 8.53268L17.867 15.9993L25.3337 23.466L23.467 25.3327L16.0003 17.866L8.53366 25.3327Z"
-                                            fill="white"
-                                        />
-                                    </svg>
+                                <i class="fal fa-times"></i>
                                 </button>
                             </div>
                             <div class="modal-body p-lg-5 p-3">
@@ -643,12 +632,12 @@
                       />
                     </svg>
                   </span>
-                                                <span class="text-main discound-txt">
-                    يوجد خصم
-                    <span class="txt_10">10%</span>
-                    لمستخدمي تطبيق سائح
-                  </span>
-                                            </div>
+                                            <span class="text-main discound-txt">
+                                                يوجد خصم
+                                                <span class="txt_10">10%</span>
+                                                لمستخدمي تطبيق سائح
+                                            </span>
+                                        </div>
                                         </div>
 
 
@@ -688,7 +677,7 @@
                                                         <span class="text-gray-2 h2 mb-0 badge-txt">@lang('site.total') </span>
                                                     </div>
                                                     <!-- Output HTML -->
-
+                                                    <div class="d-flex align-items-center">
                                                     <div class="rate">
                                                         <input type="hidden" name="car_id" value="{{$car->id}}" class="car_id">
                                                         <input type="radio" id="star5" name="rate" value="5" class="rate" />
@@ -702,6 +691,12 @@
                                                         <input type="radio" id="star1" name="rate" value="1"  class="rate"/>
                                                         <label for="star1" title="text">1 star</label>
                                                     </div>
+                                                    <div class="department-badge bg-main text-white badge-modal">
+                                                              <div class="pt-1 live-rating">0.0</div>
+                                                             <div>
+                                                              <i class="fas fa-star"></i>
+                                                             </div>
+                                                            </div></div>
 
                                                 </div>
                                                 <hr class="hr-saeeh my-0" />
@@ -757,18 +752,7 @@
                         data-bs-dismiss="modal"
                         aria-label="Close"
                     >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="32"
-                            height="32"
-                            viewBox="0 0 32 32"
-                            fill="none"
-                        >
-                            <path
-                                d="M8.53366 25.3327L6.66699 23.466L14.1337 15.9993L6.66699 8.53268L8.53366 6.66602L16.0003 14.1327L23.467 6.66602L25.3337 8.53268L17.867 15.9993L25.3337 23.466L23.467 25.3327L16.0003 17.866L8.53366 25.3327Z"
-                                fill="white"
-                            />
-                        </svg>
+                    <i class="fal fa-times"></i>
                     </button>
                 </div>
                 <div class="modal-body p-lg-5 p-3">
