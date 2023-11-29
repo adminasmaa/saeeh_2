@@ -27,8 +27,13 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
     Route::get('login', 'App\Http\Controllers\Frontend\Investor\AuthController@login')->name('login');
     Route::post('checklogin', 'App\Http\Controllers\Frontend\Investor\AuthController@checklogin')->name('checklogin');
     Route::get('countrycities/{id}', 'App\Http\Controllers\Frontend\Investor\HomeController@countrycities')->name('countrycities');
-    Route::get('confirmcode/{id}', 'App\Http\Controllers\Frontend\Investor\AuthController@confirmcode')->name('confirmcode');
+    Route::get('confirmcode/{id}/{type}', 'App\Http\Controllers\Frontend\Investor\AuthController@confirmcode')->name('confirmcode');
     Route::post('confirmtion', 'App\Http\Controllers\Frontend\Investor\AuthController@confirmtion')->name('confirmtion');
+    Route::get('forgetpassword', 'App\Http\Controllers\Frontend\Investor\AuthController@forgetpassword')->name('forgetpassword');
+    Route::post('checkforget', 'App\Http\Controllers\Frontend\Investor\AuthController@checkforget')->name('checkforget');
+    Route::post('updatepassword', 'App\Http\Controllers\Frontend\Investor\AuthController@update_password')->name('updatepassword');
+    Route::get('changpass/{id}', 'App\Http\Controllers\Frontend\Investor\AuthController@changpass')->name('changpass');
+    Route::post('editpassword', 'App\Http\Controllers\Frontend\Investor\AuthController@editpassword')->name('editpassword');
     });
     Route::prefix('invst')->name('invst.')->middleware(['auth'])->group(function () {
        
