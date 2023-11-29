@@ -93,7 +93,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
     Route::get('countDaysbetweendates', 'App\Http\Controllers\Frontend\AquarController@countDaysbetweendates')->name('countDaysbetweendates')->middleware([user::class]);
     Route::get('bookingaquars/{id}', 'App\Http\Controllers\Frontend\AquarController@bookingaquars')->name('bookingaquars')->middleware([user::class]);
     Route::get('detailbookingaquars/{id}', 'App\Http\Controllers\Frontend\AquarController@detailbookingaquars')->name('detailbookingaquars')->middleware([user::class]);
-    Route::get('addbookingaquars', 'App\Http\Controllers\Frontend\AquarController@addbookingaquars')->name('addbookingaquars')->middleware([user::class]);
+    Route::get('bookingsaquars', 'App\Http\Controllers\Frontend\AquarController@bookingaquarsstatus')->name('bookingsaquars')->middleware([user::class]);
 
     //my booking all car&&aquars
 

@@ -1,7 +1,10 @@
+
+
 @foreach($bookings->unique('car_id') as $book)
     @if(!empty($book->car))
+        <div class="col-12">
         <div
-            class="card card-department round-border mb-4 p-md-3 p-2" id="mybooking"
+            class="card card-department round-border mb-4 p-md-3 p-2"
         >
             <div class="row g-0">
                 <div class="col-lg-3 position-relative">
@@ -202,12 +205,14 @@
                             <div
                                 class="details-btn d-flex align-items-center justify-content-center margin-top-12"
                             >
-                                <a href="#">@lang('site.Reservation information')</a>
+                                <a href="{{route('detailbooking',$book->id)}}">@lang('site.Reservation information')</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        </div>
     @endif
 @endforeach
+

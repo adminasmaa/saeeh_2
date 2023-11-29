@@ -81,7 +81,7 @@ class AqarBookingObserver
         send_push_notification('aqar',$aqarBooking->id,$user->device_token,$title,$desription);
     }
 
-        
+
 
     }
 

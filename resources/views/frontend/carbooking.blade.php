@@ -12,7 +12,7 @@
                         <li class="breadcrumb-item">
                             <a href="{{route('Home')}}"> @lang('site.home') </a>
                         </li>
-                       
+
                         <li class="breadcrumb-item">
                             <a href="javascript:void(0)"> {{$car->name ??  ''}} </a>
                         </li>
@@ -37,7 +37,7 @@
                                 <div class="department-badge bg-main text-white">
                                     <div class="pt-1">5</div>
                                     <div>
-                                    <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
                                     </div>
                                 </div>
                                 <div
@@ -207,11 +207,11 @@
                                                 <div class="col-12">
                                                     <div class="condition-content mb-3 pb-0">
                                                         <h2 class="condition-title text-second">
-                                                             @lang('site.allownumber')  
-                                                         </h2>
+                                                            @lang('site.allownumber')
+                                                        </h2>
                                                         <p class="details-sm-txt padding-right">
-                                                            @lang('site.Please follow the site policy') 
-                                                         </p>
+                                                            @lang('site.Please follow the site policy')
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -257,7 +257,7 @@
                                                         {{--                                                    {{$aquar->time_from ?? ''}}--}}
                                                         {{$car->car_delivery_date ?? ''}}
                                                     </div>
-                                                    
+
                                                 </div>
                                             </div>
                                             <div>
@@ -326,7 +326,7 @@
                                                 {{$car->day_count ?? 0 }}
                                             </div>
                                         </div>
-                                     
+
                                     </div>
 
                                     <div class="card-booking mb-4">
@@ -363,7 +363,7 @@
                                         <span class="booking-icon">
                                         <i class="fal fa-palette"></i>
                                         </span>
-                                         <span class="text-second dd-txt pe-2"> @lang('site.color') </span>
+                                                <span class="text-second dd-txt pe-2"> @lang('site.color') </span>
                                             </div>
                                             <div
                                                 class="text-gray-2 d-flex align-items-center justify-content-center booking-data"
@@ -371,10 +371,10 @@
                                                 {{$car->color ?? ''}}
                                             </div>
                                         </div>
-                              
+
                                         <hr class="hr-saeeh my-0"/>
                                         <div class="d-flex justify-content-between py-1 px-3">
-                                            <div class="d-flex align-items-center"> 
+                                            <div class="d-flex align-items-center">
                                             <span class="booking-icon">
                                             <i class="fal fa-car-side"></i>
                                                 </span>
@@ -394,7 +394,7 @@
                                         <div class="d-flex justify-content-between p-3">
                                             <div class="d-flex align-items-center">
                                         <span class="booking-icon">
-                                        <i class="fal fa-pencil-alt text-second" ></i>
+                                        <i class="fal fa-pencil-alt text-second"></i>
                                         </span>
                                                 <a class="text-second dd-txt pe-2 booking-link"
                                                 >@lang('site.Modify your selection')
@@ -438,10 +438,10 @@
                                         </div>
                                     </div>
                                     <div class="card-booking mb-4 bg-light-blue">
-                                       <div
-                                         class="d-flex justify-content-between p-3"
+                                        <div
+                                            class="d-flex justify-content-between p-3"
                                         >
-                                           <div class="d-flex align-items-center">
+                                            <div class="d-flex align-items-center">
                                            <span class="booking-icon">
                                                  <i class="fal fa-wallet"></i>
                                                 </span>
@@ -449,14 +449,14 @@
                                                 > @lang('site.price')@lang('site.total')
                                          </span>
                                             </div>
-                                           <div
+                                            <div
                                                 class="text-gray-2 d-flex align-items-center justify-content-center summary-price"
-                                           >
-                                           {{$car->fixed_price  ?? 0}}
-                                           <!-- $car->fixed_price + $car->changed_price ?? 0 -->
+                                            >
+                                                {{$car->fixed_price  ?? 0}}
+                                                <!-- $car->fixed_price + $car->changed_price ?? 0 -->
 
                                             </div>
-                                       </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-7">
@@ -488,8 +488,8 @@
                                                             class="row justify-content-between align-items-center mb-3 small"
                                                         >
                                                             <div class="col-auto mb-lg-0 mb-3">
-                                                <span class="text-main number-ads" > 
-                                                    @lang('site.id number'){{$car->id}}</span >
+                                                <span class="text-main number-ads">
+                                                    @lang('site.id number'){{$car->id}}</span>
                                                             </div>
                                                             <div class="col-auto">
                                                                 <div
@@ -499,7 +499,7 @@
                                                                         <div
                                                                             class="pt-1">{{$car->CarReview->count() ?? 0 }}</div>
                                                                         <div>
-                                                                          <i class="fas fa-star"> </i>
+                                                                            <i class="fas fa-star"> </i>
                                                                         </div>
                                                                     </div>
                                                                     <div class="number-ads gray-txt">
@@ -513,19 +513,19 @@
                                                         </h2>
 
                                                         <div class="gray-txt number-ads pb-2">
-                                                        <span>          
+                                                        <span>
                                                                 {!! html_entity_decode($car->description) !!}
                                                         </span>
                                                         </div>
                                                         <div
                                                             class="text-gray-2 number-ads d-flex align-items-center"
                                                         >
-                                                          
-                                                <div class="d-flex align-items-center">
-                                                    <div class="ps-2 car-sid-icon">
-                                                            <i class="fal fa-car-side text-main"></i>
-                                                    </div>
-                                            <div> {{$car->name ?? ''}}</div>
+
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="ps-2 car-sid-icon">
+                                                                    <i class="fal fa-car-side text-main"></i>
+                                                                </div>
+                                                                <div> {{$car->name ?? ''}}</div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -614,161 +614,164 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row" id="mybookinghiddenSS">
                                 <div class="col-12">
 
                                     @foreach($bookings->unique('car_id') as $book)
                                         @if(!empty($book->car))
-                                        <div
-                                            class="card card-department round-border mb-4 p-md-3 p-2" id="mybookinghidden"
-                                        >
-                                            <div class="row g-0">
-                                                <div class="col-lg-3 position-relative">
-                                                    <div class="cars-img">
-                                                        <div>
-                                                            <img
-                                                                class="department-img-list of-cover"
+                                            <div
+                                                class="card card-department round-border mb-4 p-md-3 p-2"
+                                            >
+                                                <div class="row g-0">
+                                                    <div class="col-lg-3 position-relative">
+                                                        <div class="cars-img">
+                                                            <div>
+                                                                <img
+                                                                    class="department-img-list of-cover"
 
-                                                                src="{{asset('images/cars/'.$book->car->main_image_ads)}}"
-                                                                onerror="this.src='{{FRONTASSETS}}/images/cars/car-card-1.png'"
+                                                                    src="{{asset('images/cars/'.$book->car->main_image_ads)}}"
+                                                                    onerror="this.src='{{FRONTASSETS}}/images/cars/car-card-1.png'"
 
-                                                                alt="image 1"
-                                                                loading="lazy"
-                                                            />
+                                                                    alt="image 1"
+                                                                    loading="lazy"
+                                                                />
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-lg-9">
-                                                    <div
-                                                        class="card-body position-relative px-lg-3 px-0"
-                                                    >
+                                                    <div class="col-lg-9">
                                                         <div
-                                                            class="row justify-content-between align-items-center mb-3 small"
+                                                            class="card-body position-relative px-lg-3 px-0"
                                                         >
-                                                            <div class="col-auto mb-lg-0 mb-2">
+                                                            <div
+                                                                class="row justify-content-between align-items-center mb-3 small"
+                                                            >
+                                                                <div class="col-auto mb-lg-0 mb-2">
                                                             <span class="text-main number-ads"
                                                             > @lang('site.id number')({{$book->car->id}})</span
                                                             >
-                                                            </div>
-                                                            <div class="col-auto">
-                                                                <div
-                                                                    class="d-flex justify-content-center align-items-center"
-                                                                >
-                                                                    <div class="department-badge bg-main text-white">
-                                                                        <div class="pt-1">5</div>
-                                                                        <div>
+                                                                </div>
+                                                                <div class="col-auto">
+                                                                    <div
+                                                                        class="d-flex justify-content-center align-items-center"
+                                                                    >
+                                                                        <div
+                                                                            class="department-badge bg-main text-white">
+                                                                            <div class="pt-1">5</div>
+                                                                            <div>
                                                                                 <i class="fas fa-star"></i>
-                                                                                </div>
-                                                                    </div>
-                                                                    <div class="number-ads gray-txt">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="number-ads gray-txt">
 
-                                                                        {{$book->car->carComment->count() ?? 0}} @lang('site.comments')
+                                                                            {{$book->car->carComment->count() ?? 0}} @lang('site.comments')
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <h2 class="card-title mb-2">
+                                                            <h2 class="card-title mb-2">
 
-                                                            {{$book->car->name ?? ''}}
+                                                                {{$book->car->name ?? ''}}
 
-                                                        </h2>
+                                                            </h2>
 
-                                                        <div class="gray-txt number-ads pb-2">
+                                                            <div class="gray-txt number-ads pb-2">
                                                         <span
                                                         >{{$book->car->description ?? ''}}
                                                         </span>
-                                                        </div>
-                                                        <div
-                                                            class="text-gray-2 number-ads d-flex align-items-center py-2"
-                                                        >
-                                                            <div>
-                                                            <div class="ps-2 car-sid-icon">
-                                                            <i class="fal fa-car-side text-main"></i>
-                                                          </div>
-                                                                <span>{{$book->car->car_numbers}} @lang('site.car_numbers')</span>
                                                             </div>
-                                                            <div class="padding-35">
+                                                            <div
+                                                                class="text-gray-2 number-ads d-flex align-items-center py-2"
+                                                            >
+                                                                <div>
+                                                                    <div class="ps-2 car-sid-icon">
+                                                                        <i class="fal fa-car-side text-main"></i>
+                                                                    </div>
+                                                                    <span>{{$book->car->car_numbers}} @lang('site.car_numbers')</span>
+                                                                </div>
+                                                                <div class="padding-35">
                                                             <span class="ps-2 car-sid-icon">
                                                             <i class="fa-light fa-clock text-main"></i>
                                                             </span>
-                                                                <span> @lang('site.year')</span>
+                                                                    <span> @lang('site.year')</span>
+                                                                </div>
                                                             </div>
-                                                        </div>
 
-                                                        <div
-                                                            class="d-flex align-items-center justify-content-between mt-2"
-                                                        >
-                                                            <div class="department-price">
-                                                                <span class="text-gray-2"> @lang('site.price'):</span>
-                                                                <span class="fw-bold text-main"
-                                                                >{{$book->car->fixed_price ?? 0 }}
+                                                            <div
+                                                                class="d-flex align-items-center justify-content-between mt-2"
+                                                            >
+                                                                <div class="department-price">
+                                                                    <span
+                                                                        class="text-gray-2"> @lang('site.price'):</span>
+                                                                    <span class="fw-bold text-main"
+                                                                    >{{$book->car->fixed_price ?? 0 }}
                                                          </span>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <!--waiting -->
-                                                        <div
-                                                            class="d-lg-flex align-items-center justify-content-between mt-3 flex-wrap"
-                                                        >
-                                                            <div class="d-lg-flex align-items-center">
-                                                                <div
-                                                                    class="round-border bg-light-orange ms-2"
-                                                                >
+                                                            <!--waiting -->
+                                                            <div
+                                                                class="d-lg-flex align-items-center justify-content-between mt-3 flex-wrap"
+                                                            >
+                                                                <div class="d-lg-flex align-items-center">
                                                                     <div
-                                                                        class="d-flex justify-content-between py-1 px-md-3 px-2"
+                                                                        class="round-border bg-light-orange ms-2"
                                                                     >
-                                                                        <div class="d-flex align-items-center">
+                                                                        <div
+                                                                            class="d-flex justify-content-between py-1 px-md-3 px-2"
+                                                                        >
+                                                                            <div class="d-flex align-items-center">
                                                                             <span class="car-sid-icon">
                                                                             <i class="fal fa-wallet text-main"></i>
                                                                             </span>
-                                                                            <span class="text-gray-2 pe-1 ps-2"
-                                                                            > @lang('site.Reservation deposit'):
+                                                                                <span class="text-gray-2 pe-1 ps-2"
+                                                                                > @lang('site.Reservation deposit'):
                                                                      </span>
+                                                                            </div>
+                                                                            <div
+                                                                                class="text-gray-2 d-flex align-items-center justify-content-center fw-bold span-14"
+                                                                            >
+                                                                                {{$book->car->fixed_price ?? 0 }}
+                                                                            </div>
                                                                         </div>
+                                                                    </div>
+                                                                    <div
+                                                                        class="round-border bg-light-yellow my-lg-0 my-3"
+                                                                    >
                                                                         <div
-                                                                            class="text-gray-2 d-flex align-items-center justify-content-center fw-bold span-14"
+                                                                            class="d-flex justify-content-between align-items-center py-1 px-md-3 px-2"
                                                                         >
-                                                                            {{$book->car->fixed_price ?? 0 }}
+                                                                            <div class="d-flex align-items-center">
+                                                                        <span class="text-gray-2">
+                                                                            @lang('site.booking_status'):
+                                                                        </span>
+                                                                                <span class="px-1 car-sid-icon">
+                                                                        <i class="fal fa-clock text-main"></i>
+                                                                        </span>
+                                                                            </div>
+                                                                            <div class="text-gray-2 fw-bold span-14">
+                                                                                @lang('site.Awaiting approval by the owner')
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div
-                                                                    class="round-border bg-light-yellow my-lg-0 my-3"
+                                                                    class="details-btn d-flex align-items-center justify-content-center margin-top-12"
                                                                 >
-                                                                    <div
-                                                                        class="d-flex justify-content-between align-items-center py-1 px-md-3 px-2"
-                                                                    >
-                                                                        <div class="d-flex align-items-center">
-                                                                        <span class="text-gray-2">
-                                                                            @lang('site.booking_status'):
-                                                                        </span>
-                                                                        <span class="px-1 car-sid-icon">
-                                                                        <i class="fal fa-clock text-main"></i>
-                                                                        </span>
-                                                                        </div>
-                                                                        <div class="text-gray-2 fw-bold span-14">
-                                                                            @lang('site.Awaiting approval by the owner')
-                                                                        </div>
-                                                                    </div>
+                                                                    <a href="{{route('detailbooking',$book->id)}}">@lang('site.Reservation information')</a>
                                                                 </div>
-                                                            </div>
-                                                            <div
-                                                                class="details-btn d-flex align-items-center justify-content-center margin-top-12"
-                                                            >
-                                                                <a href="{{route('detailbooking',$book->id)}}">@lang('site.Reservation information')</a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-
 
                                         @endif
                                     @endforeach
 
-                                        <div  id="mybooking1" >
-                                        </div>
+
                                 </div>
+                            </div>
+
+                            <div id="mybooking1" class="row mybooking1" style="display: none">
                             </div>
                         </div>
 
@@ -825,26 +828,52 @@
                 var formData = $("#add-form").serialize();
                 console.log('formData', formData);
                 var url = '{{route('addbookingcar')}}';
+
+
+                // $.ajax({
+                //     type: "GET",
+                //     url: url,
+                //     data: formData,
+                //     dataType: "json",
+                //     // encode: true,
+                // }).done(function (data) {
+                //     console.log("datalist",data);
+                //     $("#mybookinghiddenSS").hide();
+                //     // ('.carhidden').html(data);
+                //     $("#mybooking1").show();
+                //     $("#mybooking1").html(data);
+                //     // console.log("response", data);
+                // });
+
+
                 $.ajax({
+                    headers: {'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')},
+
                     type: "GET",
                     url: url,
                     data: formData,
-                    dataType: "json",
-                    // encode: true,
-                }).done(function (data) {
-                    console.log("datalist",data);
-                    $("#mybookinghidden").hide();
-                    // ('.carhidden').html(data);
-                    $("#mybooking1").show();
-                    $("#mybooking1").html(data);
-                    console.log("response", data);
+                    processData: false,
+                    contentType: false,
+
+                    success: function (response) {
+                        // Handle success response
+
+                        console.log("success", response);
+                        $("#mybookinghiddenSS").hide();
+                        // ('.carhidden').html(data);
+                        $("#mybooking1").show();
+                        $("#mybooking1").html(response);
+                        // console.log("response", data);
+                    },
+                    error: function (xhr, textStatus, error) {
+                        // Handle error response
+
+                        console.log("errrorrrs".error);
+                    }
                 });
 
-                e.preventDefault();
             });
         });
     </script>
-
-
 
 @endsection
