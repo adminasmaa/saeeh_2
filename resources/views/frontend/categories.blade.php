@@ -19,7 +19,7 @@
                     </ol>
                 </nav>
             </div>
-        </section
+        </section>
             <!-- section -->
         <section>
             <div class="container">
