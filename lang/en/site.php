@@ -393,6 +393,10 @@ return [
     'image' => 'Image',
 
     'users' => 'users',
+    'Ads No' => 'Ads No',
+
+    'There is a discount' => 'There is a discount',
+    'For users of the tourist application' => 'For users of the tourist application',
 
     'logout' => 'Log Out',
     'status' => 'Status',
