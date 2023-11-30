@@ -83,7 +83,20 @@
             crossorigin="anonymous">
     </script>
 
+{{--    <style>--}}
+{{--        .side-login-image {--}}
+{{--            width: 100%;--}}
+{{--            background: url({{FRONTASSETS}}/images/login-bg-mobile.png) center center;--}}
+{{--            background-repeat: no-repeat;--}}
+{{--            background-size: cover;--}}
+{{--            border-radius: 10px 10px 0 0;--}}
+{{--            height: 300px;--}}
+{{--        }--}}
+{{--    </style>--}}
+
 </head>
+
+
 
 <body>
 {!! headerweb() !!}

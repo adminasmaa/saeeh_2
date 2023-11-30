@@ -41,6 +41,13 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
     Route::get('allcommentPlace/{id}', 'App\Http\Controllers\Frontend\CategoryController@allcommentPlace')->name('allcommentPlace');
 // start login auth and register
     Route::get('logout', 'App\Http\Controllers\Frontend\AuthController@logout')->name('logout');
+    Route::get('forget_password', 'App\Http\Controllers\Frontend\AuthController@forget_password')->name('forget_password');
+    Route::post('checkforgetwithphone', 'App\Http\Controllers\Frontend\AuthController@checkforgetwithphone')->name('checkforgetwithphone');
+    Route::get('checkcode/{id}', 'App\Http\Controllers\Frontend\AuthController@checkcode')->name('checkcode');
+    Route::get('changepassword/{id}', 'App\Http\Controllers\Frontend\AuthController@changepassword')->name('changepassword');
+    Route::post('checkcodesucess', 'App\Http\Controllers\Frontend\AuthController@checkcodesucess')->name('checkcodesucess');
+    Route::post('updatenewpassword', 'App\Http\Controllers\Frontend\AuthController@updatenewpassword')->name('updatenewpassword');
+    Route::get('resendcode/{id}', 'App\Http\Controllers\Frontend\AuthController@resendcode')->name('resendcode');
     Route::get('sitelogin', 'App\Http\Controllers\Frontend\AuthController@login')->name('sitelogin');
     Route::post('logins', 'App\Http\Controllers\Frontend\AuthController@checklogin')->name('logins');
     Route::get('registers', 'App\Http\Controllers\Frontend\AuthController@register')->name('registers');
