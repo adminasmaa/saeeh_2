@@ -6,6 +6,9 @@ return [
     'profiles'=>'Profile',
     'totalprice'=>'Total Price',
 
+    'client'=>'Client',
+
+    'changepassword'=>'ChangePassword',
     'Search for your favorite country'=>'Search For Your Favorite Country',
 
     'favourite'=>'my favourite',
