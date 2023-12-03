@@ -16,6 +16,10 @@ return [
     'Add a comment about the place' => 'أضف تعليقا عن المكان',
     'Trade Name' => 'الاسم التجارى',
 
+    'Search for the Aquar name'=>'ابحث عن اسم العقار',
+
+    'We found apartments suitable for your request'=>'وجدنا شقق مناسبة لطلبك',
+
     'inquires' => 'للحجز والاستفسار',
     'send' => 'ارسال',
     'locations' => 'موقعنا',

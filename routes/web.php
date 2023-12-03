@@ -26,6 +26,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
     Route::get('/', 'App\Http\Controllers\Frontend\HomeController@index')->name('Home');
     Route::get('showmap/{id}', 'App\Http\Controllers\Frontend\HomeController@showmap')->name('showmap')->middleware([user::class]);;
     Route::get('countries', 'App\Http\Controllers\Frontend\CountryController@index')->name('countries');
+    Route::get('searchcountries', 'App\Http\Controllers\Frontend\CountryController@searchcountries')->name('searchcountries');
     Route::get('cities/{id}', 'App\Http\Controllers\Frontend\CityController@index')->name('cities');
     Route::get('countrycities/{id}', 'App\Http\Controllers\Frontend\HomeController@countrycities')->name('countrycities');
     Route::get('categorycities/{id}', 'App\Http\Controllers\Frontend\HomeController@categorycities')->name('categorycities');
@@ -73,6 +74,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
 //aquar start
     Route::get('aquars/{id}', 'App\Http\Controllers\Frontend\AquarController@allaquars')->name('aquars');
+    Route::get('searchAqars/{id}', 'App\Http\Controllers\Frontend\AquarController@searchAqars')->name('searchAqars');
     Route::post('filteraquars', 'App\Http\Controllers\Frontend\AquarController@filteraquars')->name('filteraquars');
     Route::get('detailaquar/{id}', 'App\Http\Controllers\Frontend\AquarController@detailaquar')->name('detailaquar');
     Route::get('allcommentAqar/{id}', 'App\Http\Controllers\Frontend\AquarController@allcommentAqar')->name('allcommentAqar');
