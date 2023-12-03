@@ -320,6 +320,29 @@ class AquarController extends Controller
 
     }
 
+
+    public function searchAqars(Request $request, $id)
+    {
+
+        return $id . '' . $request;
+
+        $query = $request->get('query');
+
+
+        $aquars = Aqar::when($query, function ($quer) use ($query) {
+            $quer->where('name_ar', 'LIKE', '%' . trim($query) . '%')
+                ->orwhere('id', 'LIKE', '%' . trim($query) . '%')
+                ->orwhere('fixed_price', 'LIKE', '%' . trim($query) . '%')
+                ->orwhere('name_en', 'LIKE', '%' . trim($query) . '%')
+                ->orwhere('description', 'LIKE', '%' . trim($query) . '%')
+                ->orwhere('address', 'LIKE', '%' . trim($query) . '%');
+
+        })->where('category_id', '=', $id)->paginate(20);
+        return view('frontend.aquarsearch', compact('aquars'));
+
+
+    }
+
     public function allaquars(Request $request, $id)
     {
 
