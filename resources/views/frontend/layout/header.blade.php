@@ -123,7 +123,7 @@
                                         </li>
                                         <li >
                                             <div class="dropdown-container">
-                                                <div class="dropdown-toggle btn-space click-dropdown d-flex align-items-center  dropdown-register">
+                                                <div class="dropdown-toggle btn-space click-dropdown d-flex align-items-center  dropdown-register dropdown-outline">
 
                                                 @lang('site.login')
                                                     <span>

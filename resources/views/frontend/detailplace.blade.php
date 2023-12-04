@@ -103,18 +103,17 @@
                         </div>
                         <div class="discound-app d-flex align-items-center justify-content-center my-3 py-2">
                         <span class="discound-icon">
-                                <i class="far fa-percentage"></i>
-                                </span>
+                            <i class="far fa-percentage"></i>
+                           </span>
                             <span class="text-main discound-txt">
                             يوجد خصم
                             <span class="txt_10">10%</span>
                             لمستخدمي تطبيق سائح
                             </span>
                         </div>
-                        <div
-                            class="booking-now-btn py-4 mt-lg-4 d-flex justify-content-center align-items-center btn-in-details">
+                        <div class="booking-now-btn py-4 mt-lg-4 d-flex justify-content-center align-items-center btn-in-details">
                             <a href="{{route('showmap',$place->id)}}">
-                  <span class="walking-ic"><i class="far fa-walking"></i></span>
+                        <span class="walking-ic"><i class="far fa-walking"></i></span>
                                <span >@lang('site.Go to the restaurant')</span> 
                             </a>
                         </div>

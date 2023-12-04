@@ -86,7 +86,8 @@
     .contact-btn,
     .call-btn a,
     .cancle-btn a,
-    .add-rate-btn a ,.add-rate-btn button{
+    .add-rate-btn a,
+    .add-rate-btn button {
         font-size: 16px;
     }
     .banner-txt {
@@ -129,17 +130,17 @@
     }
 }
 @media (max-width: 992px) {
-    .exclamation-ic i{
+    .exclamation-ic i {
         font-size: 100px;
     }
-    .w-45{
+    .w-45 {
         width: 100% !important;
     }
     .accordion-item:last-of-type,
-.accordion-item:last-of-type .accordion-button.collapsed {
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-}
+    .accordion-item:last-of-type .accordion-button.collapsed {
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
 
     .department-sm-badge i {
         padding-right: 2px;
@@ -149,32 +150,35 @@
         width: 48px;
         height: 25px;
         font-size: 14px;
-        padding-top: 2px;}
+        padding-top: 2px;
+    }
     .filter-title {
         border: none;
-        border-bottom: 1px solid var(--m-light-gray);}
-    .accordion-item{
+        border-bottom: 1px solid var(--m-light-gray);
+    }
+    .accordion-item {
         border-right: none;
         border-left: none;
     }
     .padding-ads {
         padding-right: 0px;
-      }
-      .list-menu-booking li {
+    }
+    .list-menu-booking li {
         width: 46%;
-      }
-      .w-aqar-status,
-      .ads-status {
+    }
+    .w-aqar-status,
+    .ads-status {
         width: auto !important;
-      }
-      .aqar-img-list {
+    }
+    .aqar-img-list {
         height: 300px;
-      }
+    }
 
-    .btn-saeeh-mobile i,.btn-outline-saeeh-mobile i{
+    .btn-saeeh-mobile i,
+    .btn-outline-saeeh-mobile i {
         padding-left: 5px;
     }
-    
+
     .btn-saeeh-mobile {
         color: var(--m-white) !important;
         background-color: var(--m-main);
@@ -187,15 +191,16 @@
         height: 60px;
         background-color: var(--m-white);
         border: 1px solid var(--m-main);
-        border-radius: var(--rounded-main);}
+        border-radius: var(--rounded-main);
+    }
     .btn-outline-saeeh-mobile,
     .btn-saeeh-mobile {
-      width: 88%;
-      height: 50px;
-      padding: 0 !important;
-      font-size: 14px !important;
-      font-weight: 700 !important;
-      line-height: 36px !important;
+        width: 88%;
+        height: 50px;
+        padding: 0 !important;
+        font-size: 14px !important;
+        font-weight: 700 !important;
+        line-height: 36px !important;
     }
     .side-menu-wrap .accordion-Profile a i {
         color: var(--m-main);
@@ -205,8 +210,8 @@
     .profile-ic {
         text-align: center;
         width: 15%;
-      }
-      .side-menu-wrap .accordion-Profile a {
+    }
+    .side-menu-wrap .accordion-Profile a {
         color: var(--m-gray);
         padding: 12px 0px 5px 10px;
         font-weight: 700;
@@ -218,9 +223,9 @@
     }
     .btn-outline-saeeh-mobile:hover,
     .btn-saeeh-mobile:hover {
-      background-color: unset;
-      border: 1px solid unset;
-      color: unset;
+        background-color: unset;
+        border: 1px solid unset;
+        color: unset;
     }
     #accordionFlushProfile .accordion-button {
         width: 88%;
@@ -231,8 +236,9 @@
         font-weight: 700;
         font-size: 14px;
     }
-    #accordionFlushProfile .accordion-button i {font-size: 16px;}
-
+    #accordionFlushProfile .accordion-button i {
+        font-size: 16px;
+    }
 
     .verification-modal .close-modal {
         background: var(--m-main);
@@ -626,9 +632,14 @@
         padding-right: 5rem;
     }
     .tabs-nav-all-booking li {
-        width: 33.3%;
-        height: 65px;
+        width: 50%;
+        height: 50px;
     }
+    .li-booking-all,
+    .li-booking-all:last-child {
+        width: 50% !important;
+    }
+
     .icon-top-select-booking {
         top: 14px;
     }
@@ -643,7 +654,7 @@
     .tabs-nav-all-booking li:nth-child(3) {
         border-bottom: 1px solid var(--m-gray-4);
     }
-    .tabs-nav-all-booking li:nth-child(3) {
+    .tabs-nav-all-booking li:nth-child(2) {
         border-left: none;
     }
     .tabs-nav-all-booking li:last-child {
@@ -961,7 +972,6 @@
         font-size: 14px;
         color: var(--m-gray);
         font-weight: 700;
-
     }
     .accordion-button:focus {
         box-shadow: none;
@@ -1234,7 +1244,7 @@
         overflow-y: visible;
         overflow-x: auto;
         width: 100%;
-        min-width:160vw;
+        min-width: 160vw;
     }
     .thumbnail {
         position: relative;
@@ -1256,7 +1266,6 @@
         line-height: 22px;
     }
     .txtarea-booking {
-        
         padding: 0.5rem !important;
     }
     .txtarea-booking::placeholder {
@@ -1533,8 +1542,9 @@
     .tabs-in-mobile li:nth-child(3) {
         border-left: none;
     }
-   .tabs-in-mobile li:nth-child(4),
-    .tabs-in-mobile li:nth-child(5), .tabs-in-mobile li:nth-child(6){
+    .tabs-in-mobile li:nth-child(4),
+    .tabs-in-mobile li:nth-child(5),
+    .tabs-in-mobile li:nth-child(6) {
         border-top: 1px solid var(--m-light-gray);
         width: 33.3%;
     }
@@ -1565,7 +1575,7 @@
     .cancel-booking-title {
         font-size: 20px;
     }
-    .exclamation-ic i{
+    .exclamation-ic i {
         font-size: 80px;
     }
     .modal-custom-rating .discound-txt {
@@ -1579,12 +1589,12 @@
     }
     .aqar-img-list {
         height: 275px;
-      }
+    }
 
     .iti--separate-dial-code.iti--show-flags .iti__selected-dial-code {
         font-size: 14px;
     }
-  
+
     .verification-content .check-image {
         width: 84px;
         height: 84px;
@@ -1837,7 +1847,7 @@
     .rating-see-btn a {
         font-size: 16px;
     }
-  
+
     .booking-now-btn a,
     .booking-now-btn button,
     .rating-see-btn a {
@@ -1997,7 +2007,8 @@
         font-size: 16px;
     }
     .department-txt {
-        font-size: 14px;}
+        font-size: 14px;
+    }
     .add-rate-btn {
         width: 100%;
     }
@@ -2142,7 +2153,11 @@
     .register-section .tabs-details .tab-link {
         font-size: 14px;
     }
+
+    h2,
+    .h2,
     .badge-ads-details,
+    .tabs-details .tab-link,
     .details-txt,
     .details-head,
     .details-item .accordion-button,
@@ -2151,6 +2166,7 @@
     .department-price,
     .department-title,
     .dd-txt,
+    .badge-ads-details,
     .text-restaurant,
     .box-sort-booking .ddl-input::placeholder,
     .modal-custom-rating .discound-txt,
@@ -2170,10 +2186,11 @@
     .contact-btn,
     .call-btn a,
     .cancle-btn a,
-.cancle-btn button,
+    .cancle-btn button,
     .boxx-txt,
     .details-rest-btn a,
-    .add-rate-btn a ,.add-rate-btn button{
+    .add-rate-btn a,
+    .add-rate-btn button {
         font-size: 14px;
     }
     .tabs-nav-edits .tabs a {
@@ -2196,7 +2213,7 @@
     .details-btn {
         width: 100%;
     }
-  
+
     /* .dd-txt {
         font-size: 16px;
     } */
@@ -2210,7 +2227,6 @@
 }
 
 @media (max-width: 340px) {
-   
     .side-login-image-investor {
         height: 113px;
     }
@@ -2249,14 +2265,11 @@
     .contact-btn,
     .call-btn a,
     .cancle-btn a,
-.cancle-btn button,
+    .cancle-btn button,
     .boxx-txt,
     .details-rest-btn a,
-    .add-rate-btn a ,.add-rate-btn button {
+    .add-rate-btn a,
+    .add-rate-btn button {
         font-size: 14px;
     }
-
-
 }
-
-

@@ -35,11 +35,9 @@
 
                       <div class="emailcont">
                           <input id="phoneee" type="tel" class="form-control frm-input phone3">
-
                         <span class="icon-placeholder">
-
-                      <i class="far fa-phone"></i>
-                    </span>
+                           <i class="far fa-phone"></i>
+                       </span>
 
                       </div>
                       <div>
