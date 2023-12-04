@@ -3,9 +3,9 @@
 return [
     'User register successfully.' => 'تسجيل المستخدم بنجاح',
     'Comment retrieved successfully.' =>'تم استرداد البيانات بنجاح',
-    'logout'=>'تم تسجيل الخروج ',
+    'logout'=>'تم تسجيل الخروج',
     'Data not found.'=>'لم يتم العثور على البيانات',
-    'chanagepassword'=>'تم تغير الرقم السري بنجاح',
+    'chanagepassword'=>'تم تغير كلمةالمرور بنجاح',
     'User updated successfully'=> 'تعديل المستخدم بنجاح',
     'category retrieved successfully.'=>'تم استرداد الفئات بنجاح',
     'data retrieved successfully.'=>'تم استرداد البيانات بنجاح',
@@ -33,6 +33,6 @@ return [
     'incorrect current password'=> 'كلمة المرور الحاليه غير صحيحه',
     'password should not be the same with old password'=>'كلمه المرور مستخدمه من قبل يرجي استخدام كلمه مرور جديدة ',
     'price changed'=>'لقد تم تغيير السعر' ,
-    'incorrect phone'=>'  رقم الهاتق غير مسجل '
+    'incorrect phone'=>'رقم الهاتق غير مسجل'
 
 ];
