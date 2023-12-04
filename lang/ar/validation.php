@@ -12,7 +12,7 @@ return [
     | as the size rules. Feel free to tweak each of these messages here.
     |
     */
-    'incorrect phone'=>'  رقم الهاتق غير مسجل ',
+    'incorrect phone'=>'رقم الهاتق غير مسجل',
     'User register successfully.' => 'تسجيل المستخدم بنجاح.',
     'accepted' => 'يجب قبول :attribute.',
     'active_url' => ':attribute لا يُمثّل رابطًا صحيحًا.',
@@ -260,6 +260,7 @@ return [
         'country' => 'الدولة',
         'address' => 'عنوان السكن',
         'phone' => 'الهاتف',
+        'country_code' => 'كود المدينة',
         'phone_code' => 'كود الهاتف',
         'mobile' => 'الجوال',
         'age' => 'العمر',
