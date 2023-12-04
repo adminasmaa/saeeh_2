@@ -26,6 +26,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
     Route::get('/', 'App\Http\Controllers\Frontend\HomeController@index')->name('Home');
     Route::get('showmap/{id}', 'App\Http\Controllers\Frontend\HomeController@showmap')->name('showmap')->middleware([user::class]);;
     Route::get('countries', 'App\Http\Controllers\Frontend\CountryController@index')->name('countries');
+    Route::get('searchcountries', 'App\Http\Controllers\Frontend\CountryController@searchcountries')->name('searchcountries');
     Route::get('cities/{id}', 'App\Http\Controllers\Frontend\CityController@index')->name('cities');
     Route::get('countrycities/{id}', 'App\Http\Controllers\Frontend\HomeController@countrycities')->name('countrycities');
     Route::get('categorycities/{id}', 'App\Http\Controllers\Frontend\HomeController@categorycities')->name('categorycities');
@@ -41,6 +42,13 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
     Route::get('allcommentPlace/{id}', 'App\Http\Controllers\Frontend\CategoryController@allcommentPlace')->name('allcommentPlace');
 // start login auth and register
     Route::get('logout', 'App\Http\Controllers\Frontend\AuthController@logout')->name('logout');
+    Route::get('forget_password', 'App\Http\Controllers\Frontend\AuthController@forget_password')->name('forget_password');
+    Route::post('checkforgetwithphone', 'App\Http\Controllers\Frontend\AuthController@checkforgetwithphone')->name('checkforgetwithphone');
+    Route::get('checkcode/{id}', 'App\Http\Controllers\Frontend\AuthController@checkcode')->name('checkcode');
+    Route::get('changepassword/{id}', 'App\Http\Controllers\Frontend\AuthController@changepassword')->name('changepassword');
+    Route::post('checkcodesucess', 'App\Http\Controllers\Frontend\AuthController@checkcodesucess')->name('checkcodesucess');
+    Route::post('updatenewpassword', 'App\Http\Controllers\Frontend\AuthController@updatenewpassword')->name('updatenewpassword');
+    Route::get('resendcode/{id}', 'App\Http\Controllers\Frontend\AuthController@resendcode')->name('resendcode');
     Route::get('sitelogin', 'App\Http\Controllers\Frontend\AuthController@login')->name('sitelogin');
     Route::post('logins', 'App\Http\Controllers\Frontend\AuthController@checklogin')->name('logins');
     Route::get('registers', 'App\Http\Controllers\Frontend\AuthController@register')->name('registers');
@@ -66,6 +74,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
 
 //aquar start
     Route::get('aquars/{id}', 'App\Http\Controllers\Frontend\AquarController@allaquars')->name('aquars');
+    Route::get('searchAqars/{id}', 'App\Http\Controllers\Frontend\AquarController@searchAqars')->name('searchAqars');
     Route::post('filteraquars', 'App\Http\Controllers\Frontend\AquarController@filteraquars')->name('filteraquars');
     Route::get('detailaquar/{id}', 'App\Http\Controllers\Frontend\AquarController@detailaquar')->name('detailaquar');
     Route::get('allcommentAqar/{id}', 'App\Http\Controllers\Frontend\AquarController@allcommentAqar')->name('allcommentAqar');
@@ -93,7 +102,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
     Route::get('countDaysbetweendates', 'App\Http\Controllers\Frontend\AquarController@countDaysbetweendates')->name('countDaysbetweendates')->middleware([user::class]);
     Route::get('bookingaquars/{id}', 'App\Http\Controllers\Frontend\AquarController@bookingaquars')->name('bookingaquars')->middleware([user::class]);
     Route::get('detailbookingaquars/{id}', 'App\Http\Controllers\Frontend\AquarController@detailbookingaquars')->name('detailbookingaquars')->middleware([user::class]);
-    Route::get('addbookingaquars', 'App\Http\Controllers\Frontend\AquarController@addbookingaquars')->name('addbookingaquars')->middleware([user::class]);
+    Route::get('bookingsaquars', 'App\Http\Controllers\Frontend\AquarController@bookingaquarsstatus')->name('bookingsaquars')->middleware([user::class]);
 
     //my booking all car&&aquars
 

@@ -214,7 +214,7 @@ class CarController extends Controller
                 'delivery_hour' => $requestdata['delivery_hour'], 'delivery_place' => $requestdata['delivery_place'],
                 'fixed_price' => $requestdata['fixed_price'], 'note' => $requestdata['note'],
                 'receipt_hour' => $requestdata['receipt_hour'], 'date' => $newDate,
-                'day_count' => $requestdata['day_count'], 'total' => $total
+                'day_count' => $requestdata['day_count'], 'total' => $total, 'booking_status_id' => 1
 
             ]);
 

@@ -125,7 +125,6 @@ class AquarController extends Controller
         } else {
 
 
-
             return response()->json(['status' => 'auth', 'content' => 'login']);
 
 
@@ -203,7 +202,7 @@ class AquarController extends Controller
 
     }
 
-    public function addbookingaquars(Request $request)
+    public function bookingaquarsstatus(Request $request)
     {
         $requestdata = $request->all();
 
@@ -235,7 +234,8 @@ class AquarController extends Controller
                 'reciept_date' => $requestdata['reciept_date'], 'delivery_date' => $requestdata['delivery_date'],
                 'note' => $requestdata['note'],
                 'date' => $newDate, 'fixed_price' => $aqar->fixed_price,
-                'day_count' => $requestdata['day_count'], 'total_price' => $total
+                'day_count' => $requestdata['day_count'], 'total_price' => $total,
+                'booking_status_id' => 1
 
             ]);
 
@@ -316,6 +316,29 @@ class AquarController extends Controller
         $CategoriesAquar = Category::where('parent_id', '=', 1)->where('type', '=', 1)->get();
 //        $carsfilters = Car::get();
         return view('frontend.aquars', compact('allaquars', 'minprice', 'maxprice', 'roomsnumbers', 'countries', 'cities', 'aquars', 'CategoriesAquar', 'category'));
+
+
+    }
+
+
+    public function searchAqars(Request $request, $id)
+    {
+
+        return $id . '' . $request;
+
+        $query = $request->get('query');
+
+
+        $aquars = Aqar::when($query, function ($quer) use ($query) {
+            $quer->where('name_ar', 'LIKE', '%' . trim($query) . '%')
+                ->orwhere('id', 'LIKE', '%' . trim($query) . '%')
+                ->orwhere('fixed_price', 'LIKE', '%' . trim($query) . '%')
+                ->orwhere('name_en', 'LIKE', '%' . trim($query) . '%')
+                ->orwhere('description', 'LIKE', '%' . trim($query) . '%')
+                ->orwhere('address', 'LIKE', '%' . trim($query) . '%');
+
+        })->where('category_id', '=', $id)->paginate(20);
+        return view('frontend.aquarsearch', compact('aquars'));
 
 
     }

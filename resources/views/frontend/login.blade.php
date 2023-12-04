@@ -35,9 +35,9 @@
 
                       <div class="emailcont">
                           <input id="phoneee" type="tel" class="form-control frm-input phone3">
-                         
+
                         <span class="icon-placeholder">
-                    
+
                       <i class="far fa-phone"></i>
                     </span>
 
@@ -55,7 +55,7 @@
                         placeholder=" {{trans('site.password')}}"
                       />
                       <span class="icon-placeholder">
-                      
+
                         <i class="far fa-lock-alt"></i>
                       </span>
                       <div
@@ -67,7 +67,7 @@
                     @lang('site.login')
                  </button>
                     <div class="forgit-password pt-2">
-{{--                      <a href="#"> @lang('site.forget_password') ؟ </a>--}}
+                      <a href="{{route('forget_password')}}"> @lang('site.forget_password') ؟ </a>
                     </div>
                     <div class="pt-lg-3 pt-2 user-links">
                       <p class="text-bold">

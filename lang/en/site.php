@@ -6,6 +6,13 @@ return [
     'profiles'=>'Profile',
     'totalprice'=>'Total Price',
 
+    'client'=>'Client',
+
+    'Search for the Aquar name'=>'Search for the Aquar name',
+
+    'We found apartments suitable for your request'=>'We Found Apartments Suitable For Your Request',
+
+    'changepassword'=>'ChangePassword',
     'Search for your favorite country'=>'Search For Your Favorite Country',
 
     'favourite'=>'my favourite',

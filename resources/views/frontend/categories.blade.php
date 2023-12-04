@@ -1,8 +1,7 @@
 @extends('layouts.main_frontend')
 @section('content')
 
-
-
+    <div class="overlay-mobile"></div>
 
 
     <main>
@@ -14,7 +13,7 @@
                         <li class="breadcrumb-item">
                             <a href="{{route('Home')}}"> @lang('site.home') </a>
                         </li>
-                     
+
                         <li class="breadcrumb-item text-gray-4" aria-current="page">
                             {{$city->name ?? ''}}
                         </li>
@@ -23,9 +22,6 @@
             </div>
         </section>
 
-
-
-        <!-- section -->
         <section>
             <div class="container">
                 <div class="row">
@@ -46,7 +42,8 @@
                                         <h2 class="pb-md-4 pb-2">{{$city->name ?? ''}}</h2>
                                         <div class="form-group mb-4 position-relative">
                                             <input type="search" class="form-control search-country"
-                                                   placeholder="{{trans('site.Search for your favorite country')}}" id="search" name="q">
+                                                   placeholder="{{trans('site.Search for your favorite country')}}"
+                                                   id="search" name="q">
                                             <div class="search-c-icon d-flex justify-content-center align-items-center">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                      viewBox="0 0 24 24" fill="none">
