@@ -7,9 +7,7 @@
         <section class="py-5">
             <div class="container w-100">
                 <div class="row d-flex justify-content-center">
-                    <div
-                        class="col-12 login-body d-lg-flex justify-content-lg-between px-0"
-                    >
+                    <div class="col-12 login-body d-lg-flex justify-content-lg-between px-0">
                         <div class="text-center my-lg-5 my-3 login-content">
 
                             <form>
@@ -32,18 +30,16 @@
                                             </div>
                                         </div>
 
-                                        <div class="emailcont">
-
+                                            <div class="emailcont">
                                             <div class="d-flex">
                                                 <input type="hidden" name="country_id" id="country_id" value="">
                                                 <input type="hidden" name="country_code" id="country_code" value="">
                                                 <span class="icon-placeholder">
-                        <i class="far fa-phone"></i>
-                      </span>
+                                                <i class="far fa-phone"></i>
+                                                </span>
                                                 <input type="text" name="phone"
                                                        class="form-control register-input register-input-r phone3"
-                                                       maxlength="11"
-                                                      >
+                                                       maxlength="11"  >
                                                 <select id="demo-htmlselect">
                                                     @foreach(\App\Models\Country::get() as $country)
                                                         <option value="{{$country->id}}"
@@ -59,6 +55,7 @@
                                         {{--                          <input id="phoneee" type="tel" class="form-control frm-input phone3">--}}
 
                                         {{--                        <span class="icon-placeholder">--}}
+
 
                                         {{--                      <i class="far fa-phone"></i>--}}
                                         {{--                    </span>--}}
