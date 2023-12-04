@@ -17,6 +17,24 @@ class CategoryController extends Controller
 {
 
 
+    public function searchPlaces(Request $request)
+    {
+        $query = $request->get('query');
+
+
+;
+
+        $places = Place::when($query, function ($quer) use ($query) {
+            $quer->where('name_ar', 'LIKE', '%'.trim($query).'%')
+                ->orwhere('name_en', 'LIKE', '%'.trim($query).'%')
+                ->orwhere('id', 'LIKE', '%'.trim($query).'%')
+                ->orwhere('address', 'LIKE', '%'.trim($query).'%');
+
+        })->paginate(20);
+        return view('frontend.searchplaces', compact('places'));
+
+    }
+
     public function searchcategories(Request $request, $id)
     {
         $query = $request->get('query');
@@ -26,12 +44,14 @@ class CategoryController extends Controller
 //        $categories = $city->categoriesTotal;
 
         $categories = Category::when($query, function ($quer) use ($query) {
-            $quer->where('name_ar', 'LIKE', '%'.trim($query).'%')->orwhere('name_en', 'LIKE', '%'.trim($query).'%');
+            $quer->where('name_ar', 'LIKE', '%' . trim($query) . '%')->orwhere('name_en', 'LIKE', '%' . trim($query) . '%');
 
         })->paginate(20);
         return view('frontend.searchcategories', compact('categories', 'city'));
 
     }
+
+
 
     public function allcommentPlace($id)
     {

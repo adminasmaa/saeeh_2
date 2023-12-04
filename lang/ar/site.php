@@ -6,6 +6,10 @@ return [
     'profiles' => 'حسابي',
     'client'=>'العميل',
     'favourite' => 'مفضلتي',
+    'No Favourite'=>'لا يوجد مفضله',
+
+    'Find your favorite place'=>'ابحث عن مكانك المفضلة',
+
     'changepassword'=>'تغير كلمه المرور',
     'contactmessage' => 'يمكنك التواصل معنا من خلال الارقام الاتيه',
     'Do you want to cancel your reservation?'=>'هل تريد الغاء حجزك؟',
