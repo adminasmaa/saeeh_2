@@ -297,7 +297,22 @@
                                             @endif
                                         @endforeach
                                     </div>
+
                                 </div>
+{{--                                @unless (count($favouriteaqar->favourite_aqars))--}}
+{{--                                    <!--empty booking-->--}}
+{{--                                    <div class="col-12 mb-5">--}}
+{{--                                        <div class="card-empty d-md-flex align-items-center">--}}
+{{--                                            <div class="card-empty-txt">  @lang('site.No Favourite') </div>--}}
+{{--                                            <div>--}}
+{{--                                                <img--}}
+{{--                                                    src="{{FRONTASSETS}}/assets/images/investor/empty-ic.svg"--}}
+{{--                                                    alt="empty icon"--}}
+{{--                                                />--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                @endunless--}}
                             </li>
                             <li id="tab-2">
                                 <div class="row">
@@ -429,7 +444,25 @@
                                             @endif
                                         @endforeach
                                     </div>
+
+
                                 </div>
+
+{{--                                @unless (count($favouritecar->favourite_car))--}}
+{{--                                    <!--empty booking-->--}}
+{{--                                    <div class="col-12 mb-5">--}}
+{{--                                        <div class="card-empty d-md-flex align-items-center">--}}
+{{--                                            <div class="card-empty-txt">  @lang('site.No Favourite') </div>--}}
+{{--                                            <div>--}}
+{{--                                                <img--}}
+{{--                                                    src="{{FRONTASSETS}}/assets/images/investor/empty-ic.svg"--}}
+{{--                                                    alt="empty icon"--}}
+{{--                                                />--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                @endunless--}}
+
                             </li>
 
                             <li id="tab-3">
@@ -541,12 +574,29 @@
                                             @endif
                                         @endforeach
                                     </div>
+
+
+                    @unless (count($favouriteplace->favourite_place))
+                        <!--empty booking-->
+                        <div class="col-12 mb-5">
+                            <div class="card-empty d-md-flex align-items-center">
+                                <div class="card-empty-txt">  @lang('site.No Favourite') </div>
+                                <div>
+                                    <img
+                                        src="{{FRONTASSETS}}/investor/empty-ic.svg"
+                                        alt="empty icon"
+                                    />
                                 </div>
-                            </li>
+                            </div>
+                        </div>
+                        @endunless
+
+                        </li>
 
                         </ul>
                     </div>
                 </div>
+
             </div>
         </section>
         <!-- /section -->

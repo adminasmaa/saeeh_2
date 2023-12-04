@@ -110,7 +110,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h2 class="pb-3 search-result">    {{trans('site.We found apartments suitable for your request')}}  {{$aquars->count() ?? 0}}</h2>
+                        <h2 class="pb-3 search-result">    {{trans('site.We found apartments suitable for your request')}}  {{$allaquars->count() ?? 0}}</h2>
                         <div class="form-group mb-4 position-relative">
                             <input
                                 type="search"
@@ -854,9 +854,9 @@
                     </div>
 
                     <div class="col-lg-9">
-                        <div>
+                        <div id="tab-aquar-2">
                             @foreach($aquars as $aquar)
-                                <div class="card card-department round-border mb-3 p-lg-3 p-2" id="tab-aquar-2">
+                                <div class="card card-department round-border mb-3 p-lg-3 p-2" >
                                     <div class="row g-0">
                                         <div class="col-lg-4 position-relative">
                                             <div
@@ -1003,9 +1003,16 @@
                                 </div>
                             @endforeach
 
+
+
+
+
+
+
                         </div>
+
                         @if($aquars->hasPages())
-                            <div class="card card-department round-border mb-3 p-3">
+                            <div class="card card-department round-border mb-3 p-3 tab-aquar-3">
                                 <nav
                                     class="department-list-pagination d-md-flex justify-content-md-between align-items-center"
                                 >
@@ -1021,7 +1028,6 @@
                                 </nav>
                             </div>
                         @endif
-
 
                         @if(!empty(auth()->user()))
 
@@ -1200,141 +1206,141 @@
 //                }
 //            }
         }
+        //Start comment to search laravel
+        {{--function GetAtrribute(id, name) {--}}
+        {{--    console.log('id', id);--}}
+        {{--    console.log('name', name);--}}
+        {{--    var checkbox = document.getElementById(id);--}}
 
-        function GetAtrribute(id, name) {
-            console.log('id', id);
-            console.log('name', name);
-            var checkbox = document.getElementById(id);
+        {{--    if (name) {--}}
+        {{--        console.log('eeeeeeeeeeee');--}}
 
-            if (name) {
-                console.log('eeeeeeeeeeee');
+        {{--        const url = '{{route('checkallaquar')}}';--}}
 
-                const url = '{{route('checkallaquar')}}';
+        {{--        // let data = {--}}
+        {{--        //     id: id,--}}
+        {{--        //     name:name--}}
+        {{--        // };--}}
+        {{--        var array_room_number = [];--}}
+        {{--        $("input:checkbox[name=room_number]:checked").each(function () {--}}
+        {{--            array_room_number.push($(this).val());--}}
+        {{--        });--}}
+        {{--        var array_floor_number = [];--}}
+        {{--        $("input:checkbox[name=floor_number]:checked").each(function () {--}}
+        {{--            array_floor_number.push($(this).val());--}}
+        {{--        });--}}
+        {{--        var array_price = [];--}}
+        {{--        // $("input:number[name=price]").each(function () {--}}
+        {{--        //     array_price.push($(this).val());--}}
+        {{--        // });--}}
+        {{--        var array_sections = [];--}}
+        {{--        $("input:checkbox[name=sections]:checked").each(function () {--}}
+        {{--            array_sections.push($(this).val());--}}
+        {{--        });--}}
 
-                // let data = {
-                //     id: id,
-                //     name:name
-                // };
-                var array_room_number = [];
-                $("input:checkbox[name=room_number]:checked").each(function () {
-                    array_room_number.push($(this).val());
-                });
-                var array_floor_number = [];
-                $("input:checkbox[name=floor_number]:checked").each(function () {
-                    array_floor_number.push($(this).val());
-                });
-                var array_price = [];
-                // $("input:number[name=price]").each(function () {
-                //     array_price.push($(this).val());
-                // });
-                var array_sections = [];
-                $("input:checkbox[name=sections]:checked").each(function () {
-                    array_sections.push($(this).val());
-                });
+        {{--        var rate = [];--}}
+        {{--        $("input:checkbox[name=rate]:checked").each(function () {--}}
+        {{--            rate.push($(this).val());--}}
+        {{--        });--}}
+        {{--        console.log('array_price', array_price);--}}
+        {{--        console.log('array_sections', array_sections);--}}
+        {{--        console.log('rate', rate);--}}
 
-                var rate = [];
-                $("input:checkbox[name=rate]:checked").each(function () {
-                    rate.push($(this).val());
-                });
-                console.log('array_price', array_price);
-                console.log('array_sections', array_sections);
-                console.log('rate', rate);
+        {{--        $.ajax({--}}
+        {{--            type: "GET",--}}
+        {{--            url: url,--}}
+        {{--            data: {--}}
+        {{--                name: name,--}}
+        {{--                value: id,--}}
+        {{--                room_number: array_room_number,--}}
+        {{--                rate: rate,--}}
+        {{--                floor_number: array_floor_number,--}}
+        {{--                sections: array_sections,--}}
+        {{--                price: id,--}}
 
-                $.ajax({
-                    type: "GET",
-                    url: url,
-                    data: {
-                        name: name,
-                        value: id,
-                        room_number: array_room_number,
-                        rate: rate,
-                        floor_number: array_floor_number,
-                        sections: array_sections,
-                        price: id,
+        {{--                // _token: $('meta[name="csrf-token"]').attr('content')--}}
+        {{--            },--}}
+        {{--            success: function (data) {--}}
+        {{--                $("#tab-aquar-2").hide();--}}
+        {{--                // ('.carhidden').html(data);--}}
+        {{--                $("#tab-aquar-3").show();--}}
+        {{--                $("#tab-aquar-3").html(data);--}}
+        {{--                console.log("response", data);--}}
+        {{--            },--}}
+        {{--            error: function (data, textStatus, errorThrown) {--}}
+        {{--                console.log("error", data);--}}
+        {{--            },--}}
+        {{--        });--}}
 
-                        // _token: $('meta[name="csrf-token"]').attr('content')
-                    },
-                    success: function (data) {
-                        $("#tab-aquar-2").hide();
-                        // ('.carhidden').html(data);
-                        $("#tab-aquar-3").show();
-                        $("#tab-aquar-3").html(data);
-                        console.log("response", data);
-                    },
-                    error: function (data, textStatus, errorThrown) {
-                        console.log("error", data);
-                    },
-                });
-
-                // let dataRequest = new Request(url, {
-                //     method: 'POST',
-                //     body: JSON.stringify(data),
-                //     headers: new Headers({
-                //         'Content-Type': 'application/json; charset=UTF-8'
-                //     })
-                // });
-                //
-                // fetch(dataRequest)
-                //     .then(function() {
-                //         // Handle response you get from the API
-                //     });
-
-
-                {{--    $.ajaxSetup({--}}
-                {{--    headers: {--}}
-                {{--    'X-CSRF-TOKEN': "{{ csrf_token() }}"--}}
-                {{--}--}}
-                {{--});--}}
-
-                {{--    // $("#btn-submit").click(function(e){--}}
-
-                {{--    // $("#add-form").submit(function(e){--}}
+        {{--        // let dataRequest = new Request(url, {--}}
+        {{--        //     method: 'POST',--}}
+        {{--        //     body: JSON.stringify(data),--}}
+        {{--        //     headers: new Headers({--}}
+        {{--        //         'Content-Type': 'application/json; charset=UTF-8'--}}
+        {{--        //     })--}}
+        {{--        // });--}}
+        {{--        //--}}
+        {{--        // fetch(dataRequest)--}}
+        {{--        //     .then(function() {--}}
+        {{--        //         // Handle response you get from the API--}}
+        {{--        //     });--}}
 
 
-                {{--        // $('#spinnerss').show();--}}
+        {{--        --}}{{--    $.ajaxSetup({--}}
+        {{--        --}}{{--    headers: {--}}
+        {{--        --}}{{--    'X-CSRF-TOKEN': "{{ csrf_token() }}"--}}
+        {{--        --}}{{--}--}}
+        {{--        --}}{{--});--}}
 
-                {{--        // e.preventDefault();--}}
+        {{--        --}}{{--    // $("#btn-submit").click(function(e){--}}
 
-                {{--        var data =id,name;--}}
-
-
-                {{--        console.log(data);--}}
-                {{--        var url = '{{route('CheckCar')}}';--}}
-
-                {{--        $.ajax({--}}
-                {{--            url:url,--}}
-                {{--            method:'POST',--}}
-                {{--            cache: false,--}}
-                {{--            processData:false,--}}
-                {{--            contentType: false,--}}
-                {{--            enctype: 'multipart/form-data',--}}
-                {{--            data: data,--}}
-                {{--            success:function(response){--}}
-
-                {{--                if(response.success){--}}
-                {{--                    --}}{{--$('#spinnerss').hide();--}}
-                {{--                    --}}{{--window.location.href ='{{route('dashboard.products.index')}}';--}}
+        {{--        --}}{{--    // $("#add-form").submit(function(e){--}}
 
 
-                {{--                }else{--}}
-                {{--                    alert("Error")--}}
-                {{--                }--}}
-                {{--            },--}}
-                {{--            error:function(result){--}}
-                {{--                console.log(result)--}}
+        {{--        --}}{{--        // $('#spinnerss').show();--}}
 
-                {{--            }--}}
-                {{--        });--}}
+        {{--        --}}{{--        // e.preventDefault();--}}
+
+        {{--        --}}{{--        var data =id,name;--}}
 
 
+        {{--        --}}{{--        console.log(data);--}}
+        {{--        --}}{{--        var url = '{{route('CheckCar')}}';--}}
+
+        {{--        --}}{{--        $.ajax({--}}
+        {{--        --}}{{--            url:url,--}}
+        {{--        --}}{{--            method:'POST',--}}
+        {{--        --}}{{--            cache: false,--}}
+        {{--        --}}{{--            processData:false,--}}
+        {{--        --}}{{--            contentType: false,--}}
+        {{--        --}}{{--            enctype: 'multipart/form-data',--}}
+        {{--        --}}{{--            data: data,--}}
+        {{--        --}}{{--            success:function(response){--}}
+
+        {{--        --}}{{--                if(response.success){--}}
+        {{--        --}}{{--                    --}}{{----}}{{--$('#spinnerss').hide();--}}
+        {{--        --}}{{--                    --}}{{----}}{{--window.location.href ='{{route('dashboard.products.index')}}';--}}
+
+
+        {{--        --}}{{--                }else{--}}
+        {{--        --}}{{--                    alert("Error")--}}
+        {{--        --}}{{--                }--}}
+        {{--        --}}{{--            },--}}
+        {{--        --}}{{--            error:function(result){--}}
+        {{--        --}}{{--                console.log(result)--}}
+
+        {{--        --}}{{--            }--}}
+        {{--        --}}{{--        });--}}
 
 
 
 
-            }
-            // console.log(checkbox, 'clicks');
-        }
 
+
+        {{--    }--}}
+        {{--    // console.log(checkbox, 'clicks');--}}
+        {{--}--}}
+        //End  comment to search laravel
 
     </script>
 
@@ -1347,18 +1353,15 @@
                 type: "GET",
                 data: {'query': query},
                 success: function (data) {
-                    $("#tab-aquar-2").hide();
-                    // ('.carhidden').html(data);
-                    $("#tab-aquar-3").show();
-                    $("#tab-aquar-3").html(data);
+                    $("#tab-aquar-2").empty();
+                    $(".tab-aquar-3").hide();
+
+                    $("#tab-aquar-2").html(data);
                     console.log("response", data);
                 }
             })
         });
-        // $('body').on('click', 'li', function(){
-        //     var value = $(this).text();
-        //     //do what ever you want
-        // });
+
     </script>
 
 @endsection

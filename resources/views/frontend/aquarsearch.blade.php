@@ -1,6 +1,6 @@
 @if(!empty($aquars))
     @foreach($aquars as $aquar)
-        <div class="card card-department round-border mb-3 p-lg-3 p-2" id="tab-aquar-3">
+        <div class="card card-department round-border mb-3 p-lg-3 p-2" >
             <div class="row g-0">
                 <div class="col-lg-4 position-relative">
                     <div

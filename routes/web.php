@@ -39,6 +39,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
     Route::get('searchcategories/{id}', 'App\Http\Controllers\Frontend\CategoryController@searchcategories')->name('searchcategories');
     Route::get('subcategories/{id}/{city_id}', 'App\Http\Controllers\Frontend\CategoryController@subcategories')->name('subcategories');
     Route::get('detailplace/{id}', 'App\Http\Controllers\Frontend\CategoryController@detailplace')->name('detailplace');
+    Route::get('searchPlaces', 'App\Http\Controllers\Frontend\CategoryController@searchPlaces')->name('searchPlaces');
     Route::get('allcommentPlace/{id}', 'App\Http\Controllers\Frontend\CategoryController@allcommentPlace')->name('allcommentPlace');
 // start login auth and register
     Route::get('logout', 'App\Http\Controllers\Frontend\AuthController@logout')->name('logout');
