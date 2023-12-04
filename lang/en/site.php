@@ -8,6 +8,9 @@ return [
 
     'client'=>'Client',
 
+    'No Favourite'=>'No Favourite',
+    'Find your favorite place'=>'Find your favorite place',
+
     'Search for the Aquar name'=>'Search for the Aquar name',
 
     'We found apartments suitable for your request'=>'We Found Apartments Suitable For Your Request',

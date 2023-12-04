@@ -151,8 +151,12 @@ class AuthController extends Controller
     {
 
         $validation = Validator::make($request->all(), [
-            'email' => ['required', Rule::unique('users')->ignore($id),],
-            'phone' => ['required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10', Rule::unique('users')->ignore($id),],
+            'email' => ['required', Rule::unique('users')->ignore($id)],
+//            'phone' => ['required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10', Rule::unique('users')->ignore($id)],
+
+//            'phone' => 'required|unique:users|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+
             'password' => 'nullable|confirmed|min:6',
             'name' => 'required',
         ]);
@@ -221,12 +225,30 @@ class AuthController extends Controller
         $request_data['password'] = bcrypt($request->password);
         $request_data['username'] = $request->name;
         $request_data['firstname'] = $request->name;
+        $request_data['country_code '] = $request->country_code;
+
 
         $user = User::create($request_data);
 
-        Auth::login($user);
 
-        return response()->json(['status' => true, 'content' => 'success', 'data' => $user]);
+        $set = '123456789';
+        $code = substr(str_shuffle($set), 0, 4);
+        $msg = trans('message.please verified your account') . "\n";
+        $msg = $msg . trans('message.code activation') . "\n" . $code;
+        send_sms_code($msg, $request->phone, $request->country_code);
+        $user->code = $code;
+        $user->save();
+
+        Auth::login($user);
+        if ($user) {
+//            Alert::success('Success', __('site.added_successfully'));
+            return response()->json(['status' => true, 'content' => 'success', 'data' => $user]);
+        } else {
+            Alert::error('Error', __('site.faild'));
+            return back();
+
+        }
+
 
     }
 
@@ -243,7 +265,7 @@ class AuthController extends Controller
         if ($validation->fails()) {
             return response()->json(['errors' => $validation->errors()], 422);
         }
-        if (auth()->attempt(['phone' => $request->phone, 'password' => $request->password])) {
+        if (auth()->attempt(['country_code' => $request->country_code,'phone' => $request->phone, 'password' => $request->password])) {
             $user = Auth::user();
             Auth::login($user);
             return response()->json(['status' => true, 'content' => 'success', 'data' => $user]);
