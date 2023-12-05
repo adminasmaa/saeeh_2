@@ -158,11 +158,7 @@
 
     <script type="text/javascript"
             src="https://cdn.rawgit.com/prashantchaudhary/ddslick/master/jquery.ddslick.min.js"></script>
-
-
     <script>
-
-
         $('#country_id').val(country_id);
 
         $('#demo-htmlselect').ddslick({
@@ -178,8 +174,6 @@
     </script>
 
     <script>
-
-
         jQuery('.formregistersUser').click(function (e) {
             // console.log("daaaa");
             e.preventDefault();
@@ -188,7 +182,6 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-
 
             jQuery.ajax({
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')},

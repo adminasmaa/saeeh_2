@@ -15,7 +15,7 @@
                         </li>
                         <li class="breadcrumb-item">
                             <a href="javascript:void(0)"> {{$place->name ?? ''}} </a>
-                            
+
                         </li>
                         <li class="breadcrumb-item text-gray-4">
                             <span>{{$place->address ?? ''}}</span>
@@ -30,7 +30,7 @@
                 <div class="row" id="slideshow">
                     <div class="col-lg-10">
                         <div id="slides">
-                         
+
                             @if(!empty($place->images))
                                 @foreach(explode(',',$place->images) as $key=>$img)
 
@@ -114,7 +114,7 @@
                         <div class="booking-now-btn py-4 mt-lg-4 d-flex justify-content-center align-items-center btn-in-details">
                             <a href="{{route('showmap',$place->id)}}">
                         <span class="walking-ic"><i class="far fa-walking"></i></span>
-                               <span >@lang('site.Go to the restaurant')</span> 
+                               <span >@lang('site.Go to the restaurant')</span>
                             </a>
                         </div>
                     </div>
@@ -201,7 +201,7 @@
                                             <p class="restaurant-details-txt">
                                                 {{$place->address ?? ''}} {{$place->city->name ?? ''}} {{$place->country->name ?? ''}}
                                             </p>
-                                            
+
                                         </div>
                                         <div class="condition-content">
                                             <h2>
@@ -211,7 +211,7 @@
                                                 @lang('site.phone')
                                             </h2>
                                             <p class="restaurant-details-txt"> {{$place->phone_one  ?? ''}}</p>
-                                         
+
                                         </div>
                                         <div class="condition-content">
                                             <h2>
@@ -225,7 +225,7 @@
                                                 {{$place->const_from  ?? ''}} @lang('site.const_to')
                                                 {{$place->const_to  ?? ''}}
                                             </p>
-                                            
+
                                         </div>
                                         <div class="condition-content">
                                             <h2>
@@ -366,10 +366,13 @@
                                                             <h2 class="reviews-title d-flex text-second">
                                                                 {{$comment->user->firstname ?? ''}}   {{$comment->user->lastname ?? ''}}
                                                                 <div class="comment-image">
+
+
                                                                     <img
                                                                         src="{{asset('images/countries/'.$comment->user->country->flag_image)}}"
                                                                         width="25px" height="25px"
                                                                         onerror="this.src={{FRONTASSETS}}/images/car-icons/turkey.png"
+
                                                                         alt="flag-icon">
                                                                 </div>
                                                             </h2>
@@ -512,7 +515,7 @@
                     {{--                                    </div>--}}
                     {{--                                </div>--}}
                     {{--                            </li>--}}
-                  
+
 
                     </ul>
                 </div>
