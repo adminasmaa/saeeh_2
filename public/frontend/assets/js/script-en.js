@@ -69,7 +69,7 @@ $(window).on("resize", function () {
 $(document).ready(function () {
     $(".hotel-owl").owlCarousel({
         loop: true,
-        rtl: true,
+        ltr: true,
         autoplay: true,
         lazyLoad: true,
         autoplayTimeout: 4000,
@@ -94,7 +94,7 @@ $(document).ready(function () {
     });
     $(".restaurant-owl").owlCarousel({
         loop: true,
-        rtl: true,
+        ltr: true,
         autoplay: true,
         lazyLoad: true,
         autoplayTimeout: 4500,
@@ -120,7 +120,7 @@ $(document).ready(function () {
     //reviews-owl
     $(".reviews-owl").owlCarousel({
         loop: true,
-        rtl: true,
+        ltr: true,
         autoplay: true,
         lazyLoad: true,
         autoplayTimeout: 5000,
@@ -135,7 +135,7 @@ $(document).ready(function () {
 });
 $(".review-owl").owlCarousel({
     loop: true,
-    rtl: true,
+    ltr: true,
     startPosition: 1,
     center: true,
     autoplayHoverPause: true,
@@ -162,7 +162,7 @@ $(".review-owl").owlCarousel({
 });
 $(".city-owl").owlCarousel({
     loop: true,
-    rtl: true,
+    ltr: true,
     autoplay: true,
     lazyLoad: true,
     autoplayTimeout: 4000,
@@ -315,7 +315,7 @@ $(document).ready(function () {
         items: 1,
         loop: true,
         dots: true,
-        rtl:true,
+        ltr:true,
         slideSpeed: 400,
         animateIn: "fadeIn", // add this
         animateOut: "fadeOut", // and this

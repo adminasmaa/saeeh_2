@@ -48,18 +48,13 @@
                                                                 @if((old('country_id')==$country->id)||(!empty($invest) && ($invest->country_id==$country->id)))selected @endif>{{$country->code}}</option>
                                                     @endforeach
                                                 </select>
-
                                             </div>
                                         </div>
                                         {{--                      <div class="emailcont">--}}
                                         {{--                          <input id="phoneee" type="tel" class="form-control frm-input phone3">--}}
-
                                         {{--                        <span class="icon-placeholder">--}}
-
-
                                         {{--                      <i class="far fa-phone"></i>--}}
                                         {{--                    </span>--}}
-
                                         {{--                      </div>--}}
                                         {{--                      <div>--}}
                                         {{--                      <span id="valid-msg" class="hide">✓ Valid</span>--}}

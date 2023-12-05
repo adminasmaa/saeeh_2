@@ -28,8 +28,8 @@ html {
     width: 100%;
     min-height: 100vh;
     background-color: var(--m-white) !important;
-    font-family: "Cairo", sans-serif;
-    direction: rtl;
+    font-family: 'Montserrat', sans-serif;
+    direction: ltr;
 }
 
 main {
@@ -346,11 +346,11 @@ h2 {
 }
 
 .btn-space {
-    margin-left: 0.7rem;
+    margin-right: 0.7rem;
 }
 
 .btn-space-x {
-    margin-left: 20px;
+    margin-right: 20px;
 }
 .btn-saeeh a,
 .btn-outline-saeeh a {
@@ -423,11 +423,11 @@ h2 {
 }
 
 .droptxt {
-    padding-right: 8px;
+    padding-left: 8px;
 }
 
 .arrow-down {
-    padding-right: 0.5rem;
+    padding-left: 0.5rem;
 }
 
 .arrow-down i {
@@ -446,13 +446,13 @@ h2 {
 }
 
 .navbar-nav .nav-link {
-    padding-right: 0rem;
-    padding-left: 14px;
+    padding-left: 0rem;
+    padding-right: 14px;
 }
 
 .navbar-nav .nav-link a {
     font-weight: 500;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 150%;
     color: var(--m-white);
     padding: 4px 15px;
@@ -485,7 +485,7 @@ h2 {
 
 .dropdown-menu {
     border-radius: var(--rounded-main);
-    padding: 16px 14px 16px 0;
+    padding: 16px 0 16px 14px;
     border: none;
     margin-top: 10px !important;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
@@ -522,7 +522,7 @@ h2 {
 
 .sub-menu__sub-item,
 .sub-menu__sub-list {
-    text-align: right;
+    text-align: left;
 }
 
 .sub-menu__sub-item a {
@@ -577,10 +577,10 @@ h2 {
 
 .banner-txt {
     position: absolute;
-    right: 30px;
+    left: 30px;
     color: var(--m-second);
     font-weight: 700;
-    font-size: 32px;
+    font-size: 28px;
     line-height: 150%;
 }
 
@@ -736,6 +736,7 @@ video.video-full {
 
 .arrow-lft i {
     font-size: 12px;
+    transform: rotate(180deg);
 }
 
 .about-card h4 {
@@ -796,13 +797,13 @@ video.video-full {
     padding-right: 15px;
     padding-block: 5px;
     background: #ffffff;
-    border-radius: 0px 10px 0px 10px;
+    border-radius:  10px 0px 10px 0px ;
 }
 
 .owl-carousel .owl-item .hotel-icon {
     width: 40px;
     height: 35px;
-    margin-left: 10px;
+    margin-right: 10px;
     padding-top: 6px;
 }
 
@@ -927,7 +928,7 @@ video.video-full {
 /*footer*/
 .footer-title {
     font-weight: 700;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 150%;
     color: #ffffff;
     border-bottom: 3px solid var(--m-main);
@@ -944,13 +945,13 @@ video.video-full {
     list-style: none;
     background-repeat: no-repeat;
     background-image: url(../../assets/images/arrow-footer.svg);
-    background-position: right;
-    padding-right: 22px;
+    background-position: left;
+    padding-left: 22px;
 }
 
 .list-customer {
     font-weight: 600;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 150%;
     color: #ffffff;
 }
@@ -965,7 +966,7 @@ video.video-full {
 
 .footer-top .links-list li a {
     font-weight: 600;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 150%;
 
     color: #ffffff;
@@ -973,7 +974,7 @@ video.video-full {
 
 .link-time {
     font-weight: 600;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 150%;
     color: #ffffff;
     padding-right: 20px;
@@ -981,8 +982,8 @@ video.video-full {
 }
 
 .list-time li {
-    direction: ltr;
-    padding-right: 20px;
+    direction: rtl;
+    padding-left: 20px;
 }
 
 .footerSocialIcons {
@@ -1007,12 +1008,12 @@ video.video-full {
 }
 
 .google-apps {
-    padding: 50px 20px 0 0;
+    padding: 50px 0px 0 20px;
 }
 
 .google-apps h4 {
     font-weight: 600;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 150%;
     color: #ffffff;
 }
@@ -1052,7 +1053,7 @@ video.video-full {
     display: block;
     padding: 10px 0px;
     font-weight: 500;
-    font-size: 24px;
+    font-size:18px;
     line-height: 150%;
     color: #ffffff;
     text-align: center;
@@ -1083,11 +1084,11 @@ video.video-full {
 }
 
 .tab-active:first-of-type {
-    border-radius: 0 10px 0 0;
+    border-radius:  10px 0 0 0;
 }
 
 .tab-active:last-of-type {
-    border-radius: 10px 0 0 0;
+    border-radius:  0 10px  0 0;
 }
 
 .tab-active a .car-icon svg path {
@@ -1101,13 +1102,13 @@ video.video-full {
 }
 .aqar-icon,
 .car-icon {
-    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .tabs-stage {
     background: #f1f1f1;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-    border-radius: 10px 0 10px 10px;
+    border-radius:0  10px 10px 10px;
     padding: 24px 5% 26px;
     position: relative;
 }
@@ -1136,7 +1137,7 @@ video.video-full {
 .search-btn a,
 .search-btn button {
     font-weight: 600;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 150%;
     color: #ffffff;
 }
@@ -2749,11 +2750,11 @@ video.video-full {
 .slider-container {
     position: absolute;
     z-index: 10;
-    top: 60%;
+    top: 55%;
 }
 
 .tabs-nav-edits {
-    width: 30%;
+    width: 38%;
 }
 
 .margin-t-search {
@@ -4633,7 +4634,7 @@ color: #fff;
 [type="number"],
 [type="tel"],
 [type="url"] {
-    direction: rtl;
+    direction: ltr;
 }
 
 .add-ads-link a {
@@ -5945,9 +5946,9 @@ tr {
     background-color: var(--m-main);
     width: 220px;
     height: 46px;
-    padding-right: 15px;
+    padding-left: 15px;
     border-radius: var(--rounded-main);
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 700;
     line-height: 36px;
     color: #fff;
@@ -5995,15 +5996,15 @@ tr {
     text-decoration: none;
     display: block;
     color: #000000;
-    font-size: 16px;
+    font-size: 14px;
     padding: 12px 10px;
     font-weight: 700;
     transition: all ease-in-out 0.3s;
 }
 .dropdown-menu i {
     color: var(--m-main);
-    font-size: 18px;
-    padding-top: 8px;
+    font-size: 16px;
+    /* padding-top: 8px; */
 }
 .dropdown-menu .profile-ic {
     text-align: center;
@@ -6016,7 +6017,7 @@ tr {
 
 .dropdown-toggle span i {
     position: absolute;
-    left: 15px;
+    right: 15px;
 
     height: 100%;
     top: 0;
@@ -6186,7 +6187,7 @@ content: unset;
 .rate > input:checked + label:hover, .rate > input:checked + label:hover ~ label, .rate > input:checked ~ label:hover, .rate > input:checked ~ label:hover ~ label, .rate > label:hover ~ input:checked ~ label {
     color: var(--m-main);
 }
-.iti--allow-dropdown .iti__flag-container, .iti--separate-dial-code .iti__flag-container{
+.iti--allow-dropdown .iti__flag-container,  .iti--separate-dial-code .iti__flag-container{
     right: auto;
     left: 0;
     direction: ltr;
@@ -6244,8 +6245,14 @@ padding-left: 5px;
     height: 20px;
   }
   .notification-padding{
-    margin-left: 3rem!important;
+    margin-right: 3rem!important;
   }
   .first-link-nav{
-    padding-right: 10px !important;
+    padding-left: 10px !important;
   }
+ .ps-1 {
+    padding-right: 0.25rem!important;
+}
+.pe-2 {
+    padding-left: 0.5rem!important;
+}

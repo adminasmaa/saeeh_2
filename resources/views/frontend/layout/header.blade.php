@@ -14,7 +14,7 @@
                         <nav class="navbar navbar-expand-lg">
                             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                                 <ul class="navbar-nav align-items-center">
-                                    <li class="ms-5">
+                                    <li class="notification-padding">
                                         <a class="nav-link" href="javascript:void(0)">
                                             <div
                                                 class="notification d-flex justify-content-center align-items-center position-relative">
@@ -123,7 +123,7 @@
                                         </li>
                                         <li >
                                             <div class="dropdown-container">
-                                                <div class="dropdown-toggle btn-space click-dropdown d-flex align-items-center  dropdown-register dropdown-outline">
+                                                <div class="dropdown-toggle  click-dropdown d-flex align-items-center  dropdown-register dropdown-outline">
 
                                                 @lang('site.login')
                                                     <span>
@@ -259,7 +259,7 @@
                 <div class="col-8">
                     <ul class="navbar-nav d-flex align-items-center flex-lg-row position-relative">
                         <li class="nav-link">
-                            <a href="{{route('Home')}}" class="pe-0"> @lang('site.home') </a>
+                            <a href="{{route('Home')}}" class="first-link-nav"> @lang('site.home') </a>
                         </li>
                         <li class="nav-link">
                             <a href="javascript:void(0)" class="dropdown d-flex align-items-center"
@@ -294,7 +294,7 @@
                                         <a href="{{route('aquars',$category->id)}}" class="sub-menu-link">
                                             <div class="d-flex align-items-center">
                                                 <div class="arrow-lft">
-                                                    <i class="fas fa-arrow-left"></i>
+                                                    <i class="far fa-arrow-left"></i>
 
                                                 </div>
                                                 <div class="droptxt">{{$category->name ?? ''}}</div>
@@ -338,7 +338,7 @@
                                         <a href="{{route('carscategories',$cat->id)}}" class="sub-menu-link">
                                             <div class="d-flex align-items-center">
                                                 <div class="arrow-lft">
-                                                    <i class="fas fa-arrow-left"></i>
+                                                    <i class="far fa-arrow-left"></i>
                                                 </div>
                                                 <div class="droptxt">{{$cat->name ?? ''}}</div>
                                             </div>
@@ -390,7 +390,7 @@
                                             class="sub-menu-link">
                                             <div class="d-flex align-items-center">
                                                 <div class="arrow-lft">
-                                                    <i class="fas fa-arrow-left"></i>
+                                                    <i class="far fa-arrow-left"></i>
 
                                                 </div>
                                                 <div class="droptxt">{{$categoryplace->name ?? ''}}</div>

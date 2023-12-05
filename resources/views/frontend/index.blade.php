@@ -216,8 +216,8 @@
                     <div class="banner-image mt-lg-0 mt-3">
                         <img src="{{FRONTASSETS}}/images/banner-1.png" alt="banner 1" />
                         <div class="banner-txt top-txt">
-                            <div>@lang('site.Walk around for less') </div>
-                            <div>@lang('site.prices')</div>
+                            <div>@lang('site.Walk around for') </div>
+                            <div>@lang('site.less prices')</div>
                         </div>
                     </div>
                 </div>
