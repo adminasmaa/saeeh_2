@@ -97,18 +97,29 @@
                         </div>
                       </div>
                     </div>
-                    <div class="emailcont">
-                      <input
-                        type="tel"
-                        name="phone"
-                        value="{{$user->phone}}"
-                        class="form-control frm-input mb-3 phone22"
-                        placeholder="{{trans('site.phone')}}"
-                      />
-                      <span class="icon-placeholder">
+                      <div class="emailcont">
+
+                          <div class="d-flex">
+                              <input type="hidden" name="country_id" id="country_id" value="">
+                              <input type="hidden" name="country_code" id="country_code" value="">
+                              <span class="icon-placeholder">
                         <i class="far fa-phone"></i>
                       </span>
-                    </div>
+                              <input type="text" name="phone"
+                                     class="form-control register-input register-input-r phone22"
+                                     maxlength="11"
+                                     value="{{$user->phone}}">
+                              <select id="demo-htmlselect">
+                                  @foreach(\App\Models\Country::get() as $country)
+                                      <option value="{{$country->id}}"
+                                              data-imagesrc="{{asset('images/countries/'.$country->flag_image)}}"
+                                              data-description="{{$country->name}}"
+                                              @if((old('country_id')==$country->id)||(!empty($user) && ($user->country_code==$country->code)))selected @endif>{{$country->code}}</option>
+                                  @endforeach
+                              </select>
+
+                          </div>
+                      </div>
                     <button type="submit" class="mt-4 btn-login formregistersUserUpdate" data-id="{{$user->id}}">
                        {{trans('site.update')}}
                     </button>
@@ -128,6 +139,27 @@
 
 @endsection
 @section('scripts')
+
+    <script type="text/javascript"
+            src="https://cdn.rawgit.com/prashantchaudhary/ddslick/master/jquery.ddslick.min.js"></script>
+
+
+    <script>
+
+
+        $('#country_id').val(country_id);
+
+        $('#demo-htmlselect').ddslick({
+            onSelected: function (selectedData) {
+                var country_code = selectedData.selectedData.text;
+                var country_id = selectedData.selectedData.value;
+                $('#country_code').val(country_code);
+                $('#country_id').val(country_id);
+
+            }
+        });
+
+    </script>
 
     <script>
 
@@ -153,6 +185,8 @@
                     name: jQuery('.name22').val(),
                     phone: jQuery('.phone22').val(),
                     email: jQuery('.email22').val(),
+                    country_code: jQuery('#country_code').val(),
+                    country_id: jQuery('#country_id').val(),
                     password: jQuery('.password22').val(),
                     password_confirmation: jQuery('.password_confirmation22').val(),
 
@@ -166,7 +200,7 @@
 
                         swal({
                             title: "Success!",
-                            text: "The Data has been successfully updated!",
+                            text: "{{trans('site.updated_successfully')}}",
                             type: "success",
                             confirmButtonText: "OK"
                         });

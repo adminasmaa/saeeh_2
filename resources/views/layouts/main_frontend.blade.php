@@ -264,7 +264,6 @@
             $.each(data, function (key, value) {
                 $('#list9').append('<option value="' + value.id + '">' + value.name_ar + '</option>');
 
-
             });
             $("#list9").trigger('change');
         })
@@ -279,10 +278,8 @@
             $('#list4').append('<option>@lang('site.select')</option>');
             $.each(data, function (key, value) {
                 $('#list4').append('<option value="' + value.total + '">' + value.total + '</option>');
-
-
             });
-            $("#list2").trigger('change');
+            // $("#list2").trigger('change');
         })
     });
 
