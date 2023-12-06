@@ -21,6 +21,8 @@ class AqarDetailResource extends JsonResource
     public function toArray($request)
     {
         $lang = $request->header('localization');
+        $exchangecurrency=json_decode(file_get_contents('https://api.fastforex.io/fetch-one?api_key=d128a16e06-599e63df4b-runi3f&from=MAD&to=KWD'))->result->KWD;
+    
 
         if ($lang == 'ar') {
             $name = 'name_ar';
@@ -33,6 +35,7 @@ class AqarDetailResource extends JsonResource
 
 
         }
+        $cur=$this->city->country->currency;
             return [
                 "id" => $this->id ?? '',
                 "name" => $this->$name ?? '',
@@ -67,11 +70,12 @@ class AqarDetailResource extends JsonResource
                 "currency" => $this->city->country->$currency?? '',
                 "currency_code" => $this->city->country->currency?? '',
                 "rate" =>$this->avgRating,
+                "exchangecurrency"=>json_decode(file_get_contents('https://api.fastforex.io/fetch-one?api_key=d128a16e06-599e63df4b-runi3f&from='.$cur.'&to=KWD'))->result->KWD,
                 // "rate" => round($this->aqarReview->avg('rate')) ?? 0,
                 // "rate" => round(AqarReview::where('user_id', '=', Auth::id())->where('aqar_id', '=',$this->id)->avg('rate')) ?? 0,
                 "comments" => CommentResource::collection($this->aqarComments),
                 "reviews" => AqarReviewResource::collection($this->aqarReview),
-                "fixed_price" => $this->fixed_price ?? 0,
+                "fixed_price" => $exhangeRate *$this->fixed_price ?? 0,
                 "Reservation_deposit" => $this->fixed_price ?? 0,
     
                 // "Reservation_deposit" => $this->fixed_price ?? $this->day_count/$this->total_price ,
