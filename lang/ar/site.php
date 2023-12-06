@@ -369,7 +369,8 @@ return [
     'answer' => 'الرد',
     'refuse' => 'لم يتم السداد',
     'accept' => 'تم السداد',
-    'I agree to the terms and conditions' => '',
+    
+    'I agree to the terms and conditions' => 'أوافق على الشروط والاحكام',
     'ingredients_en' => ' انجليري المكونات ',
     'brand_name_ar' => 'اسم العلامة التجارية بالعربي',
     'Terms and conditions apply' => 'أوافق على الشروط والاحكام',
