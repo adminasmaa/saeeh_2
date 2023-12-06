@@ -213,6 +213,25 @@
             </div>
         </div>
         </div>
+
+
+    @else
+
+        @unless (count($bookings))
+            <!--empty booking-->
+            <div class="col-12 mb-5">
+                <div class="card-empty d-md-flex align-items-center">
+                    <div class="card-empty-txt">  @lang('site.No Favourite') </div>
+                    <div>
+                        <img
+                            src="{{FRONTASSETS}}/investor/empty-ic.svg"
+                            alt="empty icon"
+                        />
+                    </div>
+                </div>
+            </div>
+        @endunless
+
     @endif
 @endforeach
 

@@ -324,20 +324,23 @@ class AquarController extends Controller
     public function searchAqars(Request $request, $id)
     {
 
-        return $id . '' . $request;
 
         $query = $request->get('query');
 
+        if (!empty($request->get('query'))) {
+            $aquars = Aqar::when($query, function ($quer) use ($query) {
+                $quer->where('name_ar', 'LIKE', '%' . trim($query) . '%')
+                    ->orwhere('id', 'LIKE', '%' . trim($query) . '%')
+                    ->orwhere('fixed_price', 'LIKE', '%' . trim($query) . '%')
+                    ->orwhere('name_en', 'LIKE', '%' . trim($query) . '%')
+                    ->orwhere('description', 'LIKE', '%' . trim($query) . '%')
+                    ->orwhere('details', 'LIKE', '%' . trim($query) . '%');
 
-        $aquars = Aqar::when($query, function ($quer) use ($query) {
-            $quer->where('name_ar', 'LIKE', '%' . trim($query) . '%')
-                ->orwhere('id', 'LIKE', '%' . trim($query) . '%')
-                ->orwhere('fixed_price', 'LIKE', '%' . trim($query) . '%')
-                ->orwhere('name_en', 'LIKE', '%' . trim($query) . '%')
-                ->orwhere('description', 'LIKE', '%' . trim($query) . '%')
-                ->orwhere('address', 'LIKE', '%' . trim($query) . '%');
+            })->where('category_id', '=', $id)->paginate(20);
 
-        })->where('category_id', '=', $id)->paginate(20);
+        }
+
+
         return view('frontend.aquarsearch', compact('aquars'));
 
 
@@ -368,6 +371,8 @@ class AquarController extends Controller
         $cities = City::where('active', '=', 1)->get();
         $CategoriesAquar = Category::where('parent_id', '=', 1)->where('type', '=', 1)->get();
 //        $carsfilters = Car::get();
+
+//        return $allaquars->count();
         return view('frontend.aquars', compact('roomnumbers', 'minprice', 'maxprice', 'allaquars', 'countries', 'cities', 'aquars', 'CategoriesAquar', 'category'));
 
     }
@@ -407,6 +412,9 @@ class AquarController extends Controller
 
 
             $aquars = Aqar::WhereIn('id', $aqarid)->paginate(12);
+
+        } else {
+            $aquars = Aqar::paginate(12);
 
         }
 

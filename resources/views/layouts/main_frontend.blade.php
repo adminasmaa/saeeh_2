@@ -63,12 +63,6 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{{FRONTASSETS}}/styles/styles.css"/>
     <link rel="stylesheet" href="{{FRONTASSETS}}/styles/responsive-styles.css"/>
-    <script
-        src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-        crossorigin="anonymous"
-    ></script>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
     @yield('css')
     <!-- Font Awesome-->
@@ -78,6 +72,11 @@
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
         crossorigin="anonymous"
     />
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"
+    ></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous">
@@ -265,7 +264,6 @@
             $.each(data, function (key, value) {
                 $('#list9').append('<option value="' + value.id + '">' + value.name_ar + '</option>');
 
-
             });
             $("#list9").trigger('change');
         })
@@ -280,10 +278,8 @@
             $('#list4').append('<option>@lang('site.select')</option>');
             $.each(data, function (key, value) {
                 $('#list4').append('<option value="' + value.total + '">' + value.total + '</option>');
-
-
             });
-            $("#list2").trigger('change');
+            // $("#list2").trigger('change');
         })
     });
 

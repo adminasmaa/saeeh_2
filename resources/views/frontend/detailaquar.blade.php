@@ -37,9 +37,9 @@
                                 <div class="slide" data-slide="{{$key}}">
                                     <img src="{{FRONTASSETS}}/images/side-image-1.png" alt="department"/>
                                 </div>
-                              <div class="slide" data-slide="{{$key}}">
-                                 <img src="{{FRONTASSETS}}/images/side-image-1.png" alt="department"/>
-                               </div>
+                                <div class="slide" data-slide="{{$key}}">
+                                    <img src="{{FRONTASSETS}}/images/side-image-1.png" alt="department"/>
+                                </div>
 
                             @endif
 
@@ -48,7 +48,7 @@
                             </div>
 
                             <div class="slide-btn prev-slide">
-                              <i class="fas fa-chevron-right"></i>
+                                <i class="fas fa-chevron-right"></i>
                             </div>
                         </div>
                     </div>
@@ -97,7 +97,7 @@
 
                         </div>
 
-                        <div class="booking-now-btn py-4 w-45 d-flex justify-content-center align-items-center mt-4"   >
+                        <div class="booking-now-btn py-4 w-45 d-flex justify-content-center align-items-center mt-4">
                             <a href="{{route('bookingaquars',$aquar->id)}}"> @lang('site.book')</a>
                         </div>
                     </div>
@@ -106,7 +106,7 @@
                             <div class="pb-2 p-3 d-flex align-items-center">
                                 <div class="details-icon">
 
-                                <i class="far fa-wallet"></i>
+                                    <i class="far fa-wallet"></i>
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <div class="h2 text-second mb-0">  @lang('site.price'):</div>
@@ -158,9 +158,10 @@
                             <div class="pt-2 p-3">
                             <span>
 
-                                <img src="{{FRONTASSETS}}/images/money-ic.png" alt="money icon" >
+                                <img src="{{FRONTASSETS}}/images/money-ic.png" alt="money icon">
                             </span>
-                             <span class="boxx-txt text-gray-2">   @lang('site.The deposit is paid at the time of booking')</span>
+                                <span
+                                    class="boxx-txt text-gray-2">   @lang('site.The deposit is paid at the time of booking')</span>
                             </div>
                         </div>
 
@@ -352,16 +353,24 @@
                                                                 <img alt="review image"
                                                                      src="{{FRONTASSETS}}/images/review-image.png"/>
 
-
                                                             @endif
                                                         </div>
                                                         <div class="w-100 padding-right">
                                                             <h2 class="reviews-title d-flex text-second">
                                                                 {{$comment->user->firstname ?? ''}}
                                                                 <div>
-                                                                    <img
-                                                                        src="{{FRONTASSETS}}/images/car-icons/turkey.png"
-                                                                        alt="flag-icon">
+                                                                    @if(!empty($comment->user->country))
+
+                                                                        <img
+                                                                            src="{{asset('images/countries/'.$comment->user->country->flag_image)}}"
+                                                                            alt="flag-icon" >
+
+                                                                    @else
+                                                                        <img
+                                                                            src="{{FRONTASSETS}}/images/car-icons/turkey.png"
+                                                                            alt="flag-icon">
+                                                                    @endif
+
                                                                 </div>
                                                             </h2>
                                                             <p class="details-sm-txt mb-0">
@@ -375,7 +384,7 @@
 
                                                         <div>
 
-                                                        <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
                                                             {{--<p class="details-sm-txt">
                                                                 {{$allaquars->$aqarSection->icon ?? ''}}
                                                             </p> --}}
@@ -409,7 +418,7 @@
                                                 <i class="far fa-map-marker-alt"></i>
                                             </div>
 
-                                           <p class="details-sm-txt">
+                                            <p class="details-sm-txt">
 
                                                 {!! html_entity_decode($aquar->description) !!}
                                             </p>
@@ -428,7 +437,8 @@
                                         </div>
                                     </div>
                                     <div class="col-12 d-flex justify-content-center my-md-5 my-2">
-                                        <div class="booking-now-btn py-4 d-flex justify-content-center align-items-center"  >
+                                        <div
+                                            class="booking-now-btn py-4 d-flex justify-content-center align-items-center">
                                             <a href="{{route('bookingaquars',$aquar->id)}}">@lang('site.book')</a>
                                         </div>
                                     </div>
@@ -531,7 +541,7 @@
                                             <div class="col-lg-6">
 
 
-                                                    <ul class="register_errorsSaqar mb-0"></ul>
+                                                <ul class="register_errorsSaqar mb-0"></ul>
 
 
                                             </div>
@@ -548,49 +558,52 @@
                                                             <div class="d-flex align-items-center">
                                                             <span>
 
-                                                            <img src="{{asset('images/reviewElements/'.$value->reviewElement->icon)}}"
-                                                                    width="50" height="50"
-                                                                    onerror="this.src='{{FRONTASSETS}}/images/side-image-2.png'"
-                                                                    alt="car"/>
+                                                            <img
+                                                                src="{{asset('images/reviewElements/'.$value->reviewElement->icon)}}"
+                                                                width="50" height="50"
+                                                                onerror="this.src='{{FRONTASSETS}}/images/side-image-2.png'"
+                                                                alt="car"/>
                                                             </span>
                                                                 <span
                                                                     class="text-gray-2 h2 mb-0 badge-txt">{{$value->reviewElement->name ?? ''}} </span>
                                                             </div>
                                                             <!-- Output HTML -->
-                                               <div class="d-flex align-items-center">
-                                                            <div class="rate">
-                                                                <input type="hidden" name="aqar_id"
-                                                                       value="{{$aquar->id}}" class="aqar_id">
-                                                                <input type="hidden" name="review_element_id "
-                                                                       value="{{$value->reviewElement->id}}"
-                                                                       class="review_element_id ">
-                                                                <input type="radio" id="star555{{$key}}" name="rate"
-                                                                       value="5" class="rate"/>
-                                                                <label for="star555{{$key}}" title="text">5
-                                                                    stars</label>
-                                                                <input type="radio" id="star444{{$key}}" name="rate"
-                                                                       value="4" class="rate"/>
-                                                                <label for="star444{{$key}}" title="text">4
-                                                                    stars</label>
-                                                                <input type="radio" id="star333{{$key}}" name="rate"
-                                                                       value="3" class="rate"/>
-                                                                <label for="star333{{$key}}" title="text">3
-                                                                    stars</label>
-                                                                <input type="radio" id="star222{{$key}}" name="rate"
-                                                                       value="2" class="rate"/>
-                                                                <label for="star222{{$key}}" title="text">2
-                                                                    stars</label>
-                                                                <input type="radio" id="star111{{$key}}" name="rate"
-                                                                       value="1" class="rate"/>
-                                                                <label for="star111{{$key}}" title="text">1 star</label>
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="rate">
+                                                                    <input type="hidden" name="aqar_id"
+                                                                           value="{{$aquar->id}}" class="aqar_id">
+                                                                    <input type="hidden" name="review_element_id "
+                                                                           value="{{$value->reviewElement->id}}"
+                                                                           class="review_element_id ">
+                                                                    <input type="radio" id="star555{{$key}}" name="rate"
+                                                                           value="5" class="rate"/>
+                                                                    <label for="star555{{$key}}" title="text">5
+                                                                        stars</label>
+                                                                    <input type="radio" id="star444{{$key}}" name="rate"
+                                                                           value="4" class="rate"/>
+                                                                    <label for="star444{{$key}}" title="text">4
+                                                                        stars</label>
+                                                                    <input type="radio" id="star333{{$key}}" name="rate"
+                                                                           value="3" class="rate"/>
+                                                                    <label for="star333{{$key}}" title="text">3
+                                                                        stars</label>
+                                                                    <input type="radio" id="star222{{$key}}" name="rate"
+                                                                           value="2" class="rate"/>
+                                                                    <label for="star222{{$key}}" title="text">2
+                                                                        stars</label>
+                                                                    <input type="radio" id="star111{{$key}}" name="rate"
+                                                                           value="1" class="rate"/>
+                                                                    <label for="star111{{$key}}" title="text">1
+                                                                        star</label>
+                                                                </div>
+                                                                <div
+                                                                    class="department-badge bg-main text-white badge-modal">
+                                                                    <div class="pt-1 live-rating">0.0</div>
+                                                                    <div>
+                                                                        <i class="fas fa-star"></i>
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                            <div class="department-badge bg-main text-white badge-modal">
-                                                              <div class="pt-1 live-rating">0.0</div>
-                                                             <div>
-                                                              <i class="fas fa-star"></i>
-                                                             </div>
-                                                            </div>
-                                                        </div>
                                                         </div>
                                                         <hr class="hr-saeeh my-0"/>
                                                     @endif
@@ -649,7 +662,7 @@
                             data-bs-dismiss="modal"
                             aria-label="Close"
                         >
-                        <i class="fal fa-times"></i>
+                            <i class="fal fa-times"></i>
                         </button>
                     </div>
                     <div class="modal-body p-lg-5 p-3">
@@ -726,60 +739,62 @@
                             <div class="col-12 pt-4 mb-lg-5">
                                 @foreach($aquar->aqarCommentsAll as $comment)
 
-                                <div class="condition-content">
-                                    <div class="d-flex justify-content-between reviews-contentt">
-                                        <div class="d-sm-flex w-100">
-                                            <div class="reviews-image">
-                                                @if(!empty($comment->user->image))
-                                                    <img
-                                                        alt="user image"
-                                                        src="{{asset('images/employee/'.$comment->user->image ?? '')}}"
-                                                    />
-                                                @else
+                                    <div class="condition-content">
+                                        <div class="d-flex justify-content-between reviews-contentt">
+                                            <div class="d-sm-flex w-100">
+                                                <div class="reviews-image">
+                                                    @if(!empty($comment->user->image))
+                                                        <img
+                                                            alt="user image"
+                                                            src="{{asset('images/employee/'.$comment->user->image ?? '')}}"
+                                                        />
+                                                    @else
 
-                                                    <img
-                                                        alt="user image"
-                                                        src="{{FRONTASSETS}}/images/review-image.png"
-                                                    />
-                                                @endif
+                                                        <img
+                                                            alt="user image"
+                                                            src="{{FRONTASSETS}}/images/review-image.png"
+                                                        />
+                                                    @endif
+                                                </div>
+                                                <div class="w-100 padding-right">
+                                                    <h2 class="reviews-title d-flex text-second">
+                                                        {{$comment->user->firstname ?? ''}}
+                                                        {{$comment->user->lastname ?? ''}}
+                                                        <div class="comment-image">
+                                                            @if(!empty($comment->user->country->flag_image))
+                                                                <img
+                                                                    src="{{asset('images/countries/'.$comment->user->country->flag_image)}}"
+                                                                    width="25px" height="25px"
+                                                                    onerror="this.src={{FRONTASSETS}}/images/car-icons/turkey.png"
+                                                                    alt="flag-icon">
+
+                                                            @else
+                                                                <img
+
+
+                                                                    src="{{FRONTASSETS}}/images/car-icons/turkey.png"
+                                                                    width="25px" height="25px"
+                                                                    onerror="this.src={{FRONTASSETS}}/images/car-icons/turkey.png"
+                                                                    alt="flag-icon">
+
+                                                            @endif
+                                                        </div>
+                                                    </h2>
+                                                    <p class="details-sm-txt mb-0">
+                                                        {!! html_entity_decode(substr($comment->description, 0, 125)) !!}
+                                                    </p>
+                                                </div>
                                             </div>
-                                            <div class="w-100 padding-right">
-                                                <h2 class="reviews-title d-flex text-second">
-                                                    {{$comment->user->firstname ?? ''}}
-                                                    {{$comment->user->lastname ?? ''}}
-                                                    <div class="comment-image">
-                                                        @if(!empty($comment->user->country->flag_image))
-                                                            <img
-                                                                src="{{asset('images/countries/'.$comment->user->country->flag_image)}}" width="25px" height="25px"
-                                                                onerror="this.src={{FRONTASSETS}}/images/car-icons/turkey.png"
-                                                                alt="flag-icon">
 
-                                                        @else
-                                                            <img
-
-
-                                                                src="{{FRONTASSETS}}/images/car-icons/turkey.png" width="25px" height="25px"
-                                                                onerror="this.src={{FRONTASSETS}}/images/car-icons/turkey.png"
-                                                                alt="flag-icon">
-
-                                                        @endif
-                                                    </div>
-                                                </h2>
-                                                <p class="details-sm-txt mb-0">
-                                                    {!! html_entity_decode(substr($comment->description, 0, 125)) !!}
-                                                </p>
+                                            <div class="department-badge bg-main text-white">
+                                                <div class="pt-1">{{$comment->rating ?? 0}}</div>
+                                                <div>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
                                             </div>
                                         </div>
 
-                                        <div class="department-badge bg-main text-white">
-                                            <div class="pt-1">{{$comment->rating ?? 0}}</div>
-                                            <div>
-                                            <i class="fas fa-star"></i>
-                                            </div>
-                                        </div>
                                     </div>
-
-                                </div>
                                 @endforeach
                             </div>
                         </div>
