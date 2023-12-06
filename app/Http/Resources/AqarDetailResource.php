@@ -75,7 +75,7 @@ class AqarDetailResource extends JsonResource
                 // "rate" => round(AqarReview::where('user_id', '=', Auth::id())->where('aqar_id', '=',$this->id)->avg('rate')) ?? 0,
                 "comments" => CommentResource::collection($this->aqarComments),
                 "reviews" => AqarReviewResource::collection($this->aqarReview),
-                "fixed_price" => $exhangeRate *$this->fixed_price ?? 0,
+                "fixed_price" =>$this->fixed_price ?? 0,
                 "Reservation_deposit" => $this->fixed_price ?? 0,
     
                 // "Reservation_deposit" => $this->fixed_price ?? $this->day_count/$this->total_price ,
