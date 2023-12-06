@@ -164,5 +164,20 @@
 
     @endsection
 
+    @section('scripts')
 
+
+    <script>
+  $("#activationCode").on("keyup", "input", function () {
+  var $field = $(this);
+  if ($field.val().length === 1) {
+    $field.next().focus();
+    $field.addClass("active");
+  } else {
+    $field.removeClass("active");
+  }
+});
+</script>
+
+@endsection
    

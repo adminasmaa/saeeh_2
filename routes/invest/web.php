@@ -34,12 +34,13 @@ Route::prefix(LaravelLocalization::setLocale())->middleware('localeSessionRedire
     Route::post('updatepassword', 'App\Http\Controllers\Frontend\Investor\AuthController@update_password')->name('updatepassword');
     Route::get('changpass/{id}', 'App\Http\Controllers\Frontend\Investor\AuthController@changpass')->name('changpass');
     Route::post('editpassword', 'App\Http\Controllers\Frontend\Investor\AuthController@editpassword')->name('editpassword');
+    Route::get('resendcode/{id}', 'App\Http\Controllers\Frontend\Investor\AuthController@resendcode')->name('resendcode');
     });
     Route::prefix('invst')->name('invst.')->middleware(['auth'])->group(function () {
        
         Route::get('updateprofile/{id}', 'App\Http\Controllers\Frontend\Investor\AuthController@updateprofile')->name('updateprofile');
         Route::put('updateaccount/{id}', 'App\Http\Controllers\Frontend\Investor\AuthController@updateaccount')->name('updateaccount');
-        Route::get('resendcode/{id}', 'App\Http\Controllers\Frontend\Investor\AuthController@resendcode')->name('resendcode');
+     
         Route::get('cityareas/{id}', 'App\Http\Controllers\Frontend\Investor\HomeController@cityareas')->name('cityareas');
         Route::get('SubCategories/{id}', 'App\Http\Controllers\Frontend\Investor\HomeController@SubCategories')->name('SubCategories');
         Route::get('home', 'App\Http\Controllers\Frontend\Investor\HomeController@index')->name('home'); 
