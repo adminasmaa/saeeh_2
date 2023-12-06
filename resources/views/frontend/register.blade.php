@@ -103,11 +103,11 @@
                                                 <input type="hidden" name="country_id" id="country_id" value="">
                                                 <input type="hidden" name="country_code" id="country_code" value="">
                                                 <span class="icon-placeholder">
-                        <i class="far fa-phone"></i>
-                      </span>
+                                                    <i class="far fa-phone"></i>
+                                                </span>
                                                 <input type="text" name="phone"
                                                        class="form-control register-input register-input-r phone2"
-                                                       maxlength="11">
+                                                       maxlength="11" placeholder=" {{trans('site.phone_number')}}">
                                                 <select id="demo-htmlselect">
                                                     @foreach(\App\Models\Country::get() as $country)
                                                         <option value="{{$country->id}}"
@@ -158,11 +158,7 @@
 
     <script type="text/javascript"
             src="https://cdn.rawgit.com/prashantchaudhary/ddslick/master/jquery.ddslick.min.js"></script>
-
-
     <script>
-
-
         $('#country_id').val(country_id);
 
         $('#demo-htmlselect').ddslick({
@@ -178,8 +174,6 @@
     </script>
 
     <script>
-
-
         jQuery('.formregistersUser').click(function (e) {
             // console.log("daaaa");
             e.preventDefault();
@@ -188,7 +182,6 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-
 
             jQuery.ajax({
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')},

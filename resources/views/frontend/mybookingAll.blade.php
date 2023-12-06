@@ -63,7 +63,7 @@
                                     <h2 class="mb-0 pe-2">@lang('site.aquars')</h2>
                                 </a>
                             </li>
-                            <li  class="li-booking-all">
+                            <li class="li-booking-all">
                                 <a
                                     href="#tab-2"
                                     class="tab-link-all d-flex align-items-center justify-content-center"
@@ -323,6 +323,21 @@
                                         @endforeach
                                     </div>
                                 </div>
+
+                                @unless (count($aqarbooking->aqarbooking))
+                                    <!--empty booking-->
+                                    <div class="col-12 mb-5">
+                                        <div class="card-empty d-md-flex align-items-center">
+                                            <div class="card-empty-txt">  @lang('site.No Favourite') </div>
+                                            <div>
+                                                <img
+                                                    src="{{FRONTASSETS}}/investor/empty-ic.svg"
+                                                    alt="empty icon"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endunless
                             </li>
                             <li id="tab-2">
                                 <div class="row">
@@ -540,26 +555,30 @@
                                         @endforeach
                                     </div>
                                 </div>
+
+
+                                @unless (count($carBooking->carBooking))
+                                    <!--empty booking-->
+                                    <div class="col-12 mb-5">
+                                        <div class="card-empty d-md-flex align-items-center">
+                                            <div class="card-empty-txt">  @lang('site.No Favourite') </div>
+                                            <div>
+                                                <img
+                                                    src="{{FRONTASSETS}}/investor/empty-ic.svg"
+                                                    alt="empty icon"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endunless
+
+
                             </li>
 
                         </ul>
                     </div>
                 </div>
 
-                @unless (count($aqarbooking->aqarbooking))
-                    <!--empty booking-->
-                    <div class="col-12 mb-5">
-                        <div class="card-empty d-md-flex align-items-center">
-                            <div class="card-empty-txt">  @lang('site.No Favourite') </div>
-                            <div>
-                                <img
-                                    src="{{FRONTASSETS}}/investor/empty-ic.svg"
-                                    alt="empty icon"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                @endunless
 
             </div>
 

@@ -25,9 +25,7 @@
         padding-bottom: 6%;
         border-radius: 0px 0px 10px 10px;
     }
-    .department-img-list {
-        /* aspect-ratio: 370/306; */
-    }
+  
 }
 @media (min-width: 1400px) {
     .container {
@@ -36,6 +34,8 @@
 }
 
 @media (max-width: 1400px) {
+    .navbar-nav .nav-link a {
+        font-size: 14px;}
     .register-section .tabs-details .tab-link,
     .login-title {
         font-size: 20px;
@@ -73,7 +73,7 @@
     .box-sort-booking .ddl-input::placeholder,
     .modal-custom-rating .discound-txt,
     .modal-custom-rating label {
-        font-size: 20px;
+        font-size: 18px;
     }
     .details-item .accordion-body,
     .details-sm-txt,
@@ -91,7 +91,7 @@
         font-size: 16px;
     }
     .banner-txt {
-        font-size: 26px;
+        font-size: 22px;
     }
 
     .hotel-name {
@@ -130,6 +130,12 @@
     }
 }
 @media (max-width: 992px) {
+    .english-display{
+        display:  block !important;
+    }
+    .google-apps.mob-view ul{
+        justify-content: left !important
+    }
     .exclamation-ic i {
         font-size: 100px;
     }
@@ -176,7 +182,7 @@
 
     .btn-saeeh-mobile i,
     .btn-outline-saeeh-mobile i {
-        padding-left: 5px;
+        padding-right: 5px;
     }
 
     .btn-saeeh-mobile {
@@ -597,7 +603,7 @@
         width: 50%;
     }
     .map-body .search-saeeh {
-        padding-right: 45px;
+        padding-left: 45px;
     }
     .car-tabs li {
         width: 49%;
@@ -799,7 +805,7 @@
         display: none !important;
         width: 300px;
         position: fixed;
-        left: -110%;
+        right: -110%;
         top: 0;
         background: #fff;
         height: 100%;
@@ -816,7 +822,7 @@
 
     .side-menu-wrap.opened {
         display: block !important;
-        right: 0;
+        left: 0;
         transition: 0.8s;
         -webkit-transition: 0.8s;
         -moz-transition: 0.8s;
@@ -844,7 +850,7 @@
     }
     .side-menu-nav .main-menu > li > a {
         color: var(--m-gray);
-        padding: 15px 20px 5px 10px;
+        padding: 15px 10px 5px 20px;
         font-weight: 700;
         font-size: 14px;
         display: block;
@@ -867,7 +873,7 @@
     }
     .side-menu-wrap .side-menu-close {
         position: absolute;
-        left: 20px;
+        right: 20px;
         top: 20px;
         height: 34px;
         width: 34px;
@@ -1286,7 +1292,7 @@
     .arrow-ico {
         color: var(--m-main);
         font-size: 14px;
-        padding-left: 5px;
+        padding-right: 5px;
     }
     .about-card {
         min-height: auto;
@@ -1397,7 +1403,7 @@
     }
     .footer-top .links-list li {
         display: inline-block;
-        width: 45%;
+        width: 100%;
     }
     .google-apps {
         padding: 0;
@@ -1572,6 +1578,9 @@
     }
 }
 @media (max-width: 578px) {
+    #demo-htmlselect {
+        width: 50% !important;
+    }
     .cancel-booking-title {
         font-size: 20px;
     }
@@ -1772,7 +1781,7 @@
     .department-title,
     .dd-txt,
     .box-sort-booking .ddl-input::placeholder {
-        font-size: 18px;
+        font-size: 16px;
     }
     .search-country::placeholder {
         font-size: 14px;
@@ -1799,15 +1808,7 @@
     .register_frm_card {
         padding: 25px 20px;
     }
-    /* .search-country {
-    height: 60px;
-  }
-  .search-c-icon {
-    left: 10px;
-    top: 7px;
-    width: 45px;
-    height: 45px;
-  } */
+
     .select2-container--default
         .select2-selection--single
         .select2-selection__rendered {
@@ -2024,6 +2025,9 @@
     }
 }
 @media (max-width: 450px) {
+    .see-all img{
+        display: none;
+    }
     #gallery {
         min-width: 375vw;
     }
@@ -2171,7 +2175,7 @@
     .box-sort-booking .ddl-input::placeholder,
     .modal-custom-rating .discound-txt,
     .modal-custom-rating label {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .details-item .accordion-body,
@@ -2191,10 +2195,10 @@
     .details-rest-btn a,
     .add-rate-btn a,
     .add-rate-btn button {
-        font-size: 14px;
+        font-size: 13px;
     }
     .tabs-nav-edits .tabs a {
-        font-size: 16px;
+        font-size: 14px;
     }
     .aqar-icon,
     .car-icon {
@@ -2233,7 +2237,7 @@
     .booking-now-btn {
         width: 95%;
     }
-    h2,
+    /* h2,
     .h2,
     .badge-ads-details,
     .details-txt,
@@ -2251,7 +2255,7 @@
     .rating-see-btn a,
     .modal-custom-rating .discound-txt,
     .modal-custom-rating label {
-        font-size: 16px;
+        font-size: 14px;
     }
     .details-item .accordion-body,
     .details-sm-txt,
@@ -2270,6 +2274,6 @@
     .details-rest-btn a,
     .add-rate-btn a,
     .add-rate-btn button {
-        font-size: 14px;
-    }
+        font-size: 13px;
+    } */
 }

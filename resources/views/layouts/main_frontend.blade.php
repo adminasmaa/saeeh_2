@@ -74,10 +74,15 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{{FRONTASSETS}}/styles/styles.css"/>
     <link rel="stylesheet" href="{{FRONTASSETS}}/styles/responsive-styles.css"/>
+ 
   @else
     <link rel="stylesheet" href="{{FRONTASSETS}}/styles/styles-en.css"/>
     <link rel="stylesheet" href="{{FRONTASSETS}}/styles/responsive-styles-en.css"/>
   @endif
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    @yield('css')
+ 
 </head>
 
 <body>
@@ -93,18 +98,18 @@
 
 {!! footerweb() !!}
 
-
-<!-- JQuery-->
-<script src="{{FRONTASSETS}}/js/jquery.min.js"></script>
-<!-- <script
-        src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-        crossorigin="anonymous"
-    ></script> -->
+<script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous">
 </script>
+<!-- JQuery-->
+<script src="{{FRONTASSETS}}/js/jquery.min.js"></script>
+
 <!-- Bootstrap-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"
         integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g=="
@@ -261,7 +266,6 @@
             $.each(data, function (key, value) {
                 $('#list9').append('<option value="' + value.id + '">' + value.name_ar + '</option>');
 
-
             });
             $("#list9").trigger('change');
         })
@@ -276,10 +280,8 @@
             $('#list4').append('<option>@lang('site.select')</option>');
             $.each(data, function (key, value) {
                 $('#list4').append('<option value="' + value.total + '">' + value.total + '</option>');
-
-
             });
-            $("#list2").trigger('change');
+            // $("#list2").trigger('change');
         })
     });
 

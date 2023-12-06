@@ -1572,6 +1572,9 @@
     }
 }
 @media (max-width: 578px) {
+    #demo-htmlselect {
+        width: 50% !important;
+    }
     .cancel-booking-title {
         font-size: 20px;
     }

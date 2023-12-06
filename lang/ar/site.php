@@ -506,10 +506,10 @@ return [
     'haveprofile' => 'هل لديك حساب',
 
     'login' => 'تسجيل الدخول',
-    'dont_have_an_account' => 'ليس لديك حساب',
+    'dont_have_an_account' => 'ليس لديك حساب؟',
     'sing_up' => 'التسجيل',
     'enter_pass_email' => 'أدخل بريدك الإلكتروني وكلمة المرور لتسجيل الدخول',
-    'forget_password' => 'نسيت كلمة المرور',
+    'forget_password?' => 'نسيت كلمة المرور؟',
     'copy_right' => 'كل حقوق الطبع والنشر محفوظة',
     'remember_me' => 'تذكرني',
     'password' => 'كلمة المرور',

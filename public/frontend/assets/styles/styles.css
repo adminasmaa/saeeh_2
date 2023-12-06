@@ -976,13 +976,13 @@ video.video-full {
     font-size: 18px;
     line-height: 150%;
     color: #ffffff;
-    padding-right: 20px;
+    padding-right: 25px;
     display: inline-block;
 }
 
 .list-time li {
     direction: ltr;
-    padding-right: 20px;
+    padding-right: 25px;
 }
 
 .footerSocialIcons {
@@ -5798,7 +5798,9 @@ tr {
     direction: ltr !important;
     color: #000 !important;
 }
-
+.dd-options {
+    left: 0 !important;
+}
 .register-input-r {
     border-radius: 0 10px 10px 0 !important;
     border-left: 0;
@@ -6097,7 +6099,7 @@ tr {
     color: var(--m-second);
 }
 .custom-checkbox{
-    max-height: 180px;
+    max-height: 208px;
     overflow-y: auto;
 }
 .custom-checkbox::-webkit-scrollbar {

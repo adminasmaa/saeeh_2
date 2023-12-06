@@ -485,7 +485,7 @@ h2 {
 
 .dropdown-menu {
     border-radius: var(--rounded-main);
-    padding: 16px 0 16px 14px;
+    padding: 16px 14px 16px 0px;
     border: none;
     margin-top: 10px !important;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
@@ -977,13 +977,13 @@ video.video-full {
     font-size: 16px;
     line-height: 150%;
     color: #ffffff;
-    padding-right: 20px;
+    padding-left: 25px;
     display: inline-block;
 }
 
 .list-time li {
     direction: rtl;
-    padding-left: 20px;
+    padding-left: 25px;
 }
 
 .footerSocialIcons {
@@ -1349,7 +1349,7 @@ video.video-full {
 }
 
 .help-content label {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     line-height: 27px;
     letter-spacing: 0em;
@@ -1361,7 +1361,7 @@ video.video-full {
     background: url(../images/login-bg.png) center center;
     background-repeat: no-repeat;
     background-size: cover;
-    border-radius: 10px 0 0 10px;
+    border-radius: 0 10px   10px 0;
     /* height: 660px; */
 }
 .side-login-image-investor {
@@ -1370,12 +1370,12 @@ video.video-full {
         center;
     background-repeat: no-repeat;
     background-size: cover;
-    border-radius: 10px 0 0 0px;
+    border-radius: 0 10px   10px 0;
     /* height: 660px; */
 }
 .side-login-image-edit {
     width: 50%;
-    border-radius: 10px 0 0 10px;
+    border-radius: 0 10px   10px 0;
 }
 
 .side-help-image {
@@ -1383,7 +1383,7 @@ video.video-full {
     background: url(../images/help.png) center center;
     background-repeat: no-repeat;
     background-size: cover;
-    border-radius: 10px 0 0 10px;
+    border-radius: 0 10px  10px 0 ;
 }
 
 .modal-body {
@@ -1392,7 +1392,7 @@ video.video-full {
 
 .login-title {
     font-weight: 700;
-    font-size: 32px;
+    font-size: 28px;
     line-height: 150%;
     color: var(--m-second);
 }
@@ -1403,7 +1403,7 @@ video.video-full {
     border-radius: var(--rounded-main);
     height: 46px;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 150%;
     color: #ffffff;
     width: 100%;
@@ -1444,16 +1444,16 @@ video.video-full {
     border: 1px solid #cfcfcf;
     border-radius: 10px;
     height: 46px;
-    padding-right: 35px;
-    text-align: right;
+    padding-left: 35px;
+    text-align: left;
 }
 .edit-body input {
     background: #ffffff;
     border: 1px solid #cfcfcf;
     border-radius: 10px;
     height: 46px;
-    text-align: right;
-    padding-right: 12px;
+    text-align: left;
+    padding-left: 12px;
 }
 .help-body input {
     background: #ffffff;
@@ -1464,7 +1464,7 @@ video.video-full {
 
 .field-icon {
     position: absolute;
-    left: 15px;
+    right: 15px;
     top: 15px;
     color: #9c9c9c;
     cursor: pointer;
@@ -1482,19 +1482,19 @@ video.video-full {
 .login-body input::placeholder,
 .help-body input::placeholder {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 150%;
     color: #9c9c9c;
 }
 
 .booking-now-btn i,
 .booking-dd-btn i {
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .icon-placeholder {
     position: absolute;
-    right: 15px;
+    left: 15px;
     display: flex;
     height: 100%;
     align-items: center;
@@ -1503,13 +1503,13 @@ video.video-full {
 }
 .icon-placeholder i{color: var(--m-gray-4);}
 .iti--separate-dial-code input[type="tel"] {
-    padding-right: 40px;
+    padding-left: 40px;
 }
 .register-section .iti--separate-dial-code input[type="tel"] {
-    padding-right: 14px;
+    padding-left: 14px;
 }
 .forgit-password {
-    text-align: right;
+    text-align: left;
 }
 
 .forgit-password a {
@@ -1530,13 +1530,14 @@ video.video-full {
     color: var(--m-main);
 }
 .iti--allow-dropdown input,  .iti--allow-dropdown input[type=text],  .iti--allow-dropdown input[type=tel] {
-    padding-right: 36px !important;}
+    padding-left: 36px !important;}
  .breadcrumb-item + .breadcrumb-item::before {
     content: "";
     height: 30px;
     width: 16px;
     background: url(../images/breadcrump-ic.svg) no-repeat center center;
-    margin-left: 0.35rem;
+    margin-right: 0.35rem;
+    transform: rotate(180deg);
 }
 
 .breadcrumb-item + .breadcrumb-item {
@@ -1544,7 +1545,7 @@ video.video-full {
 }
 
 .breadcrumb li {
-    margin-left: 5px;
+    margin-right: 5px;
     font-weight: 600;
     font-size: 18px;
     line-height: 150%;
@@ -1569,7 +1570,9 @@ video.video-full {
 .txt-gray-4 {
     color: var(--m-second);
 }
-
+.dd-options {
+    right: 0 !important;
+}
 .department-sort-nav .nav-link.active a {
     background-color: var(--m-main);
     color: white;
@@ -1718,8 +1721,8 @@ video.video-full {
 .department-like {
     position: absolute;
     top: 0;
-    left: 0;
-    transform: translate(20px, 20px);
+    right: 0;
+    transform: translate(-20px, 20px);
     z-index: 1;
 }
 .department-like a{
@@ -1774,7 +1777,7 @@ video.video-full {
     align-items: center;
     justify-content: center;
     border-radius: var(--rounded-main);
-    margin-left: 0.5rem;
+    margin-right: 0.5rem;
 }
 
 .department-sm-badge {
@@ -1794,7 +1797,7 @@ video.video-full {
     font-size: 14px;
 }
 .ic-water{
-    padding-left: 3px;
+    padding-right: 3px;
 }
 .arrow-accordion i{
     font-size: 22px;
@@ -1845,7 +1848,7 @@ video.video-full {
 .pagination .page-item svg {
     width: 20px;
     height: 20px;
-    transform: rotate(180deg);
+    /* transform: rotate(180deg); */
 }
 
 .pagination,
@@ -1954,14 +1957,14 @@ video.video-full {
 
 .details-rest-btn a {
     font-weight: 600;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 150%;
     color: var(--m-main);
 }
 
 .text-restaurant {
     font-weight: 500;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 150%;
 }
 
@@ -1981,7 +1984,7 @@ video.video-full {
 .booking-btn a,
 .booking-dd-btn a {
     font-weight: 600;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 150%;
     color: #ffffff;
 }
@@ -2022,7 +2025,7 @@ video.video-full {
     position: relative;
     vertical-align: middle;
     cursor: pointer;
-    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .custom-checkbox .form-group input:checked + label::before {
@@ -2034,7 +2037,7 @@ video.video-full {
     display: block;
     position: absolute;
     top: 7px;
-    right: 9px;
+    left: 9px;
     width: 6px;
     height: 12px;
     border: solid var(--m-main);
@@ -2082,7 +2085,7 @@ video.video-full {
 
 .box-sort-booking .ddl-input::placeholder {
     font-weight: 700;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 150%;
     color: var(--m-second);
 }
@@ -2579,7 +2582,7 @@ video.video-full {
 
 .date-input::placeholder {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 150%;
     color: #9c9c9c;
 }
@@ -2629,7 +2632,7 @@ video.video-full {
 
 .txtarea-dd::placeholder {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 42px;
 
     color: var(--m-second);
@@ -2667,8 +2670,8 @@ video.video-full {
 
 .noUi-horizontal .noUi-handle {
     top: -8px !important;
-    left: -10px !important;
-    right: auto !important;
+    right: -10px !important;
+    left: auto !important;
     width: 20px !important;
     height: 20px !important;
     background: var(--m-main);
@@ -2684,7 +2687,7 @@ video.video-full {
 .filter__input {
     resize: horizontal;
     width: 55px;
-    text-align: right;
+    text-align: left;
     border: 0;
 }
 
@@ -2721,8 +2724,8 @@ video.video-full {
 
 .lang-dropdown {
     min-width: 8rem;
-    left: 10px !important;
-    right: unset !important;
+    right: 10px !important;
+    left: unset !important;
     margin-top: 0.125rem !important;
 }
 
@@ -2881,7 +2884,7 @@ video.video-full {
     border: 1px solid var(--m-light-gray);
     border-radius: 50px;
     height: 48px;
-    padding-right: 42px;
+    padding-left: 42px;
 }
 
 .search-saeeh:focus {
@@ -2891,14 +2894,14 @@ video.video-full {
 
 .search-saeeh::placeholder {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 150%;
     color: var(--m-light-gray);
 }
 
 .search-icon {
     position: absolute;
-    right: 15px;
+    left: 15px;
     top: 12px;
     
 }
@@ -3229,7 +3232,7 @@ video.video-full {
 
 .txtarea-booking::placeholder {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 42px;
 
     color: #9c9c9c;
@@ -3674,7 +3677,7 @@ font-size: 22px;
 
 .calendar::placeholder {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 150%;
     color: #9c9c9c;
 }
@@ -4274,20 +4277,20 @@ color: #fff;
 }
 
 .department-badge svg  {
-    margin-right: 5px;
+    margin-left: 5px;
     margin-bottom: 5px;
 }
 .department-badge i {
-    padding-right: 5px;
+    padding-left: 5px;
     font-size: 18px;
 }
 .badge-modal {
-    margin-left: 0;
-    margin-right: 0.5rem;
+    margin-right: 0;
+    margin-left: 0.5rem;
 }
 
 .badge-txt {
-    padding-right: 12px;
+    padding-left: 12px;
 }
 
 .add-rate-btn {
@@ -4350,7 +4353,7 @@ color: #fff;
 }
 
 .iti--separate-dial-code input[type="tel"] {
-    text-align: right;
+    text-align: left;
 }
 
 .resto-modal-content {
@@ -4773,7 +4776,7 @@ color: #fff;
 .add-booking-investor input::placeholder,
 .add-ads-card input::placeholder {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 150%;
     color: #9c9c9c;
 }
@@ -4783,7 +4786,7 @@ color: #fff;
     .select2-selection--single
     .select2-selection__rendered {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 150%;
     color: #9c9c9c;
 }
@@ -4951,7 +4954,7 @@ color: #fff;
 }
 
 .txtarea-ads::placeholder {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 24px;
     color: #9c9c9c;
@@ -5787,7 +5790,7 @@ tr {
 
 #demo-htmlselect .dd-select {
     width: auto !important;
-    border-radius: 10px 0 0 10px !important;
+    border-radius: 0 10px 10px 0 !important;
 }
 #demo-htmlselect .dd-selected {
     display: flex !important;
@@ -5801,7 +5804,7 @@ tr {
 }
 
 .register-input-r {
-    border-radius: 0 10px 10px 0 !important;
+    border-radius:  10px 0  0 10px!important;
     border-left: 0;
 }
 .dd-option {
@@ -5821,7 +5824,7 @@ tr {
 
 .activatiopn-txt {
     color: var(--m-main);
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     line-height: 24px;
 }
@@ -5841,11 +5844,11 @@ tr {
     margin: 0px 10px;
     font-weight: 400;
     color: var(--m-main);
-    font-size: 20px;
+    font-size: 18px;
     border-radius: var(--rounded-main);
 }
 #activationCode .code::placeholder {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
     color: var(--m-light-gray);
 }
@@ -5854,7 +5857,7 @@ tr {
 }
 .verification_counter {
     width: 60%;
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 500;
     line-height: 42px;
     color: var(--m-main);
@@ -6098,7 +6101,7 @@ tr {
     color: var(--m-second);
 }
 .custom-checkbox{
-    max-height: 180px;
+    max-height: 208px;
     overflow-y: auto;
 }
 .custom-checkbox::-webkit-scrollbar {
@@ -6255,4 +6258,10 @@ padding-left: 5px;
 }
 .pe-2 {
     padding-left: 0.5rem!important;
+}
+.ms-3 {
+    margin-right: 1rem!important;
+}
+.ps-2 {
+    padding-right: 0.5rem!important;
 }

@@ -39,7 +39,7 @@
                                                 </span>
                                                 <input type="text" name="phone"
                                                        class="form-control register-input register-input-r phone3"
-                                                       maxlength="11"  >
+                                                       maxlength="11"   placeholder=" {{trans('site.phone_number')}}">
                                                 <select id="demo-htmlselect">
                                                     @foreach(\App\Models\Country::get() as $country)
                                                         <option value="{{$country->id}}"
@@ -69,9 +69,8 @@
                                                 placeholder=" {{trans('site.password')}}"
                                             />
                                             <span class="icon-placeholder">
-
-                        <i class="far fa-lock-alt"></i>
-                      </span>
+                                                <i class="far fa-lock-alt"></i>
+                                            </span>
                                             <div
                                                 toggle="#password-fieldd"
                                                 class="fa fa-fw fa-eye field-icon toggle-password"
@@ -81,11 +80,11 @@
                                             @lang('site.login')
                                         </button>
                                         <div class="forgit-password pt-2">
-                                            <a href="{{route('forget_password')}}"> @lang('site.forget_password') ؟ </a>
+                                            <a href="{{route('forget_password')}}"> @lang('site.forget_password?') </a>
                                         </div>
                                         <div class="pt-lg-3 pt-2 user-links">
                                             <p class="text-bold">
-                                                @lang('site.dont_have_an_account') ؟
+                                                @lang('site.dont_have_an_account') 
                                                 <a href="{{route('registers')}}"
                                                    class="user-link"> @lang('site.register')</a>
                                             </p>
