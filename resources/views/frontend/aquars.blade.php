@@ -194,7 +194,7 @@
                                     </button>
                                 </h2>
                                 <div id="accordion-filterOne"
-                                     class="accordion-collapse collapse show" data-bs-parent="#abc">
+                                     class=" collapse show" data-bs-parent="#abc">
                                     <div class="accordion-body">
                                         <div class="row align-items-center">
                                             <div class="custom-checkbox">
@@ -885,9 +885,7 @@
 
                                                             <img
                                                                 loading="lazy"
-
                                                                 src="{{asset('images/aqars/'.$img)}}"
-
                                                                 onerror="this.src='{{FRONTASSETS}}/images/department-1.svg'"
                                                                 class="department-img-list of-cover"
                                                                 alt="image 1"
@@ -951,8 +949,7 @@
                                                             class="d-flex justify-content-lg-end align-items-center"
                                                         >
                                                             <div class="department-badge bg-main text-white">
-                                                                    <span
-                                                                        class="">     {{ round($aquar->aqarReview->avg('rate')) ?? 0}}</span>
+                                                                <span>     {{ round($aquar->aqarReview->avg('rate')) ?? 0}}</span>
                                                                 <span>
                                                                    <i class="fas fa-star"></i>
                                                                 </span>
@@ -1153,7 +1150,7 @@
         const filterInputs = document.querySelectorAll("input.filter__input");
         noUiSlider.create(slider, {
             start: [rangeMin, rangeMax],
-            direction: "rtl",
+            direction: "{{app()->isLocale('ar')? 'rtl' : 'ltr'}}",
             connect: true,
             step: step,
             range: {

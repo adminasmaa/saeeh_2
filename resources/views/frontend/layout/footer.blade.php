@@ -39,7 +39,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-6 d-flex">
+                <div class="col-lg-3 col-md-6 d-flex english-display" >
                     <div>
                         <h3 class="footer-title">@lang('site.social media') </h3>
                         <ul class="mt-sm-3 mt-2 d-flex list-unstyled list-icons">
@@ -91,7 +91,7 @@
                             @lang('site.contact with')
 
                                 <ul class="list-unstyled">
-                                    <li class="pt-sm-2 pt-1">
+                                    <li class="pt-1">
                                         <a href="#" class="link-time">
                                             <div class="d-flex align-items-center">
                                             <div>{{$settings->phone_one}}</div>
@@ -103,7 +103,7 @@
                                             </div>
                                         </a>
                                     </li>
-                                    <li class="pt-sm-2 pt-1">
+                                    <li class="pt-1">
                                         <a href="#" class="link-time">
                                             <div class="d-flex align-items-center">
                                             <div>{{$settings->phone_two}}</div>

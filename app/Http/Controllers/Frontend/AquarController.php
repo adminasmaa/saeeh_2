@@ -352,7 +352,7 @@ class AquarController extends Controller
         session_start();
         Session::put('category_id', $id);
 
-        $aquars = Aqar::where('category_id', '=', $id)->with('aqarSection')->paginate(12);
+        $aquars = Aqar::where('category_id', '=', $id)->with('aqarSection')->paginate(3);
         $allaquars = Aqar::where('category_id', '=', $id)->with('aqarSection')->get();
         $roomsnumbers = Aqar::with('aqarSection')->get();
         $minprice = Aqar::whereNotNull('fixed_price')->min("fixed_price");

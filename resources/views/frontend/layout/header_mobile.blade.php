@@ -402,7 +402,7 @@
                         href="{{route('sitelogin')}}"
                         class="btn-outline-saeeh-mobile d-flex justify-content-center align-items-center"
                     >
-                        <i class="fas fa-user"></i>
+                        <i class="far fa-user"></i>
                         @lang('site.login')
                     </a>
                 </li>
@@ -411,7 +411,7 @@
                         href="{{route('registers')}}"
                         class="btn-saeeh-mobile d-flex justify-content-center align-items-center"
                     >
-                        <i class="fas fa-user"></i>
+                        <i class="far fa-user"></i>
                         @lang('site.create account')
                     </a>
                 </li>

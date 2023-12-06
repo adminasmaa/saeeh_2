@@ -103,11 +103,11 @@
                                                 <input type="hidden" name="country_id" id="country_id" value="">
                                                 <input type="hidden" name="country_code" id="country_code" value="">
                                                 <span class="icon-placeholder">
-                        <i class="far fa-phone"></i>
-                      </span>
+                                                    <i class="far fa-phone"></i>
+                                                </span>
                                                 <input type="text" name="phone"
                                                        class="form-control register-input register-input-r phone2"
-                                                       maxlength="11">
+                                                       maxlength="11" placeholder=" {{trans('site.phone_number')}}">
                                                 <select id="demo-htmlselect">
                                                     @foreach(\App\Models\Country::get() as $country)
                                                         <option value="{{$country->id}}"

@@ -1,21 +1,28 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="{{ app()->getLocale() }}" dir="{{app()->isLocale('ar')? 'rtl' : 'ltr'}}">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>@lang('site.saeeeeeeh') </title>
-    <!-- Cairo Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    @if(app()->getLocale()=='ar')
+   <!-- Cairo Font -->
     <link
         href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet"
     />
+  @else
+     <!-- Montserrat Font -->
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+  @endif
     <!-- Font Awesome-->
     <link
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         rel="stylesheet"
+        href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+        crossorigin="anonymous"
     />
     <!--start rating-->
     <link
@@ -43,12 +50,7 @@
         href="{{FRONTASSETS}}/vendor/bootstrap/css/bootstrap.min.css"
         type="text/css"
     />
-    <link
-        rel="stylesheet"
-        href="{{FRONTASSETS}}/vendor/bootstrap/css/bootstrap.rtl.min.css"
-        type="text/css"
-    />
-
+   
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/css/intlTelInput.css">
 
     <!-- intl-tel-input -->
@@ -60,42 +62,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.css"
           integrity="sha512-qveKnGrvOChbSzAdtSs8p69eoLegyh+1hwOMbmpCViIwj7rn4oJjdmMvWOuyQlTOZgTlZA0N2PXA7iA8/2TUYA=="
           crossorigin="anonymous" referrerpolicy="no-referrer">
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    @yield('css')
+  
+ 
+  @if(app()->getLocale()=='ar')
+    <link rel="stylesheet"
+          href="{{FRONTASSETS}}/vendor/bootstrap/css/bootstrap.rtl.min.css"
+          type="text/css"/>
     <!-- CSS -->
     <link rel="stylesheet" href="{{FRONTASSETS}}/styles/styles.css"/>
     <link rel="stylesheet" href="{{FRONTASSETS}}/styles/responsive-styles.css"/>
+ 
+  @else
+    <link rel="stylesheet" href="{{FRONTASSETS}}/styles/styles-en.css"/>
+    <link rel="stylesheet" href="{{FRONTASSETS}}/styles/responsive-styles-en.css"/>
+  @endif
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
     @yield('css')
-    <!-- Font Awesome-->
-    <link
-        rel="stylesheet"
-        href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-        crossorigin="anonymous"
-    />
-    <script
-        src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-        crossorigin="anonymous"
-    ></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous">
-    </script>
-
-{{--    <style>--}}
-{{--        .side-login-image {--}}
-{{--            width: 100%;--}}
-{{--            background: url({{FRONTASSETS}}/images/login-bg-mobile.png) center center;--}}
-{{--            background-repeat: no-repeat;--}}
-{{--            background-size: cover;--}}
-{{--            border-radius: 10px 10px 0 0;--}}
-{{--            height: 300px;--}}
-{{--        }--}}
-{{--    </style>--}}
-
+ 
 </head>
-
-
 
 <body>
 {!! headerweb() !!}
@@ -110,9 +98,18 @@
 
 {!! footerweb() !!}
 
-
+<script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous">
+</script>
 <!-- JQuery-->
 <script src="{{FRONTASSETS}}/js/jquery.min.js"></script>
+
 <!-- Bootstrap-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"
         integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g=="
@@ -137,7 +134,12 @@
 <!--nouislider-->
 <script src="{{FRONTASSETS}}/js/dist/nouislider.min.js"></script>
 <!-- Main JS -->
-<script src="{{FRONTASSETS}}/js/script.js"></script>
+@if(app()->getLocale()=='ar')
+  <script src="{{FRONTASSETS}}/js/script.js"></script>
+  @else
+  <script src="{{FRONTASSETS}}/js/script-en.js"></script>
+  @endif
+
 <script src="{{FRONTASSETS}}/js/custom-rating.js"></script>
 {{--   <script src="{{FRONTASSETS}}/js/sliderPrice.js"></script>--}}
 <script src="{{FRONTASSETS}}/js/filter-menu-mobile.js"></script>
