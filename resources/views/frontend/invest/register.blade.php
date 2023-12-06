@@ -37,7 +37,7 @@
                       @if(!empty($invest)&&$invest->account_type_id!=null && ($invest->account_type_id==$item->id)) checked  @endif
                     />
                     @if($errors->has('account_type'))
-                            <span class="error">{{ $errors->first('account_type') }}</span>
+                            <span class="error text-danger">{{ $errors->first('account_type') }}</span>
                     @endif
                     <label for="registerData{{$k+1}}" class="lbl_info custom-radio">
                       {{$item->name_ar}}  
@@ -86,7 +86,7 @@
                         value="{{ old('firstname', (empty($invest))? null : $invest['firstname']) }}"
                       />
                       @if($errors->has('firstname'))
-                          <span class="error">{{ $errors->first('firstname') }}</span>
+                          <span class="error text-danger">{{ $errors->first('firstname') }}</span>
                       @endif
                     </div>
                     <div class="col-lg-6 mb-3">
@@ -102,7 +102,7 @@
                         value="{{ old('username', (empty($invest))? null : $invest['username']) }}"
                       />
                       @if($errors->has('username'))
-                          <span class="error">{{ $errors->first('username') }}</span>
+                          <span class="error text-danger">{{ $errors->first('username') }}</span>
                       @endif
                     </div>
                     <div class="col-lg-6 mb-3">
@@ -118,7 +118,7 @@
                         value="{{ old('address', (empty($invest))? null : $invest['address']) }}"
                       />
                       @if($errors->has('address'))
-                          <span class="error">{{ $errors->first('address') }}</span>
+                          <span class="error text-danger">{{ $errors->first('address') }}</span>
                       @endif
                     </div>
                     <div class="col-lg-6 mb-lg-0 mb-3">
@@ -138,7 +138,7 @@
                               </div> 
                       </div>
                       @if($errors->has('phone'))
-                          <span class="error">{{ $errors->first('phone') }}</span>
+                          <span class="error text-danger">{{ $errors->first('phone') }}</span>
                       @endif
                       <div class="py-2 text-main"> 
                         @lang('site.We will send a text message to verify the phone number via WhatsApp')
@@ -173,7 +173,7 @@
                         value="{{ old('email', (empty($invest))? null : $invest['email']) }}"
                       />
                       @if($errors->has('email'))
-                          <span class="error">{{ $errors->first('email') }}</span>
+                          <span class="error text-danger">{{ $errors->first('email') }}</span>
                       @endif
                     </div>
 
@@ -192,7 +192,7 @@
                            value=""
                         />
                         @if($errors->has('password'))
-                          <span class="error">{{ $errors->first('password') }}</span>
+                          <span class="error text-danger">{{ $errors->first('password') }}</span>
                         @endif
 
                         <div
@@ -219,7 +219,7 @@
 
                         />
                         @if($errors->has('c_password'))
-                          <span class="error">{{ $errors->first('c_password') }}</span>
+                          <span class="error text-danger">{{ $errors->first('c_password') }}</span>
                         @endif
 
                         <div
@@ -243,7 +243,7 @@
                           @endfor
                         </select>
                         @if($errors->has('comision'))
-                          <span class="error">{{ $errors->first('comision') }}</span>
+                          <span class="error text-danger">{{ $errors->first('comision') }}</span>
                         @endif
                       </div>
                       <div class="pt-3 pb-4 text-main">
@@ -276,7 +276,7 @@
                         @if((!empty($invest)))checked @endif
                       />
                       @if($errors->has('accept_term'))
-                          <span class="error">{{ $errors->first('accept_term') }}</span>
+                          <span class="error text-danger">{{ $errors->first('accept_term') }}</span>
                         @endif
                       <label for="register-check" class="custom-checkbox-item">
                       @lang('site.I agree to the terms and conditions')

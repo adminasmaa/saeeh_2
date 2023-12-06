@@ -11,7 +11,9 @@
                         <li class="breadcrumb-item">
                             <a href="{{route('Home')}}"> @lang('site.home') </a>
                         </li>
-
+                        <li class="breadcrumb-item">
+                                @lang('site.aqar')
+                        </li>
                         <li class="breadcrumb-item text-gray-4" aria-current="page">
                             @lang('site.details')
                         </li>
@@ -302,8 +304,9 @@
                                 <div class="row">
                                     <div class="col-12 pt-4 mb-5">
 
-                                        @foreach($aqar->aqarComments as $comment)
+                                        
                                             <div class="condition-content">
+                                            @foreach($aqar->aqarComments as $comment)
                                                 <div class="d-flex justify-content-between reviews-contentt">
                                                     <div class="d-sm-flex w-100">
                                                         <div class="reviews-image">
@@ -346,7 +349,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
+                                            @endforeach    
 
                                                 <div class="col-lg-3 my-5">
                                                     <div
@@ -358,7 +361,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        @endforeach
+                                        
 
                                     </div>
                                 </div>
@@ -401,41 +404,11 @@
                                 <div class="row">
                                     <div class="col-12 pt-4">
                                         <div class="condition-content">
-                                            <h2 class="condition-title">
-                                                @lang('site.allownumber')
-                                                <div
-                                                    class="badge-condition round-border d-flex justify-content-center align-items-center"
-                                                >
-                                                    {{$aqar->personnumber ?? 0}}
-                                                </div>
-                                            </h2>
                                             <p class="details-sm-txt padding-right mb-0">
-                                                @lang('site.allownumber')
-                                                {{$aqar->unitnumber ?? 0}}
+                                            {{ html_entity_decode($car->policy_place) ?? '' }}
                                             </p>
                                         </div>
-                                        <div class="condition-content">
-                                            <h2 class="condition-title"> @lang('site.Arrival dates')</h2>
-                                            <p class="details-sm-txt padding-right mb-0">
-                                                {{$aqar->time_from ?? ''}}
-                                            </p>
-                                        </div>
-                                        <div class="condition-content">
-                                            <h2 class="condition-title">
-                                                @lang('site.Departure dates')
-                                                <div
-                                                    class="badge-condition round-border d-flex justify-content-center align-items-center"
-                                                >
-                                                    {{$aqar->time_to ?? ''}}
-                                                </div>
-                                            </h2>
-                                            <p class="details-sm-txt padding-right mb-0">
-
-
-                                                {{$aqar->time_to ?? ''}}
-                                            </p>
-
-                                        </div>
+                                       
                                     </div>
                                 </div>
                             </li>
@@ -557,7 +530,7 @@
                                                                     class="text-gray-2 h2 mb-0 badge-txt">{{$value->reviewElement->name ?? ''}} </span>
                                                             </div>
                                                             <!-- Output HTML -->
-                                               <div class="d-flex align-items-center">
+                                                        <div class="d-flex align-items-center">
                                                             <div class="rate">
                                                                 <input type="hidden" name="aqar_id"
                                                                        value="{{$aqar->id}}" class="aqar_id">

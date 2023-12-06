@@ -211,7 +211,7 @@ return [
     'price_day' => 'سعر اليوم',
     'To edit or write conditions' => 'لتعديل او كتابة شروط',
     'Terms and Conditions' => 'الشروط والاحكام' ,
-
+    'person'=>'أشخاص',
     'sections' => 'الأقسام',
     'day_numbers' => 'عدد الايام',
     'input_id' => 'القسم',
