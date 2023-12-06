@@ -70,7 +70,7 @@ class AqarDetailResource extends JsonResource
                 "currency" => $this->city->country->$currency?? '',
                 "currency_code" => $this->city->country->currency?? '',
                 "rate" =>$this->avgRating,
-                "exchange_KWD"=>round(json_decode(file_get_contents('https://api.fastforex.io/fetch-one?api_key=d128a16e06-599e63df4b-runi3f&from='.$cur.'&to=KWD'))->result->KWD ,3),
+                "exchange_KWD"=>round((json_decode(file_get_contents('https://api.fastforex.io/fetch-one?api_key=d128a16e06-599e63df4b-runi3f&from='.$cur.'&to=KWD'))->result->KWD) ,3),
                 // "rate" => round($this->aqarReview->avg('rate')) ?? 0,
                 // "rate" => round(AqarReview::where('user_id', '=', Auth::id())->where('aqar_id', '=',$this->id)->avg('rate')) ?? 0,
                 "comments" => CommentResource::collection($this->aqarComments),

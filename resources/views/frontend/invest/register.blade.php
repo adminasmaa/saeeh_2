@@ -80,13 +80,13 @@
                       <input
                         type="text"
                         id="name"
-                        name="firstname"
+                        name="first_name"
                         class="form-control register-input"
                         placeholder="@lang('site.Name of the manager')" 
-                        value="{{ old('firstname', (empty($invest))? null : $invest['firstname']) }}"
+                        value="{{ old('first_name', (empty($invest))? null : $invest['first_name']) }}"
                       />
-                      @if($errors->has('firstname'))
-                          <span class="error text-danger">{{ $errors->first('firstname') }}</span>
+                      @if($errors->has('first_name'))
+                          <span class="error text-danger">{{ $errors->first('first_name') }}</span>
                       @endif
                     </div>
                     <div class="col-lg-6 mb-3">
@@ -158,6 +158,9 @@
                           
                         </select>
                       </div>
+                      @if($errors->has('city_id'))
+                          <span class="error text-danger">{{ $errors->first('city') }}</span>
+                      @endif
                     </div>
 
                     
@@ -275,13 +278,14 @@
                         name="accept_term"
                         @if((!empty($invest)))checked @endif
                       />
-                      @if($errors->has('accept_term'))
-                          <span class="error text-danger">{{ $errors->first('accept_term') }}</span>
-                        @endif
+
                       <label for="register-check" class="custom-checkbox-item">
                       @lang('site.I agree to the terms and conditions')
                       </label>
                     </div>
+                    @if($errors->has('accept_term'))
+                          <span class="error text-danger">{{ $errors->first('accept_term') }}</span>
+                        @endif
                     <div
                       class="col-12 d-flex justify-content-center mt-lg-5 mt-3"
                     >

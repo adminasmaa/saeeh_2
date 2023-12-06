@@ -44,9 +44,10 @@ class AuthController extends Controller
             'phone' => 'required|unique:users|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'password' => 'required|min:6',    
             'c_password' => 'required|same:password',
-            'firstname' => 'required',
+            'first_name' => 'required',
             'comision'=>'required',
-            'accept_term'=>'required'
+            'accept_term'=>'required',
+            'city_id'=>'required'
         ]);
 
 
@@ -57,7 +58,7 @@ class AuthController extends Controller
 
         $request_data['password'] = bcrypt($request->password);
         $request_data['username'] = $request->username;
-        $request_data['firstname'] = $request->firstname;
+        $request_data['firstname'] = $request->first_name;
         $request_data['account_type_id'] = $request->account_type;
         $request_data['comision '] = $request->comision;
         $request_data['country_code '] = $request->country_code;
@@ -133,9 +134,10 @@ class AuthController extends Controller
        
         $code=$request->code1.$request->code2.$request->code3.$request->code4;
 
-        $user = User::where('id', $request->id)->where('code',$code)->first()->makeVisible('password');
+        $user = User::where('id', $request->id)->where('code',$code)->first();
 
         if ($user) {
+            $user= $user->makeVisible('password');
             $user = Auth::user();
             Auth::login($user);
 
@@ -143,7 +145,7 @@ class AuthController extends Controller
             return redirect()->route('invst.home');
         } else {
             Alert::error('Error', __('site.faild'));
-            return redirect()->route('invst.confirmcode',[$request->id]);
+            return redirect()->route('invst.confirmcode',[$request->id,1]);
         }
 
     }

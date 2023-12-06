@@ -253,6 +253,7 @@ return [
         'first_name' => 'الاسم الأول',
         'last_name' => 'اسم العائلة',
         'fname' => 'الاسم الأول',
+        'accept_term'=>'الموافقه علي الشروط والاحكام',
         'lname' => 'اسم العائلة',
         'password' => 'كلمة المرور',
         'password_confirmation' => 'تأكيد كلمة المرور',

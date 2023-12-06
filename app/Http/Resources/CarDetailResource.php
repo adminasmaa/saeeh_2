@@ -29,7 +29,9 @@ class CarDetailResource extends JsonResource
         } else {
             $currency ='currency_ar';
 
-        }           
+        }
+        $cur=$this->city->country->currency;
+           
         return [
             "id" => $this->id ?? '',
             "name" => $this->name ?? '',
@@ -55,6 +57,8 @@ class CarDetailResource extends JsonResource
             'total' => $this->CarReview->count()?? 0,
             "currency" => $this->city->country->$currency?? '',
             "currency_code" => $this->city->country->currency?? '',
+            "exchange_KWD"=>round((json_decode(file_get_contents('https://api.fastforex.io/fetch-one?api_key=d128a16e06-599e63df4b-runi3f&from='.$cur.'&to=KWD'))->result->KWD) ,3),
+
             "comments" => CommentCarResource::collection($this->carComments),
 
             "rate" => round($this->carReview->avg('rate')) ?? 0,
