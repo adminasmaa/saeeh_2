@@ -9,6 +9,7 @@ return [
     'No Favourite'=>'لا يوجد مفضله',
 
     'Find your favorite place'=>'ابحث عن مكانك المفضلة',
+    'starting from 5%' => '% تبدا من 5  ',
 
     'changepassword'=>'تغير كلمه المرور',
     'contactmessage' => 'يمكنك التواصل معنا من خلال الارقام الاتيه',
@@ -21,6 +22,10 @@ return [
     'Trade Name' => 'الاسم التجارى',
 
     'Search for the Aquar name'=>'ابحث عن اسم العقار',
+
+    'resend_successfully'=> 'تم اعادة الارسال بنجاح',
+
+    'faild'=> 'خطأ فى الأرسال',
 
     'We found apartments suitable for your request'=>'وجدنا شقق مناسبة لطلبك',
 

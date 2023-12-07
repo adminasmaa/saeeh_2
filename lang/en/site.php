@@ -17,6 +17,8 @@ return [
 
     'changepassword'=>'ChangePassword',
     'Search for your favorite country'=>'Search For Your Favorite Country',
+    'resend_successfully'=> 'resend_successfully',
+    'faild'=> 'faild',
 
     'favourite'=>'my favourite',
     ';Tell us your evaluation of the Aquar'=>'Tell us your evaluation of the Aquar',
@@ -431,7 +433,8 @@ return [
     'confirm_update' => 'Confirm Update ?',
     'confirm_delete' => 'Confirm Delete ?',
     'yes' => 'Yes',
-    'no' => 'No',
+    'no' => 'No', 
+    'starting from 5%' => 'starting from 5%',
     'Ads_number' => 'Ads_number',
     'login' => 'Log In',
     'remember_me' => 'Remember Me',
