@@ -440,7 +440,7 @@
     .custom-checkbox .form-group label:before {
         width: 25px;
         height: 27px;
-        margin-left: 8px;
+        margin-right: 8px;
     }
     .ads-add-container .add-ads-link {
         width: 50%;
@@ -453,11 +453,12 @@
         line-height: 30px;
         margin-top: 16px;
     }
-
+    .breadcrumb-item + .breadcrumb-item::before {
+        height: 23px;}
     .custom-checkbox .form-group input:checked + label:after {
-        top: 12px !important;
+        /* top: 12px !important;
         right: 16px !important;
-        height: 12px;
+        height: 12px; */
     }
 
     .add-ads-link a {
@@ -1103,7 +1104,7 @@
     }
     .modal-sort-by label input {
         position: absolute;
-        right: -9999px;
+        left: -9999px;
     }
 
     .modal-sort-by label input:checked + span:before {
@@ -1112,7 +1113,7 @@
     .modal-sort-by label span {
         display: flex;
         align-items: center;
-        padding: 0.375em 0.75em 0.375em 0.375em;
+        padding: 0.375em  0.375em 0.375em 0.75em;
         border-radius: 99em;
         transition: 0.25s ease;
     }
@@ -1125,12 +1126,12 @@
         width: 1.5em;
         height: 1.5em;
         border-radius: 50%;
-        margin-left: 0.375em;
+        margin-right: 0.375em;
         transition: 0.25s ease;
         box-shadow: inset 0 0 0 0.125em var(--m-second);
     }
     .modal-sort-by .modal-header .btn-close {
-        margin: -0.5rem auto -0.5rem -0.5rem;
+        margin: -0.5rem  -0.5rem -0.5rem auto;
     }
 
     .modal-sort-by .modal-content {
@@ -1174,10 +1175,10 @@
         max-width: 100%;
         height: 100%;
         top: 0;
-        right: 0;
+        left: 0;
         box-shadow: -2px 0 4px rgba(0, 0, 0, 0.2);
         overflow: hidden;
-        transform: translate(500px, 0);
+        transform: translate(-500px, 0);
         transition: transform 250ms ease-in-out;
         z-index: 1200;
         max-height: 100%;
@@ -1195,13 +1196,13 @@
         width: 100%;
         padding: 15px 15px;
         top: 0;
-        left: 0;
+        right: 0;
         overflow: hidden;
         z-index: 2;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
     .filter__header .filter__text {
-        float: right;
+        float: left;
     }
 
     .lightbox-filter {
@@ -1210,7 +1211,7 @@
         width: 0;
         height: 100%;
         top: 0;
-        left: 0;
+        right: 0;
         z-index: 1000;
         opacity: 0;
         transition: opacity 250ms ease-in-out, width 0ms ease-in-out 250ms;
@@ -1488,7 +1489,7 @@
         font-size: 16px;
     }
     .reviews-content {
-        padding-right: 0;
+        padding-left: 0;
     }
     .badge-filter {
         margin-left: 0px;
@@ -1834,7 +1835,7 @@
         font-size: 16px;
     }
     .reviews-contentt .padding-right {
-        padding-right: 0px;
+        padding-left: 0px;
     }
     .reviews-title {
         width: 100%;
@@ -1856,7 +1857,7 @@
     }
     .custom-ul-list-item {
         font-size: 14px;
-        padding-right: 24px;
+        padding-left: 24px;
     }
     .custom-ul-list-item::before {
         width: 6px;

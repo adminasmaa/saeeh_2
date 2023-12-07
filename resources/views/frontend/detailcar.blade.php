@@ -136,16 +136,13 @@
                                     <div class="h2 text-gray-2 mb-0">{{$car->fixed_price ?? 0}}</div>
                                 </div>
                             </div>
-                            <div class="pt-2 p-3">
-                            <span>
-                            <img src="{{FRONTASSETS}}/images/money-ic.png" alt="money icon" >
-                            </span>
-                                <span class="boxx-txt text-gray-2"
-                                >
-                                    @lang('site.carbonbooking')
-
-                                    </span
-                                    >
+                            <div class="pt-2 p-3 d-flex align-items-center">
+                            <div>
+                                <img src="{{FRONTASSETS}}/images/money-ic.png" alt="money icon">
+                            </div>
+                                <div class="boxx-txt text-gray-2 ">  
+                                     @lang('site.The deposit is paid at the time of booking')
+                                </div>
                             </div>
                         </div>
                         <div
@@ -502,7 +499,6 @@
 
                                 </div>
                             </li>
-
                             <li id="tab-3">
                                 <div class="row">
                                     <div class="col-12 pt-4">
@@ -527,7 +523,6 @@
 
                                                 {{$car->car_delivery_date ?? ''}}
                                             </p>
-                                            <hr class="hr-saeeh"/>
                                         </div>
                                         <div class="condition-content">
                                             <h2 class="condition-title">
@@ -541,7 +536,6 @@
                                             <p class="details-sm-txt padding-right">
                                                 @lang('site.Please follow the site policy')
                                             </p>
-                                            <hr class="hr-saeeh"/>
                                         </div>
                                     </div>
                                     <div class="col-12 d-flex justify-content-end mb-5">
@@ -674,46 +668,46 @@
                           />
                         </svg>
                       </span>
-                                                        <span class="text-gray-2 h2 mb-0 badge-txt">@lang('site.total') </span>
-                                                    </div>
-                                                    <!-- Output HTML -->
-                                                    <div class="d-flex align-items-center">
-                                                    <div class="rate">
-                                                        <input type="hidden" name="car_id" value="{{$car->id}}" class="car_id">
-                                                        <input type="radio" id="star5" name="rate" value="5" class="rate" />
-                                                        <label for="star5" title="text">5 stars</label>
-                                                        <input type="radio" id="star4" name="rate" value="4"  class="rate"/>
-                                                        <label for="star4" title="text">4 stars</label>
-                                                        <input type="radio" id="star3" name="rate" value="3"  class="rate"/>
-                                                        <label for="star3" title="text">3 stars</label>
-                                                        <input type="radio" id="star2" name="rate" value="2" class="rate" />
-                                                        <label for="star2" title="text">2 stars</label>
-                                                        <input type="radio" id="star1" name="rate" value="1"  class="rate"/>
-                                                        <label for="star1" title="text">1 star</label>
-                                                    </div>
-                                                    <div class="department-badge bg-main text-white badge-modal">
-                                                              <div class="pt-1 live-rating">0.0</div>
-                                                             <div>
-                                                              <i class="fas fa-star"></i>
-                                                             </div>
-                                                            </div></div>
+                        <span class="text-gray-2 h2 mb-0 badge-txt">@lang('site.total') </span>
+                        </div>
+                        <!-- Output HTML -->
+                        <div class="d-flex align-items-center">
+                        <div class="rate">
+                        <input type="hidden" name="car_id" value="{{$car->id}}" class="car_id">
+                        <input type="radio" id="star5" name="rate" value="5" class="rate" />
+                        <label for="star5" title="text">5 stars</label>
+                        <input type="radio" id="star4" name="rate" value="4"  class="rate"/>
+                        <label for="star4" title="text">4 stars</label>
+                        <input type="radio" id="star3" name="rate" value="3"  class="rate"/>
+                        <label for="star3" title="text">3 stars</label>
+                        <input type="radio" id="star2" name="rate" value="2" class="rate" />
+                        <label for="star2" title="text">2 stars</label>
+                        <input type="radio" id="star1" name="rate" value="1"  class="rate"/>
+                        <label for="star1" title="text">1 star</label>
+                        </div>
+                        <div class="department-badge bg-main text-white badge-modal">
+                            <div class="pt-1 live-rating">0.0</div>
+                            <div>
+                            <i class="fas fa-star"></i>
+                            </div>
+                        </div></div>
 
-                                                </div>
-                                                <hr class="hr-saeeh my-0" />
+                        </div>
+                        <hr class="hr-saeeh my-0" />
 
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <h2 class="text-gray-2 mb-3">@lang('site.Add a comment about the place')</h2>
-                                            <div class="form-group">
-                  <textarea
-                      class="form-control txtarea-booking px-3 py-2 mt-2 description"
-                      placeholder="اكتب تجربتك كاملة "
-                      rows="4"
-                      id="description"
-                      name="description"
-                  ></textarea>
-                                            </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <h2 class="text-gray-2 mb-3">@lang('site.Add a comment about the place')</h2>
+                                <div class="form-group">
+                                <textarea
+                                    class="form-control txtarea-booking px-3 py-2 mt-2 description"
+                                    placeholder="اكتب تجربتك كاملة "
+                                    rows="4"
+                                    id="description"
+                                    name="description"
+                                ></textarea>
+                                </div>
                                         </div>
                                         <div class="col-12 d-flex justify-content-md-end pt-lg-5 pt-3">
                                             <div
