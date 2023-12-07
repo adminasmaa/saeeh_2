@@ -235,7 +235,7 @@
                       <div class="position-relative">
                         <label for="" class="pb-2 register-lbl">
                         @lang('site.commission')
-                          <span class="text-main">(starting from 5%)</span>
+                          <span class="text-main">(@lang('site.starting from 5%'))</span>
                         </label>
                         <select class="select2" name="comision">
                           <option value="1"> @lang('site.Enter_commission')</option>
