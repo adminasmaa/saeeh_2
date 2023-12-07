@@ -155,13 +155,13 @@
                                 </div>
 
                             </div>
-                            <div class="pt-2 p-3">
-                            <span>
-
+                            <div class="pt-2 p-3 d-flex align-items-center">
+                            <div>
                                 <img src="{{FRONTASSETS}}/images/money-ic.png" alt="money icon">
-                            </span>
-                                <span
-                                    class="boxx-txt text-gray-2">   @lang('site.The deposit is paid at the time of booking')</span>
+                            </div>
+                                <div class="boxx-txt text-gray-2 ">  
+                                     @lang('site.The deposit is paid at the time of booking')
+                                </div>
                             </div>
                         </div>
 
@@ -170,7 +170,7 @@
                 </div>
                 <div class="row">
                     <div class="tabs-details mt-5">
-                        <ul class="tabs-nav-details list-unstyled  mb-0 tabs-nav-detailss">
+                        <ul class="tabs-nav-details list-unstyled mb-0 tabs-nav-detailss">
                             <li>
                                 <a href="#tab-1"
                                    class="tab-link d-flex align-items-center justify-content-center"> @lang('site.details') </a>
@@ -188,7 +188,7 @@
                                    class="tab-link d-flex align-items-center justify-content-center"> @lang('site.conditions') </a>
                             </li>
                         </ul>
-                        <ul class="tabs-content tabs-content-details list-unstyled">
+                        <ul class="tabs-content list-unstyled tabs-content-details">
                             <li id="tab-1">
                                 <div class="row">
                                     <div class="col-12">
@@ -247,9 +247,7 @@
                                         </div>
                                     </div>
                                     <div class="col-12 d-flex justify-content-center mb-5">
-                                        <div
-                                            class="booking-now-btn py-4 d-flex justify-content-center align-items-center"
-                                        >
+                                        <div class="booking-now-btn py-4 d-flex justify-content-center align-items-center" >
                                             <a href="{{route('bookingaquars',$aquar->id)}}">@lang('site.book')</a>
                                         </div>
                                     </div>
@@ -258,20 +256,14 @@
                             <li id="tab-2">
                                 <div class="row">
                                     <div class="col-12">
-                                        <div
-                                            class="full-reviews round-border mt-4 py-lg-4 px-lg-5 p-3"
-                                        >
+                                        <div class="full-reviews round-border mt-4 py-lg-4 px-lg-5 p-3">
                                             <div class="row g-0">
                                                 <div class="col-lg-9 d-md-flex align-items-center">
                                                     <div class="d-flex align-items-center justify-content-center">
-                                                        <div
-                                                            class="round-box d-flex justify-content-center align-items-center"
-                                                        >
+                                                        <div class="round-box d-flex justify-content-center align-items-center">
                                                             <div>
                                                                 <div>
-                                                                    <span class="star-review"><i
-                                                                            class="fas fa-star"></i></span>
-
+                                                                    <span class="star-review"><i class="fas fa-star"></i></span>
                                                                     <span class="text-second"> ({{ round($aquar->aqarReview->avg('rate')) ?? 0}})</span>
                                                                 </div>
                                                                 <div class="text-second text-center">
@@ -288,12 +280,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-3">
-                                                    <div
-                                                        class="rating-see-btn py-4 d-flex justify-content-center align-items-center"
-                                                    >
-                                                        <a href="#"
-                                                           data-bs-toggle="modal"
-                                                           data-bs-target="#YourRateModal"> @lang('site.Rate now') </a>
+                                                    <div class="rating-see-btn py-4 d-flex justify-content-center align-items-center">
+                                                        <a href="#" data-bs-toggle="modal" data-bs-target="#YourRateModal"> @lang('site.Rate now') </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -305,13 +293,9 @@
 
                                         <div class="col-lg-6 pb-4">
                                             @if(!empty($review->reviewElement))
-                                                <div
-                                                    class="d-flex justify-content-between align-items-center"
-                                                >
-                                                    <div
-                                                        class="text-gray-2">{{$review->reviewElement->name ?? ''}}</div>
-                                                    <div
-                                                        class="">{{round($review->RateTotal($review->reviewElement->id) / $review->CountUser($review->reviewElement->id)) ?? 0}}</div>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="text-gray-2">{{$review->reviewElement->name ?? ''}}</div>
+                                                    <div >{{round($review->RateTotal($review->reviewElement->id) / $review->CountUser($review->reviewElement->id)) ?? 0}}</div>
                                                 </div>
                                             @endif
                                             <div class="loading-range">
@@ -324,15 +308,12 @@
                                 </div>
                                 <div class="row mt-5 pb-2">
                                     <div class="col-12">
-                                        <div
-                                            class="d-flex justify-content-between align-items-center border-bottom-header"
-                                        >
+                                        <div class="d-flex justify-content-between align-items-center border-bottom-header">
                                             <div>
                                                 <h2>@lang('site.Customer reviews')</h2>
                                             </div>
                                             <div class="see-all">
-                                                <a href="{{route('allcommentAqar',$aquar->id)}}"
-                                                   class="h2"> @lang('site.all') </a>
+                                                <a href="{{route('allcommentAqar',$aquar->id)}}" class="h2"> @lang('site.all') </a>
                                             </div>
                                         </div>
                                     </div>
@@ -381,26 +362,18 @@
 
                                                     <div class="department-badge bg-main text-white">
                                                         <div class="pt-1">{{$comment->rating ?? 0}}</div>
-
                                                         <div>
-
                                                             <i class="fas fa-star"></i>
-                                                            {{--<p class="details-sm-txt">
+                                                            <p class="details-sm-txt">
                                                                 {{$allaquars->$aqarSection->icon ?? ''}}
-                                                            </p> --}}
-
+                                                            </p> 
                                                         </div>
                                                     </div>
                                                 </div>
                                                 @endforeach
-
                                                 <div class="col-lg-3 my-5">
-                                                    <div
-                                                        class="rating-see-btn py-4 d-flex justify-content-center align-items-center"
-                                                    >
-                                                        <a href="#"
-                                                           data-bs-toggle="modal"
-                                                           data-bs-target="#AllRatingsModal">  @lang('site.Read all reviews') </a>
+                                                    <div class="rating-see-btn py-4 d-flex justify-content-center align-items-center" >
+                                                        <a href="#"  data-bs-toggle="modal" data-bs-target="#AllRatingsModal">  @lang('site.Read all reviews') </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -450,9 +423,7 @@
                                         <div class="condition-content">
                                             <h2 class="condition-title">
                                                 @lang('site.allownumber')
-                                                <div
-                                                    class="badge-condition round-border d-flex justify-content-center align-items-center"
-                                                >
+                                                <div class="badge-condition round-border d-flex justify-content-center align-items-center">
                                                     {{$aquar->personnumber ?? 0}}
                                                 </div>
                                             </h2>

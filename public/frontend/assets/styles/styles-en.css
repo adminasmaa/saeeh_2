@@ -304,14 +304,14 @@ button {
 
 h2 {
     font-weight: 700;
-    font-size: 24px;
+    font-size: 22px;
     line-height: 150%;
     color: var(--m-second);
     margin-bottom: 0;
 }
 .h2 {
     font-weight: 700;
-    font-size: 22px;
+    font-size: 20px;
     line-height: 150%;
     color: var(--m-second);
     margin-bottom: 0;
@@ -1080,7 +1080,7 @@ video.video-full {
 }
 
 .tabs-nav-details li:last-child {
-    border-left: none;
+    border-right: none;
 }
 
 .tab-active:first-of-type {
@@ -1533,7 +1533,7 @@ video.video-full {
     padding-left: 36px !important;}
  .breadcrumb-item + .breadcrumb-item::before {
     content: "";
-    height: 30px;
+    height: 25px;
     width: 16px;
     background: url(../images/breadcrump-ic.svg) no-repeat center center;
     margin-right: 0.35rem;
@@ -2205,7 +2205,7 @@ video.video-full {
 }
 
 .tabs-nav-details li {
-    border-left: 1px solid var(--m-light-gray);
+    border-right: 1px solid var(--m-light-gray);
     /* padding-inline: 20px; */
     /* width: 25%; */
 }
@@ -2242,7 +2242,7 @@ video.video-full {
 
 .custom-ul-list-item {
     position: relative;
-    padding-right: 30px;
+    padding-left: 30px;
     padding-bottom: 5px;
     font-weight: 500;
     font-size: 18px;
@@ -2253,7 +2253,7 @@ video.video-full {
 .custom-ul-list-item::before {
     content: "";
     position: absolute;
-    right: 10px;
+    left: 10px;
     top: 12px;
     width: 7px;
     height: 7px;
@@ -2293,7 +2293,7 @@ video.video-full {
 .booking-now-btn button,
 .rating-see-btn a {
     font-weight: 600;
-    font-size: 20px;
+    font-size: 18px;
     color: #ffffff;
     width: 100%;
     display: flex;
@@ -2324,7 +2324,7 @@ video.video-full {
     height: 47px;
     color: #fff;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 150%;
 }
 
@@ -2352,7 +2352,7 @@ video.video-full {
 
 .condition-title {
     position: relative;
-    padding-right: 25px;
+    padding-left: 25px;
     font-weight: 500;
     display: flex;
     align-items: baseline;
@@ -2361,13 +2361,13 @@ video.video-full {
 }
 
 .padding-right {
-    padding-right: 25px;
+    padding-left: 25px;
 }
 
 .condition-title::before {
     content: "";
     position: absolute;
-    right: 10px;
+    left: 10px;
     top: 17px;
     width: 8px;
     height: 8px;
@@ -2478,7 +2478,7 @@ video.video-full {
 }
 
 .reviews-content {
-    padding-right: 10%;
+    padding-left: 10%;
 }
 
 .review-title {
@@ -3498,8 +3498,8 @@ video.video-full {
 
 .boxx-txt {
     font-weight: 500;
-    font-size: 20px;
-    line-height: 150%;
+    font-size: 18px;
+    line-height: 130%;
 }
 
 .w-80 {
@@ -3507,7 +3507,7 @@ video.video-full {
 }
 
 .details-icon {
-    padding-left: 8px;
+    padding-right: 8px;
 }
 .details-icon i{
     color: var(--m-gray-4);
@@ -3568,7 +3568,7 @@ font-size: 22px;
 }
 
 .padding-details {
-    padding-right: 18px;
+    padding-left: 18px;
 }
 
 .card-car-body {
@@ -5504,7 +5504,7 @@ tr {
     padding: 10px 20px;
 }
 .register-section .tabs-nav-details li i {
-    padding-left: 8px;
+    padding-right: 8px;
     padding-top: 8px;
     font-size: 20px;
 }

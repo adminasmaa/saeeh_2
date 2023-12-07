@@ -479,27 +479,25 @@
                                 </div>
                             </div>
                         </div>
-                        {{--                        <div class="filter_icon show_mobile">--}}
-                        {{--                            <div class="d-flex justify-content-between align-items-center mb-3">--}}
-                        {{--                                <div class="filter-btn js-toggle-filter fw-bold">--}}
-                        {{--                                    <i class="fas fa-filter"></i> تصفية--}}
-                        {{--                                </div>--}}
-                        {{--                                <div class="">--}}
-                        {{--                                    <a--}}
-                        {{--                                        class="text-second fw-bold"--}}
-                        {{--                                        href="#"--}}
-                        {{--                                        data-bs-toggle="modal"--}}
-                        {{--                                        data-bs-target="#SortByModal"><i class="fas fa-sort"></i> الترتيب</a>--}}
-                        {{--                                </div>--}}
-                        {{--                                <div class="">--}}
-                        {{--                                    --}}{{--                                    <a--}}
-                        {{--                                    --}}{{--                                        class="text-second fw-bold"--}}
-                        {{--                                    --}}{{--                                        href="#"--}}
-                        {{--                                    --}}{{--                                        data-bs-toggle="modal"--}}
-                        {{--                                    --}}{{--                                        data-bs-target="#mapModal"><i class="far fa-map"></i> الخريطة</a>--}}
-                        {{--                                </div>--}}
-                        {{--                            </div>--}}
-                        {{--                        </div>--}}
+                            <div class="filter_icon show_mobile">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div class="filter-btn js-toggle-filter fw-bold">
+                                        <i class="fas fa-filter"></i> تصفية
+                                    </div>
+                                    <div class="">
+                                        <a
+                                            class="text-second fw-bold"
+                                            href="#"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#SortByModal"><i class="fas fa-sort"></i> الترتيب</a>
+                                    </div>
+                                    <!-- <div class="">
+                                    <a     class="text-second fw-bold" href="#"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#mapModal"><i class="far fa-map"></i> الخريطة</a>
+                                    </div> -->
+                                </div>
+                            </div>
                         <div class="show_mobile filter js-filter">
                             <div class="accordion" id="accordion_filter">
                                 <div
