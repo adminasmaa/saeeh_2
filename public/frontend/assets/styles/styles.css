@@ -1925,7 +1925,7 @@ video.video-full {
 
 .department-price {
     font-weight: 500;
-    font-size: 22px;
+    font-size: 20px;
     line-height: 150%;
 }
 
@@ -1934,7 +1934,7 @@ video.video-full {
 .booking-dd-btn {
     width: 160px;
     height: 46px;
-    padding-block: 8px;
+    /* padding-block: 8px; */
     background: var(--m-main);
     border-radius: var(--rounded-main);
 }
@@ -1946,7 +1946,7 @@ video.video-full {
 .details-rest-btn {
     width: 200px;
     height: 46px;
-    padding-block: 8px;
+    /* padding-block: 8px; */
     border: 1px solid var(--m-main);
     border-radius: var(--rounded-main);
 }
@@ -1980,7 +1980,7 @@ video.video-full {
 .booking-btn a,
 .booking-dd-btn a {
     font-weight: 600;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 150%;
     color: #ffffff;
 }
@@ -2262,11 +2262,11 @@ video.video-full {
 .booking-now-btn {
     width: 30%;
     height: 46px;
-    padding-block: 8px;
+    /* padding-block: 8px; */
     background: var(--m-main);
     border-radius: var(--rounded-main);
     font-weight: 700;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 150%;
     color: var(--m-white);
 }
@@ -2615,11 +2615,13 @@ video.video-full {
 }
 
 .dd-txt {
-    font-weight: 500;
-    font-size: 24px;
+    font-weight: 600;
+    font-size: 20px;
     line-height: 150%;
 }
-
+.btn-pad-left {
+    padding-right: 1rem!important;
+}
 .txtarea-dd {
     background: #ffffff;
     border: 1px solid #f2f2f2;
@@ -3064,7 +3066,9 @@ video.video-full {
     top: 0%;
     right: 30px;
 }
-
+.wizard-list li{
+    width: 33.3%;
+}
 .wizard-list {
     display: flex;
     align-items: center;
@@ -3643,9 +3647,7 @@ font-size: 22px;
     color: var(--m-second);
 }
 
-.calendar {
-    /* margin-bottom: 200px; */
-}
+
 
 .class-link {
     color: #333333;
@@ -3664,7 +3666,7 @@ font-size: 22px;
     background: #ffffff;
     border: 1px solid #cfcfcf;
     border-radius: 10px;
-    padding-right: 40px !important;
+    padding-right: 35px !important;
 }
 
 .calendar:focus {
