@@ -47,13 +47,14 @@ class AuthController extends Controller
             'first_name' => 'required',
             'comision'=>'required',
             'accept_term'=>'required',
-            'city_id'=>'required'
+            'city_id'=>'required',
+            'comision'=>'required',
         ]);
 
 
         $request_data = $request->except(['password', 'password_confirmation', '_token']);
 
-        $request_data['active'] = 1;
+        $request_data['active'] = 0;
         $request_data['type'] = 'invest';
 
         $request_data['password'] = bcrypt($request->password);
@@ -135,10 +136,10 @@ class AuthController extends Controller
         $code=$request->code1.$request->code2.$request->code3.$request->code4;
 
         $user = User::where('id', $request->id)->where('code',$code)->first();
-
         if ($user) {
-            $user= $user->makeVisible('password');
-            $user = Auth::user();
+            $user= $user->makeVisible('password'); 
+            $user->active = 1;
+            $user->save();          
             Auth::login($user);
 
             Alert::success('Success', __('site.added_successfully'));
@@ -192,8 +193,19 @@ class AuthController extends Controller
 
         if (auth()->attempt(['country_code' => $request->country_code, 'phone' => $request->phone, 'password' => $request->password ,'type' => 'invest'])) {
             $user = Auth::user();
+            if($user->active){
             Auth::login($user);
             return redirect()->route('invst.home');
+            }else{
+                $set = '123456789';
+                $code = substr(str_shuffle($set), 0, 4);
+                $msg = trans('message.please verified your account') . "\n";
+                $msg = $msg . trans('message.code activation') . "\n" . $code;
+                send_sms_code($msg, $user->phone, $user->country_code);
+                $user->code = $code;
+                $user->save();
+                return redirect()->route('invst.confirmcode',[$user->id,1]);
+            }
         }else{
             return redirect()->back()
                 ->with('error',__('message.wrong credientials'));
