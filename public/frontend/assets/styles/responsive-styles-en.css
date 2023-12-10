@@ -130,6 +130,20 @@
     }
 }
 @media (max-width: 992px) {
+    .wizard {
+        width: 100%;
+    }
+   .wizard-end{
+    justify-content: end !important;
+   }
+   .wizard-end + .wizard-item-text{
+       text-align: end;
+   }
+   .wizard:before {
+    width: 92%;}
+    .department-badge i {
+        font-size: 16px;
+    }
     .english-display{
         display:  block !important;
     }
@@ -671,12 +685,7 @@
     .department-img-list.car-image {
         aspect-ratio: 400/306 !important;
     }
-    .wizard {
-        width: 80%;
-    }
-    .wizard:before {
-        width: 90%;
-    }
+ 
     .cancel-booking-content {
         width: 90% !important;
     }
@@ -1303,6 +1312,15 @@
     }
 }
 @media (max-width: 768px) {
+    .wizard-item-round {
+        width: 34px;
+        height: 34px;
+        font-size: 14px;
+        border: 4px solid var(--m-light-gray);
+    }
+    .wizard:before {
+        height: 6px;
+    }
     .side-login-image-investor {
         height: 222px;
     }
@@ -1501,7 +1519,7 @@
         width: 95%;
     }
     .wizard-item-text {
-        font-size: 16px;
+        font-size: 14px;
         padding-bottom: 10px;
     }
     .booking-main-img {
@@ -1579,6 +1597,17 @@
     }
 }
 @media (max-width: 578px) {
+    .wizard-item-text i{
+        font-size: 16px;}
+    .wizard:before {
+        width: 98%;
+        left: 0;
+    }
+    .wizard-item-t{
+        display: none !important;
+    }
+    .department-badge {
+        margin-top: 6px;}
     #demo-htmlselect {
         width: 50% !important;
     }
@@ -2026,6 +2055,8 @@
     }
 }
 @media (max-width: 450px) {
+   
+   
     .see-all img{
         display: none;
     }
@@ -2108,8 +2139,8 @@
         width: 35px;
         height: 35px;
     }
-    .span-14 {
-        font-size: 14px;
+    .span-14 ,.bg-light-yellow , .bg-light-orange {
+        font-size: 13px;
     }
     .tabs-nav-detaills {
         display: block !important;

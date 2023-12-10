@@ -75,7 +75,7 @@
                                                         <i class="far fa-book-open"></i>
                                                         </span>
 
-                                                            <span>@lang('site.book')</span>
+                                                            <span class="wizard-item-t">@lang('site.book')</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -92,7 +92,7 @@
                                                     <span>
                                                         <i class="far fa-user"></i>
                                                         </span>
-                                                        <span>@lang('site.personal') </span>
+                                                        <span class="wizard-item-t">@lang('site.personal') </span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -100,7 +100,7 @@
                                         <li>
                                             <div class="d-flex justify-content-end">
                                                 <div class="wizard-item" data-wizard-item>
-                                                    <div class="d-flex justify-content-center">
+                                                    <div class="d-flex justify-content-center wizard-end">
                                                         <div class="wizard-item-round">3</div>
                                                     </div>
 
@@ -108,7 +108,7 @@
                                                     <span>
                                                     <i class="far fa-check-circle"></i>
                                                     </span>
-                                                        <span>@lang('site.reservation confirmation') </span>
+                                                        <span class="wizard-item-t">@lang('site.reservation confirmation') </span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -279,7 +279,7 @@
                                             </div>
                                         </div>
                                         <hr class="hr-saeeh my-0"/>
-                                        <div class="d-flex justify-content-between py-1 px-3">
+                                        <div class="d-flex justify-content-between py-2 px-3">
                                             <div class="d-flex align-items-center">
                                             <span class="booking-icon">
                                             <i class="fal fa-clock"></i>
@@ -295,7 +295,7 @@
                                             </div>
                                         </div>
                                         <hr class="hr-saeeh my-0"/>
-                                        <div class="d-flex justify-content-between py-1 px-3">
+                                        <div class="d-flex justify-content-between py-2 px-3">
                                             <div class="d-flex align-items-center">
                                             <span class="booking-icon">
                                             <i class="fal fa-clock"></i>
@@ -311,7 +311,7 @@
                                             </div>
                                         </div>
                                         <hr class="hr-saeeh my-0"/>
-                                        <div class="d-flex justify-content-between py-1 px-3">
+                                        <div class="d-flex justify-content-between py-2 px-3">
                                             <div class="d-flex align-items-center">
                                             <span class="booking-icon">
                                                 <i class="fal fa-cloud-sun"></i>
@@ -330,7 +330,7 @@
                                     </div>
 
                                     <div class="card-booking mb-4">
-                                        <div class="d-flex justify-content-between py-1 px-3">
+                                        <div class="d-flex justify-content-between py-2 px-3">
                                             <div class="d-flex align-items-center">
                                             <span class="booking-icon">
                                             <i class="fal fa-car-side"></i>
@@ -344,7 +344,7 @@
                                             </div>
                                         </div>
                                         <hr class="hr-saeeh my-0"/>
-                                        <div class="d-flex justify-content-between py-1 px-3">
+                                        <div class="d-flex justify-content-between py-2 px-3">
                                             <div class="d-flex align-items-center">
                                             <span class="booking-icon">
                                             <i class="fal fa-car-side"></i>
@@ -358,7 +358,7 @@
                                             </div>
                                         </div>
                                         <hr class="hr-saeeh my-0"/>
-                                        <div class="d-flex justify-content-between py-1 px-3">
+                                        <div class="d-flex justify-content-between py-2 px-3">
                                             <div class="d-flex align-items-center">
                                         <span class="booking-icon">
                                         <i class="fal fa-palette"></i>
@@ -373,7 +373,7 @@
                                         </div>
 
                                         <hr class="hr-saeeh my-0"/>
-                                        <div class="d-flex justify-content-between py-1 px-3">
+                                        <div class="d-flex justify-content-between py-2 px-3">
                                             <div class="d-flex align-items-center">
                                             <span class="booking-icon">
                                             <i class="fal fa-car-side"></i>
@@ -404,7 +404,7 @@
                                     </div>
                                     <h2 class="mb-3 text-gray-2">@lang('site.Price summary')</h2>
                                     <div class="card-booking mb-4">
-                                        <div class="d-flex justify-content-between py-1 px-3">
+                                        <div class="d-flex justify-content-between py-2 px-3">
                                             <div class="d-flex align-items-center">
                                             <span class="booking-icon">
                                                  <i class="fal fa-wallet"></i>
@@ -421,7 +421,7 @@
                                         </div>
                                     </div>
                                     <div class="card-booking mb-4 bg-light-orange">
-                                        <div class="d-flex justify-content-between py-1 px-3">
+                                        <div class="d-flex justify-content-between py-2 px-3">
                                             <div class="d-flex align-items-center">
                                             <span class="booking-icon">
                                                  <i class="fal fa-wallet text-main"></i>
@@ -716,7 +716,7 @@
                                                                         class="round-border bg-light-orange ms-2"
                                                                     >
                                                                         <div
-                                                                            class="d-flex justify-content-between py-1 px-md-3 px-2"
+                                                                            class="d-flex justify-content-between py-2 px-md-3 px-2"
                                                                         >
                                                                             <div class="d-flex align-items-center">
                                                                             <span class="car-sid-icon">
@@ -737,7 +737,7 @@
                                                                         class="round-border bg-light-yellow my-lg-0 my-3"
                                                                     >
                                                                         <div
-                                                                            class="d-flex justify-content-between align-items-center py-1 px-md-3 px-2"
+                                                                            class="d-flex justify-content-between align-items-center py-2 px-md-3 px-2"
                                                                         >
                                                                             <div class="d-flex align-items-center">
                                                                         <span class="text-gray-2">
