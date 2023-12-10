@@ -157,7 +157,7 @@
                             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                                 <ul class="navbar-nav align-items-center">
                                     
-                                    @if(!empty(auth()->user()))
+                                    @if(Auth::user()->active)
                                     <!-- <li class="btn-saeeh btn-space">
                                         <a href="{{route('invst.home')}}"
                                            class="d-flex justify-content-center align-items-center w-100 h-100">

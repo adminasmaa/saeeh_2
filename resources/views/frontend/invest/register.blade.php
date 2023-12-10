@@ -159,7 +159,7 @@
                         </select>
                       </div>
                       @if($errors->has('city_id'))
-                          <span class="error text-danger">{{ $errors->first('city') }}</span>
+                          <span class="error text-danger">{{ $errors->first('city_id') }}</span>
                       @endif
                     </div>
 
@@ -315,7 +315,7 @@
           var country_id ={{$invest->country_id ??''}}
           $.get("{{url('invst/countrycities')}}/" + country_id, function (data) {
                         $('#city_id1').empty();
-                        $('#city_id1').append('<option>@lang('site.select')</option>');
+                        $('#city_id1').append('<option value="">@lang('site.select')</option>');
                         $.each(data, function (key, value) {
                             $('#city_id1').append('<option value="' + value.id + '" >' + value.name_ar + '</option>')
 
@@ -333,7 +333,7 @@
                       $('#country_id').val(country_id);
                       $.get("{{url('invst/countrycities')}}/" + country_id, function (data) {
                         $('#city_id1').empty();
-                        $('#city_id1').append('<option>@lang('site.select')</option>');
+                        $('#city_id1').append('<option value="">@lang('site.select')</option>');
                         $.each(data, function (key, value) {
                             $('#city_id1').append('<option value="' + value.id + '">' + value.name_ar + '</option>')
 

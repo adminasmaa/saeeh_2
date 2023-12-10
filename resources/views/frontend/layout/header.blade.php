@@ -30,7 +30,7 @@
                                         </a>
                                     </li>
 
-                                    @if(!empty(auth()->user()))
+                                    @if(!empty(auth()->user())&&auth()->user()->active)
                                     <!-- when user login -->
                                     <li>
                                         <div class="dropdown-container">
