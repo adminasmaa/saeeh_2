@@ -60,7 +60,7 @@ class AqarBookDetailResource extends JsonResource
             "investor_phone"=>$this->aqar->user->country_code.$this->aqar->user->phone,
             "cancel_byme" => $this->cancel_user_id ==Auth::id()?true:false,
             'invoice_id'=>$this->payment->invoice_id ?? NULL,
-            "exchange_KWD"=>number_format((json_decode(file_get_contents('https://api.fastforex.io/fetch-one?api_key=d128a16e06-599e63df4b-runi3f&from='.$cur.'&to=KWD'))->result->KWD), 3),
+            "exchange_KWD"=>number_format((json_decode(file_get_contents('https://api.fastforex.io/fetch-one?api_key=d128a16e06-599e63df4b-runi3f&from='.$cur.'&to=KWD'))->result->KWD), 5),
             "data"   =>new AqarDetailOnlyResource($this->aqar),
             
         ];
