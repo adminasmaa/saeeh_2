@@ -21,6 +21,7 @@ class CarBookingListResource extends JsonResource
     public function toArray($request)
     {
         $lang = $request->header('localization');
+        $exchangecurrency=json_decode(file_get_contents('https://api.fastforex.io/fetch-one?api_key=d128a16e06-599e63df4b-runi3f&from=MAD&to=KWD'))->result->KWD;
 
         if ($lang == 'en') {
             $name = 'name_en';
@@ -35,6 +36,7 @@ class CarBookingListResource extends JsonResource
 
 
         }
+        $cur=$this->city->country->currency;
 
         return [
             "id" => $this->car()->select('id')->get()[0]->id ?? 0,
@@ -50,8 +52,9 @@ class CarBookingListResource extends JsonResource
             "image" => asset('images/cars') . "/" . $this->car->main_image_ads ?? '',
             "changed_price" => json_decode($this->changed_price) ?? NULL,
             "cancel_byme" => $this->cancel_user_id ==Auth::id()?true:false,
-            "created_at" => $this->created_at ?? '',
-            'invoice_id'=>$this->payment->invoice_id ?? NULL
+            'invoice_id'=>$this->payment->invoice_id ?? NULL,
+            "exchange_KWD"=>number_format((json_decode(file_get_contents('https://api.fastforex.io/fetch-one?api_key=d128a16e06-599e63df4b-runi3f&from='.$cur.'&to=KWD'))->result->KWD), 3),
+                "created_at" => $this->created_at ?? ''
 
         ];
 
