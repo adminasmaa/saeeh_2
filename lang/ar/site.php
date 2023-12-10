@@ -25,7 +25,7 @@ return [
 
     'resend_successfully'=> 'تم اعادة الارسال بنجاح',
 
-    'faild'=> 'خطأ فى الأرسال',
+    'faild'=> 'كود التفعيل غير صحيح',
 
     'We found apartments suitable for your request'=>'وجدنا شقق مناسبة لطلبك',
 

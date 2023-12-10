@@ -134,6 +134,7 @@ class CategoryController extends Controller
 
     public function listofAquarWithCategory(Request $request)
     {
+        $country_id = $request->country_id;
         $city_id = $request->city_id;
         $floor_number=$request->floor_number;
 
@@ -155,7 +156,7 @@ class CategoryController extends Controller
 
         } else {
         
-        $aqar = Aqar::selectRaw('aqars.*, round(avg(aqar_reviews.rate)) as avgRating')->leftjoin('aqar_reviews','aqar_reviews.aqar_id','=','aqars.id')->where('category_id', '=', $request->category_id)->where('city_id', '=', $city_id)->groupBy('aqars.id')
+        $aqar = Aqar::selectRaw('aqars.*, round(avg(aqar_reviews.rate)) as avgRating')->leftjoin('aqar_reviews','aqar_reviews.aqar_id','=','aqars.id')->where('category_id', '=', $request->category_id)->where('country_id', '=', $country_id)->where('city_id', '=', $city_id)->groupBy('aqars.id')
         ->when($request->name, function ($query) use($request) {
             $query->where('name_ar', 'LIKE', '%'.trim($request->name).'%');
             
@@ -226,6 +227,7 @@ class CategoryController extends Controller
 
     public function listofCarswithsubcategory(Request $request)
     {
+        $country_id = $request->country_id;
         $city_id = $request->city_id;
         $rule = [
             'sortBy' => Rule::in(['price','rate']),
@@ -248,7 +250,7 @@ class CategoryController extends Controller
       //  $car = Car::where('sub_category_id', '=', $request->sub_category_id)->where('city_id', '=', $city_id)->paginate(20);
 
 
-        $car = Car::selectRaw('cars.*, round(avg(car_reviews.rate)) as avgRating')->leftjoin('car_reviews','car_reviews.car_id','=','cars.id')->where('sub_category_id', '=', $request->sub_category_id)->where('city_id', '=', $city_id)->groupBy('cars.id')
+        $car = Car::selectRaw('cars.*, round(avg(car_reviews.rate)) as avgRating')->leftjoin('car_reviews','car_reviews.car_id','=','cars.id')->where('sub_category_id', '=', $request->sub_category_id)->where('country_id', '=', $country_id)->where('city_id', '=', $city_id)->groupBy('cars.id')
        
          ->when($request->name, function ($query) use($request) {
             $query->where('name_ar', 'LIKE', '%'.trim($request->name).'%');

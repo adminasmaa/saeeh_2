@@ -18,7 +18,7 @@ return [
     'changepassword'=>'ChangePassword',
     'Search for your favorite country'=>'Search For Your Favorite Country',
     'resend_successfully'=> 'resend_successfully',
-    'faild'=> 'faild',
+    'faild'=> 'incorrect verification code',
 
     'favourite'=>'my favourite',
     ';Tell us your evaluation of the Aquar'=>'Tell us your evaluation of the Aquar',
