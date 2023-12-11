@@ -798,6 +798,9 @@ video.video-full {
     background: #ffffff;
     border-radius: 0px 10px 0px 10px;
 }
+.hotel-name h2{
+   font-size: 20px;
+}
 
 .owl-carousel .owl-item .hotel-icon {
     width: 40px;
