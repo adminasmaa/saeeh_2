@@ -405,7 +405,7 @@
                                     <div class="col-12 pt-4">
                                         <div class="condition-content">
                                             <p class="details-sm-txt padding-right mb-0">
-                                            {{ html_entity_decode($car->policy_place) ?? '' }}
+                                            {{ html_entity_decode($aqar->policy_place) ?? '' }}
                                             </p>
                                         </div>
                                        
