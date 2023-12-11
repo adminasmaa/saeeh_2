@@ -1303,6 +1303,9 @@
    }
    .wizard:before {
     width: 92%;}
+    .hotel-name h2{
+        font-size: 18px;
+     }
 
 }
 @media (max-width: 768px) {
@@ -2262,6 +2265,9 @@
 }
 
 @media (max-width: 340px) {
+    .hotel-name h2{
+        font-size: 16px;
+     }
     .side-login-image-investor {
         height: 113px;
     }
