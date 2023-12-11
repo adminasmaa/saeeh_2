@@ -12,7 +12,6 @@ use Illuminate\Validation\Rule;
 use MyFatoorah\Library\PaymentMyfatoorahApiV2;
 
 
-
 class PaymentController extends Controller
 {
 
@@ -44,8 +43,26 @@ class PaymentController extends Controller
             'payment_getway' => 'nullable',
             'transaction_id' => 'nullable',
             'authorization_id' => 'nullable',
-          //  'created_at'=>'required',
-            'type'=>Rule::in(['aqar','car'])
+            'customer_reference' => 'nullable',
+            'invoice_reference' => 'nullable',
+            'value_of_currency_paid' => 'nullable',
+            'batch_number' => 'nullable',
+            'operation_number' => 'nullable',
+            'authorization_number' => 'nullable',
+            'follow_up_number' => 'nullable',
+            'reference_number' => 'nullable',
+            'transaction_date_time' => 'nullable',
+            'customer_email' => 'nullable',
+            'customer_phone' => 'nullable',
+            'customer_name' => 'nullable',
+            'total_before' => 'nullable',
+            'total_after' => 'nullable',
+            'vat_amount' => 'nullable',
+            'price' => 'nullable',
+            'quantity' => 'nullable',
+            'element' => 'nullable',
+            'type'=>Rule::in(['aqar','car']),
+            'created_at'=>'nullable'
 
         ];
         $customMessages = [
@@ -61,35 +78,77 @@ class PaymentController extends Controller
 
         } else {
 
+            $InvoiceId = $request->InvoiceId;
+
+            $data1   = $this->mfObj->getPaymentStatus($InvoiceId, 'InvoiceId');
+
+            return $data1 ;
+
             $data=Payment::updateOrCreate([
 
-                'invoice_id' => $request->invoice_id,
+                'invoice_id' => $data1->invoice_id,
 
-                'invoice_status' => $request->invoice_status,
+                'invoice_status' => $data1->invoice_status,
 
-                'invoice_value' => $request->invoice_value,
+                'invoice_value' => $data1->invoice_value,
 
-                'book_id' => $request->book_id,
+                'book_id' => $data1->book_id,
 
                 'user_id' => Auth::id(),
 
-                'expiry_date' => $request->expiry_date,
+                'expiry_date' => $data1->expiry_date,
 
-                'create_date' => $request->create_date,
+                'create_date' => $data1->create_date,
 
-                'invoice_display_value' => $request->invoice_display_value,
+                'invoice_display_value' => $data1->invoice_display_value,
 
-                'invoice_reference' => $request->invoice_reference,
+                'invoice_reference' => $data1->invoice_reference,
 
-                'payment_getway' => $request->payment_getway,
+                'payment_getway' => $data1->payment_getway,
 
-                'transaction_id' => $request->transaction_id,
+                'transaction_id' => $data1->transaction_id,
 
-                'authorization_id' => $request->authorization_id,
+                'authorization_id' => $data1->authorization_id,
 
-                'type'=>$request->type,
+                'type'=>$data1->type,
 
-                'response'=>$request->all_data
+                'customer_reference'=>$data1->customer_reference,
+
+                'invoice_reference'=>$data1->invoice_reference,
+
+                'value_of_currency_paid'=>$data1->value_of_currency_paid,
+
+                'batch_number'=>$data1->batch_number,
+
+                'operation_number'=>$data1->operation_number,
+
+                'authorization_number'=>$data1->authorization_number,
+
+                'follow_up_number'=>$data1->follow_up_number,
+
+                'reference_number'=>$data1->reference_number,
+
+                'transaction_date_time'=>$data1->transaction_date_time,
+
+                'customer_email'=>$data1->customer_email,
+
+                'customer_phone'=>$data1->customer_phone,
+
+                'customer_name'=>$data1->customer_name,
+
+                'total_before'=>$data1->total_before,
+
+                'total_after'=>$data1->total_after,
+
+                'vat_amount'=>$data1->vat_amount,
+
+                'price'=>$data1->price,
+
+                'quantity'=>$data1->quantity,
+
+                'element'=>$data1->element,
+
+                'response'=>$data1->all_data
             ]);
             if($request->invoice_status=='Paid' && $request->type=='aqar'){
                $success = AqarBooking::find($request->book_id)->update(['booking_status_id' => 3]);
@@ -100,12 +159,9 @@ class PaymentController extends Controller
             }else{
                 return $this->respondError(trans('site.paid not complete please try again'), ['error' => trans('site.paid not complete please try again')], 402);
             }
-
-            
+ 
         }
-
-        
-
+    
     }
 
     public function get_paymentstatus(Request $request)
@@ -127,11 +183,6 @@ class PaymentController extends Controller
         }
        
     }
-    
-
-
-
-
-   
+      
 
 }

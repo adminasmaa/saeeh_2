@@ -81,7 +81,7 @@
                     @lang('site.login')
                  </button>
                  <div class="forgit-password pt-2">
-                     <a href="{{route('invst.forgetpassword')}}"> @lang('site.forget_password') ؟ </a>
+                     <a href="{{route('invst.forgetpassword')}}"> @lang('site.forget_password?')</a>
                     </div>
                     <div class="pt-lg-3 pt-2 user-links">
                       <p class="text-bold">
