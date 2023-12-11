@@ -124,6 +124,7 @@ class AqarInvstController extends Controller
             
             }
         $totalrooms=0;
+        if(!empty($request->subservice)){
         foreach ($request->subservice as $subserv) {
             $arr=explode('-',$subserv);
             AqarSections::create([
@@ -140,6 +141,7 @@ class AqarInvstController extends Controller
         }
         $aqar->total_rooms=$totalrooms;
         $aqar->save();
+    }
         if ($aqar) {
             Alert::success('Success', __('site.added_successfully'));
 
