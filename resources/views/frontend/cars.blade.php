@@ -17,8 +17,6 @@
                         </li>
                     
                         <li class="breadcrumb-item text-gray-4" aria-current="page">
-
-
                             @lang('site.valuesearch')
                         </li>
                     </ol>

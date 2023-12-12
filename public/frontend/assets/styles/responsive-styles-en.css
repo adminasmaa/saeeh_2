@@ -703,7 +703,7 @@
         width: 100%;
     }
     .contact-image {
-        height: 400px;
+        height: 300px;
     }
     .faq-title {
         text-align: right;
@@ -713,6 +713,8 @@
     }
     .contact-container p {
         font-size: 12px;
+        padding-top: 4px;
+        margin-bottom: 0;
     }
     .box-sort-by {
         width: 50%;
@@ -1315,6 +1317,7 @@
     }
 }
 @media (max-width: 768px) {
+
     .wizard-item-round {
         width: 34px;
         height: 34px;
@@ -1600,6 +1603,11 @@
     }
 }
 @media (max-width: 578px) {
+    .contact-container h2 {
+        font-size: 24px;
+    }
+    .contact-image {
+        height: 200px;}
     .wizard-item-text i{
         font-size: 16px;}
     .wizard:before {
@@ -2315,3 +2323,4 @@
         font-size: 13px;
     } */
 }
+

@@ -790,7 +790,7 @@ video.video-full {
     top: -1px;
     right: -1px;
 }
-
+.place-ic i{padding-left: 5px;}
 .hotel-name {
     width: 35%;
     padding-right: 15px;
@@ -6255,4 +6255,13 @@ padding-left: 5px;
   }
   .first-link-nav{
     padding-right: 10px !important;
+  }
+  .contact-hero{
+    margin-bottom: 35px;
+  }
+  .staticH{
+    margin-block: 40px;
+  }
+  #register_errorslogin{
+text-align: right;
   }

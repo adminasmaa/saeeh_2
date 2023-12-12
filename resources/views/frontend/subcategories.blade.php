@@ -72,19 +72,17 @@
                     @foreach($subcategories as $subcat)
                         <div class="col-lg-3 col-sm-6 col-12">
                             <a href="{{route('subcategories',['id'=>$subcat->id, 'city_id'=>$city_id])}}">
-                                <div class="card-restaurant mb-4 position-relative">
-                                    {{--                                <img src="{{FRONTASSETS}}/images/restaurants/restaurant-cat.png" alt="Card image cap"--}}
-                                    {{--                                     class="restaurant-image">--}}
-                                    <img class="restaurant-image" src="{{asset('images/categories/'.$subcat->image)}}"
-                                         alt="Card image cap"
+                                <div class="card-restaurant mb-3 position-relative">
+                                    <img src="{{asset('images/categories/'.$subcat->image)}}" alt="Card image cap" class="restaurant-image"
                                          onerror="this.src='{{asset('images/categories/default.jpg')}}'">
-                                    <br>
-
+                                    <div class="card-restaurant-body d-flex justify-content-center align-items-center">
+                                    <div>
+                                  
+                                    <h2 class="card-title "> {{$subcat->name ?? ''}}</h2>
+                                    </div>
+                                    </div>
                                 </div>
                             </a>
-                            <h3>
-                                <center>{{$subcat->name ?? ''}}</center>
-                            </h3>
                         </div>
                     @endforeach
                 </div>

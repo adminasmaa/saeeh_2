@@ -1,10 +1,6 @@
 @extends('layouts.main_frontend')
 @section('content')
 
-    <div class="overlay-mobile"></div>
-
-
-
     <main>
         <!-- Desktop Breadcrumb -->
         <section class="py-md-4 py-2">
@@ -171,35 +167,20 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-9">
-                                                            <div
-                                                                class="card-body position-relative px-lg-3 px-0"
-                                                            >
+                                                            <div class="card-body position-relative px-lg-3 px-0">
                                                                 <div
-                                                                    class="row justify-content-between align-items-center mb-3 small"
-                                                                >
+                                                                    class="row justify-content-between align-items-center mb-3 small">
                                                                     <div class="col-auto mb-lg-0 mb-2">
-                                  <span class="text-main number-ads"
-                                  >@lang('site.id number')({{$aqar->id}})</span
-                                  >
+                                                                        <span class="text-main number-ads">@lang('site.id number')({{$aqar->id}})</span >
                                                                     </div>
                                                                     <div class="col-auto">
-                                                                        <div
-                                                                            class="d-flex justify-content-center align-items-center"
-                                                                        >
+                                                                        <div class="d-flex justify-content-center align-items-center" >
                                                                             <div
                                                                                 class="department-badge bg-main text-white">
-                                                                                <div
-                                                                                    class="pt-1">{{ round($aqar->aqarReview->avg('rate')) ?? 0 }}</div>
-                                                                                <div>
-                                                                                    <svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="25" height="25"
-                                                                                        viewBox="0 0 25 25" fill="none">
-                                                                                        <path
-                                                                                            d="M12.7529 19.6185L20.1689 24.3301L18.2009 15.4501L24.7529 9.47534L16.1249 8.70481L12.7529 0.330078L9.38093 8.70481L0.75293 9.47534L7.30493 15.4501L5.33693 24.3301L12.7529 19.6185Z"
-                                                                                            fill="white"/>
-                                                                                    </svg>
-                                                                                </div>
+                                                                                <span>{{ round($aqar->aqarReview->avg('rate')) ?? 0 }}</span>
+                                                                                    <span>
+                                                                                    <i class="fas fa-star"></i>
+                                                                                    </span>
                                                                             </div>
                                                                             <div class="number-ads gray-txt">
                                                                                 {{$aqar->aqarComment->count() ?? 0}} @lang('site.comments')
@@ -212,18 +193,7 @@
                                                                 </h2>
 
                                                                 <div class="gray-txt number-ads">
-                                                                    <svg
-                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                        width="16"
-                                                                        height="20"
-                                                                        viewBox="0 0 16 20"
-                                                                        fill="none"
-                                                                    >
-                                                                        <path
-                                                                            d="M8.20799 9.99996C8.54986 9.99996 8.84262 9.83663 9.08628 9.50996C9.32994 9.18329 9.45156 8.79107 9.45115 8.33329C9.45115 7.87496 9.32932 7.48246 9.08566 7.15579C8.842 6.82913 8.54944 6.66607 8.20799 6.66663C7.86612 6.66663 7.57335 6.82996 7.3297 7.15663C7.08604 7.48329 6.96441 7.87551 6.96483 8.33329C6.96483 8.79163 7.08666 9.18413 7.33032 9.51079C7.57398 9.83746 7.86653 10.0005 8.20799 9.99996ZM8.20799 16.125C9.47187 14.5694 10.4094 13.1561 11.0206 11.885C11.6319 10.6138 11.9375 9.48551 11.9375 8.49996C11.9375 6.98607 11.5774 5.74663 10.8572 4.78163C10.137 3.81663 9.2539 3.33385 8.20799 3.33329C7.16166 3.33329 6.2784 3.81607 5.55819 4.78163C4.83799 5.74718 4.4781 6.98663 4.47851 8.49996C4.47851 9.48607 4.78412 10.6147 5.39534 11.8858C6.00656 13.1569 6.94411 14.57 8.20799 16.125ZM8.20799 18.3333C6.54008 16.4305 5.29444 14.6633 4.47105 13.0316C3.64767 11.4 3.23577 9.8894 3.23535 8.49996C3.23535 6.41663 3.73531 4.7569 4.73522 3.52079C5.73514 2.28468 6.89272 1.66663 8.20799 1.66663C9.52366 1.66663 10.6815 2.28468 11.6814 3.52079C12.6813 4.7569 13.181 6.41663 13.1806 8.49996C13.1806 9.88885 12.7687 11.3994 11.9449 13.0316C11.1211 14.6638 9.87548 16.4311 8.20799 18.3333Z"
-                                                                            fill="#9C9C9C"
-                                                                        ></path>
-                                                                    </svg>
+                                                                <i class="far fa-map-marker-alt"></i>
                                                                     <span>{{$aqar->country->name ??''}}, {{$aqar->city->name ??''}}</span>
                                                                 </div>
                                                                 <div class="py-3">
@@ -251,7 +221,7 @@
                                       </clipPath>
                                     </defs></svg
                                     ></span>
-                                                                    <span class="text-main position-department">
+                                     <span class="text-main position-department">
                                   {{$aqar->details ??''}}
                                 </span>
                                                                 </div>
@@ -328,9 +298,9 @@
                                                                     class="row justify-content-between align-items-center mb-3 small"
                                                                 >
                                                                     <div class="col-auto mb-lg-0 mb-2">
-                                <span class="text-main number-ads"
-                                > @lang('site.id number')({{$car->id}})</span
-                                >
+                                                                        <span class="text-main number-ads"
+                                                                        > @lang('site.id number')({{$car->id}})</span
+                                                                        >
                                                                     </div>
                                                                     <div class="col-auto">
                                                                         <div
@@ -338,18 +308,10 @@
                                                                         >
                                                                             <div
                                                                                 class="department-badge bg-main text-white">
-                                                                                <div
-                                                                                    class="pt-1">{{ round($car->CarReview->avg('rate')) ?? 0}}</div>
-                                                                                <div>
-                                                                                    <svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="25" height="25"
-                                                                                        viewBox="0 0 25 25" fill="none">
-                                                                                        <path
-                                                                                            d="M12.7529 19.6185L20.1689 24.3301L18.2009 15.4501L24.7529 9.47534L16.1249 8.70481L12.7529 0.330078L9.38093 8.70481L0.75293 9.47534L7.30493 15.4501L5.33693 24.3301L12.7529 19.6185Z"
-                                                                                            fill="white"/>
-                                                                                    </svg>
-                                                                                </div>
+                                                                                <span>{{ round($car->CarReview->avg('rate')) ?? 0}}</span>
+                                                                                    <span>
+                                                                                    <i class="fas fa-star"></i>
+                                                                                    </span>
                                                                             </div>
                                                                             <div class="number-ads gray-txt">
                                                                                 {{$car->carComment->count() ?? 0}} @lang('site.comments')
@@ -479,9 +441,9 @@
                                                                     class="row justify-content-between align-items-center mb-3 small"
                                                                 >
                                                                     <div class="col-auto mb-lg-0 mb-2">
-                                <span class="text-main number-ads"
-                                > @lang('site.id number')({{$place->id}})</span
-                                >
+                                                                        <span class="text-main number-ads"
+                                                                        > @lang('site.id number')({{$place->id}})</span
+                                                                        >
                                                                     </div>
                                                                     <div class="col-auto">
                                                                         <div
@@ -489,18 +451,10 @@
                                                                         >
                                                                             <div
                                                                                 class="department-badge bg-main text-white">
-                                                                                <div
-                                                                                    class="pt-1">{{ round($place->PlaceReview->avg('rate')) ?? 0}}</div>
-                                                                                <div>
-                                                                                    <svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="25" height="25"
-                                                                                        viewBox="0 0 25 25" fill="none">
-                                                                                        <path
-                                                                                            d="M12.7529 19.6185L20.1689 24.3301L18.2009 15.4501L24.7529 9.47534L16.1249 8.70481L12.7529 0.330078L9.38093 8.70481L0.75293 9.47534L7.30493 15.4501L5.33693 24.3301L12.7529 19.6185Z"
-                                                                                            fill="white"/>
-                                                                                    </svg>
-                                                                                </div>
+                                                                                <span>{{ round($place->PlaceReview->avg('rate')) ?? 0}}</span>
+                                                                                <span>
+                                                                                <i class="fas fa-star"></i>
+                                                                                </span>
                                                                             </div>
                                                                             <div class="number-ads gray-txt">
 
@@ -514,10 +468,10 @@
                                                                 </h2>
 
                                                                 <div class="gray-txt number-ads pb-2">
-                              <span
-                              >
-                                 {!! html_entity_decode($place->descrption) !!}
-                              </span>
+                                                                <span
+                                                                >
+                                                                    {!! html_entity_decode($place->descrption) !!}
+                                                                </span>
                                                                     <span
                                                                     >{{$place->country->name ?? ''}}</span> <span
                                                                     >{{$place->city->name ?? ''}}</span>

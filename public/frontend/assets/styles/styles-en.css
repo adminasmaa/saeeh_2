@@ -3895,7 +3895,7 @@ font-size: 22px;
     border: 1px solid var(--m-main);
     box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.15);
     border-radius: 35px;
-    padding-right: 30px;
+    padding-left: 30px;
 }
 
 .search-country::placeholder {
@@ -3908,7 +3908,7 @@ font-size: 22px;
 
 .search-c-icon {
     position: absolute;
-    left: 10px;
+    right: 10px;
     top: 8px;
     background: var(--m-main);
     width: 40px;
@@ -6241,11 +6241,12 @@ font-size: 20px;
     color: var(--m-gray-4);
 }
 .walking-ic i{
-    padding-left: 5px;
+    padding-right: 5px;
+    transform: unset;
 }
 .share-icon i{
 font-size: 22px;
-padding-left: 5px;
+padding-right: 5px;
 }
 .custom-in{
     width:80% !important;
@@ -6284,3 +6285,16 @@ padding-left: 5px;
 .ps-2 {
     padding-right: 0.5rem!important;
 }
+.ps-2 {
+    padding-left: 0!important;
+}
+.place-ic i{padding-right: 5px;}
+.contact-hero{
+    margin-bottom: 35px;
+  }
+  .staticH{
+    margin-block: 40px;
+  }
+  #register_errorslogin{
+    text-align: left;
+      }
