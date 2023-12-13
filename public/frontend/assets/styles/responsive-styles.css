@@ -1597,6 +1597,14 @@
     }
 }
 @media (max-width: 578px) {
+    .card-empty-txt {
+        padding-bottom: 16px;
+        font-size: 26px;
+    }
+
+    .tab-link-all i{
+        font-size: 16px;
+    }
     .contact-container h2 {
         font-size: 24px;
     }
