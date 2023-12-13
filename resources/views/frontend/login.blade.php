@@ -2,7 +2,6 @@
 
 @section('content')
 
-    <div class="overlay-mobile"></div>
     <main>
         <section class="py-5">
             <div class="container w-100">
