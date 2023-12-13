@@ -679,7 +679,7 @@
         border-bottom: 1px solid var(--m-gray-4);
     }
     .tabs-nav-all-booking li:nth-child(2) {
-        border-left: none;
+        border-right: none;
     }
     .tabs-nav-all-booking li:last-child {
         width: 100%;
@@ -1356,7 +1356,7 @@
     }
     .card-empty-txt {
         padding-bottom: 20px;
-        font-size: 30px;
+        font-size: 28px;
         text-align: center;
     }
     .card-empty {
@@ -1603,6 +1603,13 @@
     }
 }
 @media (max-width: 578px) {
+    .card-empty-txt {
+        padding-bottom: 16px;
+        font-size: 26px;
+    }
+    .tab-link-all i{
+        font-size: 16px;
+    }
     .contact-container h2 {
         font-size: 24px;
     }
