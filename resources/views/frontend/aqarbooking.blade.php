@@ -617,19 +617,18 @@
                                     <div class="col-12">
                                     </div>
                                     <div class="col-12">
-                                        <div
-                                            class="booking-dd-btn d-flex align-items-center justify-content-center mb-1"
-                                        >
-                                            <a href="#">
+                                    <div
+                                        class="booking-dd-title mb-1"
+                                    >
                                             <span>
                                             <i class="far fa-book-open"></i>
                                             </span>
-                                                    <span class="pe-2">@lang('site.My bookings')</span>
-                                                    <span class="pe-3">
+                                            <span class="pe-2">@lang('site.My bookings')</span>
+                                            <!-- <span class="pe-3">
                                                 <i class="fas fa-chevron-left"></i>
-                                            </span>
-                                            </a>
-                                        </div>
+                                            </span> -->
+                                      
+                                    </div>
                                     </div>
                                 </div>
 
@@ -727,7 +726,7 @@
                                                                             >
                                                                                 <div class="d-flex align-items-center">
                                                                                 <span class="booking-icon">
-                                                                                <i class="fal fa-wallet text-main"></i>
+                                                                                <i class="far fa-wallet text-main"></i>
                                                                                 </span>
                                                                                     <span class="text-gray-2 pe-1 ps-2">
                                                                                          @lang('site.Reservation deposit'):
@@ -751,7 +750,7 @@
                                                                                         @lang('site.booking_status'):
                                                                                     </span>
                                                                                     <span class="px-1 booking-icon">
-                                                                                    <i class="fal fa-clock text-main"></i>
+                                                                                    <i class="far fa-alarm-clock text-main"></i>
                                                                                     </span>
 
                                                                                 </div>

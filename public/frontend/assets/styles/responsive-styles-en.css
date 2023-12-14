@@ -84,8 +84,6 @@
     .btn-outline-saeeh button,
     .search-btn a,
     .contact-btn,
-    .call-btn a,
-    .cancle-btn a,
     .add-rate-btn a,
     .add-rate-btn button {
         font-size: 16px;
@@ -130,6 +128,10 @@
     }
 }
 @media (max-width: 992px) {
+    .booking-dd-title{
+        font-size: 20px;
+    
+    }
     .hotel-name h2{
         font-size: 18px;
      }
@@ -1603,6 +1605,10 @@
     }
 }
 @media (max-width: 578px) {
+    .booking-dd-title{
+        font-size: 18px;
+    
+    }
     .card-empty-txt {
         padding-bottom: 16px;
         font-size: 26px;

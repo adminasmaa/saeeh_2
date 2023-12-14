@@ -11,21 +11,7 @@
                         <li class="breadcrumb-item">
                             <a href="javascript:void(0)"> @lang('site.home') </a>
                         </li>
-                        <li>
-                <span><svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="9"
-                        height="15"
-                        viewBox="0 0 9 15"
-                        fill="none"  >
-                    <path
-                        d="M6.71329 13.9459L0.745584 7.99587C0.67475 7.92503 0.624459 7.8483 0.594709 7.76566C0.564959 7.68302 0.55032 7.59448 0.550792 7.50003C0.550792 7.40559 0.565431 7.31705 0.594709 7.23441C0.623987 7.15177 0.674278 7.07503 0.745584 7.0042L6.71329 1.03649C6.87857 0.871213 7.08517 0.788574 7.33308 0.788574C7.581 0.788574 7.7935 0.877116 7.97058 1.0542C8.14767 1.23128 8.23621 1.43788 8.23621 1.67399C8.23621 1.9101 8.14767 2.1167 7.97058 2.29378L2.76433 7.50003L7.97058 12.7063C8.13586 12.8716 8.2185 13.0753 8.2185 13.3176C8.2185 13.5598 8.12996 13.7693 7.95288 13.9459C7.77579 14.1229 7.56919 14.2115 7.33308 14.2115C7.09697 14.2115 6.89038 14.1229 6.71329 13.9459Z"
-                        fill="#005D9F"
-                    />
-                  </svg>
-                </span>
-                        </li>
-
+                       
                         <li class="breadcrumb-item text-gray-4" aria-current="page">
                             @lang('site.activation code')
                         </li>
@@ -49,19 +35,14 @@
                                 <div class="activatiopn-txt">
                                     @lang('site.a code has been sent to the registered phone number')
                                     <span class="text-gray-2">{{$user->country_code}}{{$user->phone}}</span>
-
-
                                 </div>
                                 <div class="verification__timeout">
                                     <div class="mt-3">
 
                                     </div>
                                 </div>
-
                                 <div class="d-flex mt-4 mb-2" id="activationCode">
-                                    <input
-                                        type="hidden" name="id"  value="{{$user->id}}"/>
-
+                                    <input  type="hidden" name="id"  value="{{$user->id}}"/>
                                     <input
                                         type="int"
                                         class="code"
@@ -95,10 +76,9 @@
                                         placeholder="-"
                                     />
                                 </div>
-                                <br>
                                 <span class="error text-danger" ><strong>{{Session('error')}}</strong></span>
                                 <div
-                                    class="d-flex justify-content-between activationBtns mt-md-5 mt-3"
+                                    class="d-flex justify-content-between activationBtns mt-3"
                                 >
 
                                     <div class="main-btn">

@@ -1494,7 +1494,12 @@ video.video-full {
 .booking-dd-btn i {
     font-size: 16px;
 }
+.booking-dd-title{
+    color:var(--m-second);
+    font-size: 22px;
+    font-weight: 700;
 
+}
 .icon-placeholder {
     position: absolute;
     right: 15px;
@@ -3274,8 +3279,8 @@ video.video-full {
 .call-btn a,
 .cancle-btn a,
 .cancle-btn button {
-    font-weight: 700;
-    font-size: 18px;
+    font-weight: 600;
+    font-size: 16px;
     line-height: 150%;
     color: #ffffff;
     display: flex;
@@ -5895,13 +5900,17 @@ tr {
     align-items: center;
 }
 .second-btn button,
+.second-btn a,
 .main-btn button {
-    font-weight: 700;
-    font-size: 18px;
+    font-weight: 600;
+    font-size: 16px;
     line-height: 150%;
     color: var(--m-white);
     height: 100%;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .main-btn {
     background: var(--m-main);
