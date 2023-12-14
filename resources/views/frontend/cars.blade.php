@@ -33,7 +33,6 @@
                                 <div class="col-lg">
                                     <div class="box-search mb-lg-0 mb-md-0 mb-3">
 
-
                                         <select
                                             class="select2"
                                             id="country_id"
@@ -1012,29 +1011,21 @@
                                                 <div
                                                     class="card card-department round-border mb-3 p-md-3 p-2"
                                                 >
-
-
                                                     <div class="row g-0">
                                                         <div class="col-md-4 position-relative">
                                                             <div
-                                                                class="owl-carousel owl-theme department-img-carousel"
-                                                                dir="ltr" id="myUL"
+                                                                class="owl-carousel owl-theme department-img-carousel" id="myUL"
                                                             >
                                                                 @if(!empty($car->images))
                                                                 @foreach(explode(',',$car->images)  as $img)
                                                                     <div class="city-item">
                                                                         @if(!empty(auth()->user()))
 
-                                                                                             <span class="department-like">
-
-<a class="favouritess" id="favouritess{{$car->id}}" data-id="{{$car->id}}"><i class=" @if(count(\App\Models\CarUser::where('car_id', '=',$car->id)->where('user_id', '=', auth()->user()->id)->get()) > 0) fas @else far @endif far fa-heart "></i></a>
-
+                                                             <span class="department-like">
+                                                           <a class="favouritess" id="favouritess{{$car->id}}" data-id="{{$car->id}}"><i class=" @if(count(\App\Models\CarUser::where('car_id', '=',$car->id)->where('user_id', '=', auth()->user()->id)->get()) > 0) fas @else far @endif far fa-heart "></i></a>
                                                                 </span>
                                                                         @else
-
-
                                                                             <span class="department-like">
-
                                                                 <a class="favouritess" id="favouritess{{$car->id}}" data-id="{{$car->id}}"><i class="far far fa-heart "></i></a>
 
                                                                                                                                 </span>

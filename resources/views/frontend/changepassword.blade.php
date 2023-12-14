@@ -34,8 +34,8 @@
                                                 placeholder=" {{trans('site.newpassword')}}"
                                             />
                                             <span class="icon-placeholder">
-                              <i class="far fa-lock-alt"></i>
-                              </span>
+                                            <i class="far fa-lock-alt"></i>
+                                            </span>
                                             <div
                                                 toggle="#password-fieldd"
                                                 class="fa fa-fw fa-eye field-icon toggle-password"
@@ -53,8 +53,8 @@
                                                 placeholder=" {{trans('site.confirmpassword')}}"
                                             />
                                             <span class="icon-placeholder">
-                              <i class="far fa-lock-alt"></i>
-                              </span>
+                                            <i class="far fa-lock-alt"></i>
+                                            </span>
                                             <div
                                                 toggle="#password-fieldd"
                                                 class="fa fa-fw fa-eye field-icon toggle-password"

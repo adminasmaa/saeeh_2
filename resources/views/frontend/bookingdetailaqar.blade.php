@@ -58,14 +58,12 @@
                                                 <div class="col-lg-8">
                                                     <div class="d-flex justify-content-lg-end align-items-center">
                                                         <div class="department-badge bg-main text-white">
-                                                            <div
-                                                                class="pt-1">{{ round($booking->aqar->aqarReview->avg('rate')) ?? 0 }}</div>
-                                                            <div>
+                                                            <span>{{ round($booking->aqar->aqarReview->avg('rate')) ?? 0 }}</span>
+                                                            <span>
                                                             <i class="fas fa-star"></i>
-                                                            </div>
+                                                            </span>
                                                         </div>
                                                         <div class="number-ads gray-txt">
-
                                                             {{$booking->aqar->aqarComment->count() ?? 0}} @lang('site.comments')
                                                         </div>
                                                     </div>
@@ -327,7 +325,7 @@
                             <div class="d-flex justify-content-between py-1 px-3">
                                 <div class="d-flex align-items-center">
                                 <span class="booking-icon">
-                                                <i class="far fa-wallet"></i>
+                                 <i class="far fa-wallet"></i>
                             </span>
                                     <span class="text-second dd-txt pe-2">@lang('site.price') </span>
                                 </div>
@@ -372,8 +370,6 @@
             </div>
         </section>
         <!-- /section -->
-
-
         <!-- Modal Register -->
         <!-- Modal cancel booking -->
         <div

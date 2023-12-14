@@ -598,17 +598,16 @@
                                 {{--                                    </div>--}}
                                 <div class="col-12">
                                     <div
-                                        class="booking-dd-btn d-flex align-items-center justify-content-center mb-1"
+                                        class="booking-dd-title mb-1"
                                     >
-                                        <a href="#">
-                                        <span>
-                                            <i class="fal fa-book-open"></i>
+                                            <span>
+                                            <i class="far fa-book-open"></i>
                                             </span>
                                             <span class="pe-2">@lang('site.My bookings')</span>
-                                            <span class="pe-3">
+                                            <!-- <span class="pe-3">
                                                 <i class="fas fa-chevron-left"></i>
-                                            </span>
-                                        </a>
+                                            </span> -->
+                                      
                                     </div>
                                 </div>
                             </div>

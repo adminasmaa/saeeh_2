@@ -3283,8 +3283,8 @@ video.video-full {
 .call-btn a,
 .cancle-btn a,
 .cancle-btn button {
-    font-weight: 700;
-    font-size: 18px;
+    font-weight: 600;
+    font-size: 16px;
     line-height: 150%;
     color: #ffffff;
     display: flex;
@@ -5860,8 +5860,9 @@ tr {
 
 #activationCode {
     direction: ltr;
-    justify-content: right;
+    justify-content: left;
 }
+
 #activationCode .code:focus-visible {
     border: 1px solid var(--m-gray-2) !important;
 }
@@ -5912,13 +5913,17 @@ tr {
     align-items: center;
 }
 .second-btn button,
+.second-btn a,
 .main-btn button {
-    font-weight: 700;
-    font-size: 18px;
+    font-weight:600;
+    font-size: 16px;
     line-height: 150%;
     color: var(--m-white);
     height: 100%;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .main-btn {
     background: var(--m-main);
@@ -5942,7 +5947,7 @@ tr {
     line-height: 60px;
 }
 .verification_image {
-    text-align: left;
+    text-align: right;
 }
 .verification_image img {
     height: 410px;
@@ -5955,7 +5960,7 @@ tr {
     background-color: #fff;
     border: 1px solid #cacaca;
     border-radius: var(--rounded-main);
-    padding: 48px 37px 0 0;
+    padding: 48px  0 0 37px;
 }
 .close-modal i {
     color: #fff;
@@ -6313,4 +6318,11 @@ tr {
 }
 #register_errorslogin {
     text-align: left;
+}
+
+.booking-dd-title{
+    color:var(--m-second);
+    font-size: 22px;
+    font-weight: 700;
+
 }

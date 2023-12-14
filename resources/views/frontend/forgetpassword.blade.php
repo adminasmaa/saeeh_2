@@ -34,16 +34,33 @@
                                             </div>
                                         </div>
 
-
                                         <div class="emailcont">
-                                            <input id="phoneee" type="tel" class="form-control frm-input phone3" name="phone">
-
-                                            <span class="icon-placeholder">
-
-                      <i class="far fa-phone"></i>
-                    </span>
-
+                                            <div class="d-flex">
+                                                <input type="hidden" name="country_id" id="country_id" value="">
+                                                <input type="hidden" name="country_code" id="country_code" value="">
+                                                <span class="icon-placeholder">
+                                                <i class="far fa-phone"></i>
+                                                </span>
+                                                <input type="text" name="phone"
+                                                       class="form-control register-input register-input-r phone3"
+                                                       maxlength="11"   placeholder=" {{trans('site.phone_number')}}">
+                                                <select id="demo-htmlselect">
+                                                    @foreach(\App\Models\Country::get() as $country)
+                                                        <option value="{{$country->id}}"
+                                                                data-imagesrc="{{asset('images/countries/'.$country->flag_image)}}"
+                                                                data-description="{{$country->name}}">{{$country->code}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
                                         </div>
+
+                                        <!-- <div class="emailcont">
+                                            <input id="phoneee" type="tel" class="form-control frm-input phone3" name="phone">
+                                            <span class="icon-placeholder">
+                                            <i class="far fa-phone"></i>
+                                            </span>
+
+                                        </div> -->
                                         <div>
                                             <span id="valid-msg" class="hide">✓ Valid</span>
                                             <span id="error-msg" class="hide"></span>
@@ -53,9 +70,6 @@
                                                       class="text-danger">{{ $errors->first('phone') }}</span>
                                             @endif
                                         </div>
-
-                                        <br>
-                                        <br>
                                         <button type="submit" class="mt-lg-4  btn-login formregisterslogin">
                                             @lang('site.to be sure')
                                         </button>
@@ -77,6 +91,27 @@
 
 @endsection
 @section('scripts')
+
+<script type="text/javascript"
+            src="https://cdn.rawgit.com/prashantchaudhary/ddslick/master/jquery.ddslick.min.js"></script>
+
+
+    <script>
+
+
+        $('#country_id').val(country_id);
+
+        $('#demo-htmlselect').ddslick({
+            onSelected: function (selectedData) {
+                var country_code = selectedData.selectedData.text;
+                var country_id = selectedData.selectedData.value;
+                $('#country_code').val(country_code);
+                $('#country_id').val(country_id);
+
+            }
+        });
+
+    </script>
 
     <script>
 
