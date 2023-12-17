@@ -55,10 +55,7 @@
     .about-card h4 {
         font-size: 16px;
     }
-    .booking_investor_card .booking_card h3,
-    .booking_investor_card .booking_card p {
-        font-size: 26px;
-    }
+   
     h2,
     .h2,
     .badge-ads-details,
@@ -128,6 +125,7 @@
     }
 }
 @media (max-width: 992px) {
+   
     .booking-dd-title{
         font-size: 20px;
     
@@ -324,7 +322,7 @@
         width: 20px;
         height: 20px;
         top: 7px;
-        right: 0px;
+        left: 0px;
     }
     .register-radio-list .custom-radio {
         padding-right: 28px;
@@ -543,7 +541,7 @@
     }
     .booking_investor_card .booking_card h3,
     .booking_investor_card .booking_card p {
-        font-size: 24px;
+        font-size: 18px;
     }
 
     .pagination .page-item nav > div:last-child {
@@ -1317,6 +1315,9 @@
     .booking-data {
         width: auto;
     }
+    .booking_investor_card .booking_card {
+        min-height: unset;
+    }
 }
 @media (max-width: 768px) {
 
@@ -1605,6 +1606,7 @@
     }
 }
 @media (max-width: 578px) {
+    
     .booking-dd-title{
         font-size: 18px;
     
@@ -1752,7 +1754,7 @@
     }
     .booking_investor_card .booking_card h3,
     .booking_investor_card .booking_card p {
-        font-size: 20px;
+        /* font-size: 20px; */
         line-height: 30px;
     }
     .wizaredd {

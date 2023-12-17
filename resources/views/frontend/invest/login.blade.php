@@ -1,8 +1,6 @@
 @extends('layouts.main_frontend')
 
 @section('content')
-
-  <div class="overlay-mobile"></div>
     <main>
       <section class="py-5">
         <div class="container w-100">
@@ -38,7 +36,7 @@
                                     <input type="hidden" name="country_id" id="country_id" value="">
                                     <input type="hidden" name="country_code" id="country_code" value="">
                                     <div class="position-relative custom-in">
-                                    <input type="text" name="phone" class="form-control frm-input phone3" id="exampleFormControlInput3" maxlength="11"  value="{{ old('phone', (empty($invest))? null : $invest['phone']) }}">
+                                    <input type="text" name="phone" class="form-control frm-input phone3" placeholder=" {{trans('site.phone_number')}}" id="exampleFormControlInput3" maxlength="11"  value="{{ old('phone', (empty($invest))? null : $invest['phone']) }}">
                                     <span class="icon-placeholder">
                                     <i class="far fa-phone"></i>
                                     </span></div>
@@ -65,7 +63,6 @@
                         placeholder=" {{trans('site.password')}}"
                       />
                       <span class="icon-placeholder">
-                      
                         <i class="far fa-lock-alt"></i>
                       </span>
                       <div
@@ -76,7 +73,7 @@
                         <span id="error-msg" >{{ $errors->first('password') }}</span>
                         @endif
                     </div>
-                    <span class="error text-danger" ><strong>{{Session('error')}}</strong></span>
+                    <div class="error text-danger" ><strong>{{Session('error')}}</strong></div>
                     <button type="submit" class="mt-lg-4  btn-login formregisterslogin">
                     @lang('site.login')
                  </button>

@@ -9,7 +9,6 @@
               <li class="breadcrumb-item">
                 <a href="{{route('invst.home')}}">  @lang('site.home')  </a>
               </li>
-             
               <li class="breadcrumb-item text-gray-4" aria-current="page">
               @lang('site.profiles')
               </li>
@@ -68,8 +67,7 @@
                   <div class="booking_card mb-md-0 mb-4 text-center py-sm-5  py-4">
                      <img 
                        src="{{FRONTASSETS}}/images/booking-investor/booking_ic_3.svg"
-                       alt="booking investor icon"
-                     />
+                       alt="booking investor icon" />
                      <div class="pt-md-4 pt-2">
                        <h3 class="mb-0">@lang('site.profiles')</h3>
                      </div>

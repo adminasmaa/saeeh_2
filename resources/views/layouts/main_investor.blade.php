@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="{{ app()->getLocale() }}" dir="{{app()->isLocale('ar')? 'rtl' : 'ltr'}}">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -8,14 +8,22 @@
     <!-- Cairo Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    @if(app()->getLocale()=='ar')
+   <!-- Cairo Font -->
     <link
         href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet"
     />
+  @else
+     <!-- Montserrat Font -->
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+  @endif
     <!-- Font Awesome-->
     <link
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         rel="stylesheet"
+        href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+        crossorigin="anonymous"
     />
     <!--start rating-->
     <link
@@ -43,47 +51,35 @@
         href="{{FRONTASSETS}}/vendor/bootstrap/css/bootstrap.min.css"
         type="text/css"
     />
-    <link
-        rel="stylesheet"
-        href="{{FRONTASSETS}}/vendor/bootstrap/css/bootstrap.rtl.min.css"
-        type="text/css"
-    />
-
+  
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/css/intlTelInput.css">
-
 
     <!--select 2-->
     <link rel="stylesheet" href="{{FRONTASSETS}}/js/select2/css/select2.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.css"
           integrity="sha512-qveKnGrvOChbSzAdtSs8p69eoLegyh+1hwOMbmpCViIwj7rn4oJjdmMvWOuyQlTOZgTlZA0N2PXA7iA8/2TUYA=="
           crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="{{MAINDASHBOARD}}/plugins/noty/noty.css">
+    @if(app()->getLocale()=='ar')
+    <link rel="stylesheet"
+          href="{{FRONTASSETS}}/vendor/bootstrap/css/bootstrap.rtl.min.css"
+          type="text/css"/>
     <!-- CSS -->
     <link rel="stylesheet" href="{{FRONTASSETS}}/styles/styles.css"/>
     <link rel="stylesheet" href="{{FRONTASSETS}}/styles/responsive-styles.css"/>
-    <link rel="stylesheet" href="{{MAINDASHBOARD}}/plugins/noty/noty.css">
-    <script src="{{MAINDASHBOARD}}/plugins/noty/noty.min.js"></script>
-    <script
-        src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-        crossorigin="anonymous"
-    ></script>
+ 
+  @else
+    <link rel="stylesheet" href="{{FRONTASSETS}}/styles/styles-en.css"/>
+    <link rel="stylesheet" href="{{FRONTASSETS}}/styles/responsive-styles-en.css"/>
+  @endif
+
+
+   
 
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css"> -->
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.9.0/dist/sweetalert2.min.css" rel="stylesheet">
     @yield('css')
-    <!-- Font Awesome-->
-    <link
-        rel="stylesheet"
-        href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-        crossorigin="anonymous"
-    />
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous">
-    </script>
-
-
+ 
 
     <style>
 
@@ -177,6 +173,14 @@
                                                 <div class="dropdown-menu">
                                                     <ul>
                                                         <li>
+                                                            <a href="{{route('invst.updateprofile',Auth::id())}}" class="d-flex align-items-center">
+                                                                <div class="profile-ic">
+                                                                    <i class="far fa-user"></i>
+                                                                </div>
+                                                                <div>   @lang('site.profiles')</div>
+                                                            </a>
+                                                        </li>
+                                                        <li>
                                                             <a href="{{(Auth::user()->type=='invest' && Auth::user()->account_type_id ==5)?route('invst.listbookingscar','all'):route('invst.listbookings','all')}}" class="d-flex align-items-center">
                                                                 <div class="profile-ic">
                                                                     <i class="far fa-book-open"></i>
@@ -227,9 +231,9 @@
                         <li class="nav-link investor-nav-item {{($current_route=='invst.listcommisions')?'active':'' }}">
                             <a href="{{(Auth::user()->type=='invest' && (Auth::user()->account_type_id ==1||Auth::user()->account_type_id ==2||Auth::user()->account_type_id ==3||Auth::user()->account_type_id ==4))?route('invst.listcommisions',['aqar','unpaid']):route('invst.listcommisions',['car','unpaid'])}}" class="investor-nav-link"> @lang('site.commissions') </a>
                         </li>
-                        <li class="nav-link investor-nav-item {{($current_route=='invst.updateprofile')?'active':'' }}">
+                        <!-- <li class="nav-link investor-nav-item {{($current_route=='invst.updateprofile')?'active':'' }}">
                             <a href="{{route('invst.updateprofile',Auth::id())}}" class="investor-nav-link"> @lang('site.profiles') </a>
-                        </li>
+                        </li> -->
 
                         <li class="nav-link investor-nav-item {{($current_route=='invst.conditions')?'active':'' }}">
                             <a href="{{route('invst.conditions')}}" class="investor-nav-link"> @lang('site.Reservation and cancellation policy') </a>
@@ -333,18 +337,7 @@
                     data-bs-dismiss="modal"
                     aria-label="Close"
                 >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="32"
-                        height="32"
-                        viewBox="0 0 32 32"
-                        fill="none"
-                    >
-                        <path
-                            d="M24.3998 7.61339C24.2765 7.48978 24.1299 7.39172 23.9686 7.32481C23.8073 7.2579 23.6344 7.22346 23.4598 7.22346C23.2852 7.22346 23.1123 7.2579 22.951 7.32481C22.7897 7.39172 22.6432 7.48978 22.5198 7.61339L15.9998 14.1201L9.47981 7.60005C9.35637 7.47661 9.20982 7.37869 9.04853 7.31188C8.88725 7.24508 8.71438 7.21069 8.53981 7.21069C8.36524 7.21069 8.19237 7.24508 8.03109 7.31188C7.8698 7.37869 7.72325 7.47661 7.59981 7.60005C7.47637 7.7235 7.37845 7.87004 7.31164 8.03133C7.24483 8.19261 7.21045 8.36548 7.21045 8.54005C7.21045 8.71463 7.24483 8.88749 7.31164 9.04878C7.37845 9.21006 7.47637 9.35661 7.59981 9.48005L14.1198 16.0001L7.59981 22.5201C7.47637 22.6435 7.37845 22.79 7.31164 22.9513C7.24483 23.1126 7.21045 23.2855 7.21045 23.4601C7.21045 23.6346 7.24483 23.8075 7.31164 23.9688C7.37845 24.1301 7.47637 24.2766 7.59981 24.4001C7.72325 24.5235 7.8698 24.6214 8.03109 24.6882C8.19237 24.755 8.36524 24.7894 8.53981 24.7894C8.71438 24.7894 8.88725 24.755 9.04853 24.6882C9.20982 24.6214 9.35637 24.5235 9.47981 24.4001L15.9998 17.8801L22.5198 24.4001C22.6433 24.5235 22.7898 24.6214 22.9511 24.6882C23.1124 24.755 23.2852 24.7894 23.4598 24.7894C23.6344 24.7894 23.8072 24.755 23.9685 24.6882C24.1298 24.6214 24.2764 24.5235 24.3998 24.4001C24.5233 24.2766 24.6212 24.1301 24.688 23.9688C24.7548 23.8075 24.7892 23.6346 24.7892 23.4601C24.7892 23.2855 24.7548 23.1126 24.688 22.9513C24.6212 22.79 24.5233 22.6435 24.3998 22.5201L17.8798 16.0001L24.3998 9.48005C24.9065 8.97339 24.9065 8.12005 24.3998 7.61339Z"
-                            fill="white"
-                        />
-                    </svg>
+                <i class="fal fa-times"></i>
                 </button>
 
                 <div
@@ -416,13 +409,23 @@
 {!! footerweb() !!}
 
 
+<script src="{{MAINDASHBOARD}}/plugins/noty/noty.min.js"></script>
+<script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous">
+</script>
 <!-- JQuery-->
+<script src="{{FRONTASSETS}}/js/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"
         integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="{{FRONTASSETS}}/vendor/bootstrap/js/bootstrap.js"></script>
-<!-- JQuery-->
-<script src="{{FRONTASSETS}}/js/jquery.min.js"></script>
+
 <!--timepicker-->
 <script src="{{FRONTASSETS}}/js/jquery-timepicker/js/jquery.timepicker.js"></script>
 <!--datepicker-->
@@ -441,7 +444,11 @@
 <!--nouislider-->
 <script src="{{FRONTASSETS}}/js/dist/nouislider.min.js"></script>
 <!-- Main JS -->
-<script src="{{FRONTASSETS}}/js/script.js"></script>
+@if(app()->getLocale()=='ar')
+  <script src="{{FRONTASSETS}}/js/script.js"></script>
+  @else
+  <script src="{{FRONTASSETS}}/js/script-en.js"></script>
+  @endif
 <script src="{{FRONTASSETS}}/js/custom-rating.js"></script>
 <script src="{{FRONTASSETS}}/js/customdate.js"></script>
 {{--   <script src="{{FRONTASSETS}}/js/sliderPrice.js"></script>--}}
