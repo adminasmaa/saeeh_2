@@ -1550,14 +1550,14 @@ video.video-full {
 .breadcrumb li {
     margin-right: 5px;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 150%;
 }
 
 .breadcrumb-item a {
     color: var(--m-second);
     font-weight: 600;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 150%;
 }
 
@@ -2094,7 +2094,7 @@ video.video-full {
 
 .box-sort-booking .ddl-input::placeholder {
     font-weight: 700;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 150%;
     color: var(--m-second);
 }
@@ -4603,6 +4603,7 @@ video.video-full {
     border: 1px solid var(--m-main);
     border-radius: var(--rounded-main);
     background-color: #fff;
+    min-height: 280px;
 }
 
 .booking_investor_card .booking_card img {
@@ -4611,19 +4612,20 @@ video.video-full {
 }
 
 .booking_investor_card .booking_card h3 {
-    font-size: 30px;
+    font-size: 22px;
     font-weight: 700;
-    line-height: 48px;
+    line-height: 28px;
     letter-spacing: 0em;
     color: rgba(71, 71, 71, 1);
 }
 
 .booking_investor_card .booking_card p {
     color: rgba(156, 156, 156, 1);
-    font-size: 30px;
+    font-size: 24px;
     font-weight: 700;
-    line-height: 48px;
+    line-height: 28px;
     letter-spacing: 0em;
+    padding-top: 5px;
 }
 
 .booking_investor_card .booking_card:hover {
@@ -4673,7 +4675,7 @@ video.video-full {
 
 .add-ads-link a {
     font-weight: 600;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 150%;
     color: #ffffff;
 }
@@ -5336,7 +5338,7 @@ tr {
     position: relative;
     cursor: pointer;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 150%;
     color: var(--m-gray-2);
     width: 100%;
@@ -5355,7 +5357,7 @@ tr {
     position: relative;
     vertical-align: middle;
     cursor: pointer;
-    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .table input:checked + label::before,
@@ -5373,7 +5375,7 @@ tr {
     display: block;
     position: absolute;
     top: 6px;
-    right: 11px;
+    left: 11px;
     width: 6px;
     height: 14px;
     border: solid var(--m-main);
@@ -5548,22 +5550,27 @@ tr {
 }
 
 .register-lbl {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     line-height: 27px;
     color: var(--m-gray-2);
     padding-bottom: 16px;
 }
 .register-input {
-    text-align: right;
+    text-align: left;
     height: 46px;
     border-radius: var(--rounded-main);
     width: 100%;
     background: #ffffff;
     border: 1px solid #cfcfcf;
-    padding-right: 16px;
+    padding-left: 16px;
 }
-
+.register-input::placeholder {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: #9c9c9c;
+}
 .mobile-view,
 .delete-chat-mobile {
     display: none !important;
@@ -5760,7 +5767,7 @@ tr {
     display: inline-block;
     position: relative;
     cursor: pointer;
-    padding-right: 40px;
+    padding-left: 40px;
     color: #9c9c9c;
     background: transparent;
     font-size: 20px;
@@ -5783,7 +5790,7 @@ tr {
     justify-content: center;
     border: 1px solid #9c9c9c;
     top: 2px;
-    right: 0px;
+    left: 0px;
 }
 .register-radio-list :checked + .custom-radio:before {
     border: 1px solid var(--m-main);
@@ -5800,7 +5807,7 @@ tr {
     align-items: center;
     justify-content: center;
     z-index: 1;
-    right: 5px;
+    left: 5px;
     top: 7px;
 }
 
@@ -5834,7 +5841,7 @@ tr {
 
 .register-input-r {
     border-radius: 10px 0 0 10px !important;
-    border-left: 0;
+    border-right: 0;
 }
 .dd-option {
     display: flex !important;
@@ -5981,9 +5988,9 @@ tr {
 }
 .dropdown-container .dropdown-toggle {
     background-color: var(--m-main);
-    width: 220px;
+    width: 260px;
     height: 46px;
-    padding-left: 15px;
+    padding-left:  15px;
     border-radius: var(--rounded-main);
     font-size: 14px;
     font-weight: 700;
@@ -6123,6 +6130,9 @@ tr {
     position: relative;
     padding: 0 16px !important;
 }
+.investor-nav-item:first-child .investor-nav-link {
+    padding-left: 0 !important;
+}
 .investor-nav-item {
     padding-inline: 0 !important;
     padding-block: 18px !important;
@@ -6132,6 +6142,7 @@ tr {
 }
 .investor-nav-item.active .investor-nav-link {
     color: var(--m-second);
+    font-weight: 600;
 }
 .custom-checkbox {
     max-height: 208px;
@@ -6271,7 +6282,7 @@ tr {
     width: 80% !important;
 }
 .custom-in input {
-    border-radius: 0 10px 10px 0 !important;
+    border-radius:  10px 0 0 10px  !important;
 }
 .dropdown-outline {
     background-color: #fff !important;

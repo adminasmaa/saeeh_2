@@ -55,10 +55,7 @@
     .about-card h4 {
         font-size: 16px;
     }
-    .booking_investor_card .booking_card h3,
-    .booking_investor_card .booking_card p {
-        font-size: 26px;
-    }
+  
     h2,
     .h2,
     .badge-ads-details,
@@ -522,7 +519,7 @@
     }
     .booking_investor_card .booking_card h3,
     .booking_investor_card .booking_card p {
-        font-size: 24px;
+        font-size: 18px;
     }
 
     .pagination .page-item nav > div:last-child {
@@ -1747,7 +1744,7 @@
     }
     .booking_investor_card .booking_card h3,
     .booking_investor_card .booking_card p {
-        font-size: 20px;
+        /* font-size: 20px; */
         line-height: 30px;
     }
     .wizaredd {

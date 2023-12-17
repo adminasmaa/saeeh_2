@@ -145,8 +145,7 @@
                         <span class="">
                           <img
                             src="{{FRONTASSETS}}/images/booking-investor/wt-icon.png"
-                            alt="whatsapp "
-                          />
+                            alt="whatsapp "/>
                         </span>
                       </div>
                     </div>
